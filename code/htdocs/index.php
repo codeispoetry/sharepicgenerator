@@ -8,6 +8,10 @@
   </head>
   <body>
 Hallo
+
+  
+  <script src="./vendor/jquery-3.4.1.min.js"></script>
+  <script src="./vendor/svg.min.js"></script>
   <script src="main.min.js"></script>
   </body>
 </html>
