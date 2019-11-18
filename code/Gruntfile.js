@@ -6,13 +6,13 @@ module.exports = function(grunt) {
       uglify: {
         build: {
           src: 'build/js/*.js',
-          dest: 'htdocs/main.min.js'
+          dest: 'htdocs/js/main.min.js'
         }
       },
       sass: {
         dev: {
           files: {
-            'htdocs/styles.css':'build/scss/main.scss'
+            'htdocs/css/styles.css':'build/scss/main.scss'
           }
         }
       },
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       },
     });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
