@@ -28,4 +28,6 @@ $svg = $svgHeader . $svg; // Prefix SVG string with required XML node
 
 file_put_contents( $filename, $svg);
 
-echo basename($filename,'.svg');
+$return = [];
+$return['basename'] =  basename($filename,'.svg');
+echo json_encode( $return );

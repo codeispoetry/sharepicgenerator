@@ -10,7 +10,9 @@
 
   <header>
     <button id="download">Download</button>
-    <textarea id="text"></textarea>
+    <textarea id="text">Das ist die
+erste (Zeile) und das
+ist die 3. Line.</textarea>
   </header>
 
   <section>
@@ -21,6 +23,7 @@
   
   <script src="./vendor/jquery-3.4.1.min.js"></script>
   <script src="./vendor/svg.min.js"></script>
+  <script src="./vendor/svg.draggable.min.js"></script>
   <script src="./js/main.min.js"></script>
   </body>
 </html>

@@ -8,6 +8,7 @@
     "grunt-contrib-watch": "^1.1.0"
   },
   "dependencies": {
+    "@svgdotjs/svg.draggable.js": "^3.0.2",
     "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony"
   }
 }
