@@ -1,4 +1,5 @@
 version: '3.3'
+#http://192.168.99.100:8123/ wegen Toolbox
 
 services:
   webserver:
@@ -8,10 +9,4 @@ services:
       - '8123:80'
     volumes:
       - ./code:/var/www/html
-  grunt:
-    build: docker/node
-    restart: always
-    volumes:
-      - ./code:/var/www/html
-    command: grunt
-    working_dir: /var/www/html
+ 
