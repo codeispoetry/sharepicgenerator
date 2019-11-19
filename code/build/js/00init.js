@@ -8,5 +8,6 @@ var bgpic = {
 
 $( document ).ready(function() {
     afterUpload(bgpic);
+    handleSubline();
 });
 
