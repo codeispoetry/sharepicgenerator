@@ -15,6 +15,8 @@
   <body>
 
   <header>
+    <input type='file' id="uploadfile" accept='image/*'>
+
     <button id="download">Download</button>
     <textarea id="text">Hier kannst Du
 den Text ändern.
