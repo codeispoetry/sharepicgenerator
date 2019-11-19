@@ -21,13 +21,16 @@
     </div>
     <div>
         <h6>Slogan</h6>
-        <textarea id="text">Hier der Text</textarea>
+        <textarea id="text">Hier der Text</textarea><br>
+        <small>Zeilen, die mit einem<br>
+          Ausrufezeichen ! beginnen,<br>
+          werden hervorgehoben</small>
     </div>
     <div>
         <h6>Textgröße</h6>
         <div class="slider">
           <small>klein</small>
-          <input type="range" id="textfieldresize" min="1" max="<?php echo $info['width']; ?>">
+          <input type="range" id="textfieldresize" min="1" max="100">
           <small>groß</small>
         </div>
     </div>
@@ -35,7 +38,7 @@
         <h6>Pingröße</h6>
         <div class="slider">
           <small>klein</small>
-          <input type="range" id="pinresize" min="1" max="<?php echo $info['width']; ?>">
+          <input type="range" id="pinresize" min="1" max="100">
           <small>groß</small>
         </div>
     </div>
@@ -43,7 +46,7 @@
         <h6>Logogröße</h6>
         <div class="slider">
           <small>klein</small>
-          <input type="range" id="logoresize" min="1" max="<?php echo $info['width']; ?>">
+          <input type="range" id="logoresize" min="1" max="100">
           <small>groß</small>
         </div>
     </div>
@@ -55,6 +58,15 @@
         <h6>Größe</h6>
         <input type="number" id="width" class="size" value=""> x
         <input type="number" id="height" class="size" value=""> Pixel
+    </div>
+    <div>
+    <h6>Hintergrundbild</h6>
+        <a href="#" id="resetBackground">Hintergrund zurücksetzen</a>
+        <div class="slider">
+          <small>klein</small>
+          <input type="range" id="backgroundresize" min="1" max="100">
+          <small>groß</small>
+        </div>
     </div>
     <div>
         <h6>Pixabay</h6>

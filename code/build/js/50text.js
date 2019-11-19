@@ -19,8 +19,6 @@ function handleText() {
 
     textfield.remove();
     textfield = draw.group().addClass('draggable').draggable();
-
-
       for(let i = 0; i < lines.length; i++){
         let line = lines[ i ].toUpperCase();
 
@@ -55,7 +53,7 @@ function handleText() {
 
     setPositionOfTextfield();
 
-    $('#textfieldresize').val( textfield.width() );
+    textfield.size( $('#textfieldresize').val( ) );
 }
 
 function setPositionOfTextfield(){

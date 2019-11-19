@@ -15,3 +15,11 @@ function setSize( width, height){
     $('#height').val( height );
 }
 
+$('#resetBackground').click( function(){
+    image.move(0,0).size( draw.width());
+});
+
+$('#backgroundresize').bind('input propertychange', function() {
+    let val = parseInt( $(this).val() );
+    image.size( val );
+})
