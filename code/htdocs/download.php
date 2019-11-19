@@ -18,8 +18,10 @@ function output( $filebasename ){
 
 
 function convert( $filebasename ){
-    $command = sprintf("inkscape %s --export-width=600 --export-png=%s",    
+    $exportWidth = (int) $_GET['width'];
+    $command = sprintf("inkscape %s --export-width=%d --export-png=%s",    
             'tmp/' .$filebasename . '.svg',
+            $exportWidth,
             'tmp/' .$filebasename . '.png');
 
     exec( $command );

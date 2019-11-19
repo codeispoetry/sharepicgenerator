@@ -20,6 +20,8 @@ $('#uploadfile').change(function(event){
 var image = draw.circle(0);
 function afterUpload( data ){
     draw.size(data.width, data.height);
+    info.originalWidth = data.originalWidth;
+    info.originalHeight = data.originalHeight;
 
     image.remove();
 
@@ -29,6 +31,7 @@ function afterUpload( data ){
         $('#textfieldresize').attr('max', draw.width());
         image.back();
         setLogoPosition();
+        handleSubline();
      })
 }
 

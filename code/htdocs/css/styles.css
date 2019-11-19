@@ -1,4 +1,20 @@
 body {
   background: white; }
 
+h6 {
+  font-size: 14px;
+  margin: 0; }
+
+#content {
+  display: flex; }
+
+#cockpit {
+  margin-left: 10px; }
+  #cockpit div {
+    margin-bottom: 20px; }
+  #cockpit .slider {
+    display: flex; }
+    #cockpit .slider input {
+      margin: 0 1em; }
+
 /*# sourceMappingURL=styles.css.map */

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
   $info = [];
-  $info['width'] = 400;
-  $info['height'] = 400;
+  $info['width'] = 800;
+  $info['height'] = 450;
 
 ?>
 <html lang="de">
@@ -14,30 +14,50 @@
   </head>
   <body>
 
-  <header>
-    <input type='file' id="uploadfile" accept='image/*'>
-
-    <button id="download">Download</button>
-    <textarea id="text">Hier kannst Du
-!den Text ändern.
-Auch noch in der dritten und
-sogar 4. Zeile. äöüß</textarea>
-
-  <input type="range" id="textfieldresize" min="1" max="<?php echo $info['width']; ?>">
-
-  <input type="text" id="subline" value="gruene-bayern.de">
-  </header>
-
-  <section>
-    <div id="canvas"></div> 
-  </section>
-
+  <div id="content">
+  
+  <div id="canvas"></div> 
+ 
+ 
+  <div id="cockpit">
+    <div>
+      <input type='file' id="uploadfile" accept='image/*'>
+    </div>
+    <div>
+      <button id="download">Download</button>
+    </div>
+    <div>
+        <textarea id="text">Hier der Text</textarea>
+    </div>
+    <div>
+        <h6>Textgröße</h6>
+        <div class="slider">
+          <small>klein</small>
+          <input type="range" id="textfieldresize" min="1" max="<?php echo $info['width']; ?>">
+          <small>groß</small>
+        </div>
+    </div>
+    <div>
+        <h6>Pin</h6>
+        <div class="slider">
+          <small>klein</small>
+          <input type="range" id="pinresize" min="1" max="<?php echo $info['width']; ?>">
+          <small>groß</small>
+        </div>
+    </div>
+    <div>
+        <input type="text" id="subline" value="gruene-bayern.de">
+    </div>
+</div>
+</div>
 
   <script>
       var info = {
         width: <?php echo $info['width']; ?>,
         height: <?php echo $info['height']; ?>,
-        size: <?php echo $info['width']; ?>,
+        originalWidth: <?php echo $info['width']; ?>,
+        originalHeight: <?php echo $info['height']; ?>,
+        size: <?php echo $info['width'] / 1.3; ?>,
         x: 15,
         y: 50,
     }; 
