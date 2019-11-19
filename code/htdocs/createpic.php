@@ -28,6 +28,31 @@ $svg = $svgHeader . $svg; // Prefix SVG string with required XML node
 
 file_put_contents( $filename, $svg);
 
+$format = ($_POST['format'] && $_POST['format'] == 'pdf') ? 'pdf' : 'png';
+$exportWidth = (int) $_POST['width'];
+convert( $filename, $exportWidth, $format );
+
+
 $return = [];
-$return['basename'] =  basename($filename,'.svg');
+$return['basename'] =  basename($filename,'svg');
 echo json_encode( $return );
+
+
+
+
+
+
+function convert( $filename, $width, $format ){
+
+    $command = sprintf("inkscape %s --export-width=%d --export-{$format}=%s",    
+            $filename ,
+            300,
+            'tmp/' . basename($filename, 'svg')  . $format);
+
+    exec( $command );
+}
+
+
+function sanitize_filename( $var  ){
+	return preg_replace('/[^a-zA-Z0-9]/','', $var );
+}
