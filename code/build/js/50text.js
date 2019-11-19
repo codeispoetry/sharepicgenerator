@@ -18,7 +18,7 @@ function handleText() {
     let paddingLr = 5;
 
     textfield.remove();
-    textfield = draw.group().draggable();
+    textfield = draw.group().addClass('draggable').draggable();
 
 
       for(let i = 0; i < lines.length; i++){

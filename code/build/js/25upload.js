@@ -29,6 +29,9 @@ function afterUpload( data ){
         image.size( draw.width(), draw.height() );
        
         $('#textfieldresize').attr('max', draw.width());
+        $('#pinresize').attr('min', draw.width() / 10 );
+        $('#pinresize').attr('max', draw.width() / 4 );
+
         image.back();
         setLogoPosition();
         handleSubline();

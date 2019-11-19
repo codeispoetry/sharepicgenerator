@@ -1,5 +1,5 @@
 $('#textfieldresize').bind('input propertychange', function() {
-    let val = parseInt( $('#textfieldresize').val() );
+    let val = parseInt( $(this).val() );
     textfield.size( val );
     info.size = val;
 })
