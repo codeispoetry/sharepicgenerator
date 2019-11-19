@@ -6,7 +6,7 @@ services:
     build: docker/php
     restart: always
     ports:
-      - '8123:80'
+      - '9000:80'
     volumes:
       - ./code:/var/www/html
       - ./fonts:/usr/share/fonts/truetype/custom

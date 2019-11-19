@@ -1,3 +1,4 @@
 code/node_modules
 code/.sass-cache
 code/htdocs/tmp/*
+!code/htdocs/tmp
