@@ -24,6 +24,8 @@ Auch noch in der dritten und
 sogar 4. Zeile. äöüß</textarea>
 
   <input type="range" id="textfieldresize" min="1" max="<?php echo $info['width']; ?>">
+
+  <input type="text" id="subline" value="gruene-bayern.de">
   </header>
 
   <section>
@@ -36,8 +38,8 @@ sogar 4. Zeile. äöüß</textarea>
         width: <?php echo $info['width']; ?>,
         height: <?php echo $info['height']; ?>,
         size: <?php echo $info['width']; ?>,
-        x:<?php echo $info['width']/2 - 100; ?>,
-        y:<?php echo $info['height']/2 - 100 ; ?>,
+        x: 15,
+        y: 50,
     }; 
   </script>
   <script src="./vendor/jquery-3.4.1.min.js"></script>

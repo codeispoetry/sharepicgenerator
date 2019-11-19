@@ -12,6 +12,7 @@ function handleText() {
     let fontsizes = [ 20, 40 ];
     let lineheights = [ 30, 60 ];
     let fontYBiases = [0, -8 ];
+    let linemargin = 4;
     let x = 0;
     let y = 0;
     let paddingLr = 5;
@@ -46,7 +47,7 @@ function handleText() {
         })
         rects[i] = draw.rect( texts[i].length() + 2 * paddingLr , lineheight).fill( 'white').move(x,y);
 
-        y += lineheight + 10;
+        y += lineheight + linemargin;
 
         textfield.add(rects[ i ]).add( texts[i] );
        
