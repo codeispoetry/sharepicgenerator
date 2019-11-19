@@ -9,9 +9,9 @@ function handleText() {
     let rects = [];
     let lines = $('#text').val().split(/\n/);
     let colors = ['#449d2f', '#255119',];
-    let fontsizes = [20, 40];
-    let lineheights = [30, 60];
-    let fontYBiases = [0, -8];
+    let fontsizes = [23, 40];
+    let lineheights = [26, 40];
+    let fontYBiases = [-1, -8];
     let linemargin = 4;
     let x = 0;
     let y = 0;
@@ -40,7 +40,7 @@ function handleText() {
             family: 'Arvo',
             size: fontsize,
             anchor: 'left',
-            leading: '1.5em',
+            leading: '1.25em',
             weight: 'bold'
         })
         rects[i] = draw.rect(texts[i].length() + 2 * paddingLr, lineheight).fill('white').move(x, y);
