@@ -20,6 +20,10 @@ h6 {
 #waiting {
   z-index: 1000; }
 
+#canvas {
+  border: 1px solid #999;
+  box-shadow: #999 5px 5px 15px; }
+
 .draggable {
   cursor: pointer; }
 

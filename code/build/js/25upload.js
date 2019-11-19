@@ -29,7 +29,7 @@ function afterUpload( data ){
 
     image = draw.image(data.filename, function (event) {
         image.size( draw.width(), draw.height() );
-       
+        image.draggable();
         setSize( draw.width(), draw.height() );
         redraw();
      })
