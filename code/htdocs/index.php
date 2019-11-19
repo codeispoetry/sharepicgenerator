@@ -21,7 +21,8 @@
         </div>
         <div>
             <h6>Slogan</h6>
-            <textarea id="text">Hier der Text</textarea><br>
+            <textarea id="text">!Leben
+lassen</textarea><br>
             <small>Zeilen, die mit einem<br>
                 Ausrufezeichen ! beginnen,<br>
                 werden hervorgehoben</small>
