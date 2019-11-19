@@ -2,12 +2,14 @@
 
 $filebasename = sanitize_filename( $_GET['file'] );
 
-convert( $filebasename );
-output( $filebasename );
+$format = ($_GET['pdf'] && $_GET['pdf'] == 'true') ? 'pdf' : 'png';
+
+convert( $filebasename, $format );
+output( $filebasename, $format );
 
 
-function output( $filebasename ){
-    $format = 'png';
+function output( $filebasename, $format ){
+    
     header('Content-Type: image/png');
 	header('Content-Disposition: attachment; filename="sharepic.'. $format .'"');
 	header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -17,12 +19,12 @@ function output( $filebasename ){
 }
 
 
-function convert( $filebasename ){
+function convert( $filebasename, $format ){
     $exportWidth = (int) $_GET['width'];
-    $command = sprintf("inkscape %s --export-width=%d --export-png=%s",    
+    $command = sprintf("inkscape %s --export-width=%d --export-{$format}=%s",    
             'tmp/' .$filebasename . '.svg',
             $exportWidth,
-            'tmp/' .$filebasename . '.png');
+            'tmp/' .$filebasename . '.' . $format);
 
     exec( $command );
 }

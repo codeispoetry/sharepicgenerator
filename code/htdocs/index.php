@@ -38,10 +38,18 @@
         </div>
     </div>
     <div>
-        <h6>Pin</h6>
+        <h6>Pingröße</h6>
         <div class="slider">
           <small>klein</small>
           <input type="range" id="pinresize" min="1" max="<?php echo $info['width']; ?>">
+          <small>groß</small>
+        </div>
+    </div>
+    <div>
+        <h6>Logogröße</h6>
+        <div class="slider">
+          <small>klein</small>
+          <input type="range" id="logoresize" min="1" max="<?php echo $info['width']; ?>">
           <small>groß</small>
         </div>
     </div>

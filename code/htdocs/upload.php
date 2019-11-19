@@ -27,11 +27,15 @@ $filename_small = $filebasename . '_small.' . $type;
 
 file_put_contents($filename, $data);
 
+$command = sprintf("mogrify -auto-orient %s",
+    $filename
+);
+exec( $command );
+
 $command = sprintf("convert -resize 800x450 %s %s",    
     $filename,
     $filebasename . '_small.' . $type
 );
-
 exec( $command );
 
 
