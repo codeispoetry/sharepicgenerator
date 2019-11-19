@@ -9,4 +9,5 @@ services:
       - '8123:80'
     volumes:
       - ./code:/var/www/html
+      - ./fonts:/usr/share/fonts/truetype/custom
  
