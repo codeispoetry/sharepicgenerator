@@ -1,7 +1,5 @@
 $('#download').click(function(){
-    $(this).prop("disabled", true);
-    let description = $(this).html();
-    $(this).html('... Augenblick bitte');
+    //$(this).prop("disabled", true);
 
     let data = draw.svg();
 
@@ -11,9 +9,9 @@ $('#download').click(function(){
         data: { svg: data },
         success: function ( data ){
           let obj = JSON.parse( data );
-          $(this).prop("disabled", false);
-          $(this).html( description );
-          window.location.href =  'download.php?file=' + obj.basename + '&width=' + info.originalWidth;
+          window.location.href =  'download.php?file=' + obj.basename 
+            + '&pdf=false'
+            + '&width=' + info.originalWidth;
         }
       });
 })
