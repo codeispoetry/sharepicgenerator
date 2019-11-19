@@ -20,7 +20,8 @@
  
  
   <div id="cockpit">
-    <div>
+    <div id="upload">
+      <span class="message"></span>
       <input type='file' id="uploadfile" accept='image/*'>
     </div>
     <div>
