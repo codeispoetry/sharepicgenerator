@@ -1,34 +1,30 @@
 
 body{
-    background: white;  
-  }
-  
-  h6{
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  #content{
-    display: flex;
-  }
-  
-  #cockpit{
-    margin-left: 10px;
-  
-    div{
-      margin-bottom: 20px;
-    }
-  
-    .slider{
-      display: flex;
-  
-      input{
-        margin:0 1em;
-      }
-    }
+  background: white;  
+}
 
-    input.size{
-      width: 3em;
-    }
+h6{
+  font-size: 14px;
+  margin: 0;
+}
+
+#content{
+  display: flex;
+}
+  
+.overlay{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: white;
+
+  &.active{
+    display: block;
   }
+}
+
+#waiting{
+  z-index: 1000;
+}
   

@@ -51,3 +51,15 @@ $return['originalHeight'] = $originalHeight;
 
 
 echo json_encode( $return );
+
+deleteOldFiles();
+function deleteOldFiles(){
+    // Lösche im Cachae alles, was älter als eine Stunde ist
+    $files = scandir('tmp');
+    $now   = time();
+    foreach ($files as $file){
+        $file = 'tmp/' . $file;
+        if (is_file($file) AND $now - filemtime($file) >=  60 * 60) 
+            unlink($file);
+    }
+}
