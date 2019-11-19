@@ -1,5 +1,5 @@
 var textfield = draw.group();
-var text=draw.text("ddd");
+var text=draw.text("");
 textfield.draggable();
 
 $('#text').bind('input propertychange', handleText);
