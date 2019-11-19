@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<?php
-  $info = [];
-  $info['width'] = 800;
-  $info['height'] = 450;
-
-?>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
@@ -15,11 +9,9 @@
   <body>
 
   <div id="content">
+    <div id="canvas"></div> 
   
-  <div id="canvas"></div> 
- 
- 
-  <div id="cockpit">
+    <div id="cockpit">
     <div id="upload">
       <span class="message"></span>
       <input type='file' id="uploadfile" accept='image/*'>
@@ -63,18 +55,34 @@
         <h6>Größe</h6>
         <input type="number" id="width" class="size" value=""> x
         <input type="number" id="height" class="size" value=""> Pixel
-
     </div>
-</div>
-</div>
+    <div>
+        <h6>Pixabay</h6>
+        <button id="pixabayopener">Bilder suchen</button>
+    </div>
+  </div>
+
+  <div id="pixabay" class="overlay">
+    <a href="#" class="close">schließen</a>
+    <form>
+      <input type="text" class="q" value="berge">
+      <input type="submit" i value="suchen">
+    </form>
+    <div class="results"></div>
+  </div>
+
+  <div id="waiting" class="overlay">
+    Augenblick bitte
+  </div>
 
   <script>
+      // some arbitrary value > 0
       var info = {
-        width: <?php echo $info['width']; ?>,
-        height: <?php echo $info['height']; ?>,
-        originalWidth: <?php echo $info['width']; ?>,
-        originalHeight: <?php echo $info['height']; ?>,
-        size: <?php echo $info['width'] / 1.3; ?>,
+        width: 10,
+        height: 10,
+        originalWidth: 10,
+        originalHeight: 10,
+        size: 10,
         x: 15,
         y: 50,
     }; 

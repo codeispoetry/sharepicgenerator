@@ -5,7 +5,6 @@ $('#uploadfile').change(function(event){
 
     let reader = new FileReader();
     reader.onload = function(){
-        let dataURL = reader.result;
       
         $.post( "upload.php", { data: reader.result })
         .done(function( data ) {

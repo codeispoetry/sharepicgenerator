@@ -16,7 +16,7 @@ $( document ).ready(function() {
 function redraw(){
     $('#textfieldresize').attr('min', draw.width() / 6 );
     $('#textfieldresize').attr('max', draw.width());
-    textfield.size(draw.width()/ 1.5);
+    textfield.size(draw.width()/ 1.5).move(50,50);
 
     $('#pinresize').attr('min', draw.width() / 10 );
     $('#pinresize').attr('max', draw.width() / 4 );
