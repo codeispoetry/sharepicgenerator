@@ -21,14 +21,29 @@ if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
 
 if($type == 'jpeg') $type = 'jpg';
 
-$filename = 'tmp/' . uniqid('upload') . '.' . $type;
+$filebasename = 'tmp/' . uniqid('upload');
+$filename = $filebasename . '.' . $type;
+$filename_small = $filebasename . '_small.' . $type;
+
 file_put_contents($filename, $data);
 
+$command = sprintf("convert -resize 800x450 %s %s",    
+    $filename,
+    $filebasename . '_small.' . $type
+);
+
+exec( $command );
+
+
 $return = [];
-$return['filename'] = $filename;
-list($width, $height, $type, $attr) = getimagesize( $filename );
-$factor= 0.3;
-$return['width'] =  $width * $factor;
-$return['height'] = $height * $factor;
+$return['filename'] = $filename_small;
+list($width, $height, $type, $attr) = getimagesize( $filename_small );
+list($originalWidth, $originalHeight, $type, $attr) = getimagesize( $filename );
+
+$return['width'] =  $width;
+$return['height'] = $height;
+$return['originalWidth'] = $originalWidth;
+$return['originalHeight'] = $originalHeight;
+
 
 echo json_encode( $return );

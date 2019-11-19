@@ -3,7 +3,7 @@
 $filename = 'tmp/' . uniqid('shpic').'.svg';
 
 $svg = $_POST['svg']; 
-$svg = preg_replace('/_klein/', '', $svg );
+$svg = preg_replace('/_small/', '', $svg );
 
 $svgHeader = '<?xml version="1.0" standalone="no"?>'; // XML node needed by imagick
 $svgTag = 'svg'; // tag to search for
