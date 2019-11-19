@@ -40,4 +40,5 @@ function setPositionOfTextfield(){
     textfield.x( info.x );
     textfield.y( info.y );
     textfield.size( info.size );
+    textfield.front();
 }
