@@ -1,9 +1,11 @@
-var text=draw.text("hallo");
 var textfield = draw.group();
+var text=draw.text("ddd");
 textfield.draggable();
 
+$('#text').bind('input propertychange', handleText);
+handleText();
 
-$('#text').bind('input propertychange', function() {
+function handleText() {
     let lines = $('#text').val().split(/\n/);
 
     text.clear();
@@ -20,4 +22,22 @@ $('#text').bind('input propertychange', function() {
       });
 
     textfield.add( text );
-});
+
+    text.font({
+       family:   'Arvo', 
+       size:     20,
+       anchor:   'middle',
+       leading:  '1.5em'
+      })
+
+
+    setPositionOfTextfield();
+
+    $('#textfieldresize').val( textfield.width() );
+}
+
+function setPositionOfTextfield(){
+    textfield.x( info.x );
+    textfield.y( info.y );
+    textfield.size( info.size );
+}
