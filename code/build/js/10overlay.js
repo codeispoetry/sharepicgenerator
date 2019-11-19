@@ -1,3 +1,3 @@
-$('.close').click( function(){
+$('.close').click(function () {
     $('.overlay.active').removeClass('active');
 })

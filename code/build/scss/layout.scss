@@ -1,34 +1,34 @@
 
-body{
-  background: white;  
+body {
+  background: white;
 }
 
-h6{
+h6 {
   font-size: 14px;
   margin: 0;
 }
 
-#content{
+#content {
   display: flex;
 }
-  
-.overlay{
+
+.overlay {
   position: absolute;
   display: none;
   width: 100%;
   height: 100%;
   background: white;
 
-  &.active{
+  &.active {
     display: block;
   }
 }
 
-#waiting{
+#waiting {
   z-index: 1000;
 }
 
-#canvas{
+#canvas {
   border: 1px solid #999;
   box-shadow: #999 5px 5px 15px;
 }
