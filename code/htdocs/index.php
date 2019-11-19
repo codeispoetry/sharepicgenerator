@@ -28,6 +28,7 @@
       <button id="download">Download</button>
     </div>
     <div>
+        <h6>Slogan</h6>
         <textarea id="text">Hier der Text</textarea>
     </div>
     <div>
@@ -55,7 +56,14 @@
         </div>
     </div>
     <div>
+        <h6>Webadresse</h6>
         <input type="text" id="subline" value="gruene-bayern.de">
+    </div>
+    <div>
+        <h6>Größe</h6>
+        <input type="number" id="width" class="size" value=""> x
+        <input type="number" id="height" class="size" value=""> Pixel
+
     </div>
 </div>
 </div>

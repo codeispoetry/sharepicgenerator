@@ -32,7 +32,6 @@ $format = ($_POST['format'] && $_POST['format'] == 'pdf') ? 'pdf' : 'png';
 $exportWidth = (int) $_POST['width'];
 convert( $filename, $exportWidth, $format );
 
-
 $return = [];
 $return['basename'] =  basename($filename,'svg');
 echo json_encode( $return );
@@ -46,7 +45,7 @@ function convert( $filename, $width, $format ){
 
     $command = sprintf("inkscape %s --export-width=%d --export-{$format}=%s",    
             $filename ,
-            300,
+            $width,
             'tmp/' . basename($filename, 'svg')  . $format);
 
     exec( $command );
