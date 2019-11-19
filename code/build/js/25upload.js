@@ -23,6 +23,7 @@ function afterUpload( data ){
 
     image = draw.image(data.filename, function (event) {
         image.size( draw.width(), draw.height() );
+        textfield.front();
      })
 
 }
