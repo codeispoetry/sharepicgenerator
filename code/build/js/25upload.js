@@ -23,8 +23,10 @@ function afterUpload( data ){
 
     image = draw.image(data.filename, function (event) {
         image.size( draw.width(), draw.height() );
+       
+        $('#textfieldresize').attr('max', draw.width());
         textfield.front();
      })
-
 }
+
 
