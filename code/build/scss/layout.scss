@@ -1,0 +1,30 @@
+
+body{
+    background: white;  
+  }
+  
+  h6{
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  #content{
+    display: flex;
+  }
+  
+  #cockpit{
+    margin-left: 10px;
+  
+    div{
+      margin-bottom: 20px;
+    }
+  
+    .slider{
+      display: flex;
+  
+      input{
+        margin:0 1em;
+      }
+    }
+  }
+  

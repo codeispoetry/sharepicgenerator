@@ -17,4 +17,7 @@ h6 {
     #cockpit .slider input {
       margin: 0 1em; }
 
+.draggable {
+  cursor: pointer; }
+
 /*# sourceMappingURL=styles.css.map */
