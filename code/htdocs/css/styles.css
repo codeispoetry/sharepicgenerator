@@ -16,6 +16,8 @@ h6 {
     display: flex; }
     #cockpit .slider input {
       margin: 0 1em; }
+  #cockpit input.size {
+    width: 3em; }
 
 .draggable {
   cursor: pointer; }
