@@ -10,4 +10,16 @@ services:
     volumes:
       - ./code:/var/www/html
       - ./fonts:/usr/share/fonts/truetype/custom
- 
+    networks:
+      - sharepicgenerator
+  grunt:
+    build: docker/node
+    restart: always
+    volumes:
+      - ./code:/var/www/html
+    command: grunt
+    working_dir: /var/www/html
+    networks:
+      - sharepicgenerator
+networks:
+  sharepicgenerator:
