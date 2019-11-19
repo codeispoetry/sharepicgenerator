@@ -1,13 +1,12 @@
 var draw = SVG().addTo('#canvas').size(info.width,info.height)
 
-draw.rect(info.width,info.height).move(0, 0).fill('green');
-
 var bgpic = {
-    width: 1920/4,
-    height: 1280/4,
-    filename: 'fuchs.jpg'
+    width: 1920 / 3,
+    height: 1080 / 3,
+    filename: 'assets/bg.jpg'
 }
 
 $( document ).ready(function() {
     afterUpload(bgpic);
 });
+

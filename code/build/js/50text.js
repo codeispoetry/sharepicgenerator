@@ -1,35 +1,56 @@
-var textfield = draw.group();
-var text=draw.text("");
-textfield.draggable();
+var textfield=draw.group();
+
 
 $('#text').bind('input propertychange', handleText);
 handleText();
 
 function handleText() {
+    let texts = [];
+    let rects = [];
     let lines = $('#text').val().split(/\n/);
+    let colors = [ '#449d2f', '#255119',];
+    let fontsizes = [ 20, 40 ];
+    let lineheights = [ 30, 60 ];
+    let fontYBiases = [0, -8 ];
+    let x = 0;
+    let y = 0;
+    let paddingLr = 5;
 
-    text.clear();
-    text = draw.text(function(add) {
-      
-        for(let i = 0; i < lines.length; i++){
-            add.tspan(lines[ i ]).newLine();    
+    textfield.remove();
+    textfield = draw.group().draggable();
+
+
+      for(let i = 0; i < lines.length; i++){
+        let line = lines[ i ].toUpperCase();
+
+        let variant = 0;
+        if( line.substring(0,1) == "!"){
+            line = line.substring(1);
+            variant = 1;
         }
+        
+
+        let color = colors[ variant ];
+        let fontsize = fontsizes[ variant ];
+        let lineheight = lineheights[ variant ];
+        let fontYBias = fontYBiases[ variant ];
+
        
-       // add.tspan('consectetur').fill('#f06')
-       // add.tspan('.')
-       // add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+        texts[i] = draw.text( line ).fill( color ).move( x + paddingLr, y + fontYBias);
+        texts[i].font({
+            family:   'Arvo', 
+            size:     fontsize,
+            anchor:   'left',
+            leading:  '1.5em',
+            weight:   'bold'
+        })
+        rects[i] = draw.rect( texts[i].length() + 2 * paddingLr , lineheight).fill( 'white').move(x,y);
+
+        y += lineheight + 10;
+
+        textfield.add(rects[ i ]).add( texts[i] );
        
-      });
-
-    textfield.add( text );
-
-    text.font({
-       family:   'Arvo', 
-       size:     20,
-       anchor:   'middle',
-       leading:  '1.5em'
-      })
-
+      }
 
     setPositionOfTextfield();
 

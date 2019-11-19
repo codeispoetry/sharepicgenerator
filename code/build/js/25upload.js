@@ -17,15 +17,18 @@ $('#uploadfile').change(function(event){
 
 });
 
-var image;
+var image = draw.circle(0);
 function afterUpload( data ){
     draw.size(data.width, data.height);
+
+    image.remove();
 
     image = draw.image(data.filename, function (event) {
         image.size( draw.width(), draw.height() );
        
         $('#textfieldresize').attr('max', draw.width());
-        textfield.front();
+        image.back();
+        setLogoPosition();
      })
 }
 

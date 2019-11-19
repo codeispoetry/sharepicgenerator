@@ -19,8 +19,9 @@
 
     <button id="download">Download</button>
     <textarea id="text">Hier kannst Du
-den Text ändern.
-    </textarea>
+!den Text ändern.
+Auch noch in der dritten und
+sogar 4. Zeile. äöüß</textarea>
 
   <input type="range" id="textfieldresize" min="1" max="<?php echo $info['width']; ?>">
   </header>
@@ -34,7 +35,7 @@ den Text ändern.
       var info = {
         width: <?php echo $info['width']; ?>,
         height: <?php echo $info['height']; ?>,
-        size: 200,
+        size: <?php echo $info['width']; ?>,
         x:<?php echo $info['width']/2 - 100; ?>,
         y:<?php echo $info['height']/2 - 100 ; ?>,
     }; 
