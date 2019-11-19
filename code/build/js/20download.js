@@ -1,4 +1,4 @@
-$('#download').click(function(){
+$('#download').click(function () {
     $(this).prop("disabled", true);
     let description = $(this).html();
     $(this).html('Augenblick bitte');
@@ -9,13 +9,13 @@ $('#download').click(function(){
     $.ajax({
         type: "POST",
         url: 'createpic.php',
-        data: { svg: data, format: format, width: info.originalWidth },
-        success: function ( data, textStatus, jqXHR ){ 
-          let obj = JSON.parse( data ); 
-          $('#download').prop("disabled", false);
-          $('#download').html( description);
-         
-          window.location.href =  'download.php?file=' + obj.basename + '&format=' + format;
+        data: {svg: data, format: format, width: info.originalWidth},
+        success: function (data, textStatus, jqXHR) {
+            let obj = JSON.parse(data);
+            $('#download').prop("disabled", false);
+            $('#download').html(description);
+
+            window.location.href = 'download.php?file=' + obj.basename + '&format=' + format;
         }
-      });
+    });
 })
