@@ -89,7 +89,7 @@ lassen</textarea><br>
     </div>
 
     <script>
-        // some arbitrary value > 0
+        // some arbitrary values > 0
         var info = {
             width: 10,
             height: 10,
