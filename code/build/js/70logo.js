@@ -19,4 +19,4 @@ $('#logoresize').bind('input propertychange', function () {
     claim.transform({scale: scale, origin: 'top left'});
     subline.transform({scale: scale, origin: 'bottom left'});
     setLogoPosition();
-})
+});

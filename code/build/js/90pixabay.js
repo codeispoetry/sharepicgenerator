@@ -22,15 +22,15 @@ function getPixabayImages(q) {
                 $('#pixabay>.results').append('<img src="' + image.previewURL + '" data-url="' + image.largeImageURL + '">');
             });
 
-            $('#pixabay>.results>img').click(uploadImageByUrl);
+            $('#pixabay>.results>img').click( function(){
+                uploadImageByUrl( $(this).data('url') );
+            } );
         }
     });
 }
 
+function uploadImageByUrl( url ) {
 
-function uploadImageByUrl() {
-
-    let url = $(this).data('url');
     $('#waiting').addClass('active');
 
     var request = new XMLHttpRequest();
@@ -50,6 +50,4 @@ function uploadImageByUrl() {
         reader.readAsDataURL(request.response);
     };
     request.send();
-
-
 }

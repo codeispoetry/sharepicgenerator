@@ -1,4 +1,4 @@
-var draw = SVG().addTo('#canvas').size(info.width, info.height)
+var draw = SVG().addTo('#canvas');
 
 var bgpic = {
     width: 800,
@@ -10,7 +10,7 @@ var bgpic = {
 
 $(document).ready(function () {
     afterUpload(bgpic);
-    handleSubline();
+    redraw();
 });
 
 function redraw() {
@@ -36,4 +36,21 @@ function redraw() {
     image.back();
     setLogoPosition();
     handleSubline();
+}
+
+
+var image = draw.circle(0);
+function afterUpload(data) {
+    draw.size(data.width, data.height);
+    info.originalWidth = data.originalWidth;
+    info.originalHeight = data.originalHeight;
+
+    image.remove();
+
+    image = draw.image(data.filename, function (event) {
+        image.size(draw.width(), draw.height());
+        image.draggable();
+        setSize(draw.width(), draw.height());
+        redraw();
+    })
 }

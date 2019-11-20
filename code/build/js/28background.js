@@ -1,6 +1,5 @@
 $('.size').bind('input propertychange', handleSize);
 
-
 function handleSize() {
     let width = $('#width').val();
     let height = $('#height').val();
