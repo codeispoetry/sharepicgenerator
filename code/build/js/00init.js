@@ -11,7 +11,15 @@ const bgpic = {
 
 $(document).ready(function () {
     afterUpload(bgpic);
+    $('#text').val("!Leben\nlassen");
 });
 
+function message( text = false ){
+    if( !text ){
+        $('#message').hide();
+        return;
+    }
+    $('#message').show().html( text );
+}
 
 
