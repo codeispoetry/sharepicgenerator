@@ -3,13 +3,18 @@ body {
   background: white;
 }
 
+header{
+  text-align: center;
+}
+
 h6 {
   font-size: 14px;
   margin: 0;
 }
 
-#content {
+#workspace {
   display: flex;
+  justify-content: space-around;
 }
 
 .overlay {
@@ -17,6 +22,8 @@ h6 {
   display: none;
   width: 100%;
   height: 100%;
+  top:0;
+  left:0;
   background: white;
 
   &.active {
@@ -31,5 +38,12 @@ h6 {
 #canvas {
   border: 1px solid #999;
   box-shadow: #999 5px 5px 15px;
+}
+
+#message{
+  margin-top: 15px;
+  color: darkred;
+  background-color: navajowhite;
+  padding: 1em;
 }
   

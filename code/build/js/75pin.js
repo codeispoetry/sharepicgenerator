@@ -9,17 +9,39 @@ const pin = {
     svg: draw.image('assets/pin.svg', function (event) {
         pin.isLoaded = true;
         this.on('dragend.namespace', function (event) {
-            $('#pinX').val( this.x());
-            $('#pinY').val( this.y());
+            $('#pinX').val(this.x());
+            $('#pinY').val(this.y());
+            pin.bounce();
         });
         pin.draw();
     }).addClass('draggable').draggable(),
 
     draw() {
         if (!this.isLoaded) return false;
-        this.svg.move( parseInt($('#pinX').val()), parseInt($('#pinY').val( )));
-        this.svg.size( parseInt($('#pinsize').val()));
+        this.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
+        this.svg.size(parseInt($('#pinsize').val()));
     },
 
+    bounce: function () {
+        if (!this.isLoaded) return false;
+        if (this.svg.x() < 15) {
+            $('#pinX').val(15);
+            this.draw();
+        }
+        if (this.svg.x() > draw.width() - this.svg.width() - 15) {
+            $('#pinX').val(draw.width() - this.svg.width() - 15);
+            this.draw();
+        }
+        if (this.svg.y() < 30) {
+            $('#pinY').val(30);
+            this.draw();
+        }
+        if (this.svg.y() > draw.height() - this.svg.height() - 30) {
+            $('#pinY').val(draw.height() - this.svg.height() - 30);
+            this.draw();
+        }
+    }
 };
+
+
 
