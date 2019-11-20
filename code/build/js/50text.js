@@ -1,67 +1,49 @@
-var textfield = draw.group();
+const text = {
+    svg: draw.text('dd'),
+    lineheights: [26, 40],
+    colors: ['#449d2f', '#255119'],
+    fontsizes: [23, 40],
+    yBiases: [0, -3],
+    linemargin: 4,
+    paddingLr: 5,
+    font: {
+        family: 'Arvo',
+        anchor: 'left',
+        leading: '1.25em',
+        weight: 'bold'
+    },
+
+    draw: function () {
+
+        text.svg.remove();
+        text.svg = draw.group().addClass('draggable').draggable();
+
+        text.svg.on('dragend.namespace', function (event) {
+            $('#textX').val(this.x());
+            $('#textY').val(this.y());
+        });
+
+        let y = 0;
+
+        $('#text').val().split(/\n/).forEach(function (value, index, array) {
+                let style = /^!/.test(value) ? 1 : 0;
+                value = value.replace(/^!/, '');
+
+                let t = draw.text(value).font({...text.font, ...{size: text.fontsizes[style]}}).fill(text.colors[style]).move(0, y + text.yBiases[style]);
+
+                let r = draw.rect(t.length() + 2 * text.paddingLr, text.lineheights[style]).fill('white').move(-text.paddingLr, y);
 
 
-$('#text').bind('input propertychange', handleText);
-handleText();
+                text.svg.add(r).add(t);
+                y += text.lineheights[style] + text.linemargin;
+            }
+        );
 
-function handleText() {
-    let texts = [];
-    let rects = [];
-    let lines = $('#text').val().split(/\n/);
-    let colors = ['#449d2f', '#255119',];
-    let fontsizes = [23, 40];
-    let lineheights = [26, 40];
-    let fontYBiases = [-1, -9];
-    let linemargin = 4;
-    let x = 0;
-    let y = 0;
-    let paddingLr = 5;
-
-    textfield.remove();
-    textfield = draw.group().addClass('draggable').draggable();
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i].toUpperCase();
-
-        let variant = 0;
-        if (line.substring(0, 1) == "!") {
-            line = line.substring(1);
-            variant = 1;
-        }
-
-
-        let color = colors[variant];
-        let fontsize = fontsizes[variant];
-        let lineheight = lineheights[variant];
-        let fontYBias = fontYBiases[variant];
-
-
-        texts[i] = draw.text(line).fill(color).move(x + paddingLr, y + fontYBias);
-        texts[i].font({
-            family: 'Arvo',
-            size: fontsize,
-            anchor: 'left',
-            leading: '1.25em',
-            weight: 'bold'
-        })
-        rects[i] = draw.rect(texts[i].length() + 2 * paddingLr, lineheight).fill('white').move(x, y);
-
-        y += lineheight + linemargin;
-
-        textfield.add(rects[i]).add(texts[i]);
-
+        text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
     }
+};
 
-    setPositionOfTextfield();
 
-    textfield.on('dragend.namespace', function (event) {
-        info.x = textfield.x();
-        info.y = textfield.y();
-    })
-}
+$('#text').bind('input propertychange', text.draw);
+$('#textsize').bind('input propertychange', text.draw);
 
-function setPositionOfTextfield() {
-    textfield.x(info.x);
-    textfield.y(info.y);
-    textfield.size(info.size);
-    textfield.front();
-}

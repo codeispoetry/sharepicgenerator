@@ -1,22 +1,15 @@
-var logo;
+const logo = {
+    isLoaded: false,
 
+    svg: draw.image('assets/sonnenblume.svg', function (event) {
+        logo.isLoaded = true;
+        logo.draw();
+    }),
 
-logo = draw.image('assets/sonnenblume.svg', function (event) {
-    logo.size(draw.width() / 13).x(draw.width() - 110).y(10);
-});
+    draw: function (event) {
+        if (!logo.isLoaded) return false;
+        let width = draw.width() * 0.10;
+        this.svg.size(width).x(draw.width() - width - 10).y(10);
+    }
+};
 
-
-function setLogoPosition() {
-    logo.x(draw.width() - logo.width() - 10).y(10);
-}
-
-
-$('#logoresize').bind('input propertychange', function () {
-    let val = parseInt($(this).val());
-    logo.size(val);
-
-    scale = val / 100;
-    claim.transform({scale: scale, origin: 'top left'});
-    subline.transform({scale: scale, origin: 'bottom left'});
-    setLogoPosition();
-});

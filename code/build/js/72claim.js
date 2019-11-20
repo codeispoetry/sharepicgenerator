@@ -4,5 +4,5 @@ claim.font({
     family: 'Arvo',
     size: 15,
     anchor: 'left',
-    weight: 600
-})
+    weight: 700
+});
