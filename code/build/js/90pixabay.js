@@ -28,26 +28,3 @@ function getPixabayImages(q) {
         }
     });
 }
-
-function uploadImageByUrl( url ) {
-
-    $('#waiting').addClass('active');
-
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.responseType = 'blob';
-    request.onload = function () {
-        let reader = new FileReader();
-        reader.onload = function () {
-            $.post("upload.php", {data: reader.result})
-                .done(function (data) {
-                    let obj = JSON.parse(data);
-                    $('.overlay.active').removeClass('active');
-                    afterUpload(obj);
-                });
-
-        };
-        reader.readAsDataURL(request.response);
-    };
-    request.send();
-}

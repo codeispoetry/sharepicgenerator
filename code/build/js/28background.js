@@ -1,24 +1,42 @@
-$('.size').bind('input propertychange', handleSize);
+const background= {
+    svg: draw.circle(0),
 
-function handleSize() {
-    let width = $('#width').val();
-    let height = $('#height').val();
+    draw(){
+        this.svg.remove();
+        this.svg = draw.image( this.filename, function (event) {
+            this.back().draggable();
+            background.resize();
 
-    draw.height(height);
-    draw.width(width);
-    redraw();
-}
+            this.on('dragend.namespace', function (event) {
+                $('#backgroundX').val( this.x());
+                $('#backgroundY').val( this.y());
+            });
 
-function setSize(width, height) {
-    $('#width').val(width);
-    $('#height').val(height);
-}
+        })
+    },
 
-$('#resetBackground').click(function () {
-    image.move(0, 0).size(draw.width());
+
+    reset: function(){
+        $('#backgroundX').val( 0 );
+        $('#backgroundY').val( 0 );
+        $('#backgroundsize').val( parseInt( $('#backgroundsize').prop('min')));
+        this.draw();
+    },
+
+    resize: function(){
+        let val = parseInt($('#backgroundsize').val());
+        this.svg.size(val);
+    }
+
+};
+
+
+
+
+$('#backgroundreset').click(function () {
+    background.reset();
 });
 
-$('#backgroundresize').bind('input propertychange', function () {
-    let val = parseInt($(this).val());
-    image.size(val);
-})
+$('#backgroundsize').bind('input propertychange', function () {
+    background.resize();
+});

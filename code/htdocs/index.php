@@ -31,7 +31,7 @@ lassen</textarea><br>
             <h6>Textgröße</h6>
             <div class="slider">
                 <small>klein</small>
-                <input type="range" id="textfieldresize" min="1" max="100">
+                <input type="range" id="textsize" min="1" max="100">
                 <small>groß</small>
             </div>
         </div>
@@ -39,15 +39,7 @@ lassen</textarea><br>
             <h6>Pingröße</h6>
             <div class="slider">
                 <small>klein</small>
-                <input type="range" id="pinresize" min="1" max="100">
-                <small>groß</small>
-            </div>
-        </div>
-        <div>
-            <h6>Logogröße</h6>
-            <div class="slider">
-                <small>klein</small>
-                <input type="range" id="logoresize" min="1" max="100">
+                <input type="range" id="pinsize" min="1" max="100">
                 <small>groß</small>
             </div>
         </div>
@@ -62,16 +54,24 @@ lassen</textarea><br>
         </div>
         <div>
             <h6>Hintergrundbild</h6>
-            <a href="#" id="resetBackground">Hintergrund zurücksetzen</a>
+            <a href="#" id="backgroundreset">Hintergrund zurücksetzen</a>
             <div class="slider">
                 <small>klein</small>
-                <input type="range" id="backgroundresize" min="1" max="100">
+                <input type="range" id="backgroundsize" min="1" max="1500" value="1200">
                 <small>groß</small>
             </div>
         </div>
         <div>
             <h6>Pixabay</h6>
             <button id="pixabayopener">Bilder suchen</button>
+        </div>
+        <div>
+            <input type="hiddden" id="pinX">
+            <input type="hiddden" id="pinY">
+            <input type="hiddden" id="backgroundX">
+            <input type="hiddden" id="backgroundY">
+            <input type="hiddden" id="textX">
+            <input type="hiddden" id="textY">
         </div>
     </div>
 
@@ -88,18 +88,6 @@ lassen</textarea><br>
         Augenblick bitte
     </div>
 
-    <script>
-        // some arbitrary values > 0
-        var info = {
-            width: 10,
-            height: 10,
-            originalWidth: 10,
-            originalHeight: 10,
-            size: 10,
-            x: 15,
-            y: 50,
-        };
-    </script>
     <script src="./vendor/jquery-3.4.1.min.js"></script>
     <script src="./vendor/svg.min.js"></script>
     <script src="./vendor/svg.draggable.min.js"></script>

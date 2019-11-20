@@ -1,11 +1,25 @@
-var pin = draw.image('assets/pin.svg', function (event) {
-    pin.size(100).move(draw.width() / 2, draw.height() / 2);
-    $('#pinresize').val(100);
-    pin.addClass('draggable').draggable();
+$('#pinsize').bind('input propertychange', function () {
+    pin.draw();
 });
 
 
-$('#pinresize').bind('input propertychange', function () {
-    let val = parseInt($(this).val());
-    pin.size(val);
-})
+const pin = {
+    isLoaded: false,
+
+    svg: draw.image('assets/pin.svg', function (event) {
+        pin.isLoaded = true;
+        this.on('dragend.namespace', function (event) {
+            $('#pinX').val( this.x());
+            $('#pinY').val( this.y());
+        });
+        pin.draw();
+    }).addClass('draggable').draggable(),
+
+    draw() {
+        if (!this.isLoaded) return false;
+        this.svg.move( parseInt($('#pinX').val()), parseInt($('#pinY').val( )));
+        this.svg.size( parseInt($('#pinsize').val()));
+    },
+
+};
+

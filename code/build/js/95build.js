@@ -1,12 +1,19 @@
 function build(){
-    info.x = 20;
-    info.y = 20;
-    info.size = 100;
-    $('#text').val("Das ist ein\n!Fuchs");
-    handleText();
+    uploadImageByUrl( 'persistent/fox.jpg', function(){
+        $('#textX').val( 10 );
+        $('#textY').val( 290 );
+        $('#textsize').val( 211 );
 
-    uploadImageByUrl( 'persistent/fox.jpg' );
+
+        $('#pinX').val( 510 );
+        $('#pinY').val( 270 );
+
+        $('#text').val("Das ist ein\n!Fuchs");
+
+        pin.draw();
+    } );
+
+
 }
 
 build();
-
