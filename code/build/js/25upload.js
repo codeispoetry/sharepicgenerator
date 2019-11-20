@@ -19,21 +19,6 @@ $('#uploadfile').change(function (event) {
 
 });
 
-var image = draw.circle(0);
 
-function afterUpload(data) {
-    draw.size(data.width, data.height);
-    info.originalWidth = data.originalWidth;
-    info.originalHeight = data.originalHeight;
-
-    image.remove();
-
-    image = draw.image(data.filename, function (event) {
-        image.size(draw.width(), draw.height());
-        image.draggable();
-        setSize(draw.width(), draw.height());
-        redraw();
-    })
-}
 
 
