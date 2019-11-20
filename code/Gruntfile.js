@@ -6,13 +6,13 @@ module.exports = function(grunt) {
       uglify: {
         build: {
           src: 'build/js/*.js',
-          dest: 'htdocs/js/main.min.js'
+          dest: 'htdocs/assets/js/main.min.js'
         }
       },
       sass: {
         dev: {
           files: {
-            'htdocs/css/styles.css':'build/scss/main.scss'
+            'htdocs/assets/css/styles.css':'build/scss/main.scss'
           }
         }
       },
