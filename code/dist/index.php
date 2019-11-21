@@ -1,3 +1,19 @@
+<?php
+$samlfile = '/var/simplesaml/lib/_autoload.php';
+
+if(file_exists($samlfile)) {
+    require_once($samlfile);
+    $as = new SimpleSAML_Auth_Simple('default-sp');
+    $as->requireAuth();
+}
+//$samlattributes = $as->getAttributes();
+//if (isset($samlattributes)) {
+//    $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
+//    // do nothing
+//}
+
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -34,8 +50,6 @@
 
 <footer class="fixed-bottom bg-primary p-2 text-white">foo
 </footer>
-
-
 
 
 <div class="overlays">
