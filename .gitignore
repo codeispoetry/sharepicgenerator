@@ -1,6 +1,6 @@
 code/node_modules
 code/.sass-cache
-code/htdocs/tmp/*
-!code/htdocs/tmp
+code/dist/tmp/*
+!code/dist/tmp
 code/dist/assets/css/*
 code/dist/assets/js/*
