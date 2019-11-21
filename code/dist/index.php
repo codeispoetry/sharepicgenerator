@@ -15,8 +15,16 @@
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
-                <div id="message"></div>
             </div>
+            <div class="col-12 mt-3 mb-3">
+                <div id="message" class="bg-danger text-white p-4"></div>
+            </div>
+
+            <div class="col-12 text-right">
+                <button class="btn btn-secondary btn-lg" id="download">Herunterladen</button>
+            </div>
+
+
         </div>
         <div class="ml-md-auto p-3 pb-5 mb-5">
             <?php require_once('cockpit.php'); ?>
@@ -32,14 +40,36 @@
 
 <div class="overlays">
     <div id="pixabay" class="overlay">
-        <a href="#" class="close">schließen</a>
-        <form>
-            <input type="text" class="q" value="berge">
-            <input type="submit" i value="suchen">
-        </form>
-        <div class="results"></div>
+        <div class="container-fluid">
+            <a href="#" class="close text-danger">
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="row pt-2 mt-1">
+                <div class="col-12 text-center">
+                    <h2>Bilder suchen</h2>
+                </div>
+                <div class="col-4 offset-4" id="pixabay">
+                    <form>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-images"></i></div>
+                            </div>
+                            <input type="text" class="form-control q" placeholder="z.B. Berge oder Sonnenblume">
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text btn-primary">Suchen</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 p-5 results"></div>
+        </div>
+
     </div>
-    <div id="waiting" class="overlay">
+
+
+    <div id="waiting" class="overlay text-danger bg-light">
         Augenblick bitte
     </div>
 </div>

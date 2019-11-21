@@ -2,5 +2,9 @@ code/node_modules
 code/.sass-cache
 code/dist/tmp/*
 !code/dist/tmp
-code/dist/assets/css/*
-code/dist/assets/js/*
+code/dist/assets/js/main.min.js
+code/dist/assets/js/main.min.js.map
+code/dist/assets/css/styles.css
+code/dist/assets/css/styles.css.map
+
+

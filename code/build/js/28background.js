@@ -44,7 +44,7 @@ const background = {
         if (this.svg.y() + this.svg.height() < draw.height()) error = true;
 
         if (error)
-            message("Im Bild entsteht ein weißer Rand. Platziere das Bild neu, <a href=\"#\" onClick=\"background.reset();\">setze es zurück</a> oder vergrößere es.")
+            message("Im Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class=\"cursor-pointer\" onClick=\"background.reset();\">setze es zurück</u> oder vergrößere es.")
         else
             message();
     }

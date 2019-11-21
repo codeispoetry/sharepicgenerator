@@ -6,26 +6,28 @@
   top:0;
   left:0;
   background: white;
+  z-index: 100;
 
   &.active {
     display: block;
   }
 }
 
+
 #waiting {
-  z-index: 1000;
+  z-index: 110;
+  font-size: 70px;
+  align-items: center;
+  justify-content: center;
+
+  &.active {
+    display: flex;
+  }
 }
 
 #canvas {
   border: 1px solid #999;
   box-shadow: #999 5px 5px 15px;
-}
-
-#message{
-  margin-top: 15px;
-  color: darkred;
-  background-color: navajowhite;
-  padding: 1em;
 }
 
 .cursor-pointer{
