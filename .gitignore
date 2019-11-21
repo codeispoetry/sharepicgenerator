@@ -2,5 +2,5 @@ code/node_modules
 code/.sass-cache
 code/htdocs/tmp/*
 !code/htdocs/tmp
-code/htdocs/assets/css/*
-code/htdocs/assets/js/*
+code/dist/assets/css/*
+code/dist/assets/js/*
