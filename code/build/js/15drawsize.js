@@ -33,8 +33,8 @@ function calculateSizes() {
     $('#textX').val(0);
     $('#textY').val(draw.height() / 2);
 
-    $('#pinsize').attr('min', draw.width() * 0.1);
-    $('#pinsize').attr('max', draw.width() * 0.25);
+    $('#pinsize').attr('min', Math.max(50, draw.width() * 0.1 ));
+    $('#pinsize').attr('max', Math.max(50, draw.width() * 0.25));
     $('#pinsize').val(draw.width() * .175);
 
     $('#pinX').val(draw.width() / 2);
