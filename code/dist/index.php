@@ -10,8 +10,8 @@
 <div class="container-fluid h-100">
     <div class="row">
         <div class="ml-md-auto">
-            <div class="col-12 text-center">
-                <h1>Sharepicgenerator Bayern</h1>
+            <div class="col-12 text-center pt-4 pb-3">
+                <h1 class="text-uppercase font-weight-bold">Sharepicgenerator Bayern</h1>
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
