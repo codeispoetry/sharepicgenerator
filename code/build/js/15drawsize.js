@@ -7,6 +7,7 @@ function setDrawsize() {
 
     draw.size( width, height);
 
+    $('#canvas').width(draw.width());
     $('#canvas').height(draw.height());
 
     calculateSizes();
