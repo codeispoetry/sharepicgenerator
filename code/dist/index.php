@@ -18,7 +18,7 @@
                 <div id="message"></div>
             </div>
         </div>
-        <div class="ml-md-auto p-3">
+        <div class="ml-md-auto p-3 pb-5 mb-5">
             <?php require_once('cockpit.php'); ?>
         </div>
     </div>
