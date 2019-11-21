@@ -7,17 +7,17 @@ module.exports = function (grunt) {
             options: {
                 sourceMap: true,
                 sourceMapIncludeSources : true,
-                sourceMapIn : 'htdocs/assets/js/main.min.js.map'
+                sourceMapIn : 'dist/assets/js/main.min.js.map'
             },
             build: {
                 src: 'build/js/*.js',
-                dest: 'htdocs/assets/js/main.min.js'
+                dest: 'dist/assets/js/main.min.js'
             }
         },
         sass: {
             dev: {
                 files: {
-                    'htdocs/assets/css/styles.css': 'build/scss/main.scss'
+                    'dist/assets/css/styles.css': 'build/scss/main.scss'
                 }
             }
         },
