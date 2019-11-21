@@ -18,12 +18,12 @@ const pin = {
 
     draw() {
         if (!this.isLoaded) return false;
-        this.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
-        this.svg.size(parseInt($('#pinsize').val()));
+        pin.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
+        pin.svg.size(parseInt($('#pinsize').val()));
     },
 
     bounce: function () {
-        if (!this.isLoaded) return false;
+        if (!this.isLoaded ) return false;
         if (this.svg.x() < 15) {
             $('#pinX').val(15);
             this.draw();

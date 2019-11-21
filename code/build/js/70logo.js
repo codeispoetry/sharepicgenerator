@@ -7,7 +7,7 @@ const logo = {
 
     draw () {
         if (!logo.isLoaded ) return false;
-        let width = draw.width() * 0.10;
+        let width = Math.max(50, draw.width() * 0.10 );
         logo.svg.size(width).x(draw.width() - width - 10).y(10);
     }
 };
