@@ -1,17 +1,18 @@
 {
   "name": "sharepicgenerator",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-uglify": "4.0.1",
-    "grunt-contrib-watch": "^1.1.0"
-  },
+  "version": "1.0.0",
+  "description": "Development environment for green party shrepicgenerator",
+  "author": "Thomas Rose",
   "dependencies": {
     "@svgdotjs/svg.draggable.js": "^3.0.2",
+    "grunt": "^1.0.4",
+    "grunt-cli": "^1.3.2",
+    "jquery": "^3.4.1",
+    "svg.js": "^2.7.1"
+  },
+  "devDependencies": {
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
-    "grunt-sass": "^3.1.0",
-    "node-sass": "^4.13.0",
-    "sass": "^1.23.6"
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0"
   }
 }
