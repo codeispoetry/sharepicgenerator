@@ -13,6 +13,7 @@
     "svg.js": "^2.7.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify-es": "^3.3.0",
     "grunt-contrib-watch": "^1.1.0"

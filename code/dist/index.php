@@ -24,7 +24,7 @@
                 <button id="download">Download</button>
             </div>
             <div>
-                <h6>Slogan</h6>
+                <h6><i class="fas fa-bullhorn"></i>Slogan</h6>
                 <textarea id="text">grün tut gut</textarea><br>
                 <small>Zeilen, die mit einem<br>
                     Ausrufezeichen ! beginnen,<br>
