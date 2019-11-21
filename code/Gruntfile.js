@@ -24,18 +24,36 @@ module.exports = function (grunt) {
         watch: {
             css: {
                 files: 'build/scss/**/*.scss',
-                tasks: ['sass']
+                tasks: ['sass','postcss']
             },
             js: {
                 files: 'build/js/**/*.js',
                 tasks: ['uglify']
             },
         },
+        postcss: {
+            options: {
+                map: {
+                    inline: false, // save all sourcemaps as separate files...
+                    annotation: 'dist/assets/css/' // ...to the specified directory
+                },
+
+                processors: [
+                    require('pixrem')(), // add fallbacks for rem units
+                    require('autoprefixer')(), // add vendor prefixes
+                    require('cssnano')() // minify the result
+                ]
+            },
+            dist: {
+                src: 'dist/assets/css/*.css'
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-postcss');
 
 
     // Default task(s).

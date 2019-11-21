@@ -2,17 +2,31 @@
     <div class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Textgröße</h5>
-            <small>3 days ago</small>
+            <small></small>
         </div>
-        <div class="mb-1"><label for="customRange1">Example range</label>
-            <input type="range" class="custom-range" id="customRange1">
+        <div class="mb-1">
             <div class="slider">
                 <small>klein</small>
                 <input type="range" class="custom-range" id="textsize" min="1" max="100">
                 <small>groß</small>
             </div>
         </div>
-        <small>Donec id elit non mi porta.</small>
+        <small></small>
+    </div>
+
+ <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Pin</h5>
+            <small></small>
+        </div>
+        <div class="mb-1">
+            <div class="slider">
+                <small>klein</small>
+                <input type="range" class="custom-range" id="pinsize" min="1" max="100">
+                <small>groß</small>
+            </div>
+        </div>
+        <small></small>
     </div>
 
 
@@ -37,14 +51,7 @@
         werden hervorgehoben</small>
 </div>
 
-<div>
-    <h6>Pin</h6>
-    <div class="slider">
-        <small>klein</small>
-        <input type="range" id="pinsize" min="1" max="100">
-        <small>groß</small>
-    </div>
-</div>
+
 <div>
     <h6>Zeile unten</h6>
     <input type="text" id="subline" value="gruene-bayern.de">
