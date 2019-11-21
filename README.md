@@ -19,7 +19,7 @@ Bring up the project (see above) and head to http://127.0.0.1:9000. The portnumb
 ### code
 Every code goes here.
 
-#### code/htdocs
+#### code/dist
 This directory is to be deployed.
 
 #### code/build
@@ -32,7 +32,7 @@ Are installed by nmp. Nothing to do here. Will not be commited. Use _npm install
 The Dockerfile are here. They are referred to from docker-compose.yml.
 
 ### fonts
-All font-files are linked into to webserver-container, so that inkscape can use them. Handle webfonts in _code/htdocs/fonts_ independently from that.
+All font-files are linked into to webserver-container, so that inkscape can use them. Handle webfonts in _code/dist/fonts_ independently from that.
 
 ## Core
 ### assets and fonts
