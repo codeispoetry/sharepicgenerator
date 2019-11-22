@@ -7,12 +7,10 @@ $('#pixabay>form').submit(function () {
     return false;
 })
 
-
-var pixabayAPIKey = "1309982-0e2df8b488eca18e61116743a";
 var page = 1;
 
 function getPixabayImages(q) {
-    let url = "https://pixabay.com/api/?key=" + pixabayAPIKey + "&q=" + encodeURIComponent(q) + "&image_type=photo&page=" + page + "&per_page=100";
+    let url = "https://pixabay.com/api/?key=" + config.pixabay.apikey + "&q=" + encodeURIComponent(q) + "&image_type=photo&page=" + page + "&per_page=100";
 
     $.ajax({
         url: url,
