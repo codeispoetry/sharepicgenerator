@@ -13,8 +13,7 @@ var page = 1;
 
 function getPixabayImages(q) {
     let url = "https://pixabay.com/api/?key=" + pixabayAPIKey + "&q=" + encodeURIComponent(q) + "&image_type=photo&page=" + page + "&per_page=100";
-     url = '/dist/tmp/berge.json';
-     console.log(url)
+
     $.ajax({
         url: url,
         success: function (data, textStatus, jqXHR) {

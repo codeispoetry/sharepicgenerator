@@ -4,6 +4,13 @@ $('#sizereset').click( resetDrawsize );
 function setDrawsize() {
     let width = $('#width').val();
     let height = $('#height').val();
+    let aspectratio = width / height;
+
+    if( width > 800 ){
+        width = 800;
+
+        height = width / aspectratio;
+    }
 
     draw.size( width, height);
 
@@ -19,8 +26,8 @@ function setDrawsize() {
 }
 
 function resetDrawsize(){
-    $('#width').val( info.previewWidth );
-    $('#height').val( info.previewHeight );
+    $('#width').val( info.originalWidth );
+    $('#height').val( info.originalHeight );
     setDrawsize();
 }
 
@@ -38,8 +45,8 @@ function calculateSizes() {
     $('#pinsize').attr('max', Math.max(50, draw.width() * 0.25));
     $('#pinsize').val(draw.width() * .175);
 
-    $('#pinX').val(draw.width() / 2);
-    $('#pinY').val(draw.height() / 2);
+    $('#pinX').val(draw.width() * 0.7);
+    $('#pinY').val(draw.height() * 0.5 );
 
 
     $('#backgroundsize').attr('min', draw.width());

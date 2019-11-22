@@ -4,7 +4,6 @@ version: '3.3'
 services:
   webserver:
     build: docker/php
-    restart: always
     ports:
       - '9000:80'
     volumes:
@@ -14,7 +13,6 @@ services:
       - sharepicgenerator
   grunt:
     build: docker/node
-    restart: always
     volumes:
       - ./code:/var/www/html
     command: grunt

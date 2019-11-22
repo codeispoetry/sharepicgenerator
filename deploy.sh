@@ -1,3 +1,3 @@
 
 rm code/dist/tmp/*
-rsync -avzI code/dist/ tom@sharepicgenerator.de:/var/www/html/by2020
+rsync -avhz code/dist/ tom@sharepicgenerator.de:/var/www/html/by2020 --delete

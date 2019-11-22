@@ -1,6 +1,7 @@
 $('#uploadfile').change(function (event) {
     $('#uploadfile').prop('disabled', true);
-    $('#upload .message').html('Lade hoch...');
+    $('#upload .message').html('<br><span>Augenblick bitte ...</span><div class="spinner-border" role="status"></div>');
+    $('#canvas').addClass('opacity');
     let input = event.target;
 
     let reader = new FileReader();
@@ -11,6 +12,7 @@ $('#uploadfile').change(function (event) {
                 let obj = JSON.parse(data);
                 $('#uploadfile').prop('disabled', false);
                 $('#upload .message').html('');
+                $('#canvas').removeClass('opacity');
                 afterUpload(obj);
             });
 
@@ -54,8 +56,8 @@ function afterUpload(data) {
 
     background.filename = data.filename;
 
-    $('#width').val(draw.width());
-    $('#height').val(draw.height());
+    $('#width').val( data.originalWidth );
+    $('#height').val( data.originalHeight );
 
     setDrawsize();
 

@@ -36,8 +36,10 @@ if(file_exists($samlfile)) {
                 <div id="message" class="bg-danger text-white p-4"></div>
             </div>
 
-            <div class="col-12 text-right">
-                <button class="btn btn-secondary btn-lg" id="download">Herunterladen</button>
+            <div class="col-12 text-right pb-5 mb-5">
+                <button class="btn btn-secondary btn-lg" id="download">
+                    <i class="fas fa-download"></i> Herunterladen
+                </button>
             </div>
 
 
@@ -48,7 +50,13 @@ if(file_exists($samlfile)) {
     </div>
 </div>
 
-<footer class="fixed-bottom bg-primary p-2 text-white">foo
+<footer class="row fixed-bottom bg-primary p-2 text-white">
+    <div class="col-10">
+        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="text-white">Quellcode auf github.com</a>
+    </div>
+    <div class="col-2 text-right">
+        Programmiert mit <i class="fas fa-heart text-danger"></i> von Tom Rose.
+    </div>
 </footer>
 
 
@@ -84,7 +92,7 @@ if(file_exists($samlfile)) {
 
 
     <div id="waiting" class="overlay text-danger bg-light">
-        Augenblick bitte
+        <h1>Augenblick bitte</h1>
     </div>
 </div>
 
