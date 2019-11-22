@@ -96,6 +96,11 @@ if(file_exists($samlfile)) {
     </div>
 </div>
 
+<script>
+    const config = <?php @readfile('config.json') || readfile('config-sample.json'); ?>
+
+    console.log(config.pixabay.apikey);
+</script>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script src="./vendor/svg.min.js"></script>
 <script src="./vendor/svg.draggable.min.js"></script>

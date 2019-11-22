@@ -5,7 +5,7 @@ services:
   webserver:
     build: docker/php
     ports:
-      - '9000:80'
+      - '${PORT}:80'
     volumes:
       - ./code:/var/www/html
       - ./fonts:/usr/share/fonts/truetype/custom
