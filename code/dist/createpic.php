@@ -28,7 +28,7 @@ $svg = $svgHeader . $svg; // Prefix SVG string with required XML node
 file_put_contents($filename, $svg);
 
 $format = ($_POST['format'] && $_POST['format'] == 'pdf') ? 'pdf' : 'png';
-$exportWidth = (int)$_POST['width'];
+$exportWidth = (int) $_POST['width'];
 convert($filename, $exportWidth, $format);
 
 $return = [];
