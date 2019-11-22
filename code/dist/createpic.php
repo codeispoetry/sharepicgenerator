@@ -39,7 +39,7 @@ echo json_encode($return);
 function convert($filename, $width, $format)
 {
 
-    $command = sprintf("inkscape %s --export-width=%d --export-{$format}=%s",
+    $command = sprintf("inkscape %s --export-width=%d --export-{$format}=%s --export-dpi=90",
         $filename,
         $width,
         'tmp/' . basename($filename, 'svg') . $format);
