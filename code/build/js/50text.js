@@ -19,8 +19,8 @@ const text = {
         text.svg = draw.group().addClass('draggable').draggable();
 
         text.svg.on('dragend.namespace', function (event) {
-            $('#textX').val(this.x());
-            $('#textY').val(this.y());
+            $('#textX').val(Math.round(this.x()));
+            $('#textY').val(Math.round(this.y()));
             text.bounce();
         });
 

@@ -4,6 +4,9 @@ const background = {
 
     draw() {
         this.svg.remove();
+
+        $('#backgroundURL').val(this.filename);
+
         this.svg = draw.image(this.filename, function (event) {
             this.back().draggable();
             background.isLoaded = true;
@@ -11,8 +14,8 @@ const background = {
             background.svg.move(parseInt($('#backgroundX').val()), parseInt($('#backgroundY').val()));
 
             this.on('dragend.namespace', function (event) {
-                $('#backgroundX').val(this.x());
-                $('#backgroundY').val(this.y());
+                $('#backgroundX').val(Math.round(this.x()));
+                $('#backgroundY').val(Math.round(this.y()));
                 background.bounceWarning();
             });
 
@@ -43,12 +46,13 @@ const background = {
         if (this.svg.y() > 0) error = true;
         if (this.svg.y() + this.svg.height() < draw.height()) error = true;
 
-        if (error)
-            message("Im Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class=\"cursor-pointer\" onClick=\"background.reset();\">setze es zurück</u> oder vergrößere es.")
-        else
+        if (error) {
+            console.log( this.svg.height(), draw.height());
+            message("Idm Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class=\"cursor-pointer\" onClick=\"background.reset();\">setze es zurück</u> oder vergrößere es.");
+        } else {
             message();
+        }
     }
-
 };
 
 
