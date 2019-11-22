@@ -22,8 +22,7 @@ $('#uploadfile').change(function (event) {
 });
 
 
-function uploadImageByUrl(url, callback = function () {
-}) {
+function uploadImageByUrl(url, callback = function () {}) {
 
     $('#waiting').addClass('active');
 
@@ -51,7 +50,7 @@ function afterUpload(data) {
     draw.size(data.width, data.height);
     info.originalWidth = data.originalWidth;
     info.originalHeight = data.originalHeight;
-    info.previewWidth = draw.width()
+    info.previewWidth = draw.width();
     info.previewHeight = draw.height();
 
     background.filename = data.filename;
@@ -66,4 +65,8 @@ function afterUpload(data) {
     window.setTimeout(text.draw, 10);
 }
 
+
+$('.uploadfileclicker').click(function(){
+    $('#uploadfile').click();
+});
 

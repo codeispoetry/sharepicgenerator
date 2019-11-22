@@ -1,7 +1,7 @@
 <?php
 $samlfile = '/var/simplesaml/lib/_autoload.php';
 
-if(file_exists($samlfile)) {
+if (file_exists($samlfile)) {
     require_once($samlfile);
     $as = new SimpleSAML_Auth_Simple('default-sp');
     $as->requireAuth();
@@ -52,7 +52,14 @@ if(file_exists($samlfile)) {
 
 <footer class="row fixed-bottom bg-primary p-2 text-white">
     <div class="col-10">
-        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="text-white">Quellcode auf github.com</a>
+        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf
+            github.com</a>
+        |
+        <a href="#" class="persistentsave">Speichern</a>
+
+        <?php foreach (glob("persistent/*.json") as $filename) { ?>
+            <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo $filename;?></a>
+        <?php } ?>
     </div>
     <div class="col-2 text-right">
         Programmiert mit <i class="fas fa-heart text-danger"></i> von Tom Rose.
@@ -97,7 +104,7 @@ if(file_exists($samlfile)) {
 </div>
 
 <script>
-     <?php echo 'const config ='; @readfile('config.json') || readfile('config-sample.json'); ?>
+    <?php echo 'const config ='; @readfile('config.json') || readfile('config-sample.json'); ?>
 </script>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script src="./vendor/svg.min.js"></script>

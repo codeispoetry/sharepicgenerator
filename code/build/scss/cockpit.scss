@@ -7,6 +7,11 @@
   }
 }
 
-.custom-file-label::after {
-  content: 'Hochladen';
+.size{
+  width: 6em !important;
 }
+#upload,
+#uploadfile {
+  height: 0;
+}
+

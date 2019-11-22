@@ -9,8 +9,8 @@ const pin = {
     svg: draw.image('assets/pin.svg', function (event) {
         pin.isLoaded = true;
         this.on('dragend.namespace', function (event) {
-            $('#pinX').val(this.x());
-            $('#pinY').val(this.y());
+            $('#pinX').val(Math.round(this.x()));
+            $('#pinY').val(Math.round(this.y()));
             pin.bounce();
         });
         pin.draw();
@@ -18,6 +18,7 @@ const pin = {
 
     draw() {
         if (!this.isLoaded) return false;
+
         pin.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
         pin.svg.size(parseInt($('#pinsize').val()));
     },
