@@ -1,21 +1,32 @@
 <?php
 
-
-exec("rm persistent/*.json");
-$filename = 'persistent/' . uniqid() . '.json';
-$filename ="persistent/test.json";
-exec(" chmod 777 -r persistent/");
-
 // get user input
 $data = json_decode($_POST['data']);
 
-// sanitiz user input
+// sanitize user input
 if (json_last_error() != JSON_ERROR_NONE) {
     die(json_encode(['success' => false, 'code' => 'nojson']));
 }
 
+exec("rm persistent/*.json");
+exec(" chmod 777 -r persistent/");
+
+// Get provided filename or fallback, sanitize
+$filename = ($data->persistentname) ?: $data->text;
+$filename = preg_replace('/[!\n]/','', $filename);
+$filename = preg_replace('/[^a-zA-Z0-9]/','-', $filename);
+$filename = preg_replace('/(\-+)/','-', $filename);
+$filename = strtolower( $filename );
+
+
+$filename = 'persistent/' .$filename . '.json';
+
+
+
+
+
 // copy file to tmp
-$pic = $data->backgroundURL;
+$pic = preg_replace('/_small/', '', $data->backgroundURL);
 $persistent_pic = 'persistent/test.jpg';
 copy( $pic, $persistent_pic);
 $data->backgroundURL = $persistent_pic;

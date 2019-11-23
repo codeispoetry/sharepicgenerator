@@ -56,10 +56,10 @@ if (file_exists($samlfile)) {
             github.com</a>
     </div>
     <div class="col-12 col-lg-5">
-        <a href="#" class="persistentsave">Als Vorlage speichern</a>
+        <a href="#" class="persistentsave">Als Vorlage speichern</a> |
 
         <?php foreach (glob("persistent/*.json") as $filename) { ?>
-            <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo $filename;?></a>
+            <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo ucfirst(basename($filename, '.json'));?></a>
         <?php } ?>
     </div>
     <div class="col-12 col-lg-4 text-md-right">
