@@ -11,6 +11,8 @@ Sharepicgenerator with Docker and Grunt.
   ``docker-compose run grunt sh -c 'npm install'``
   
  1. Create config.json-File from config-sample.json
+ 
+ 1. Run ```make compile``` to compile css an js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
 
 There is also a Makefile. You can use ``make up`` and ``make install``.
 
