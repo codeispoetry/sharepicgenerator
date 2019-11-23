@@ -86,14 +86,14 @@
             </div>
             <div class="mb-1 list-group-item-content">
                 <div class="form-inline">
-                    <div class="form-row">
+                    <div class="form-row sizecontainer">
                         <input type="number" class="form-control size" name="width" id="width" step="10">
                         <span class="m-1">x</span>
                         <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
-                        <span class="m-1">Pixel</span>
+                        <span class="m-1 mr-3">Pixel</span>
 
-                        <select class="form-control ml-3" id="sizepresets">
-                            <option>Bildgrößen</option>
+                        <select class="form-control fas" id="sizepresets">
+                            <option class="fas">&#xf5cb;</option>
                             <option value="1280:720">HD</option>
                             <option value="400:400">Quadrat</option>
                         </select>

@@ -7,9 +7,19 @@
   }
 }
 
-.size{
-  width: 6em !important;
+.sizecontainer {
+  input {
+    width: 5em !important;
+  }
+
+  select{
+    width: 4em !important;
+  }
+  option:not(.fas){
+    font-family: $font-family-base;
+  }
 }
+
 #upload,
 #uploadfile {
   height: 0;

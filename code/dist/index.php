@@ -18,14 +18,14 @@ if (file_exists($samlfile)) {
 <html lang="de">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
     <title>Sharepicgenerator Bayern</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
-<body class="">
-<div class="container-fluid h-100">
+<body class="h-100">
+<div class="container-fluid">
     <div class="row">
-        <div class="ml-md-auto">
+        <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
                 <h1 class="text-uppercase font-weight-bold">Sharepicgenerator Bayern</h1>
             </div>
@@ -36,7 +36,7 @@ if (file_exists($samlfile)) {
                 <div id="message" class="bg-danger text-white p-4"></div>
             </div>
 
-            <div class="col-12 text-right pb-5 mb-5">
+            <div class="col-12 text-center">
                 <button class="btn btn-secondary btn-lg" id="download">
                     <i class="fas fa-download"></i> Herunterladen
                 </button>
@@ -44,24 +44,25 @@ if (file_exists($samlfile)) {
 
 
         </div>
-        <div class="ml-md-auto p-3 pb-5 mb-5">
+        <div class="col-12 col-lg-3 mt-3">
             <?php require_once('cockpit.php'); ?>
         </div>
     </div>
 </div>
 
-<footer class="row fixed-bottom bg-primary p-2 text-white">
-    <div class="col-10">
+<footer class="row bg-primary p-2 text-white">
+    <div class="col-12 col-lg-3">
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf
             github.com</a>
-        |
-        <a href="#" class="persistentsave">Speichern</a>
+    </div>
+    <div class="col-12 col-lg-5">
+        <a href="#" class="persistentsave">Als Vorlage speichern</a>
 
         <?php foreach (glob("persistent/*.json") as $filename) { ?>
             <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo $filename;?></a>
         <?php } ?>
     </div>
-    <div class="col-2 text-right">
+    <div class="col-12 col-lg-4 text-md-right">
         Programmiert mit <i class="fas fa-heart text-danger"></i> von Tom Rose.
     </div>
 </footer>
