@@ -10,6 +10,9 @@ install:
 grunt-shell:
 	docker-compose exec grunt bash
 
+log:
+	docker-compose logs --tail=20 -f 2>&1 | grep "grunt"
+
 shell:
 	docker-compose exec webserver bash
 
