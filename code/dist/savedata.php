@@ -19,20 +19,14 @@ $filename = preg_replace('/(\-+)/','-', $filename);
 $filename = strtolower( $filename );
 
 
-$filename = 'persistent/' .$filename . '.json';
-
-
-
-
-
 // copy file to tmp
 $pic = preg_replace('/_small/', '', $data->backgroundURL);
-$persistent_pic = 'persistent/test.jpg';
+$persistent_pic = 'persistent/' . $filename . '.jpg';
 copy( $pic, $persistent_pic);
 $data->backgroundURL = $persistent_pic;
 
 // save data
-$success = file_put_contents($filename, json_encode($data));
+$success = file_put_contents('persistent/' .$filename . '.json', json_encode($data));
 
 // return to sender
 $return = [];
