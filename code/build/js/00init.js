@@ -9,6 +9,13 @@ const bgpic = {
     filename: 'assets/bg_small.jpg'
 };
 
+const secondaryfont = {
+    family: 'Arvo',
+    size: 15,
+    anchor: 'left',
+    weight: 700
+};
+
 $(document).ready(function () {
     afterUpload(bgpic);
     $('#text').val("!Leben\nlassen");

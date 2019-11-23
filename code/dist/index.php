@@ -33,7 +33,7 @@ if (file_exists($samlfile)) {
                 <div id="canvas"></div>
             </div>
             <div class="col-12 mt-3 mb-3">
-                <div id="message" class="bg-danger text-white p-4"></div>
+                <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
             </div>
 
             <div class="col-12 text-center">
