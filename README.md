@@ -3,12 +3,12 @@ Sharepicgenerator with Docker and Grunt.
 ## Installation
  1. Clone this repo with
   ``git clone ...``
-
- 1. Bring up the project with
- ``docker-compose up -d``
  
  1. Install dependencies with
   ``docker-compose run grunt sh -c 'npm install'``
+
+ 1. Bring up the project with
+ ``docker-compose up -d``
   
  1. Create config.json-File from config-sample.json
  

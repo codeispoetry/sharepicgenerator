@@ -4,11 +4,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
-            options: {
-                sourceMap: true,
-                sourceMapIncludeSources : true,
-                sourceMapIn : 'dist/assets/js/main.min.js.map'
-            },
             build: {
                 src: 'build/js/*.js',
                 dest: 'dist/assets/js/main.min.js'
