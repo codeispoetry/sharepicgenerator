@@ -3,8 +3,8 @@
   display: none;
   width: 100%;
   height: 100%;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   background: white;
   z-index: 100;
 
@@ -28,18 +28,28 @@
 #canvas {
   border: 1px solid #999;
   box-shadow: #999 5px 5px 15px;
+  margin: auto;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
-.opacity{
+.opacity {
   opacity: 0.20;
 }
 
-footer{
-  a{
+footer {
+
+  @include media-breakpoint-up(lg) {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1030;
+  }
+
+  a {
     color: $white;
   }
 }
