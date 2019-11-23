@@ -9,7 +9,7 @@ const logo = {
             "sonnenblume-weiss": {
                 file: "assets/logos/sonnenblume-weiss.svg",
                 widthFraction: 0.1,
-                position: 'bottomleft'
+                position: 'topright'
             },
             "sonnenblume-big": {
                 file: "assets/logos/sonnenblume.svg",
