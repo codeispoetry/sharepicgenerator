@@ -55,7 +55,6 @@ echo json_encode($return);
 deleteOldFiles();
 function deleteOldFiles()
 {
-    // Lösche im Cachae alles, was älter als eine Stunde ist
     $files = scandir('tmp');
     $now = time();
     foreach ($files as $file) {

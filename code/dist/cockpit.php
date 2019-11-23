@@ -57,7 +57,6 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Pin</h6>
-                <small></small>
             </div>
             <div class="mb-1 list-group-item-content">
                 <div class="slider">

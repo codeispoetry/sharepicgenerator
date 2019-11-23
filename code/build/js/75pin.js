@@ -2,6 +2,10 @@ $('#pinsize').bind('input propertychange', function () {
     pin.draw();
 });
 
+$('#pintofront').click( function () {
+    pin.svg.front();
+});
+
 
 const pin = {
     isLoaded: false,
@@ -21,6 +25,7 @@ const pin = {
 
         pin.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
         pin.svg.size(parseInt($('#pinsize').val()));
+        pin.svg.front();
     },
 
     bounce: function () {
