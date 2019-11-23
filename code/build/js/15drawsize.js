@@ -43,20 +43,16 @@ function setDimensions(width, height) {
 
 
 function calculateSizes() {
-    $('#textsize').attr('min', draw.width() * 0.2);
+    // here are also the default sizes after init 
+    $('#textsize').attr('min', draw.width() * 0.1);
     $('#textsize').attr('max', draw.width());
-    $('#textsize').val(draw.width() * 0.5);
+    $('#textsize').val(draw.width() * 0.3);
 
     $('#textX').val(0);
-    $('#textY').val(draw.height() / 2);
-
-    $('#pinsize').attr('min', Math.max(50, draw.width() * 0.1));
-    $('#pinsize').attr('max', Math.max(50, draw.width() * 0.25));
-    $('#pinsize').val(draw.width() * .175);
+    $('#textY').val(draw.height() / 5);
 
     $('#pinX').val(draw.width() * 0.7);
     $('#pinY').val(draw.height() * 0.5);
-
 
     $('#backgroundsize').attr('min', draw.width());
     $('#backgroundsize').attr('max', draw.width() * 5);

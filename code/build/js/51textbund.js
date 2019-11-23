@@ -9,15 +9,14 @@ const text = {
     font: {
         family: 'Arvo',
         anchor: 'left',
-        leading: '1.0em',
-        weight: 'bold'
+        leading: '1.0em'
     },
     fontoutsidelines: {
         family: 'Arvo',
-        size: 5,
+        size: 6,
         anchor: 'left',
         leading: '1.0em',
-        weight: 'bold'
+        weight: 300
     },
 
     draw: function () {
@@ -32,12 +31,16 @@ const text = {
         });
 
         let y = 0;
+        let lines = $('#text').val().split(/\n/);
+        let fontweight = (lines.length <= 3 ) ? 700 : 300;
+        console.log( fontweight);
 
-        $('#text').val().split(/\n/).forEach(function (value, index, array) {
+        lines.forEach(function (value, index, array) {
                 let style = /^!/.test(value) ? 1 : 0;
+                 
                 value = value.replace(/^!/, '').toUpperCase();
 
-                let t = draw.text(value).font({...text.font, ...{size: text.fontsizes[style]}}).fill(text.colors[style]).move(0, y + text.yBiases[style]);
+                let t = draw.text(value).font({...text.font, ...{weight: fontweight, size: text.fontsizes[style]}}).fill(text.colors[style]).move(0, y + text.yBiases[style]);
 
                 text.svg.add(t);
                 y += text.lineheights[style] + text.linemargin;
@@ -45,14 +48,14 @@ const text = {
         );
 
         // add upper and lower line
-        let linebefore = draw.rect( text.svg.width(), 2).fill( '#ffffff').dy( -2 );
-        let lineafter  = linebefore.clone().dy( text.svg.height());
+        let linebefore = draw.rect( text.svg.width(), 2).fill( '#ffffff').dy( -4 );
+        let lineafter  = linebefore.clone().dy( text.svg.height() + 6 );
         text.svg.add( linebefore);
         text.svg.add( lineafter );
 
         // text above and below the line
-        let textbefore = draw.text( $('#textbefore').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy(-10);
-        let textafter = draw.text( $('#textafter').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy( text.svg.height());
+        let textbefore = draw.text( $('#textbefore').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy(-14);
+        let textafter = draw.text( $('#textafter').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy( text.svg.height() - 2 );
         text.svg.add( textbefore );
         text.svg.add( textafter );
 
