@@ -19,7 +19,7 @@ if (file_exists($samlfile)) {
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
-    <title>Sharepicgenerator Bayern</title>
+    <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 <body class="h-100">
@@ -27,7 +27,7 @@ if (file_exists($samlfile)) {
     <div class="row">
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase font-weight-bold">Sharepicgenerator Bayern</h1>
+                <h1 class="text-uppercase font-weight-bold">Sharepicgenerator</h1>
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
