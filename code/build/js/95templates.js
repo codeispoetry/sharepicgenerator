@@ -16,7 +16,7 @@ const persistent = {
 
         //json['persistentname'] = 'must be sanitzed later';
 
-        $.post("savedata.php", {data: JSON.stringify(json)})
+        $.post("savetemplate.php", {data: JSON.stringify(json)})
             .done(function (data) {
                 console.log(data);
                 let obj = JSON.parse(data);
