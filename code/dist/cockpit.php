@@ -36,12 +36,16 @@
                 <small></small>
             </div>
             <div class="list-group-item-content">
+                <div class="">
+                    <input type="text" name="textbefore" id="textbefore" value="Text drüber" class="form-control">
+                </div>
                 <div class="mb-1">
                     <textarea name="text" id="text" class="form-control">grün tut gut</textarea>
                 </div>
-                <small>Zeilen, die mit einem
-                    Ausrufezeichen ! beginnen,
-                    werden hervorgehoben</small>
+                <div class="">
+                    <input type="text" name="textafter" id="textafter" value="Text danach" class="form-control">
+                </div>
+                <small>Text in Klammern () wird gelb</small>
 
                 <div class="mb-1 mt-2">
                     <div class="slider">
@@ -56,9 +60,12 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Pin</h6>
+                <h6 class="mb-1">Störer</h6>
             </div>
             <div class="mb-1 list-group-item-content">
+                <div class="mb-1 list-group-item-content">
+                    <input type="text" name="pintext" id="pintext" value="Schau her" class="form-control">
+                </div>
                 <div class="slider">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="pinsize" id="pinsize" min="1" max="100">
@@ -73,6 +80,19 @@
             </div>
             <div class="mb-1 list-group-item-content">
                 <input type="text" name="subline" id="subline" value="gruene-bayern.de" class="form-control">
+            </div>
+        </div>
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Logo</h6>
+            </div>
+            <div class="mb-1 list-group-item-content">
+                <select class="form-control" id="logoselect">
+                    <option value="sonnenblume">Sonnenblume</option>
+                    <option value="sonnenblume-weiss">Weiße Sonnenblume</option>
+                    <option value="sonnenblume-big">Sonnenblume links unten</option>
+                </select>
             </div>
         </div>
 
