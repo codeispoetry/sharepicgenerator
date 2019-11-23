@@ -14,12 +14,12 @@ const persistent = {
             return false;
         }
 
-
         $.post("savedata.php", {data: JSON.stringify(json)})
             .done(function (data) {
+                console.log(data);
                 let obj = JSON.parse(data);
 
-                location.reload();
+                //location.reload();
 
                 if (!obj.success) {
                     console.log("Could not save data");

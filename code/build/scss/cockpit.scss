@@ -12,10 +12,12 @@
     width: 5em !important;
   }
 
-  select{
+
+  select {
     width: 4em !important;
   }
-  option:not(.fas){
+
+  option:not(.fas) {
     font-family: $font-family-base;
   }
 }
