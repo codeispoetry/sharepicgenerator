@@ -1,15 +1,22 @@
 const text = {
     svg: draw.text(''),
-    lineheights: [26, 40],
-    colors: ['#449d2f', '#255119'],
-    fontsizes: [23, 40],
-    yBiases: [0, -3],
-    linemargin: 4,
+    colors: ['#ffffff', '#ffee00'],
+    fontsizes: [20, 20],
+    lineheights: [20, 20],
+    yBiases: [0, 0],
+    linemargin: 0,
     paddingLr: 5,
     font: {
         family: 'Arvo',
         anchor: 'left',
-        leading: '1.25em',
+        leading: '1.0em',
+        weight: 'bold'
+    },
+    fontoutsidelines: {
+        family: 'Arvo',
+        size: 5,
+        anchor: 'left',
+        leading: '1.0em',
         weight: 'bold'
     },
 
@@ -32,13 +39,22 @@ const text = {
 
                 let t = draw.text(value).font({...text.font, ...{size: text.fontsizes[style]}}).fill(text.colors[style]).move(0, y + text.yBiases[style]);
 
-                let r = draw.rect(t.length() + 2 * text.paddingLr, text.lineheights[style]).fill('white').move(-text.paddingLr, y);
-
-
-                text.svg.add(r).add(t);
+                text.svg.add(t);
                 y += text.lineheights[style] + text.linemargin;
             }
         );
+
+        // add upper and lower line
+        let linebefore = draw.rect( text.svg.width(), 2).fill( '#ffffff').dy( -2 );
+        let lineafter  = linebefore.clone().dy( text.svg.height());
+        text.svg.add( linebefore);
+        text.svg.add( lineafter );
+
+        // text above and below the line
+        let textbefore = draw.text( $('#textbefore').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy(-10);
+        let textafter = draw.text( $('#textafter').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy( text.svg.height());
+        text.svg.add( textbefore );
+        text.svg.add( textafter );
 
         text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
 
@@ -66,6 +82,6 @@ const text = {
 };
 
 
-$('#text').bind('input propertychange', text.draw);
+$('#text, #textbefore, #textafter').bind('input propertychange', text.draw);
 $('#textsize').bind('input propertychange', text.draw);
 
