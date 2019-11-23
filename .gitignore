@@ -1,11 +1,7 @@
 code/node_modules
 code/.sass-cache
-code/dist/tmp/*
-code/dist/assets/js/main.min.js
-code/dist/assets/js/main.min.js.map
-code/dist/assets/css/styles.css
-code/dist/assets/css/styles.css.map
-code/dist/config.json
-code/dist/persistent/*
-deployment/sshkeys/*
 
+code/dist/assets/js/main.min.js*
+code/dist/assets/css/styles.css*
+
+code/dist/config.json
