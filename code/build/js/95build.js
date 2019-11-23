@@ -14,6 +14,8 @@ const persistent = {
             return false;
         }
 
+        //json['persistentname'] = 'must be sanitzed later';
+
         $.post("savedata.php", {data: JSON.stringify(json)})
             .done(function (data) {
                 console.log(data);
