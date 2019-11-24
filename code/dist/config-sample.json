@@ -1,5 +1,6 @@
 {
   "pixabay": {
+    "_comment": "Find your API key on https://pixabay.com/api/docs/",
     "apikey": "ENTER_YOUR_PIXABAY_API_KEY_HERE"
   }
 }
