@@ -97,6 +97,18 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Design</h6>
+            </div>
+            <div class="mb-1 list-group-item-content">
+                <select class="form-control" id="design">
+                    <option value="standard">Standard</option>
+                    <option value="bigright">Großfläche</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Ausgabegröße</h6>
                 <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>
                     zurücksetzen</small>
@@ -130,5 +142,7 @@
         <input type="hidden" name="backgroundURL" id="backgroundURL">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
+
+
     </div>
 </form>

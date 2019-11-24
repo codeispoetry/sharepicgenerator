@@ -20,6 +20,7 @@ const text = {
     },
 
     draw: function () {
+        if($('#design').val() != 'standard') return;
 
         text.svg.remove();
         text.svg = draw.group().addClass('draggable').draggable();
@@ -33,7 +34,7 @@ const text = {
         let y = 0;
         let lines = $('#text').val().split(/\n/);
         let fontweight = (lines.length <= 3 ) ? 700 : 300;
-        console.log( fontweight);
+      
 
         lines.forEach(function (value, index, array) {
                 let style = /^!/.test(value) ? 1 : 0;
