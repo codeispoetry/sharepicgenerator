@@ -16,7 +16,7 @@ const background = {
             this.on('dragend.namespace', function (event) {
                 $('#backgroundX').val(Math.round(this.x()));
                 $('#backgroundY').val(Math.round(this.y()));
-                background.bounceWarning();
+                background.uncoveredAreaWarning();
             });
 
         })
@@ -28,26 +28,35 @@ const background = {
         $('#backgroundY').val(0);
         $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min')));
         this.draw();
-        background.bounceWarning();
+        background.uncoveredAreaWarning();
     },
 
     resize: function () {
         let val = parseInt($('#backgroundsize').val());
         this.svg.size(val);
-        background.bounceWarning();
+        background.uncoveredAreaWarning();
     },
 
-    bounceWarning: function () {
+    uncoveredAreaWarning: function () {
         if (!this.isLoaded) return false;
 
         let error = false;
-        if (this.svg.x() > 0) error = true;
-        if (this.svg.x() + this.svg.width() < draw.width()) error = true;
-        if (this.svg.y() > 0) error = true;
-        if (this.svg.y() + this.svg.height() < draw.height()) error = true;
+
+        switch($('#design').val()){
+            case 'bigright':
+                if (this.svg.x() > 0) error = true;
+                if (this.svg.y() > 0) error = true;
+                if (this.svg.y() + this.svg.height() < draw.height()) error = true;
+            break;
+            default:
+                if (this.svg.x() > 0) error = true;
+                if (this.svg.x() + this.svg.width() < draw.width()) error = true;
+                if (this.svg.y() > 0) error = true;
+                if (this.svg.y() + this.svg.height() < draw.height()) error = true;
+        }
+        
 
         if (error) {
-            console.log( this.svg.height(), draw.height());
             message("Idm Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class=\"cursor-pointer\" onClick=\"background.reset();\">setze es zurück</u> oder vergrößere es.");
         } else {
             message();
