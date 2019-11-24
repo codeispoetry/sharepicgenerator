@@ -9,3 +9,11 @@ $fa-font-path: "../fonts";
 
 $font-family-base: 'Arial';
 $headings-font-family: 'Arvo';
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1120px,
+  xl: 1200px
+)

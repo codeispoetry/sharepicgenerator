@@ -18,11 +18,10 @@ if (file_exists($samlfile)) {
 <html lang="de">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
     <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
-<body class="h-100">
+<body>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-9">
@@ -36,7 +35,7 @@ if (file_exists($samlfile)) {
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
             </div>
 
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mb-5">
                 <button class="btn btn-secondary btn-lg" id="download">
                     <i class="fas fa-download"></i> Herunterladen
                 </button>
@@ -44,7 +43,7 @@ if (file_exists($samlfile)) {
 
 
         </div>
-        <div class="col-12 col-lg-3 mt-3">
+        <div class="col-12 col-lg-3 mt-3 mb-5">
             <?php require_once('cockpit.php'); ?>
         </div>
     </div>
