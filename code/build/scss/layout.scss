@@ -53,3 +53,23 @@ footer {
     color: $white;
   }
 }
+
+.cockpit{
+  zoom: 2.3;
+  @include media-breakpoint-up(lg) {
+     zoom:1;
+  }
+}
+
+h6{
+  color: $purple;
+  font-family: Arial;
+  @include media-breakpoint-up(lg) {
+      color: inherit;
+      font-family: inherit;
+  }
+}
+
+optgroup{
+  font-family: Arial;
+}

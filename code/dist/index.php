@@ -26,7 +26,7 @@ if (file_exists($samlfile)) {
     <div class="row">
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase font-weight-bold">Sharepicgenerator</h1>
+                <h1 class="text-uppercase font-weight-bold">Sharepicgenerator (Preview)</h1>
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
@@ -43,25 +43,25 @@ if (file_exists($samlfile)) {
 
 
         </div>
-        <div class="col-12 col-lg-3 mt-3 mb-5">
+        <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
             <?php require_once('cockpit.php'); ?>
         </div>
     </div>
 </div>
 
 <footer class="row bg-primary p-2 text-white">
-    <div class="col-12 col-lg-3">
+    <div class="col-12 col-lg-8">
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf
             github.com</a>
     </div>
-    <div class="col-12 col-lg-5">
-        <a href="#" class="persistentsave">Als Vorlage speichern</a> |
+    <div class="col-12 col-lg-5 d-none">
+        <a href="#" class="persistentsave">Als Vorlage speichern</a>
 
         <?php foreach (glob("persistent/*.json") as $filename) { ?>
-            <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo ucfirst(basename($filename, '.json'));?></a>
+            | <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo ucfirst(basename($filename, '.json'));?></a>
         <?php } ?>
     </div>
-    <div class="col-12 col-lg-4 text-md-right">
+    <div class="col-12 col-lg-4 text-lg-right">
         Programmiert mit <i class="fas fa-heart text-danger"></i> von Tom Rose.
     </div>
 </footer>

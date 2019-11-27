@@ -67,18 +67,17 @@
             </div>
             <div class="mb-1 list-group-item-content">
                 <div class="mb-1 list-group-item-content">
-                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value="Schau her" class="form-control">
+                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control">
                 </div>
-                <small>Zum Entfernen aus dem Bild ziehen oder Text löschen</small>
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="list-group-item list-group-item-action flex-column align-items-start d-none">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Zeile unten</h6>
             </div>
             <div class="mb-1 list-group-item-content">
-                <input type="text" placeholder="Text für die Zeile unten"  name="subline" id="subline" value="sharepicgenerator.de" class="form-control">
+                <input type="text" placeholder="Text für die Zeile unten"  name="subline" id="subline" value="" class="form-control">
             </div>
         </div>
 
@@ -95,7 +94,7 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="list-group-item list-group-item-action flex-column align-items-start d-none">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Design</h6>
             </div>
@@ -124,8 +123,17 @@
 
                         <select class="form-control fas" id="sizepresets">
                             <option class="fas">&#xf5cb;</option>
-                            <option value="1280:720">HD</option>
-                            <option value="400:400">Quadrat</option>
+                            <?php
+                                $sizes = parse_ini_file('picturesizes.ini', TRUE);
+                                foreach($sizes AS $name=>$group ){
+                                    printf ('<optgroup label="%s">', $name);
+                                    foreach($group AS $label => $size){
+                                        list($width,$height) = preg_split("/[^0-9]/",trim($size));
+                                        printf('<option value="%d:%d">%s</option>', $width, $height, $label);
+                                    }
+                                    echo '</optgroup>';
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
