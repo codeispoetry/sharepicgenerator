@@ -9,10 +9,11 @@ const design = {
                 bigright.draw();
                 break;
             case 'standard':
-             text.svg.show();
-             text.draw();
-             logo.svg.show();
-             pin.svg.show();
+            case 'textbackground':
+                text.svg.show();
+                text.draw();
+                logo.svg.show();
+                pin.svg.show();
         }
         background.uncoveredAreaWarning();
     },
