@@ -18,8 +18,6 @@ const text = {
     },
 
     draw: function () {
-        if($('#design').val() != 'standard') return;
-
         text.svg.remove();
         text.svg = draw.group().addClass('draggable').draggable();
 
@@ -57,12 +55,23 @@ const text = {
         text.svg.add( textbefore );
         text.svg.add( textafter );
 
+
         // green background behind text
-        //let textbackgroundpadding = 10;
-      //  let textbackground = draw.rect( text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding ).fill('#46962b').move(-textbackgroundpadding  , -14);
-   
-       // text.svg.add(textbackground);
-       // textbackground.back(); 
+        if($('#design').val() == 'textbackground'){
+            let textbackgroundpadding = 10;
+            let textbackground = draw.rect( text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding ).fill('#46962b').move(-textbackgroundpadding  , -14).back();
+
+            if($('#textbefore').val()){
+                textbackground.dy( -6 );
+            }
+
+            if($('#textbefore').val() && $('#textafter').val() ){
+              textbackground.height( textbackground.height() - 6 );
+            }
+
+            text.svg.add(textbackground);
+            textbackground.back(); 
+        }
 
         text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
 

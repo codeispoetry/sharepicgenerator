@@ -96,14 +96,15 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start d-none">
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Design</h6>
             </div>
             <div class="mb-1 list-group-item-content">
                 <select class="form-control" id="design">
                     <option value="standard">Standard</option>
-                    <option value="bigright">Großfläche</option>
+                    <option value="textbackground">Grün hinter dem Text</option>
+                    <KILLoption value="bigright">Großfläche</option>
                 </select>
             </div>
         </div>
