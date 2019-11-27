@@ -39,7 +39,7 @@
                 <div class="">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="" class="form-control">
                 </div>
-                <div class="mb-1">
+                <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">grün tut gut</textarea>
                 </div>
                 <div class="">
@@ -89,6 +89,8 @@
                 <select class="form-control" id="logoselect">
                     <option value="sonnenblume">Sonnenblume</option>
                     <option value="sonnenblume-weiss">Weiße Sonnenblume</option>
+                    <option value="logo-weiss">Logo in weiß</option>
+                    <option value="logo-gruen">Logo in grün<nav></nav></option>
                     <option value="sonnenblume-big">Sonnenblume links unten</option>
                 </select>
             </div>
