@@ -10,7 +10,7 @@ const bgpic = {
 };
 
 const secondaryfont = {
-    family: 'Arvo',
+    family: 'ArvoGruen',
     size: 15,
     anchor: 'left',
     weight: 700

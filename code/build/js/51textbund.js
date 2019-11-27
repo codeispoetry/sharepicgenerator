@@ -7,16 +7,14 @@ const text = {
     linemargin: 0,
     paddingLr: 5,
     font: {
-        family: 'Arvo',
         anchor: 'left',
         leading: '1.0em'
     },
     fontoutsidelines: {
-        family: 'Arvo',
+        family: 'ArvoGruen',
         size: 6,
         anchor: 'left',
         leading: '1.0em',
-        weight: 300
     },
 
     draw: function () {
@@ -33,15 +31,14 @@ const text = {
 
         let y = 0;
         let lines = $('#text').val().split(/\n/);
-        let fontweight = (lines.length <= 3 ) ? 700 : 300;
+        let fontfamily = (lines.length <= 3 ) ? 'ArvoGruen' : 'Arvo';
       
-
         lines.forEach(function (value, index, array) {
                 let style = /^!/.test(value) ? 1 : 0;
                  
                 value = value.replace(/^!/, '').toUpperCase();
 
-                let t = draw.text(value).font({...text.font, ...{weight: fontweight, size: text.fontsizes[style]}}).fill(text.colors[style]).move(0, y + text.yBiases[style]);
+                let t = draw.text(value).font({...text.font, ...{family: fontfamily, size: text.fontsizes[style]}}).fill(text.colors[style]).move(0, y + text.yBiases[style]);
 
                 text.svg.add(t);
                 y += text.lineheights[style] + text.linemargin;
@@ -59,6 +56,13 @@ const text = {
         let textafter = draw.text( $('#textafter').val() ).font( text.fontoutsidelines ).fill('#ffffff').dy( text.svg.height() - 2 );
         text.svg.add( textbefore );
         text.svg.add( textafter );
+
+        // green background behind text
+        //let textbackgroundpadding = 10;
+      //  let textbackground = draw.rect( text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding ).fill('#46962b').move(-textbackgroundpadding  , -14);
+   
+       // text.svg.add(textbackground);
+       // textbackground.back(); 
 
         text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
 

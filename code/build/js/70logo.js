@@ -11,6 +11,16 @@ const logo = {
                 widthFraction: 0.1,
                 position: 'topright'
             },
+            "logo-weiss": {
+                file: "assets/logos/logo-weiss.svg",
+                widthFraction: 0.2,
+                position: 'topright'
+            },
+            "logo-gruen": {
+                file: "assets/logos/logo-gruen.svg",
+                widthFraction: 0.20,
+                position: 'topright'
+            },
             "sonnenblume-big": {
                 file: "assets/logos/sonnenblume.svg",
                 widthFraction: 0.5,

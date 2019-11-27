@@ -26,7 +26,7 @@ if (file_exists($samlfile)) {
     <div class="row">
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase font-weight-bold">Sharepicgenerator (Preview)</h1>
+                <h1 class="text-uppercase">Sharepicgenerator (Preview)</h1>
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
