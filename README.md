@@ -30,15 +30,15 @@ This directory is to be deployed.
 Here reside the Javascript and SCSS-files. They are compiled by Grunt.
 
 ### code/node_modules
-Are installed by nmp. Nothing to do here. Will not be commited. Use _npm install_ to create folder.
+Are installed by nmp. Nothing to do here. Will not be commited. Use _npm install_ to create folder and its content.
 
 ### docker
-The Dockerfile are here. They are referred to from docker-compose.yml.
+The Dockerfiles are here. They are referred to from docker-compose.yml.
 
 ### fonts
 All font-files are linked into to webserver-container, so that inkscape can use them. Handle webfonts in _code/dist/fonts_ independently from that.
 
-## Core
+## Code
 ### assets and fonts
 Pictures, logos, webfonts, etc. can be stored here
 
@@ -48,7 +48,10 @@ Compiled files. Use _build_-directory to change code.
 ### tmp
 Uploaded files are here as well as the sharepic. Files are deleted regularly.
 
+### persistent
+Templates go here. Opposite to /tmp, directory will not be emtied automatically.
+
 ### vendor
-SVG.js, jQuery etc. are here. They are placed manually, no by npm to keep dependencies save.
+SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 
 
