@@ -6,11 +6,6 @@ if (file_exists($samlfile)) {
     $as = new SimpleSAML_Auth_Simple('default-sp');
     $as->requireAuth();
 }
-//$samlattributes = $as->getAttributes();
-//if (isset($samlattributes)) {
-//    $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-//    // do nothing
-//}
 
 ?>
 
@@ -24,10 +19,10 @@ if (file_exists($samlfile)) {
 <body>
 <div class="container-fluid">
     <div class="row">
+        <div class="col-12 col-lg-9 text-center pt-4 pb-3">
+            <h1 class="text-uppercase h6">Sharepicgenerator (Preview)</h1>
+        </div>
         <div class="col-12 col-lg-9">
-            <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase">Sharepicgenerator (Preview)</h1>
-            </div>
             <div class="col-12">
                 <div id="canvas"></div>
             </div>
