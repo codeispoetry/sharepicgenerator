@@ -10,14 +10,32 @@ $('#download').click(function () {
     $.ajax({
         type: "POST",
         url: 'createpic.php',
-        data: {svg: data, format: format, width: $('#width').val() },
+        data: {svg: data, format: format, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
             $('#download').prop("disabled", false);
             $('#canvas').removeClass('opacity');
             $('#download').html(description);
 
-            window.location.href = 'download.php?file=' + obj.basename + '&format=' + format;
+            let downloadname = $('#text').val().toLowerCase();
+            downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, function (match) {
+                switch (match) {
+                    case 'ä':
+                        return 'ae';
+                    case 'ö':
+                        return 'oe';
+                    case 'ü':
+                        return 'ue';
+                    case 'ß':
+                        return 'ss';
+                }
+            });
+            downloadname = downloadname.replace(/[^a-zA-Z0-9]/g, '-');
+            downloadname = downloadname.replace(/\-+/g, '-');
+            downloadname = downloadname.replace(/^\-/g, '');
+            downloadname = downloadname.replace(/\-$/g, '');
+
+            window.location.href = 'download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
         }
     });
 });
