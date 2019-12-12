@@ -41,7 +41,6 @@ const text = {
                 let t = draw.text(function (add) {
                     for(let i = 0; i<values.length; i++) {
                         style = (style == 0 ) ? 1 : 0;
-                        console.log(style);
                         add.tspan( values[i] ).fill(text.colors[style]).font({...text.font, ...{family: fontfamily}});
                     }
                 });
@@ -60,8 +59,27 @@ const text = {
         text.svg.add(lineafter);
 
         // text above and below the line
-        let textbefore = draw.text($('#textbefore').val()).font(text.fontoutsidelines).fill('#ffffff').dy(-14);
-        let textafter = draw.text($('#textafter').val()).font(text.fontoutsidelines).fill('#ffffff').dy(text.svg.height() - 2);
+        let textbeforeParts = $('#textbefore').val().split(/\[|\]/);
+        let style = 1;
+        let textbefore = draw.text(function (add) {
+            for(let i = 0; i<textbeforeParts.length; i++) {
+                style = (style == 0 ) ? 1 : 0;
+                add.tspan( textbeforeParts[i] ).fill(text.colors[style]).font(text.fontoutsidelines);
+            }
+        });
+       textbefore.dy(-7);
+
+
+        let textafterParts = $('#textafter').val().split(/\[|\]/);
+        style = 1;
+        let textafter = draw.text(function (add) {
+            for(let i = 0; i<textafterParts.length; i++) {
+                style = (style == 0 ) ? 1 : 0;
+                add.tspan( textafterParts[i] ).fill(text.colors[style]).font(text.fontoutsidelines);
+            }
+        });
+        textafter.dy(text.svg.height() + 5);
+
         text.svg.add(textbefore);
         text.svg.add(textafter);
 
