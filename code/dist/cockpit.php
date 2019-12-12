@@ -82,7 +82,7 @@
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value=""
                            class="form-control">
                 </div>
-                <small>Zeilen, die mit einem Ausrufezeichen ! beginnen, werden gelb</small>
+                <small>Text in eckigen Klammern [ ] wird gelb</small>
 
                 <div class="mb-1 mt-2">
                     <div class="slider">
