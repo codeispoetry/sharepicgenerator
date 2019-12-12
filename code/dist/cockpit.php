@@ -2,6 +2,41 @@
     <div class="list-group">
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Ausgabegröße</h6>
+                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>
+                    zurücksetzen</small>
+
+            </div>
+            <div class="mb-1 list-group-item-content">
+                <div class="form-inline">
+                    <div class="form-row sizecontainer">
+                        <input type="number" class="form-control size" name="width" id="width" step="10">
+                        <span class="m-1">x</span>
+                        <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
+                        <span class="m-1 mr-3">Pixel</span>
+
+                        <select class="form-control fas" id="sizepresets">
+                            <option class="fas">&#xf5cb;</option>
+                            <?php
+                            $sizes = parse_ini_file('picturesizes.ini', TRUE);
+                            foreach ($sizes AS $name => $group) {
+                                printf('<optgroup label="%s">', $name);
+                                foreach ($group AS $label => $size) {
+                                    list($width, $height) = preg_split("/[^0-9]/", trim($size));
+                                    printf('<option value="%d:%d">%s</option>', $width, $height, $label);
+                                }
+                                echo '</optgroup>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Bild</h6>
                 <small></small>
             </div>
@@ -37,13 +72,15 @@
             </div>
             <div class="list-group-item-content">
                 <div class="">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="" class="form-control">
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
+                           class="form-control">
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">grün tut gut</textarea>
                 </div>
                 <div class="">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value=""
+                           class="form-control">
                 </div>
                 <small>Zeilen, die mit einem Ausrufezeichen ! beginnen, werden gelb</small>
 
@@ -67,7 +104,8 @@
             </div>
             <div class="mb-1 list-group-item-content">
                 <div class="mb-1 list-group-item-content">
-                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control">
+                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value=""
+                           class="form-control">
                 </div>
             </div>
         </div>
@@ -77,7 +115,8 @@
                 <h6 class="mb-1">Zeile unten</h6>
             </div>
             <div class="mb-1 list-group-item-content">
-                <input type="text" placeholder="Text für die Zeile unten"  name="subline" id="subline" value="" class="form-control">
+                <input type="text" placeholder="Text für die Zeile unten" name="subline" id="subline" value=""
+                       class="form-control">
             </div>
         </div>
 
@@ -90,7 +129,9 @@
                     <option value="sonnenblume">Sonnenblume</option>
                     <option value="sonnenblume-weiss">Weiße Sonnenblume</option>
                     <option value="logo-weiss">Logo in weiß</option>
-                    <option value="logo-gruen">Logo in grün<nav></nav></option>
+                    <option value="logo-gruen">Logo in grün
+                        <nav></nav>
+                    </option>
                     <option value="sonnenblume-big">Sonnenblume links unten</option>
                 </select>
             </div>
@@ -109,39 +150,6 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Ausgabegröße</h6>
-                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>
-                    zurücksetzen</small>
-
-            </div>
-            <div class="mb-1 list-group-item-content">
-                <div class="form-inline">
-                    <div class="form-row sizecontainer">
-                        <input type="number" class="form-control size" name="width" id="width" step="10">
-                        <span class="m-1">x</span>
-                        <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
-                        <span class="m-1 mr-3">Pixel</span>
-
-                        <select class="form-control fas" id="sizepresets">
-                            <option class="fas">&#xf5cb;</option>
-                            <?php
-                                $sizes = parse_ini_file('picturesizes.ini', TRUE);
-                                foreach($sizes AS $name=>$group ){
-                                    printf ('<optgroup label="%s">', $name);
-                                    foreach($group AS $label => $size){
-                                        list($width,$height) = preg_split("/[^0-9]/",trim($size));
-                                        printf('<option value="%d:%d">%s</option>', $width, $height, $label);
-                                    }
-                                    echo '</optgroup>';
-                                }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
