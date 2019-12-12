@@ -18,7 +18,7 @@ const secondaryfont = {
 
 $(document).ready(function () {
     afterUpload(bgpic);
-    $('#text').val("!Leben\nlassen");
+    $('#text').val("Le[b]en\nlas[se]n");
 });
 
 function message( text = false ){
