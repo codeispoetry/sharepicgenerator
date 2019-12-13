@@ -9,5 +9,7 @@ code/dist/config.json
 code/dist/tmp/
 
 node_modules
+code/dist/log/log.txt
+
 
 .idea

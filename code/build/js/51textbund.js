@@ -44,6 +44,7 @@ const text = {
                         add.tspan( values[i] ).fill(text.colors[style]).font({...text.font, ...{family: fontfamily}});
 
                         add.attr("xml:space","preserve");
+                        add.attr("style","white-space:pre");
                     }
                 });
 
