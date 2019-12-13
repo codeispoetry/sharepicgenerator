@@ -2,6 +2,7 @@
 import time, sys, getopt
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 
 
 #####################################
@@ -31,7 +32,11 @@ for currentArgument, currentValue in arguments:
         text = currentValue
 
 
+options = Options()
+options.add_argument("--no-sandbox")
+options.add_argument("--headless")
 
+#driver = webdriver.Chrome('./chromedriver', chrome_options=options)
 driver = webdriver.Chrome('./chromedriver')
 driver.get('https://sharepicgenerator.de/bayern/?api=true')
 
