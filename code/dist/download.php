@@ -22,7 +22,7 @@ readfile('tmp/' . $filename . '.' . $format);
 require_once('telegram/sendinfo.php');
 
 //unlink('tmp/' . $filename . '.' . $format);
-unlink('tmp/' . $filename . '.svg');
+//unlink('tmp/' . $filename . '.svg');
 
 function logthis($filename)
 {
