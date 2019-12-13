@@ -6,6 +6,8 @@ code/dist/assets/css/styles.css*
 
 code/dist/config.json
 
-code/dist/tmp/*
+code/dist/tmp/
+
+node_modules
 
 .idea
