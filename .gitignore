@@ -11,6 +11,7 @@ code/dist/tmp/
 node_modules
 code/dist/log/log.txt
 code/dist/config.ini
+code/dist/api/chromedriver
 
 
 .idea
