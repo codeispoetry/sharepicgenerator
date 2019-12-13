@@ -69,6 +69,7 @@ const text = {
                 style = (style == 0 ) ? 1 : 0;
                 add.tspan( textbeforeParts[i] ).fill(text.colors[style]).font(text.fontoutsidelines);
                 add.attr("xml:space","preserve");
+                add.attr("style","white-space:pre");
             }
         });
        textbefore.dy(-7);
@@ -81,6 +82,7 @@ const text = {
                 style = (style == 0 ) ? 1 : 0;
                 add.tspan( textafterParts[i] ).fill(text.colors[style]).font(text.fontoutsidelines);
                 add.attr("xml:space","preserve");
+                add.attr("style","white-space:pre");
             }
         });
         textafter.dy(text.svg.height() + 5);
