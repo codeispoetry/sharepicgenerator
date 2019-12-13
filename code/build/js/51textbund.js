@@ -42,6 +42,8 @@ const text = {
                     for(let i = 0; i<values.length; i++) {
                         style = (style == 0 ) ? 1 : 0;
                         add.tspan( values[i] ).fill(text.colors[style]).font({...text.font, ...{family: fontfamily}});
+
+                        add.attr("xml:space","preserve");
                     }
                 });
 
@@ -65,6 +67,7 @@ const text = {
             for(let i = 0; i<textbeforeParts.length; i++) {
                 style = (style == 0 ) ? 1 : 0;
                 add.tspan( textbeforeParts[i] ).fill(text.colors[style]).font(text.fontoutsidelines);
+                add.attr("xml:space","preserve");
             }
         });
        textbefore.dy(-7);
@@ -76,6 +79,7 @@ const text = {
             for(let i = 0; i<textafterParts.length; i++) {
                 style = (style == 0 ) ? 1 : 0;
                 add.tspan( textafterParts[i] ).fill(text.colors[style]).font(text.fontoutsidelines);
+                add.attr("xml:space","preserve");
             }
         });
         textafter.dy(text.svg.height() + 5);
