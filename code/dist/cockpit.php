@@ -94,7 +94,7 @@
                
                 <div class="mb-1 mt-2">
                     <label>
-                        <input type="checkbox" checked name="textsamesize" id="textsamesize">
+                        <input type="checkbox" name="textsamesize" id="textsamesize">
                         Alle Zeilen gleich lang
                     </label>
                 </div>
