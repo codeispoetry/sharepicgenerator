@@ -33,7 +33,6 @@ const text = {
         let fontfamily = (lines.length <= 3) ? 'ArvoGruen' : 'Arvo';
 
         lines.forEach(function (value, index, array) {
-
                 let style = 1;
 
                 values = value.toUpperCase().split(/\[|\]/);
@@ -61,6 +60,8 @@ const text = {
         text.svg.add(linebefore);
         text.svg.add(lineafter);
 
+
+
         // text above and below the line
         let textbeforeParts = $('#textbefore').val().split(/\[|\]/);
         let style = 1;
@@ -73,7 +74,6 @@ const text = {
             }
         });
        textbefore.dy(-7);
-
 
         let textafterParts = $('#textafter').val().split(/\[|\]/);
         style = 1;
@@ -134,6 +134,4 @@ const text = {
 };
 
 
-$('#text, #textbefore, #textafter').bind('input propertychange', text.draw);
-$('#textsize').bind('input propertychange', text.draw);
-
+$('#text, #textbefore, #textafter, #textsize, #textsamesize').bind('input propertychange', text.draw);
