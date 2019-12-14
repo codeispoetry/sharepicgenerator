@@ -73,8 +73,7 @@ const pin = {
     },
 
     bounce: function () {
-       console.log("Hoooo bounce pin")
-       
+     
     }
 };
 

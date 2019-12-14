@@ -18,9 +18,7 @@ const secondaryfont = {
 
 $(document).ready(function () {
     afterUpload(bgpic);
-    $('#text').val("Le[b]en\nlas[se]n");
-    $('#textbefore').val("Le[b]en\nlas[se]n");
-    $('#textafter').val("Le[b]en\nlas[se]n");
+    $('#text').val("[Leben]\nlassen\nzeile drei");
 });
 
 function message( text = false ){
