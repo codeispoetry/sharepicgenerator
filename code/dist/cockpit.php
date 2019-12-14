@@ -76,7 +76,7 @@
                            class="form-control">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">grün tut gut</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control"></textarea>
                 </div>
                 <div class="">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value=""
@@ -94,7 +94,7 @@
                
                 <div class="mb-1 mt-2">
                     <label>
-                        <input type="checkbox" name="textsamesize" id="textsamesize">
+                        <input type="checkbox" checked name="textsamesize" id="textsamesize">
                         Alle Zeilen gleich lang
                     </label>
                 </div>
