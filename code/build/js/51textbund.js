@@ -4,10 +4,11 @@ const text = {
     lineheight: 20,
     linemargin: - 4,
     paddingLr: 5,
+    fontsize: 20,
     font: {
         anchor: 'left',
         leading: '1.0em',
-        size: 20
+        size: this.fontsize
     },
     fontoutsidelines: {
         family: 'ArvoGruen',
@@ -32,9 +33,13 @@ const text = {
         let lines = $('#text').val().split(/\n/);
         let fontfamily = (lines.length <= 3) ? 'ArvoGruen' : 'Arvo';
 
+        let lineBeginsY = [];
+        let linesRendered = []; 
+
         lines.forEach(function (value, index, array) {
                 let style = 1;
 
+                // the main text
                 values = value.toUpperCase().split(/\[|\]/);
 
                 let t = draw.text(function (add) {
@@ -55,10 +60,29 @@ const text = {
 
                 y += (t.rbox().h ) + text.linemargin ;
 
+
+                lineBeginsY[ index ] = y;
+                linesRendered[ index ] = t;
                 text.svg.add(t);
-                
             }
         );
+
+        // Icon 
+        let licon;
+        let iconHeightInLines = parseInt( $('#iconsize').val() );
+
+        if( icon.isLoaded ){
+            licon = icon.svg.clone();
+            licon.move(0,3).size(null, lineBeginsY[ iconHeightInLines - 1 ] - 3);
+            text.svg.add( licon )
+
+            for( let i = 0; i < iconHeightInLines; i++){
+                linesRendered[ i ].dx( 1.15 * licon.width() );
+            }
+        }
+        
+
+
 
         // add upper and lower line
         let linebefore = draw.rect(text.svg.width(), 2).fill('#ffffff').dy(-4);
