@@ -103,6 +103,21 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">Icon</h6>
+            </div>
+            <div class="mb-1 list-group-item-content"> 
+                <select class="form-control" id="iconsize">
+                    <option value="1">1 Zeile hoch</option>
+                    <option value="2">2 Zeilen hoch</option>
+                    <option value="3">3 Zeilen hoch</option>
+                    <option value="0">entfernen</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Störer</h6>
                 <small class="text-primary cursor-pointer pinreset"><i class="fas fa-undo-alt"></i>
                     in die Mitte setzen</small>
@@ -135,9 +150,7 @@
                     <option value="sonnenblume">Sonnenblume</option>
                     <option value="sonnenblume-weiss">Weiße Sonnenblume</option>
                     <option value="logo-weiss">Logo in weiß</option>
-                    <option value="logo-gruen">Logo in grün
-                        <nav></nav>
-                    </option>
+                    <option value="logo-gruen">Logo in grün</option>
                     <option value="sonnenblume-big">Sonnenblume links unten</option>
                 </select>
             </div>
