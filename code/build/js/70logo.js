@@ -72,3 +72,7 @@ const logo = {
 ;
 logo.load();
 
+
+$('#logoselect').on('change', function () {
+    logo.load( this.value );
+});
