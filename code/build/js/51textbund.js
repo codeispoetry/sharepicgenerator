@@ -1,10 +1,8 @@
 const text = {
     svg: draw.text(''),
     colors: ['#ffffff', '#ffee00'],
-    fontsizes: [20, 20],
     lineheight: 20,
-    yBiases: [0, 0],
-    linemargin: 0,
+    linemargin: - 4,
     paddingLr: 5,
     font: {
         anchor: 'left',
@@ -19,6 +17,8 @@ const text = {
     },
 
     draw: function () {
+        if( $('#text').val()=="" ) return; 
+
         text.svg.remove();
         text.svg = draw.group().addClass('draggable').draggable();
 
@@ -47,10 +47,16 @@ const text = {
                     }
                 });
 
-                t.move(0, y + text.yBiases[style]);
+                t.move(0, y );
+    
+                if( $('#textsamesize').prop("checked") ){
+                    t = draw.group().add(t).size(80); // the number defines the size of the white bars
+                }
+
+                y += (t.rbox().h ) + text.linemargin ;
 
                 text.svg.add(t);
-                y += text.lineheight + text.linemargin;
+                
             }
         );
 
@@ -110,7 +116,7 @@ const text = {
 
         text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
 
-        pin.draw();
+       // pin.draw();
     },
 
     bounce: function () {
