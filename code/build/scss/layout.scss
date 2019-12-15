@@ -51,7 +51,14 @@ footer {
 
   a {
     color: $white;
+    &:hover{
+      color: $yellow;
+    }
   }
+}
+
+.text-yellow{
+  color: $yellow;
 }
 
 .cockpit{
