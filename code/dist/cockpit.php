@@ -88,7 +88,7 @@
                     </div>
                 </div>
                
-                <div class="mb-1 mt-2">
+                <div class="">
                     <label>
                         <input type="checkbox" name="textsamesize" id="textsamesize">
                         Alle Zeilen gleich lang
@@ -140,9 +140,7 @@
                     </optgroup> 
                 </select>
             </div>
-        </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
                 <select class="form-control" id="design">
                     <option value="standard">Design: Standard</option>
