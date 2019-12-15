@@ -14,7 +14,7 @@ compile:
 	docker-compose exec grunt grunt build
 
 log:
-	docker-compose logs --tail=20 -f 2>&1 | grep "grunt"
+	docker-compose logs -f grunt
 
 shell:
 	docker-compose exec webserver bash
