@@ -123,11 +123,20 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
                 <select class="form-control" id="logoselect">
-                    <option value="sonnenblume">Logo: Sonnenblume</option>
-                    <option value="sonnenblume-weiss">Logo: Weiße Sonnenblume</option>
-                    <option value="logo-weiss">Logo: weiß</option>
-                    <option value="logo-gruen">Logo: grün</option>
-                    <option value="sonnenblume-big">Logo: Sonnenblume links unten</option>
+                    <optgroup label="Sonnenblume">
+                        <option value="sonnenblume">Logo: Sonnenblume</option>
+                        <option value="sonnenblume-weiss">Logo: Weiße Sonnenblume</option>
+                        <option value="sonnenblume-big">Logo: Sonnenblume links unten</option>
+                    </optgroup>
+                    <optgroup label="Standardlogo">
+                        <option value="logo-weiss">Logo: weiß</option>
+                        <option value="logo-gruen">Logo: grün</option>
+                    </optgroup>
+                    
+                    <optgroup label="Berlin">
+                        <option value="logo-berlin-gruen">Logo Berlin: grün</option>
+                        <option value="logo-berlin-weiss">Logo Berlin: weiss</option>
+                    </optgroup> 
                 </select>
             </div>
         </div>

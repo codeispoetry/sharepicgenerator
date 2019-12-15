@@ -25,6 +25,16 @@ const logo = {
                 file: "assets/logos/sonnenblume.svg",
                 widthFraction: 0.5,
                 position: 'bottomleftOutside',
+            },
+            "logo-berlin-weiss": {
+                file: "assets/logos/berlin-weiss.svg",
+                widthFraction: 0.2,
+                position: 'topright'
+            },
+            "logo-berlin-gruen": {
+                file: "assets/logos/berlin-gruen.svg",
+                widthFraction: 0.2,
+                position: 'topright'
             }
         },
 
