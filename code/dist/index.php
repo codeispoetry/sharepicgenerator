@@ -20,7 +20,7 @@ if (file_exists($samlfile)) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-9 text-center pt-4 pb-3">
-            <h1 class="text-uppercase h6">Sharepicgenerator (Preview)</h1>
+            <h1 class="text-uppercase h6">Sharepicgenerator</h1>
         </div>
         <div class="col-12 col-lg-9">
             <div class="col-12">
@@ -47,7 +47,8 @@ if (file_exists($samlfile)) {
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-8">
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf
-            github.com</a>
+            github.com</a> |
+        <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a>
     </div>
     <div class="col-12 col-lg-5 d-none">
         <a href="#" class="persistentsave">Als Vorlage speichern</a>
@@ -57,7 +58,7 @@ if (file_exists($samlfile)) {
         <?php } ?>
     </div>
     <div class="col-12 col-lg-4 text-lg-right">
-        Programmiert mit <i class="fas fa-heart text-danger"></i> von Tom Rose.
+        Programmiert mit <i class="fas fa-heart text-yellow"></i> von Tom Rose.
     </div>
 </footer>
 
