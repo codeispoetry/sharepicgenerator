@@ -22,6 +22,13 @@ const pin = {
 
 
     draw() {
+
+        let countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
+
+        if( countLines > 1 ){
+            $('#pintext').val( $('#pintext').val().replace(/\n.*$/,'') );
+        }
+
         pin.svg.remove();
         pin.svg = draw.group();
         if ($('#pintext').val() == "") return;
@@ -47,11 +54,12 @@ const pin = {
         })
 
         // text
-        let pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff').move( 28,6);
+        let pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
 
         // background
-        let pinwidth = pintext.length() + 40;
-        let pinheight = 30;
+        let pinwidth = pintext.rbox().w + 40 + ( countLines * 20 );
+        let pinheight = pintext.rbox().h + 20;
+        
         let pinbackground = draw.polygon([
                 [0,0],
                 [ pinwidth,0],
@@ -61,6 +69,9 @@ const pin = {
         ]
             ).fill('#e6007e');
        
+       
+        pintext.move( 28 + (countLines * 10), 9);
+        pintext.attr("xml:space","preserve").attr("style","white-space:pre");
 
         // and in reverse order
         pin.svg.add(pinbackground);
