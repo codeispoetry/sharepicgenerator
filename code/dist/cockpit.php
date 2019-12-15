@@ -98,23 +98,15 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <a href="#" class="text-primary cursor-pointer" id="iconopener">
+                <i class="fa fa-images"></i> Icon suchen
+            </a>
             <div class="mb-1 list-group-item-content"> 
                 <select class="form-control" id="iconsize">
                     <option value="1">Icon: 1 Zeile hoch</option>
                     <option value="2">Icon: 2 Zeilen hoch</option>
                     <option value="3">Icon: 3 Zeilen hoch</option>
                     <option value="0">Icon entfernen</option>
-                </select>
-            </div>
-            <div class="mb-1 list-group-item-content"> 
-                <select class="form-control" id="iconselect">
-                    <option value="0">kein Icon</option>
-                    <?php
-                        foreach( glob('assets/icons/solid/*.svg') AS $icon ){
-                            printf('<option value="%s">%s</option>', $icon, basename($icon)); 
-                        }
-                    ?>
-
                 </select>
             </div>
         </div>
