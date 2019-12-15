@@ -114,9 +114,10 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control">
+                    <textarea name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control"></textarea>
                     <small class="text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"><i class="fas fa-undo-alt"></i></small>
                 </div>
+                <small>Maximal 2 Zeilen</small>
             </div>
         </div>
 
