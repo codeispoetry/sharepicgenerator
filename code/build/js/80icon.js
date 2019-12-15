@@ -31,9 +31,12 @@ $('#iconsize').on('change', function () {
     text.draw();
 });
 
-$('#iconselect').on('change', function () {
-    if($(this).val() == 0){
-        icon.remove();
-    }
-   icon.load( $(this).val() );
+$('.chooseicon').on('click', function () {
+    $('#iconoverlay').removeClass("active");
+   icon.load( $(this).attr("src") );
 });
+
+$('#iconopener').click(function () {
+    $('#iconoverlay').addClass("active");
+})
+
