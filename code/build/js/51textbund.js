@@ -4,11 +4,10 @@ const text = {
     lineheight: 20,
     linemargin: - 4,
     paddingLr: 5,
-    fontsize: 20,
     font: {
         anchor: 'left',
         leading: '1.0em',
-        size: this.fontsize
+        size: 20
     },
     fontoutsidelines: {
         family: 'ArvoGruen',
