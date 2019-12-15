@@ -33,7 +33,7 @@ $('#iconsize').on('change', function () {
 
 $('.chooseicon').on('click', function () {
     $('#iconoverlay').removeClass("active");
-   icon.load( $(this).attr("src") );
+   icon.load( $("img", this).attr("src") );
 });
 
 $('#iconopener').click(function () {
