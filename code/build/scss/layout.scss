@@ -76,12 +76,26 @@ optgroup{
 
 #iconoverlay{
   .results{
-    background: gray;
+    $size: 80px;
+    .chooseicon{
+      background: $primary;
+      border-radius: $size / 2;
+      width: $size;
+      height: $size; 
+      margin: 0 10px 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover{
+        background: $purple;
+      }
+    }
 
     img {
-      height: 50px;
-      margin: 0 30px 30px 0;
-      cursor: pointer;
+      width: 50%;
+      margin: 0;
     }
   }
 }
