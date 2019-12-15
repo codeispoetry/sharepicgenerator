@@ -58,8 +58,10 @@ function deleteOldFiles()
     $files = scandir('tmp');
     $now = time();
     foreach ($files as $file) {
+        if( substr($file,0,1) == '.' ) continue;
+        
         $file = 'tmp/' . $file;
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60)
+        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * 7)
             unlink($file);
     }
 }
