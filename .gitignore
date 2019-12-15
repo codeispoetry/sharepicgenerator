@@ -6,8 +6,6 @@ code/dist/assets/css/styles.css*
 
 code/dist/config.json
 
-code/dist/tmp/
-
 node_modules
 code/dist/log/log.txt
 code/dist/config.ini
