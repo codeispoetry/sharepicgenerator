@@ -1,8 +1,7 @@
 const icon = {
     isLoaded: false,
    
-    load(file = "assets/logos/sonnenblume-weiss.svg") {
-
+    load( file ) {
         if (this.svg) this.svg.remove();
         icon.isLoaded = false;
 
@@ -12,6 +11,10 @@ const icon = {
             icon.svg.size(1).move(-100,-100); // cannot be resized to zero
             text.draw();
         });
+
+        this.svg.on('error', function(e){
+            console.log( file, e );
+        })
     },
 
     remove(){
@@ -20,11 +23,17 @@ const icon = {
     }
 }
 
-icon.load();
 
 $('#iconsize').on('change', function () {
     if($(this).val() == 0){
         icon.remove();
     }
     text.draw();
+});
+
+$('#iconselect').on('change', function () {
+    if($(this).val() == 0){
+        icon.remove();
+    }
+   icon.load( $(this).val() );
 });

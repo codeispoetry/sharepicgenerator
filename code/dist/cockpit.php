@@ -104,6 +104,16 @@
                     <option value="2">Icon: 2 Zeilen hoch</option>
                     <option value="3">Icon: 3 Zeilen hoch</option>
                     <option value="0">Icon entfernen</option>
+                </select>
+            </div>
+            <div class="mb-1 list-group-item-content"> 
+                <select class="form-control" id="iconselect">
+                    <option value="0">kein Icon</option>
+                    <?php
+                        foreach( glob('assets/icons/solid/*.svg') AS $icon ){
+                            printf('<option value="%s">%s</option>', $icon, basename($icon)); 
+                        }
+                    ?>
 
                 </select>
             </div>
