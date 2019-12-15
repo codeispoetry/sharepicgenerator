@@ -117,18 +117,6 @@ if (file_exists($samlfile)) {
             </div>
 
             <div class="col-12 p-5 d-flex flex-wrap results">
-            <?php
-                $icon_dirs = array_merge(
-                   // glob('assets/icons/solid/*.svg'),
-                    //glob('assets/icons/regular/*.svg'),
-                    glob('assets/icons/brands/*.svg')
-                );
-
-                foreach( $icon_dirs AS $icon ){
-                    printf('<div class="chooseicon"><img src="%s" title="%s"/></div>', $icon, basename($icon, '.svg')); 
-                }
-            ?>
-            
             </div>
         </div>
 
