@@ -36,17 +36,17 @@
 
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Bild</h6>
-                <small></small>
-            </div>
             <div class="mb-1 list-group-item-content">
                 <div class="" id="upload">
                     <input type="file" class="custom-file-input" id="uploadfile" accept="image/*">
                 </div>
-                <a href="#" class="text-primary cursor-pointer uploadfileclicker">Eigenes Bild hochladen</a>
-                <small>oder</small>
-                <a href="#" class="text-primary cursor-pointer" id="pixabayopener">Bild suchen</a>
+                <a href="#" class="text-primary cursor-pointer uploadfileclicker">
+                    <i class="fa fa-upload"></i> Bild hochladen
+                </a>
+                <small class="pl-3 pr-4"> oder </small>
+                <a href="#" class="text-primary cursor-pointer" id="pixabayopener">
+                    <i class="fa fa-images"></i> Bild suchen
+                </a>
             </div>
 
 
@@ -66,10 +66,6 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Text</h6>
-                <small></small>
-            </div>
             <div class="list-group-item-content">
                 <div class="">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
@@ -102,69 +98,44 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Icon</h6>
-            </div>
             <div class="mb-1 list-group-item-content"> 
                 <select class="form-control" id="iconsize">
-                    <option value="1">1 Zeile hoch</option>
-                    <option value="2">2 Zeilen hoch</option>
-                    <option value="3">3 Zeilen hoch</option>
-                    <option value="0">entfernen</option>
+                    <option value="1">Icon: 1 Zeile hoch</option>
+                    <option value="2">Icon: 2 Zeilen hoch</option>
+                    <option value="3">Icon: 3 Zeilen hoch</option>
+                    <option value="0">Icon entfernen</option>
 
                 </select>
             </div>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Störer</h6>
-                <small class="text-primary cursor-pointer pinreset"><i class="fas fa-undo-alt"></i>
-                    in die Mitte setzen</small>
-
-            </div>
             <div class="mb-1 list-group-item-content">
-                <div class="mb-1 list-group-item-content">
-                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value=""
-                           class="form-control">
+                <div class="d-flex align-items-lg-center">
+                    <input type="text" name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control">
+                    <small class="text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"><i class="fas fa-undo-alt"></i></small>
                 </div>
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start d-none">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Zeile unten</h6>
-            </div>
-            <div class="mb-1 list-group-item-content">
-                <input type="text" placeholder="Text für die Zeile unten" name="subline" id="subline" value=""
-                       class="form-control">
-            </div>
-        </div>
-
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Logo</h6>
-            </div>
             <div class="mb-1 list-group-item-content">
                 <select class="form-control" id="logoselect">
-                    <option value="sonnenblume">Sonnenblume</option>
-                    <option value="sonnenblume-weiss">Weiße Sonnenblume</option>
-                    <option value="logo-weiss">Logo in weiß</option>
-                    <option value="logo-gruen">Logo in grün</option>
-                    <option value="sonnenblume-big">Sonnenblume links unten</option>
+                    <option value="sonnenblume">Logo: Sonnenblume</option>
+                    <option value="sonnenblume-weiss">Logo: Weiße Sonnenblume</option>
+                    <option value="logo-weiss">Logo: weiß</option>
+                    <option value="logo-gruen">Logo: grün</option>
+                    <option value="sonnenblume-big">Logo: Sonnenblume links unten</option>
                 </select>
             </div>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Design</h6>
-            </div>
             <div class="mb-1 list-group-item-content">
                 <select class="form-control" id="design">
-                    <option value="standard">Standard</option>
-                    <option value="textbackground">Grün hinter dem Text</option>
-                    <KILLoption value="bigright">Großfläche</option>
+                    <option value="standard">Design: Standard</option>
+                    <option value="textbackground">Design: Grün hinter dem Text</option>
+                    <KILLoption value="bigright">Design: Großfläche</option>
                 </select>
             </div>
         </div>
