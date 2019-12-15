@@ -25,7 +25,6 @@ function setDrawsize() {
 
     text.bounce();
     pin.bounce();
-    subline.draw();
     window.setTimeout(logo.draw, 100);
 }
 

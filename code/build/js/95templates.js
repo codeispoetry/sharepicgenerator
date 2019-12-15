@@ -39,7 +39,6 @@ const persistent = {
                     $('#' + key).val(value);
                 });
 
-                subline.draw();
                 pin.draw();
                 text.draw();
             });
