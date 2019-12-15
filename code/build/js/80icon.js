@@ -45,7 +45,10 @@ function getIcons() {
         return;
     }
     let url = "geticons.php";
-    $('#iconoverlay .results').html('loading');
+    $('#iconoverlay .results').html('lade Icons ');
+    let loading = window.setInterval(function(){
+        $('#iconoverlay .results').append(" . ");
+    },10);
     $.ajax({
         url: url,
         success: function (data, textStatus, jqXHR) {
@@ -61,6 +64,7 @@ function getIcons() {
             } );
 
             localIconsLoaded = true;
+            window.clearInterval( loading );
         },
         error: function(data, textStatus, jqXHR) {
             console.log(data, jqXHR);
