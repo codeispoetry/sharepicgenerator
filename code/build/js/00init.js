@@ -18,7 +18,7 @@ const secondaryfont = {
 
 $(document).ready(function () {
     afterUpload(bgpic);
-    $('#text').val("[Leben]\nlassen\nzeile drei");
+    $('#text').val("[Leben]\nlassen");
 });
 
 function message( text = false ){
