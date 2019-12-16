@@ -7,6 +7,10 @@ if (file_exists($samlfile)) {
     $as->requireAuth();
 }
 
+if (file_exists('log/do.php')){
+    require_once('log/do.php');
+}
+
 ?>
 
 <!DOCTYPE html>
