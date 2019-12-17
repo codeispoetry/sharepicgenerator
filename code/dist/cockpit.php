@@ -148,6 +148,12 @@
                     <KILLoption value="bigright">Design: Großfläche</option>
                 </select>
             </div>
+            <div class="text-right">
+
+                <a href="../bayern" class="text-blue">
+                    <i class="fa fa-landmark"></i>
+                    Version für die Kommunalwahlen in Bayern</a>
+            </div>
         </div>
 
 

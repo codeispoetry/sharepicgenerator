@@ -61,6 +61,10 @@ footer {
   color: $yellow;
 }
 
+.text-blue{
+  color: $blue;
+}
+
 .cockpit{
   zoom: 2.3;
   @include media-breakpoint-up(lg) {
