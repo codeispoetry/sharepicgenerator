@@ -143,3 +143,18 @@ if (file_exists('log/do.php')){
 <script src="./assets/js/main.min.js"></script>
 </body>
 </html>
+<?php
+
+deleteOldFiles();
+function deleteOldFiles()
+{
+    $files = glob("tmp/shpic*\.{png,jpg,svg}", GLOB_BRACE );
+    $now = time();
+
+    foreach($files AS $file){
+        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * 7 * 0){
+            unlink($file);
+        }
+    }
+}
+?>
