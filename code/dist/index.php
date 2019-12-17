@@ -152,7 +152,7 @@ function deleteOldFiles()
     $now = time();
 
     foreach($files AS $file){
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * 7 * 0){
+        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * 7){
             unlink($file);
         }
     }
