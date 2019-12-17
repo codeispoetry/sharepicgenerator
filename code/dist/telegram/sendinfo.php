@@ -1,7 +1,7 @@
 <?php
 
-if (file_exists('../config.ini')) {
-    $keys = parse_ini_file('../config.ini', TRUE);
+if (file_exists('config.ini')) {
+    $keys = parse_ini_file('config.ini', TRUE);
 
     $botID = $keys["Telegram"]["botID"];
     $chatID = $keys["Telegram"]["channelID"];
