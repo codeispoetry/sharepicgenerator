@@ -50,19 +50,33 @@ if (file_exists('log/do.php')){
 </div>
 
 <footer class="row bg-primary p-2 text-white">
-    <div class="col-12 col-lg-8">
-        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf
-            github.com</a> |
-        <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a>
+    <div class="col-12 col-lg-6">
+        <?php
+        $countSharepicsFile = 'log/countsharepics.txt';
+        if(!file_exists($countSharepicsFile) OR time() - filemtime($countSharepicsFile) > 60 * 60){
+            $countDownloads = 0;
+            $lines = file('log/log.txt');
+            foreach( $lines AS $line ){
+                list( $time, $payload, $action ) = explode("\t", trim($line) );
+                if($action == 'download') {
+                    $countDownloads++;
+                }
+            }
+            file_put_contents( $countSharepicsFile, (string) $countDownloads );
+        }
+        printf("%s erstellte Sharepics", number_format( file_get_contents( $countSharepicsFile ), 0, ',', '.'));
+        ?>
     </div>
-    <div class="col-12 col-lg-5 d-none">
-        <a href="#" class="persistentsave">Als Vorlage speichern</a>
 
+    <div class="col-12 col-lg-1 d-none">
+        <a href="#" class="persistentsave">Als Vorlage speichern</a>
         <?php foreach (glob("persistent/*.json") as $filename) { ?>
             | <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo ucfirst(basename($filename, '.json'));?></a>
         <?php } ?>
     </div>
-    <div class="col-12 col-lg-4 text-lg-right">
+    <div class="col-12 col-lg-6 text-lg-right">
+        <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a> |
+        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> |
         Programmiert mit <i class="fas fa-heart text-yellow"></i> von Tom Rose.
     </div>
 </footer>
