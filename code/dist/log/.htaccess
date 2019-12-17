@@ -1,5 +1,5 @@
 Deny From All
 
-<FilesMatch "^index\.php$">
+<FilesMatch "^(index|show)\.php$">
 Allow From All
 </FilesMatch>
