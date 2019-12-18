@@ -120,7 +120,7 @@
                 <small>Maximal 2 Zeilen</small>
             </div>
             <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Bildachweis" name="copyright" id="copyright" value="" class="form-control">
+                    <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
                     <small class="text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"><i class="fa fa-broom"></i></small>
 
                 </div>
