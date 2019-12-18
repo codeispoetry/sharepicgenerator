@@ -119,6 +119,11 @@
                 </div>
                 <small>Maximal 2 Zeilen</small>
             </div>
+            <div class="d-flex align-items-lg-center">
+                    <input type="text" placeholder="Bildachweis" name="copyright" id="copyright" value="" class="form-control">
+                    <small class="text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"><i class="fa fa-broom"></i></small>
+
+                </div>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -167,7 +172,5 @@
         <input type="hidden" name="backgroundURL" id="backgroundURL">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
-
-
     </div>
 </form>
