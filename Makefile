@@ -21,3 +21,6 @@ shell:
 
 down:
 	docker-compose down
+
+deploy:
+	docker-compose exec webserver bash /root/scripts/deploy.sh
