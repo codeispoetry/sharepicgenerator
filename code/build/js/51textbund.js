@@ -29,7 +29,7 @@ const text = {
         });
 
         let y = 0;
-        let lines = $('#text').val().split(/\n/);
+        let lines = $('#text').val().replace(/\n$/,'').split(/\n/);
         let fontfamily = (lines.length <= 3) ? 'ArvoGruen' : 'Arvo';
 
         let lineBeginsY = [];
