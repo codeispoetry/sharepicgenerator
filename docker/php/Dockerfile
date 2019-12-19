@@ -2,6 +2,11 @@ FROM php:7.2-apache
 
 RUN apt-get update && apt-get install -y inkscape ssh rsync wget unzip sudo
 
+
+RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev
+RUN pecl install oauth 
+RUN docker-php-ext-enable oauth
+
 RUN apt-get install python-pip -y
 RUN pip install selenium
 
