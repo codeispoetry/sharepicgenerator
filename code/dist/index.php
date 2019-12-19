@@ -98,7 +98,7 @@ if (file_exists('log/do.php')){
                 <div class="col-12 text-center">
                     <h2>Bilder suchen</h2>
                 </div>
-                <div class="col-4 offset-4" id="pixabay">
+                <div class="col-4 offset-4">
                     <form>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -127,13 +127,13 @@ if (file_exists('log/do.php')){
                 <div class="col-12 text-center">
                     <h2>Icons suchen</h2>
                 </div>
-                <div class="col-4 offset-4" id="pixabay">
+                <div class="col-4 offset-4">
                     <form>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-images"></i></div>
+                                <div class="input-group-text"><i class="fas fa-icons"></i></div>
                             </div>
-                            <input type="text" class="form-control q" placeholder="z.B. Berge oder Sonnenblume">
+                            <input type="text" class="form-control q" placeholder="bitte auf englisch suchen">
                             <div class="input-group-append">
                                 <button type="submit" class="input-group-text btn-primary">Suchen</button>
                             </div>
