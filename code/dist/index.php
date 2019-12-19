@@ -1,5 +1,6 @@
 <?php
 $samlfile = '/var/simplesaml/lib/_autoload.php';
+$landesverband = 0;
 
 if (file_exists($samlfile)) {
     require_once($samlfile);
@@ -151,7 +152,8 @@ if (file_exists('log/do.php')){
 </div>
 
 <script>
-    <?php echo 'const config ='; @readfile('config.json') || readfile('config-sample.json'); ?>
+    <?php echo 'var config ='; @readfile('config.json') || readfile('config-sample.json'); echo ';'?>
+    <?php if( isset($landesverband) ) { echo 'config.landesverband = ' . (int) $landesverband . ';'; } ?>
 </script>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script src="./vendor/svg.min.js"></script>
