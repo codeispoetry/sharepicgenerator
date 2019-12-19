@@ -6,3 +6,7 @@ https://sites.google.com/a/chromium.org/chromedriver/downloads
 sudo pip install selenium
 
 https://selenium-python.readthedocs.io/api.html
+
+# Webdriver
+The webdriver is committed. It should meet the chromeversion in the image.
+Chrome78 is currently installed in image
