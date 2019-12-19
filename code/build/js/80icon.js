@@ -35,17 +35,18 @@ $('#iconsize').on('change', function () {
 
 $('#iconopener').click(function () {
     $('#iconoverlay').addClass("active");
-    getIcons();
+})
+
+$('#iconoverlay form').submit(function () {
+    getIcons( $('#iconoverlay .q').val());
+    return false;
 })
 
 
-var localIconsLoaded = false;
-function getIcons() {
-    if( localIconsLoaded ){
-        return;
-    }
-    let url = "geticons.php";
-    $('#iconoverlay .results').html('lade Icons ');
+function getIcons( q ) {
+
+    let url = "nounproject/load_results.php?q=" + q;
+    $('#iconoverlay .results').html('suche Icons ');
     let loading = window.setInterval(function(){
         $('#iconoverlay .results').append(" . ");
     },10);
@@ -54,16 +55,34 @@ function getIcons() {
         success: function (data, textStatus, jqXHR) {
             $('#iconoverlay .results').html('');
             let json = JSON.parse(data);
+    
+           
             json.hits.forEach(function (icon) {
-                $('#iconoverlay .results').append( '<div class="chooseicon"><img src="' + icon + '" title="' + icon + '"/></div>' );
+                $('#iconoverlay .results').append( '<div class="chooseicon" data-icon-url="' + icon.icon_url +'"><img src="' + icon.preview_url + '" title="' + icon.attribution + '"/></div>' );
             });
 
+            if( json.hits.length == 0 ){
+                $('#iconoverlay .results').append('<div class="col-12 bg-danger text-white p-3 text-center">Keine Icons gefunden. Bitte suche auf Englisch.</div>');
+            }
+
             $('#iconoverlay .results .chooseicon').click( function(){
+                $('#waiting').addClass('active');
                 $('#iconoverlay').removeClass("active");
-                icon.load( $("img", this).attr("src") );
+
+                $.get( "nounproject/get_icon.php", { icon_url: $(this).data("icon-url") } )
+                    .done(function( data ) {
+                        if( data == "error"){
+                            console.log("error downloading icon");
+                        }else{
+                            icon.load( 'tmp/' + data );
+                        }
+                        $('#waiting').removeClass("active");
+
+                 });
+              
             } );
 
-            localIconsLoaded = true;
+        
             window.clearInterval( loading );
         },
         error: function(data, textStatus, jqXHR) {
