@@ -5,6 +5,8 @@ if (file_exists($samlfile)) {
     require_once($samlfile);
     $as = new SimpleSAML_Auth_Simple('default-sp');
     $as->requireAuth();
+
+    require_once('versionswitch.php');
 }
 
 if (file_exists('log/do.php')){
