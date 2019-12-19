@@ -2,14 +2,14 @@ $('#pixabayopener').click(function () {
     $('#pixabay').addClass("active");
 })
 
-$('#pixabay>form').submit(function () {
+$('#pixabay form').submit(function () {
     getPixabayImages($('#pixabay .q').val());
     return false;
 })
 
 var page = 1;
 
-function getPixabayImages(q) {
+function getPixabayImages(q) {console.log("In Pixa");
     let url = "https://pixabay.com/api/?key=" + config.pixabay.apikey + "&q=" + encodeURIComponent(q) + "&image_type=photo&page=" + page + "&per_page=100";
 
     $.ajax({
