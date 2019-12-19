@@ -19,6 +19,14 @@ const secondaryfont = {
 $(document).ready(function () {
     afterUpload(bgpic);
     $('#text').val("[Leben]\nlassen");
+
+
+    if( config["landesverband"] == 3) {
+        $("#logoselect option[value='logo-berlin-weiss']").prop('selected', true);
+        window.setTimeout(function () {
+            $("#logoselect").change();
+        }, 1000);
+    }
 });
 
 function message( text = false ){
@@ -28,6 +36,3 @@ function message( text = false ){
     }
     $('#message').show().html( text );
 }
-
-
-
