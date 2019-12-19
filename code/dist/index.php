@@ -67,8 +67,11 @@ if (file_exists('log/do.php')){
             }
             file_put_contents( $countSharepicsFile, (string) $countDownloads );
         }
-        printf("%s erstellte Sharepics", number_format( file_get_contents( $countSharepicsFile ), 0, ',', '.'));
+        printf("%s erstellte Sharepics |", number_format( file_get_contents( $countSharepicsFile ), 0, ',', '.'));
         ?>
+          <a href="bayern">
+            <i class="fa fa-landmark"></i>
+            Version für die Kommunalwahlen in Bayern</a>
     </div>
 
     <div class="col-12 col-lg-1 d-none">
