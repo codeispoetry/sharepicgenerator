@@ -9,7 +9,7 @@ code/dist/config.json
 node_modules
 code/dist/log/log.txt
 code/dist/config.ini
-code/dist/api/chromedriver
+code/dist/api/*.png
 code/dist/log/countsharepics.txt
 
 
