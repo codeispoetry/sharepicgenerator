@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import time, sys, getopt
+import os, shutil
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
@@ -49,3 +50,7 @@ download.click()
 
 time.sleep(4) # wait for the image to be processed
 driver.quit()
+
+
+filename = max([f for f in os.listdir('.')], key=os.path.getctime)
+shutil.move(filename,"sharepic.png")
