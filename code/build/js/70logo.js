@@ -38,9 +38,9 @@ const logo = {
             }
         },
 
-        load(whichLogo = "sonnenblume") {
-
-            if (this.svg) this.svg.remove();
+        load() {
+            whichLogo = $('#logoselect').val();
+            if (logo.svg) logo.svg.remove();
             logo.isLoaded = false;
 
             this.logoinfo = this.config[whichLogo];
@@ -84,5 +84,6 @@ logo.load();
 
 
 $('#logoselect').on('change', function () {
-    logo.load( this.value );
+    logo.load( );
 });
+
