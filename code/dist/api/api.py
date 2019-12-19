@@ -36,9 +36,9 @@ options = Options()
 options.add_argument("--no-sandbox")
 options.add_argument("--headless")
 
-#driver = webdriver.Chrome('./chromedriver', chrome_options=options)
-driver = webdriver.Chrome('./chromedriver')
-driver.get('https://sharepicgenerator.de/bayern/?api=true')
+driver = webdriver.Chrome('./chromedriver', chrome_options=options)
+#driver = webdriver.Chrome('./chromedriver')
+driver.get('http://127.0.0.1:80/dist/')
 
 textEl = driver.find_element_by_id('text')
 textEl.send_keys(Keys.CONTROL, 'a')
