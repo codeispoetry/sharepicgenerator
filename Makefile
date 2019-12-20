@@ -27,3 +27,6 @@ down:
 
 deploy:
 	docker-compose exec webserver bash /root/scripts/deploy.sh
+
+get-config:
+    rsync tom@sharepicgenerator.de:/var/www/html/config.* code/dist/.
