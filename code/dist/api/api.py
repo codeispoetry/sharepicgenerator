@@ -4,6 +4,10 @@ import os, shutil
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import Select
+
+
+dir = os.path.dirname(os.path.realpath(__file__))
 
 
 #####################################
@@ -20,7 +24,7 @@ except getopt.error as err:
     sys.exit(2)
 
 #default values
-text="Hallo"
+text="Tom"
 
 
 for currentArgument, currentValue in arguments:
@@ -37,17 +41,35 @@ options = Options()
 options.add_argument("--no-sandbox")
 options.add_argument("--headless")
 
-driver = webdriver.Chrome('/var/www/html/api/chromedriver', chrome_options=options)
+driver = webdriver.Chrome(dir + '/chromedriver', chrome_options=options)
 driver.get('http://127.0.0.1:80/')
+print "connected ..."
 
 textEl = driver.find_element_by_id('text')
 textEl.send_keys(Keys.CONTROL, 'a')
 textEl.send_keys( text )
 
+
+driver.find_element_by_id("uploadfile").send_keys( dir + "/picture.jpg")
+time.sleep(3)
+print "uploaded ..."
+
+#select = Select(driver.find_element_by_id('logoselect'))
+#select.select_by_visible_text('Banana')
+#select.select_by_value('sonnenblume-big')
+#time.sleep(1)
+
+
+javaScript = "$('#textsize').val(300); $('#textX').val(-100); $('#textY').val(2000); text.draw(); text.bounce();"
+driver.execute_script(javaScript)
+time.sleep(1)
+
 download = driver.find_element_by_id('download')
 download.click()
+print "download clicked ..."
 
-time.sleep(10) # wait for the image to be processed
+#10 online,  40 offline
+time.sleep(8) # wait for the image to be processed
 driver.quit()
 
 
