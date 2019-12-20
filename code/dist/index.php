@@ -2,7 +2,8 @@
 $samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
 
-if (file_exists($samlfile)) {
+
+if (file_exists($samlfile) AND $_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
     require_once($samlfile);
     $as = new SimpleSAML_Auth_Simple('default-sp');
     $as->requireAuth();
