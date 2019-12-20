@@ -26,6 +26,11 @@ function handleRequest()
     $first_name = $message["chat"]["first_name"];
     $command = $message["text"];
 
+    if( isset($message["photo"] )){
+       getFile( $message["photo"] );
+       return true;
+    }
+
 
     switch ($command) {
         case "/hello":
@@ -33,7 +38,8 @@ function handleRequest()
             break;
         default:
             sendMessage( "Hallo $first_name, Dein Sharepic wird erstellt. Das kann bis zu einer Minute dauern." );
-            $command = escapeshellcmd('../api/api.py --text "' . $command . '"');
+            $command = sprintf('python ../api/api.py --text \'%s\'', $command );
+            
             shell_exec($command);
             sendFile( 'sharepic.png');
     }
@@ -41,6 +47,26 @@ function handleRequest()
 
 }
 
+
+function getFile( $message ){
+    global $botID, $chatID;
+    $botURL = "https://api.telegram.org/$botID/";
+
+    // get Photo ID
+    $last = count($message) - 1;
+    $photoID = $message[ $last ]["file_id"];
+
+    // get Photo Info with path
+    $url = $botURL . "getFile?file_id=" . $photoID;
+    $photoInfo = json_decode(file_get_contents( $url), TRUE);
+    $path = $photoInfo["result"]["file_path"];
+
+    // download file
+    $url = "https://api.telegram.org/file/$botID/" . $path;
+    copy( $url, "../api/picture.jpg");
+
+    sendMessage("Dein Bild ist angekommen. Welcher Text soll drauf?");
+}
 
 function sendFile($file)
 {
