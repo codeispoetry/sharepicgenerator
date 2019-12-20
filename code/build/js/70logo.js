@@ -43,6 +43,10 @@ const logo = {
             if (logo.svg) logo.svg.remove();
             logo.isLoaded = false;
 
+            if( whichLogo == 'void'){
+                return false;
+            }
+
             this.logoinfo = this.config[whichLogo];
 
             this.svg = draw.image(this.logoinfo.file, function (event) {
