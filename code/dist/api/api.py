@@ -37,9 +37,8 @@ options = Options()
 options.add_argument("--no-sandbox")
 options.add_argument("--headless")
 
-driver = webdriver.Chrome('./chromedriver', chrome_options=options)
-#driver = webdriver.Chrome('./chromedriver')
-driver.get('http://127.0.0.1:80/dist/')
+driver = webdriver.Chrome('/var/www/html/api/chromedriver', chrome_options=options)
+driver.get('http://127.0.0.1:80/')
 
 textEl = driver.find_element_by_id('text')
 textEl.send_keys(Keys.CONTROL, 'a')
@@ -48,7 +47,7 @@ textEl.send_keys( text )
 download = driver.find_element_by_id('download')
 download.click()
 
-time.sleep(4) # wait for the image to be processed
+time.sleep(10) # wait for the image to be processed
 driver.quit()
 
 
