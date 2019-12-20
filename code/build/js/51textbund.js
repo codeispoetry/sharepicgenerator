@@ -17,9 +17,10 @@ const text = {
     },
 
     draw: function () {
-        if( $('#text').val()=="" ) return; 
 
         text.svg.remove();
+        if( $('#text').val()=="" ) return;
+
         text.svg = draw.group().addClass('draggable').draggable();
 
         text.svg.on('dragend.namespace', function (event) {
