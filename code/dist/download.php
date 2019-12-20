@@ -19,7 +19,7 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 readfile('tmp/' . $filename . '.' . $format);
 
-require_once('telegram/sendinfo.php');
+//require_once('telegram/sendinfo.php');
 
 unlink('tmp/' . $filename . '.' . $format);
 unlink('tmp/' . $filename . '.svg');
