@@ -142,7 +142,11 @@
                     <optgroup label="Berlin">
                         <option value="logo-berlin-gruen">Logo Berlin: grün</option>
                         <option value="logo-berlin-weiss">Logo Berlin: weiss</option>
-                    </optgroup> 
+                    </optgroup>
+
+
+                    <option value="void">kein Logo</option>
+
                 </select>
             </div>
 
