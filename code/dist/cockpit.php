@@ -37,9 +37,6 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
-                <div class="" id="upload">
-                    <input type="file" class="custom-file-input" id="uploadfile" accept="image/*">
-                </div>
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild hochladen
                 </a>
@@ -48,7 +45,9 @@
                     <i class="fa fa-images"></i> Bild suchen
                 </a>
             </div>
-
+            <div class="h-0" id="upload">
+                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*">
+            </div>
 
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1"></h6>
@@ -114,20 +113,19 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control"></textarea>
-                    <small class="text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"><i class="fas fa-undo-alt"></i></small>
+                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
+                    <i class="fas fa-undo-alt text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"></i>
                 </div>
-                <small>Maximal 2 Zeilen</small>
             </div>
             <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
-                    <small class="text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"><i class="fa fa-broom"></i></small>
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
 
                 </div>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 list-group-item-content">
+            <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" id="logoselect">
                     <optgroup label="Sonnenblume">
                         <option value="sonnenblume">Logo: Sonnenblume</option>
@@ -139,15 +137,33 @@
                         <option value="logo-gruen">Logo: grün</option>
                     </optgroup>
                     
+                    <?php
+                        if( $landesverband == 3 ){
+                    ?>
                     <optgroup label="Berlin">
                         <option value="logo-berlin-gruen">Logo Berlin: grün</option>
-                        <option value="logo-berlin-weiss">Logo Berlin: weiss</option>
+                        <option value="logo-berlin-weiss" selected>Logo Berlin: weiss</option>
                     </optgroup>
+                    <?php
+                        }
+                    ?>
 
+                    <?php
+                        if( file_exists('persistent/user/' . $user . '/logo.png') ){
+                            echo '<option value="custom" selected>eigenes Logo</option>';
+                        }else{
+                            echo '<option value="custom">eigenes Logo hochladen</option>';
+                        }
+                    ?>
 
                     <option value="void">kein Logo</option>
-
                 </select>
+          
+                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
+              
+            </div>
+            <div class="h-0">
+                <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
             </div>
 
             <div class="mb-1 list-group-item-content">

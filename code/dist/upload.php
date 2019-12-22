@@ -1,12 +1,19 @@
 <?php
 
 $data = $_POST['data'];
+$id = $_POST['id'];
+$return = [];
+
+$prefix="upload";
+if( $id == "uploadlogo"){
+    $prefix = "logo";
+}
 
 if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
     $data = substr($data, strpos($data, ',') + 1);
     $type = strtolower($type[1]); // jpg, png, gif
 
-    if (!in_array($type, ['jpg', 'jpeg', 'png'])) {
+    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg'])) {
         throw new \Exception('invalid image type');
     }
 
@@ -21,11 +28,40 @@ if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
 
 if ($type == 'jpeg') $type = 'jpg';
 
+
+
+
+if( $prefix == "logo"){
+    $return['okay'] = true;
+
+    $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
+
+    $userDir = 'persistent/user/' . $user;
+    if( !file_exists($userDir)){
+        mkdir($userDir);
+    }
+
+    $filename = $userDir . '/logo.' . $type;
+    file_put_contents($filename, $data);
+
+    if( $type != 'png')
+    $command = sprintf("convert -resize 500x500 %s %s/logo.png",
+        $filename,
+        $userDir
+    );
+    exec($command);
+
+    echo json_encode($return);
+    die();
+}
+
+
 $filebasename = 'tmp/' . uniqid('upload');
 $filename = $filebasename . '.' . $type;
 $filename_small = $filebasename . '_small.' . $type;
 
 file_put_contents($filename, $data);
+
 
 $command = sprintf("mogrify -auto-orient %s",
     $filename
@@ -39,7 +75,6 @@ $command = sprintf("convert -resize 800x450 %s %s",
 exec($command);
 
 
-$return = [];
 $return['filename'] = $filename_small;
 list($width, $height, $type, $attr) = getimagesize($filename_small);
 list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);

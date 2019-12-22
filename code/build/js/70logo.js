@@ -35,6 +35,11 @@ const logo = {
                 file: "assets/logos/berlin-gruen.svg",
                 widthFraction: 0.2,
                 position: 'topright'
+            },
+            "custom": {
+                file: "persistent/user/" + config.user + "/logo.png",
+                widthFraction: 0.2,
+                position: 'topright'
             }
         },
 
@@ -76,7 +81,6 @@ const logo = {
                     y = 10;
             }
 
-
             logo.svg.move(x, y);
 
         }
@@ -88,6 +92,10 @@ logo.load();
 
 
 $('#logoselect').on('change', function () {
+    if($(this).val() == "custom"){
+        $('#uploadlogo').click();
+        return;
+    }
     logo.load( );
 });
 
