@@ -71,16 +71,9 @@ if (file_exists('log/do.php')){
         printf("%s erstellte Sharepics |", number_format( file_get_contents( $countSharepicsFile ), 0, ',', '.'));
         ?>
           <a href="bayern">
-            <i class="fa fa-landmark"></i>
-            Version für die Kommunalwahlen in Bayern</a>
+            Kommunalwahl Bayern</a>
     </div>
 
-    <div class="col-12 col-lg-1 d-none">
-        <a href="#" class="persistentsave">Als Vorlage speichern</a>
-        <?php foreach (glob("persistent/*.json") as $filename) { ?>
-            | <a href="#" class="persistentpic" data-pic="<?php echo $filename;?>"><?php echo ucfirst(basename($filename, '.json'));?></a>
-        <?php } ?>
-    </div>
     <div class="col-12 col-lg-6 text-lg-right">
         <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a> |
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> |
