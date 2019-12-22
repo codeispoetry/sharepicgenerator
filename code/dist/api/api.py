@@ -42,7 +42,7 @@ options.add_argument("--no-sandbox")
 options.add_argument("--headless")
 
 driver = webdriver.Chrome(dir + '/chromedriver', chrome_options=options)
-driver.get('http://127.0.0.1:80/')
+driver.get('http://127.0.0.1/bayern')
 print "connected ..."
 
 textEl = driver.find_element_by_id('text')
@@ -64,12 +64,17 @@ javaScript = "$('#textsize').val(300); $('#textX').val(-100); $('#textY').val(20
 driver.execute_script(javaScript)
 time.sleep(1)
 
+# for bayern only
+javaScript = "$('#pinsize').val(85); $('#pinX').val(4000); $('#pinY').val(4000); pin.draw(); pin.bounce();"
+driver.execute_script(javaScript)
+time.sleep(1)
+
+
 download = driver.find_element_by_id('download')
 download.click()
 print "download clicked ..."
 
-#10 online,  40 offline
-time.sleep(15) # wait for the image to be processed
+time.sleep(20) # wait for the image to be processed
 driver.quit()
 
 
