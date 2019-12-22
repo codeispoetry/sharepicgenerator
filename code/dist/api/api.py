@@ -51,7 +51,7 @@ textEl.send_keys( text )
 
 
 driver.find_element_by_id("uploadfile").send_keys( dir + "/picture.jpg")
-time.sleep(3)
+time.sleep(5)
 print "uploaded ..."
 
 #select = Select(driver.find_element_by_id('logoselect'))
@@ -69,7 +69,7 @@ download.click()
 print "download clicked ..."
 
 #10 online,  40 offline
-time.sleep(8) # wait for the image to be processed
+time.sleep(15) # wait for the image to be processed
 driver.quit()
 
 
