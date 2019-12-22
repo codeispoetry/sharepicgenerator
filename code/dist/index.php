@@ -1,12 +1,14 @@
 <?php
 $samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
+$user = "generic";
 
 
 if (file_exists($samlfile) AND $_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
     require_once($samlfile);
     $as = new SimpleSAML_Auth_Simple('default-sp');
     $as->requireAuth();
+    $user =$samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
 
     require_once('versionswitch.php');
 }
@@ -150,7 +152,9 @@ if (file_exists('log/do.php')){
 
 <script>
     <?php echo 'var config ='; @readfile('config.json') || readfile('config-sample.json'); echo ';'?>
-    <?php if( isset($landesverband) ) { echo 'config.landesverband = ' . (int) $landesverband . ';'; } ?>
+    <?php printf('config.landesverband = %d;', $landesverband); ?>
+    <?php printf('config.user="%s";', $user); ?>
+
 </script>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script src="./vendor/svg.min.js"></script>

@@ -1,19 +1,30 @@
-$('#uploadfile').change(function (event) {
-    $('#uploadfile').prop('disabled', true);
-    $('#upload .message').html('<br><span>Augenblick bitte ...</span><div class="spinner-border" role="status"></div>');
-    $('#canvas').addClass('opacity');
+$('.upload-file').change(function (event) {
+    $('#waiting').addClass('active');
+    $(this).prop('disabled', true);
     let input = event.target;
-
+    let id = $(this).attr('id');
+    
     let reader = new FileReader();
     reader.onload = function () {
 
-        $.post("upload.php", {data: reader.result})
+        $.post("upload.php", {id: id, data: reader.result, user: config.user})
             .done(function (data) {
+
                 let obj = JSON.parse(data);
-                $('#uploadfile').prop('disabled', false);
-                $('#upload .message').html('');
-                $('#canvas').removeClass('opacity');
-                afterUpload(obj);
+                $('#' + id).prop('disabled', false);
+                $('#waiting').removeClass('active');
+
+                switch ( id ){
+                    case "uploadfile":
+                        afterUpload(obj);
+                        break;
+                    case "uploadlogo":
+                        $('#logoselect').val('custom');
+                        logo.load();
+                        break;
+                    default:
+                        console.log("error in uplod");
+                }
             });
 
     };
@@ -68,5 +79,9 @@ function afterUpload(data) {
 
 $('.uploadfileclicker').click(function(){
     $('#uploadfile').click();
+});
+
+$('.uploadlogoclicker').click(function(){
+    $('#uploadlogo').click();
 });
 
