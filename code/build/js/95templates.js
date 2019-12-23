@@ -56,4 +56,6 @@ $('.persistentpic').click(function () {
 $('.persistentsave').click(persistent.save);
 
 
-
+$('#templateopener').click(function () {
+    $('#templates').addClass("active");
+})
