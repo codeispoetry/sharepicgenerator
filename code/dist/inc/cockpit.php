@@ -36,19 +36,19 @@
 
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 list-group-item-content">
+            <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild hochladen
                 </a>
-                <small class="pl-3 pr-4"> oder </small>
+                
                 <a href="#" class="text-primary cursor-pointer" id="pixabayopener">
-                    <i class="fa fa-images"></i> Bild suchen
+                    <i class="fa fa-images"></i> suchen
+                </a>
+                
+                <a href="#" class="text-primary cursor-pointer" id="templateopener">
+                    <i class="fa fa-thumbs-up"></i> Vorlagen
                 </a>
             </div>
-            <div class="h-0" id="upload">
-                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*">
-            </div>
-
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1"></h6>
                 <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
@@ -61,6 +61,9 @@
                            max="1500" value="1200">
                     <small>groß</small>
                 </div>
+            </div>
+            <div class="h-0" id="upload">
+                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*">
             </div>
         </div>
 
@@ -162,16 +165,16 @@
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
               
             </div>
-            <div class="h-0">
-                <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
-            </div>
 
             <div class="mb-1 list-group-item-content">
                 <select class="form-control" id="design">
                     <option value="standard">Design: Standard</option>
                     <option value="textbackground">Design: Grün hinter dem Text</option>
-                    <KILLoption value="bigright">Design: Großfläche</option>
                 </select>
+            </div>
+
+            <div class="h-0">
+                <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
             </div>
         </div>
 

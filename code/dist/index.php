@@ -1,179 +1,125 @@
-<?php
-$samlfile = '/var/simplesaml/lib/_autoload.php';
-$landesverband = 0;
-$user = "generic";
-
-
-if (file_exists($samlfile) AND $_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
-    require_once($samlfile);
-    $as = new SimpleSAML_Auth_Simple('default-sp');
-    $as->requireAuth();
-    $user =$samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-
-    require_once('versionswitch.php');
-}
-
-if (file_exists('log/do.php')){
-    require_once('log/do.php');
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="utf-8"/>
     <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+    <style>
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.text-shadow{
+  text-shadow: black 1px 1px 12px;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}
+
+
+    </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-       
-        <div class="col-12 col-lg-9">
-            <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase h6">Sharepicgenerator</h1>
-            </div>
-            <div class="col-12">
-                <div id="canvas"></div>
-            </div>
-            <div class="col-12 mt-3 mb-3">
-                <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
-            </div>
 
-            <div class="col-12 text-center mb-5">
-                <button class="btn btn-secondary btn-lg" id="download">
-                    <i class="fas fa-download"></i> Herunterladen
-                </button>
-            </div>
-
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="assets/background.mp4" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3 text-shadow">Sharepicgenerator</h1>
+        <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
+        <div class="mt-3">
+          <a href="create.php" class="mt-5 btn btn-secondary btn-lg">Standardversion</a>
+          <br/>
+          <a href="bayern" class="mt-2 btn btn-info btn-sm">Bayern</a>
 
         </div>
-        <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
-            <?php require_once('cockpit.php'); ?>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+</header>
+
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2>Featureliste</h2>
+        <ul>
+          <li>Anpassbare Ausgabegröße</li>
+          <li>Bildausschnitt frei wählbar</li>
+          <li>Templates für alle gängigen Social-Media-Plattformen</li>
+          <li>eigenes Bild hochladbar</li>
+          <li>Bilder von Pixabay</li>
+          <li>Icons von TheNounProject</li>
+          <li>Eigenes Logo wird dauerhaft gespeichert</li>
+          <li>Open Source</li>
+          <li><em>und vieles mehr</em></li>
+        </ul>
+        <h5 class="mt-3">Bekannte Probleme</h5>
+        <ul>
+          <li> Derzeit funktioniert der Sharepicgenerator nicht im Internet Explorer und Edge</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
-        <?php
-        $countSharepicsFile = 'log/countsharepics.txt';
-        if(!file_exists($countSharepicsFile) OR time() - filemtime($countSharepicsFile) > 60 * 60){
-            $countDownloads = 0;
-            $lines = file('log/log.txt');
-            foreach( $lines AS $line ){
-                list( $time, $payload, $action ) = explode("\t", trim($line) );
-                if($action == 'download') {
-                    $countDownloads++;
-                }
-            }
-            file_put_contents( $countSharepicsFile, (string) $countDownloads );
-        }
-        printf("%s erstellte Sharepics |", number_format( file_get_contents( $countSharepicsFile ), 0, ',', '.'));
-        ?>
-          <a href="bayern">
-            Kommunalwahl Bayern</a>
+    <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> 
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
-        <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a> |
-        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> |
         Programmiert mit <i class="fas fa-heart text-yellow"></i> von Tom Rose.
     </div>
 </footer>
 
 
-<div class="overlays">
-    <div id="pixabay" class="overlay">
-        <div class="container-fluid">
-            <a href="#" class="close text-danger">
-                <i class="fas fa-times"></i>
-            </a>
-            <div class="row pt-2 mt-1">
-                <div class="col-12 text-center">
-                    <h2>Bilder suchen</h2>
-                </div>
-                <div class="col-4 offset-4">
-                    <form>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-images"></i></div>
-                            </div>
-                            <input type="text" class="form-control q" placeholder="z.B. Berge oder Sonnenblume">
-                            <div class="input-group-append">
-                                <button type="submit" class="input-group-text btn-primary">Suchen</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-12 p-5 results"></div>
-        </div>
-
-    </div>
-
-    <div id="iconoverlay" class="overlay">
-        <div class="container-fluid">
-            <a href="#" class="close text-danger">
-                <i class="fas fa-times"></i>
-            </a>
-            <div class="row pt-2 mt-1">
-                <div class="col-12 text-center">
-                    <h2>Icons suchen</h2>
-                </div>
-                <div class="col-4 offset-4">
-                    <form>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fas fa-icons"></i></div>
-                            </div>
-                            <input type="text" class="form-control q" placeholder="bitte auf englisch suchen">
-                            <div class="input-group-append">
-                                <button type="submit" class="input-group-text btn-primary">Suchen</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-12 p-5 d-flex flex-wrap results">
-            </div>
-        </div>
-
-    </div>
-
-
-    <div id="waiting" class="overlay text-danger bg-light">
-        <h1>Augenblick bitte</h1>
-    </div>
-</div>
-
-<script>
-    <?php echo 'var config ='; @readfile('config.json') || readfile('config-sample.json'); echo ';'?>
-    <?php printf('config.landesverband = %d;', $landesverband); ?>
-    <?php printf('config.user="%s";', $user); ?>
-
-</script>
-<script src="./vendor/jquery-3.4.1.min.js"></script>
-<script src="./vendor/svg.min.js"></script>
-<script src="./vendor/svg.draggable.min.js"></script>
-<script src="./assets/js/main.min.js"></script>
 </body>
 </html>
-<?php
-
-deleteOldFiles();
-function deleteOldFiles()
-{
-    $files = glob("tmp/shpic*\.{png,jpg,svg}", GLOB_BRACE );
-    $now = time();
-
-    foreach($files AS $file){
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * 7){
-            unlink($file);
-        }
-    }
-}
-?>

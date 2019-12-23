@@ -29,10 +29,6 @@ $(document).ready(function () {
     }
     */
 
-
-    if (/Edge/.test(navigator.userAgent)) {
-        alert('Falls der Sharepicgenerator hier nicht funktioniert, probiere bitte einen anderen Browser, z.B. Firefox.');
-    }
 });
 
 function message( text = false ){
