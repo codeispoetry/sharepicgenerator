@@ -76,9 +76,9 @@ header .overlay {
         <h1 class="display-3 text-shadow">Sharepic&shy;generator</h1>
         <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
         <div class="mt-3">
-          <a href="create.php" class="mt-5 btn btn-secondary btn-lg">Standardversion</a>
+          <a href="create.php" class="mt-5 btn btn-secondary btn-lg">eigenes Sharepic erstellen</a>
           <br/>
-          <a href="bayern" class="mt-2 btn btn-info btn-sm">Bayern</a>
+          <a href="bayern" class="mt-2 btn btn-info btn-sm">Kommunalwahl Bayern</a>
 
         </div>
       </div>
