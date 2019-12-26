@@ -58,7 +58,7 @@ function getIcons( q ) {
     
            
             json.hits.forEach(function (icon) {
-                $('#iconoverlay .results').append( '<div class="chooseicon" data-icon-url="' + icon.icon_url +'"><img src="' + icon.preview_url + '" title="' + icon.attribution + '"/></div>' );
+                $('#iconoverlay .results').append( '<div class="chooseicon" data-icon-url="' + icon.icon_url +'"  data-attribution="' + icon.attribution +'"><img src="' + icon.preview_url + '" title="' + icon.attribution + '"/></div>' );
             });
 
             if( json.hits.length == 0 ){
@@ -69,12 +69,15 @@ function getIcons( q ) {
                 $('#waiting').addClass('active');
                 $('#iconoverlay').removeClass("active");
 
+                let nounprojectattribution = $(this).data("attribution");
+
                 $.get( "nounproject/get_icon.php", { icon_url: $(this).data("icon-url") } )
                     .done(function( data ) {
                         if( data == "error"){
                             console.log("error downloading icon");
                         }else{
                             icon.load( 'tmp/' + data );
+                            setCopyright( nounprojectattribution, 'nounproject');
                         }
                         $('#waiting').removeClass("active");
 
