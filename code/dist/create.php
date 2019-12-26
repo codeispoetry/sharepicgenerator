@@ -22,6 +22,7 @@ if (file_exists('log/do.php')){
 <html lang="de">
 <head>
     <meta charset="utf-8"/>
+    <meta name="theme-color" content="#46962b">
     <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
