@@ -2,13 +2,26 @@
 $filename = sanitize_filename($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'no-download-name';
 
-$contentType = 'image/png';
-$format = 'png';
 
-if ($_GET['format'] && $_GET['format'] == 'pdf') {
-    $contentType = 'application/pdf';
-    $format = 'pdf';
+if( !in_array($_GET['format'], array('png','pdf','jpg'))){
+    die("wrong format");
 }
+
+switch($_GET['format']){
+    case 'png':
+        $contentType = 'image/png';
+        $format = 'png';
+    break;
+    case 'pdf':
+        $contentType = 'application/pdf';
+        $format = 'pdf';
+    break;
+    default:
+        $contentType = 'image/jpg';
+        $format = 'jpg';
+
+}
+
 
 logthis($downloadname);
 
@@ -21,7 +34,7 @@ readfile('tmp/' . $filename . '.' . $format);
 
 //require_once('telegram/sendinfo.php');
 
-unlink('tmp/' . $filename . '.' . $format);
+//unlink('tmp/' . $filename . '.' . $format);
 //unlink('tmp/' . $filename . '.svg');
 
 function logthis($filename)

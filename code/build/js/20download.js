@@ -5,7 +5,7 @@ $('#download').click(function () {
     $('#canvas').addClass('opacity');
 
     let data = draw.svg();
-    let format = 'png';
+    let format = 'jpg';
 
     $.ajax({
         type: "POST",
