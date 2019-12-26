@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Sharepicgenerator</title>
+    <meta name="theme-color" content="#46962b">
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <style>
 header {
@@ -59,8 +60,6 @@ header .overlay {
     display: none;
   }
 }
-
-
     </style>
 </head>
 <body>
@@ -105,10 +104,10 @@ header .overlay {
           <li>Bildausschnitt frei wählbar</li>
           <li>Templates für alle gängigen Social-Media-Plattformen</li>
           <li>eigenes Bild hochladbar</li>
-          <li>Bilder von Pixabay</li>
-          <li>Icons von TheNounProject</li>
+          <li>Bilder von <a href="https:/.pixabay.com/de" target="_blank">Pixabay</a></li>
+          <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
           <li>Eigenes Logo wird dauerhaft gespeichert</li>
-          <li>Open Source</li>
+          <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
           <li><em>und vieles mehr</em></li>
         </ul>
       </div>
