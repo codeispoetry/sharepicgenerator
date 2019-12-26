@@ -51,7 +51,9 @@ header .overlay {
 
 @media (pointer: coarse) and (hover: none) {
   header {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    background: #46962b;
+    height: auto;
+    padding: 5em 0;
   }
   header video {
     display: none;
@@ -71,7 +73,7 @@ header .overlay {
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-        <h1 class="display-3 text-shadow">Sharepicgenerator</h1>
+        <h1 class="display-3 text-shadow">Sharepic&shy;generator</h1>
         <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
         <div class="mt-3">
           <a href="create.php" class="mt-5 btn btn-secondary btn-lg">Standardversion</a>
@@ -86,7 +88,16 @@ header .overlay {
 
 <section class="my-5">
   <div class="container">
-    <div class="row">
+  <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2>Beispiele</h2>
+        <div class="row">
+          <div class="col-6"><img src="assets/example1.jpg" class="img-fluid"></div>
+          <div class="col-6"><img src="assets/example2.jpg" class="img-fluid"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
       <div class="col-md-8 mx-auto">
         <h2>Featureliste</h2>
         <ul>
@@ -99,10 +110,6 @@ header .overlay {
           <li>Eigenes Logo wird dauerhaft gespeichert</li>
           <li>Open Source</li>
           <li><em>und vieles mehr</em></li>
-        </ul>
-        <h5 class="mt-3">Bekannte Probleme</h5>
-        <ul>
-          <li> Derzeit funktioniert der Sharepicgenerator nicht im Internet Explorer und Edge</li>
         </ul>
       </div>
     </div>
