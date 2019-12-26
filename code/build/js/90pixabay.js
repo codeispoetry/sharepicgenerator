@@ -16,11 +16,14 @@ function getPixabayImages(q) {
         success: function (data, textStatus, jqXHR) {
             $('#pixabay .results').html('');
             data.hits.forEach(function (image) {
-                $('#pixabay .results').append('<img src="' + image.previewURL + '" data-url="' + image.largeImageURL + '">');
+                $('#pixabay .results').append('<img src="' + image.previewURL + '" data-url="' + image.largeImageURL + '" data-user="' + image.user + '">');
             });
 
             $('#pixabay .results>img').click( function(){
-                uploadImageByUrl( $(this).data('url') );
+                let pixabayAttribution = $(this).data('user'); 
+                uploadImageByUrl( $(this).data('url'), function(){
+                    setCopyright( pixabayAttribution, 'pixabay');
+                } );
             } );
         },
         error: function(data, textStatus, jqXHR) {
@@ -29,3 +32,5 @@ function getPixabayImages(q) {
 
     });
 }
+
+
