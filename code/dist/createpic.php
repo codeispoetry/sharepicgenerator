@@ -27,7 +27,12 @@ $svg = $svgHeader . $svg; // Prefix SVG string with required XML node
 
 file_put_contents($filename, $svg);
 
-$format = ($_POST['format'] && $_POST['format'] == 'pdf') ? 'pdf' : 'png';
+if( in_array($_POST['format'], array('png','pdf','jpg'))){
+    $format = $_POST['format'];
+}else{
+    die("wrong format");
+}
+
 $exportWidth = (int) $_POST['width'];
 convert($filename, $exportWidth, $format);
 
@@ -39,12 +44,27 @@ echo json_encode($return);
 function convert($filename, $width, $format)
 {
 
-    $command = sprintf("inkscape %s --export-width=%d --export-{$format}=%s --export-dpi=90",
+    if($format == 'pdf'){
+        $tempformat = 'pdf';
+    }else{
+        $tempformat = 'png';
+    }
+
+
+    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90",
         $filename,
         $width,
-        'tmp/' . basename($filename, 'svg') . $format);
-
+        'tmp/' . basename($filename, 'svg') . $tempformat);
     exec($command);
+
+
+    if($format == 'jpg'){
+        $command = sprintf("convert %s %s",
+        'tmp/' . basename($filename, 'svg') . $tempformat,
+        'tmp/' . basename($filename, 'svg') . $format
+        );
+        exec($command);
+    }
 }
 
 
