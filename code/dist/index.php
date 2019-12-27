@@ -8,7 +8,7 @@
     <style>
 header {
   position: relative;
-  background-color: black;
+  background-color: white;
   height: 75vh;
   min-height: 25rem;
   width: 100%;
@@ -28,6 +28,7 @@ header video {
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  filter: grayscale(50%);
 }
 
 header .container {
@@ -104,7 +105,7 @@ header .overlay {
           <li>Bildausschnitt frei wählbar</li>
           <li>Templates für alle gängigen Social-Media-Plattformen</li>
           <li>eigenes Bild hochladbar</li>
-          <li>Bilder von <a href="https:/.pixabay.com/de" target="_blank">Pixabay</a></li>
+          <li>Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a></li>
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
           <li>Eigenes Logo wird dauerhaft gespeichert</li>
           <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
