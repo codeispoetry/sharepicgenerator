@@ -113,11 +113,11 @@ if (file_exists('log/do.php')){
 deleteOldFiles();
 function deleteOldFiles()
 {
-    $files = glob("tmp/shpic*\.{png,jpg,svg}", GLOB_BRACE );
+    $files = glob("tmp/*\.{png,jpg,svg}", GLOB_BRACE );
     $now = time();
 
     foreach($files AS $file){
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * 7){
+        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24){
             unlink($file);
         }
     }
