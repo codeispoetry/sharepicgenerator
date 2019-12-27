@@ -57,7 +57,7 @@ const background = {
         
 
         if (error) {
-            message("Idm Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class=\"cursor-pointer\" onClick=\"background.reset();\">setze es zurück</u> oder vergrößere es.");
+            message("Im Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class=\"cursor-pointer\" onClick=\"background.reset();\">setze es zurück</u> oder vergrößere es.");
         } else {
             message();
         }

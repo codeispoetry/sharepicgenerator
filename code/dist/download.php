@@ -22,10 +22,12 @@ switch($_GET['format']){
 
 }
 
+debug($filename, $format);
 
 logthis($downloadname);
 
 header('Content-Type: ' . $contentType);
+header("Content-Length: ".filesize('tmp/' . $filename . '.' . $format));
 header('Content-Disposition: attachment; filename="' . $downloadname . '.' . $format . '"');
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
@@ -46,4 +48,18 @@ function logthis($filename)
 function sanitize_filename($var)
 {
     return preg_replace('/[^a-zA-Z0-9]/', '', $var);
+}
+
+
+function debug( $filename, $format ){
+    $get = http_build_query($_GET,'',', ');
+    $file = 'tmp/' . $filename . '.' . $format;
+    if(file_exists($file)){
+        $size = filesize($file);
+    }else{
+        $size = -1;
+    }
+    
+    $debug = sprintf("%s\t%s\t%s\n", $filename, $size, $get);
+    file_put_contents('error.log', $debug, FILE_APPEND);
 }

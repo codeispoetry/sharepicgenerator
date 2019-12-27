@@ -12,6 +12,7 @@ code/dist/config.ini
 code/dist/api/*.png
 code/dist/api/*.jpg
 code/dist/log/countsharepics.txt
+*.log
 
 *.dll
 *.exe
