@@ -6,6 +6,9 @@
             <div class="row pt-2 mt-1">
                 <div class="col-12 text-center">
                     <h2>Bilder suchen</h2>
+                    <p class="small">Die Bilder stammen von <a href="https://pixabay.com" target="_blank">Pixabay</a> und 
+                    dürfen kostenlos und ohne Quellenangabe genutzt werden. Bilder, auf denen einzelne 
+                    Menschen zu erkennen sind, dürfen nicht genutzt werden.
                 </div>
                 <div class="col-4 offset-4">
                     <form>
