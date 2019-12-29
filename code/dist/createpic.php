@@ -15,7 +15,7 @@ if (!preg_match("/xmlns:xlink/", $matches[1][0])) {
     $svg = str_replace($matches[1][0], $tempString, $svg);
 }
 
-$svg = preg_replace('/NS([1-9]|[1-9][0-9]):/', 'xlink:', $svg); // Remove offending NS<number>: in front of href tags, will only remove NS0 - NS99
+$svg = preg_replace('/NS([1-9]|[1-9][0-9]|[1-9][0-9][0-9]):/', 'xlink:', $svg); // Remove offending NS<number>: in front of href tags, will only remove NS0 - NS999
 
 
 // Für den Firefox
@@ -51,11 +51,14 @@ function convert($filename, $width, $format)
     }
 
 
-    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90",
+    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90  2>>inkscape-error.log",
         $filename,
         $width,
         'tmp/' . basename($filename, 'svg') . $tempformat);
     exec($command);
+
+    $debug = sprintf("\n%s\t%s\n\n", time(), $filename);
+    file_put_contents('inkscape-error.log', $debug, FILE_APPEND);
 
 
     if($format == 'jpg'){

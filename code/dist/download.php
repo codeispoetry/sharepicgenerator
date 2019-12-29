@@ -60,6 +60,6 @@ function debug( $filename, $format ){
         $size = -1;
     }
     
-    $debug = sprintf("%s\t%s\t%s\n", $filename, $size, $get);
+    $debug = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
     file_put_contents('error.log', $debug, FILE_APPEND);
 }
