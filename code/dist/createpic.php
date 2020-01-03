@@ -57,7 +57,7 @@ function convert($filename, $width, $format)
         'tmp/' . basename($filename, 'svg') . $tempformat);
     exec($command);
 
-    $debug = sprintf("\n%s\t%s\n\n", time(), $filename);
+    $debug = sprintf("%s\t%s\n\n", time(), $filename);
     file_put_contents('inkscape-error.log', $debug, FILE_APPEND);
 
 
