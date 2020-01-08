@@ -3,20 +3,42 @@ $samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
 $user = "generic";
 
+$hasAccess = isLocal() ?: isLocalUser();
 
-if (file_exists($samlfile) AND $_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
-    require_once($samlfile);
-    $as = new SimpleSAML_Auth_Simple('default-sp');
-    $as->requireAuth();
-    $user =$samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
+if( !$hasAccess ){
+    if (file_exists($samlfile)) {
+        require_once($samlfile);
+        $as = new SimpleSAML_Auth_Simple('default-sp');
+        $as->requireAuth();
+        $user =$samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
 
-    require_once('inc/versionswitch.php');
+        require_once('inc/versionswitch.php');
+    }else {
+        $user = "nosamlfile";
+    }
 }
 
 if (file_exists('log/do.php')){
     require_once('log/do.php');
 }
 
+function isLocalUser(){
+    $GLOBALS['user'] = "localuser";
+    if( !isset($_POST['pass'])){
+        return false;
+    }
+
+    if( $_POST['pass'] == 'geheim'){
+        return true;
+    }
+
+    return false;
+}
+
+function isLocal(){
+    $GLOBALS['user'] = "localaccessed";
+    return ($_SERVER['REMOTE_ADDR'] == '127.0.0.1');
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
