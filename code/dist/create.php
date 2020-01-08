@@ -32,6 +32,7 @@ function isLocalUser(){
         return true;
     }
 
+    die("Passwort falsch");
     return false;
 }
 
@@ -39,6 +40,7 @@ function isLocal(){
     $GLOBALS['user'] = "localaccessed";
     return ($_SERVER['REMOTE_ADDR'] == '127.0.0.1');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
