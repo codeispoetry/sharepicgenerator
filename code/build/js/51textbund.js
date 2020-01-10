@@ -32,6 +32,9 @@ const text = {
         let y = 0;
         let lines = $('#text').val().replace(/\n$/,'').split(/\n/);
         let fontfamily = (lines.length <= 3) ? 'ArvoGruen' : 'Arvo';
+        let longestLine = lines.reduce(function (a, b) { return a.length > b.length ? a : b; });
+
+        let widthSameLineHeihgts = 16 * longestLine.length;
 
         let lineBeginsY = [];
         let linesRendered = []; 
@@ -53,19 +56,19 @@ const text = {
                 });
 
                 t.move(0, y );
-    
+              
                 if( $('#textsamesize').prop("checked") ){
-                    t = draw.group().add(t).size(80); // the number defines the size of the white bars
+                    t = draw.group().add(t).size(widthSameLineHeihgts); // the number defines the size of the white bars
                 }
 
                 y += (t.rbox().h ) + text.linemargin ;
-
 
                 lineBeginsY[ index ] = y;
                 linesRendered[ index ] = t;
                 text.svg.add(t);
             }
         );
+
 
         // Icon 
         let licon;
