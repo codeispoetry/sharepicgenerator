@@ -22,7 +22,6 @@ const pin = {
 
 
     draw() {
-
         let countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
 
         if( countLines > 1 ){
@@ -78,6 +77,8 @@ const pin = {
         pin.svg.add(pintext);
 
         pin.svg.move( draw.width() - pin.svg.width(), $('#pinY').val());
+        let eyecatchersize = $('#eyecatchersize').val() / 100 ;
+        pin.svg.scale( eyecatchersize,eyecatchersize,draw.width(),$('#pinY').val());
         pin.svg.rotate(-9, draw.width(), pin.svg.y());
 
         pin.svg.front();
@@ -90,4 +91,4 @@ const pin = {
 
 
 
-$('#pintext').bind('input propertychange', pin.draw);
+$('#pintext, #eyecatchersize').bind('input propertychange', pin.draw);
