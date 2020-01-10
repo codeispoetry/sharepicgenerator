@@ -16,6 +16,11 @@ function setDrawsize() {
         height = width / aspectratio;
     }
 
+    while( height > 800 ){
+        width -= 50;
+        height = width / aspectratio;
+    }
+
     draw.size(width, height);
 
     $('#canvas').width(draw.width());

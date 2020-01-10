@@ -12,6 +12,8 @@ code/dist/config.ini
 code/dist/api/*.png
 code/dist/api/*.jpg
 code/dist/log/countsharepics.txt
+code/dist/passwords.php
+
 *.log
 
 *.dll
