@@ -119,6 +119,12 @@
                     <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
                     <i class="fas fa-undo-alt text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"></i>
                 </div>
+                <div class="slider">
+                    <small>klein</small>
+                    <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                           max="300" value="100">
+                    <small>groß</small>
+                </div>
             </div>
             <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">

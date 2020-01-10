@@ -75,11 +75,18 @@ header .overlay {
       <div class="w-100 text-white">
         <h1 class="display-3 text-shadow">Sharepic&shy;generator</h1>
         <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
-        <div class="mt-3">
+        <div class="mt-3 d-flex flex-column align-items-center">
           <a href="create.php" class="mt-5 btn btn-secondary btn-lg">eigenes Sharepic erstellen</a>
-          <br/>
           <a href="bayern" class="mt-2 btn btn-info btn-sm">Kommunalwahl Bayern</a>
-
+            <input type="button" class="mt-2 btn btn-sm btn-warning testaccess" value="Testzugang">
+            <div class="mt-1 testaccess" style="display:none">
+                <form method="post" action="create.php" class="form-inline">
+                    <div class="mt-2">
+                        <input type="text" class="form-control" name="pass" placeholder="Passwort eingeben">
+                        <input type="submit" class="btn btn-sm btn-info" value="okay">
+                    </div>
+                </form>
+            </divmt-3>
         </div>
       </div>
     </div>
@@ -126,7 +133,12 @@ header .overlay {
         Programmiert mit <i class="fas fa-heart text-yellow"></i> von Tom Rose.
     </div>
 </footer>
-
+<script src="./vendor/jquery-3.4.1.min.js"></script>
+<script>
+    $('input.testaccess').click(function(){
+        $('div.testaccess').slideDown();
+    })
+</script>
 
 </body>
 </html>
