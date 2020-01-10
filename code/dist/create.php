@@ -28,7 +28,12 @@ function isLocalUser(){
         return false;
     }
 
-    if( $_POST['pass'] == 'geheim'){
+    if( !file_exists('passwords.php')){
+        return false;
+    }
+
+    require_once('passwords.php');
+    if( in_array($_POST['pass'], $passwords)){
         return true;
     }
 
