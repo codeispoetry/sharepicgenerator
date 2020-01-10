@@ -62,7 +62,7 @@ function convert($filename, $width, $format)
 
 
     if($format == 'jpg'){
-        $command = sprintf("convert %s %s",
+        $command = sprintf("convert %s -background white -flatten %s",
         'tmp/' . basename($filename, 'svg') . $tempformat,
         'tmp/' . basename($filename, 'svg') . $format
         );
