@@ -109,7 +109,8 @@ function isLocal(){
     <div class="col-12 col-lg-6 text-lg-right">
         <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a> |
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> |
-        Programmiert mit <i class="fas fa-heart text-yellow"></i> von Tom Rose.
+        Programmiert mit <i class="fas fa-heart text-yellow"></i> von 
+        <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
     </div>
 </footer>
 
