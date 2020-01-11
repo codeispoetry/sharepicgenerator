@@ -91,7 +91,9 @@ header .overlay {
                         <input type="submit" class="btn btn-sm btn-info" value="okay">
                     </div>
                 </form>
-                <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">Testzugang beantragen</a>
+                <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">
+                  <i class="fas fa-envelope"></i> Testzugang beantragen
+                </a>
             </divmt-3>
         </div>
       </div>
@@ -101,8 +103,13 @@ header .overlay {
 
 <section class="my-5">
   <div class="container">
-  <div class="row">
-      <div class="col-md-8 mx-auto">
+    <div class="row">
+      <div class="col-md-8 col-text-center">
+        <h2 class="text-right"><span id="sharepics-counter"><?php echo count_sharepics(); ?></span> erstellte Sharepics</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-8 offset-md-2 ">
         <h2>Beispiele</h2>
         <div class="row">
           <div class="col-6"><img src="assets/example1.jpg" class="img-fluid"></div>
@@ -111,7 +118,7 @@ header .overlay {
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-md-8 mx-auto">
+      <div class="col-md-8 offset-md-2 ">
         <h2>Featureliste</h2>
         <ul>
           <li>Anpassbare Ausgabegröße</li>
@@ -144,8 +151,43 @@ header .overlay {
 <script>
     $('span.testaccess').click(function(){
         $('div.testaccess').slideDown();
-    })
-</script>
+    });
 
+    $( document ).ready(function() {
+        let sc = $('#sharepics-counter');
+        let number = <?php echo count_sharepics(); ?>;
+        let counting_number = Math.round( number * 0.6 );
+
+        let counter = window.setInterval(() => {
+            let delta = number - counting_number;
+            counting_number += Math.max( 2, Math.round( delta / 10 ) );
+           
+            sc.html( counting_number.toLocaleString() );
+
+            if( counting_number >= number){
+                sc.html( (number -1).toLocaleString() );
+                clearInterval( counter );
+                window.setTimeout(() => {
+                  sc.html( number.toLocaleString() );
+                }, 1000);
+            }
+        }, 30);
+
+    });
+
+</script>
+<?php
+function count_sharepics( ){
+    $number = 4550;
+    $countSharepicsFiles = array('log/countsharepics.txt','bayern/log/countsharepics.txt');
+    foreach($countSharepicsFiles AS $countSharepicsFile){
+        if(file_exists($countSharepicsFile)){
+            $number += (int) file_get_contents($countSharepicsFile);
+        }
+    }
+
+    return $number;
+}
+?>
 </body>
 </html>
