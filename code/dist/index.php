@@ -7,6 +7,7 @@
     <meta name="theme-color" content="#46962b">
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <style>
+
 header {
   position: relative;
   background-color: white;
@@ -37,17 +38,6 @@ header .container {
   z-index: 2;
 }
 
-header .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 0.5;
-  z-index: 1;
-}
-
 .text-shadow{
   text-shadow: black 1px 1px 12px;
 }
@@ -57,6 +47,7 @@ header .overlay {
     background: #46962b;
     height: auto;
     padding: 5em 0;
+    width: 100%;
   }
   header video {
     display: none;
@@ -65,9 +56,10 @@ header .overlay {
     </style>
 </head>
 <body>
+<div class="container-fluid">
 
+<div class="row">
 <header>
-  <div class="overlay"></div>
   <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
     <source src="assets/background.mp4" type="video/mp4">
   </video>
@@ -100,12 +92,13 @@ header .overlay {
     </div>
   </div>
 </header>
+</div>
 
-<section class="my-5">
+<section class="row my-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-text-center">
-        <h2 class="text-right"><span id="sharepics-counter"><?php echo count_sharepics(); ?></span> erstellte Sharepics</h2>
+      <div class="col-md-8 text-center">
+        <h2 class="text-md-right"><span id="sharepics-counter"><?php echo count_sharepics(); ?></span> erstellte Sharepics</h2>
       </div>
     </div>
     <div class="row mt-5">
@@ -147,6 +140,8 @@ header .overlay {
         <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
     </div>
 </footer>
+
+</div>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script>
     $('span.testaccess').click(function(){
