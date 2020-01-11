@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator</title>
     <meta name="theme-color" content="#46962b">
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
@@ -73,12 +74,16 @@ header .overlay {
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-        <h1 class="display-3 text-shadow">Sharepic&shy;generator</h1>
+        <h1 class="display-4 text-shadow">Grüner<br/>Sharepic&shy;generator</h1>
         <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
         <div class="mt-3 d-flex flex-column align-items-center">
-          <a href="create.php" class="mt-5 btn btn-secondary btn-lg">eigenes Sharepic erstellen</a>
+          <a href="create.php" class="mt-5 btn btn-secondary btn-lg">
+            <i class="fas fa-pen mr-2 small"></i>eigenes Sharepic erstellen
+          </a>
           <a href="bayern" class="mt-2 btn btn-info btn-sm">Kommunalwahl Bayern</a>
-            <input type="button" class="mt-2 btn btn-sm btn-warning testaccess" value="Testzugang">
+            <span class="mt-5 cursor-pointer testaccess">
+                <i class="fas fa-sign-in-alt"></i> Testzugang
+            </span>
             <div class="mt-1 testaccess" style="display:none">
                 <form method="post" action="create.php" class="form-inline">
                     <div class="mt-2">
@@ -86,6 +91,7 @@ header .overlay {
                         <input type="submit" class="btn btn-sm btn-info" value="okay">
                     </div>
                 </form>
+                <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">Testzugang beantragen</a>
             </divmt-3>
         </div>
       </div>
@@ -130,12 +136,13 @@ header .overlay {
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
-        Programmiert mit <i class="fas fa-heart text-yellow"></i> von Tom Rose.
+        Programmiert mit <i class="fas fa-heart text-yellow"></i> von 
+        <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
     </div>
 </footer>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script>
-    $('input.testaccess').click(function(){
+    $('span.testaccess').click(function(){
         $('div.testaccess').slideDown();
     })
 </script>
