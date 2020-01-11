@@ -5,6 +5,8 @@ code/dist/assets/js/main.min.js*
 code/dist/assets/css/styles.css*
 
 code/dist/config.json
+code/dist/api/data.json
+
 
 node_modules
 code/dist/log/log.txt
