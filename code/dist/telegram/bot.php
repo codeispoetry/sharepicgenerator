@@ -38,7 +38,10 @@ function handleRequest()
             break;
         default:
             sendMessage( "Hallo $first_name, Dein Sharepic wird erstellt. Das kann bis zu einer Minute dauern." );
-            $command = sprintf('python ../api/api.py --text \'%s\' 2>&1 1>/dev/null', $command );
+            
+            file_put_contents( '../api/data.json', json_encode(array("text"=> $command)));
+            
+            $command ='python ../api/api.py 2>&1 1>/dev/null';
             
             $result = shell_exec($command);
             if( $result == ""){
