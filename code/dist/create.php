@@ -10,7 +10,8 @@ if( !$hasAccess ){
         require_once($samlfile);
         $as = new SimpleSAML_Auth_Simple('default-sp');
         $as->requireAuth();
-        $user =$samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
+        $samlattributes = $as->getAttributes();
+        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
 
         require_once('inc/versionswitch.php');
     }else {
