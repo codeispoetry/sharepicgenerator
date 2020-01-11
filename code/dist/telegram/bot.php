@@ -38,10 +38,15 @@ function handleRequest()
             break;
         default:
             sendMessage( "Hallo $first_name, Dein Sharepic wird erstellt. Das kann bis zu einer Minute dauern." );
-            $command = sprintf('python ../api/api.py --text \'%s\'', $command );
+            $command = sprintf('python ../api/api.py --text \'%s\' 2>&1 1>/dev/null', $command );
             
-            shell_exec($command);
-            sendFile( 'sharepic.png');
+            $result = shell_exec($command);
+            if( $result == ""){
+                sendFile( 'sharepic.png');
+            }else{
+                sendMessage( "Es ist ein Fehler passiert. Es folgt die Fehlermeldung:" );
+                sendMessage( $result );
+            }
     }
 
 
