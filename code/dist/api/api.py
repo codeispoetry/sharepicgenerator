@@ -42,15 +42,21 @@ options.add_argument("--no-sandbox")
 options.add_argument("--headless")
 
 driver = webdriver.Chrome(dir + '/chromedriver', chrome_options=options)
-driver.get('http://127.0.0.1/bayern')
+try:
+    driver.get('https://127.0.0.1/bayern')
+except:
+    driver.save_screenshot("screenshot.png")
+    print("Could not connect. Screenshot saved.")
 print "connected ..."
 
 textEl = driver.find_element_by_id('text')
 textEl.send_keys(Keys.CONTROL, 'a')
 textEl.send_keys( text )
 
-
-driver.find_element_by_id("uploadfile").send_keys( dir + "/picture.jpg")
+try:
+    driver.find_element_by_id("uploadfile").send_keys( dir + "/picture.jpg")
+except:
+    print("No such file")
 time.sleep(5)
 print "uploaded ..."
 
