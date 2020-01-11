@@ -150,7 +150,11 @@ header .overlay {
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script>
     $('span.testaccess').click(function(){
+      if( $('div.testaccess').is(':visible') ){
+        $('div.testaccess').slideUp();
+      }else{
         $('div.testaccess').slideDown();
+      }
     });
 
     $( document ).ready(function() {
