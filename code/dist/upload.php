@@ -9,11 +9,11 @@ if( $id == "uploadlogo"){
     $prefix = "logo";
 }
 
-if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+if (preg_match('/^data:image\/([\w\+]+);base64,/', $data, $type)) {
     $data = substr($data, strpos($data, ',') + 1);
     $type = strtolower($type[1]); // jpg, png, gif
 
-    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg'])) {
+    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg+xml'])) {
         throw new \Exception('invalid image type');
     }
 
@@ -23,7 +23,7 @@ if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
         throw new \Exception('base64_decode failed');
     }
 } else {
-    throw new \Exception('did not match data URI with image data');
+    throw new \Exception($data.'did not match data URI with image data');
 }
 
 if ($type == 'jpeg') $type = 'jpg';
@@ -44,12 +44,14 @@ if( $prefix == "logo"){
     $filename = $userDir . '/logo.' . $type;
     file_put_contents($filename, $data);
 
-    if( $type != 'png')
-    $command = sprintf("convert -resize 500x500 %s %s/logo.png",
-        $filename,
-        $userDir
-    );
-    exec($command);
+    if( $type != 'png'){
+        $command = sprintf("convert -resize 500x500 %s %s/logo.png",
+            $filename,
+            $userDir
+        );
+        exec($command);
+    }
+   
 
     echo json_encode($return);
     die();

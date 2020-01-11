@@ -23,7 +23,7 @@ $('.upload-file').change(function (event) {
                         logo.load();
                         break;
                     default:
-                        console.log("error in uplod");
+                        console.log("error in upload");
                 }
             });
 
