@@ -80,7 +80,7 @@ header .overlay {
           <a href="create.php" class="mt-5 btn btn-secondary btn-lg">
             <i class="fas fa-pen mr-2 small"></i>eigenes Sharepic erstellen
           </a>
-          <a href="bayern" class="mt-2 btn btn-info btn-sm">Kommunalwahl Bayern</a>
+          <a href="bayern" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> Kommunalwahl Bayern</a>
             <span class="mt-5 cursor-pointer testaccess">
                 <i class="fas fa-sign-in-alt"></i> Testzugang
             </span>
@@ -178,7 +178,7 @@ header .overlay {
 </script>
 <?php
 function count_sharepics( ){
-    $number = 4550;
+    $number = 0;
     $countSharepicsFiles = array('log/countsharepics.txt','bayern/log/countsharepics.txt');
     foreach($countSharepicsFiles AS $countSharepicsFile){
         if(file_exists($countSharepicsFile)){
