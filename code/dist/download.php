@@ -3,7 +3,7 @@ $filename = sanitize_filename($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'no-download-name';
 
 
-if( !in_array($_GET['format'], array('png','pdf','jpg'))){
+if( !in_array($_GET['format'], array('png','pdf','jpg','mp4'))){
     die("wrong format");
 }
 
@@ -15,6 +15,10 @@ switch($_GET['format']){
     case 'pdf':
         $contentType = 'application/pdf';
         $format = 'pdf';
+    break;
+    case 'mp4':
+        $contentType = 'video/mp4';
+        $format = 'mp4';
     break;
     default:
         $contentType = 'image/jpg';

@@ -38,7 +38,7 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Bild hochladen
+                    <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a>
                 
                 <a href="#" class="text-primary cursor-pointer" id="pixabayopener">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="h-0" id="upload">
-                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*">
+                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/*">
             </div>
         </div>
 
