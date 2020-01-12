@@ -25,9 +25,11 @@ $svg = preg_replace('#([^:])\/\/#', "$1/", $svg);
 $svg = $svgHeader . $svg; // Prefix SVG string with required XML node
 
 
+
+
 file_put_contents($filename, $svg);
 
-if( in_array($_POST['format'], array('png','pdf','jpg'))){
+if( in_array($_POST['format'], array('png','pdf','jpg','mp4'))){
     $format = $_POST['format'];
 }else{
     die("wrong format");
@@ -66,6 +68,23 @@ function convert($filename, $width, $format)
         'tmp/' . basename($filename, 'svg') . $tempformat,
         'tmp/' . basename($filename, 'svg') . $format
         );
+        exec($command);
+    }
+
+    if($format == 'jpg'){
+        $command = sprintf("convert %s -background white -flatten %s",
+        'tmp/' . basename($filename, 'svg') . $tempformat,
+        'tmp/' . basename($filename, 'svg') . $format
+        );
+        exec($command);
+    }
+
+    if($format == 'mp4'){
+        $command =sprintf( 'ffmpeg -i %s -i %s -filter_complex "[0:v][1:v] overlay=0:0"  -pix_fmt yuv420p -c:a copy %s 2>tmp/ffmpeglog.txt',
+                            'tmp/video.mp4',
+                            'tmp/' . basename($filename, 'svg') . 'png',
+                            'tmp/' . basename($filename, 'svg') . 'mp4'
+                            );
         exec($command);
     }
 }

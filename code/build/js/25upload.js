@@ -14,6 +14,10 @@ $('.upload-file').change(function (event) {
                 $('#' + id).prop('disabled', false);
                 $('#waiting').removeClass('active');
 
+               
+                config.video = (obj.video == 1);
+               
+
                 switch ( id ){
                     case "uploadfile":
                         afterUpload(obj);
