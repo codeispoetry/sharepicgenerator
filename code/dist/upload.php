@@ -73,7 +73,7 @@ if( $prefix == "logo"){
     file_put_contents($filename, $data);
 
     if( $type != 'png'){
-        $command = sprintf("convert -resize 500x500 %s %s/logo.png",
+        $command = sprintf("convert -resize 500x500 -background none %s %s/logo.png",
             $filename,
             $userDir
         );
