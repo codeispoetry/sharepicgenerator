@@ -4,6 +4,11 @@ $data = $_POST['data'];
 $id = $_POST['id'];
 $return = [];
 
+$extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+
+move_uploaded_file($_FILES['file']['tmp_name'],sprintf('tmp/%s.%s', uniqid('upload'), $extension));
+echo json_encode($return);
+die();
 $prefix="upload";
 if( $id == "uploadlogo"){
     $prefix = "logo";
