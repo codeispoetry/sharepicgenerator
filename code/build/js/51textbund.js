@@ -11,10 +11,11 @@ const text = {
     },
     fontoutsidelines: {
         family: 'ArvoGruen',
-        size: 6,
+        size: 10,
         anchor: 'left',
         leading: '1.0em',
     },
+
 
     draw: function () {
 
@@ -118,14 +119,14 @@ const text = {
                 add.attr("style","white-space:pre");
             }
         });
-        textafter.dy(text.svg.height() + 5);
+        textafter.dy(text.svg.height() + 7);
 
         text.svg.add(textbefore);
         text.svg.add(textafter);
 
 
         // green background behind text
-        if ($('#design').val() == 'textbackground') {
+        if ( $('#greenbehindtext').prop("checked") ) {
             let textbackgroundpadding = 10;
             //let textbackground = draw.rect(text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding).fill(draw.image('assets/bg_small.jpg',800,450    )).move(-textbackgroundpadding, -14).back();
             let textbackground = draw.rect(text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding)
@@ -133,7 +134,7 @@ const text = {
             .move(-textbackgroundpadding, -14).back();
 
             if ($('#textbefore').val()) {
-                textbackground.dy(-6);
+                textbackground.dy(-9);
             }
 
             if ($('#textbefore').val() && $('#textafter').val()) {
@@ -170,4 +171,4 @@ const text = {
 };
 
 
-$('#text, #textbefore, #textafter, #textsize, #textsamesize').bind('input propertychange', text.draw);
+$('#text, #textbefore, #textafter, #textsize, #textsamesize, #greenbehindtext').bind('input propertychange', text.draw);
