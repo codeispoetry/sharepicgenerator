@@ -65,26 +65,26 @@ function convert($filename, $width, $format)
 
     if($format == 'jpg'){
         $command = sprintf("convert %s -background white -flatten %s",
-        'tmp/' . basename($filename, 'svg') . $tempformat,
-        'tmp/' . basename($filename, 'svg') . $format
+            'tmp/' . basename($filename, 'svg') . $tempformat,
+            'tmp/' . basename($filename, 'svg') . $format
         );
         exec($command);
     }
 
     if($format == 'jpg'){
         $command = sprintf("convert %s -background white -flatten %s",
-        'tmp/' . basename($filename, 'svg') . $tempformat,
-        'tmp/' . basename($filename, 'svg') . $format
+            'tmp/' . basename($filename, 'svg') . $tempformat,
+            'tmp/' . basename($filename, 'svg') . $format
         );
         exec($command);
     }
 
     if($format == 'mp4'){
-        $command =sprintf( 'ffmpeg -i %s -i %s -filter_complex "[0:v][1:v] overlay=0:0"  -pix_fmt yuv420p -c:a copy %s 2>tmp/ffmpeglog.txt',
-                            'tmp/'. basename($_POST['videofile']),
-                            'tmp/' . basename($filename, 'svg') . 'png',
-                            'tmp/' . basename($filename, 'svg') . 'mp4'
-                            );
+        $command =sprintf( 'ffmpeg -i %s -i %s -filter_complex "[0:v][1:v] overlay=0:0" -b:v 2M -pix_fmt yuv420p -c:a copy %s 2>tmp/ffmpeglog.txt',
+            'tmp/'. basename($_POST['videofile']),
+            'tmp/' . basename($filename, 'svg') . 'png',
+            'tmp/' . basename($filename, 'svg') . 'mp4'
+        );
         exec($command);
     }
 }
