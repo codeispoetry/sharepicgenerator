@@ -81,7 +81,7 @@ function convert($filename, $width, $format)
 
     if($format == 'mp4'){
         $command =sprintf( 'ffmpeg -i %s -i %s -filter_complex "[0:v][1:v] overlay=0:0"  -pix_fmt yuv420p -c:a copy %s 2>tmp/ffmpeglog.txt',
-                            'tmp/video.mp4',
+                            'tmp/'. basename($_POST['videofile']),
                             'tmp/' . basename($filename, 'svg') . 'png',
                             'tmp/' . basename($filename, 'svg') . 'mp4'
                             );
