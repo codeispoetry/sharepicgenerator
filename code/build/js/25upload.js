@@ -69,25 +69,35 @@ $('.upload-file').change(function (event) {
 function uploadImageByUrl(url, callback = function () {}) {
 
     $('#waiting').addClass('active');
+    let id = 'uploadbyurl';
 
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.responseType = 'blob';
-    request.onload = function () {
-        let reader = new FileReader();
-        reader.onload = function () {
-            $.post("upload.php", {data: reader.result})
-                .done(function (data) {
-                    let obj = JSON.parse(data);
-                    $('.overlay.active').removeClass('active');
-                    afterUpload(obj);
-                    callback();
-                });
+    let formData = new FormData();
+    client = new XMLHttpRequest();
+    formData.append("id", id);
+    formData.append("url2copy", url);
 
-        };
-        reader.readAsDataURL(request.response);
+    client.onerror = function(e) {
+        console.log("onError",e);
     };
-    request.send();
+
+    client.onload = function(e) {
+        console.log(e.target.response);
+
+        let obj = JSON.parse(e.target.response);
+        $('#waiting').removeClass('active');
+        $('#pixabay').removeClass('active');
+
+        if(obj.error){
+            alert(obj.error);
+        }
+
+        config.filename = obj.filename;
+
+        afterUpload(obj);
+    };
+
+    client.open("POST", "upload.php");
+    client.send(formData);
 }
 
 function afterUpload(data) {

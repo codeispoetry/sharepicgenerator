@@ -1,29 +1,35 @@
 <?php
 
-$data = $_POST['data'];
+
 $id = $_POST['id'];
-$return = [];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 
-if (!is_file_allowed($extension, array('jpg','png','gif','svg','mp4')) ){
+if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','png','gif','svg','mp4')) ){
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
 
-if( $id == "uploadfile"){
-    if($extension == 'mp4'){
-        handle_video_upload();
-    }
-    handle_background_upload();
+switch( $id ){
+    case "uploadfile":
+        if($extension == 'mp4'){
+            handle_video_upload();
+        }
+        handle_background_upload();
+        break;
+
+    case "uploadlogo":
+        handle_logo_upload();
+        break;
+    case "uploadbyurl":
+        handle_uploadbyurl();
+        break;
+    default:
+        echo json_encode(array("error"=>"nothing done"));
+        die();
 }
 
-if( $id == "uploadlogo"){
-    handle_logo_upload();
-}
 
-echo json_encode(array("error"=>"nothing done"));
-die();
 
 function handle_background_upload(){
     global $extension;
@@ -34,30 +40,9 @@ function handle_background_upload(){
 
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
-    $command = sprintf("mogrify -auto-orient %s",
-        $filename
-    );
-    exec($command);
-
-    $command = sprintf("convert -resize 800x450 %s %s",
-        $filename,
-        $filename_small
-    );
-    exec($command);
+    prepare_file_and_send_info($filename, $filename_small);
 
 
-    $return['filename'] = $filename_small;
-    list($width, $height, $type, $attr) = getimagesize($filename_small);
-    list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
-
-    $return['width'] = $width;
-    $return['height'] = $height;
-    $return['originalWidth'] = $originalWidth;
-    $return['originalHeight'] = $originalHeight;
-
-
-    echo json_encode($return);
-    die();
 }
 
 function handle_logo_upload(){
@@ -111,6 +96,49 @@ function handle_video_upload(){
     $return['originalWidth'] = $width;
     $return['originalHeight'] = $height;
     $return['video'] = 1;
+
+    echo json_encode($return);
+    die();
+}
+
+function handle_uploadbyurl(){
+    $url = $_POST['url2copy'];
+    $extension = pathinfo($url,PATHINFO_EXTENSION);
+
+    $filebasename = 'tmp/' . uniqid('upload');
+    $filename = $filebasename . '.' . $extension;
+    $filename_small = $filebasename . '.' . $extension;
+
+    if( !copy($url, $filename ) ){
+        echo json_encode(array("error"=>"could not copy file"));
+        die();
+    }
+
+    prepare_file_and_send_info($filename, $filename_small);
+}
+
+function prepare_file_and_send_info( $filename, $filename_small ){
+    $command = sprintf("mogrify -auto-orient %s",
+        $filename
+    );
+    exec($command);
+
+    $command = sprintf("convert -resize 800x450 %s %s",
+        $filename,
+        $filename_small
+    );
+    exec($command);
+
+
+    $return['filename'] = $filename_small;
+    list($width, $height, $type, $attr) = getimagesize($filename_small);
+    list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
+
+    $return['width'] = $width;
+    $return['height'] = $height;
+    $return['originalWidth'] = $originalWidth;
+    $return['originalHeight'] = $originalHeight;
+
 
     echo json_encode($return);
     die();
