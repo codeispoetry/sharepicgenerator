@@ -1,7 +1,7 @@
 $('#download').click(function () {
     $(this).prop("disabled", true);
     let description = $(this).html();
-    let secondsAtStart = 100;
+    let secondsAtStart = 600;
     let secondsWaitingInterval;
 
 
@@ -9,7 +9,7 @@ $('#download').click(function () {
     if(config.video){
         $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt</span>');
         window.setTimeout(function() {
-            $('#download').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> noch <span id="secondswaiting">' + secondsAtStart + '</span> Sekunden</span>');
+            $('#download').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> noch max. <span id="secondswaiting">' + secondsAtStart + '</span> Sekunden</span>');
             secondsWaitingInterval = window.setInterval(function () {
                 $('#secondswaiting').html(secondsAtStart);
                 secondsAtStart--;
