@@ -1,7 +1,6 @@
 $('#download').click(function () {
     $(this).prop("disabled", true);
     let description = $(this).html();
-    let secondsAtStart = 600;
     let secondsWaitingInterval;
 
 
@@ -9,12 +8,11 @@ $('#download').click(function () {
     if(config.video){
         $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt</span>');
         window.setTimeout(function() {
-            $('#download').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> noch max. <span id="secondswaiting">' + secondsAtStart + '</span> Sekunden</span>');
+            $('#download').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Aktuell bei Position <span id="secondswaiting"> Anfang </span> im Video</span>');
             secondsWaitingInterval = window.setInterval(function () {
-                $('#secondswaiting').html(secondsAtStart);
-                secondsAtStart--;
-            }, 1000);
-        },2000);
+                getEncodingStatus();
+            }, 3000);
+        },3000);
 
     }else{
         $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
@@ -73,3 +71,16 @@ $('#download').click(function () {
         }
     });
 });
+
+
+function getEncodingStatus(){
+    $.ajax({
+        url:"getvideoencodestatus.php",
+        type: 'GET',
+        dataType: 'JSON',
+        success : function(data){
+            $('#secondswaiting').html( "" + data.currentposition);
+        }
+    });
+}
+
