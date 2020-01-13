@@ -21,13 +21,12 @@ $('#download').click(function () {
     $.ajax({
         type: "POST",
         url: 'createpic.php',
-        data: {svg: data, format: format, width: $('#width').val()},
+        data: {svg: data, format: format, videofile: config.videofile, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
             $('#download').prop("disabled", false);
             $('#canvas').removeClass('opacity');
             $('#download').html(description);
-
 
             let downloadname = $('#text').val().toLowerCase();
             downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, function (match) {
