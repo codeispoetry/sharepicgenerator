@@ -6,39 +6,98 @@ $return = [];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 
-move_uploaded_file($_FILES['file']['tmp_name'],sprintf('tmp/%s.%s', uniqid('upload'), $extension));
-echo json_encode($return);
-die();
-$prefix="upload";
+if (!is_file_allowed($extension, array('jpg','png','gif','svg','mp4')) ){
+    echo json_encode(array("error"=>"wrong fileformat"));
+    die();
+}
+
+if( $id == "uploadfile"){
+    if($extension == 'mp4'){
+        handle_video_upload();
+    }
+    handle_background_upload();
+}
+
 if( $id == "uploadlogo"){
-    $prefix = "logo";
+    handle_logo_upload();
 }
 
-if (preg_match('/^data:(image|video)\/([\w\+]+);base64,/', $data, $base64type)) {
-    $data = substr($data, strpos($data, ',') + 1);
-    $type = strtolower($base64type[2]); // jpg, png, gif
+echo json_encode(array("error"=>"nothing done"));
+die();
 
-    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg+xml','mp4'])) {
-        throw new \Exception('invalid file type');
-    }
+function handle_background_upload(){
+    global $extension;
 
-    $data = base64_decode($data);
+    $filebasename = 'tmp/' . uniqid('upload');
+    $filename = $filebasename . '.' . $extension;
+    $filename_small = $filebasename . '.' . $extension;
 
-    if ($data === false) {
-        throw new \Exception('base64_decode failed');
-    }
-} else {
-    throw new \Exception($data.'did not match data URI with image data');
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
+    $command = sprintf("mogrify -auto-orient %s",
+        $filename
+    );
+    exec($command);
+
+    $command = sprintf("convert -resize 800x450 %s %s",
+        $filename,
+        $filename_small
+    );
+    exec($command);
+
+
+    $return['filename'] = $filename_small;
+    list($width, $height, $type, $attr) = getimagesize($filename_small);
+    list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
+
+    $return['width'] = $width;
+    $return['height'] = $height;
+    $return['originalWidth'] = $originalWidth;
+    $return['originalHeight'] = $originalHeight;
+
+
+    echo json_encode($return);
+    die();
 }
 
+function handle_logo_upload(){
+    global $extension;
 
-if( $base64type[1] == 'video' ){
+    $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
+
+    $userDir = 'persistent/user/' . $user;
+    if( !file_exists($userDir)){
+        mkdir($userDir);
+    }
+
+    $filename = $userDir . '/logo.' . $extension;
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
+    if( $extension != 'png'){
+        $command = sprintf("convert -resize 500x500 -background none %s %s/logo.png",
+            $filename,
+            $userDir
+        );
+        exec($command);
+    }
+
+    $return['okay'] = true;
+    echo json_encode($return);
+    die();
+}
+
+function is_file_allowed( $extension, $allowed){
+    return in_array( strtolower($extension), $allowed);
+}
+
+function handle_video_upload(){
+    global $extension;
     $basename = 'tmp/' . uniqid('video');
-    $videofile = $basename . '.' . $type;
+    $videofile = $basename . '.' . $extension;
     $thumbnail =  $basename . '.jpg';
 
 
-    file_put_contents($videofile, $data);
+    move_uploaded_file($_FILES['file']['tmp_name'], $videofile );
 
     $command =sprintf('ffmpeg -ss 00:00:05 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
     exec($command);
@@ -55,65 +114,3 @@ if( $base64type[1] == 'video' ){
     echo json_encode($return);
     die();
 }
-
-
-if ($type == 'jpeg') $type = 'jpg';
-
-if( $prefix == "logo"){
-    $return['okay'] = true;
-
-    $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
-
-    $userDir = 'persistent/user/' . $user;
-    if( !file_exists($userDir)){
-        mkdir($userDir);
-    }
-
-    $filename = $userDir . '/logo.' . $type;
-    file_put_contents($filename, $data);
-
-    if( $type != 'png'){
-        $command = sprintf("convert -resize 500x500 %s %s/logo.png",
-            $filename,
-            $userDir
-        );
-        exec($command);
-    }
-   
-
-    echo json_encode($return);
-    die();
-}
-
-
-
-$filebasename = 'tmp/' . uniqid('upload');
-$filename = $filebasename . '.' . $type;
-$filename_small = $filebasename . '_small.' . $type;
-
-file_put_contents($filename, $data);
-
-
-$command = sprintf("mogrify -auto-orient %s",
-    $filename
-);
-exec($command);
-
-$command = sprintf("convert -resize 800x450 %s %s",
-    $filename,
-    $filebasename . '_small.' . $type
-);
-exec($command);
-
-
-$return['filename'] = $filename_small;
-list($width, $height, $type, $attr) = getimagesize($filename_small);
-list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
-
-$return['width'] = $width;
-$return['height'] = $height;
-$return['originalWidth'] = $originalWidth;
-$return['originalHeight'] = $originalHeight;
-
-
-echo json_encode($return);

@@ -23,12 +23,14 @@ $('.upload-file').change(function (event) {
     
     client.onload = function(e) {
         console.log(e.target.response);
-        //console.log("Fertig",e);
 
         let obj = JSON.parse(e.target.response);
         $('#' + id).prop('disabled', false);
         $('#waiting').removeClass('active');
 
+        if(obj.error){
+            alert(obj.error);
+        }
        
         config.video = (obj.video == 1);
        
@@ -59,19 +61,6 @@ $('.upload-file').change(function (event) {
     client.open("POST", "upload.php");
     client.send(formData);
 
-    
-    let reader = new FileReader();
-    reader.onload = function () {
-
-        $.post("upload.php", {id: id, data: reader.result, user: config.user})
-            .done(function (data) {
-
-               
-            });
-
-    };
-    //reader.readAsDataURL(input.files[0]);
-   
 });
 
 
