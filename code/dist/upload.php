@@ -103,6 +103,7 @@ function handle_video_upload(){
     exec($command);
 
     $return['filename'] = $thumbnail;
+    $return['videofile'] = $videofile;
     list($width, $height, $type, $attr) = getimagesize($thumbnail);
     
     $return['width'] = $width;

@@ -33,7 +33,9 @@ $('.upload-file').change(function (event) {
         }
        
         config.video = (obj.video == 1);
-       
+        config.videofile = obj.videofile;
+        config.filename = obj.filename;
+
 
         switch ( id ){
             case "uploadfile":
