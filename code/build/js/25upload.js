@@ -1,11 +1,16 @@
 $('.upload-file').change(function (event) {
+    let id = $(this).attr('id');
+    let file = document.getElementById(id).files[0];
+    let size = document.getElementById(id).files[0].size/1024/1024;
+    let maxFileSize = 300; // in MB, note this in .htaccess as well
+    if( size > 300 ){
+        alert("Die Datei ist zu groß. Es sind maximal " + maxFileSize + " MB erlaubt.");
+        return false;
+    }
 
     $('#waiting').addClass('active');
     $(this).prop('disabled', true);
 
-    let id = $(this).attr('id');
-
-    let file = document.getElementById(id).files[0];
     let formData = new FormData();
     client = new XMLHttpRequest();
     
@@ -22,7 +27,6 @@ $('.upload-file').change(function (event) {
     };
     
     client.onload = function(e) {
-        console.log(e.target.response);
 
         let obj = JSON.parse(e.target.response);
         $('#' + id).prop('disabled', false);
@@ -81,8 +85,6 @@ function uploadImageByUrl(url, callback = function () {}) {
     };
 
     client.onload = function(e) {
-        console.log(e.target.response);
-
         let obj = JSON.parse(e.target.response);
         $('#waiting').removeClass('active');
         $('#pixabay').removeClass('active');
