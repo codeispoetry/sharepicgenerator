@@ -20,6 +20,7 @@ die( $iconfilename );
 
 function make_white( $file ){
     $svg = join("\n",file( $file ));
+    $original_svg = $svg;
 
 	$svg = preg_replace('/fill=/','nofill=', $svg);
 
@@ -28,9 +29,14 @@ function make_white( $file ){
     $svg = preg_replace('/<rect /','<rect fill="white" ', $svg);
     $svg = preg_replace('/<polygon /','<polygon fill="white" ', $svg);
     $svg = preg_replace('/<polyline /','<polygon fill="white" ', $svg);
-    $fp = fopen( $file, 'w');
-        fwrite( $fp, $svg );
-    fclose( $fp );
+
+
+    $svg = preg_replace('/ viewBox/',' width="100" height="100" viewBox', $svg);
+
+
+
+    file_put_contents($file, $svg);
+
 }   
 
 
