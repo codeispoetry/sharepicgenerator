@@ -107,7 +107,7 @@
             <a href="#" class="text-primary cursor-pointer" id="iconopener">
                 <i class="fa fa-images"></i> Icon suchen
             </a>
-            <div class="mb-1 list-group-item-content"> 
+            <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
                 <select class="form-control" id="iconsize">
                     <option value="1">Icon: 1 Zeile hoch</option>
                     <option value="2">Icon: 2 Zeilen hoch</option>
