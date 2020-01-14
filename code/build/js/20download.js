@@ -74,14 +74,13 @@ $('#download').click(function () {
 
 function getEncodingStatus(){
     $.ajax({
-        url:"getvideoencodestatus.php",
+        url:"getvideoencodestatus.php?videofile=" + config.videofile,
         type: 'GET',
         dataType: 'JSON',
         success : function(data){
-            let percentage = Math.round(100 * data.currentposition / config.videoduration, 1);
+            let percentage = Math.round(100 * data.currentposition / config.videoduration);
 
             $('#download').html( percentage + "% des Videos sind schon fertig. Bitte warten.");
-
         }
     });
 }
