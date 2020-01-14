@@ -129,11 +129,7 @@ function isLocal(){
     <?php echo 'var config ='; @readfile('config.json') || readfile('config-sample.json'); echo ';'?>
     <?php printf('config.landesverband = %d;', $landesverband); ?>
     <?php printf('config.user="%s";', $user); ?>
-    if (/Edge/.test(navigator.userAgent) ||
-        /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-    ) {
-        alert('Falls der Sharepicgenerator hier nicht funktioniert, probiere bitte einen anderen Browser, z.B. Firefox.');
-    }
+   
 </script>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script src="./vendor/svg.min.js"></script>
