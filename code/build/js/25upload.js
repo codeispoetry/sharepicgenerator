@@ -27,7 +27,6 @@ $('.upload-file').change(function (event) {
     };
     
     client.onload = function(e) {
-
         let obj = JSON.parse(e.target.response);
         $('#' + id).prop('disabled', false);
         $('#waiting').removeClass('active');
@@ -39,7 +38,7 @@ $('.upload-file').change(function (event) {
         config.video = (obj.video == 1);
         config.videofile = obj.videofile;
         config.filename = obj.filename;
-
+        config.videoduration = obj.videoduration;
 
         switch ( id ){
             case "uploadfile":

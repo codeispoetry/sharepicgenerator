@@ -6,9 +6,8 @@ $('#download').click(function () {
 
 
     if(config.video){
-        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt</span>');
+        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt ...</span>');
         window.setTimeout(function() {
-            $('#download').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Aktuell bei Position <span id="secondswaiting"> Anfang </span> im Video</span>');
             secondsWaitingInterval = window.setInterval(function () {
                 getEncodingStatus();
             }, 3000);
@@ -79,7 +78,10 @@ function getEncodingStatus(){
         type: 'GET',
         dataType: 'JSON',
         success : function(data){
-            $('#secondswaiting').html( "" + data.currentposition);
+            let percentage = Math.round(100 * data.currentposition / config.videoduration, 1);
+
+            $('#download').html( percentage + "% des Videos sind schon fertig. Bitte warten.");
+
         }
     });
 }

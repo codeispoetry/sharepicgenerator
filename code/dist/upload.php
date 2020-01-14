@@ -90,12 +90,16 @@ function handle_video_upload(){
     $return['filename'] = $thumbnail;
     $return['videofile'] = $videofile;
     list($width, $height, $type, $attr) = getimagesize($thumbnail);
-    
+
+    $command = sprintf('ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 %s', $videofile);
+    exec($command, $duration);
+
     $return['width'] = $width;
     $return['height'] = $height;
     $return['originalWidth'] = $width;
     $return['originalHeight'] = $height;
     $return['video'] = 1;
+    $return['videoduration'] = $duration;
 
     echo json_encode($return);
     die();
