@@ -4,8 +4,19 @@ $('#download').click(function () {
     $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
     $('#canvas').addClass('opacity');
 
-    let data = draw.svg();
     let format = 'jpg';
+
+    if( config.video == 1 ){
+        format = 'mp4';
+        background.svg.hide();
+    }
+
+    let data = draw.svg();
+   
+    if( config.video == 1 ){
+        background.svg.show();
+    }
+    
 
     $.ajax({
         type: "POST",
@@ -16,6 +27,7 @@ $('#download').click(function () {
             $('#download').prop("disabled", false);
             $('#canvas').removeClass('opacity');
             $('#download').html(description);
+
 
             let downloadname = $('#text').val().toLowerCase();
             downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, function (match) {
@@ -34,6 +46,7 @@ $('#download').click(function () {
             downloadname = downloadname.replace(/\-+/g, '-');
             downloadname = downloadname.replace(/^\-/g, '');
             downloadname = downloadname.replace(/\-$/g, '');
+
 
             window.location.href = 'download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
         }

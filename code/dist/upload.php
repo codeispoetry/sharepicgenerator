@@ -4,17 +4,22 @@ $data = $_POST['data'];
 $id = $_POST['id'];
 $return = [];
 
+$extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+
+move_uploaded_file($_FILES['file']['tmp_name'],sprintf('tmp/%s.%s', uniqid('upload'), $extension));
+echo json_encode($return);
+die();
 $prefix="upload";
 if( $id == "uploadlogo"){
     $prefix = "logo";
 }
 
-if (preg_match('/^data:image\/([\w\+]+);base64,/', $data, $type)) {
+if (preg_match('/^data:(image|video)\/([\w\+]+);base64,/', $data, $base64type)) {
     $data = substr($data, strpos($data, ',') + 1);
-    $type = strtolower($type[1]); // jpg, png, gif
+    $type = strtolower($base64type[2]); // jpg, png, gif
 
-    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg+xml'])) {
-        throw new \Exception('invalid image type');
+    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg+xml','mp4'])) {
+        throw new \Exception('invalid file type');
     }
 
     $data = base64_decode($data);
@@ -26,10 +31,33 @@ if (preg_match('/^data:image\/([\w\+]+);base64,/', $data, $type)) {
     throw new \Exception($data.'did not match data URI with image data');
 }
 
+
+if( $base64type[1] == 'video' ){
+    $basename = 'tmp/' . uniqid('video');
+    $videofile = $basename . '.' . $type;
+    $thumbnail =  $basename . '.jpg';
+
+
+    file_put_contents($videofile, $data);
+
+    $command =sprintf('ffmpeg -ss 00:00:05 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
+    exec($command);
+
+    $return['filename'] = $thumbnail;
+    list($width, $height, $type, $attr) = getimagesize($thumbnail);
+    
+    $return['width'] = $width;
+    $return['height'] = $height;
+    $return['originalWidth'] = $width;
+    $return['originalHeight'] = $height;
+    $return['video'] = 1;
+
+    echo json_encode($return);
+    die();
+}
+
+
 if ($type == 'jpeg') $type = 'jpg';
-
-
-
 
 if( $prefix == "logo"){
     $return['okay'] = true;
@@ -56,6 +84,7 @@ if( $prefix == "logo"){
     echo json_encode($return);
     die();
 }
+
 
 
 $filebasename = 'tmp/' . uniqid('upload');
