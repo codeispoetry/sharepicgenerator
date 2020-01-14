@@ -35,12 +35,12 @@ $('#iconsize').on('change', function () {
 
 $('#iconopener').click(function () {
     $('#iconoverlay').addClass("active");
-})
+});
 
 $('#iconoverlay form').submit(function () {
     getIcons( $('#iconoverlay .q').val());
     return false;
-})
+});
 
 
 function getIcons( q ) {
@@ -80,6 +80,7 @@ function getIcons( q ) {
                             setCopyright( nounprojectattribution, 'nounproject');
                         }
                         $('#waiting').removeClass("active");
+                        $('.iconsizeselectwrapper').removeClass('d-none');
 
                  });
               
