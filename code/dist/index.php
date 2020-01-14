@@ -116,11 +116,14 @@ header .container {
         <ul>
           <li>Anpassbare Ausgabegröße</li>
           <li>Bildausschnitt frei wählbar</li>
+          <li>für Bilder und Videos</li>
           <li>Templates für alle gängigen Social-Media-Plattformen</li>
           <li>eigenes Bild hochladbar</li>
           <li>Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a></li>
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
           <li>Eigenes Logo wird dauerhaft gespeichert</li>
+          <li>Bedienbar über einen Telegram-Bot</li>
+          <li>mit API, z.B. für Massenabfertigung</li>
           <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
           <li><em>und vieles mehr</em></li>
         </ul>
