@@ -19,9 +19,16 @@
   font-size: 70px;
   align-items: center;
   justify-content: center;
+  
+  flex-direction: column;
 
+  p{
+    color: #000;
+    font-size: 30px;
+    font-family: 'PTSans';
+  }
   &.active {
-    display: flex;
+   display: flex;
   }
 }
 
