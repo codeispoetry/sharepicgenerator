@@ -40,8 +40,9 @@ const bigright = {
                 let style = /^!/.test(value) ? 1 : 0;
                  
                 value = value.replace(/^!/, '').toUpperCase();
-
-                let t = draw.text(value).font({...bigright.font, ...{weight: fontweight, size: bigright.fontsizes[style]}}).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
+                // no lodash-syntax, because of Edge
+                //let t = draw.text(value).font({...bigright.font, ...{weight: fontweight, size: bigright.fontsizes[style]}}).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
+                let t = draw.text(value).font(Object.assign( bigright.font,{weight: fontweight, size: bigright.fontsizes[style]})).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
 
                 bigright.svg.add(t);
                 y += bigright.lineheights[style] + bigright.linemargin;
