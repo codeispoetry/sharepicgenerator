@@ -2,9 +2,9 @@ $('.upload-file').change(function (event) {
     let id = $(this).attr('id');
     let file = document.getElementById(id).files[0];
     let size = document.getElementById(id).files[0].size/1024/1024;
-    let maxFileSize = 300; // in MB, note this in .htaccess as well
-    if( size > 300 ){
-        alert("Die Datei ist zu groß. Es sind maximal " + maxFileSize + " MB erlaubt.");
+    let maxFileSize = 100; // in MB, note this in .htaccess as well
+    if( size > 100 ){
+        alert("Die Datei ist zu groß. Es sind maximal " + maxFileSize + " MB erlaubt.\n\nSchicke Dir die Datei per z.B. WhatsApp zu, dann wird sie automatisch verkleinert. Mehr als 20 MB pro Minute Video braucht es nicht.");
         return false;
     }
 
