@@ -90,10 +90,14 @@
                     </div>
                 </div>
                
-                <div class="">
+                <div class="d-flex justify-content-between">
                     <label>
                         <input type="checkbox" name="textsamesize" id="textsamesize">
-                        Alle Zeilen gleich lang
+                        Zeilen gleich lang
+                    </label>
+                    <label>
+                        <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
+                        Grün hinter Text
                     </label>
                 </div>
             </div>
@@ -103,7 +107,7 @@
             <a href="#" class="text-primary cursor-pointer" id="iconopener">
                 <i class="fa fa-images"></i> Icon suchen
             </a>
-            <div class="mb-1 list-group-item-content"> 
+            <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
                 <select class="form-control" id="iconsize">
                     <option value="1">Icon: 1 Zeile hoch</option>
                     <option value="2">Icon: 2 Zeilen hoch</option>
@@ -170,13 +174,6 @@
           
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
               
-            </div>
-
-            <div class="mb-1 list-group-item-content">
-                <select class="form-control" id="design">
-                    <option value="standard">Design: Standard</option>
-                    <option value="textbackground">Design: Grün hinter dem Text</option>
-                </select>
             </div>
 
             <div class="h-0">
