@@ -1,13 +1,21 @@
 $('#pixabayopener').click(function () {
     $('#pixabay').addClass("active");
-})
+});
 
-$('#pixabay form').submit(function () {
+$('.pixabay-picture').click(function () {
     getPixabayImages($('#pixabay .q').val());
-    return false;
-})
+});
+
+$('.pixabay-video').click(function () {
+    getPixabayVideos($('#pixabay .q').val());
+});
 
 var page = 1;
+
+function getPixabayVideos( q ){
+    console.log("Suche Videos für " + q);
+}
+
 function getPixabayImages(q) {
     let url = "https://pixabay.com/api/?key=" + config.pixabay.apikey + "&q=" + encodeURIComponent(q) + "&image_type=photo&page=" + page + "&per_page=100";
 
@@ -32,5 +40,3 @@ function getPixabayImages(q) {
 
     });
 }
-
-
