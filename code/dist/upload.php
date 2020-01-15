@@ -25,7 +25,7 @@ switch( $id ){
         handle_uploadbyurl();
         break;
     default:
-        echo json_encode(array("error"=>"nothing done"));
+        echo json_encode(array("error"=>"nothing done. id=" . $id));
         die();
 }
 
