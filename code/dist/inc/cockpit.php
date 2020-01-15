@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="h-0" id="upload">
-                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/*">
+                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
             </div>
         </div>
 
