@@ -78,6 +78,13 @@ function isLocal(){
             </div>
 
 
+            <div class="col-12 text-center mb-5">
+                <a href="/vintage" class="btn btn-outline-info btn-sm">
+                    <i class="fab fa-pied-piper-alt"></i> Vintage-Version zum 30./40. Geburtstag
+                </a>
+            </div>
+
+
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
             <?php require_once('inc/cockpit.php'); ?>
