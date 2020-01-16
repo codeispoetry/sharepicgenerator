@@ -18,8 +18,7 @@
                             </div>
                             <input type="text" class="form-control q" placeholder="z.B. Berge oder Sonnenblume">
                             <div class="input-group-append">
-                                <button class="input-group-text btn-primary pixabay-picture">Bild suchen</button>
-                                <button class="input-group-text btn-primary pixabay-video">Video suchen</button>
+                                <button class="input-group-text btn-primary pixabay-picture">suchen</button>
                             </div>
                         </div>
                     </form>
