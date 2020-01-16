@@ -1,6 +1,6 @@
 <?php
 $filename = sanitize_filename($_GET['file']);
-$downloadname = $_GET['downloadname'] ?: 'no-download-name';
+$downloadname = $_GET['downloadname'] ?: 'sharepic';
 
 
 if( !in_array($_GET['format'], array('png','pdf','jpg','mp4'))){
