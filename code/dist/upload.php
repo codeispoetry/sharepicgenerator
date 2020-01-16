@@ -1,66 +1,52 @@
 <?php
 
-$data = $_POST['data'];
+
 $id = $_POST['id'];
-$return = [];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 
-move_uploaded_file($_FILES['file']['tmp_name'],sprintf('tmp/%s.%s', uniqid('upload'), $extension));
-echo json_encode($return);
-die();
-$prefix="upload";
-if( $id == "uploadlogo"){
-    $prefix = "logo";
-}
-
-if (preg_match('/^data:(image|video)\/([\w\+]+);base64,/', $data, $base64type)) {
-    $data = substr($data, strpos($data, ',') + 1);
-    $type = strtolower($base64type[2]); // jpg, png, gif
-
-    if (!in_array($type, ['jpg', 'jpeg', 'png', 'svg+xml','mp4'])) {
-        throw new \Exception('invalid file type');
-    }
-
-    $data = base64_decode($data);
-
-    if ($data === false) {
-        throw new \Exception('base64_decode failed');
-    }
-} else {
-    throw new \Exception($data.'did not match data URI with image data');
-}
-
-
-if( $base64type[1] == 'video' ){
-    $basename = 'tmp/' . uniqid('video');
-    $videofile = $basename . '.' . $type;
-    $thumbnail =  $basename . '.jpg';
-
-
-    file_put_contents($videofile, $data);
-
-    $command =sprintf('ffmpeg -ss 00:00:05 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
-    exec($command);
-
-    $return['filename'] = $thumbnail;
-    list($width, $height, $type, $attr) = getimagesize($thumbnail);
-    
-    $return['width'] = $width;
-    $return['height'] = $height;
-    $return['originalWidth'] = $width;
-    $return['originalHeight'] = $height;
-    $return['video'] = 1;
-
-    echo json_encode($return);
+if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','png','gif','svg','mp4')) ){
+    echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
 
+switch( $id ){
+    case "uploadfile":
+        if($extension == 'mp4'){
+            handle_video_upload();
+        }
+        handle_background_upload();
+        break;
 
-if ($type == 'jpeg') $type = 'jpg';
+    case "uploadlogo":
+        handle_logo_upload();
+        break;
+    case "uploadbyurl":
+        handle_uploadbyurl();
+        break;
+    default:
+        echo json_encode(array("error"=>"nothing done. id=" . $id));
+        die();
+}
 
-if( $prefix == "logo"){
-    $return['okay'] = true;
+
+
+function handle_background_upload(){
+    global $extension;
+
+    $filebasename = 'tmp/' . uniqid('upload');
+    $filename = $filebasename . '.' . $extension;
+    $filename_small = $filebasename . '_small.' . $extension;
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
+    prepare_file_and_send_info($filename, $filename_small);
+
+
+}
+
+function handle_logo_upload(){
+    global $extension;
 
     $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
 
@@ -69,51 +55,95 @@ if( $prefix == "logo"){
         mkdir($userDir);
     }
 
-    $filename = $userDir . '/logo.' . $type;
-    file_put_contents($filename, $data);
+    $filename = $userDir . '/logo.' . $extension;
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
-    if( $type != 'png'){
+    if( $extension != 'png'){
         $command = sprintf("convert -resize 500x500 -background none %s %s/logo.png",
             $filename,
             $userDir
         );
         exec($command);
     }
-   
+
+    $return['okay'] = true;
+    echo json_encode($return);
+    die();
+}
+
+function is_file_allowed( $extension, $allowed){
+    return in_array( strtolower($extension), $allowed);
+}
+
+function handle_video_upload(){
+    global $extension;
+    $basename = 'tmp/' . uniqid('video');
+    $videofile = $basename . '.' . $extension;
+    $thumbnail =  $basename . '.jpg';
+
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $videofile );
+
+    $command =sprintf('ffmpeg -ss 00:00:05 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
+    exec($command);
+
+    $return['filename'] = $thumbnail;
+    $return['videofile'] = $videofile;
+    list($width, $height, $type, $attr) = getimagesize($thumbnail);
+
+    $command = sprintf('ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 %s', $videofile);
+    exec($command, $duration);
+
+    $return['width'] = $width;
+    $return['height'] = $height;
+    $return['originalWidth'] = $width;
+    $return['originalHeight'] = $height;
+    $return['video'] = 1;
+    $return['videoduration'] = $duration;
 
     echo json_encode($return);
     die();
 }
 
+function handle_uploadbyurl(){
+    $url = $_POST['url2copy'];
+    $extension = pathinfo($url,PATHINFO_EXTENSION);
+
+    $filebasename = 'tmp/' . uniqid('upload');
+    $filename = $filebasename . '.' . $extension;
+    $filename_small = $filebasename . '.' . $extension;
+
+    if( !copy($url, $filename ) ){
+        echo json_encode(array("error"=>"could not copy file"));
+        die();
+    }
+
+    prepare_file_and_send_info($filename, $filename_small);
+}
+
+function prepare_file_and_send_info( $filename, $filename_small ){
+    $command = sprintf("mogrify -auto-orient %s",
+        $filename
+    );
+    exec($command);
+
+    $command = sprintf("convert -resize 800x450 %s %s",
+        $filename,
+        $filename_small
+    );
+    exec($command);
 
 
-$filebasename = 'tmp/' . uniqid('upload');
-$filename = $filebasename . '.' . $type;
-$filename_small = $filebasename . '_small.' . $type;
+    $return['filename'] = $filename_small;
+    list($width, $height, $type, $attr) = getimagesize($filename_small);
+    list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
 
-file_put_contents($filename, $data);
-
-
-$command = sprintf("mogrify -auto-orient %s",
-    $filename
-);
-exec($command);
-
-$command = sprintf("convert -resize 800x450 %s %s",
-    $filename,
-    $filebasename . '_small.' . $type
-);
-exec($command);
+    $return['width'] = $width;
+    $return['height'] = $height;
+    $return['originalWidth'] = $originalWidth;
+    $return['originalHeight'] = $originalHeight;
 
 
-$return['filename'] = $filename_small;
-list($width, $height, $type, $attr) = getimagesize($filename_small);
-list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
-
-$return['width'] = $width;
-$return['height'] = $height;
-$return['originalWidth'] = $originalWidth;
-$return['originalHeight'] = $originalHeight;
-
-
-echo json_encode($return);
+    echo json_encode($return);
+    die();
+}

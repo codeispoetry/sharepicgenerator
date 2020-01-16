@@ -1,7 +1,25 @@
 $('#download').click(function () {
     $(this).prop("disabled", true);
     let description = $(this).html();
-    $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
+    let secondsWaitingInterval;
+
+
+
+    if(config.video){
+        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt ...</span>');
+        window.setTimeout(function() {
+            secondsWaitingInterval = window.setInterval(function () {
+                getEncodingStatus();
+            }, 3000);
+        },3000);
+
+    }else{
+        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
+    }
+
+
+
+
     $('#canvas').addClass('opacity');
 
     let format = 'jpg';
@@ -21,13 +39,13 @@ $('#download').click(function () {
     $.ajax({
         type: "POST",
         url: 'createpic.php',
-        data: {svg: data, format: format, width: $('#width').val()},
+        data: {svg: data, format: format, videofile: config.videofile, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
             $('#download').prop("disabled", false);
             $('#canvas').removeClass('opacity');
             $('#download').html(description);
-
+            window.clearInterval(secondsWaitingInterval);
 
             let downloadname = $('#text').val().toLowerCase();
             downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, function (match) {
@@ -52,3 +70,18 @@ $('#download').click(function () {
         }
     });
 });
+
+
+function getEncodingStatus(){
+    $.ajax({
+        url:"getvideoencodestatus.php?videofile=" + config.videofile,
+        type: 'GET',
+        dataType: 'JSON',
+        success : function(data){
+            let percentage = Math.round(100 * data.currentposition / config.videoduration);
+
+            $('#download').html( percentage + "% des Videos sind schon fertig. Bitte warten.");
+        }
+    });
+}
+
