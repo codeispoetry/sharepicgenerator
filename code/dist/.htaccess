@@ -2,8 +2,8 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 php_value upload_max_filesize 110M
