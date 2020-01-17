@@ -1,1 +1,1 @@
-rsync -avhz --exclude vintage --exclude bayern --exclude logo --exclude error.log --exclude persistent --exclude youtubedownloader --exclude log/log.txt --exclude log/countsharepics.txt --exclude tmp /var/www/html/dist/ tom@sharepicgenerator.de:/var/www/html --delete
+rsync -avhz --exclude vintage --exclude api/user --exclude bayern --exclude logo --exclude error.log --exclude persistent --exclude youtubedownloader --exclude log/log.txt --exclude log/countsharepics.txt --exclude tmp /var/www/html/dist/ tom@sharepicgenerator.de:/var/www/html --delete

@@ -36,16 +36,22 @@ function handleRequest()
         case "/hello":
             sendMessage( "Hallo $first_name" );
             break;
+        case "/help":
+            sendMessage( "Schicke ein Bild und folge dann den Aweisungen.\n\nKommandos:\n/get Zeigt das Hintergrundbild an\n/help Zeigt diese Beschreibung an" );
+            break;
+        case "/get":
+            sendFile(sprintf('../api/user/%s/picture.jpg', $chatID) );
+            break;
         default:
             sendMessage( "Hallo $first_name, Dein Sharepic wird erstellt. Das kann bis zu einer Minute dauern." );
             
-            file_put_contents( '../api/data.json', json_encode(array("text"=> $command)));
+            file_put_contents( '../api/data.json', json_encode(array("text"=> $command, "chatID"=> $chatID)));
             
             $command ='python ../api/api.py 2>&1 1>/dev/null';
             
             $result = shell_exec($command);
             if( $result == ""){
-                sendFile( 'sharepic.png');
+                sendFile( 'sharepic.jpg');
             }else{
                 sendMessage( "Es ist ein Fehler passiert. Es folgt die Fehlermeldung:" );
                 sendMessage( $result );
@@ -71,7 +77,12 @@ function getFile( $message ){
 
     // download file
     $url = "https://api.telegram.org/file/$botID/" . $path;
-    copy( $url, "../api/picture.jpg");
+    $userDir = sprintf('../api/user/%s', $chatID);
+    if( !file_exists( $userDir )){
+        mkdir( $userDir );
+    }
+
+    copy( $url, sprintf('%s/picture.jpg', $userDir ));
 
     sendMessage("Dein Bild ist angekommen. Welcher Text soll drauf?");
 }
@@ -101,5 +112,5 @@ function sendMessage($message)
 {
     if (!$message) return;
     global $botID, $chatID;
-    readfile('https://api.telegram.org/' . $botID . '/sendMessage?chat_id=' . $chatID . '&text=' . $message);
+    readfile('https://api.telegram.org/' . $botID . '/sendMessage?chat_id=' . $chatID . '&text=' . urlencode($message));
 }

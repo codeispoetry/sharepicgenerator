@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 
 
+
 dir = os.path.dirname(os.path.realpath(__file__))
 
 #default values
@@ -23,6 +24,8 @@ except:
     sys.exit()
 
 text = data['text'] 
+chatID = data['chatID']
+userDir = dir + '/user/' + str(chatID)
 
 os.system('pkill chromium')
 
@@ -49,7 +52,7 @@ textEl.send_keys( text )
 
 
 try:
-    driver.find_element_by_id("uploadfile").send_keys( dir + "/picture.jpg")
+    driver.find_element_by_id("uploadfile").send_keys( userDir + "/picture.jpg")
     time.sleep(5)
     print "uploaded ..."
 except:
@@ -82,5 +85,5 @@ driver.quit()
 
 
 filename = max([f for f in os.listdir('.')], key=os.path.getctime)
-shutil.move(filename,"sharepic.png")
+shutil.move(filename,"sharepic.jpg")
 
