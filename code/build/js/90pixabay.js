@@ -21,6 +21,8 @@ function getPixabayVideos( q ){
 function getPixabayImages(q) {
     let url = "https://pixabay.com/api/?key=" + config.pixabay.apikey + "&q=" + encodeURIComponent(q) + "&image_type=photo&page=" + page + "&per_page=100";
 
+    $('#pixabay .results').html("Suche gerade ... ");
+    
     $.ajax({
         url: url,
         success: function (data, textStatus, jqXHR) {
