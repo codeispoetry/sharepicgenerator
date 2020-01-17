@@ -34,6 +34,7 @@ $('#iconsize').on('change', function () {
 
 
 $('#iconopener').click(function () {
+    $('head meta[name="viewport"]').attr('content','width=device-width, initial-scale=1');
     $('#iconoverlay').addClass("active");
 });
 
@@ -79,7 +80,7 @@ function getIcons( q ) {
                             icon.load( 'tmp/' + data );
                             setCopyright( nounprojectattribution, 'nounproject');
                         }
-                        $('#waiting').removeClass("active");
+                        closeOverlay();
                         $('.iconsizeselectwrapper').removeClass('d-none');
 
                  });

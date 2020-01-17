@@ -8,7 +8,7 @@
                 <div class="col-12 text-center">
                     <h2>Icons suchen</h2>
                 </div>
-                <div class="col-4 offset-4">
+                <div class="col-12 col-md-4 offset-md-4">
                     <form>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="col-12 p-5 d-flex flex-wrap results">
+            <div class="col-12 d-flex flex-wrap results">
             </div>
         </div>
 
