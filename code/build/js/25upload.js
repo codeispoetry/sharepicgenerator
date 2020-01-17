@@ -83,6 +83,11 @@ function uploadImageByUrl(url, callback = function () {}) {
         console.log("onError",e);
     };
 
+    client.upload.onprogress = function(e) {
+        let p = Math.round(100 / e.total * e.loaded);
+        $('#uploadpercentage').html( p );
+    };
+
     client.onload = function(e) {
         let obj = JSON.parse(e.target.response);
         closeOverlay();
