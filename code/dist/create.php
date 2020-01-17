@@ -53,6 +53,7 @@ function isLocal(){
 <head>
     <meta charset="utf-8"/>
     <meta name="theme-color" content="#46962b">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
