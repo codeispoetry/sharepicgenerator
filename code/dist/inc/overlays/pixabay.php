@@ -10,7 +10,7 @@
                     dürfen kostenlos und ohne Quellenangabe genutzt werden. Bilder, auf denen einzelne 
                     Menschen zu erkennen sind, dürfen nicht genutzt werden.
                 </div>
-                <div class="col-4 offset-4">
+                <div class="col-12 col-md-4 offset-md-4">
                     <form>
                         <div class="input-group">
                             <div class="input-group-prepend">

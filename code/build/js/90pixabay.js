@@ -1,4 +1,6 @@
 $('#pixabayopener').click(function () {
+    $('head meta[name="viewport"]').attr('content','width=device-width, initial-scale=1');
+
     $('#pixabay').addClass("active");
 });
 
@@ -24,7 +26,7 @@ function getPixabayImages(q) {
         success: function (data, textStatus, jqXHR) {
             $('#pixabay .results').html('');
             data.hits.forEach(function (image) {
-                $('#pixabay .results').append('<img src="' + image.previewURL + '" data-url="' + image.largeImageURL + '" data-user="' + image.user + '">');
+                $('#pixabay .results').append('<img src="' + image.previewURL + '" data-url="' + image.largeImageURL + '" data-user="' + image.user + '" class="img-fluid">');
             });
 
             $('#pixabay .results>img').click( function(){

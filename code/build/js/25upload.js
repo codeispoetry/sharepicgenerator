@@ -85,8 +85,7 @@ function uploadImageByUrl(url, callback = function () {}) {
 
     client.onload = function(e) {
         let obj = JSON.parse(e.target.response);
-        $('#waiting').removeClass('active');
-        $('#pixabay').removeClass('active');
+        closeOverlay();
 
         if(obj.error){
             alert(obj.error);
