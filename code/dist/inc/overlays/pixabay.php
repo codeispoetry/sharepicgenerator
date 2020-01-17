@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="col-12 p-5 results"></div>
+            <div class="col-12 results"></div>
         </div>
 
     </div>

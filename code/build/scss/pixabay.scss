@@ -1,4 +1,12 @@
 .results {
+  height: 50%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  margin-top: 20px;
+
   img {
     height: 80px;
     margin: 0 10px 10px 0;
