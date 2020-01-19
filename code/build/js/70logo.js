@@ -104,9 +104,9 @@ $('#logoselect').on('change', function () {
 
         $("#logoselect").val($("#logoselect option:first").val());
 
-        $.post( "delete.php", { user: config.user })
+        $.post( "delete.php", { user: config.user,accesstoken: config.accesstoken })
         .done(function( data ) {
-            console.log("Logo gelöscht.")
+            console.log( data)
         });
 
         logo.load( );

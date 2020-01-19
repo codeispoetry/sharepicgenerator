@@ -47,6 +47,18 @@ function isLocal(){
     return ($_SERVER['REMOTE_ADDR'] == '127.0.0.1');
 }
 
+$accessToken = createAccessToken( $user );
+function createAccessToken( $user ){
+    $userDir = 'persistent/user/' . $user;
+    if( !file_exists($userDir)){
+        return '0';
+    }
+
+    $accessToken = uniqid();
+    file_put_contents( sprintf('%s/accesstoken.php',$userDir), $accessToken);
+    return $accessToken;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -154,6 +166,8 @@ function isLocal(){
     <?php echo 'var config ='; @readfile('config.json') || readfile('config-sample.json'); echo ';'?>
     <?php printf('config.landesverband = %d;', $landesverband); ?>
     <?php printf('config.user="%s";', $user); ?>
+    <?php printf('config.accesstoken="%s";', $accessToken); ?>
+
    
 </script>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
