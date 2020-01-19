@@ -129,7 +129,7 @@ function handle_uploadbyurl(){
 
     $filebasename = 'tmp/' . uniqid('upload');
     $filename = $filebasename . '.' . $extension;
-    $filename_small = $filebasename . '.' . $extension;
+    $filename_small = $filebasename . '_small.' . $extension;
 
     if( !copy($url, $filename ) ){
         echo json_encode(array("error"=>"could not copy file"));
