@@ -15,7 +15,9 @@ $('.templatepic').click(function(){
         $('#textX').val(template.data("x"));
         $('#textY').val(template.data("y"));
         $('#textsize').val(template.data("size"));
-       
+        //$('#backgroundsize').val(template.data("backgroundsize"));
+       // background.resize();
+
     });
 
 });
