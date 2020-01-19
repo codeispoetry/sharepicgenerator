@@ -35,6 +35,10 @@ foreach( $lines AS $line ){
 echo '<h2>Users</h2>';
 echo 'Total different users: ' . count(array_unique($users));
 
+echo '<h2>Telegram-Users</h2>';
+$telegram = glob('../api/user/*', GLOB_ONLYDIR);
+echo 'Total telegram users: ' . count($telegram);
+
 echo '<h2>Logins</h2>';
 $totaluser = 0;
 foreach($logins AS $day => $users){
