@@ -19,6 +19,7 @@ function handleRequest()
     global $botID, $chatID;
     $website = "https://api.telegram.org/" . $botID;
     $content = file_get_contents("php://input");
+    file_put_contents('botlog1.txt', $content);
     $update = json_decode($content, TRUE);
     $message = $update["message"];
 
@@ -31,16 +32,33 @@ function handleRequest()
        return true;
     }
 
+    if( isset($message["document"] )){
+        sendMessage( "Bitte sende Dein Bild als Bild und nicht als Datei." );
+        return true;
+     }
+
 
     switch ($command) {
         case "/hello":
-            sendMessage( "Hallo $first_name" );
+            sendMessage( "Hallo $first_name,\nich bin der Bayernbot. Schicke mir ein Bild oder einen Text und erhalte Deine Sharepic." );
             break;
         case "/help":
-            sendMessage( "Schicke ein Bild und folge dann den Aweisungen.\n\nKommandos:\n/get Zeigt das Hintergrundbild an\n/help Zeigt diese Beschreibung an" );
+            sendMessage( "Schicke ein Bild und folge dann den Aweisungen. Oder schicke einen Text.\n\nKommandos:\n/get Zeigt das Hintergrundbild an\n/help Zeigt diese Beschreibung an\n/delete Löscht Dein Hintergrundbild" );
+            break;
+        case "/start":
+            sendMessage( "Willkommen beim Bayernbot. Schicke ein Bild und folge dann den Aweisungen oder schicke einen Text und warte.\n\nKommandos:\n/get Zeigt das Hintergrundbild an\n/help Zeigt diese Beschreibung an\n/delete Löscht Dein Hintergrundbild" );
             break;
         case "/get":
-            sendFile(sprintf('../api/user/%s/picture.jpg', $chatID) );
+            $bgfile = sprintf('../api/user/%s/picture.jpg', $chatID);
+            if( file_exists($bgfile)){
+                sendFile($bgfile );
+            }else{
+                sendMessage( "Du hast kein Hintergrundbild gespeichert. Schick mir doch einfach eines zu.");
+            }
+            break;
+        case "/delete":
+            unlink(sprintf('../api/user/%s/picture.jpg', $chatID) );
+            sendMessage( "Dein Hintergrundbild wurde gelöscht.");
             break;
         default:
             sendMessage( "Hallo $first_name, Dein Sharepic wird erstellt. Das kann bis zu einer Minute dauern." );
@@ -65,7 +83,6 @@ function handleRequest()
 function getFile( $message ){
     global $botID, $chatID;
     $botURL = "https://api.telegram.org/$botID/";
-
     // get Photo ID
     $last = count($message) - 1;
     $photoID = $message[ $last ]["file_id"];
@@ -77,6 +94,7 @@ function getFile( $message ){
 
     // download file
     $url = "https://api.telegram.org/file/$botID/" . $path;
+
     $userDir = sprintf('../api/user/%s', $chatID);
     if( !file_exists( $userDir )){
         mkdir( $userDir );
@@ -84,7 +102,7 @@ function getFile( $message ){
 
     copy( $url, sprintf('%s/picture.jpg', $userDir ));
 
-    sendMessage("Dein Bild ist angekommen. Welcher Text soll drauf?");
+    sendMessage("Dein Bild ist angekommen. Welcher Text soll drauf?\nZeilen, die mit einem ! beginnen, werden größer dargestellt.");
 }
 
 function sendFile($file)
