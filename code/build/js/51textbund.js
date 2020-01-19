@@ -72,10 +72,9 @@ const text = {
             }
         );
 
-
         // Icon 
         let licon;
-        let iconHeightInLines = parseInt( $('#iconsize').val() );
+        let iconHeightInLines = Math.min(lines.length, parseInt( $('#iconsize').val() ) );
 
         if( icon.isLoaded ){
             licon = icon.svg.clone();

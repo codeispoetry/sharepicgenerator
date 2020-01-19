@@ -62,9 +62,7 @@
                     <small>groß</small>
                 </div>
             </div>
-            <div class="h-0" id="upload">
-                 <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
-            </div>
+
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -104,9 +102,17 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <a href="#" class="text-primary cursor-pointer" id="iconopener">
-                <i class="fa fa-images"></i> Icon suchen
-            </a>
+            <div class="d-flex justify-content-between mb-1">
+                <a href="#" class="text-primary cursor-pointer uploadiconclicker">
+                    <i class="fa fa-upload"></i>Icon hochladen
+                </a>
+                
+                <a href="#" class="text-primary cursor-pointer" id="iconopener">
+                    <i class="fa fa-images"></i> Icon suchen
+                </a>
+            </div>
+
+
             <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
                 <select class="form-control" id="iconsize">
                     <option value="1">Icon: 1 Zeile hoch</option>
@@ -182,13 +188,16 @@
               
             </div>
 
-            <div class="h-0">
-                <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
-            </div>
         </div>
 
 
     </div>
+    <div>
+        <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
+        <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
+        <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
+    </div>
+
 
     <div>
         <input type="hidden" name="pinX" id="pinX">
