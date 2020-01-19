@@ -38,11 +38,11 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Bild oder Video hochladen
+                    <i class="fa fa-upload"></i> Bild/Video hochladen
                 </a>
                 
                 <a href="#" class="text-primary cursor-pointer" id="pixabayopener">
-                    <i class="fa fa-images"></i> suchen
+                    <i class="fas fa-search"></i> suchen
                 </a>
                 
                 <a href="#" class="text-primary cursor-pointer d-none" id="templateopener">
@@ -104,11 +104,11 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadiconclicker">
-                    <i class="fa fa-upload"></i>Icon hochladen
+                    <i class="fa fa-upload"></i> Icon hochladen
                 </a>
                 
                 <a href="#" class="text-primary cursor-pointer" id="iconopener">
-                    <i class="fa fa-images"></i> Icon suchen
+                <i class="fas fa-search"></i> Icon suchen
                 </a>
             </div>
 
