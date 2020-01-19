@@ -21,6 +21,9 @@ switch( $id ){
     case "uploadlogo":
         handle_logo_upload();
         break;
+    case "uploadicon":
+        handle_icon_upload();
+        break;
     case "uploadbyurl":
         handle_uploadbyurl();
         break;
@@ -42,6 +45,21 @@ function handle_background_upload(){
 
     prepare_file_and_send_info($filename, $filename_small);
 
+}
+
+
+function handle_icon_upload(){
+    global $extension;
+
+    $filebasename = 'tmp/' . uniqid('icon');
+    $filename = $filebasename . '.' . $extension;
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
+    $return['iconfile'] = $filename;
+    $return['okay'] = true;
+
+    echo json_encode($return);
 
 }
 

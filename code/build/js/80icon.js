@@ -4,7 +4,6 @@ const icon = {
     load( file ) {
         if (this.svg) this.svg.remove();
         icon.isLoaded = false;
-
       
         this.svg = draw.image(file, function (event) {
             icon.isLoaded = true;
