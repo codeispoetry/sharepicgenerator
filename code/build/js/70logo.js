@@ -96,6 +96,25 @@ $('#logoselect').on('change', function () {
         $('#uploadlogo').click();
         return;
     }
+
+    if($(this).val() == "deletecustomlogo"){
+        if( !confirm("Eigenes Logo wirklich dauerhaft löschen?")){
+            return;
+        }
+
+        $("#logoselect").val($("#logoselect option:first").val());
+
+        $.post( "delete.php", { user: config.user })
+        .done(function( data ) {
+            console.log("Logo gelöscht.")
+        });
+
+        logo.load( );
+        return;
+    }
+
+
+
     logo.load( );
 });
 
