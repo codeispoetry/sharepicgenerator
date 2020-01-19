@@ -38,10 +38,24 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 readfile('tmp/' . $filename . '.' . $format);
 
-//require_once('telegram/sendinfo.php');
 
-//unlink('tmp/' . $filename . '.' . $format);
-//unlink('tmp/' . $filename . '.svg');
+tidyup();
+
+function tidyup(){
+    global $filename,$format;
+
+    $command = sprintf("convert -resize 500x500 -quality 60  %s %s 2>tmp/log.txt",
+        'tmp/' . $filename . '.png',
+        'tmp/log' . time() . '.jpg'
+    );
+    exec($command);
+
+    unlink('tmp/' . $filename . '.' . $format);
+    unlink('tmp/' . $filename . '.svg');
+    unlink('tmp/' . $filename . '.png');
+    
+}
+
 
 function logthis($filename)
 {

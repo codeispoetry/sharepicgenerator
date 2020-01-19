@@ -162,18 +162,3 @@ function isLocal(){
 <script src="./assets/js/main.min.js"></script>
 </body>
 </html>
-<?php
-
-deleteOldFiles();
-function deleteOldFiles()
-{
-    $files = glob("tmp/*\.{png,jpg,svg}", GLOB_BRACE );
-    $now = time();
-
-    foreach($files AS $file){
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24){
-            unlink($file);
-        }
-    }
-}
-?>
