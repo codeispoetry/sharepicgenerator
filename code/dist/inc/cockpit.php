@@ -45,7 +45,7 @@
                     <i class="fas fa-search"></i> suchen
                 </a>
                 
-                <a href="#" class="text-primary cursor-pointer d-none" id="templateopener">
+                <a href="#" class="text-primary cursor-pointer" id="templateopener">
                     <i class="fa fa-thumbs-up"></i> Vorlagen
                 </a>
             </div>

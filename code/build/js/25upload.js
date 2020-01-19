@@ -90,11 +90,16 @@ function uploadImageByUrl(url, callback = function () {}) {
     client.upload.onprogress = function(e) {
         let p = Math.round(100 / e.total * e.loaded);
         $('#uploadpercentage').html( p );
+
+        if( p > 99 ){
+            $('#uploadstatus').html( 'Dein Bild wird verarbeitet...' );
+        }
     };
 
     client.onload = function(e) {
         let obj = JSON.parse(e.target.response);
         closeOverlay();
+        
 
         if(obj.error){
             alert(obj.error);
@@ -103,6 +108,7 @@ function uploadImageByUrl(url, callback = function () {}) {
         config.filename = obj.filename;
 
         afterUpload(obj);
+        callback();
     };
 
     client.open("POST", "upload.php");
