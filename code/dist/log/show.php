@@ -44,7 +44,7 @@ function deleteFilesInPathOlderThanDays( $days, $path)
     $counter = 0;
 
     foreach($files AS $file){
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * $days){
+        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * $days){
             $counter++;
             unlink($file);
         }
