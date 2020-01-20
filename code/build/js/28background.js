@@ -34,7 +34,17 @@ const background = {
     resize: function () {
         let val = parseInt($('#backgroundsize').val());
         this.svg.size(val);
+
+        if (background.hasRoundingError()){
+            let size = parseInt($('#backgroundsize').val());
+            $('#backgroundsize').val( size+=5);
+            this.resize();
+        }
         background.uncoveredAreaWarning();
+    },
+
+    hasRoundingError: function(){
+        return (draw.height() - background.svg.height() > 0);
     },
 
     uncoveredAreaWarning: function () {
