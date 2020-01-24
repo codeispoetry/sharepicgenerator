@@ -38,7 +38,7 @@ function handleRequest()
      }
 
      if( has_emojis( $command )){
-        sendMessage( "Leider sind keine Emojis möglich. Zwinkersmiley.");
+        sendMessage( "Leider sind keine Emojis möglich.");
         return;
      }
     
