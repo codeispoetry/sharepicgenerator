@@ -35,6 +35,8 @@ function getPixabayImages(q) {
                 let pixabayAttribution = $(this).data('user'); 
                 uploadImageByUrl( $(this).data('url'), function(){
                     setCopyright( pixabayAttribution, 'pixabay');
+
+                    config.usePixabay = "pixabay";
                 } );
             } );
         },

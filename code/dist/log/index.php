@@ -5,10 +5,9 @@
 </style>
 <?php
 
-$lines = file('log.txt');
+$lines = file('log.log');
 
 $logins = array();
-$slogans = array();
 $users = array();
 
 
