@@ -20,6 +20,7 @@ $('.upload-file').change(function (event) {
     formData.append("file", file);
     formData.append("id", id);
     formData.append("user", config.user);
+    formData.append("accesstoken", config.accesstoken);
 
     
     client.onerror = function(e) {
@@ -32,7 +33,8 @@ $('.upload-file').change(function (event) {
         $('#waiting').removeClass('active');
 
         if(obj.error){
-            alert(obj.error);
+            console.log(obj.error);
+            return false;
         }
        
         config.video = (obj.video == 1);
@@ -53,7 +55,7 @@ $('.upload-file').change(function (event) {
                 $('.iconsizeselectwrapper').removeClass('d-none');
                 break;
             default:
-                console.log("error in upload");
+                console.log("error in upload", obj);
         }
 
     };
@@ -102,7 +104,7 @@ function uploadImageByUrl(url, callback = function () {}) {
         
 
         if(obj.error){
-            alert(obj.error);
+            console.log(obj);
         }
 
         config.filename = obj.filename;
