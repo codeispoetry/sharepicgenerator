@@ -125,21 +125,6 @@ function createAccessToken( $user ){
 
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
-        <?php
-        $countSharepicsFile = 'log/countsharepics.txt';
-        if(!file_exists($countSharepicsFile) OR time() - filemtime($countSharepicsFile) > 60 * 60){
-            $countDownloads = 0;
-            $lines = file('log/log.txt');
-            foreach( $lines AS $line ){
-                list( $time, $payload, $action ) = explode("\t", trim($line) );
-                if($action == 'download') {
-                    $countDownloads++;
-                }
-            }
-            file_put_contents( $countSharepicsFile, (string) $countDownloads );
-        }
-        printf("%s erstellte Sharepics |", number_format( file_get_contents( $countSharepicsFile ), 0, ',', '.'));
-        ?>
           <a href="bayern">
             Kommunalwahl Bayern</a>
     </div>
