@@ -7,18 +7,20 @@
 </style>
 <?php
 
-deleteFilesInPathOlderThanDays(3, '../tmp/*');
-deleteFilesInPathOlderThanDays(3, '../bayern/tmp/*');
-deleteFilesInPathOlderThanDays(3, '../vintage/tmp/*');
+deleteFilesInPathOlderThanDays(2, '../tmp/*');
+deleteFilesInPathOlderThanDays(2, '../bayern/tmp/*');
+deleteFilesInPathOlderThanDays(2, '../vintage/tmp/*');
 
-
+echo '<a name="videos"><h2>Videos</h2></a>';
 show_videos("../tmp/shpic*\.mp4");
 show_videos("../bayern/tmp/shpic*\.mp4");
 
-echo '<a name="bayern"><h2>Vintage</h2></a>';
+echo '<a name="vintage"><h2>Vintage</h2></a>';
 show_images("../vintage/tmp/log*\.jpg");
 
+echo '<a name="bund"><h2>Bund</h2></a>';
 show_images("../tmp/log*\.jpg");
+
 echo '<a name="bayern"><h2>Bayern</h2></a>';
 show_images("../bayern/tmp/log*\.jpg");
 

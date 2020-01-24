@@ -5,7 +5,7 @@ function closeOverlay() {
    
     let initScale = 0.4;
    
-    $('head meta[name="viewport"]').attr('content','width=800px, initial-scale=' + initScale  );
+    $('head meta[name="viewport"]').attr('content','width=800, initial-scale=' + initScale  );
     
     $('.overlay.active').removeClass('active');
 }

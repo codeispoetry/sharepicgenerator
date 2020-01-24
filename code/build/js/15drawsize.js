@@ -3,6 +3,9 @@ $('#sizereset').click(resetDrawsize);
 $('#sizepresets').on('change', function () {
     let dimensions = this.value.split(':');
     setDimensions( ...dimensions );
+
+    config.socialmediaplatform =  $("#sizepresets option:selected").data('socialmediaplatform');
+
     $(this).val($("#sizepresets option:first").val());
 });
 
@@ -10,6 +13,8 @@ function setDrawsize() {
     let width = $('#width').val();
     let height = $('#height').val();
     let aspectratio = width / height;
+
+    config.socialmediaplatform = '';
 
     if (width > 800) {
         width = 800;

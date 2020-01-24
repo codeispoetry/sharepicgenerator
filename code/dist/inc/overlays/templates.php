@@ -13,7 +13,7 @@
                 <div class="row">
                 <?php
                     $files = glob("templates/*.jpg");
-                    $templates = parse_ini_file('templates.ini', TRUE);
+                    $templates = parse_ini_file('ini/templates.ini', TRUE);
        
                     foreach($files AS $file){
                         if( isset($templates[ basename($file) ] ) ){

@@ -1,5 +1,5 @@
 <?php
-$filename = sanitize_filename($_GET['file']);
+$filename = sanitize_userinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
 
 
@@ -28,7 +28,7 @@ switch($_GET['format']){
 
 debug($filename, $format);
 
-logthis($downloadname);
+
 
 header('Content-Type: ' . $contentType);
 header("Content-Length: ".filesize('tmp/' . $filename . '.' . $format));
@@ -57,13 +57,9 @@ function tidyup(){
 }
 
 
-function logthis($filename)
-{
-    $line = sprintf("%s\t%s\t%s\n", time(), $filename, "download");
-    file_put_contents('log/log.txt', $line, FILE_APPEND);
-}
 
-function sanitize_filename($var)
+
+function sanitize_userinput($var)
 {
     return preg_replace('/[^a-zA-Z0-9]/', '', $var);
 }
@@ -79,5 +75,5 @@ function debug( $filename, $format ){
     }
     
     $debug = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
-    file_put_contents('error.log', $debug, FILE_APPEND);
+    file_put_contents('log/error.log', $debug, FILE_APPEND);
 }

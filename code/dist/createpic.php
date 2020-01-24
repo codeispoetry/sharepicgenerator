@@ -38,6 +38,8 @@ if( in_array($_POST['format'], array('png','pdf','jpg','mp4'))){
 $exportWidth = (int) $_POST['width'];
 convert($filename, $exportWidth, $format);
 
+logthis($downloadname);
+
 $return = [];
 $return['basename'] = basename($filename, 'svg');
 echo json_encode($return);
@@ -53,14 +55,14 @@ function convert($filename, $width, $format)
     }
 
 
-    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90  2>>inkscape-error.log",
+    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90  2>>log/inkscape-error.log",
         $filename,
         $width,
         'tmp/' . basename($filename, 'svg') . $tempformat);
     exec($command);
 
     $debug = sprintf("%s\t%s\n\n", time(), $filename);
-    file_put_contents('inkscape-error.log', $debug, FILE_APPEND);
+    file_put_contents('log/inkscape-error.log', $debug, FILE_APPEND);
 
 
     if($format == 'jpg'){
@@ -91,7 +93,16 @@ function convert($filename, $width, $format)
 }
 
 
-function sanitize_filename($var)
+function sanitize_userinput($var)
 {
     return preg_replace('/[^a-zA-Z0-9]/', '', $var);
+}
+
+
+function logthis()
+{
+    $pixabay = sanitize_userinput( $_POST['usepixabay']);
+    $socialmediaplatform = sanitize_userinput( $_POST['socialmediaplatform']);
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), '',  'download', $pixabay, $socialmediaplatform);
+    file_put_contents('log/log.log', $line, FILE_APPEND);
 }

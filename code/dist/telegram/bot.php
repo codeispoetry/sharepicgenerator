@@ -5,8 +5,8 @@
  * https://api.telegram.org/BOT_TOKEN/getWebhookInfo
  * https://api.telegram.org/BOT_TOKEN/deleteWebhook
  */
-if (file_exists('../config.ini')) {
-    $keys = parse_ini_file('../config.ini', TRUE);
+if (file_exists('../ini/config.ini')) {
+    $keys = parse_ini_file('../ini/config.ini', TRUE);
 
     $botID = $keys["Telegram"]["botID"];
 
