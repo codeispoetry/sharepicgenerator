@@ -215,7 +215,7 @@ function count_sharepics( ){
 
 
 
-    $number = 10362; // when the logging was changed, the counter was at 10.362
+    $number = 4425; // when the logging was changed, the counter was at this point
     $countSharepicsFiles = array('log/countsharepics.txt','bayern/log/countsharepics.txt');
     foreach($countSharepicsFiles AS $countSharepicsFile){
         if(file_exists($countSharepicsFile)){
