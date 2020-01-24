@@ -125,13 +125,12 @@ function createAccessToken( $user ){
 
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
-          <a href="bayern">
-            Kommunalwahl Bayern</a>
+        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> |
+        <a href="imprint.php">Impressum</a>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
         <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a> |
-        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> |
         Programmiert mit <i class="fas fa-heart text-yellow"></i> von 
         <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
     </div>
