@@ -18,12 +18,13 @@
                         <select class="form-control fas" id="sizepresets">
                             <option class="fas">&#xf5cb;</option>
                             <?php
-                            $sizes = parse_ini_file('picturesizes.ini', TRUE);
+                            $sizes = parse_ini_file('ini/picturesizes.ini', TRUE);
                             foreach ($sizes AS $name => $group) {
                                 printf('<optgroup label="%s">', $name);
                                 foreach ($group AS $label => $size) {
                                     list($width, $height) = preg_split("/[^0-9]/", trim($size));
-                                    printf('<option value="%d:%d">%s</option>', $width, $height, $label);
+                                    $socialmediaplatform = preg_replace('/ /','-', "$name-$label");
+                                    printf('<option value="%d:%d" data-socialmediaplatform="%s">%s</option>', $width, $height, $socialmediaplatform, $label);
                                 }
                                 echo '</optgroup>';
                             }

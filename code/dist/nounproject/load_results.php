@@ -1,8 +1,8 @@
 <?php
-if (!file_exists('../config.ini')) { 
+if (!file_exists('../ini/config.ini')) { 
     die(); 
 }
-$keys = parse_ini_file('../config.ini', TRUE);
+$keys = parse_ini_file('../ini/config.ini', TRUE);
 
 ( isset($_GET['q'] ) ) ? $q = $_GET['q'] : die();
 
