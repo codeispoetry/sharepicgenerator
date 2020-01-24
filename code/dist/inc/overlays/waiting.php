@@ -1,4 +1,4 @@
-<div id="waiting" class="overlay text-danger bg-light col-12 text-center">
+<div id="waiting" class="overlay col-12 text-center">
     <h1>Augenblick bitte</h1>
     <p>Deine Datei wird hochgeladen</p>
 

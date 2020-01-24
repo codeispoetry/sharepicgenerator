@@ -1,0 +1,30 @@
+body.dark{
+    background-color: black;
+    color: white;
+
+    .list-group-item{
+        background: #111111;
+        color: white;
+    }
+
+    .text-body{
+        color: white !important;
+    }
+
+    #canvas{
+        box-shadow: none;
+        border: 0;
+    }
+
+    .overlay{
+        background: black;
+    }
+
+    .close{
+        text-shadow: none;
+    }
+
+    .text-primary{
+        color: $yellow !important;
+    }
+}
