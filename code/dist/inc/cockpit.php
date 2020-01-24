@@ -179,16 +179,22 @@
                             echo '<option value="custom">eigenes Logo hochladen</option>';
                         }
                     ?>
-
                     <option value="void">kein Logo</option>
-
                 </select>
-          
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
-              
             </div>
 
         </div>
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="mb-1 d-flex align-items-lg-center">
+                <span class="mr-2">Hintergrund:</span>
+               <input id="color-scheme" type="checkbox" data-size="sm" data-toggle="toggle" data-on="dunkel" data-off="hell">
+            </div>
+
+        </div>
+
+        
 
 
     </div>
@@ -197,7 +203,6 @@
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
     </div>
-
 
     <div>
         <input type="hidden" name="pinX" id="pinX">
