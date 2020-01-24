@@ -44,9 +44,9 @@ tidyup();
 function tidyup(){
     global $filename,$format;
 
-    $command = sprintf("convert -resize 500x500 -quality 60  %s %s 2>tmp/log.txt",
+    $command = sprintf("convert -resize 500x500 -background white -quality 60  %s %s 2>tmp/log.txt",
         'tmp/' . $filename . '.png',
-        'tmp/log' . time() . '.jpg'
+        'tmp/log' . time() . '_' . $filename . '.jpg'
     );
     exec($command);
 
