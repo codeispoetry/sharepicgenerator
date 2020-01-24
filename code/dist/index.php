@@ -199,7 +199,23 @@ header .container {
 </script>
 <?php
 function count_sharepics( ){
-    $number = 0;
+
+    $countSharepicsFile = 'log/countsharepics.txt';
+    if(!file_exists($countSharepicsFile) OR time() - filemtime($countSharepicsFile) > 60 * 60){
+        $countDownloads = 0;
+        $lines = file('log/log.log');
+        foreach( $lines AS $line ){
+            list( $time, $user, $action ) = explode("\t", trim($line) );
+            if($action == 'download') {
+                $countDownloads++;
+            }
+        }
+        file_put_contents( $countSharepicsFile, (string) $countDownloads );
+    }
+
+
+
+    $number = 10362; // when the logging was changed, the counter was at 10.362
     $countSharepicsFiles = array('log/countsharepics.txt','bayern/log/countsharepics.txt');
     foreach($countSharepicsFiles AS $countSharepicsFile){
         if(file_exists($countSharepicsFile)){
@@ -209,6 +225,7 @@ function count_sharepics( ){
 
     return $number;
 }
+
 ?>
 </body>
 </html>
