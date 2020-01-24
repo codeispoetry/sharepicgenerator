@@ -1,56 +1,252 @@
-<style>
-    li{
-        margin-bottom: 0.7em;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="theme-color" content="#46962b">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logs</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+	<style>
+		.graphCanvas{
+			display: flex;
+    		align-items: baseline;
+		}
+		.graph{
+			background: #46962b;
+			width: 10px;
+			margin-right: 1px;
+		}
+	</style>
+</head>
+<body>
+<?php readLogs(); ?>
+<div class="container-fluid">
+    <div class="row">
+		<div class="col-12 text-center">
+			<h2>Statistiken</h2>
+		</div>
+        <div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>Users</dt>
+				<dd>
+					total unique: 
+						<?php echo number_format(getUsers(),0,',','.'); ?>
+						<br>
+					now logging for 
+						<?php echo number_format(getLoggingPeriodInDays(),0,',','.'); ?>
+						days 
+						<br>
+					average user per day:
+						<?php printf('%d', getUsers()/getLoggingPeriodInDays()); ?>
+					
+				</dd>
+			</dl>
+		</div>
+		<div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>Downloads</dt>
+				<dd>
+					total: 
+						<?php echo number_format(getDownloads(),0,',','.'); ?>
+					<br>
+					use pixabay: 
+						<?php echo number_format(getPixabay(),0,',','.'); ?>
+						(<?php printf('%02d', 100*getPixabay()/getDownloads()); ?>%)
+					<br>
+
+					with socialmedia: 
+						<?php echo number_format(getSocialMedia(),0,',','.'); ?>
+						(<?php printf('%02d', 100*getSocialMedia()/getDownloads()); ?>%)
+
+				</dd>
+			</dl>
+		</div>
+		<div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>Social Media</dt>
+				<dd>
+					<ul>
+						<?php showSocialMedia(); ?>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+		<div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>Telegram-User</dt>
+				<dd><?php echo getTelegramUser(); ?></dd>
+			</dl>
+		</div>
+		<div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>jüngste Entwicklung</dt>
+				<dd><?php echo showTimeline(); ?></dd>
+			</dl>
+		</div>
+		<div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>Uhrzeiten</dt>
+				<dd><?php echo showHours(); ?></dd>
+			</dl>
+		</div>
+		<div class="col-12 col-md-6 col-lg-3">
+			<dl>
+				<dt>Wochentage</dt>
+				<dd><?php echo showWeekdays(); ?></dd>
+			</dl>
+		</div>
+		<div class="col-12">
+			<dl>
+				<dt>Entwicklung</dt>
+				<dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
+			</dl>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+
 <?php
 
-$lines = file('log.log');
 
-$logins = array();
-$users = array();
+function readLogs(){
+	global $info;
 
+	$lines = file('log.log');
 
-foreach( $lines AS $line ){
-	list( $time, $payload, $action ) = explode("\t", trim($line) );
+	$info = array(
+		'socialmedia' => array()
+	);
 	
-	$day =  date('d.m.Y',  $time );
 
-	switch( $action ){
-		case "login":
-			$logins[ $day ][] =  $payload;
-			$users[] = $payload;
-		break;
-		case "download":
-			$slogans[] = $payload;
-		break;
-		default:
-			die("error for line: " . $line );
+	foreach( $lines AS $line ){
+		list( $time, $user, $action, $pixaybay, $socialmedia ) = explode("\t", trim($line) );
+		
+		$day =  date('l, d.m.',  $time );
+		$hour =  date('G',  $time ) / 6;
+		$weekday =  date('w',  $time );
+
+
+
+		switch( $action ){
+			case "login":
+				$info['logins'][ $day ][] =  $user;
+				$info['users'][] = $user;
+				$info['hours'][ $hour ][] = $user;
+				$info['weekdays'][ $weekday ][] = $user;
+
+			break;
+			case "download":
+				$info['downloads']++;
+				if( $pixaybay ){
+					$info['pixabay']++;
+				}
+				if( $socialmedia ){
+					 $info['socialmedia'][ $socialmedia ] = $info['socialmedia'][ $socialmedia ] + 1 ?: 1;
+				}
+			break;
+		
+			default:
+				die("error for line: " . $line );
+		}
+
+	}
+}
+
+function getUsers(){
+	global $info;
+	return count(array_unique($info['users']));
+}
+
+function getDownloads(){
+	global $info;
+	return $info['downloads'];
+}
+
+function getPixabay(){
+	global $info;
+	return $info['pixabay'];
+}
+
+function showSocialMedia(){
+	global $info;
+	foreach( $info['socialmedia'] AS $platform => $counter){
+		printf('<li>%s: %d</li>', $platform, $counter);
+	}
+}
+
+function getSocialMedia(){
+	global $info;
+	return count( $info['socialmedia'] );
+}
+
+function getTelegramUser(){
+	$telegram = glob('../api/user/*', GLOB_ONLYDIR);
+	return count($telegram);
+}
+
+function getLoggingPeriodInDays(){
+	global $info;
+	return count ($info['logins']);
+}
+
+function showTimeline(){
+	global $info;
+
+	$i = 0;
+	foreach( array_reverse($info['logins']) AS $day => $users){
+		printf('<li>%s: %d</li>', $day, count(array_unique($users)));
+		$i++;
+
+		if( $i == 7 ){
+			return;
+		}
+	}
+}
+
+function showHours(){
+	global $info;
+	$totalUsers = 0 ;
+	foreach( $info['hours'] AS $hour => $users){
+		$totalUsers += count(array_unique($users));
 	}
 
+	ksort($info['hours']);
+
+	$hours = array('0 bis 6', '6 bis 12', '12 bis 18', '18 bis 24');
+
+
+	foreach( $info['hours'] AS $hour => $users){
+		printf('<li>%s: %.1f%%</li>', $hours[ $hour ], 100*count(array_unique($users))/$totalUsers);
+		$i++;
+
+	}
 }
 
+function showWeekdays(){
+	global $info;
+	$totalUsers = getUsers();
 
-echo '<h2>Users</h2>';
-echo 'Total different users: ' . count(array_unique($users));
+	ksort($info['weekdays']);
+	$days = array('Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag');
 
-echo '<h2>Telegram-Users</h2>';
-$telegram = glob('../api/user/*', GLOB_ONLYDIR);
-echo 'Total telegram users: ' . count($telegram);
+	foreach( $info['weekdays'] AS $weekday => $users){
+		printf('<li>%s: %.1f%%</li>', $days[$weekday], 100*count(array_unique($users))/$totalUsers);
+		$i++;
 
-echo '<h2>Logins</h2>';
-$totaluser = 0;
-foreach($logins AS $day => $users){
-	$count = count(array_unique($users));
-	$totaluser += $count;
-	printf("%s: %d<br>", $day, $count );
+	}
 }
-echo "Total logins: " . $totaluser;
 
+function drawTimeline(){
+	global $info;
 
-echo '<h2>Slogans</h2>';
-echo "<ol>";
-foreach(  array_unique( $slogans ) AS $slogan ){
-	echo "<li>$slogan</li>";
+	$i = 0;
+	echo array_keys($info['logins'])[0];
+	foreach( $info['logins'] AS $day => $users){
+		printf('<span class="graph" style="height:%dpx" title="%1$d am %2$s"></span>', count(array_unique($users)), $day);
+	}
+	echo end(array_keys($info['logins']));
 }
-echo "</ol>";
+
