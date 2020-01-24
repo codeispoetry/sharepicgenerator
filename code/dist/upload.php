@@ -1,6 +1,6 @@
 <?php
 
-
+require_once( 'functions.php');
 $id = $_POST['id'];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
@@ -66,12 +66,11 @@ function handle_icon_upload(){
 function handle_logo_upload(){
     global $extension;
 
-    $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
-
-    $userDir = 'persistent/user/' . $user;
-    if( !file_exists($userDir)){
-        mkdir($userDir);
+    if( !isAllowed() ) {
+        returnJsonErrorAndDie('not allowed');
     }
+
+    $userDir = getUserDir();
 
     $filename = $userDir . '/logo.' . $extension;
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
@@ -165,3 +164,5 @@ function prepare_file_and_send_info( $filename, $filename_small ){
     echo json_encode($return);
     die();
 }
+
+

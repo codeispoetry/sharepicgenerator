@@ -106,10 +106,17 @@ $('#logoselect').on('change', function () {
 
         $.post( "delete.php", { user: config.user,accesstoken: config.accesstoken })
         .done(function( data ) {
-            console.log( data)
+
+            let obj = JSON.parse(data);
+            if(obj.error){
+                console.log(obj.error);
+                return false;
+            }
+
         });
 
         logo.load( );
+
         return;
     }
 
