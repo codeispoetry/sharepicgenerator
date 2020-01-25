@@ -51,7 +51,7 @@ function tidyup(){
     exec($command);
 
     unlink('tmp/' . $filename . '.' . $format);
-    unlink('tmp/' . $filename . '.svg');
+    //unlink('tmp/' . $filename . '.svg');
     unlink('tmp/' . $filename . '.png');
     
 }
