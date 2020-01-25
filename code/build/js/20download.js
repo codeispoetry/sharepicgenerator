@@ -65,6 +65,12 @@ $('#download').click(function () {
             downloadname = downloadname.replace(/^\-/g, '');
             downloadname = downloadname.replace(/\-$/g, '');
 
+            downloadname = downloadname.substring(0, 20);
+
+            if( config.socialmediaplatform ){
+                downloadname = downloadname.substring(0, 14) + '-' + config.socialmediaplatform.toLowerCase();
+            }
+
 
             window.location.href = 'download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
         }
