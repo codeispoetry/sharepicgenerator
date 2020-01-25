@@ -27,4 +27,20 @@ body.dark{
     .text-primary{
         color: $yellow !important;
     }
+
+    input[type=range]::-webkit-slider-thumb {
+        background: $yellow;
+    }
+
+    .btn-primary {
+        background-color: $yellow;
+        border-color: $yellow;
+        color: $black;
+    }
+
+    .form-control{
+        border-color: $black;
+        background-color: #cccccc;
+        color: $black;
+    }
 }
