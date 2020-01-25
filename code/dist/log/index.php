@@ -26,11 +26,11 @@
 			<h2>Statistiken</h2>
 		</div>
 		<div class="col-12 text-center">
-			<a href="show.php">Zeige die jüngsten Sharepics</a>
+			<a href="show.php" class="btn btn-primary btn-sm">Zeige die jüngsten Sharepics</a>
 		</div>
         <div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>Users</dt>
+				<dt>User</dt>
 				<dd>
 					gesamt unique: 
 						<?php echo number_format(getUsers(),0,',','.'); ?>
