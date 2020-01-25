@@ -25,18 +25,21 @@
 		<div class="col-12 text-center">
 			<h2>Statistiken</h2>
 		</div>
+		<div class="col-12 text-center">
+			<a href="show.php">Zeige die jüngsten Sharepics</a>
+		</div>
         <div class="col-12 col-md-6 col-lg-3">
 			<dl>
 				<dt>Users</dt>
 				<dd>
-					total unique: 
+					gesamt unique: 
 						<?php echo number_format(getUsers(),0,',','.'); ?>
 						<br>
-					now logging for 
+					Logzeit seit 
 						<?php echo number_format(getLoggingPeriodInDays(),0,',','.'); ?>
 						days 
 						<br>
-					average user per day:
+					Durchschnitt User pro Tag:
 						<?php printf('%d', getUsers()/getLoggingPeriodInDays()); ?>
 					
 				</dd>
@@ -46,15 +49,15 @@
 			<dl>
 				<dt>Downloads</dt>
 				<dd>
-					total: 
+					gesamt: 
 						<?php echo number_format(getDownloads(),0,',','.'); ?>
 					<br>
-					use pixabay: 
+					mit Pixabay: 
 						<?php echo number_format(getPixabay(),0,',','.'); ?>
 						(<?php printf('%02d', 100*getPixabay()/getDownloads()); ?>%)
 					<br>
 
-					with socialmedia: 
+					für Social Media: 
 						<?php echo number_format(getSocialMedia(),0,',','.'); ?>
 						(<?php printf('%02d', 100*getSocialMedia()/getDownloads()); ?>%)
 
@@ -149,7 +152,7 @@ function readLogs(){
 			break;
 		
 			default:
-				die("error for line: " . $line );
+				echo("error for line: " . $line );
 		}
 
 	}
