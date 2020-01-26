@@ -36,8 +36,7 @@
 						<?php echo number_format(getUsers(),0,',','.'); ?>
 						<br>
 					Logzeit seit 
-						<?php echo number_format(getLoggingPeriodInDays(),0,',','.'); ?>
-						days 
+						<?php echo number_format(getLoggingPeriodInDays(),0,',','.'); ?> Tagen 
 						<br>
 					Durchschnitt User pro Tag:
 						<?php printf('%d', getUsers()/getLoggingPeriodInDays()); ?>
