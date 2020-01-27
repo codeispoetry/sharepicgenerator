@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import time, sys, getopt,json
-import os, shutil
+import os, shutil, glob
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -35,6 +35,8 @@ os.system('pkill chromium')
 options = Options()
 options.add_argument("--no-sandbox")
 options.add_argument("--headless")
+prefs = {"download.default_directory" : userDir }
+options.add_experimental_option("prefs",prefs)
 
 driver = webdriver.Chrome(dir + '/chromedriver', chrome_options=options)
 driver.set_window_size(1400,800)
@@ -96,7 +98,6 @@ print "downloaded"
 
 driver.quit()
 
-
-filename = max([f for f in os.listdir('.')], key=os.path.getctime)
-shutil.move(filename,"sharepic.jpg")
-
+list_of_files = glob.glob( userDir + "/*.jpg")
+latest_file = max(list_of_files, key=os.path.getctime)
+shutil.move(latest_file,userDir + "/sharepic.jpg")
