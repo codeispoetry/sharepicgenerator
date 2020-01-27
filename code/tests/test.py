@@ -3,6 +3,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
 
 if os.path.isfile("tests/screenshot.png"):
     os.remove("tests/screenshot.png")
@@ -46,20 +50,22 @@ class ChromeSearch(unittest.TestCase):
 
 
         javaScript = "$('#textsize').val(300); $('#textX').val(-100); $('#textY').val(2000); text.draw(); text.bounce();"
-        #driver.execute_script(javaScript)
-        time.sleep(1)
+        driver.execute_script(javaScript)
         driver.save_screenshot("tests/screenshot.png")
 
-        print "Download"
+        print "Click Download"
         download = driver.find_element_by_id('download')
         download.click()
 
-        time.sleep(3) # wait for the image to be processed
-        print "Slept 10"
+        element = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.ID, "download"))
+        )
+        #time.sleep(1)
+        print "Downloaded"
 
     def test_2_compare(self):
         print "Compare"
-        stream = os.popen('compare -metric PSNR tests/artifacts/hallo-welt.jpg tests/assets/pattern.jpg tests/artifacts/diff.jpg 2>&1')
+        stream = os.popen('compare -metric PSNR tests/artifacts/hallo-welt.jpg tests/patterns/hallo-welt.jpg tests/artifacts/diff.jpg 2>&1')
         output = stream.read()
         self.assertEqual("inf", output)
         
