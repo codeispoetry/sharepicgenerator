@@ -52,6 +52,9 @@ function handleRequest()
         case "/start":
             sendMessage( "Willkommen beim Bayernbot. Schicke ein Bild und folge dann den Aweisungen oder schicke einen Text und warte.\n\nKommandos:\n/get Zeigt das Hintergrundbild an\n/help Zeigt diese Beschreibung an\n/delete Löscht Dein Hintergrundbild" );
             break;
+        case "/debug":
+            sendMessage( "Deine Chat-ID lautet: " + $chatID );
+            break;
         case "/get":
             $bgfile = sprintf('../api/user/%s/picture.jpg', $chatID);
             if( file_exists($bgfile)){
@@ -73,7 +76,7 @@ function handleRequest()
             
             $result = shell_exec($command);
             if( $result == ""){
-                sendFile( 'sharepic.jpg');
+                sendFile( sprintf('../api/user/%s/sharepic.jpg', $chatID));
             }else{
                 sendMessage( "Es ist ein Fehler passiert. Es folgt die Fehlermeldung:" );
                 sendMessage( $result );
