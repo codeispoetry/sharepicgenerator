@@ -25,7 +25,7 @@
 		<div class="col-12 text-center">
 			<h2>Statistiken</h2>
 		</div>
-		<div class="col-12 text-center">
+		<div class="col-12 text-center mb-3">
 			<a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
 		</div>
         <div class="col-12 col-md-6 col-lg-3">
@@ -39,7 +39,10 @@
 						<?php echo number_format(getLoggingPeriodInDays(),0,',','.'); ?> Tagen 
 						<br>
 					Durchschnitt User pro Tag:
-						<?php printf('%d', getUsers()/getLoggingPeriodInDays()); ?>
+						<?php printf("%d", getAverageUserPerDay()); ?>
+                        <br>
+                       Telegram-User
+                        <?php echo getTelegramUser(); ?>
 					
 				</dd>
 			</dl>
@@ -71,12 +74,6 @@
 						<?php showSocialMedia(); ?>
 					</ul>
 				</dd>
-			</dl>
-		</div>
-		<div class="col-12 col-md-6 col-lg-3">
-			<dl>
-				<dt><i class="fab fa-telegram-plane"></i> Telegram-User </dt>
-				<dd><?php echo getTelegramUser(); ?></dd>
 			</dl>
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
@@ -222,7 +219,6 @@ function showHours(){
 
 	foreach( $info['hours'] AS $hour => $users){
 		printf('<li>%s: %.1f%%</li>', $hours[ $hour ], 100*count(array_unique($users))/$totalUsers);
-		$i++;
 
 	}
 }
@@ -236,7 +232,6 @@ function showWeekdays(){
 
 	foreach( $info['weekdays'] AS $weekday => $users){
 		printf('<li>%s: %.1f%%</li>', $days[$weekday], 100*count(array_unique($users))/$totalUsers);
-		$i++;
 
 	}
 }
@@ -252,3 +247,15 @@ function drawTimeline(){
 	echo end(array_keys($info['logins']));
 }
 
+function getAverageUserPerDay(){
+    global $info;
+
+    $days = array();
+
+    foreach( $info['logins'] AS $day => $users){
+         $days[ $day ] = count(array_unique($users));
+    }
+    array_pop( $days); // because its not full
+
+    return array_sum($days) / count( $days );
+}
