@@ -146,7 +146,7 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
-                <select class="form-control" id="logoselect">
+                <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
                         <option value="sonnenblume">Logo: Sonnenblume</option>
                         <option value="sonnenblume-weiss">Logo: Weiße Sonnenblume</option>
@@ -192,10 +192,25 @@
                 <span class="mr-2">Hintergrund:</span>
                <input id="color-scheme" type="checkbox" data-size="sm" data-toggle="toggle" data-on="dunkel" data-off="hell">
             </div>
-
         </div>
 
-        
+        <div class="list-group-item list-group-item-action flex-column align-items-start d-none">
+            <div class="mb-1 d-flex align-items-lg-center">
+                <button type="button" class="btn btn-info btn-sm mr-2" id="save" data-click="save" >Speichern</button>
+                <button type="button" class="btn btn-info btn-sm" id="load" data-click="load" >Laden</button>
+            </div>
+        </div>
+
+        <div>
+            <input type="hidden" name="pinX" id="pinX">
+            <input type="hidden" name="pinY" id="pinY">
+            <input type="hidden" name="backgroundX" id="backgroundX">
+            <input type="hidden" name="backgroundY" id="backgroundY">
+            <input type="hidden" name="backgroundURL" id="backgroundURL">
+            <input type="hidden" name="fullBackgroundURL" id="fullBackgroundURL">
+            <input type="hidden" name="textX" id="textX">
+            <input type="hidden" name="textY" id="textY">
+        </div>
 
 
     </div>
@@ -205,13 +220,5 @@
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
     </div>
 
-    <div>
-        <input type="hidden" name="pinX" id="pinX">
-        <input type="hidden" name="pinY" id="pinY">
-        <input type="hidden" name="backgroundX" id="backgroundX">
-        <input type="hidden" name="backgroundY" id="backgroundY">
-        <input type="hidden" name="backgroundURL" id="backgroundURL">
-        <input type="hidden" name="textX" id="textX">
-        <input type="hidden" name="textY" id="textY">
-    </div>
+
 </form>

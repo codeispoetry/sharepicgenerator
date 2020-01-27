@@ -29,6 +29,10 @@ $(document).ready(function () {
     }
     */
 
+
+    $('[data-click]').click(function(){
+        window[ $(this).data('click')]();
+    })
 });
 
 function message( text = false ){

@@ -159,7 +159,7 @@ function prepare_file_and_send_info( $filename, $filename_small ){
     $return['height'] = $height;
     $return['originalWidth'] = $originalWidth;
     $return['originalHeight'] = $originalHeight;
-
+    $return['fullBackgroundURL'] = $_SERVER['HTTP_HOST'] . '/' .$filename;
 
     echo json_encode($return);
     die();
