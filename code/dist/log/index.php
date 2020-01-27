@@ -181,7 +181,7 @@ function showSocialMedia(){
 
 function getSocialMedia(){
 	global $info;
-	return count( $info['socialmedia'] );
+	return array_sum( $info['socialmedia'] );
 }
 
 function getTelegramUser(){
