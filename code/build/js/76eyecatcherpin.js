@@ -36,21 +36,22 @@ const pin = {
 
         pin.svg.on('dragstart.namespace', (e) => {
             pin.svg.rotate(9, draw.width(), pin.svg.y());
-        })
+        });
         pin.svg.on('dragmove.namespace', (e) => {
-            const {handler, box} = e.detail
-            e.preventDefault()
+            const {handler, box} = e.detail;
+            e.preventDefault();
           
-            let {x, y} = box
+            let {x, y} = box;
     
             handler.move(draw.width()-pin.svg.width(),y);
 
-            $('#pinX').val(Math.round(pin.svg.x()));
-            $('#pinY').val(Math.round(pin.svg.y()));
+
         });
         pin.svg.on('dragend.namespace', (e) => {
             pin.svg.rotate(-9, draw.width(), pin.svg.y());
-        })
+            $('#pinX').val(Math.round(pin.svg.x()));
+            $('#pinY').val(Math.round(pin.svg.y()));
+        });
 
         // text
         let pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');

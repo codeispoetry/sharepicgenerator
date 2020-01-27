@@ -129,6 +129,9 @@ function afterUpload(data) {
     $('#width').val( data.originalWidth );
     $('#height').val( data.originalHeight );
 
+    $('#fullBackgroundURL').val( data.fullBackgroundURL );
+
+console.log(data);
     setDrawsize();
 
     background.draw();
