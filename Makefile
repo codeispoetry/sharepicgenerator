@@ -30,3 +30,6 @@ deploy:
 
 get-config:
     rsync tom@sharepicgenerator.de:/var/www/html/config.* code/dist/.
+
+get-log:
+    rsync tom@sharepicgenerator.de:/var/www/html/log/log.log code/dist/log.log
