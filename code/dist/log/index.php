@@ -78,12 +78,6 @@
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt><i class="fas fa-chart-line"></i> jüngste Entwicklung</dt>
-				<dd><?php echo showTimeline(); ?></dd>
-			</dl>
-		</div>
-		<div class="col-12 col-md-6 col-lg-3">
-			<dl>
 				<dt><i class="fas fa-clock"></i> Uhrzeiten</dt>
 				<dd><?php echo showHours(); ?></dd>
 			</dl>
@@ -96,8 +90,8 @@
 		</div>
 		<div class="col-12">
 			<dl>
-				<dt><i class="fas fa-chart-bar"></i> Entwicklung</dt>
-				<dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
+                <dt><i class="fas fa-chart-line"></i> Entwicklung</i>
+                <dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
 			</dl>
 		</div>
 	</div>
@@ -122,11 +116,15 @@ function readLogs(){
 
 	foreach( $lines AS $line ){
 		list( $time, $user, $action, $pixaybay, $socialmedia ) = explode("\t", trim($line) );
-		
+
+        if( floor(time()/86400) == floor($time/86400) ){
+            // do not evaluate data from today
+            break;
+        }
+
 		$day =  date('l, d.m.',  $time );
 		$hour =  date('G',  $time ) / 6;
 		$weekday =  date('w',  $time );
-
 
 
 		switch( $action ){
@@ -255,7 +253,6 @@ function getAverageUserPerDay(){
     foreach( $info['logins'] AS $day => $users){
          $days[ $day ] = count(array_unique($users));
     }
-    array_pop( $days); // because its not full
 
     return array_sum($days) / count( $days );
 }
