@@ -90,7 +90,7 @@
 		</div>
 		<div class="col-12">
 			<dl>
-                <dt><i class="fas fa-chart-line"></i> Entwicklung</i>
+                <dt><i class="fas fa-chart-line"></i> Entwicklung</i></dt>
                 <dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
 			</dl>
 		</div>
