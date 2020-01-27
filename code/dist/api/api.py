@@ -42,8 +42,8 @@ driver = webdriver.Chrome(dir + '/chromedriver', chrome_options=options)
 driver.set_window_size(1400,800)
 
 try:
-    #driver.get('https://127.0.0.1/bayern')
-    driver.get('http://127.0.0.1/create.php')
+    driver.get('https://127.0.0.1/bayern')
+    #driver.get('http://127.0.0.1/create.php')
 except:
     driver.save_screenshot("screenshot.png")
     sys.stderr.write("Could not connect. Screenshot saved.")
