@@ -28,7 +28,7 @@
 		<div class="col-12 text-center mb-3">
 			<a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
 		</div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-users"></i> User</dt>
 				<dd>
@@ -47,7 +47,7 @@
 				</dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-download"></i> Downloads</dt>
 				<dd>
@@ -66,7 +66,7 @@
 				</dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-bullhorn"></i> Social Media</dt>
 				<dd>
@@ -74,6 +74,12 @@
 						<?php showSocialMedia(); ?>
 					</ul>
 				</dd>
+			</dl>
+		</div>
+		<div class="col-6 col-md-6 col-lg-3">
+			<dl>
+				<dt><i class="fas fa-sitemap"></i>> Bundesländer</dt>
+				<dd><?php echo showProvinces(); ?></dd>
 			</dl>
 		</div>
 		<div class="col-6 col-md-6 col-lg-3">
@@ -88,12 +94,7 @@
 				<dd><?php echo showWeekdays(); ?></dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
-			<dl>
-				<dt><i class="fas fa-sitemap"></i>> Bundesländer</dt>
-				<dd><?php echo showProvinces(); ?></dd>
-			</dl>
-		</div>
+
 		<div class="col-12">
 			<dl>
                 <dt><i class="fas fa-chart-line"></i> Entwicklung</i></dt>
