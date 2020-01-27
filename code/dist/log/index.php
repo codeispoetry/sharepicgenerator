@@ -26,11 +26,11 @@
 			<h2>Statistiken</h2>
 		</div>
 		<div class="col-12 text-center">
-			<a href="show.php" class="btn btn-primary btn-sm">Zeige die jüngsten Sharepics</a>
+			<a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
 		</div>
         <div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>User</dt>
+				<dt><i class="fas fa-users"></i> User</dt>
 				<dd>
 					gesamt unique: 
 						<?php echo number_format(getUsers(),0,',','.'); ?>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>Downloads</dt>
+				<dt><i class="fas fa-download"></i> Downloads</dt>
 				<dd>
 					gesamt: 
 						<?php echo number_format(getDownloads(),0,',','.'); ?>
@@ -65,7 +65,7 @@
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>Social Media</dt>
+				<dt><i class="fas fa-bullhorn"></i> Social Media</dt>
 				<dd>
 					<ul>
 						<?php showSocialMedia(); ?>
@@ -75,31 +75,31 @@
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>Telegram-User</dt>
+				<dt><i class="fab fa-telegram-plane"></i> Telegram-User </dt>
 				<dd><?php echo getTelegramUser(); ?></dd>
 			</dl>
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>jüngste Entwicklung</dt>
+				<dt><i class="fas fa-chart-line"></i> jüngste Entwicklung</dt>
 				<dd><?php echo showTimeline(); ?></dd>
 			</dl>
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>Uhrzeiten</dt>
+				<dt><i class="fas fa-clock"></i> Uhrzeiten</dt>
 				<dd><?php echo showHours(); ?></dd>
 			</dl>
 		</div>
 		<div class="col-12 col-md-6 col-lg-3">
 			<dl>
-				<dt>Wochentage</dt>
+				<dt><i class="fas fa-church"></i> Wochentage</dt>
 				<dd><?php echo showWeekdays(); ?></dd>
 			</dl>
 		</div>
 		<div class="col-12">
 			<dl>
-				<dt>Entwicklung</dt>
+				<dt><i class="fas fa-chart-bar"></i> Entwicklung</dt>
 				<dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
 			</dl>
 		</div>
