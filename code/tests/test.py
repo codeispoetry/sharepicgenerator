@@ -4,8 +4,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
+if os.path.isfile("tests/screenshot.png"):
+    os.remove("tests/screenshot.png")
 
-os.remove("tests/screenshot.png")
 folder = 'tests/artifacts'
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
@@ -53,7 +54,7 @@ class ChromeSearch(unittest.TestCase):
         download = driver.find_element_by_id('download')
         download.click()
 
-        time.sleep(10) # wait for the image to be processed
+        time.sleep(3) # wait for the image to be processed
         print "Slept 10"
 
     def test_2_compare(self):
