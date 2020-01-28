@@ -39,3 +39,8 @@ function returnJsonErrorAndDie( $code = 1){
     echo json_encode(array('success'=>'false','error'=>array('code'=>$code)));
     die();
 }
+
+function returnJsonSuccessAndDie(){
+    echo json_encode(array('success'=>'true'));
+    die();
+}

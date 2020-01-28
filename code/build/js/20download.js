@@ -38,7 +38,7 @@ $('#download').click(function () {
 
     $.ajax({
         type: "POST",
-        url: 'createpic.php',
+        url: '../createpic.php',
         data: {svg: data, format: format, usepixabay: config.usePixabay, socialmediaplatform: config.socialmediaplatform,videofile: config.videofile, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
@@ -72,7 +72,7 @@ $('#download').click(function () {
             }
 
 
-            window.location.href = 'download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
+            window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
         }
     });
 });
@@ -80,7 +80,7 @@ $('#download').click(function () {
 
 function getEncodingStatus(){
     $.ajax({
-        url:"getvideoencodestatus.php?videofile=" + config.videofile,
+        url:"../getvideoencodestatus.php?videofile=" + config.videofile,
         type: 'GET',
         dataType: 'JSON',
         success : function(data){

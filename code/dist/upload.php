@@ -151,7 +151,7 @@ function prepare_file_and_send_info( $filename, $filename_small ){
     exec($command);
 
 
-    $return['filename'] = $filename_small;
+    $return['filename'] = '../' . $filename_small;
     list($width, $height, $type, $attr) = getimagesize($filename_small);
     list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
 

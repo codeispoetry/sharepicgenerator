@@ -15,10 +15,10 @@ function deleteUserLogo( $user ){
 
     $userDir = 'persistent/user/' . $user;
     if( !file_exists($userDir)){
-        return;
+        returnJsonErrorAndDie('not allowed');
     }
 
     $logos = glob(sprintf('%s/logo.*', $userDir));
     array_walk( $logos, function(&$file){ unlink($file);});
-
+    returnJsonSuccessAndDie();
 }
