@@ -49,7 +49,7 @@ function getSavedPic( $user ){
         return false;
     }
     $userSaveFile = $userDir . '/save.txt';
-    if( !file_exists($userDir)){
+    if( !file_exists($userSaveFile)){
         return false;
     }
 
