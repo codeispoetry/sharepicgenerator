@@ -1,7 +1,7 @@
 function save(){
     let data = $('#pic').serialize();
 
-    $.post( "save.php", { user: config.user,action: 'save',data: data, accesstoken: config.accesstoken })
+    $.post( "../save.php", { user: config.user,action: 'save',data: data, accesstoken: config.accesstoken })
     .done(function( data ) {
         $('#load').removeClass('d-none');
         $('#delete').removeClass('d-none');
@@ -14,15 +14,17 @@ function unlink(){
         return;
     }
 
-    $.post( "save.php", { user: config.user,action: 'delete', accesstoken: config.accesstoken })
+    $.post( "../save.php", { user: config.user,action: 'delete', accesstoken: config.accesstoken })
     .done(function( data ) {
-        location.reload();
+        $('.saving-response').html("Gelöscht.").delay(2000).fadeOut();
+        $('#load').addClass('d-none');
+        $('#delete').addClass('d-none');
     });
 }
 
 
 function load(){
-    $.post( "get.php", { user: config.user, action: 'getSavedPic', accesstoken: config.accesstoken })
+    $.post( "../get.php", { user: config.user, action: 'getSavedPic', accesstoken: config.accesstoken })
     .done(function( data ) {
         let response = JSON.parse( data );
         let formdata = JSON.parse( response.data );
