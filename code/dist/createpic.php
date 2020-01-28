@@ -38,7 +38,7 @@ if( in_array($_POST['format'], array('png','pdf','jpg','mp4'))){
 $exportWidth = (int) $_POST['width'];
 convert($filename, $exportWidth, $format);
 
-logthis($downloadname);
+logthis();
 
 $return = [];
 $return['basename'] = basename($filename, 'svg');
