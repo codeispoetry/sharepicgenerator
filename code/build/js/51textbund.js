@@ -22,7 +22,7 @@ const text = {
         text.svg.remove();
         if( $('#text').val()=="" ) return;
 
-        text.svg = draw.group().addClass('draggable').draggable();
+        text.svg = draw.group().addClass('draggable').attr('id','svg-text').draggable();
 
         text.svg.on('dragend.namespace', function (event) {
             $('#textX').val(Math.round(this.x()));
