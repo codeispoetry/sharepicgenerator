@@ -207,7 +207,7 @@
             <input type="hidden" name="backgroundX" id="backgroundX">
             <input type="hidden" name="backgroundY" id="backgroundY">
             <input type="hidden" name="backgroundURL" id="backgroundURL">
-            <input type="hidden" name="fullBackgroundURL" id="fullBackgroundURL">
+            <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
             <input type="hidden" name="textX" id="textX">
             <input type="hidden" name="textY" id="textY">
         </div>

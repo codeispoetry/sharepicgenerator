@@ -44,6 +44,11 @@ function savePic( $user, $data ){
     $params = array();
     parse_str($data, $params);
 
+    // save uploaded image persisten
+    $new_name = $userDir .'/' . basename($params['fullBackgroundName']);
+    copy($params['fullBackgroundName'], $new_name);
+    $params['fullBackgroundName'] = $new_name;
+
     file_put_contents($userSaveFile, json_encode($params));
     return true;
 }
