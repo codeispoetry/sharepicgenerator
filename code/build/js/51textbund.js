@@ -129,7 +129,6 @@ const text = {
         // green background behind text
         if ( $('#greenbehindtext').prop("checked") ) {
             let textbackgroundpadding = 10;
-            //let textbackground = draw.rect(text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding).fill(draw.image('assets/bg_small.jpg',800,450    )).move(-textbackgroundpadding, -14).back();
             let textbackground = draw.rect(text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding)
             .fill('#46962b')
             .move(-textbackgroundpadding, -14).back();
