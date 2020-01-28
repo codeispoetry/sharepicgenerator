@@ -11,14 +11,14 @@
                     Menschen zu erkennen sind, dürfen nicht genutzt werden.
                 </div>
                 <div class="col-12 col-md-4 offset-md-4">
-                    <form>
+                    <form id="pixabay-form">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-images"></i></div>
                             </div>
                             <input type="text" class="form-control q" placeholder="z.B. Berge oder Sonnenblume">
                             <div class="input-group-append">
-                                <button class="input-group-text btn-primary pixabay-picture">suchen</button>
+                                <button type="submit" class="input-group-text btn-primary pixabay-picture">suchen</button>
                             </div>
                         </div>
                     </form>
