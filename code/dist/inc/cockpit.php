@@ -194,7 +194,7 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start d-none">
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <button type="button" class="btn btn-info btn-sm mr-2" id="save" data-click="save" >Speichern</button>
                 <button type="button" class="btn btn-info btn-sm" id="load" data-click="load" >Laden</button>
