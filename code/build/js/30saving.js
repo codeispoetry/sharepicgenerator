@@ -12,7 +12,6 @@ function load(){
         let response = JSON.parse( data );
         let formdata = JSON.parse( response.data );
 
-        console.log("info", formdata[ "fullBackgroundURL" ]);
         //uploadImageByUrl( formdata[ "fullBackgroundURL" ]);
 
 

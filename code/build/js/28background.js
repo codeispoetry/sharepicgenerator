@@ -5,9 +5,9 @@ const background = {
     draw() {
         this.svg.remove();
 
-        $('#backgroundURL').val(this.filename);
+        let filename = $('#backgroundURL').val();
 
-        this.svg = draw.image(this.filename, function (event) {
+        this.svg = draw.image(filename, function (event) {
             this.back().draggable();
             background.isLoaded = true;
             background.resize();
