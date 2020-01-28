@@ -32,17 +32,25 @@
 			<dl>
 				<dt><i class="fas fa-users"></i> User</dt>
 				<dd>
-					gesamt unique: 
+					gesamt:
 						<?php echo number_format(getUsers(),0,',','.'); ?>
 						<br>
 					Logzeit seit 
 						<?php echo number_format(getLoggingPeriodInDays(),0,',','.'); ?> Tagen 
 						<br>
-					Durchschnitt User pro Tag:
+					täglich:
 						<?php printf("%d", getAverageUserPerDay()); ?>
                         <br>
-                       Telegram-User
+                    Telegram-User
                         <?php echo getTelegramUser(); ?>
+                        <br>
+                    mit Zwischenspeicherung:
+                        <?php echo getUserWithSaving(); ?>
+                        <br>
+                    mit eigenem Logo:
+                        <?php echo getUserWithCustomLogo(); ?>
+                        <br>
+
 					
 				</dd>
 			</dl>
@@ -277,4 +285,14 @@ function getAverageUserPerDay(){
     }
 
     return array_sum($days) / count( $days );
+}
+
+function getUserWithSaving(){
+    exec('find ../persistent/user/ -name save.txt | wc -l', $output);
+    return $output[0];
+}
+
+function getUserWithCustomLogo(){
+    exec('find ../persistent/user/ -name logo.png | wc -l', $output);
+    return $output[0];
 }
