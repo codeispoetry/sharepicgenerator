@@ -28,7 +28,7 @@
 		<div class="col-12 text-center mb-3">
 			<a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
 		</div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-users"></i> User</dt>
 				<dd>
@@ -47,7 +47,7 @@
 				</dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-download"></i> Downloads</dt>
 				<dd>
@@ -66,7 +66,7 @@
 				</dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-bullhorn"></i> Social Media</dt>
 				<dd>
@@ -76,18 +76,25 @@
 				</dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3">
+			<dl>
+				<dt><i class="fas fa-sitemap"></i>> Bundesländer</dt>
+				<dd><?php echo showProvinces(); ?></dd>
+			</dl>
+		</div>
+		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-clock"></i> Uhrzeiten</dt>
 				<dd><?php echo showHours(); ?></dd>
 			</dl>
 		</div>
-		<div class="col-12 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
 				<dt><i class="fas fa-church"></i> Wochentage</dt>
 				<dd><?php echo showWeekdays(); ?></dd>
 			</dl>
 		</div>
+
 		<div class="col-12">
 			<dl>
                 <dt><i class="fas fa-chart-line"></i> Entwicklung</i></dt>
@@ -115,7 +122,7 @@ function readLogs(){
 	
 
 	foreach( $lines AS $line ){
-		list( $time, $user, $action, $pixaybay, $socialmedia ) = explode("\t", trim($line) );
+		list( $time, $user, $action, $payload1, $socialmedia ) = explode("\t", trim($line) );
 
         if( floor(time()/86400) == floor($time/86400) ){
             // do not evaluate data from today
@@ -133,11 +140,11 @@ function readLogs(){
 				$info['users'][] = $user;
 				$info['hours'][ $hour ][] = $user;
 				$info['weekdays'][ $weekday ][] = $user;
-
+				$info['provinces'][ $payload1 ][] = $user;
 			break;
 			case "download":
 				$info['downloads']++;
-				if( $pixaybay ){
+				if( $payload1 ){
 					$info['pixabay']++;
 				}
 				if( $socialmedia ){
@@ -169,6 +176,7 @@ function getPixabay(){
 
 function showSocialMedia(){
 	global $info;
+	arsort( $info['socialmedia'] );
 	foreach( $info['socialmedia'] AS $platform => $counter){
 		printf('<li>%s: %d</li>', $platform, $counter);
 	}
@@ -230,6 +238,20 @@ function showWeekdays(){
 
 	foreach( $info['weekdays'] AS $weekday => $users){
 		printf('<li>%s: %.1f%%</li>', $days[$weekday], 100*count(array_unique($users))/$totalUsers);
+
+	}
+}
+
+function showProvinces(){
+	global $info;
+	$totalUsers = getUsers();
+
+	ksort($info['provinces']);
+	$provinces = array('offbyone','Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen',
+						'Mecklenburg-Vorpommern','Niedersachsen','Nordrhein-Westfalen','Rheinland-Pfalz','Saarland',
+					'Sachsen','Sachen-Anhalt','Schleswig-Holstein','Thürigen');
+	foreach( $info['provinces'] AS $province => $users){
+		printf('<li>%s: %.1f%%</li>', $provinces[ $province ], 100*count(array_unique($users))/$totalUsers);
 
 	}
 }
