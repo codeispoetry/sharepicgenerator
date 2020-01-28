@@ -133,7 +133,7 @@
                 <div class="slider">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
-                           max="300" value="100">
+                           max="300" value="100" disabled>
                     <small>groß</small>
                 </div>
             </div>

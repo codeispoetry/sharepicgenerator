@@ -22,6 +22,8 @@ const pin = {
 
 
     draw() {
+        $('#eyecatchersize').prop('disabled', ($('#pintext').val().length == 0 ));
+
         let countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
 
         if( countLines > 1 ){
