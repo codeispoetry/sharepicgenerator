@@ -4,8 +4,11 @@ $('#pixabayopener').click(function () {
     $('#pixabay').addClass("active");
 });
 
-$('.pixabay-picture').click(function () {
+
+$('#pixabay-form').submit(function (e) {
+    e.preventDefault();
     getPixabayImages($('#pixabay .q').val());
+    return false;
 });
 
 $('.pixabay-video').click(function () {
