@@ -124,14 +124,13 @@ function afterUpload(data) {
     info.previewWidth = draw.width();
     info.previewHeight = draw.height();
 
-    background.filename = data.filename;
+    $('#backgroundURL').val(data.filename);
+
 
     $('#width').val( data.originalWidth );
     $('#height').val( data.originalHeight );
 
-    $('#fullBackgroundURL').val( data.fullBackgroundURL );
-
-console.log(data);
+    $('#fullBackgroundName').val( data.fullBackgroundName );
     setDrawsize();
 
     background.draw();
