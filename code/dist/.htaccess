@@ -2,8 +2,16 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+# Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force non www. domain
+RewriteCond %{HTTP_HOST} ^www\.sharepicgenerator\.de$ [NC]
+RewriteRule (.*) https://sharepicgenerator\.de/$1 [R=301,L]
+
+
 </IfModule>
 
 php_value upload_max_filesize 110M
