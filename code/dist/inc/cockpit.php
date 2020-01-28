@@ -115,7 +115,7 @@
 
 
             <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
-                <select class="form-control" id="iconsize">
+                <select class="form-control" name="iconsize" id="iconsize">
                     <option value="1">Icon: 1 Zeile hoch</option>
                     <option value="2">Icon: 2 Zeilen hoch</option>
                     <option value="3">Icon: 3 Zeilen hoch</option>
@@ -196,9 +196,13 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
-                <button type="button" class="btn btn-info btn-sm mr-2" id="save" data-click="save" >Speichern</button>
-                <button type="button" class="btn btn-info btn-sm" id="load" data-click="load" >Laden</button>
+                <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" >speichern</button>
+                <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load">öffnen</button>
+                <button type="button" class="btn btn-info btn-sm d-none" id="delete" data-click="unlink">löschen</button>
             </div>
+            <div class="small">Experimentell - nicht darauf verlassen.
+                <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a>.</div>
+            <div class="saving-response text-secondary"></div>
         </div>
 
         <div>
@@ -207,6 +211,7 @@
             <input type="hidden" name="backgroundX" id="backgroundX">
             <input type="hidden" name="backgroundY" id="backgroundY">
             <input type="hidden" name="backgroundURL" id="backgroundURL">
+            <input type="hidden" name="iconfile" id="iconfile">
             <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
             <input type="hidden" name="textX" id="textX">
             <input type="hidden" name="textY" id="textY">
@@ -214,7 +219,7 @@
 
 
     </div>
-    <div>
+    <div class="d-none">
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">

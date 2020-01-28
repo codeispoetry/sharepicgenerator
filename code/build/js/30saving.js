@@ -1,26 +1,42 @@
 function save(){
     let data = $('#pic').serialize();
 
-    $.post( "save.php", { user: config.user,data: data, accesstoken: config.accesstoken })
+    $.post( "save.php", { user: config.user,action: 'save',data: data, accesstoken: config.accesstoken })
     .done(function( data ) {
-        console.log( data)
+        $('#load').removeClass('d-none');
+        $('#delete').removeClass('d-none');
+        $('.saving-response').html("Gespeichert.").delay(2000).fadeOut();
     });
 }
+
+function unlink(){
+    if( !confirm("Zwischenspeicherung wirklich löschen?")){
+        return;
+    }
+
+    $.post( "save.php", { user: config.user,action: 'delete', accesstoken: config.accesstoken })
+    .done(function( data ) {
+        location.reload();
+    });
+}
+
+
 function load(){
     $.post( "get.php", { user: config.user, action: 'getSavedPic', accesstoken: config.accesstoken })
     .done(function( data ) {
         let response = JSON.parse( data );
         let formdata = JSON.parse( response.data );
 
-        //uploadImageByUrl( formdata[ "fullBackgroundURL" ]);
-
+        if( !response.data){
+            return false;
+        }
+        $('#load').removeClass('d-none');
+        $('#delete').removeClass('d-none');
 
         // set the draw size manually, because it recalculates boundaries, etc.
         $('#width').val( formdata[ "width" ]);
         $('#height').val( formdata[ "height" ]);
         setDrawsize();
-
-
 
         for(var elem in formdata) {
             $('#' + elem).val( formdata[ elem ]);
@@ -41,6 +57,7 @@ function load(){
             background.draw();
             copyright.draw();
             pin.draw();
+            icon.load();
         }, 100);
 
 

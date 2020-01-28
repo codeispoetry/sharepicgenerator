@@ -20,14 +20,7 @@ $(document).ready(function () {
     afterUpload(bgpic);
     $('#text').val("[Leben]\nlassen");
 
-    /*
-    if( config["landesverband"] == 3) {
-        $("#logoselect option[value='logo-berlin-weiss']").prop('selected', true);
-        window.setTimeout(function () {
-            $("#logoselect").change();
-        }, 1000);
-    }
-    */
+    window.setTimeout( load, 1000 );
 
 
     $('[data-click]').click(function(){
