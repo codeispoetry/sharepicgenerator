@@ -7,12 +7,6 @@
     <title>Logs</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
 	<style>
-		 img{
-            height: 200px;
-            width: auto;
-            margin: 0 5px 5px 0;
-            max-width: 50%;
-        }
         scroll-container {
             scroll-behavior: smooth;
         }
@@ -73,6 +67,15 @@
         ?>
     </div>
 
+    <div class="row">
+        <div class="col-12 text-center">
+            <scroll-page id="customlogos"><h2>Custom Logos</h2></scroll-page>
+        </div>
+        <?php
+            showCustomLogos();
+        ?>
+    </div>
+
 </div>
 </scroll-container>
 </html>
@@ -114,4 +117,11 @@ function deleteFilesInPathOlderThanDays($days, $path)
     }
 
     printf('%d Dateien gelöscht ', $counter);
+}
+
+function showCustomLogos(){
+    exec('find ../persistent/user/ -name logo.png', $output);
+    foreach( $output AS $file){
+        printf('<div class="col-2"><img src="%s" class="img-fluid"></div>', $file);
+    }
 }
