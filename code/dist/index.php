@@ -85,18 +85,18 @@ header .container {
         <h1 class="display-4 text-shadow">Grüner<br/>Sharepic&shy;generator</h1>
         <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
         <div class="mt-3 d-flex flex-column align-items-center">
-          <a href="create.php" class="mt-5 btn btn-secondary btn-lg">
+          <a href="federal/" class="mt-5 btn btn-secondary btn-lg">
             <i class="fas fa-pen mr-2 small"></i>eigenes Sharepic erstellen
           </a>
           <a href="bayern" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> Kommunalwahl Bayern</a>
-          <a href="vintage" class="mt-5 btn btn-dark btn-md"><i class="fab fa-pied-piper-alt"></i> Vintage-Version zum 30./40. Geburtstag</a>
+          <a href="vintage/" class="mt-5 btn btn-dark btn-md"><i class="fab fa-pied-piper-alt"></i> Vintage-Version zum 30./40. Geburtstag</a>
          
          
             <span class="mt-5 cursor-pointer testaccess">
                 <i class="fas fa-sign-in-alt"></i> Gastzugang
             </span>
             <div class="mt-1 testaccess" style="display:none">
-                <form method="post" action="create.php" class="form-inline">
+                <form method="post" action="federal/" class="form-inline">
                     <div class="mt-2">
                         <input type="text" class="form-control" name="pass" placeholder="Passwort eingeben">
                         <input type="submit" class="btn btn-sm btn-info" value="okay">
