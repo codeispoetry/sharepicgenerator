@@ -18,15 +18,16 @@
     <div class="row mt-3">
 		<div class="col-12 text-center">
             <a href="#bayern" class="btn btn-info btn-lg">zu Bayern</a>
+            <a href="#logos" class="btn btn-info btn-lg">zu Logos</a>
 			<a href="index.php" class="btn btn-primary btn-lg ml-2">Zeige Statistik</a>
 		</div>
 
 
         <div class="col-12 text-center">
             <?php
-                deleteFilesInPathOlderThanDays(2, '../tmp/*'); echo ' | ';
-                deleteFilesInPathOlderThanDays(2, '../bayern/tmp/*'); echo ' | ';
-                deleteFilesInPathOlderThanDays(2, '../vintage/tmp/*');
+                deleteFilesInPathOlderThanDays(1, '../tmp/*'); echo ' | ';
+                deleteFilesInPathOlderThanDays(1, '../bayern/tmp/*'); echo ' | ';
+                deleteFilesInPathOlderThanDays(1, '../vintage/tmp/*');
             ?>
         </div>
 
@@ -45,7 +46,7 @@
             <a name="vintage"><h2>Vintage</h2></a>
         </div>
         <?php
-            show_images("../vintage/tmp/log*\.jpg");
+            show_images("../vintage/tmp/shpic*\.jpg");
         ?>
     </div>
 
@@ -69,7 +70,7 @@
 
     <div class="row">
         <div class="col-12 text-center">
-            <scroll-page id="customlogos"><h2>Custom Logos</h2></scroll-page>
+            <scroll-page id="logos"><h2>Custom Logos</h2></scroll-page>
         </div>
         <?php
             showCustomLogos();
