@@ -44,3 +44,10 @@ function returnJsonSuccessAndDie(){
     echo json_encode(array('success'=>'true'));
     die();
 }
+
+
+function logthis(){
+    global $user, $landesverband, $tenant;
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant );
+    file_put_contents('../log/log.log', $line, FILE_APPEND);
+}
