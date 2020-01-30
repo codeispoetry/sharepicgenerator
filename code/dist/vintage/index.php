@@ -1,7 +1,9 @@
 <?php
+require_once('../functions.php');
 $samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
 $user = "generic";
+$tenant = "vintage";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
@@ -19,9 +21,7 @@ if( !$hasAccess ){
     }
 }
 
-if (TRUE == FALSE && file_exists('../log/do.php')){
-    require_once('../log/do.php');
-}
+logthis();
 
 function isLocalUser(){
     $GLOBALS['user'] = "localuser";
