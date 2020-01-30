@@ -5,9 +5,18 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
             build: {
-                src: ['build/js/**/*.js'],
+                src: ['build/js/*.js'],
                 dest: 'dist/assets/js/main.min.js'
+            },
+            buildFederal: {
+                src: ['build/js/federal/*.js'],
+                dest: 'dist/federal/main.min.js'
+            },
+            buildVintage: {
+                src: ['build/js/vintage/*.js'],
+                dest: 'dist/federal/main.min.js'
             }
+
         },
         sass: {
             dev: {
@@ -54,6 +63,6 @@ module.exports = function (grunt) {
     // Default task(s).
     grunt.registerTask('default', ['watch']);
 
-    grunt.registerTask('build', ['uglify', 'sass','postcss']);
+    grunt.registerTask('build', ['uglify','sass','postcss']);
 
 };
