@@ -69,7 +69,7 @@ $('.upload-file').change(function (event) {
         console.log("Upload abgebrochen");
     };
     
-    client.open("POST", "upload.php");
+    client.open("POST", "../upload.php");
     client.send(formData);
 
 });
@@ -113,7 +113,7 @@ function uploadImageByUrl(url, callback = function () {}) {
         callback();
     };
 
-    client.open("POST", "upload.php");
+    client.open("POST", "../upload.php");
     client.send(formData);
 }
 
