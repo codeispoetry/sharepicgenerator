@@ -133,9 +133,12 @@ header .container {
           <li>für Bilder und Videos</li>
           <li>Templates für alle gängigen Social-Media-Plattformen</li>
           <li>eigenes Bild hochladbar</li>
+          <li>mobil voll nutzbar</li>
+          <li>Zwischenspeicherung von bearbeiteten Sharepics</li>
+          <li>voll mandantenfähig</li>
           <li>Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a></li>
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
-          <li>Eigenes Logo wird dauerhaft gespeichert</li>
+          <li>eigenes Logo wird dauerhaft gespeichert</li>
           <li>Bedienbar über einen Telegram-Bot</li>
           <li>Dark Mode für Wirkung auf dunklen Untergründen</li>
           <li>mit API, z.B. für Massenabfertigung</li>
