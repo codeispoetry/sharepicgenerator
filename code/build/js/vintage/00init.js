@@ -7,3 +7,7 @@ $(document).ready(function () {
 
 });
 
+
+function reset(){
+    // do nothing, stay here
+}

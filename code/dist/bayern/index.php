@@ -2,7 +2,7 @@
 $samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
 $user = "generic";
-$tenant = "federal";
+$tenant = "bayern";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
@@ -69,6 +69,7 @@ function createAccessToken( $user ){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="../vendor/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../favicons/apple-icon-60x60.png">
@@ -94,7 +95,7 @@ function createAccessToken( $user ){
        
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase h6"><a href="/index.php" class="text-body">Sharepicgenerator</a></h1>
+                <h1 class="text-uppercase h6"><a href="../index.php" class="text-body">Sharepicgenerator Bayern</a></h1>
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
@@ -107,6 +108,19 @@ function createAccessToken( $user ){
                 <button class="btn btn-secondary btn-lg" id="download">
                     <i class="fas fa-download"></i> Herunterladen
                 </button>
+            </div>
+
+            <div class="col-12 col-md-6 offset-md-3 text-center text-info mb-5 d-flex">
+                <div>
+                    <i class="fab fa-telegram h1 mr-3"></i>
+                </div>
+                <div class="text-left">
+                    Neu und nur in Bayern:
+                    Nutze den Sharepicgenerator über
+                    Telegram.<br>
+                    Sende eine Startnachricht an
+                    <a href="https://telegram.me/bayernbot/" target="_blank">@Bayernbot</a>.
+                </div>
             </div>
 
 
