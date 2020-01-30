@@ -47,7 +47,7 @@ class ChromeSearch(unittest.TestCase):
     #@unittest.skip("demonstrating skipping")
     def test_1_download(self):
         driver = self.driver
-        driver.get('http://127.0.0.1/create.php')
+        driver.get('http://127.0.0.1/federal')
         self.assertIn("Sharepicgenerator", driver.title)
 
 

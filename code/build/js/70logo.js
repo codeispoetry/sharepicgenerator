@@ -2,42 +2,42 @@ const logo = {
         isLoaded: false,
         config: {
             "sonnenblume": {
-                file: "assets/logos/sonnenblume.svg",
+                file: "../assets/logos/sonnenblume.svg",
                 widthFraction: 0.1,
                 position: 'topright'
             },
             "sonnenblume-weiss": {
-                file: "assets/logos/sonnenblume-weiss.svg",
+                file: "../assets/logos/sonnenblume-weiss.svg",
                 widthFraction: 0.1,
                 position: 'topright'
             },
             "logo-weiss": {
-                file: "assets/logos/logo-weiss.svg",
+                file: "../assets/logos/logo-weiss.svg",
                 widthFraction: 0.2,
                 position: 'topright'
             },
             "logo-gruen": {
-                file: "assets/logos/logo-gruen.svg",
+                file: "../assets/logos/logo-gruen.svg",
                 widthFraction: 0.20,
                 position: 'topright'
             },
             "sonnenblume-big": {
-                file: "assets/logos/sonnenblume.svg",
+                file: "../assets/logos/sonnenblume.svg",
                 widthFraction: 0.5,
                 position: 'bottomleftOutside',
             },
             "logo-berlin-weiss": {
-                file: "assets/logos/berlin-weiss.svg",
+                file: "../assets/logos/berlin-weiss.svg",
                 widthFraction: 0.2,
                 position: 'topright'
             },
             "logo-berlin-gruen": {
-                file: "assets/logos/berlin-gruen.svg",
+                file: "../assets/logos/berlin-gruen.svg",
                 widthFraction: 0.2,
                 position: 'topright'
             },
             "custom": {
-                file: "persistent/user/" + config.user + "/logo.png",
+                file: "../persistent/user/" + config.user + "/logo.png",
                 widthFraction: 0.2,
                 position: 'topright'
             }
@@ -104,12 +104,11 @@ $('#logoselect').on('change', function () {
 
         $("#logoselect").val($("#logoselect option:first").val());
 
-        $.post( "delete.php", { user: config.user,accesstoken: config.accesstoken })
+        $.post( "../delete.php", { user: config.user,accesstoken: config.accesstoken })
         .done(function( data ) {
 
             let obj = JSON.parse(data);
             if(obj.error){
-                console.log(obj.error);
                 return false;
             }
 
