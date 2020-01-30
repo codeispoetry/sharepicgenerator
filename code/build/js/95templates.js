@@ -8,7 +8,7 @@ $('#templateopener').click(function () {
 $('.templatepic').click(function(){
     let template = $(this);
     let attribution = $(this).data("attribution");
-    uploadImageByUrl( $(this).attr("src"), function(){
+    uploadImageByUrl( $(this).data("url"), function(){
         setCopyright( attribution, '');
 
         let str = template.data('text').replace(/@/g,'!').replace(/§/g,"\n");

@@ -69,4 +69,6 @@ function calculateSizes() {
 
     $('#backgroundX').val(0);
     $('#backgroundY').val(0);
+
+    reset();
 }
