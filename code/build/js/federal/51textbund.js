@@ -16,7 +16,6 @@ const text = {
         leading: '1.0em',
     },
 
-
     draw: function () {
 
         text.svg.remove();
