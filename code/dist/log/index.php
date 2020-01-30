@@ -92,6 +92,12 @@
 		</div>
 		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
+				<dt><i class="fas fa-sitemap"></i>> Mandanten</dt>
+				<dd><?php echo showTenants(); ?></dd>
+			</dl>
+		</div>
+		<div class="col-6 col-md-6 col-lg-3">
+			<dl>
 				<dt><i class="fas fa-clock"></i> Uhrzeiten</dt>
 				<dd><?php echo showHours(); ?></dd>
 			</dl>
@@ -130,11 +136,11 @@ function readLogs(){
 	
 
 	foreach( $lines AS $line ){
-		list( $time, $user, $action, $payload1, $socialmedia ) = explode("\t", trim($line) );
+		list( $time, $user, $action, $payload1, $payload2 ) = explode("\t", trim($line) );
 
         if( floor(time()/86400) == floor($time/86400) ){
             // do not evaluate data from today
-            break;
+            // break;
         }
 
 		$day =  date('l, d.m.',  $time );
@@ -149,14 +155,16 @@ function readLogs(){
 				$info['hours'][ $hour ][] = $user;
 				$info['weekdays'][ $weekday ][] = $user;
 				$info['provinces'][ $payload1 ][] = $user;
+				$info['tenants'][ $payload2 ][] = $user;
+
 			break;
 			case "download":
 				$info['downloads']++;
 				if( $payload1 ){
 					$info['pixabay']++;
 				}
-				if( $socialmedia ){
-					 $info['socialmedia'][ $socialmedia ] = $info['socialmedia'][ $socialmedia ] + 1 ?: 1;
+				if( $payload2 ){
+					 $info['socialmedia'][ $payload2 ] = $info['socialmedia'][ $payload2 ] + 1 ?: 1;
 				}
 			break;
 		
@@ -260,6 +268,15 @@ function showProvinces(){
 					'Sachsen','Sachen-Anhalt','Schleswig-Holstein','Thürigen');
 	foreach( $info['provinces'] AS $province => $users){
 		printf('<li>%s: %.1f%%</li>', $provinces[ $province ], 100*count(array_unique($users))/$totalUsers);
+
+	}
+}
+
+function showTenants(){
+	global $info;
+	
+	foreach( $info['tenants'] AS $tenant => $users){
+		printf('<li>%s: %s</li>', $tenant, number_format(count(array_unique($users)),0,',','.'));
 
 	}
 }
