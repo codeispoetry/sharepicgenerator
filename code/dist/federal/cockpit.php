@@ -1,5 +1,37 @@
 <form id="pic">
     <div class="list-group">
+
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex justify-content-between mb-1">
+                <a href="#" class="text-primary cursor-pointer uploadfileclicker">
+                    <i class="fa fa-upload"></i> Bild/Video hochladen
+                </a>
+                
+                <span class="text-primary cursor-pointer" id="pixabayopener">
+                    <i class="fas fa-search"></i> suchen
+                </span>
+                
+                <a href="#" class="text-primary cursor-pointer" id="templateopener">
+                    <i class="fa fa-thumbs-up"></i> Vorlagen
+                </a>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1"></h6>
+                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
+                    zentrieren</small>
+            </div>
+            <div class="mb-1 list-group-item-content">
+                <div class="slider">
+                    <small>klein</small>
+                    <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
+                           max="1500" value="1200">
+                    <small>groß</small>
+                </div>
+            </div>
+
+
+        </div>
+
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Ausgabegröße</h6>
@@ -37,38 +69,20 @@
 
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between mb-1">
-                <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Bild/Video hochladen
-                </a>
+            <div class="d-flex">
+                <button type="button" class="btn btn-info btn-sm mr-2" data-click="showLayout" data-layout="standard">
+                    <i class="fab fa-servicestack"></i> Standardlayout
+                </button>
                 
-                <span class="text-primary cursor-pointer" id="pixabayopener">
-                    <i class="fas fa-search"></i> suchen
-                </span>
-                
-                <a href="#" class="text-primary cursor-pointer" id="templateopener">
-                    <i class="fa fa-thumbs-up"></i> Vorlagen
-                </a>
+                <button type="button" class="btn btn-outline-info btn-sm" data-click="showLayout" data-layout="quote">
+                    <i class="fas fa-quote-right"></i> Zitatlayout
+                </button>
             </div>
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1"></h6>
-                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
-                    zentrieren</small>
-            </div>
-            <div class="mb-1 list-group-item-content">
-                <div class="slider">
-                    <small>klein</small>
-                    <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
-                           max="1500" value="1200">
-                    <small>groß</small>
-                </div>
-            </div>
-
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="list-group-item-content">
-                <div class="">
+                <div class="noquote">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
                            class="form-control">
                 </div>
@@ -89,39 +103,38 @@
                     </div>
                 </div>
                
-                <div class="d-flex justify-content-between">
-                    <label>
-                        <input type="checkbox" name="textsamesize" id="textsamesize">
-                        Zeilen gleich lang
-                    </label>
-                    <label>
-                        <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
-                        Grün hinter Text
-                    </label>
+                <div class="noquote">
+                    <div class="d-flex justify-content-between">
+                        <label>
+                            <input type="checkbox" name="textsamesize" id="textsamesize">
+                            Zeilen gleich lang
+                        </label>
+                        <label>
+                            <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
+                            Grün hinter Text
+                        </label>
+                    </div>
+                </div>    
+            </div>
+            <div class="noquote">
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="text-primary cursor-pointer uploadiconclicker">
+                        <i class="fa fa-upload"></i> Icon hochladen
+                    </span>
+                    
+                    <span class="text-primary cursor-pointer" id="iconopener">
+                        <i class="fas fa-search"></i> Icon suchen
+                    </span>
                 </div>
-            </div>
-        </div>
-
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between mb-1">
-                <a href="#" class="text-primary cursor-pointer uploadiconclicker">
-                    <i class="fa fa-upload"></i> Icon hochladen
-                </a>
-                
-                <a href="#" class="text-primary cursor-pointer" id="iconopener">
-                <i class="fas fa-search"></i> Icon suchen
-                </a>
-            </div>
-
-
-            <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
-                <select class="form-control" name="iconsize" id="iconsize">
-                    <option value="1">Icon: 1 Zeile hoch</option>
-                    <option value="2">Icon: 2 Zeilen hoch</option>
-                    <option value="3">Icon: 3 Zeilen hoch</option>
-                    <option value="0">Icon entfernen</option>
-                </select>
-            </div>
+                <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
+                    <select class="form-control" name="iconsize" id="iconsize">
+                        <option value="1">Icon: 1 Zeile hoch</option>
+                        <option value="2">Icon: 2 Zeilen hoch</option>
+                        <option value="3">Icon: 3 Zeilen hoch</option>
+                        <option value="0">Icon entfernen</option>
+                    </select>
+                </div>
+            </div>    
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
