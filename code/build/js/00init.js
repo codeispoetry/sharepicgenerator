@@ -18,8 +18,6 @@ const secondaryfont = {
 
 $(document).ready(function () {
     afterUpload(bgpic);
-    $('#text').val("[Leben]\nlassen");
-
     window.setTimeout( load, 1000 );
 
 
