@@ -17,6 +17,9 @@ const text = {
     },
 
     draw: function () {
+        if( config.layout !== undefined && config.layout !== "standard"){
+            return; 
+        }
 
         text.svg.remove();
         if( $('#text').val()=="" ) return;
