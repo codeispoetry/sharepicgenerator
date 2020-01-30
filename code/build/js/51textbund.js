@@ -44,7 +44,12 @@ const text = {
                 let style = 1;
 
                 // the main text
-                values = value.toUpperCase().split(/\[|\]/);
+                if( lines.length < 4){
+                    value = value.toUpperCase();
+                }
+                values = value.split(/\[|\]/);
+
+
 
                 let t = draw.text(function (add) {
                     for(let i = 0; i<values.length; i++) {
