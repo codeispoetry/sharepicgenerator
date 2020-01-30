@@ -19,7 +19,7 @@
                             <option class="fas">&#xf5cb;</option>
 
                             <?php
-                            $sizes = parse_ini_file('picturesizes.ini', TRUE);
+                            $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
                             foreach($sizes AS $name=>$group ){
                                 printf ('<optgroup label="%s">', $name);
                                 foreach($group AS $label => $size){
@@ -87,7 +87,7 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex align-items-lg-center">
                 <h6 class="mb-1">Zeile "DIE GRÜNEN basisdemokratisch ..."</h6>
-                <i class="fa fa-broom ml-1 text-primary cursor-pointer subline-change-color ml-1" title="Farbe wechseln"></i>
+                <i class="fa fa-broom ml-1 text-primary cursor-pointer claim-change-color ml-1" id="claim-change-color" title="Farbe wechseln"></i>
             </div>
 
         </div>

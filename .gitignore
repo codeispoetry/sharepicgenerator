@@ -9,7 +9,6 @@ code/dist/api/data.json
 
 code/tests/screenshot.png
 code/tests/artifacts/*
-code/tests/patterns/*
 
 node_modules
 code/dist/log/log.txt

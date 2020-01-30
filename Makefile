@@ -16,6 +16,9 @@ grunt-shell:
 compile:
 	docker-compose exec grunt grunt build
 
+compileJS:
+	docker-compose exec grunt grunt buildJS
+
 log:
 	docker-compose logs -f grunt
 
@@ -34,6 +37,13 @@ get-config:
 get-log:
 	rsync tom@sharepicgenerator.de:/var/www/html/log/log.log code/dist/log.log
 
-test:
-	docker-compose exec webserver python tests/test.py
+tests:
+	docker-compose exec webserver python tests/test-federal.py
+	docker-compose exec webserver python tests/test-vintage.py
+
+test-federal:
+	docker-compose exec webserver python tests/test-federal.py
+
+test-vintage:
+	docker-compose exec webserver python tests/test-vintage.py
 
