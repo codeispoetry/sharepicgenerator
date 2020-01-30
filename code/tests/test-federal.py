@@ -54,7 +54,7 @@ class ChromeSearch(unittest.TestCase):
         # select template
         driver.find_element_by_id('templateopener').click()
         driver.find_element_by_css_selector("img[src='templates/annalena.jpg']").click()
-        time.sleep(1)
+        time.sleep(2)
 
         select = Select(driver.find_element_by_id('sizepresets'))
         select.select_by_visible_text('Sharepic')
