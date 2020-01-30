@@ -68,6 +68,7 @@ function createAccessToken( $user ){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="../vendor/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../favicons/apple-icon-60x60.png">
@@ -82,7 +83,7 @@ function createAccessToken( $user ){
     <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="../favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-    <link rel="manifest" href="../manifest.json">
+    <link rel="manifest" href="../favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="../favicons/ms-icon-144x144.png">
 
@@ -93,7 +94,7 @@ function createAccessToken( $user ){
        
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase h6"><a href="index.php" class="text-body">Sharepicgenerator</a></h1>
+                <h1 class="text-uppercase h6"><a href="../index.php" class="text-body">Sharepicgenerator</a></h1>
             </div>
             <div class="col-12">
                 <div id="canvas"></div>
@@ -154,6 +155,7 @@ function createAccessToken( $user ){
 <script src="../vendor/svg.min.js"></script>
 <script src="../vendor/svg.draggable.min.js"></script>
 <script src="../assets/js/main.min.js"></script>
+<script src="main.min.js"></script>
 
 </body>
 </html>

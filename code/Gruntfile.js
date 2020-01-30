@@ -14,7 +14,7 @@ module.exports = function (grunt) {
             },
             buildVintage: {
                 src: ['build/js/vintage/*.js'],
-                dest: 'dist/federal/main.min.js'
+                dest: 'dist/vintage/main.min.js'
             }
 
         },
@@ -22,6 +22,11 @@ module.exports = function (grunt) {
             dev: {
                 files: {
                     'dist/assets/css/styles.css': 'build/scss/main.scss'
+                }
+            },
+            devVintage: {
+                files: {
+                    'dist/vintage/styles.css': 'build/scss/vintage/main.scss'
                 }
             }
         },
@@ -65,4 +70,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', ['uglify','sass','postcss']);
 
+    grunt.registerTask('buildJS', ['uglify']);
 };
