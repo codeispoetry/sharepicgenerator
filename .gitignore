@@ -18,6 +18,9 @@ code/dist/api/*.jpg
 code/dist/log/countsharepics.txt
 code/dist/passwords.php
 
+code/dist/*/main.min.js
+
+
 *.log
 
 *.dll
