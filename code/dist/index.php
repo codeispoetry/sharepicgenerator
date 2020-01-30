@@ -115,11 +115,6 @@ header .container {
 
 <section class="row my-5">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 text-center">
-        <h2 class="text-md-right"><span id="sharepics-counter"><?php echo count_sharepics(); ?></span> erstellte Sharepics</h2>
-      </div>
-    </div>
     <div class="row mt-5">
       <div class="col-md-8 offset-md-2 ">
         <h2>Beispiele</h2>
@@ -176,58 +171,7 @@ header .container {
       }
     });
 
-    $( document ).ready(function() {
-        let sc = $('#sharepics-counter');
-        let number = <?php echo count_sharepics(); ?>;
-        let counting_number = Math.round( number * 0.6 );
-
-        let counter = window.setInterval(() => {
-            let delta = number - counting_number;
-            counting_number += Math.max( 2, Math.round( delta / 10 ) );
-           
-            sc.html( counting_number.toLocaleString() );
-
-            if( counting_number >= number){
-                sc.html( (number -1).toLocaleString() );
-                clearInterval( counter );
-                window.setTimeout(() => {
-                  sc.html( number.toLocaleString() );
-                }, 1000);
-            }
-        }, 30);
-
-    });
-
 </script>
-<?php
-function count_sharepics( ){
 
-    $countSharepicsFile = 'log/countsharepics.txt';
-    if(!file_exists($countSharepicsFile) OR time() - filemtime($countSharepicsFile) > 60 * 60){
-        $countDownloads = 0;
-        $lines = file('log/log.log');
-        foreach( $lines AS $line ){
-            list( $time, $user, $action ) = explode("\t", trim($line) );
-            if($action == 'download') {
-                $countDownloads++;
-            }
-        }
-        file_put_contents( $countSharepicsFile, (string) $countDownloads );
-    }
-
-
-
-    $number = 4425; // when the logging was changed, the counter was at this point
-    $countSharepicsFiles = array('log/countsharepics.txt','bayern/log/countsharepics.txt');
-    foreach($countSharepicsFiles AS $countSharepicsFile){
-        if(file_exists($countSharepicsFile)){
-            $number += (int) file_get_contents($countSharepicsFile);
-        }
-    }
-
-    return $number;
-}
-
-?>
 </body>
 </html>
