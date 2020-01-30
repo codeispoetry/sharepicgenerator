@@ -15,6 +15,10 @@ module.exports = function (grunt) {
             buildVintage: {
                 src: ['build/js/vintage/*.js'],
                 dest: 'dist/vintage/main.min.js'
+            },
+            buildBayern: {
+                src: ['build/js/bayern/*.js'],
+                dest: 'dist/bayern/main.min.js'
             }
 
         },
@@ -27,6 +31,11 @@ module.exports = function (grunt) {
             devVintage: {
                 files: {
                     'dist/vintage/styles.css': 'build/scss/vintage/main.scss'
+                }
+            },
+            devBayern: {
+                files: {
+                    'dist/bayern/styles.css': 'build/scss/bayern/main.scss'
                 }
             }
         },

@@ -23,6 +23,8 @@
                             }
                         };
 
+                        $data .= sprintf('data-url="%s/%s"', $tenant, $file);
+
                 ?>
                     <div class="col-12 col-md-3">
                         <img src="<?php echo $file;?>" <?php echo $data; ?> class="img-fluid templatepic cursor-pointer">

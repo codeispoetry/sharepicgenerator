@@ -39,6 +39,7 @@ get-log:
 
 tests:
 	docker-compose exec webserver python tests/test-federal.py
+	docker-compose exec webserver python tests/test-bayern.py
 	docker-compose exec webserver python tests/test-vintage.py
 
 test-federal:
@@ -46,4 +47,7 @@ test-federal:
 
 test-vintage:
 	docker-compose exec webserver python tests/test-vintage.py
+
+test-bayern:
+	docker-compose exec webserver python tests/test-bayern.py
 
