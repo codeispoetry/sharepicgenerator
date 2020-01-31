@@ -34,7 +34,6 @@ const copyrightfont = {
     weight: 300
 };
 
-
 const copyright = {
 
     svg: draw.text(''),
