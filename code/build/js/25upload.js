@@ -51,7 +51,8 @@ $('.upload-file').change(function (event) {
                 logo.load();
                 break;
             case "uploadicon":
-                icon.load(obj.iconfile);
+                $('#iconfile').val(obj.iconfile);
+                icon.load();
                 $('.iconsizeselectwrapper').removeClass('d-none');
                 break;
             default:
