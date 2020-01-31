@@ -107,8 +107,8 @@ header .container {
                         <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-bayern" value="bayern" checked>
                         <label class="form-check-label mr-5" for="test-access-target-bayern">Bayern</label>
 
-                        <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-bund" value="federal">
-                        <label class="form-check-label" for="test-access-target-bund">Bund</label>
+                        <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-federal" value="federal">
+                        <label class="form-check-label" for="test-access-target-federal">Bund</label>
                     </div>
                 </form>
                 <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="d-none text-white">

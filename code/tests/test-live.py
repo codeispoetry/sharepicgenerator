@@ -42,12 +42,13 @@ class ChromeSearch(unittest.TestCase):
         self.driver = webdriver.Chrome('/var/www/html/dist/api/chromedriver', chrome_options=options)
         self.driver.set_window_size(1400,800)
 
-        print "Test Live Federal"
+
 
     #@unittest.skip("demonstrating skipping")
-    def test_1_download(self):
+    def test_10_federal(self):
+        print "Test Live Federal"
         driver = self.driver
-        driver.get('http://localhost')
+        driver.get('https://sharepicgenerator.de')
 
         self.assertIn("Sharepicgenerator", driver.title)
 
@@ -55,6 +56,7 @@ class ChromeSearch(unittest.TestCase):
         driver.find_element_by_id('test-access-opener').click()
         time.sleep(1)
         driver.find_element_by_id('test-access-password').send_keys( u"lennart" )
+        driver.find_element_by_id('test-access-target-federal').click()
         driver.find_element_by_id('test-access-submit').click()
         time.sleep(1)
 
@@ -65,8 +67,38 @@ class ChromeSearch(unittest.TestCase):
         element = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.ID, "download"))
         )
-        #time.sleep(1)
         print "downloaded"
+
+
+    def test_20_bayern(self):
+        print "Test Live Bayern"
+        driver = self.driver
+        driver.get('https://sharepicgenerator.de')
+
+        self.assertIn("Sharepicgenerator", driver.title)
+
+        # gain access
+        driver.find_element_by_id('test-access-opener').click()
+        time.sleep(1)
+        driver.find_element_by_id('test-access-password').send_keys( u"lennart" )
+        driver.find_element_by_id('test-access-target-bayern').click()
+        driver.find_element_by_id('test-access-submit').click()
+        time.sleep(1)
+
+        driver.find_element_by_id('text').send_keys(Keys.CONTROL, 'a')
+        driver.find_element_by_id('text').send_keys( u"Test Bayern" )
+
+
+        print "click download"
+        driver.find_element_by_id('download').click()
+
+        element = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.ID, "download"))
+        )
+        print "downloaded"
+
+
+
 
 
     def tearDown(self):
