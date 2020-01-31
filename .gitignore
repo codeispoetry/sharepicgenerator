@@ -15,15 +15,15 @@ code/dist/log/log.txt
 code/dist/config.ini
 code/dist/api/*.png
 code/dist/api/*.jpg
-code/dist/log/countsharepics.txt
+code/tests/livetest/*.png
+code/tests/livetest/*.jpg
+
 code/dist/passwords.php
 
 code/dist/*/main.min.js
 
 
 *.log
-
 *.dll
 *.exe
-
 .idea
