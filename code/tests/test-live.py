@@ -14,8 +14,6 @@ from selenium.webdriver.support.ui import Select
 
 
 
-if os.path.isfile("tests/screenshot.png"):
-    os.remove("tests/screenshot.png")
 
 folder = 'tests/livetest'
 for filename in os.listdir(folder):
@@ -96,6 +94,8 @@ class ChromeSearch(unittest.TestCase):
             EC.element_to_be_clickable((By.ID, "download"))
         )
         print "downloaded"
+
+        time.sleep(2)
 
 
 
