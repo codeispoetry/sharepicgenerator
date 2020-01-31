@@ -49,7 +49,7 @@ $('#iconoverlay form').submit(function () {
 
 function getIcons( q ) {
 
-    let url = "nounproject/load_results.php?q=" + q;
+    let url = "/nounproject/load_results.php?q=" + q;
     $('#iconoverlay .results').html('suche Icons ');
     let loading = window.setInterval(function(){
         $('#iconoverlay .results').append(" . ");
@@ -75,12 +75,12 @@ function getIcons( q ) {
 
                 let nounprojectattribution = $(this).data("attribution");
 
-                $.get( "nounproject/get_icon.php", { icon_url: $(this).data("icon-url") } )
+                $.get( "/nounproject/get_icon.php", { icon_url: $(this).data("icon-url") } )
                     .done(function( data ) {
                         if( data == "error"){
                             console.log("error downloading icon");
                         }else{
-                            $('#iconfile').val('tmp/' + data );
+                            $('#iconfile').val('../tmp/' + data );
                             icon.load( );
                             setCopyright( nounprojectattribution, 'nounproject');
                         }
