@@ -98,7 +98,7 @@ header .container {
             <div class="mt-1 test-access" style="display:none">
                 <form method="post" class="test-access" action="federal/">
                     <div class="mt-2 input-group">
-                        <input type="text" id="test-access-password" class="form-control" name="pass" placeholder="Passwort eingeben">
+                        <input type="password" id="test-access-password" class="form-control" name="pass" placeholder="Passwort eingeben">
                         <div class="input-group-append">
                             <input type="submit" id="test-access-submit" class="btn btn-sm btn-info" value="okay">
                         </div>
@@ -180,7 +180,7 @@ header .container {
     });
 
     $("form.test-access").submit(function(e){
-        $(this).attr("action",$("input[name='test-access-target']:checked").val());
+        $(this).attr("action",$("input[name='test-access-target']:checked").val() + '/');
     })
 
 </script>
