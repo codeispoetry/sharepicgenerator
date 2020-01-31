@@ -56,7 +56,7 @@ function handle_icon_upload(){
 
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
-    $return['iconfile'] = $filename;
+    $return['iconfile'] = '../' . $filename;
     $return['okay'] = true;
 
     echo json_encode($return);
