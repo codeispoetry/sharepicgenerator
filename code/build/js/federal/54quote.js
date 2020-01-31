@@ -39,6 +39,7 @@ const quote = {
  
         let lineBeginsY = [];
         let linesRendered = []; 
+        let color;
 
         lines.forEach(function (value, index, array) {
                 let style = 1;
@@ -50,7 +51,13 @@ const quote = {
                 let t = draw.text(function (add) {
                     for(let i = 0; i<values.length; i++) {
                         style = (style == 0 ) ? 1 : 0;
-                        add.tspan( values[i] ).fill(quote.colors[style]).font(Object.assign( quote.font,{family: fontfamily}));
+
+                        color = quote.colors[style];
+                        if(style == 0 ){
+                            color = textColors[ $('#textColor').val() ];
+                        }
+
+                        add.tspan( values[i] ).fill(color).font(Object.assign( quote.font,{family: fontfamily}));
                         
                         add.attr("xml:space","preserve");
                         add.attr("style","white-space:pre");
@@ -70,7 +77,7 @@ const quote = {
         // add lower line
         let lineWidth = text.svg.width() * 0.5;
         let lineOffset = (text.svg.width() - lineWidth ) / 2 ;  
-        let lineafter = draw.rect( lineWidth, 1).fill('#ffffff').dx( -1 * lineOffset ).dy( text.svg.height() + 4 );
+        let lineafter = draw.rect( lineWidth, 1).fill( color ).dx( -1 * lineOffset ).dy( text.svg.height() + 4 );
         text.svg.add(lineafter);
 
 
@@ -80,7 +87,7 @@ const quote = {
         let textafter = draw.text(function (add) {
             for(let i = 0; i<textafterParts.length; i++) {
                 style = (style == 0 ) ? 1 : 0;
-                add.tspan( textafterParts[i] ).fill(quote.colors[style]).font(quote.fontoutsidelines);
+                add.tspan( textafterParts[i] ).fill( color ).font(quote.fontoutsidelines);
                 add.attr("xml:space","preserve");
                 add.attr("style","white-space:pre");
             }
