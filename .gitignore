@@ -7,7 +7,7 @@ code/dist/assets/css/styles.css*
 code/dist/config.json
 code/dist/api/data.json
 
-code/tests/screenshot.png
+code/tests/screenshot*.png
 code/tests/artifacts/*
 
 node_modules

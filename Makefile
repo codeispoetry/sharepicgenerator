@@ -54,3 +54,6 @@ test-vintage:
 test-bayern:
 	docker-compose exec webserver python tests/test-bayern.py
 
+test-live:
+	docker-compose exec webserver python tests/test-live.py
+
