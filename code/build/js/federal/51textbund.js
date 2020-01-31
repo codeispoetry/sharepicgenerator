@@ -17,6 +17,9 @@ const text = {
     },
 
     draw: function () {
+        if( config.layout !== undefined && config.layout !== "standard"){
+            return; 
+        }
 
         text.svg.remove();
         if( $('#text').val()=="" ) return;
@@ -38,6 +41,7 @@ const text = {
 
         let lineBeginsY = [];
         let linesRendered = []; 
+        let color;
 
         lines.forEach(function (value, index, array) {
                 let style = 1;
@@ -49,13 +53,17 @@ const text = {
                 values = value.split(/\[|\]/);
 
 
-
                 let t = draw.text(function (add) {
                     for(let i = 0; i<values.length; i++) {
                         style = (style == 0 ) ? 1 : 0;
-                        //add.tspan( values[i] ).fill(text.colors[style]).font({...text.font, ...{family: fontfamily}});
-                        // Thanks to Edge, we cannot use lodash-syntax
-                        add.tspan( values[i] ).fill(text.colors[style]).font(Object.assign( text.font,{family: fontfamily}));
+
+                        color = text.colors[style];
+                        if(style == 0 ){
+                            color = textColors[ 0  ];
+                            // always white, and not  $('#textColor').val()
+                        }
+
+                        add.tspan( values[i] ).fill( color ).font(Object.assign( text.font,{family: fontfamily}));
                         
                         add.attr("xml:space","preserve");
                         add.attr("style","white-space:pre");
@@ -94,7 +102,7 @@ const text = {
 
 
         // add upper and lower line
-        let linebefore = draw.rect(text.svg.width(), 2).fill('#ffffff').dy(-4);
+        let linebefore = draw.rect(text.svg.width(), 2).fill( color ).dy(-4);
         let lineafter = linebefore.clone().dy(text.svg.height() + 6);
         text.svg.add(linebefore);
         text.svg.add(lineafter);
@@ -173,6 +181,8 @@ const text = {
         }
     },
 };
+
+
 
 
 $('#text, #textbefore, #textafter, #textsize, #textsamesize, #greenbehindtext').bind('input propertychange', text.draw);
