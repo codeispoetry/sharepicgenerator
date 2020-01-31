@@ -89,9 +89,11 @@
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"></textarea>
                 </div>
-                <div class="">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value=""
-                           class="form-control">
+                <div class="d-flex align-items-lg-center">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control">
+                    <div class="d-none noquote">
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1" data-click="textChangeColor" title="Farbe wechseln"></i>
+                    </div>
                 </div>
                 <small>Text in eckigen Klammern [ ] wird gelb</small>
 
@@ -153,7 +155,6 @@
             <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
                     <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
-
                 </div>
         </div>
 
@@ -228,6 +229,8 @@
             <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
             <input type="hidden" name="textX" id="textX">
             <input type="hidden" name="textY" id="textY">
+            <input type="hidden" name="textColor" id="textColor" value="0">
+
         </div>
 
 
