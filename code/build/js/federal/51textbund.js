@@ -1,5 +1,6 @@
 const text = {
     svg: draw.text(''),
+    grayBackground: draw.circle(0),
     colors: ['#ffffff', '#ffee00'],
     lineheight: 20,
     linemargin: - 4,
@@ -30,6 +31,7 @@ const text = {
             $('#textX').val(Math.round(this.x()));
             $('#textY').val(Math.round(this.y()));
             text.bounce();
+            text.positionGrayBackground();
         });
 
         let y = 0;
@@ -157,9 +159,29 @@ const text = {
             textbackground.back();
         }
 
-        text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+        // gray layer behind text
+        text.grayBackground.remove();
+        if ( $('#graybehindtext').prop("checked") ) {
 
-       // pin.draw();
+            let grayGradient = draw.gradient('radial', function(add) {
+                add.stop({ offset: 0, color: '#000', opacity: 0.9 });
+                add.stop({ offset: 0.9, color: '#000', opacity: 0.0 });
+            });
+            grayGradient.from(0.5, 0.5).to(0.5, 0.5).radius(0.5);
+
+            text.grayBackground = draw.rect(text.svg.width(), text.svg.height())
+                .fill({color:grayGradient, opacity: 0.3})
+                .back();
+        }
+
+        text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+        text.positionGrayBackground();
+    },
+
+    positionGrayBackground: function(){
+        text.grayBackground.x(text.svg.x() ).y(text.svg.y()).size(parseInt($('#textsize').val()));
+        text.grayBackground.transform({scale:2.5});
+        background.svg.back();
     },
 
     bounce: function () {
@@ -185,4 +207,4 @@ const text = {
 
 
 
-$('#text, #textbefore, #textafter, #textsize, #textsamesize, #greenbehindtext').bind('input propertychange', text.draw);
+$('#text, #textbefore, #textafter, #textsize, #textsamesize, #greenbehindtext, #graybehindtext').bind('input propertychange', text.draw);

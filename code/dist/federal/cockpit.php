@@ -105,15 +105,21 @@
                     </div>
                 </div>
                
-                <div class="noquote">
+                <div class="">
                     <div class="d-flex justify-content-between">
+                        <div class="noquote">
+                            <label>
+                                <input type="checkbox" name="textsamesize" id="textsamesize">
+                                Zeilen gleich lang
+                            </label>
+                            <label>
+                                <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
+                                Grün hinter Text
+                            </label>
+                        </div>
                         <label>
-                            <input type="checkbox" name="textsamesize" id="textsamesize">
-                            Zeilen gleich lang
-                        </label>
-                        <label>
-                            <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
-                            Grün hinter Text
+                            <input type="checkbox" name="graybehindtext" id="graybehindtext">
+                            Grau hinter Text
                         </label>
                     </div>
                 </div>    
