@@ -95,11 +95,20 @@ header .container {
             <span class="mt-5 cursor-pointer testaccess" id="test-access-opener">
                 <i class="fas fa-sign-in-alt"></i> Gastzugang
             </span>
-            <div class="mt-1 testaccess" style="display:none">
-                <form method="post" action="bayern/" class="form-inline">
-                    <div class="mt-2">
+            <div class="mt-1 test-access" style="display:none">
+                <form method="post" class="test-access" action="federal/">
+                    <div class="mt-2 input-group">
                         <input type="text" id="test-access-password" class="form-control" name="pass" placeholder="Passwort eingeben">
-                        <input type="submit" id="test-access-submit" class="btn btn-sm btn-info" value="okay">
+                        <div class="input-group-append">
+                            <input type="submit" id="test-access-submit" class="btn btn-sm btn-info" value="okay">
+                        </div>
+                    </div>
+                    <div class="mt-2 form-group form-check-inline">
+                        <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-bayern" value="bayern" checked>
+                        <label class="form-check-label mr-5" for="test-access-target-bayern">Bayern</label>
+
+                        <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-bund" value="federal">
+                        <label class="form-check-label" for="test-access-target-bund">Bund</label>
                     </div>
                 </form>
                 <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="d-none text-white">
@@ -166,13 +175,13 @@ header .container {
 </div>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 <script>
-    $('span.testaccess').click(function(){
-      if( $('div.testaccess').is(':visible') ){
-        $('div.testaccess').slideUp();
-      }else{
-        $('div.testaccess').slideDown();
-      }
+    $("#test-access-opener").click( function(){
+        ($("div.test-access").is(':visible') ) ? $("div.test-access").slideUp() : $("div.test-access").slideDown();
     });
+
+    $("form.test-access").submit(function(e){
+        $(this).attr("action",$("input[name='test-access-target']:checked").val());
+    })
 
 </script>
 
