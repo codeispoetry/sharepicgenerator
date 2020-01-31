@@ -1,7 +1,7 @@
 code/node_modules
 code/.sass-cache
 
-code/dist/assets/js/main.min.js*
+*.min.js*
 code/dist/assets/css/styles.css*
 
 code/dist/config.json
