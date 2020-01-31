@@ -1,7 +1,7 @@
 code/node_modules
 code/.sass-cache
 
-*.min.js*
+**/*.min.js
 code/dist/assets/css/styles.css*
 
 code/dist/config.json
@@ -21,7 +21,6 @@ code/tests/livetest/*.jpg
 code/dist/passwords.php
 
 code/dist/*/main.min.js
-
 
 *.log
 *.dll
