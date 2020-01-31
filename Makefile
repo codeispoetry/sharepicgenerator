@@ -32,10 +32,13 @@ deploy:
 	docker-compose exec webserver bash /root/scripts/deploy.sh
 
 get-config:
-    rsync tom@sharepicgenerator.de:/var/www/html/config.* code/dist/.
+    docker-compose exec webserver rsync rsync tom@sharepicgenerator.de:/var/www/html/ini/* ini/
 
 get-log:
-	rsync tom@sharepicgenerator.de:/var/www/html/log/log.log code/dist/log.log
+	docker-compose exec webserver rsync tom@sharepicgenerator.de:/var/www/html/log/log.log dist/log.log
+
+get-passwords:
+	docker-compose exec webserver rsync tom@sharepicgenerator.de:/var/www/html/passwords.php dist/passwords.php
 
 tests:
 	docker-compose exec webserver python tests/test-federal.py
