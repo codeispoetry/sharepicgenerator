@@ -18,10 +18,20 @@ const background = {
                 $('#backgroundY').val(Math.round(this.y()));
                 background.uncoveredAreaWarning();
             });
+        });
 
-        })
+
     },
 
+    blackwhite: function(){
+        if ( $('#graybackground').prop("checked") ) {
+            this.svg.filterWith(function (add) {
+                add.colorMatrix('saturate', 0)
+            });
+        }else{
+            this.svg.unfilter()
+        }
+    },
 
     reset: function () {
         $('#backgroundX').val(0);
@@ -82,3 +92,7 @@ $('#backgroundreset').click(function () {
 $('#backgroundsize').bind('input propertychange', function () {
     background.resize();
 });
+
+function blackwhite(){
+    background.blackwhite();
+}
