@@ -29,8 +29,16 @@
                 </div>
             </div>
 
-
+        <div class="">
+            <div class="d-flex justify-content-between">
+                <label>
+                    <input type="checkbox" name="graybackground" id="graybackground" data-click="blackwhite">
+                    Schwarzweißer Hintergrund
+                </label>
+            </div>
         </div>
+
+    </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
