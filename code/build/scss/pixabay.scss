@@ -1,11 +1,5 @@
 .results {
-  height: 50%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  position: absolute;
-  width: 90%;
-  left: 5%;
-  margin-top: 20px;
+ 
 
   img {
     height: 80px;
@@ -13,3 +7,12 @@
     cursor: pointer;
   }
 }
+
+
+.results{
+    video{
+      width: 100%;
+      height: auto;
+  }
+}
+

@@ -221,8 +221,6 @@
                 <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load">öffnen</button>
                 <button type="button" class="btn btn-info btn-sm d-none" id="delete" data-click="unlink">löschen</button>
             </div>
-            <div class="small">Experimentell - nicht darauf verlassen.
-                <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a>.</div>
             <div class="saving-response text-secondary"></div>
         </div>
 
