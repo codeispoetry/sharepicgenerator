@@ -147,7 +147,7 @@ header .container {
           <li>voll mandantenfähig</li>
           <li>Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a></li>
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
-          <li>eigenes Logo wird dauerhaft gespeichert</li>
+          <li>eigenes Logo wird dauerhaft gespeichert</li><li>Schwarz-weiß-Filter für Hintergrundbild</li>
           <li>Bedienbar über einen Telegram-Bot</li>
           <li>Dark Mode für Wirkung auf dunklen Untergründen</li>
           <li>mit API, z.B. für Massenabfertigung</li>
