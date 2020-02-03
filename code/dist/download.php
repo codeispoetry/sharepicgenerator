@@ -42,7 +42,11 @@ readfile('tmp/' . $filename . '.' . $format);
 tidyup();
 
 function tidyup(){
-    global $filename,$format;
+    global $filename, $format;
+
+    if($format == 'mp4'){
+        return;
+    }
 
     $command = sprintf("convert -resize 500x500 -background white -flatten -quality 60  %s %s 2>tmp/log.txt",
         'tmp/' . $filename . '.png',

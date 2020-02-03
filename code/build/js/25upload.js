@@ -76,7 +76,7 @@ $('.upload-file').change(function (event) {
 });
 
 
-function uploadImageByUrl(url, callback = function () {}) {
+function uploadFileByUrl(url, callback = function () {}) {
 
     $('#waiting').addClass('active');
     let id = 'uploadbyurl';
@@ -101,14 +101,21 @@ function uploadImageByUrl(url, callback = function () {}) {
 
     client.onload = function(e) {
         let obj = JSON.parse(e.target.response);
+
         closeOverlay();
-        
 
         if(obj.error){
             console.log(obj);
         }
 
         config.filename = obj.filename;
+
+        if( obj.video == 1 ){
+            config.video = (obj.video == 1);
+            config.videofile = obj.videofile;
+            config.filename = obj.filename;
+            config.videoduration = obj.videoduration;
+        }
 
         afterUpload(obj);
         callback();

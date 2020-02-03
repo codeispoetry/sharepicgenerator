@@ -98,13 +98,17 @@ function handle_video_upload(){
     $videofile = $basename . '.' . $extension;
     $thumbnail =  $basename . '.jpg';
 
-
     move_uploaded_file($_FILES['file']['tmp_name'], $videofile );
+    edit_video_and_send_info( $videofile, $thumbnail);
+}
+
+
+function edit_video_and_send_info( $videofile, $thumbnail){
 
     $command =sprintf('ffmpeg -ss 00:00:05 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
-    exec($command);
+    exec($command, $output);
 
-    $return['filename'] = $thumbnail;
+    $return['filename'] = '../' . $thumbnail;
     $return['videofile'] = $videofile;
     list($width, $height, $type, $attr) = getimagesize($thumbnail);
 
@@ -126,9 +130,26 @@ function handle_uploadbyurl(){
     $url = $_POST['url2copy'];
     $extension = pathinfo($url,PATHINFO_EXTENSION);
 
+    // handle video upload
+    if(substr($extension,0,3) == 'mp4'){
+        $basename = 'tmp/' . uniqid('video');
+        $videofile = $basename . '.mp4';
+        $thumbnail =  $basename . '.jpg';
+    
+        if( !copy($url, $videofile ) ){
+            echo json_encode(array("error"=>"could not copy video file"));
+            die();
+        }
+        edit_video_and_send_info( $videofile, $thumbnail);
+
+        return;
+    }
+
+
     $filebasename = 'tmp/' . uniqid('upload');
     $filename = $filebasename . '.' . $extension;
     $filename_small = $filebasename . '_small.' . $extension;
+
 
     if( !copy($url, $filename ) ){
         echo json_encode(array("error"=>"could not copy file"));
