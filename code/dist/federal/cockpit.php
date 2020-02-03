@@ -10,15 +10,6 @@
                 <span class="text-primary cursor-pointer" id="pixabayopener">
                     <i class="fas fa-search"></i> suchen
                 </span>
-                
-                <a href="#" class="text-primary cursor-pointer" id="templateopener">
-                    <i class="fa fa-thumbs-up"></i> Vorlagen
-                </a>
-            </div>
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1"></h6>
-                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
-                    zentrieren</small>
             </div>
             <div class="mb-1 list-group-item-content">
                 <div class="slider">
@@ -33,8 +24,10 @@
             <div class="d-flex justify-content-between">
                 <label>
                     <input type="checkbox" name="graybackground" id="graybackground" data-click="blackwhite">
-                    Schwarzweißer Hintergrund
+                    Schwarz-weißer Hintergrund
                 </label>
+                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
+                    zentrieren</small>
             </div>
         </div>
 
