@@ -84,7 +84,7 @@
 				</dd>
 			</dl>
 		</div>
-		<div class="col-6 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3 d-none">
 			<dl>
 				<dt><i class="fas fa-sitemap"></i>> Bundesländer</dt>
 				<dd><?php echo showProvinces(); ?></dd>
@@ -92,17 +92,17 @@
 		</div>
 		<div class="col-6 col-md-6 col-lg-3">
 			<dl>
-				<dt><i class="fas fa-sitemap"></i>> Mandanten</dt>
+				<dt><i class="fas fa-sitemap"></i> Mandanten</dt>
 				<dd><?php echo showTenants(); ?></dd>
 			</dl>
 		</div>
-		<div class="col-6 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3 d-none">
 			<dl>
 				<dt><i class="fas fa-clock"></i> Uhrzeiten</dt>
 				<dd><?php echo showHours(); ?></dd>
 			</dl>
 		</div>
-		<div class="col-6 col-md-6 col-lg-3">
+		<div class="col-6 col-md-6 col-lg-3 d-none">
 			<dl>
 				<dt><i class="fas fa-church"></i> Wochentage</dt>
 				<dd><?php echo showWeekdays(); ?></dd>
@@ -247,13 +247,12 @@ function showHours(){
 
 function showWeekdays(){
 	global $info;
-	$totalUsers = getUsers();
 
 	ksort($info['weekdays']);
 	$days = array('Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag');
 
 	foreach( $info['weekdays'] AS $weekday => $users){
-		printf('<li>%s: %.1f%%</li>', $days[$weekday], 100*count(array_unique($users))/$totalUsers);
+		printf('<li>%s: %d</li>', $days[$weekday], count(array_unique($users)));
 
 	}
 }
