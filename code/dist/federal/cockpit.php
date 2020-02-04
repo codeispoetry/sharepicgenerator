@@ -55,8 +55,8 @@
                         <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
                         <span class="m-1 mr-2">Pixel</span>
 
-                        <select class="form-control fas" id="sizepresets">
-                            <option class="fas">&#xf5cb;</option>
+                        <select class="form-control" id="sizepresets">
+                            <option class="">wählen</option>
                             <?php
                             $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
                             foreach ($sizes AS $name => $group) {
