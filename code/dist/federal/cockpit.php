@@ -33,7 +33,7 @@
 
     </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="list-group-item list-group-item-action flex-column align-items-start novideo">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Ausgabegröße</h6>
                 <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>
