@@ -42,6 +42,8 @@ $('.upload-file').change(function (event) {
         config.filename = obj.filename;
         config.videoduration = obj.videoduration;
 
+        redrawCockpit();
+
         switch ( id ){
             case "uploadfile":
                 afterUpload(obj);
@@ -109,13 +111,15 @@ function uploadFileByUrl(url, callback = function () {}) {
         }
 
         config.filename = obj.filename;
-
+        config.video = (obj.video == 1);
         if( obj.video == 1 ){
-            config.video = (obj.video == 1);
+            
             config.videofile = obj.videofile;
             config.filename = obj.filename;
             config.videoduration = obj.videoduration;
         }
+
+        redrawCockpit();
 
         afterUpload(obj);
         callback();

@@ -33,3 +33,12 @@ function message( text = false ){
     }
     $('#message').show().html( text );
 }
+
+
+function redrawCockpit(){
+   if(config.video){
+        $('.novideo').addClass("d-none");
+   }else{
+        $('.novideo').removeClass("d-none");
+   }
+}
