@@ -68,7 +68,7 @@ function show_videos($dir)
 
     echo '<ol>';
     foreach ($files AS $file) {
-        printf('<li><a href="%s"/>%s</li>', $file, date("d. F Y, H:i", filemtime($file)));
+        printf('<li><a href="%s"/>%s</a></li>', $file, date("d. F Y, H:i", filemtime($file)));
     }
     echo '</ol>';
 }
