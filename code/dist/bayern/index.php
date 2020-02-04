@@ -149,8 +149,6 @@ function createAccessToken( $user ){
         require_once('../inc/overlays/pixabay.php');
         require_once('../inc/overlays/icons.php');
         require_once('../inc/overlays/waiting.php');
-        require_once('../inc/overlays/templates.php');
-
     ?>
 </div>
 
@@ -163,6 +161,7 @@ function createAccessToken( $user ){
    
 </script>
 <script src="../vendor/jquery-3.4.1.min.js"></script>
+<script src="../vendor/bootstrap.min.js"></script>
 <script src="../vendor/bootstrap4-toggle.min.js"></script>
 
 <script src="../vendor/svg.min.js"></script>

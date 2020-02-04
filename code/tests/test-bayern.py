@@ -51,7 +51,7 @@ class ChromeSearch(unittest.TestCase):
         self.assertIn("Sharepicgenerator", driver.title)
 
         # select template
-        driver.find_element_by_id('templateopener').click()
+        driver.find_element_by_id('pixabayopener').click()
         driver.find_element_by_css_selector("img[src='templates/katharina.jpg']").click()
         time.sleep(1)
 
