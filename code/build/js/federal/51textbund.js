@@ -35,7 +35,18 @@ const text = {
         });
 
         let y = 0;
-        let lines = $('#text').val().replace(/\n$/,'').split(/\n/);
+
+        let lines = $('#text').val();
+        
+        let quotationMarks = ['„','“' ];
+        let qmI = 0;
+        while( (lines.match(/\"/g) || []).length ){
+            lines = lines.replace(/\"/, quotationMarks[ qmI ]);
+            qmI = (qmI + 1 ) % 2;
+        }
+       
+        lines = lines.replace(/\n$/,'').split(/\n/);
+
         let fontfamily = (lines.length <= 3) ? 'ArvoGruen' : 'Arvo';
         let longestLine = lines.reduce(function (a, b) { return a.length > b.length ? a : b; });
 
