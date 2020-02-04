@@ -115,6 +115,7 @@ const text = {
 
 
         // add upper and lower line
+        color = "white";
         let linebefore = draw.rect(text.svg.width(), 2).fill( color ).dy(-4);
         let lineafter = linebefore.clone().dy(text.svg.height() + 6);
         text.svg.add(linebefore);
