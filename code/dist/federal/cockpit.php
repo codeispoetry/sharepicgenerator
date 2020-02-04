@@ -204,8 +204,11 @@
                     <option value="void">kein Logo</option>
                 </select>
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
+                
             </div>
-
+            <div class="">
+                Erstelle Dein OV-Logo mit dem <a href="/logo" target="_blank">Logogenerator</a>.
+            </div>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
