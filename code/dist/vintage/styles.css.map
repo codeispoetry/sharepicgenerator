@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,UAIC;EAHC,WAAW,EAAE,eAAe;EAC5B,WAAW,EAAE,QAAQ;EACrB,GAAG,EAAE,wCAAwC;AAG/C,UAGC;EAFC,WAAW,EAAE,mBAAmB;EAChC,GAAG,EAAE,4CAA4C",
-"sources": ["../../build/scss/vintage/main.scss"],
-"names": [],
-"file": "styles.css"
-}
