@@ -51,3 +51,40 @@ function logthis(){
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant );
     file_put_contents('../log/log.log', $line, FILE_APPEND);
 }
+
+
+function isLocal(){
+    $GLOBALS['user'] = "localaccessed";
+    return ($_SERVER['REMOTE_ADDR'] == '127.0.0.1');
+}
+
+
+function createAccessToken( $user ){
+    $userDir = '../persistent/user/' . $user;
+    if( !file_exists($userDir)){
+        return '0';
+    }
+
+    $accessToken = uniqid();
+    file_put_contents( sprintf('%s/accesstoken.php',$userDir), $accessToken);
+    return $accessToken;
+}
+
+function isLocalUser(){
+    $GLOBALS['user'] = "localuser";
+    if( !isset($_POST['pass'])){
+        return false;
+    }
+
+    if( !file_exists('../passwords.php')){
+        return false;
+    }
+
+    require_once('../passwords.php');
+    if( in_array($_POST['pass'], $passwords)){
+        return true;
+    }
+
+    die("Passwort falsch");
+    return false;
+}
