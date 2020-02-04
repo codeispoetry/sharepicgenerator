@@ -4,7 +4,7 @@ code/.sass-cache
 code/dist/assets/css/styles.css*
 code/dist/assets/js/main.min.js
 
-code/dist/*/*.css
+code/dist/bayern/styles.css
 code/dist/*/*.css.map
 
 
