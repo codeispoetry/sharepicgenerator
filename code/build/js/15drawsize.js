@@ -6,7 +6,11 @@ $('#sizepresets').on('change', function () {
 
     config.socialmediaplatform =  $("#sizepresets option:selected").data('socialmediaplatform');
 
-   // $(this).val($("#sizepresets option:first").val());
+});
+
+$('.size').bind('input propertychange', function(){
+    // unselect presets, if user changes sizes manually
+    $('#sizepresets').val($("#sizepresets option:first").val());
 });
 
 function setDrawsize() {
