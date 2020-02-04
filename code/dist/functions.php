@@ -80,11 +80,51 @@ function isLocalUser(){
         return false;
     }
 
+
+    if( !loginAttemptsLeft() ){
+        die("Bitte warten. Zu viele Fehlversuche");
+    }
+
     require_once('../passwords.php');
     if( in_array($_POST['pass'], $passwords)){
         return true;
     }
 
+    increaseLoginAttempts();
+
     die("Passwort falsch");
+    return false;
+}
+
+function increaseLoginAttempts(){
+    $file = '../loginattempts.txt';
+    if( file_exists( $file ) ){
+        $attempts = file_get_contents( $file );
+        $attempts++;
+    }else{
+        $attempts = 1;
+    }
+
+    file_put_contents( $file, $attempts );
+}
+
+function loginAttemptsLeft(){
+    $file = '../loginattempts.txt';
+
+    if( !file_exists( $file ) ){
+        return true;
+    }
+
+    if( time() - filemtime( $file ) > 5 * 60 ){
+        unlink( $file );
+        return true;
+    }
+
+    $attempts = file_get_contents( $file );
+
+    if( $attempts < 5 ){
+        return true;
+    }
+   
     return false;
 }

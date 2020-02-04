@@ -11,6 +11,8 @@ code/dist/**/*.css.map
 code/dist/config.json
 code/dist/api/data.json
 
+code/dist/loginattempts.txt
+
 code/tests/screenshot*.png
 code/tests/artifacts/*
 
