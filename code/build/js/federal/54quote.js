@@ -35,8 +35,17 @@ const quote = {
         });
 
         let y = 0;
-        let textVal = '„' + $('#text').val() + '“'; 
-        let lines = textVal.replace(/\n$/,'').split(/\n/);
+       
+        let lines = '„' + $('#text').val() + '“';
+        
+        let quotationMarks = ['„','“' ];
+        let qmI = 0;
+        while( (lines.match(/\"/g) || []).length ){
+            lines = lines.replace(/\"/, quotationMarks[ qmI ]);
+            qmI = (qmI + 1 ) % 2;
+        }
+
+        lines = lines.replace(/\n$/,'').split(/\n/);
         let fontfamily = 'Arvo';
  
         let lineBeginsY = [];
