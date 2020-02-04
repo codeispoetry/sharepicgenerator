@@ -11,6 +11,9 @@ const background = {
             this.back().draggable();
             background.isLoaded = true;
             background.resize();
+            background.blackwhite();
+            background.blur();
+
             background.svg.move(parseInt($('#backgroundX').val()), parseInt($('#backgroundY').val()));
 
             this.on('dragend.namespace', function (event) {
@@ -24,13 +27,15 @@ const background = {
     },
 
     blackwhite: function(){
-        if ( $('#graybackground').prop("checked") ) {
-            this.svg.filterWith(function (add) {
-                add.colorMatrix('saturate', 0)
-            });
-        }else{
-            this.svg.unfilter()
-        }
+        this.svg.filterWith(function (add) {
+            add.colorMatrix('saturate', $('#graybackground').val() );
+        });
+    },
+
+    blur: function(){
+        this.svg.filterWith(function (add) {
+            add.gaussianBlur( $('#blurbackground').val() );
+        });
     },
 
     reset: function () {
@@ -93,6 +98,11 @@ $('#backgroundsize').bind('input propertychange', function () {
     background.resize();
 });
 
-function blackwhite(){
+
+$('#graybackground').bind('input propertychange', function () {
     background.blackwhite();
-}
+});
+
+$('#blurbackground').bind('input propertychange', function () {
+    background.blur();
+});
