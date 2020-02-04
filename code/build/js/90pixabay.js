@@ -25,7 +25,7 @@ function getPixabayVideos( q ){
         success: function (data, textStatus, jqXHR) {
             $('#pixabay-videos .results').html('');
             data.hits.forEach(function (video) {
-                $('#pixabay-videos .results').append('<div class="col-3 video pb-4"><video controls><source src="' + video.videos.tiny.url + '" type="video/mp4"></video><button class="btn btn-outline-primary btn-sm" data-url="' + video.videos.small.url + '" data-user="' + video.user + '">verwenden</button></div>');
+                $('#pixabay-videos .results').append('<div class="col-12 col-md-3 video pb-4"><video controls><source src="' + video.videos.tiny.url + '" type="video/mp4"></video><button class="btn btn-outline-primary btn-sm" data-url="' + video.videos.small.url + '" data-user="' + video.user + '">verwenden</button></div>');
             });
 
             $('#pixabay-videos .results button').click( function(){
