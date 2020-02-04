@@ -84,6 +84,23 @@
                     und sind zwingend notwendig. Deshalb dürfen sie gesetzt werden.
                     Wenn Du den Browser schließt, werden sie wieder gelöscht. 
                 </p>
+
+                <h5 class="mt-3">Drittanbieter</h5>
+                <p>
+                    Wenn Du Bilder, Videos oder Icons über den Sharepicgenerator suchst, 
+                    werden diese von einem fremden Server geladen. Im Ergebnis ist das so,
+                    als würdest Du direkt auf deren Seiten surfen. Dadurch werden Deine
+                    Surfdaten an diese Server übermittelt.
+                    <br>
+                    Bilder und Videos stammen von Pixabay, hier findest Du die 
+                    <a href="https://pixabay.com/de/service/privacy/" target="_blank">Datenschutzerklärung von Pixabay</a>.
+                    <br> 
+                    Icons stammen von TheNounProject, hier findest Du die 
+                    <a href="https://thenounproject.com/legal/#!privacy-policy" target="_blank">Datenschutzerklärung von TheNounProject</a>.
+                </p>
+
+
+                
             </div>
       </div>
     </div>

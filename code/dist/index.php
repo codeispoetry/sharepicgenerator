@@ -163,7 +163,7 @@ header .container {
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
     <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> 
-    | <a href="imprint.php">Impressum</a>
+    | <a href="/imprint.php">Impressum</a>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
