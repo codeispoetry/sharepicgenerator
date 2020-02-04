@@ -52,7 +52,7 @@ class ChromeSearch(unittest.TestCase):
 
 
         # select template
-        driver.find_element_by_id('templateopener').click()
+        driver.find_element_by_id('pixabayopener').click()
         driver.find_element_by_css_selector("img[src='templates/annalena.jpg']").click()
         time.sleep(2)
 
