@@ -11,8 +11,7 @@ const background = {
             this.back().draggable();
             background.isLoaded = true;
             background.resize();
-            background.blackwhite();
-            background.blur();
+            background.addFilter();
 
             background.svg.move(parseInt($('#backgroundX').val()), parseInt($('#backgroundY').val()));
 
@@ -26,17 +25,13 @@ const background = {
 
     },
 
-    blackwhite: function(){
+    addFilter: function(){
         this.svg.filterWith(function (add) {
-            add.colorMatrix('saturate', $('#graybackground').val() );
+            add.colorMatrix('saturate', $('#graybackground').val() )
+                .gaussianBlur( $('#blurbackground').val() );
         });
     },
 
-    blur: function(){
-        this.svg.filterWith(function (add) {
-            add.gaussianBlur( $('#blurbackground').val() );
-        });
-    },
 
     reset: function () {
         $('#backgroundX').val(0);
@@ -99,10 +94,6 @@ $('#backgroundsize').bind('input propertychange', function () {
 });
 
 
-$('#graybackground').bind('input propertychange', function () {
-    background.blackwhite();
-});
-
-$('#blurbackground').bind('input propertychange', function () {
-    background.blur();
+$('#graybackground, #blurbackground').bind('input propertychange', function () {
+    background.addFilter();
 });
