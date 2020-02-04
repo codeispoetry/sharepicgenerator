@@ -10,16 +10,15 @@
 .sizecontainer {
   input {
     width: 5em !important;
+    padding: 2px;
+    text-align: center;
   }
 
 
   select {
-    width: 4em !important;
+    width: 10em !important;
   }
 
-  option:not(.fas) {
-    font-family: $font-family-base;
-  }
 }
 
 .h-0 {
