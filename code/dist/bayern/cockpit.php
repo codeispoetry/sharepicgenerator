@@ -43,19 +43,12 @@
                 </a>
                 
                 <a href="#" class="text-primary cursor-pointer" id="pixabayopener">
-                    <i class="fa fa-images"></i> suchen
+                    <i class="fa fa-search"></i> suchen
                 </a>
                 
-                <a href="#" class="text-primary cursor-pointer" id="templateopener">
-                    <i class="fa fa-thumbs-up"></i> Vorlagen
-                </a>
             </div>
             
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1"></h6>
-                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
-                    zentrieren</small>
-            </div>
+  
             <div class="mb-1 list-group-item-content">
                 <div class="slider">
                     <small>klein</small>
@@ -63,6 +56,11 @@
                            max="1500" value="1200">
                     <small>groß</small>
                 </div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1"></h6>
+                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
+                    zentrieren</small>
             </div>
         </div>
 
