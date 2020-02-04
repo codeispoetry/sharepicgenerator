@@ -6,7 +6,7 @@ $('#sizepresets').on('change', function () {
 
     config.socialmediaplatform =  $("#sizepresets option:selected").data('socialmediaplatform');
 
-    $(this).val($("#sizepresets option:first").val());
+   // $(this).val($("#sizepresets option:first").val());
 });
 
 function setDrawsize() {

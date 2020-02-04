@@ -12,24 +12,31 @@
                 </span>
             </div>
             <div class="mb-1 list-group-item-content">
-                <div class="slider">
+                <div class="slider novideo">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
                            max="1500" value="1200">
                     <small>groß</small>
                 </div>
-            </div>
 
-        <div class="">
-            <div class="d-flex justify-content-between">
-                <label>
-                    <input type="checkbox" name="graybackground" id="graybackground" data-click="blackwhite">
-                    Schwarz-weißer Hintergrund
-                </label>
-                <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
+                <div class="slider novideo">
+                    <small>schwarzweiß</small>
+                    <input type="range" class="custom-range" name="graybackground" id="graybackground" min="0"
+                        max="1" value="1" step="0.05">
+                    <small>farbig</small>
+                </div>
+
+                <div class="slider novideo">
+                    <small>scharf</small>
+                    <input type="range" class="custom-range" name="blurbackground" id="blurbackground" min="0"
+                        max="10" value="0" step="0.5">
+                    <small>unscharf</small>
+                </div>
+
+                <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
                     zentrieren</small>
             </div>
-        </div>
+      
 
     </div>
 
@@ -46,7 +53,7 @@
                         <input type="number" class="form-control size" name="width" id="width" step="10">
                         <span class="m-1">x</span>
                         <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
-                        <span class="m-1 mr-3">Pixel</span>
+                        <span class="m-1 mr-2">Pixel</span>
 
                         <select class="form-control fas" id="sizepresets">
                             <option class="fas">&#xf5cb;</option>
