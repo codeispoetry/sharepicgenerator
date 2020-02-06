@@ -24,7 +24,8 @@
 
         <div class="col-12 text-center">
             <?php
-                deleteFilesInPathOlderThanDays(1, '../tmp/*');
+                $hours = (isset($_GET['deleteall'])) ? 1 : 24;
+                deleteFilesInPathOlderThanHours($hours, '../tmp/*');
             ?>
         </div>
 
@@ -83,14 +84,14 @@ function show_images($dir)
 }
 
 
-function deleteFilesInPathOlderThanDays($days, $path)
+function deleteFilesInPathOlderThanHours($hours, $path)
 {
     $files = glob($path);
     $now = time();
     $counter = 0;
 
     foreach ($files AS $file) {
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * 24 * $days) {
+        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * $hours) {
             $counter++;
             unlink($file);
         }
