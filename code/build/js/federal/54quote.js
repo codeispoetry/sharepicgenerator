@@ -36,8 +36,9 @@ const quote = {
 
         let y = 0;
        
-        let lines = '„' + $('#text').val() + '“';
+        //let lines = '„' + $('#text').val() + '“';
         
+        let lines = $('#text').val();
         let quotationMarks = ['„','“' ];
         let qmI = 0;
         while( (lines.match(/\"/g) || []).length ){
