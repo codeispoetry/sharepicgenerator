@@ -17,8 +17,9 @@
 <div class="container-fluid">
     <div class="row mt-3">
 		<div class="col-12 text-center">
-            <a href="#logos" class="btn btn-info btn-lg">zu Logos</a>
-			<a href="index.php" class="btn btn-primary btn-lg ml-2">Zeige Statistik</a>
+            <a href="#logos" class="btn btn-info btn-md">zu Logos</a>
+            <a href="?deleteall=true" class="btn btn-danger btn-md ml-2">alle löschen</a>
+			<a href="index.php" class="btn btn-primary btn-md ml-2">Zeige Statistik</a>
 		</div>
 
 
