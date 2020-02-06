@@ -56,7 +56,24 @@
                            max="1500" value="1200">
                     <small>groß</small>
                 </div>
+
+                <div class="slider novideo">
+                    <small>schwarzweiß</small>
+                    <input type="range" class="custom-range" name="graybackground" id="graybackground" min="0"
+                        max="1" value="1" step="0.05">
+                    <small>farbig</small>
+                </div>
+
+                <div class="slider novideo">
+                    <small>scharf</small>
+                    <input type="range" class="custom-range" name="blurbackground" id="blurbackground" min="0"
+                        max="10" value="0" step="0.5">
+                    <small>unscharf</small>
+                </div>
+
             </div>
+
+
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1"></h6>
                 <small class="text-primary cursor-pointer" id="backgroundreset"><i class="fas fa-align-center"></i>
