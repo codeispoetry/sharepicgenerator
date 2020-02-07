@@ -20,6 +20,17 @@ const background = {
                 $('#backgroundY').val(Math.round(this.y()));
                 background.uncoveredAreaWarning();
             });
+
+            // no dragging when nothing to drag
+            this.draggable().on('beforedrag', (e) => {
+               if( background.svg.width() ==  draw.width() 
+                    &&  background.svg.x() == 0 
+                    && background.svg.height() ==  draw.height() 
+                    && background.svg.y() == 0 
+               ){
+                    e.preventDefault();
+               }
+              })
         });
 
 
