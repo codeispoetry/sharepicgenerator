@@ -11,7 +11,7 @@
                     <i class="fas fa-search"></i> suchen
                 </span>
             </div>
-            <small class="cursor-pointer" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
+            <small class="cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Erweiterte Einstellungen
             </small>
             <div class="mb-1 list-group-item-content collapse preferences-pic">
@@ -117,7 +117,10 @@
                     </div>
                 </div>
                
-                <div class="">
+                <small class="text-primary cursor-pointer preferences-text-btn" data-toggle="collapse" data-target=".preferences-text" aria-expanded="false" aria-controls="collapsePreferecesPic">
+                    Weitere Einstellungen
+                </small>
+                <div class="collapse preferences-text">
                     <div class="d-flex justify-content-between">
                         <div class="noquote">
                             <label>
@@ -136,7 +139,7 @@
                     </div>
                 </div>    
             </div>
-            <div class="noquote">
+            <div class="noquote collapse preferences-text">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
@@ -157,7 +160,7 @@
             </div>    
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="list-group-item list-group-item-action flex-column align-items-start collapse preferences-text">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
                     <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
