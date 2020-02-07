@@ -139,15 +139,15 @@ function afterUpload(data) {
     $('#backgroundURL').val(data.filename);
 
 
-    $('#width').val( data.originalWidth );
-    $('#height').val( data.originalHeight );
+    //$('#width').val( data.originalWidth );
+    //$('#height').val( data.originalHeight );
 
     $('#fullBackgroundName').val( data.fullBackgroundName );
     setDrawsize();
 
     background.draw();
-    pin.draw();
-    window.setTimeout(text.draw, 10);
+    //pin.draw();
+    //window.setTimeout(text.draw, 10);
 }
 
 

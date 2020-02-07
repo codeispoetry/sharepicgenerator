@@ -45,6 +45,8 @@ function setDrawsize() {
 function resetDrawsize() {
     $('#width').val(info.originalWidth);
     $('#height').val(info.originalHeight);
+    // unselect presets, if user changes sizes manually
+    $('#sizepresets').val($("#sizepresets option:first").val());
     setDrawsize();
 }
 
