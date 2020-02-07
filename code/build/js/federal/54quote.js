@@ -129,24 +129,6 @@ const quote = {
         text.positionGrayBackground();
     },
 
-    bounce: function () {
-        if (this.svg.x() < 15) {
-            $('#textX').val(15);
-            this.draw();
-        }
-        if (this.svg.x() > draw.width() - this.svg.width() - 15) {
-            $('#textX').val(draw.width() - this.svg.width() - 15);
-            this.draw();
-        }
-        if (this.svg.y() < 30) {
-            $('#textY').val(30);
-            this.draw();
-        }
-        if (this.svg.y() > draw.height() - this.svg.height() - 30) {
-            $('#textY').val(draw.height() - this.svg.height() - 30);
-            this.draw();
-        }
-    },
 };
 
 
