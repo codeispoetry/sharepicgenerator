@@ -11,7 +11,10 @@
                     <i class="fas fa-search"></i> suchen
                 </span>
             </div>
-            <div class="mb-1 list-group-item-content">
+            <small class="cursor-pointer" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
+               Erweiterte Einstellungen
+            </small>
+            <div class="mb-1 list-group-item-content collapse preferences-pic">
                 <div class="slider novideo">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
@@ -34,7 +37,8 @@
                 </div>
 
                 <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
-                    zentrieren</small>
+                    zentrieren
+                </small>
             </div>
       
 
@@ -51,12 +55,12 @@
                 <div class="form-inline">
                     <div class="form-row sizecontainer">
                         <input type="number" class="form-control size" name="width" id="width" step="10">
-                        <span class="m-1">x</span>
-                        <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
-                        <span class="m-1 mr-2">Pixel</span>
+                        <span class="mt-2 small">x</span>
+                        <input type="number" class="form-control size" name="height" id="height" step="10">
+                        <span class="mt-2 mr-2 small">Px</span>
 
                         <select class="form-control" id="sizepresets">
-                            <option class="">wählen</option>
+                            <option class="">Social Media</option>
                             <?php
                             $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
                             foreach ($sizes AS $name => $group) {
