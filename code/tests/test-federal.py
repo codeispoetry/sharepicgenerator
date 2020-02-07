@@ -40,7 +40,7 @@ class ChromeSearch(unittest.TestCase):
         options.add_experimental_option("prefs",prefs)
 
         self.driver = webdriver.Chrome('/var/www/html/dist/api/chromedriver', chrome_options=options)
-        self.driver.set_window_size(1400,800)
+        self.driver.set_window_size(1400,1200)
 
         print "Test Federal"
 
@@ -55,6 +55,12 @@ class ChromeSearch(unittest.TestCase):
         driver.find_element_by_id('pixabayopener').click()
         driver.find_element_by_css_selector("img[src='templates/annalena.jpg']").click()
         time.sleep(2)
+
+        driver.find_element_by_css_selector('.preferences-pic-btn').click()
+        driver.find_element_by_css_selector('.preferences-text-btn').click()
+
+        time.sleep(1)
+        driver.save_screenshot("tests/screenshot0.png")
 
         select = Select(driver.find_element_by_id('sizepresets'))
         select.select_by_visible_text('Sharepic')
