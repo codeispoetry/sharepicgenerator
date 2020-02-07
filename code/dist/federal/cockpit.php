@@ -12,7 +12,7 @@
                 </span>
             </div>
             <small class="cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
-               Erweiterte Einstellungen
+               Erweiterte Einstellungen <i class="fa fa-caret-down"></i>
             </small>
             <div class="mb-1 list-group-item-content collapse preferences-pic">
                 <div class="slider novideo">
@@ -82,12 +82,16 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex">
-                <button type="button" class="btn btn-info btn-sm mr-2" data-click="showLayout" data-layout="standard">
-                    <i class="fab fa-servicestack"></i> Standardlayout
+                <button type="button" class="btn btn-info btn-sm mr-2"  data-layout="standard">
+                    <i class="fab fa-servicestack"></i> Standard
                 </button>
                 
-                <button type="button" class="btn btn-outline-info btn-sm" data-click="showLayout" data-layout="quote">
-                    <i class="fas fa-quote-right"></i> Zitatlayout
+                <button type="button" class="btn btn-outline-info btn-sm mr-2 "  data-layout="quote">
+                    <i class="fas fa-quote-right"></i> Zitat
+                </button>
+
+                <button type="button" class="btn btn-outline-info btn-sm d-none" data-layout="inverted">
+                    <i class="far fa-dot-circle"></i> Invertiert
                 </button>
             </div>
         </div>
@@ -118,7 +122,7 @@
                 </div>
                
                 <small class="text-primary cursor-pointer preferences-text-btn" data-toggle="collapse" data-target=".preferences-text" aria-expanded="false" aria-controls="collapsePreferecesPic">
-                    Weitere Einstellungen
+                    Weitere Einstellungen <i class="fa fa-caret-down"></i>
                 </small>
                 <div class="collapse preferences-text">
                     <div class="d-flex justify-content-between">
