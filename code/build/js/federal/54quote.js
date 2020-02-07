@@ -87,11 +87,12 @@ const quote = {
         );
 
         // add lower line
-        let lineWidth = text.svg.width() * 0.5;
-        let lineOffset = (text.svg.width() - lineWidth ) / 2 ;  
-        let lineafter = draw.rect( lineWidth, 1).fill( color ).dx( -1 * lineOffset ).dy( text.svg.height() + 4 );
-        text.svg.add(lineafter);
-
+        if( $('#textafter').val().length > 0 ){
+            let lineWidth = text.svg.width() * 0.5;
+            let lineOffset = (text.svg.width() - lineWidth ) / 2 ;  
+            let lineafter = draw.rect( lineWidth, 1).fill( color ).dx( -1 * lineOffset ).dy( text.svg.height() + 4 );
+            text.svg.add(lineafter);
+        }
 
         // text below the line
         let textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
