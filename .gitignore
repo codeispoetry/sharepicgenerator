@@ -5,6 +5,7 @@ code/dist/assets/css/styles.css*
 code/dist/assets/js/main.min.js
 
 code/dist/**/*.css
+!code/dist/vendor/*
 code/dist/**/*.css.map
 
 
