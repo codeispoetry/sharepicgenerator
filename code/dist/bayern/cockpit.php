@@ -118,7 +118,7 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Zeile "Am 15. März ..."</h6>
+                <input type="text" name="claim" id="claim" value="" placeholder="Am 15. März grün wählen" class="form-control">
                 <i class="fa fa-broom ml-1 text-primary cursor-pointer claim-change-color ml-1" id="claim-change-color" title="Farbe wechseln"></i>
             </div>
         </div>
