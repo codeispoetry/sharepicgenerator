@@ -21,6 +21,7 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "autoprefixer": "^9.7.2",
     "cross-env": "^6.0.3",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify-es": "^3.3.0",
     "grunt-contrib-watch": "^1.1.0"
