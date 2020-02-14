@@ -28,7 +28,7 @@ function getUser(){
 function getUserDir(){
   $userDir = 'persistent/user/' . getUser();
   if( !file_exists( $userDir ) ){
-      return false;
+      return mkdir($userDir);
   }
 
   return $userDir;
