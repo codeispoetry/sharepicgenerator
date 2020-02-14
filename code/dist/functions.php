@@ -62,7 +62,7 @@ function isLocal(){
 function createAccessToken( $user ){
     $userDir = '../persistent/user/' . $user;
     if( !file_exists($userDir)){
-        return '0';
+        mkdir( $userDir );
     }
 
     $accessToken = uniqid();
