@@ -22,6 +22,15 @@ module.exports = function (grunt) {
             }
 
         },
+        concat: {
+            options: {
+                separator: ';',
+            },
+            dist: {
+                src: ['build/js/*.js','build/js/federal/*.js'],
+                dest: 'dist/built.js',
+            },
+        },
         sass: {
             dev: {
                 files: {
@@ -69,6 +78,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-postcss');
