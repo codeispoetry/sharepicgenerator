@@ -38,9 +38,14 @@ $('.upload-file').change(function (event) {
         }
        
         config.video = (obj.video == 1);
-        config.videofile = obj.videofile;
-        config.filename = obj.filename;
-        config.videoduration = obj.videoduration;
+        if(obj.video == 1){
+            config.videofile = obj.videofile;
+            config.filename = obj.filename;
+            config.videoduration = obj.videoduration;
+            $('#width').val( obj.originalWidth );
+            $('#height').val( obj.originalHeight );
+        }
+
 
         redrawCockpit();
 
@@ -117,6 +122,9 @@ function uploadFileByUrl(url, callback = function () {}) {
             config.videofile = obj.videofile;
             config.filename = obj.filename;
             config.videoduration = obj.videoduration;
+
+            $('#width').val( obj.originalWidth );
+            $('#height').val( obj.originalHeight );
         }
 
         redrawCockpit();
