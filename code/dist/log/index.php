@@ -115,6 +115,11 @@
                 <dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
 			</dl>
 		</div>
+
+        <div class="col-12 d-none">
+            <i class="fab fa-telegram"></i> Telegram</i>
+            <div class="row"><?php /* echo showTelegramPics(); */?></div>
+        </div>
 	</div>
 </div>
 </body>
@@ -207,6 +212,15 @@ function getTelegramUser(){
 	$telegram = glob('../api/user/*', GLOB_ONLYDIR);
 	return count($telegram);
 }
+
+function showTelegramPics(){
+    $telegram = glob('../api/user/*', GLOB_ONLYDIR);
+    foreach( $telegram AS $dir){
+        printf('<div class="col-2"><img src="%s/sharepic.jpg" class="img-fluid"></div>', $dir);
+    }
+}
+
+
 
 function getLoggingPeriodInDays(){
 	global $info;
