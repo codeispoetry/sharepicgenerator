@@ -27,11 +27,11 @@ function load(){
     $.post( "../get.php", { user: config.user, action: 'getSavedPic', accesstoken: config.accesstoken })
     .done(function( data ) {
         let response = JSON.parse( data );
-        let formdata = JSON.parse( response.data );
 
         if( !response.data){
             return false;
         }
+        let formdata = JSON.parse( response.data );
         $('#load').removeClass('d-none');
         $('#delete').removeClass('d-none');
 
