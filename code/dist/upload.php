@@ -43,9 +43,9 @@ function handle_background_upload(){
     $filename = $filebasename . '.' . $extension;
     $filename_small = $filebasename . '_small.' . $extension;
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+    $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
-    $line = sprintf("%s\t%s\n", time(), $filename);
+    $line = sprintf("%s\t%s\t%s\n", time(), $filename, $moved);
     file_put_contents('log/uploads.log', $line, FILE_APPEND);
 
     prepare_file_and_send_info($filename, $filename_small);
