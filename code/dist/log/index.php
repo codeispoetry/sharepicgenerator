@@ -62,6 +62,9 @@
 					gesamt: 
 						<?php echo number_format(getDownloads(),0,',','.'); ?>
 					<br>
+                    täglich:
+						<?php echo number_format(getDailyDownloads(),0,',','.'); ?>
+					<br>
 					mit Pixabay: 
 						<?php echo number_format(getPixabay(),0,',','.'); ?>
 						(<?php printf('%02d', 100*getPixabay()/getDownloads()); ?>%)
@@ -169,7 +172,11 @@ function readLogs(){
 					$info['pixabay']++;
 				}
 				if( $payload2 ){
-					 $info['socialmedia'][ $payload2 ] = $info['socialmedia'][ $payload2 ] + 1 ?: 1;
+				    // by Platform and subtitle
+					// $info['socialmedia'][ $payload2 ] = $info['socialmedia'][ $payload2 ] + 1 ?: 1;
+                    // by Platform
+					 $platform = preg_replace("/(.(.*?))[A-Z](.*)$/", "$1", $payload2);
+					 $info['socialmedia'][ $platform ] = $info['socialmedia'][ $platform ] + 1 ?: 1;
 				}
 			break;
 		
@@ -188,6 +195,11 @@ function getUsers(){
 function getDownloads(){
 	global $info;
 	return $info['downloads'];
+}
+
+function getDailyDownloads(){
+	global $info;
+	return $info['downloads'] / getLoggingPeriodInDays();
 }
 
 function getPixabay(){
