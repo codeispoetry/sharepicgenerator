@@ -64,12 +64,12 @@ $accessToken = createAccessToken( $user );
             </div>
             <div class="col-12">
                 <div id="canvas">
-                    <div class="gridline horizontal d-none"></div>
-                    <div class="gridline horizontal d-none"></div>
-                    <div class="gridline horizontal d-none"></div>
-                    <div class="gridline vertical d-none"></div>
-                    <div class="gridline vertical d-none"></div>
-                    <div class="gridline vertical d-none"></div>
+                    <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
+                    <div id="grid-horizontal-upper" class="gridline horizontal d-none"></div>
+                    <div id="grid-horizontal-lower" class="gridline horizontal d-none"></div>
+                    <div id="grid-vertical-center" class="gridline vertical d-none"></div>
+                    <div id="grid-vertical-left" class="gridline vertical d-none"></div>
+                    <div id="grid-vertical-right" class="gridline vertical d-none"></div>
                 </div>
             </div>
             <div class="col-12 mt-3 mb-3">
