@@ -233,9 +233,7 @@
             <div class="mb-1 d-flex align-items-lg-center">
                 <span class="mr-2">Hintergrund:</span>
                <input id="color-scheme" type="checkbox" data-size="sm" data-toggle="toggle" data-on="dunkel" data-off="hell">
-            </div>
-            <div class="mb-1 d-flex align-items-lg-center">
-                <span class="mr-2">Hilflinien:</span>
+                <span class="ml-5 mr-2">Hilflinien:</span>
                <input id="gridlines" type="checkbox" data-size="sm" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
