@@ -21,7 +21,6 @@
     &:nth-of-type(3){
       top: 61.8%;
     }
-
   }
 
   &.vertical{
@@ -36,5 +35,9 @@
     &:nth-of-type(6){
       left: 61.8%;
     }
+  }
+
+  &-active{
+    border-color: red !important;
   }
 }
