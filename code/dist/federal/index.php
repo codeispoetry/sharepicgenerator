@@ -63,7 +63,14 @@ $accessToken = createAccessToken( $user );
                 <h1 class="text-uppercase h6"><a href="/index.php" class="text-body">Sharepicgenerator</a></h1>
             </div>
             <div class="col-12">
-                <div id="canvas"></div>
+                <div id="canvas">
+                    <div class="gridline horizontal"></div>
+                    <div class="gridline horizontal"></div>
+                    <div class="gridline horizontal"></div>
+                    <div class="gridline vertical"></div>
+                    <div class="gridline vertical"></div>
+                    <div class="gridline vertical"></div>
+                </div>
             </div>
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
