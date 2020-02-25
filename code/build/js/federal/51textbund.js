@@ -27,11 +27,41 @@ const text = {
 
         text.svg = draw.group().addClass('draggable').attr('id','svg-text').draggable();
 
+        text.svg.on('dragmove.namespace', function (event) {
+            $('.gridline-active').removeClass("gridline-active");
+
+            let centerX = this.x() + ( this.width() / 2 );
+            let centerY = this.y() + ( this.height() / 2 );
+            let snapDistance = 5;
+
+            if( Math.abs( (draw.width() * 0.5) - centerX ) < snapDistance ){
+                $('#grid-vertical-center').addClass("gridline-active");
+            }
+            if( Math.abs( (draw.width() * 0.382 ) - centerX ) < snapDistance ){
+                $('#grid-vertical-left').addClass("gridline-active");
+            }
+            if( Math.abs( (draw.width() * 0.618 ) - centerX ) < snapDistance ){
+                $('#grid-vertical-right').addClass("gridline-active");
+            }
+
+
+            if( Math.abs( (draw.height() * 0.5 ) - centerY ) < snapDistance ){
+                $('#grid-horizontal-center').addClass("gridline-active");
+            }
+            if( Math.abs( (draw.height() * 0.382 ) - centerY ) < snapDistance ){
+                $('#grid-horizontal-upper').addClass("gridline-active");
+            }
+            if( Math.abs( (draw.height() * 0.618 ) - centerY ) < snapDistance ){
+                $('#grid-horizontal-lower').addClass("gridline-active");
+            }
+        });
+
         text.svg.on('dragend.namespace', function (event) {
             $('#textX').val(Math.round(this.x()));
             $('#textY').val(Math.round(this.y()));
             text.bounce();
             text.positionGrayBackground();
+            $('.gridline-active').removeClass("gridline-active");
         });
 
         let y = 0;
