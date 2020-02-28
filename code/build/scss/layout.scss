@@ -143,3 +143,9 @@ optgroup{
     margin-bottom: 4px;
   }
 }
+
+.form-control:disabled,
+.form-control[readonly]{
+  border: 0;
+  background-color: transparent;
+}
