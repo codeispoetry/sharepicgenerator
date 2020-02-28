@@ -206,20 +206,22 @@
                     <?php
                         }
                     ?>
-
+                    <optgroup label="Eigenes Logo">
                     <?php
                         if( file_exists('../persistent/user/' . $user . '/logo.png') ){
                     ?>
-                    <optgroup label="Eigenes Logo">
-                         <option value="custom" selected>eigenes Logo</option>
+                        <option value="custom" selected>eigenes Logo</option>
                         <option value="deletecustomlogo">eigenes Logo löschen</option>
-                    </optgroup>
-                            <?php
+                   <?php
                         }else{
                             echo '<option value="custom">eigenes Logo hochladen</option>';
                         }
                     ?>
-                    <option value="void">kein Logo</option>
+                    </optgroup>
+                    <optgroup label="Allgemein">
+                        <option value="frauenrechte">Logo: Frauenrechte</option>
+                        <option value="void">kein Logo</option>
+                    </optgroup>
                 </select>
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
                 
