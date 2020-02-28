@@ -11,6 +11,11 @@ const logo = {
                 widthFraction: 0.1,
                 position: 'topright'
             },
+            "frauenrechte": {
+                file: "../assets/logos/frauenrechte.svg",
+                widthFraction: 0.1,
+                position: 'topright'
+            },
             "logo-weiss": {
                 file: "../assets/logos/logo-weiss.svg",
                 widthFraction: 0.2,
@@ -90,7 +95,6 @@ const logo = {
 ;
 logo.load();
 
-
 $('#logoselect').on('change', function () {
     if($(this).val() == "custom"){
         $('#uploadlogo').click();
@@ -119,8 +123,11 @@ $('#logoselect').on('change', function () {
         return;
     }
 
-
-
     logo.load( );
+});
+
+$('.uselogo').on('click', function () {
+    $('#logoselect').val( $(this).data('logo'));
+    logo.load();
 });
 
