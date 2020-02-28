@@ -4,7 +4,7 @@ const claim = {
     draw(){
         claim.svg.remove();
         let color = $('#claimColor').val();
-        claim.svg = draw.text("AM 15. MÄRZ GRÜN WÄHLEN.").fill( color ).move(15, 16).font(
+        claim.svg = draw.text($('#claim').val().toUpperCase()).fill( color ).move(15, 16).font(
             {
                 family: 'ArvoGruen',
                 size: 18,
@@ -15,6 +15,8 @@ const claim = {
     },
 };
 claim.draw();
+
+$('#claim').bind('input propertychange', claim.draw);
 
 
 
