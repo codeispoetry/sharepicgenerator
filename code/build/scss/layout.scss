@@ -46,6 +46,9 @@ body{
 
 .cursor-pointer {
   cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .opacity {
@@ -131,4 +134,12 @@ optgroup{
 
 .close{
   opacity: 1;
+}
+
+.uselogo{
+  img{
+    height: 2em;
+    margin-right: 10px;
+    margin-bottom: 4px;
+  }
 }
