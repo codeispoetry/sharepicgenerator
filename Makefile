@@ -29,7 +29,7 @@ down:
 	docker-compose down
 
 deploy:
-	docker-compose exec webserver rsync -avhz --exclude loginattempts.txt --exclude api/user  --exclude quiz --exclude logo --exclude log/*.log --exclude log/*.txt --exclude persistent --exclude youtubedownloader --exclude tmp /var/www/html/dist/ tom@sharepicgenerator.de:/var/www/html --delete
+	docker-compose exec webserver rsync -avhz --exclude loginattempts.txt --exclude api/user --exclude visitenkarten  --exclude quiz --exclude logo --exclude log/*.log --exclude log/*.txt --exclude persistent --exclude youtubedownloader --exclude tmp /var/www/html/dist/ tom@sharepicgenerator.de:/var/www/html --delete
 
 get-config:
     docker-compose exec webserver rsync rsync tom@sharepicgenerator.de:/var/www/html/ini/* ini/
