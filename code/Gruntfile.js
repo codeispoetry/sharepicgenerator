@@ -27,8 +27,12 @@ module.exports = function (grunt) {
                 separator: ';',
             },
             dist: {
-                src: ['build/js/*.js','build/js/federal/*.js'],
-                dest: 'dist/built.js',
+                src: ['build/js/*.js'],
+                dest: 'dist/assets/js/main.min.js',
+            },
+            federal: {
+                src: ['build/js/federal/*.js'],
+                dest: 'dist/federal/main.min.js',
             },
         },
         sass: {
