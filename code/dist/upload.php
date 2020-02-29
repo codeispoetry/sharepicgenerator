@@ -48,7 +48,7 @@ function handle_background_upload(){
 
     $filesJoin = join(':', $_FILES['file']);
 
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, file_exists($filename));
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, file_exists($filename), file_exists($filename . "COPY"));
 
     file_put_contents('log/uploads.log', $line, FILE_APPEND);
 
