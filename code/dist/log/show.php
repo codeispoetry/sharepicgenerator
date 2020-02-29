@@ -17,9 +17,9 @@
 <div class="container-fluid">
     <div class="row mt-3">
 		<div class="col-12 text-center">
-            <a href="#logos" class="btn btn-info btn-md">zu Logos</a>
+            <a href="#logos" class="btn btn-info btn-md">Logos</a>
             <a href="?deleteall=true" class="btn btn-danger btn-md ml-2">alle löschen</a>
-			<a href="index.php" class="btn btn-primary btn-md ml-2">Zeige Statistik</a>
+			<a href="index.php" class="btn btn-primary btn-md ml-2">Statistik</a>
 		</div>
 
 
@@ -80,7 +80,10 @@ function show_images($dir)
     $files = array_reverse(glob( $dir ) );
 
     foreach ($files AS $file) {
-        printf('<div class="col-6 col-md-3 col-lg-2"><img src="%s" class="img-fluid"/></div>', $file);
+        printf('<div class="col-6 col-md-3 col-lg-2"><a href="showsource.php?file=%s&picture=%s" target="_blank"><img src="%s" class="img-fluid"/></a></div>', 
+        substr(preg_replace('/^(.*?)_/','', $file ),0,-4), 
+        $file,
+        $file);
     }
 }
 
