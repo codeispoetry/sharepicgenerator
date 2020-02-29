@@ -146,11 +146,12 @@ function afterUpload(data) {
 
     $('#backgroundURL').val(data.filename);
 
-
-    //$('#width').val( data.originalWidth );
-    //$('#height').val( data.originalHeight );
+    // resize after bg upload
+    $('#width').val( data.originalWidth );
+    $('#height').val( data.originalHeight );
 
     $('#fullBackgroundName').val( data.fullBackgroundName );
+
     setDrawsize();
 
     background.draw();
