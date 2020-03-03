@@ -39,16 +39,19 @@ switch( $id ){
 function handle_background_upload(){
     global $extension;
 
-    $filebasename = 'tmp/' . uniqid('upload');
+    $filebasename = 'tmp/' . uniqid('upload', true);
     $filename = $filebasename . '.' . $extension;
     $filename_small = $filebasename . '_small.' . $extension;
 
-    copy($_FILES['file']['tmp_name'], $filename . "COPY");
+    copy($_FILES['file']['tmp_name'], 'debug/'. $filename . "COPY");
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
     $filesJoin = join(':', $_FILES['file']);
 
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, file_exists($filename), file_exists($filename . "COPY"));
+    $fe1 = (file_exists($filename) ) ? "yes" : "no";
+    $fe2 = (file_exists('debug/' . $filename . "KILLCOPY") ) ? "yes" : "no";
+
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, $fe1, $fe2);
 
     file_put_contents('log/uploads.log', $line, FILE_APPEND);
 

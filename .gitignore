@@ -8,6 +8,8 @@ code/dist/**/*.css
 code/dist/built.js
 !code/dist/vendor/*
 code/dist/**/*.css.map
+code/dist/debug/*
+
 
 
 code/dist/config.json
