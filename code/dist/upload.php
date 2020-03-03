@@ -49,7 +49,7 @@ function handle_background_upload(){
     $filesJoin = join(':', $_FILES['file']);
 
     $fe1 = (file_exists($filename) ) ? "yes" : "no";
-    $fe2 = (file_exists('debug/' . $filename . "KILLCOPY") ) ? "yes" : "no";
+    $fe2 = (file_exists('debug/' . $filename . "COPY") ) ? "yes" : "no";
 
     $line = sprintf("%s\t%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, $fe1, $fe2);
 
