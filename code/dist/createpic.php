@@ -55,7 +55,7 @@ function convert($filename, $width, $format)
     }
 
 
-    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90  2>>log/inkscape-error.log",
+    $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90",
         $filename,
         $width,
         'tmp/' . basename($filename, 'svg') . $tempformat);

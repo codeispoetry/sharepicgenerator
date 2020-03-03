@@ -48,15 +48,15 @@ function tidyup(){
         return;
     }
 
-    $command = sprintf("convert -resize 500x500 -background white -flatten -quality 60  %s %s 2>tmp/log.txt",
+    $command = sprintf("convert -resize 500x500 -background white -flatten -quality 60  %s %s",
         'tmp/' . $filename . '.png',
         'tmp/log' . time() . '_' . $filename . '.jpg'
     );
     exec($command);
 
-    unlink('tmp/' . $filename . '.' . $format);
+    //unlink('tmp/' . $filename . '.' . $format);
     //unlink('tmp/' . $filename . '.svg');
-    unlink('tmp/' . $filename . '.png');
+    //unlink('tmp/' . $filename . '.png');
     
 }
 
