@@ -3,7 +3,7 @@ $filename = sanitize_userinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
 
 
-if( !in_array($_GET['format'], array('png','pdf','jpg','mp4'))){
+if( !in_array($_GET['format'], array('png','pdf','jpg','mp4','zip'))){
     die("wrong format");
 }
 
@@ -19,6 +19,10 @@ switch($_GET['format']){
     case 'mp4':
         $contentType = 'video/mp4';
         $format = 'mp4';
+    break;
+    case 'zip':
+        $contentType = 'application/zip';
+        $format = 'zip';
     break;
     default:
         $contentType = 'image/jpg';

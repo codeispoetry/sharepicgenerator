@@ -71,7 +71,9 @@ $('#download').click(function () {
                 downloadname = downloadname.substring(0, 14) + '-' + config.socialmediaplatform.toLowerCase();
             }
 
-
+            if(config.socialmediaplatform.match(/Mosaik/g)){
+                format = "zip";
+            }
             window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
         }
     });
