@@ -66,7 +66,7 @@ function convert($filename, $width, $format)
         );
         exec($command);
 
-        if( preg_match('/mosaik/i',$_POST['socialmediaplatform'] )){
+        if( $_POST['ismosaic'] == "true"){
             $dir = 'tmp/' . basename($filename, '.svg');
 
             $command = sprintf('mkdir %s', $dir);
