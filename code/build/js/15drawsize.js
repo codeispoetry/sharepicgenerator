@@ -14,6 +14,8 @@ $('#sizepresets').on('change', function () {
         showMosaicLines();
     }
 
+    background.resize();
+
 });
 
 $('.size').bind('input propertychange', function(){
@@ -47,7 +49,10 @@ function setDrawsize() {
 
     text.bounce();
     pin.bounce();
+
     window.setTimeout(logo.draw, 100);
+    window.setTimeout(copyright.draw, 200);
+    window.setTimeout(copyright.draw, 300);// has to be here twice. Don't know, why.
 }
 
 function resetDrawsize() {
