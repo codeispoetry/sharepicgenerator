@@ -128,3 +128,11 @@ function loginAttemptsLeft(){
    
     return false;
 }
+
+function isDaysBefore($dayMonth, $days = 14 ){
+    $day = new DateTime(sprintf('%s%d 23:59:59', $dayMonth, date('Y'))); // tag.monat.jahr
+    $today = new DateTime();
+    $interval = $day->diff($today);
+
+    return ( $interval->days < $days AND $interval->invert == 1);
+}
