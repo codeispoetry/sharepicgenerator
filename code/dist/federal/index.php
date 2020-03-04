@@ -82,14 +82,17 @@ $accessToken = createAccessToken( $user );
                 </button>
             </div>
 
-            <div class="col-12 text-center mb-5">
 
+            <?php
+                if( isDaysBefore("8.3.", 14)){
+             ?>
+            <div class="col-12 text-center mb-5">
                 <span class="uselogo text-primary cursor-pointer" data-logo="frauenrechte">
                     <img src="../assets/logos/frauenrechte.svg">
                     Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
                 </span>
             </div>
-
+            <?php } ?>
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
             <?php require_once('cockpit.php'); ?>
