@@ -39,7 +39,7 @@ $('#download').click(function () {
     $.ajax({
         type: "POST",
         url: '../createpic.php',
-        data: {svg: data, format: format, usepixabay: config.usePixabay, socialmediaplatform: config.socialmediaplatform,videofile: config.videofile, width: $('#width').val()},
+        data: {svg: data, format: format, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform,videofile: config.videofile, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
             $('#download').prop("disabled", false);
@@ -71,7 +71,7 @@ $('#download').click(function () {
                 downloadname = downloadname.substring(0, 14) + '-' + config.socialmediaplatform.toLowerCase();
             }
 
-            if(config.socialmediaplatform.match(/Mosaik/g)){
+            if(config.isMosaic){
                 format = "zip";
             }
             window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
