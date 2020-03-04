@@ -1,10 +1,18 @@
 $('.size').bind('input propertychange', setDrawsize);
 $('#sizereset').click(resetDrawsize);
+
 $('#sizepresets').on('change', function () {
     let dimensions = this.value.split(':');
     setDimensions( ...dimensions );
 
     config.socialmediaplatform =  $("#sizepresets option:selected").data('socialmediaplatform');
+
+    config.isMosaic = config.socialmediaplatform.match(/Mosaik/g);
+
+    deleteMosaicLines();
+    if(config.isMosaic){
+        showMosaicLines();
+    }
 
 });
 
