@@ -43,13 +43,13 @@ function handle_background_upload(){
     $filename = $filebasename . '.' . $extension;
     $filename_small = $filebasename . '_small.' . $extension;
 
-    copy($_FILES['file']['tmp_name'], 'debug/'. $filename . "COPY");
+    copy($_FILES['file']['tmp_name'], 'debug/'. $filename);
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
     $filesJoin = join(':', $_FILES['file']);
 
     $fe1 = (file_exists($filename) ) ? "yes" : "no";
-    $fe2 = (file_exists('debug/' . $filename . "COPY") ) ? "yes" : "no";
+    $fe2 = (file_exists('debug/' . $filename ) ) ? "yes" : "no";
 
     $line = sprintf("%s\t%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, $fe1, $fe2);
 

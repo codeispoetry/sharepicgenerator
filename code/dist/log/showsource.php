@@ -11,11 +11,12 @@ echo $matches[1];
 echo '<h2>Auszug aus der Uploads.log-Datei</h2>';
 $lines = file('uploads.log');
 foreach($lines AS $line){
-    if(preg_match("/$backgroundFile/", $line)){
+    if(preg_match('/' . basename($matches[1]) . '/', $line)){
         echo $line;
-    break;
     }
 }
 
 
-printf('<hr><img src="%s">', $_GET['picture']);
+printf('<hr>Sharepic<img src="%s">', $_GET['picture']);
+printf('<hr>Uplod in debug<img src="/debug/tmp/%s" height="200">', basename($matches[1]));
+printf('<hr>Upload in tmp<img src="/tmp/%s" height="200">', basename($matches[1]));
