@@ -7,7 +7,7 @@ $('#sizepresets').on('change', function () {
 
     config.socialmediaplatform =  $("#sizepresets option:selected").data('socialmediaplatform');
 
-    config.isMosaic = config.socialmediaplatform.match(/Mosaik/g);
+    config.isMosaic = (config.socialmediaplatform.search(/Mosaik/g) != -1 );
 
     deleteMosaicLines();
     if(config.isMosaic){
