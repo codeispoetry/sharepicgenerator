@@ -121,6 +121,8 @@
 
                 <?php
                     $day = (isDaysBefore("15.3.", 6)) ? 'Sonntag' : '15. März';
+
+                    // Mach's möglich
                     ?>
                 <input type="text" name="claim" id="claim" value="Am <?php echo $day; ?> grün wählen" disabled placeholder="Am 15. März grün wählen" class="form-control">
 
