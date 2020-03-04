@@ -80,7 +80,7 @@ function show_images($dir)
     $files = array_reverse(glob( $dir ) );
 
     foreach ($files AS $file) {
-        printf('<div class="col-6 col-md-3 col-lg-2"><a href="showsource.php?file=%s&picture=%s" target="_blank"><img src="%s" class="img-fluid"/></a></div>', 
+        printf('<div class="col-6 col-md-3 col-lg-2"><a href="showsource.php?file=%s&picture=%s"><img src="%s" class="img-fluid"/></a></div>',
         substr(preg_replace('/^(.*?)_/','', $file ),0,-4), 
         $file,
         $file);
