@@ -77,6 +77,10 @@ function convert($filename, $width, $format)
             $command = sprintf('convert %s -crop 3x3@ +repage +adjoin %s/bild_%%d.jpg', 'tmp/' . basename($filename, 'svg') . $format, $dir);
             exec( $command );
 
+            $command = sprintf("montage %s/bild*.jpg -geometry 200x200+8+8 %s/gesamt.jpg", $dir, $dir );
+            exec( $command );
+
+
             $command = sprintf('zip -j %s.zip %s/*', $dir, $dir);
             exec( $command );
         }
