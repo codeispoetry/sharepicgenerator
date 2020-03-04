@@ -47,13 +47,11 @@ echo json_encode($return);
 
 function convert($filename, $width, $format)
 {
-
     if($format == 'pdf'){
         $tempformat = 'pdf';
     }else{
         $tempformat = 'png';
     }
-
 
     $command = sprintf("inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90",
         $filename,
@@ -61,16 +59,27 @@ function convert($filename, $width, $format)
         'tmp/' . basename($filename, 'svg') . $tempformat);
     exec($command);
 
-    $debug = sprintf("%s\t%s\n\n", time(), $filename);
-    file_put_contents('log/inkscape-error.log', $debug, FILE_APPEND);
-
-
     if($format == 'jpg'){
         $command = sprintf("convert %s -background white -flatten %s",
             'tmp/' . basename($filename, 'svg') . $tempformat,
             'tmp/' . basename($filename, 'svg') . $format
         );
         exec($command);
+
+        if( preg_match('/mosaik/i',$_POST['socialmediaplatform'] )){
+            $dir = 'tmp/' . basename($filename, '.svg');
+
+            $command = sprintf('mkdir %s', $dir);
+            exec( $command );
+
+           copy('mosaik_readme.txt',sprintf('%s/z_anleitung.txt', $dir));
+
+            $command = sprintf('convert %s -crop 3x3@ +repage +adjoin %s/bild_%%d.jpg', 'tmp/' . basename($filename, 'svg') . $format, $dir);
+            exec( $command );
+
+            $command = sprintf('zip -j %s.zip %s/*', $dir, $dir);
+            exec( $command );
+        }
     }
 
     if($format == 'mp4'){
