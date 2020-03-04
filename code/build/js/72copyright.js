@@ -19,8 +19,6 @@ function setCopyright( message, mode){
 
     $('#copyright').val( Object.values(copyrights).join(', ') );
     copyright.draw();
-    copyright.draw(); // has to be here twice. Don't know, why. Settimeout did not work
-
 }
 
 

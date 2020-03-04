@@ -154,6 +154,9 @@ function afterUpload(data) {
 
     setDrawsize();
 
+    // unselect presets
+    $('#sizepresets').val($("#sizepresets option:first").val());
+
     background.draw();
     //pin.draw();
     //window.setTimeout(text.draw, 10);
