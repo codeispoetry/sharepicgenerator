@@ -16,6 +16,14 @@ foreach($lines AS $line){
     }
 }
 
+echo '<h2>Auszug aus der inotify.log-Datei</h2>';
+$lines = file('inotify.log');
+foreach($lines AS $line){
+    if(preg_match('/' . basename($matches[1]) . '/', $line)){
+        echo $line;
+    }
+}
+
 
 printf('<hr>Sharepic<img src="%s">', $_GET['picture']);
 printf('<hr>Uplod in debug<img src="/debug/tmp/%s" height="200">', basename($matches[1]));
