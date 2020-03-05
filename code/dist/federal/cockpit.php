@@ -14,7 +14,7 @@
             <small class="cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Erweiterte Einstellungen <i class="fa fa-caret-down"></i>
             </small>
-            <div class="mb-1 list-group-item-content KILLcollapse preferences-pic">
+            <div class="mb-1 list-group-item-content collapse preferences-pic">
                 <div class="slider novideo">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
