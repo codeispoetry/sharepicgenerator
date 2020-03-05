@@ -20,11 +20,11 @@ echo '<h2>Auszug aus der inotify.log-Datei</h2>';
 $lines = file('inotify.log');
 foreach($lines AS $line){
     if(preg_match('/' . basename($matches[1]) . '/', $line)){
-        echo $line;
+        echo $line."<br>";
     }
 }
 
 
-printf('<hr>Sharepic<img src="%s">', $_GET['picture']);
-printf('<hr>Uplod in debug<img src="/debug/tmp/%s" height="200">', basename($matches[1]));
-printf('<hr>Upload in tmp<img src="/tmp/%s" height="200">', basename($matches[1]));
+printf('<hr>Sharepic<br><img src="%s">', $_GET['picture']);
+printf('<hr>Uplod in debug<br><img src="/debug/tmp/%s" height="200">', basename($matches[1]));
+printf('<hr>Upload in tmp<br><img src="/tmp/%s" height="200">', basename($matches[1]));
