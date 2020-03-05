@@ -38,8 +38,8 @@
 
                 <div class="slider novideo">
                     <small>hell</small>
-                    <input type="range" class="custom-range" name="darklightlayer" id="darklightlayer" min="-90"
-                        max="90" value="0" step="5">
+                    <input type="range" class="custom-range" name="darklightlayer" id="darklightlayer" min="-60"
+                        max="60" value="0" step="5">
                     <small>dunkel</small>
                 </div>
 
