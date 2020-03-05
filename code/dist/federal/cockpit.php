@@ -14,7 +14,7 @@
             <small class="cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Erweiterte Einstellungen <i class="fa fa-caret-down"></i>
             </small>
-            <div class="mb-1 list-group-item-content collapse preferences-pic">
+            <div class="mb-1 list-group-item-content KILLcollapse preferences-pic">
                 <div class="slider novideo">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
@@ -34,6 +34,20 @@
                     <input type="range" class="custom-range" name="blurbackground" id="blurbackground" min="0"
                         max="10" value="0" step="0.5">
                     <small>unscharf</small>
+                </div>
+
+                <div class="slider novideo">
+                    <small>hell</small>
+                    <input type="range" class="custom-range" name="darklightlayer" id="darklightlayer" min="-90"
+                        max="90" value="0" step="5">
+                    <small>dunkel</small>
+                </div>
+
+                <div class="slider novideo">
+                    <small>unverändert</small>
+                    <input type="range" class="custom-range" name="greenlayer" id="greenlayer" min="0"
+                        max="100" value="0" step="5">
+                    <small>grün</small>
                 </div>
 
                 <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
