@@ -15,19 +15,19 @@
                         <span class="m-1">x</span>
                         <input type="number" class="form-control size mr-1" name="height" id="height" step="10">
                         <span class="m-1 mr-3">Pixel</span>
-                        <select class="form-control selectpicker fas" id="sizepresets">
-                            <option class="fas">&#xf5cb;</option>
-
+                        <select class="form-control" id="sizepresets">
+                            <option class="">Größe</option>
                             <?php
-                                $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
-                                foreach($sizes AS $name=>$group ){
-                                    printf ('<optgroup label="%s">', $name);
-                                    foreach($group AS $label => $size){
-                                        list($width,$height) = preg_split("/[^0-9]/",trim($size));
-                                        printf('<option value="%d:%d">%s</option>', $width, $height, $label);
-                                    }
-                                    echo '</optgroup>';
+                            $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
+                            foreach ($sizes AS $name => $group) {
+                                printf('<optgroup label="%s">', $name);
+                                foreach ($group AS $label => $size) {
+                                    list($width, $height) = preg_split("/[^0-9]/", trim($size));
+                                    $socialmediaplatform = preg_replace('/ /','-', "$name-$label");
+                                    printf('<option value="%d:%d" data-socialmediaplatform="%s">%s</option>', $width, $height, $socialmediaplatform, $label);
                                 }
+                                echo '</optgroup>';
+                            }
                             ?>
                         </select>
                     </div>
