@@ -70,6 +70,7 @@ $accessToken = createAccessToken( $user );
                     <div id="grid-vertical-center" class="gridline vertical d-none"></div>
                     <div id="grid-vertical-left" class="gridline vertical d-none"></div>
                     <div id="grid-vertical-right" class="gridline vertical d-none"></div>
+                    <div id="grid-round" class="gridline d-none"></div>
                 </div>
             </div>
             <div class="col-12 mt-3 mb-3">
