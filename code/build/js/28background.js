@@ -1,5 +1,8 @@
 const background = {
     svg: draw.circle(0),
+    darklightlayer: draw.circle(0),
+    greenlayer: draw.circle(0),
+
     isLoaded: false,
 
     draw() {
@@ -31,9 +34,38 @@ const background = {
                     e.preventDefault();
                }
               })
+
+            background.addGreenLayer();
+            background.addDarkLightLayer();
+
         });
+    },
 
+    addGreenLayer: function(){
+        this.greenlayer.remove();
 
+        let value = $('#greenlayer').val() / 100;
+
+    this.greenlayer = draw.rect( draw.width() ,draw.height()) .fill( "#46962b" ).opacity( value );
+
+        this.darklightlayer.back();
+        this.greenlayer.back();
+        this.svg.back();
+    },
+
+    addDarkLightLayer: function(){
+        this.darklightlayer.remove();
+
+        let value = $('#darklightlayer').val() / 100;
+
+        let color = ( value > 0 ) ? "black" : "white";
+        value = Math.abs( value );
+
+        this.darklightlayer = draw.rect( draw.width() ,draw.height()) .fill( color ).opacity( value );
+
+        this.darklightlayer.back();
+        this.greenlayer.back();
+        this.svg.back();
     },
 
     addFilter: function(){
@@ -107,4 +139,19 @@ $('#backgroundsize').bind('input propertychange', function () {
 
 $('#graybackground, #blurbackground').bind('input propertychange', function () {
     background.addFilter();
+});
+
+
+$('#darklightlayer').bind('input propertychange', function () {
+    background.addDarkLightLayer();
+});
+
+
+$('#darklightlayer').dblclick( function(){
+    $(this).val( 0 );
+    background.addDarkLightLayer();
+})
+
+$('#greenlayer').bind('input propertychange', function () {
+    background.addGreenLayer();
 });
