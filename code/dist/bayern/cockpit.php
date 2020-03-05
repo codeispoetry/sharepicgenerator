@@ -33,6 +33,10 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <i class="far fa-smile-wink"></i>
+                <a href="#" class="choose-mosaic">Neu: Mosaiks für Instagram</a>
+            </div>
         </div>
         
         
@@ -139,6 +143,19 @@
             <div class="d-flex align-items-lg-center">
                 <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
                 <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+            </div>
+        </div> 
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex align-items-lg-center">
+                <div>
+                    <i class="fab fa-telegram h1 mr-3"></i>
+                </div>
+                <div class="text-left">
+                    Erstelle Sharepics mit Telegram.
+                    Sende eine Startnachricht an
+                    <a href="https://telegram.me/bayernbot/" target="_blank">@Bayernbot</a>.
+                </div>
             </div>
         </div> 
 

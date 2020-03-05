@@ -91,3 +91,7 @@ function calculateSizes() {
 
     reset();
 }
+
+$('.choose-mosaic').bind('click',function(){
+    $('#sizepresets').val("2400:2400").trigger( "change" );
+});

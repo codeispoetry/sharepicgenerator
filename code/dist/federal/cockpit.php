@@ -77,6 +77,10 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <i class="far fa-smile-wink"></i>
+                <a href="#" class="choose-mosaic">Neu: Mosaiks für Instagram</a>
+            </div>
         </div>
 
 

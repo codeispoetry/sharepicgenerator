@@ -77,20 +77,6 @@ $accessToken = createAccessToken( $user );
                 </button>
             </div>
 
-            <div class="col-12 col-md-6 offset-md-3 text-center text-info mb-5 d-flex">
-                <div>
-                    <i class="fab fa-telegram h1 mr-3"></i>
-                </div>
-                <div class="text-left">
-                    Neu und nur in Bayern:
-                    Nutze den Sharepicgenerator über
-                    Telegram.<br>
-                    Sende eine Startnachricht an
-                    <a href="https://telegram.me/bayernbot/" target="_blank">@Bayernbot</a>.
-                </div>
-            </div>
-
-
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
             <?php require_once('cockpit.php'); ?>
