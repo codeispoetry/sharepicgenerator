@@ -46,7 +46,9 @@ const background = {
 
         let value = $('#greenlayer').val() / 100;
 
-    this.greenlayer = draw.rect( draw.width() ,draw.height()) .fill( "#46962b" ).opacity( value );
+        this.greenlayer = draw.rect( draw.width() ,draw.height()) .fill( "#46962b" ).opacity( value );
+
+        this.greenlayer.attr("style"," pointer-events: none;");
 
         this.darklightlayer.back();
         this.greenlayer.back();
@@ -62,7 +64,8 @@ const background = {
         value = Math.abs( value );
 
         this.darklightlayer = draw.rect( draw.width() ,draw.height()) .fill( color ).opacity( value );
-
+        this.darklightlayer.attr("style"," pointer-events: none;");
+        
         this.darklightlayer.back();
         this.greenlayer.back();
         this.svg.back();
