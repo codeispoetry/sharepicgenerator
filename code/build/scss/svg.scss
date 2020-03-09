@@ -8,6 +8,7 @@
 
 .gridline{
   position: absolute;
+  pointer-events: none;
 
   &.horizontal{
     width: 100%;
