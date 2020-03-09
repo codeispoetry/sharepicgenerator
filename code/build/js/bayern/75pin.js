@@ -10,18 +10,23 @@ $('#pintofront').click( function () {
 const pin = {
     isLoaded: false,
 
-    svg: draw.image('../bayern/pin.svg', function (event) {
-        pin.isLoaded = true;
-        this.on('dragend.namespace', function (event) {
-            $('#pinX').val(Math.round(this.x()));
-            $('#pinY').val(Math.round(this.y()));
-            pin.bounce();
-        });
-        pin.draw();
-    }).addClass('draggable').draggable(),
+    svg: draw.circle(0),
+
+    load( file = "pin.svg"){
+        pin.svg.remove();
+        pin.svg = draw.image('../bayern/' + file, function (event) {
+            pin.isLoaded = true;
+            pin.svg.on('dragend.namespace', function (event) {
+                $('#pinX').val(Math.round(pin.svg.x()));
+                $('#pinY').val(Math.round(pin.svg.y()));
+                pin.bounce();
+            });
+            pin.draw();
+        }).addClass('draggable').draggable();
+    },
 
     draw() {
-        if (!this.isLoaded) return false;
+        if (!pin.isLoaded) return false;
 
         pin.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
         pin.svg.size(parseInt($('#pinsize').val()));
@@ -48,3 +53,5 @@ const pin = {
         }
     }
 };
+
+pin.load();
