@@ -26,5 +26,4 @@ foreach($lines AS $line){
 
 
 printf('<hr>Sharepic<br><img src="%s">', $_GET['picture']);
-printf('<hr>Uplod in debug<br><img src="/debug/tmp/%s" height="200">', basename($matches[1]));
 printf('<hr>Upload in tmp<br><img src="/tmp/%s" height="200">', basename($matches[1]));
