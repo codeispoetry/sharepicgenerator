@@ -89,7 +89,6 @@ header .container {
             <i class="fas fa-pen mr-2 small"></i>eigenes Sharepic erstellen
           </a>
           <a href="bayern" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> Kommunalwahl Bayern</a>
-          <a href="vintage/" class="mt-5 btn btn-dark btn-sm"><i class="fab fa-pied-piper-alt"></i> Vintage-Version zum 30./40. Geburtstag</a>
 
             <span class="mt-5 cursor-pointer testaccess d-none" id="test-access-opener">
                 <i class="fas fa-sign-in-alt"></i> Gastzugang
