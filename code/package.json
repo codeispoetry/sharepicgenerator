@@ -1,32 +1,36 @@
 {
   "name": "sharepicgenerator",
   "version": "1.0.0",
-  "description": "Development environment for green party shrepicgenerator",
-  "author": "Thomas Rose",
-  "dependencies": {
-    "@svgdotjs/svg.draggable.js": "^3.0.2",
-    "@svgdotjs/svg.filter.js": "^3.0.7",
-    "bootstrap": "^4.3.1",
-    "bootstrap4-toggle": "^3.6.1",
-    "cssnano": "^4.1.10",
-    "grunt": "^1.0.4",
-    "grunt-cli": "^1.3.2",
-    "grunt-postcss": "^0.9.0",
-    "jquery": "^3.4.1",
-    "pixrem": "^5.0.0",
-    "popper.js": "^1.16.0",
-    "svg.js": "^2.7.1"
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build:dev": "webpack",
+    "build:production": "cross-env NODE_ENV=production webpack",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.2",
-    "autoprefixer": "^9.7.2",
-    "cross-env": "^6.0.3",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify-es": "^3.3.0",
-    "grunt-contrib-watch": "^1.1.0"
+    "@babel/core": "^7.0.0",
+    "@babel/runtime-corejs2": "^7.0.0",
+    "@wordpress/babel-preset-default": "^2.1.0",
+    "autoprefixer": "^9.1.3",
+    "babel-loader": "^8.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "extract-loader": "^2.0.1",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.9.3",
+    "postcss-cli": "^6.0.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
   },
-  "browserslist": [
-    "defaults"
-  ]
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "bootstrap": "^4.4.1",
+    "install": "^0.13.0"
+  }
 }

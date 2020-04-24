@@ -13,11 +13,11 @@ services:
       - ./deployment/scripts:/root/scripts
     networks:
       - sharepicgenerator
-  grunt:
+  node:
     build: docker/node
     volumes:
       - ./code:/var/www/html
-    command: grunt
+    command: npm run watch
     working_dir: /var/www/html
     networks:
       - sharepicgenerator
