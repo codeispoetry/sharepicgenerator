@@ -8,19 +8,13 @@ build:
 	docker-compose up --build -d
 
 install:
-	docker-compose run grunt sh -c 'npm install'
+	docker-compose run node sh -c 'npm install'
 
-grunt-shell:
-	docker-compose exec grunt bash
-
-compile:
-	docker-compose exec grunt grunt build
-
-compileJS:
-	docker-compose exec grunt grunt buildJS
+node-shell:
+	docker-compose exec node bash
 
 log:
-	docker-compose logs -f grunt
+	docker-compose logs -f node
 
 shell:
 	docker-compose exec webserver bash
