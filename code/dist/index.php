@@ -88,7 +88,7 @@ header .container {
           <a href="federal/" class="mt-5 btn btn-secondary btn-lg">
             <i class="fas fa-pen mr-2 small"></i>eigenes Sharepic erstellen
           </a>
-          <a href="bayern" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> Kommunalwahl Bayern</a>
+          <a href="bayern" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> Bayern</a>
 
             <span class="mt-5 cursor-pointer testaccess d-none" id="test-access-opener">
                 <i class="fas fa-sign-in-alt"></i> Gastzugang
