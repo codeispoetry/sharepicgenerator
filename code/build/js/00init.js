@@ -19,6 +19,7 @@ const secondaryfont = {
 $(document).ready(function () {
     $('#width').val( bgpic.originalWidth );
     $('#height').val( bgpic.originalHeight );
+
     pin.draw();
     window.setTimeout(text.draw, 10);
     afterUpload(bgpic);
