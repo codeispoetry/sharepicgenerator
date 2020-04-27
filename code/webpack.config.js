@@ -1,11 +1,28 @@
+const path = require('path');
+const ConcatPlugin = require('webpack-concat-plugin');
+
+
 module.exports = (env = {}) => {
     return {
         mode: 'development',
-        entry: [ './build/js/00init.js','./build/scss/main.scss'],
+        entry:[  path.resolve(__dirname, 'build/js/00init.js'), path.resolve(__dirname, 'build/scss/main.scss') ],
         output: {
-            path: __dirname + "/dist/assets",
             filename: 'js/main.min.js',
+            path:  path.resolve(__dirname,"dist/assets/"),
         },
+        plugins:[
+            new ConcatPlugin({
+                uglify: false,
+                sourceMap: false,
+                name: 'result',
+                outputPath: "./js/",
+                fileName: 'main.bundled.js',
+                filesToConcat: [ './build/js/*.js', './build/js/federal/*.js'],
+                attributes: {
+                    async: true
+                }
+            })
+        ],
         module: {
             rules: [
                 {
@@ -45,3 +62,5 @@ module.exports = (env = {}) => {
         }
     }
 };
+
+
