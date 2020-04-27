@@ -47,7 +47,7 @@ function handle_background_upload(){
     // convert webp to jpg, as inkscape cannot handle webp
     if( strToLower($extension) == 'webp' ){
         $newFilename = $filebasename .'.jpg';
-        $command = sprintf("convert %s %s",
+        $command = sprintf("dwebp %s -o %s",
             $filename,
             $newFilename
         );
