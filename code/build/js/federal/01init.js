@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#text').val("[Leben]\nlassen");
+    $('#text').val("Jedes Leben\nist [heilig].");
 });
 
 function reset(){
