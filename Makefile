@@ -13,6 +13,9 @@ install:
 node-shell:
 	docker-compose exec node bash
 
+compile:
+	docker-compose exec node npm run build:dev
+
 log:
 	docker-compose logs -f node
 
