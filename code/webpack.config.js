@@ -5,17 +5,19 @@ const ConcatPlugin = require('webpack-concat-plugin');
 module.exports = (env = {}) => {
     return {
         mode: 'development',
-        entry:[  path.resolve(__dirname, 'build/js/00init.js'), path.resolve(__dirname, 'build/scss/main.scss') ],
+        devtool: 'source-map',
+        entry:[  path.resolve(__dirname, 'build/scss/main.scss') ],
         output: {
             filename: 'js/main.min.js',
             path:  path.resolve(__dirname,"dist/assets/"),
         },
         plugins:[
             new ConcatPlugin({
-                uglify: false,
-                sourceMap: false,
+                uglify: true,
+                sourceMap: true,
                 name: 'result',
                 outputPath: "./js/",
+                injectType: "none",
                 fileName: 'main.bundled.js',
                 filesToConcat: [ './build/js/*.js', './build/js/federal/*.js'],
                 attributes: {
@@ -48,13 +50,19 @@ module.exports = (env = {}) => {
                         },
                         {
                             loader: 'css-loader',
-                            options: {url: false}
+                            options: {
+                                url: false,
+                                sourceMap: true
+                            }
                         },
                         {
                             loader: 'postcss-loader'
                         },
                         {
-                            loader: 'sass-loader'
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
                         }
                     ]
                 }
