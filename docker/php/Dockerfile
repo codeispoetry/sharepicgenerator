@@ -22,6 +22,3 @@ RUN mkdir /usr/share/fonts/truetype/custom
 RUN mkdir /root/.ssh
 RUN mkdir /root/scripts
 
-RUN chmod 777 /var/www/html/dist/log
-RUN chmod 777 /var/www/html/dist/user
-RUN chmod 777 /var/www/html/dist/tmp
