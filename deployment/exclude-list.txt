@@ -1,0 +1,10 @@
+loginattempts.txt
+api/user
+visitenkarten
+quiz
+logo
+log/*.log
+log/*.txt
+persistent
+youtubedownloader
+tmp
