@@ -2,3 +2,6 @@
 *
 # Except this file
 !.gitignore
+!user/
+user/*
+!user/.gitkeep
