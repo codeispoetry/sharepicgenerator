@@ -31,4 +31,4 @@ jobs:
       - name: rsync files
         run: |
           pwd
-          rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" --exclude loginattempts.txt --exclude api/user --exclude visitenkarten --exclude quiz --exclude logo --exclude log/*.log --exclude log/*.txt --exclude persistent --exclude youtubedownloader --exclude tmp --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
+          rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" --exlude-from 'deployment/exclude-list' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
