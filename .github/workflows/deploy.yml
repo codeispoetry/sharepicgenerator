@@ -2,7 +2,7 @@ name: Deployment
 
 on:
   push:
-    branches: [ webpack ]
+    branches: [ master ]
 
 jobs:
   deploy:
