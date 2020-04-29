@@ -5,7 +5,7 @@ $id = $_POST['id'];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 
-if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','jpeg','png','gif','svg','mp4')) ){
+if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','jpeg','png','gif','svg','webp','mp4')) ){
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
@@ -41,10 +41,20 @@ function handle_background_upload(){
 
     $filebasename = 'tmp/' . uniqid('upload', true);
     $filename = $filebasename . '.' . $extension;
-    $filename_small = $filebasename . '_small.' . $extension;
-
 
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
+    // convert webp to jpg, as inkscape cannot handle webp
+    if( strToLower($extension) == 'webp' ){
+        $newFilename = $filebasename .'.jpg';
+        $command = sprintf("dwebp %s -o %s",
+            $filename,
+            $newFilename
+        );
+        exec($command);
+        $extension = 'jpg';
+        $filename = $newFilename;
+    }
 
     $filesJoin = join(':', $_FILES['file']);
 
@@ -54,6 +64,7 @@ function handle_background_upload(){
 
     file_put_contents('log/uploads.log', $line, FILE_APPEND);
 
+    $filename_small = $filebasename . '_small.' . $extension;
     prepare_file_and_send_info($filename, $filename_small);
 
 }
