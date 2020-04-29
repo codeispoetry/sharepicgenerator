@@ -94,6 +94,22 @@ $accessToken = createAccessToken( $user );
                 </span>
             </div>
             <?php } ?>
+
+
+            <?php
+            if( isDaysBefore("9.5.", 14)){
+                ?>
+                <div class="col-12 text-center mb-5">
+                <span class="uselogo text-primary cursor-pointer" data-logo="europa">
+                    <img src="../assets/logos/europa.svg">
+                    Am 9. Mai ist Europatag. Nutze das grüne Europa-Logo
+                </span>
+                </div>
+            <?php } ?>
+
+
+
+
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
             <?php require_once('cockpit.php'); ?>
