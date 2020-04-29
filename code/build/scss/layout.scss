@@ -149,3 +149,21 @@ optgroup{
   border: 0;
   background-color: transparent;
 }
+
+.test-access{
+  display: inline;
+
+  input{
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    line-height: 1;
+    border-radius: .3rem;
+    border: 0;
+    background: #82b76e;
+    color: $white;
+
+    &::placeholder{
+      color: $white;
+    }
+  }
+}

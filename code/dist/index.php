@@ -89,30 +89,6 @@ header .container {
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
           </a>
           <a href="bayern" class="mt-2 btn btn-info btn-sm d-none"><i class="fas fa-pen-fancy"></i> Bayern</a>
-
-            <span class="mt-5 cursor-pointer testaccess d-none" id="test-access-opener">
-                <i class="fas fa-sign-in-alt"></i> Gastzugang
-            </span>
-            <div class="mt-1 test-access" style="display:none">
-                <form method="post" class="test-access" action="federal/">
-                    <div class="mt-2 input-group">
-                        <input type="password" id="test-access-password" class="form-control" name="pass" placeholder="Passwort eingeben">
-                        <div class="input-group-append">
-                            <input type="submit" id="test-access-submit" class="btn btn-sm btn-info" value="okay">
-                        </div>
-                    </div>
-                    <div class="mt-2 form-group form-check-inline">
-                        <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-bayern" value="bayern" checked>
-                        <label class="form-check-label mr-5" for="test-access-target-bayern">Bayern</label>
-
-                        <input class="form-check-input" type="radio" name="test-access-target" id="test-access-target-federal" value="federal">
-                        <label class="form-check-label" for="test-access-target-federal">Bund</label>
-                    </div>
-                </form>
-                <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="d-none text-white">
-                  <i class="fas fa-envelope"></i> Testzugang beantragen
-                </a>
-            </divmt-3>
         </div>
       </div>
     </div>
@@ -162,6 +138,9 @@ header .container {
     <div class="col-12 col-lg-6">
     <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> 
     | <a href="/imprint.php">Impressum</a>
+    | <form method="post" class="test-access" action="federal/">
+            <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
+        </form>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
@@ -172,16 +151,7 @@ header .container {
 
 </div>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
-<script>
-    $("#test-access-opener").click( function(){
-        ($("div.test-access").is(':visible') ) ? $("div.test-access").slideUp() : $("div.test-access").slideDown();
-    });
 
-    $("form.test-access").submit(function(e){
-        $(this).attr("action",$("input[name='test-access-target']:checked").val() + '/');
-    })
-
-</script>
 
 </body>
 </html>
