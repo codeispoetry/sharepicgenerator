@@ -1,20 +1,22 @@
 const path = require('path');
 const ConcatPlugin = require('webpack-concat-plugin');
-
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = (env = {}) => {
     return {
         mode: 'development',
-        devtool: 'source-map',
+        devtool: (isDevelopment) ? 'source-map' : false,
         entry:[  path.resolve(__dirname, 'build/scss/main.scss') ],
         output: {
             filename: 'js/main.min.js',
             path:  path.resolve(__dirname,"dist/assets/"),
+            sourceMapFilename: '[file].map'
         },
         plugins:[
             new ConcatPlugin({
-                uglify: true,
-                sourceMap: true,
+                uglify: isProduction,
+                sourceMap: isDevelopment,
                 name: 'result',
                 outputPath: "./js/",
                 injectType: "none",
@@ -56,7 +58,10 @@ module.exports = (env = {}) => {
                             }
                         },
                         {
-                            loader: 'postcss-loader'
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true
+                            }
                         },
                         {
                             loader: 'sass-loader',

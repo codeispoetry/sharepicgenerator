@@ -1,5 +1,9 @@
 module.exports = {
+    options:{
+        sourceMap: true
+    },
     plugins: {
-        'autoprefixer': {}
+        'autoprefixer': {},
+        'cssnano': {}
     }
-}
+};
