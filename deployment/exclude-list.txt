@@ -8,3 +8,5 @@ log/*.txt
 persistent
 youtubedownloader
 tmp
+bayern
+vintage
