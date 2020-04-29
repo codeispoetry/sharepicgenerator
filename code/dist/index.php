@@ -82,8 +82,8 @@ header .container {
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-        <h1 class="display-4 text-shadow">Grüner<br/>Sharepic&shy;generator</h1>
-        <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.</p>
+        <h1 class="display-4 text-shadow">Sharepic&shy;generator</h1>
+        <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.<br>im Design von Bündnis 90/Die Grünen</p>
         <div class="mt-3 d-flex flex-column align-items-center">
           <a href="federal/" class="mt-5 btn btn-secondary btn-lg">
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
