@@ -21,3 +21,4 @@ RUN apt-get install -y chromium
 RUN mkdir /usr/share/fonts/truetype/custom
 RUN mkdir /root/.ssh
 RUN mkdir /root/scripts
+
