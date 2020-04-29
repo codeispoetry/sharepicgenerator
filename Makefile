@@ -6,6 +6,9 @@ stop:
 
 build:
 	docker-compose up --build -d
+	chmod 777 code/dist/log/
+    chmod 777 code/dist/persistent/user/
+    chmod 777 code/dist/tmp/
 
 install:
 	docker-compose run grunt sh -c 'npm install'
