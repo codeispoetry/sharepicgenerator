@@ -235,6 +235,7 @@
                     <optgroup label="Allgemein">
                         <option value="frauenrechte">Logo: Frauenrechte</option>
                         <option value="regenbogen">Logo: Regenbogen</option>
+                        <option value="europa">Logo: Europa</option>
                         <option value="void">kein Logo</option>
                     </optgroup>
                 </select>

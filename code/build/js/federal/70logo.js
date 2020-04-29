@@ -16,6 +16,11 @@ const logo = {
                 widthFraction: 0.1,
                 position: 'topright'
             },
+            "europa": {
+                file: "../assets/logos/europa.svg",
+                widthFraction: 0.15,
+                position: 'topright'
+            },
             "regenbogen": {
                 file: "../assets/logos/regenbogen.png",
                 widthFraction: 0.1,
