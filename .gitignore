@@ -1,8 +1,8 @@
 code/node_modules
 code/.sass-cache
 
-code/dist/assets/css/styles.css*
-code/dist/assets/js/main.min.js
+code/dist/assets/css/*
+code/dist/assets/js/*
 
 code/dist/**/*.css
 code/dist/built.js
