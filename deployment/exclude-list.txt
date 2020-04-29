@@ -10,3 +10,5 @@ youtubedownloader
 tmp
 bayern
 vintage
+passwords.php
+config.json
