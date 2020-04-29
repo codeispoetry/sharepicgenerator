@@ -1,0 +1,33 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ webpack ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Install webpack
+        run: |
+          cd code
+          npm install
+          npm run build:production
+
+      - name: add deploy_key
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          echo "$DEPLOY_KEY" > "$HOME/deploy_key"
+          chmod 600 "$HOME/deploy_key"
+
+      - name: rsync files
+        run: |
+          echo "Hallo"
