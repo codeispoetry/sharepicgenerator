@@ -23,8 +23,7 @@ jobs:
 
       - name: Build documentation
         run: |
-          pip install mkdocs mkdocs-bootstrap
-          mkdocs build
+          pip install mkdocs mkdocs-bootstrap && mkdocs build
 
       - name: add deploy_key
         env:
