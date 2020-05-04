@@ -11,6 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install mkdocs
+        run: pip install mkdocs mkdocs-bootstrap
+
+      - name: Build documentation
+        run: mkdocs build
+
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
@@ -20,10 +26,6 @@ jobs:
           cd code
           npm install
           npm run build:production
-
-      - name: Build documentation
-        run: |
-          pip install mkdocs mkdocs-bootstrap && mkdocs build
 
       - name: add deploy_key
         env:
