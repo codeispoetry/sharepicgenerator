@@ -21,5 +21,12 @@ services:
     working_dir: /var/www/html
     networks:
       - sharepicgenerator
+  mkdocs:
+    build: docker/mkdocs
+    ports:
+      - '9001:8080'
+    volumes:
+      - ./mkdocs:/mkdocs
+      - ./code/dist/documentation:/mkdocs/site
 networks:
   sharepicgenerator:

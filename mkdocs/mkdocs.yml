@@ -1,0 +1,15 @@
+site_name: Sharepicgenerator
+nav:
+  - Home: index.md
+  - Features: features.md
+  - Bekannte Probleme: probleme.md
+theme:
+  name: readthedocs
+extra_css:
+  - extra.css
+use_directory_urls: true
+plugins:
+  - search:
+      lang: de
+dev_addr: '0.0.0.0:8080'
+
