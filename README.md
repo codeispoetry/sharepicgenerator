@@ -1,4 +1,4 @@
-Sharepicgenerator with Docker and Grunt.
+Sharepicgenerator with Docker and Webpack.
 
 ## Installation
  1. Clone this repo with
