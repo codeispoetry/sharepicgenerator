@@ -51,3 +51,6 @@ test-bayern:
 test-live:
 	docker-compose exec webserver python tests/test-live.py
 
+doc:
+	docker-compose exec mkdocs mkdocs build
+
