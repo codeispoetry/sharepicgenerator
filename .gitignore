@@ -10,7 +10,8 @@ code/dist/built.js
 code/dist/**/*.css.map
 code/dist/debug/*
 
-
+code/dist/documentation
+mkdocs/site
 
 code/dist/config.json
 code/dist/api/data.json

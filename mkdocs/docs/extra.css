@@ -1,0 +1,15 @@
+h1 {
+   color: #46962b;
+}
+
+.wy-side-nav-search {
+   background-color: #46962b;
+}
+
+.wy-side-nav-search input[type=text]{
+   border: 0;
+}
+
+..wy-nav-side{
+   background: #a4a4a4;
+}
