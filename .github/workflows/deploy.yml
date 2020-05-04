@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install mkdocs
-        run: pip install mkdocs mkdocs-bootstrap
+        run: pip3 install mkdocs mkdocs-bootstrap
 
       - name: Build documentation
         run: mkdocs build
