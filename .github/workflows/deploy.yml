@@ -21,6 +21,11 @@ jobs:
           npm install
           npm run build:production
 
+      - name: Build documentation
+        run: |
+          pip install mkdocs mkdocs-bootstrap
+          mkdocs build
+
       - name: add deploy_key
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
