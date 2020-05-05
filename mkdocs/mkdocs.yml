@@ -1,6 +1,6 @@
 site_name: Sharepicgenerator
 nav:
-  - Home: index.md
+  - Bedienung: index.md
   - Features: features.md
   - Bekannte Probleme: probleme.md
 theme:
