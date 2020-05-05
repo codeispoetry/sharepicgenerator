@@ -23,9 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs mkdocs-bootstrap
 
-
       - name: Build documentation
-        run: mkdocs build
+        run: |
+          cd mkdocs
+          mkdocs build
 
       - uses: actions/setup-node@v1
         with:
