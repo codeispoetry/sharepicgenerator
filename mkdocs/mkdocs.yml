@@ -5,6 +5,7 @@ nav:
   - Bekannte Probleme: probleme.md
 theme:
   name: readthedocs
+site_dir: ../code/dist/documentation
 extra_css:
   - extra.css
 use_directory_urls: true

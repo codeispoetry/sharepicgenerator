@@ -27,6 +27,6 @@ services:
       - '9001:8080'
     volumes:
       - ./mkdocs:/mkdocs
-      - ./code/dist/documentation:/mkdocs/site
+      - ./code:/code
 networks:
   sharepicgenerator:
