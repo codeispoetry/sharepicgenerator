@@ -3,6 +3,8 @@
 ## Zweck
 Mit dem Sharepicgenerator kann man Bilder im Corporate Design von BÜNDNIS 90/ DIE GRÜNEN erstellen und herunterladen.
 
+![Beispiel](img/example1.jpg)
+
 ## Features
 - Anpassbare Ausgabegröße
 - Bildausschnitt frei wählbar
