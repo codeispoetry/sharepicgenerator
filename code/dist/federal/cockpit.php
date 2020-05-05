@@ -258,9 +258,9 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
-                <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" >speichern</button>
-                <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load">öffnen</button>
-                <button type="button" class="btn btn-info btn-sm d-none" id="delete" data-click="unlink">löschen</button>
+                <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" ><i class="fas fa-save"></i> speichern</button>
+                <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load"><i class="fas fa-folder-open"></i> öffnen</button>
+                <button type="button" class="btn btn-info btn-sm d-none" id="delete" data-click="unlink"><i class="fas fa-trash-alt"></i> löschen</button>
             </div>
             <div class="saving-response text-secondary"></div>
         </div>
