@@ -1,8 +1,9 @@
 site_name: Sharepicgenerator
 nav:
-  - Bedienung: index.md
-  - Features: features.md
-  - Bekannte Probleme: probleme.md
+  - Einleitung: index.md
+  - Was ist ein Sharepic: was.md
+  - Wie kann ich ein Sharepic erstellen: wie.md
+  - Profieinstellungen: profi.md
 theme:
   name: null
   custom_dir: 'theme/'

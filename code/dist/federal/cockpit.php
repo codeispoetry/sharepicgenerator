@@ -12,7 +12,7 @@
                 </span>
             </div>
             <small class="cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
-               Erweiterte Einstellungen <i class="fa fa-caret-down"></i>
+               Bildeinstellungen <i class="fa fa-caret-down"></i>
             </small>
             <div class="mb-1 list-group-item-content collapse preferences-pic">
                 <div class="slider novideo">
@@ -136,7 +136,7 @@
                 </div>
                
                 <small class="text-primary cursor-pointer preferences-text-btn" data-toggle="collapse" data-target=".preferences-text" aria-expanded="false" aria-controls="collapsePreferecesPic">
-                    Weitere Einstellungen <i class="fa fa-caret-down"></i>
+                    Texteinstellungen <i class="fa fa-caret-down"></i>
                 </small>
                 <div class="collapse preferences-text">
                     <div class="d-flex justify-content-between">
