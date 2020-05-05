@@ -125,7 +125,7 @@ $accessToken = createAccessToken( $user );
     <div class="col-12 col-lg-6 text-lg-right">
         <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"><i class="fas fa-comment-dots"></i> Feedback</a>
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> Quellcode</a>
-        <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i>Impressum</a>
+        <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
         <span class="ml-3">
             <i class="fas fa-spa text-yellow"></i> Programmiert von
             <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.</span>
