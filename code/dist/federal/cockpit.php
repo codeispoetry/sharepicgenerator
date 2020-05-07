@@ -257,6 +257,21 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="mb-1 list-group-item-content">
+                <span class="text-primary cursor-pointer addpicclicker">
+                        <i class="fa fa-upload"></i> Portrait hochladen
+                    </span>
+                <div class="mb-1 mt-2">
+                    <div class="slider">
+                        <small>klein</small>
+                        <input type="range" class="custom-range" name="addPicSize" id="addPicSize" min="1" max="100" value="15">
+                        <small>groß</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" ><i class="fas fa-save"></i> speichern</button>
                 <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load"><i class="fas fa-folder-open"></i> öffnen</button>
@@ -272,9 +287,12 @@
             <input type="hidden" name="backgroundY" id="backgroundY">
             <input type="hidden" name="backgroundURL" id="backgroundURL">
             <input type="hidden" name="iconfile" id="iconfile">
+            <input type="hidden" name="addpicfile" id="addpicfile">
             <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
             <input type="hidden" name="textX" id="textX">
             <input type="hidden" name="textY" id="textY">
+            <input type="hidden" name="addPicX" id="addPicX">
+            <input type="hidden" name="addPicY" id="addPicY">
             <input type="hidden" name="textColor" id="textColor" value="0">
 
         </div>
@@ -285,6 +303,7 @@
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
+        <input type="file" class="custom-file-input upload-file" id="uploadaddpic" accept="image/*">
     </div>
 
 
