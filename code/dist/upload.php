@@ -29,6 +29,9 @@ switch( $id ){
     case "uploadbyurl":
         handle_uploadbyurl();
         break;
+    case "uploadaddpic":
+        handle_addpic_upload();
+        break;
     default:
         echo json_encode(array("error"=>"nothing done. id=" . $id));
         die();
@@ -79,6 +82,21 @@ function handle_icon_upload(){
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
     $return['iconfile'] = '../' . $filename;
+    $return['okay'] = true;
+
+    echo json_encode($return);
+
+}
+
+function handle_addpic_upload(){
+    global $extension;
+
+    $filebasename = 'tmp/' . uniqid('addpic');
+    $filename = $filebasename . '.' . $extension;
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
+    $return['addpicfile'] = '../' . $filename;
     $return['okay'] = true;
 
     echo json_encode($return);
