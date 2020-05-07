@@ -14,7 +14,7 @@ const addPic = {
 
         var pic = draw.image($('#addpicfile').val(), function (event) {
 
-            circleMask.move(pic.width()/2, pic.height() / 2 ).radius( pic.height() / 2  - 5).back();
+            circleMask.move(pic.width()/2, pic.height() / 2 ).radius( pic.height() / 2  - 3).back();
             pic.maskWith( circleMask );
             addPic.svg.add(pic);
 
