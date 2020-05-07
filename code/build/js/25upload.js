@@ -62,6 +62,10 @@ $('.upload-file').change(function (event) {
                 icon.load();
                 $('.iconsizeselectwrapper').removeClass('d-none');
                 break;
+            case "uploadaddpic":
+                $('#addpicfile').val(obj.addpicfile);
+                addPic.draw();
+                break;
             default:
                 console.log("error in upload", obj);
         }
@@ -174,4 +178,9 @@ $('.uploadlogoclicker').click(function(){
 $('.uploadiconclicker').click(function(){
     $('#uploadicon').click();
 });
+
+$('.addpicclicker').click(function(){
+    $('#uploadaddpic').click();
+});
+
 
