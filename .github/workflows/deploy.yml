@@ -7,9 +7,6 @@ on:
 jobs:
   postdeploy-test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.6]
     container:
       image: node:13.6
       options: --network-alias testHost
@@ -28,13 +25,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+      - name: Install Webdriver
         run: |
-          pip install selenium
+          npm install selenium-webdriver
+
       - name: Run test
         run: |
-          python tests/test.py
+          echo "Hi"
