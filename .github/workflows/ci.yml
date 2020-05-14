@@ -78,10 +78,10 @@ jobs:
           npm install @actions/core selenium-webdriver
 
       - name: Add Password
-          env:
-            PASSWORD_JSON: ${{ secrets.PASSWORD_JSON }}
-          run: |
-            echo "$PASSWORD_JSON" > "tests/auth.json"
+        env:
+          PASSWORD_JSON: ${{ secrets.PASSWORD_JSON }}
+        run: |
+          echo "$PASSWORD_JSON" > "tests/auth.json"
 
       - name: Run test
         run: |
