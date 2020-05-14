@@ -1,3 +1,4 @@
+const core = require('@actions/core');
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
 (async function example() {
