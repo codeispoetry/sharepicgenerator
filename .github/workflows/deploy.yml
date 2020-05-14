@@ -35,4 +35,4 @@ jobs:
       - name: Run test
         run: |
           cd tests
-          SELENIUM_REMOTE_URL="http://testHost:4444/wd/hub" node test.js
+          SELENIUM_REMOTE_URL="http://testHost/wd/hub" node test.js
