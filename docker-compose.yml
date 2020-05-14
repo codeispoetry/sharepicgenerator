@@ -43,11 +43,5 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
-  python:
-    build: docker/python
-    volumes:
-      - ./tests:/tests
-    networks:
-      - sharepicgenerator
 networks:
   sharepicgenerator:
