@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Webdriver
         run: |
-          npm install selenium-webdriver
+          npm install @actions/core selenium-webdriver
 
       - name: Run test
         run: |
