@@ -34,22 +34,8 @@ get-log:
 get-passwords:
 	docker-compose exec webserver rsync tom@sharepicgenerator.de:/var/www/html/passwords.php dist/passwords.php
 
-tests:
-	docker-compose exec webserver python tests/test-federal.py
-	docker-compose exec webserver python tests/test-bayern.py
-	docker-compose exec webserver python tests/test-vintage.py
-
-test-federal:
-	docker-compose exec webserver python tests/test-federal.py
-
-test-vintage:
-	docker-compose exec webserver python tests/test-vintage.py
-
-test-bayern:
-	docker-compose exec webserver python tests/test-bayern.py
-
-test-live:
-	docker-compose exec webserver python tests/test-live.py
+test:
+	docker-compose run python python /tests/test.py
 
 doc:
 	docker-compose exec mkdocs mkdocs build
