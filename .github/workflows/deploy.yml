@@ -16,17 +16,13 @@ jobs:
     services:
       hub:
         image: selenium/hub:3.141.59-gold
-      firefox:
-        image: selenium/node-firefox:3.141.59-gold
+      chrome:
+        image: selenium/node-chrome:3.141.59-20200409
         env:
           HUB_HOST: hub
           HUB_PORT: 4444
     steps:
       - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
 
       - name: Install Webdriver
         run: |
@@ -35,4 +31,4 @@ jobs:
       - name: Run test
         run: |
           cd tests
-          SELENIUM_REMOTE_URL="http://testHost" node test.js
+          SELENIUM_REMOTE_URL="http://testHost:4444/wd/hub" node test.js
