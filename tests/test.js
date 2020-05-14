@@ -5,10 +5,10 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
     try {
         await driver.get('https://sharepicgenerator.de');
         //await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-        await driver.wait(until.titleIs('Sharepicgeneratorf'), 1000);
+        await driver.wait(until.titleIs('Sharepicgeneratord'), 1000);
         console.log("passed");
-    } catch(e){
-        throw "Test failed";
+    } catch( error ){
+        core.setFailed(error.message);
     } finally {
         await driver.quit();
     }
