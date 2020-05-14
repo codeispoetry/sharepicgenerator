@@ -32,8 +32,11 @@ jobs:
         run: |
           cd tests
           npm install selenium-webdriver
+          ls -l
 
       - name: Run test
         run: |
+          pwd
           cd tests
+          pwd
           SELENIUM_REMOTE_URL="testHost/wd/hub" node test.js
