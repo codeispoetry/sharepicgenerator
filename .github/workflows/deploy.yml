@@ -2,9 +2,51 @@ name: Deployment
 
 on:
   push:
-    branches: [ test ]
+    branches: [ master ]
 
 jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-bootstrap
+      - name: Build documentation
+        run: |
+          cd mkdocs
+          mkdocs build
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Install webpack
+        run: |
+          cd code
+          npm install
+          npm run build:production
+      - name: add deploy_key
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          echo "$DEPLOY_KEY" > "$HOME/deploy_key"
+          chmod 600 "$HOME/deploy_key"
+      - name: rsync files
+        run: |
+          pwd
+          rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" --exclude-from 'deployment/exclude-list.txt' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
+
+
   postdeploy-test:
     runs-on: ubuntu-latest
 
