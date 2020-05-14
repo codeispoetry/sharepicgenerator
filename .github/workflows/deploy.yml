@@ -67,3 +67,9 @@ jobs:
         env:
           HUB_HOST: hub
           HUB_PORT: 4444
+    steps:
+      - uses: actions/checkout@v2
+        -
+      - name: run test
+      run: |
+        echo "test is running"
