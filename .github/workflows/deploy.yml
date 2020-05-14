@@ -30,6 +30,7 @@ jobs:
 
       - name: Install Webdriver
         run: |
+          cd tests
           npm install selenium-webdriver
 
       - name: Run test
