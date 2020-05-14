@@ -69,7 +69,7 @@ jobs:
           HUB_PORT: 4444
     steps:
       - uses: actions/checkout@v2
-        -
+
       - name: run test
-      run: |
-        echo "test is running"
+        run: |
+          echo "test is running"
