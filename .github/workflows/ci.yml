@@ -32,6 +32,7 @@ jobs:
       - name: Save version
         run: |
           echo $GITHUB_SHA > code/dist/version.txt
+          date >> code/dist/version.txt
 
       - name: Install webpack dependencies
         run: |
