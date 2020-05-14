@@ -7,15 +7,12 @@ on:
 jobs:
   postdeploy-test:
     runs-on: ubuntu-latest
-    container:
-      image: node:13.6
-      options: --network-alias testHost
-    env:
-      SELENIUM_HUB_HOST: hub
-      TEST_HOST: testHost
+
     services:
       hub:
         image: selenium/hub:3.141.59-gold
+        ports:
+          - 4444:4444
       chrome:
         image: selenium/node-chrome:3.141.59-20200409
         env:
@@ -31,4 +28,4 @@ jobs:
       - name: Run test
         run: |
           cd tests
-          SELENIUM_REMOTE_URL="http://testHost:4444/wd/hub" node test.js
+          SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" node test.js
