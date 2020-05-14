@@ -45,3 +45,24 @@ jobs:
         run: |
           pwd
           rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" --exclude-from 'deployment/exclude-list.txt' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
+  postdeploy-test:
+    runs-on: ubuntu-latest
+    container:
+      image: node:13.6
+      options: --network-alias testHost
+    env:
+      SELENIUM_HUB_HOST: hub
+      TEST_HOST: testHost
+    services:
+      hub:
+        image: selenium/hub:3.141.59-gold
+      firefox:
+        image: selenium/node-firefox:3.141.59-gold
+        env:
+          HUB_HOST: hub
+          HUB_PORT: 4444
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: echo "HI"
