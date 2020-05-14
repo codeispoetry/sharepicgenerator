@@ -29,6 +29,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
+      - name: Save version
+        run: |
+          echo $GITHUB_SHA > code/dist/version.txt
 
       - name: Install webpack
         run: |
