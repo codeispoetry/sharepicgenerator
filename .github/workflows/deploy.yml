@@ -7,6 +7,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    container:
+      image: node:13.6
+      options: --network-alias testHost
+      env:
+        SELENIUM_HUB_HOST: hub
+        TEST_HOST: testHost
+      services:
+        hub:
+          image: selenium/hub:3.141.59-gold
+        firefox:
+          image: selenium/node-firefox:3.141.59-gold
+          env:
+            HUB_HOST: hub
+            HUB_PORT: 4444
     strategy:
       matrix:
         python-version: [3.6]
