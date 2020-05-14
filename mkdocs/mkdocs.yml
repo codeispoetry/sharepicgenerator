@@ -29,5 +29,5 @@ use_directory_urls: true
 plugins:
   - search:
       lang: de
-dev_addr: '0.0.0.0:8080'
+#dev_addr: '0.0.0.0:8080' # local only
 
