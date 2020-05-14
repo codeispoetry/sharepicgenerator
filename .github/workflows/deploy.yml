@@ -25,10 +25,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
       - name: Install Webdriver
         run: |
           npm install selenium-webdriver
 
       - name: Run test
         run: |
-          echo "Hi"
+          cd tests
+          SELENIUM_REMOTE_URL="testHost/wd/hub" node test.js
