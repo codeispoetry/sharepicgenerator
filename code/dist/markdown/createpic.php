@@ -1,6 +1,6 @@
 <?php
 $uniqid = uniqid('md2html');
-//$uniqid = "1";
+$uniqid = "1";
 $filename = 'tmp/' . $uniqid . '.html';
 $filenamePic = 'tmp/' . $uniqid . '.png';
 
