@@ -119,13 +119,24 @@
                     let obj = JSON.parse(data);
                     $('#download').prop("disabled", false);
                     $('#download').html(description);
-                    let downloadname = "foo";
+                    let downloadname = sanitizeDownloadname($('#input').val());
 
                     window.location.href = 'download.php?file=' + obj.basename + '&downloadname=' + downloadname;
                 }
             });
         });
 
+        function sanitizeDownloadname( input ) {
+            let downloadname = input.toLowerCase();console.log(downloadname);
+
+            downloadname = downloadname.replace(/[^a-zA-Z0-9]/g, '-');
+            downloadname = downloadname.replace(/\-+/g, '-');
+            downloadname = downloadname.replace(/^\-/g, '');
+            downloadname = downloadname.replace(/\-$/g, '');
+
+            downloadname = downloadname.substring(0, 20);
+            return downloadname;
+        }
     });
 </script>
 
