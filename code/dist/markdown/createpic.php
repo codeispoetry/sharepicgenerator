@@ -1,5 +1,4 @@
 <?php
-
 $uniqid = uniqid('md2html');
 //$uniqid = "1";
 $filename = 'tmp/' . $uniqid . '.html';
@@ -11,7 +10,10 @@ $height = (int) $_POST['height'];
 
 file_put_contents($filename, sprintf("<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"../styles.css\"><link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/css/styles.css\"></head><body>%s</body></html>",$html));
 
-$command = sprintf("chromium --headless --screenshot=%s --disable-gpu -default-background-color=0 --no-sandbox --window-size=%d,%d %s 2>&1", $filenamePic, $width, $height, $filename);
+exec("type chromium", $output);
+$browser = ( strpos($output[0],'not found') ) ? 'chromium-browser' : 'chromium';
+
+$command = sprintf("%s --headless --screenshot=%s --disable-gpu -default-background-color=0 --no-sandbox --window-size=%d,%d %s 2>&1", $browser, $filenamePic, $width, $height, $filename);
 exec( $command, $output );
 
 $command = sprintf("chmod 755 %s", $filenamePic);
