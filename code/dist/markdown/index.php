@@ -95,9 +95,10 @@
 <script src="../vendor/bootstrap.min.js"></script>
 <script src="../vendor/bootstrap4-toggle.min.js"></script>
 <script src="./vendor/markdown-it.min.js"></script>
+<script src="./vendor/markdown-it-emoji.min.js"></script>
 <script>
     $( document ).ready(function() {
-        let md = window.markdownit();
+        let md = window.markdownit().use(window.markdownitEmoji);;
 
         function render() {
             let html = md.render( $('#input').val());
