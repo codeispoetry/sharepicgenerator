@@ -27,6 +27,7 @@
     <style type="text/css">
         #input{
             min-height: 10em;
+            font-family: "Courier New", Courier, monospace;
         }
         #output{
             border: 1px solid black;
@@ -39,6 +40,8 @@
     <div class="row">
 
        <div class="col-6">
+           <h2>Input</h2>
+           <textarea class="form-control" id="input"><?php require_once("start.md");?></textarea>
            <div class="d-flex">
 
                <label for="width" class="col-sm-2 col-form-label">Breite</label>
@@ -48,13 +51,15 @@
 
            </div>
 
-            <textarea class="form-control" id="input"><?php require_once("start.md");?></textarea>
-           <button class="btn btn-secondary btn-lg" id="download">
-               <i class="fas fa-download"></i> Herunterladen
-           </button>
+            <div class="text-center">
+               <button class="btn btn-secondary btn-lg mt-3" id="download">
+                   <i class="fas fa-download"></i> Herunterladen
+               </button>
+            </div>
        </div>
 
         <div class="col-6">
+            <h2>Output</h2>
            <div id="output">
 
            </div>
@@ -97,6 +102,7 @@
             let width = $('#width').val();
             let height = $('#height').val();
             $('#output').css({width: width, height: height});
+            $('#input').css({height: height});
         }
         setSize();
         $('.size').bind('input propertychange', setSize );
