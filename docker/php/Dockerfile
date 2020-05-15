@@ -14,7 +14,7 @@ RUN docker-php-ext-enable oauth
 #RUN apt-get install python-pip -y
 #RUN pip install selenium
 
-#RUN apt-get install -y chromium
+RUN apt-get install -y chromium
 #RUN wget https://chromedriver.storage.googleapis.com/78.0.3904.105/chromedriver_linux64.zip
 #RUN unzip chromedriver_linux64.zip
 #RUN chmod +x chromedriver
