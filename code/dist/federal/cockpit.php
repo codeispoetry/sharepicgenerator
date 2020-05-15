@@ -250,8 +250,14 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
                 <span class="text-primary cursor-pointer addpicclicker">
-                        <i class="fa fa-upload"></i> Portrait hochladen
-                    </span>
+                    <i class="fa fa-upload"></i> Portrait hochladen
+                </span>
+                <div>
+                    <label>
+                        <input type="checkbox" name="addpicrounded" id="addpicrounded">
+                        rund
+                    </label>
+                </div>
                 <div class="mb-1 mt-2">
                     <div class="slider">
                         <small>klein</small>
