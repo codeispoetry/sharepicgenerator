@@ -26,6 +26,11 @@ const addPic = {
         });
     },
 
+    delete: function(){
+        addPic.svg.remove();
+        addPic.svg = draw.circle(0);
+    },
+
     resize: function () {
         let percentage = draw.width() * parseInt($('#addPicSize').val()) / 100;
         addPic.svg.size(percentage);
@@ -36,4 +41,7 @@ const addPic = {
 
 $('#addPicSize').bind('input propertychange', addPic.resize);
 $('#addpicrounded').bind('input propertychange', addPic.draw);
+$('#addpicdelete').bind('click', addPic.delete);
+
+
 
