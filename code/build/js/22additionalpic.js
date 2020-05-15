@@ -15,7 +15,11 @@ const addPic = {
         var pic = draw.image($('#addpicfile').val(), function (event) {
 
             circleMask.move(pic.width()/2, pic.height() / 2 ).radius( pic.height() / 2  - 3).back();
-            pic.maskWith( circleMask );
+            if( $('#addpicrounded').prop("checked")) {
+                pic.maskWith(circleMask);
+            }else{
+                circleMask.size(0);
+            }
             addPic.svg.add(pic);
 
             addPic.resize();
@@ -31,4 +35,5 @@ const addPic = {
 
 
 $('#addPicSize').bind('input propertychange', addPic.resize);
+$('#addpicrounded').bind('input propertychange', addPic.draw);
 
