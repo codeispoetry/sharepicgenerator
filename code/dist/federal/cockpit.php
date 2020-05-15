@@ -249,14 +249,12 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
-                <span class="text-primary cursor-pointer addpicclicker">
-                    <i class="fa fa-upload"></i> Portrait hochladen
-                </span>
-                <div>
-                    <label>
-                        <input type="checkbox" name="addpicrounded" id="addpicrounded">
-                        rund
-                    </label>
+                <div class="d-flex w-100 justify-content-between">
+                     <span class="text-primary cursor-pointer addpicclicker">
+                        <i class="fa fa-upload"></i> Zusatzbild (Portrait) hochladen
+                    </span>
+                    <small class="text-primary cursor-pointer" id="addpicdelete"><i class="fas fa-trash"></i>
+                        löschen</small>
                 </div>
                 <div class="mb-1 mt-2">
                     <div class="slider">
@@ -264,6 +262,12 @@
                         <input type="range" class="custom-range" name="addPicSize" id="addPicSize" min="1" max="100" value="15">
                         <small>groß</small>
                     </div>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="addpicrounded" id="addpicrounded">
+                        rund
+                    </label>
                 </div>
             </div>
         </div>
