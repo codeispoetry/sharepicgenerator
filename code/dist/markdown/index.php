@@ -30,7 +30,7 @@
             font-family: "Courier New", Courier, monospace;
         }
         #output{
-            border: 1px solid black;
+           box-shadow: gray 3px 3px 8px;
         }
     </style>
 
@@ -38,9 +38,14 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-
+        <div class="col-12 text-center"><h2>Tabellen-Generator</h2></div>
        <div class="col-6">
-           <h2>Input</h2>
+           <h4>Input</h4>
+           <small>
+               <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">
+                   in Markdown-Syntax. <i class="fab fa-markdown"></i> Hier gibt es Hilfe zu Markdown.
+               </a>
+           </small>
            <textarea class="form-control" id="input"><?php require_once("start.md");?></textarea>
            <div class="d-flex">
 
@@ -50,21 +55,23 @@
                <input type="number" id="height" class="form-control size" value="250"  min="200" max="1080">
 
            </div>
-
-            <div class="text-center">
-               <button class="btn btn-secondary btn-lg mt-3" id="download">
-                   <i class="fas fa-download"></i> Herunterladen
-               </button>
-            </div>
        </div>
 
         <div class="col-6">
-            <h2>Output</h2>
+            <h4>Output</h4>
+            <small>
+                HTML-Output. Kann in den Developertools per Hand verändert werden.
+            </small>
            <div id="output">
 
            </div>
        </div>
 
+        <div class="col-12 text-center">
+            <button class="btn btn-secondary btn-lg mt-3" id="download">
+                <i class="fas fa-download"></i> Bild herunterladen
+            </button>
+        </div>
     </div>
 </div>
 
