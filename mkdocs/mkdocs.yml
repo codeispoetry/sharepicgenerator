@@ -3,6 +3,7 @@ nav:
   - Einleitung: index.md
   - Was ist ein Sharepic: was.md
   - Wie kann ich ein Sharepic erstellen: wie.md
+  - Tabellen erstellen: markdown.md
   - Profieinstellungen: profi.md
 theme:
   name: null
