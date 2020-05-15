@@ -14,7 +14,11 @@ const addPic = {
 
         var pic = draw.image($('#addpicfile').val(), function (event) {
 
-            circleMask.move(pic.width()/2, pic.height() / 2 ).radius( pic.height() / 2  - 3).back();
+            let radius = pic.height();
+            if( pic.height() > pic.width() ){
+                radius = pic.width();
+            }
+            circleMask.move(pic.width()/2, pic.height() / 2 ).radius( radius / 2  - 3).back();
             if( $('#addpicrounded').prop("checked")) {
                 pic.maskWith(circleMask);
             }else{
