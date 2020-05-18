@@ -2,7 +2,12 @@
 $actiondaysIni = parse_ini_file('../ini/actiondays.ini', TRUE);
 $actiondays = [];
 foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
-    $month = (int) strftime("%m", strToTime( $actionDayInfo['strtotime']));
+    $timestamp = strToTime( $actionDayInfo['strtotime'] . " + 23 hours 59 minutes");
+    if( $timestamp == 0 ){
+        continue;
+    }
+
+    $month = (int) strftime("%m", $timestamp);
     $actiondays[ $month ][] = $actionDayInfo;
 }
 ?>
@@ -60,7 +65,9 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                                 <?php
                                 if( isset($actiondays[ $month ])) {
                                     foreach ($actiondays[$month] AS $actionday) {
-                                        printf('<li>%s: <a href="%s" target="_blank">%s</a></li>', strftime("%A, den %e. %B %G", strToTime($actionday['strtotime'])), $actionday['url'], $actionday['description']);
+                                        $timestamp = strToTime($actionday['strtotime']);
+                                        if( $timestamp == 0 ) continue;
+                                        printf('<li>%s: <a href="%s" target="_blank">%s</a></li>', strftime("%A, den %e. %B %G", $timestamp), $actionday['url'], $actionday['description']);
                                     }
                                 }
                                 ?>
