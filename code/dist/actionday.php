@@ -1,6 +1,4 @@
 <?php
-setlocale (LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge',' de_DE.UTF-8','de_DE.utf8');
-
 
 $actionsdays = parse_ini_file('ini/actiondays.ini', TRUE);
     foreach ($actionsdays AS $name => $day) {
