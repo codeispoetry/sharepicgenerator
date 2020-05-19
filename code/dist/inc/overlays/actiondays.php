@@ -7,7 +7,7 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
         continue;
     }
 
-    $month = (int) strftime("%m", $timestamp);
+    $month = date("n", $timestamp);
     $actiondays[ $month ][] = $actionDayInfo;
 }
 ?>
@@ -30,7 +30,7 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                         $name = strftime("%B", mktime(0,0,0,$month, 1, date('Y')));
                         $active = '';
 
-                        if( $month == (int) strftime("%m",mktime())){
+                        if( $month == date("n" )){
                             $active = 'active';
                         }
                     ?>
@@ -47,14 +47,14 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                 <div class="tab-content">
 
                     <?php
-                    $thisOrNextYear = 1;
+                    $nextYear =' next year ';
                     for($month = 1; $month <=12; $month++) {
                         $id = "month" . $month;
                         $name = strftime("%B", mktime(0, 0, 0, $month, 1, date('Y')));
                         $active = '';
 
-                        if ($month == (int)strftime("%m", mktime())) {
-                            $thisOrNextYear = 0;
+                        if ($month == date("n" )) {
+                            $nextYear ='';
                             $active = 'active';
                         }
                         ?>
@@ -67,7 +67,7 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                                 <?php
                                 if( isset($actiondays[ $month ])) {
                                     foreach ($actiondays[$month] AS $actionday) {
-                                        $timecode = $actionday['strtotime'] . ( date("Y") + $thisOrNextYear );
+                                        $timecode = $actionday['strtotime'] . $nextYear;
                                         $timestamp = strToTime( $timecode );
                                         if( $timestamp == 0 ) continue;
                                         printf('<li>%s: <a href="%s" target="_blank">%s</a></li>', strftime("%A, den %e. %B %G", $timestamp), $actionday['url'], $actionday['description']);
