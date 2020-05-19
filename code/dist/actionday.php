@@ -30,7 +30,7 @@ $actionsdays = parse_ini_file('ini/actiondays.ini', TRUE);
 <div class="col-12 text-center mb-5">
     <i class="far fa-hand-point-right"></i>
     Sharepic-Idee:
-    <?php printf('%s ist <a href="%s" target="_blank"><i class="fas fa-external-link-alt ml-2 mr-1 small"></i>%s</a>.', $remainingTimeText, $day['url'], $day['description']); ?>
+    <?php printf('%s ist <a href=#" class="overlay-opener" data-target="actiondays">%s</a>.', $remainingTimeText, $day['description']); ?>
 </div>
 
 <?php
