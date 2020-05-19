@@ -10,7 +10,7 @@ const addPic = {
              circleMask.move(pic.x(), pic.y());
         });
 
-        var circleMask = draw.circle(10).fill({color: '#fff'});
+        var circleMask = draw.circle(0).fill({color: '#fff'});
 
         var pic = draw.image($('#addpicfile').val(), function (event) {
 
@@ -18,8 +18,9 @@ const addPic = {
             if( pic.height() > pic.width() ){
                 radius = pic.width();
             }
-            circleMask.move(pic.width()/2, pic.height() / 2 ).radius( radius / 2  - 3).back();
+
             if( $('#addpicrounded').prop("checked")) {
+                circleMask.move(pic.width()/2, pic.height() / 2 ).radius( radius / 2  - 3).back();
                 pic.maskWith(circleMask);
             }else{
                 circleMask.size(0);
@@ -27,6 +28,8 @@ const addPic = {
             addPic.svg.add(pic);
 
             addPic.resize();
+
+            text.svg.front();
         });
     },
 
@@ -44,7 +47,7 @@ const addPic = {
 
 
 $('#addPicSize').bind('input propertychange', addPic.resize);
-$('#addpicrounded').bind('input propertychange', addPic.draw);
+$('#addpicrounded').bind('change', addPic.draw);
 $('#addpicdelete').bind('click', addPic.delete);
 
 

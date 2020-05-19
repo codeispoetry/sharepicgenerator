@@ -261,23 +261,23 @@
                         <small>klein</small>
                         <input type="range" class="custom-range" name="addPicSize" id="addPicSize" min="1" max="100" value="15">
                         <small>groß</small>
+                        <div class="ml-3">
+                            <label>
+                                <input type="checkbox" name="addpicrounded" id="addpicrounded" data-size="xs" data-toggle="toggle" data-on="eckig" data-off="rund">
+                            </label>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <label>
-                        <input type="checkbox" name="addpicrounded" id="addpicrounded">
-                        rund
-                    </label>
-                </div>
+
             </div>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <span class="mr-2">Hintergrund:</span>
-               <input id="color-scheme" type="checkbox" data-size="sm" data-toggle="toggle" data-on="dunkel" data-off="hell">
+               <input id="color-scheme" type="checkbox" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
                 <span class="ml-5 mr-2">Hilflinien:</span>
-               <input id="gridlines" type="checkbox" data-size="sm" data-toggle="toggle" data-on="an" data-off="aus">
+               <input id="gridlines" type="checkbox" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
 
