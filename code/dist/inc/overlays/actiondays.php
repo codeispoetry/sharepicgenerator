@@ -44,7 +44,7 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                 </ul>
             </div>
             <div class="row mt-2">
-                <div class="tab-content">
+                <div class="tab-content w-75">
 
                     <?php
                     $nextYear =' next year ';
@@ -76,12 +76,13 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                                 ?>
                                 </ul>
 
-                                <div class="small">
+                                <div class="small mt-5 font-italic text-right">
                                 <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">
                                     Fehlende Tage kannst Du im Chat melden</a>
                                     oder als
                                 <a href="https://github.com/codeispoetry/sharepicgenerator/blob/master/code/dist/ini/actiondays.ini" target="_blank">
                                     Pull-request auf github</a>.
+                                    Alle Angaben ohne Gewähr.
                                 </div>
                             </div>
 
