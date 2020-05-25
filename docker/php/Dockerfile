@@ -1,6 +1,6 @@
 FROM php:7.2-apache
 
-RUN apt-get update && apt-get install -y inkscape ssh ffmpeg webp locales locales-all
+RUN apt-get update && apt-get install -y inkscape ssh ffmpeg webp locales locales-all facedetect
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/dist
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
