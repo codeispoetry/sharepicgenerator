@@ -221,9 +221,15 @@ function prepare_file_and_send_info( $filename, $filename_small ){
     $return['originalWidth'] = $originalWidth;
     $return['originalHeight'] = $originalHeight;
     $return['fullBackgroundName'] = $filename;
+    $return['warning'] = (has_face($filename)) ? 'face' : '';
 
     echo json_encode($return);
     die();
 }
 
+function has_face( $filename ){
+    $command = sprintf("facedetect %s", $filename);
+    exec( $command, $output );
+    return !empty($output);
+}
 
