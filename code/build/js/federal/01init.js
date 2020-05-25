@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#text').val("Jedes Leben\nist [heilig].");
+    $('#text').val("Neue Zeiten\nneue [Antworten].");
 });
 
 function reset(){
