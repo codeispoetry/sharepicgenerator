@@ -86,7 +86,7 @@ $accessToken = createAccessToken( $user );
 
 
             <?php
-                // require_once("../actionday.php");
+                 require_once("../actionday.php");
             ?>
 
             <?php
