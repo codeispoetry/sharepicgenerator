@@ -1,14 +1,12 @@
 <?php
 
-require_once( 'functions.php');
+require_once('functions.php');
 
 if( !isAllowed() ) {
     returnJsonErrorAndDie('not allowed');
 }
 
 deleteUserLogo( getUser() );
-
-
 
 
 function deleteUserLogo( $user ){
