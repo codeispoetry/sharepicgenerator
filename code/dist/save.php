@@ -1,8 +1,9 @@
 <?php
 
+require_once('functions.php');
+
 if( !isset($_POST['user'] )) die();
 if( !isset($_POST['accesstoken'] )) die();
-
 
 $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
 $accesstoken = preg_replace('/[^a-zA-Z0-9]/','', $_POST['accesstoken']);
@@ -32,18 +33,6 @@ switch( $action ){
 }
 
 
-
-
-function checkPermission( $user, $accesstoken){
-    $userDir = 'persistent/user/' . $user;
-    if( !file_exists($userDir)){
-        return false;
-    }
-
-    return ( file_get_contents( sprintf('%s/accesstoken.php',$userDir)) == $accesstoken);
-}
-
-
 function deleteSavedPic( $user ){
     $userDir = sprintf('persistent/user/%s', $user);
     $userSaveFile = $userDir . '/save.txt';
@@ -58,6 +47,7 @@ function deleteSavedPic( $user ){
         unlink($userSaveFile);
     }
 }
+
 
 function savePic( $user, $data ){
 
