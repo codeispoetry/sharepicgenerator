@@ -33,7 +33,7 @@ $accessToken = createAccessToken( $user );
     <meta charset="utf-8"/>
     <meta name="theme-color" content="#46962b">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sharepicgenerator</title>
+    <title>Sharepicgenerator NRW</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="../vendor/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
@@ -60,7 +60,7 @@ $accessToken = createAccessToken( $user );
        
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase h6"><a href="/index.php" class="text-body">Sharepicgenerator</a></h1>
+                <h1 class="text-uppercase h6"><a href="/index.php" class="text-body">Sharepicgenerator NRW</a></h1>
             </div>
             <div class="col-12">
                 <div id="canvas">
@@ -166,7 +166,7 @@ $accessToken = createAccessToken( $user );
 <script src="../vendor/svg.draggable.min.js"></script>
 <script src="../vendor/svg.filter.min.js"></script>
 <script src="../assets/js/main.min.js"></script>
-<script src="../assets/js/federal.min.js"></script>
+<script src="../assets/js/nrw.min.js"></script>
 
 </body>
 </html>
