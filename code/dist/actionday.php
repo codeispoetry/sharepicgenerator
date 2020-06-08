@@ -2,6 +2,10 @@
 
 $actionsdays = parse_ini_file('ini/actiondays.ini', TRUE);
     foreach ($actionsdays AS $name => $day) {
+        if(empty($day['strtotime'])){
+            continue;
+        }
+
         $timestamp = strToTime( $day['strtotime'] . " + 23 hours 59 minutes");
         if( $timestamp == 0 ){
             continue;
@@ -10,6 +14,7 @@ $actionsdays = parse_ini_file('ini/actiondays.ini', TRUE);
             switch( floor( ( ($timestamp - time() )/3600/24))){
                 case 0:
                     $remainingTimeText = "Heute ";
+                    print_r($day);
                     break;
                 case 1:
                     $remainingTimeText = "Morgen";
