@@ -20,8 +20,32 @@ module.exports = (env = {}) => {
                 name: 'result',
                 outputPath: "./js/",
                 injectType: "none",
-                fileName: 'main.bundled.js',
-                filesToConcat: [ './build/js/*.js', './build/js/federal/*.js'],
+                fileName: 'main.min.js',
+                filesToConcat: [ './build/js/*.js'],
+                attributes: {
+                    async: true
+                }
+            }),
+            new ConcatPlugin({
+                uglify: isProduction,
+                sourceMap: isDevelopment,
+                name: 'result',
+                outputPath: "./js/",
+                injectType: "none",
+                fileName: 'federal.min.js',
+                filesToConcat: [ './build/js/federal/*.js'],
+                attributes: {
+                    async: true
+                }
+            }),
+            new ConcatPlugin({
+                uglify: isProduction,
+                sourceMap: isDevelopment,
+                name: 'result',
+                outputPath: "./js/",
+                injectType: "none",
+                fileName: 'nrw.min.js',
+                filesToConcat: [ './build/js/nrw/*.js'],
                 attributes: {
                     async: true
                 }
