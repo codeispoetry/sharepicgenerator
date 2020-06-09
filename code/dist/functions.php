@@ -2,9 +2,7 @@
 
 setlocale (LC_ALL, ' de_DE.UTF-8','de_DE.utf8');
 
-
 function isAllowed( ){
-
     if( !isset($_POST['accesstoken'] )) return false;
     $accesstoken = preg_replace('/[^a-zA-Z0-9]/','', $_POST['accesstoken']);
 
@@ -25,6 +23,7 @@ function getUser(){
     return $user;
 }
 
+
 function getUserDir(){
   $userDir = 'persistent/user/' . getUser();
   if( !file_exists( $userDir ) ){
@@ -39,6 +38,7 @@ function returnJsonErrorAndDie( $code = 1){
     echo json_encode(array('success'=>'false','error'=>array('code'=>$code)));
     die();
 }
+
 
 function returnJsonSuccessAndDie(){
     echo json_encode(array('success'=>'true'));
@@ -70,6 +70,7 @@ function createAccessToken( $user ){
     return $accessToken;
 }
 
+
 function isLocalUser(){
     $GLOBALS['user'] = "localuser";
     if( !isset($_POST['pass'])){
@@ -96,6 +97,7 @@ function isLocalUser(){
     return false;
 }
 
+
 function increaseLoginAttempts(){
     $file = '../loginattempts.txt';
     if( file_exists( $file ) ){
@@ -107,6 +109,7 @@ function increaseLoginAttempts(){
 
     file_put_contents( $file, $attempts );
 }
+
 
 function loginAttemptsLeft(){
     $file = '../loginattempts.txt';
@@ -125,9 +128,10 @@ function loginAttemptsLeft(){
     if( $attempts < 5 ){
         return true;
     }
-   
+
     return false;
 }
+
 
 function isDaysBefore($dayMonth, $days = 14 ){
     $day = new DateTime(sprintf('%s%d 23:59:59', $dayMonth, date('Y'))); // tag.monat.jahr
@@ -135,4 +139,14 @@ function isDaysBefore($dayMonth, $days = 14 ){
     $interval = $day->diff($today);
 
     return ( $interval->days < $days AND $interval->invert == 1);
+}
+
+
+function checkPermission( $user, $accesstoken){
+    $userDir = 'persistent/user/' . $user;
+    if( !file_exists($userDir)){
+        return false;
+    }
+
+    return ( file_get_contents( sprintf('%s/accesstoken.php',$userDir)) == $accesstoken);
 }
