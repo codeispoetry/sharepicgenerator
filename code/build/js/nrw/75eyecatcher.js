@@ -8,7 +8,7 @@ const pin = {
 
     svg: draw.circle(0),
 
-    load( file = "../assets/nrw/claim.svg"){
+    load( file = "../assets/nrw/eyecatcher.svg"){
         pin.svg.remove();
         pin.svg = draw.image( file, function (event) {
             pin.isLoaded = true;
@@ -20,7 +20,9 @@ const pin = {
     draw() {
         if (!pin.isLoaded) return false;
 
-        pin.svg.size( draw.width() * 0.33 ).move( 0, draw.height() - pin.svg.height() - 10 );
+
+        let offsetLeft = -154/948;
+        pin.svg.size( draw.width() * 0.33 ).move( offsetLeft * pin.svg.width(), draw.height() - pin.svg.height() - 70 );
         pin.svg.front();
     },
 

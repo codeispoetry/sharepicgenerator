@@ -7,5 +7,6 @@ function reset(){
     // do nothing, stay here
     if( pin != undefined ) {
         pin.draw();
+        claim.draw();
     }
 }
