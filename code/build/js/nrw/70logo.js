@@ -43,8 +43,8 @@ const logo = {
                     y = draw.height() - logo.svg.height() - 10 - 20;
                     break;
                 case 'bottomright':
-                    x = draw.width() - width - 10;
-                    y = draw.height() - logo.svg.height() - 10;
+                    x = draw.width() - width - 20;
+                    y = draw.height() - logo.svg.height() - 20;
                     break;
                 case 'bottomleftOutside':
                     x = -(width * 0.5) + 20;

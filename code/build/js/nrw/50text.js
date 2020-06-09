@@ -1,9 +1,9 @@
 const text = {
     svg: draw.text(''),
-    lineheights: [26, 40],
+    lineheights: [26, 32],
     colors: ['#ffffff', '#46962b'],
-    fontsizes: [23, 40],
-    yBiases: [0, -3],
+    fontsizes: [23, 32],
+    yBiases: [-4, -3],
     linemargin: 4,
     paddingLr: 5,
     font: {
