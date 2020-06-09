@@ -117,20 +117,9 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start collapse preferences-text">
-            <div class="mb-1 list-group-item-content">
-                <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
-                    <i class="fas fa-undo-alt text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"></i>
-                </div>
-                <div class="slider">
-                    <small>klein</small>
-                    <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
-                           max="300" value="100" disabled>
-                    <small>groß</small>
-                </div>
-            </div>
+        <div class="list-group-item list-group-item-action flex-column align-items-start preferences-text">
             <div class="d-flex align-items-lg-center">
+                    <input type="hidden" name="copyrightPosition" id="copyrightPosition" value="upperLeft">
                     <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
                     <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
