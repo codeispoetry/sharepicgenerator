@@ -68,7 +68,13 @@
 
                     </div>
                     <div class="tab-pane" id="pixabay-images" role="tabpanel" aria-labelledby="images-tab">
-                        <div class="col-12 pb-5 results">
+                        <div class="pixabay-hint">
+                            <a href="https://pixabay.com/" target="_blank" id="pixabay-link">
+                                Die Bilder stammen von
+                                <img src="/assets/img/pixabay.svg" alt="Pixabay">
+                            </a>
+                        </div>
+                        <div class="pb-5 results">
                             <h2>Bilder suchen</h2>
                             <p>
                                 Hier kannst Du Bilder von <a href="https://pixabay.com" target="_blank">Pixabay</a> suchen. 

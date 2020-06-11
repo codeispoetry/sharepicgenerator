@@ -61,6 +61,8 @@ function getPixabayImages(q) {
 
     $('#images-tab').tab('show');
     $('#pixabay-images .results').html("Suche Bilder ... ");
+
+    $('#pixabay-link').attr('href','https://pixabay.com/images/search/' + encodeURIComponent(q) );
     
     $.ajax({
         url: url,

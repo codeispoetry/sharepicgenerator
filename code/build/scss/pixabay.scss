@@ -1,8 +1,12 @@
 .results {
- 
+
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   img {
-    height: 80px;
+    height: 100px;
     margin: 0 10px 10px 0;
     cursor: pointer;
   }
@@ -16,3 +20,14 @@
   }
 }
 
+.pixabay{
+  &-hint{
+    text-align: right;
+    padding-bottom: 8px;
+    img{
+      height: 25px;
+      float: right;
+      margin-left: 1em;
+    }
+  }
+}
