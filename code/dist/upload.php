@@ -96,9 +96,7 @@ function handle_addpic_upload(){
 
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
-$command = sprintf("mogrify -auto-orient %s",
-        $filename
-    );
+    $command = sprintf("mogrify -auto-orient %s", $filename);
     exec($command);
 
     $return['addpicfile'] = '../' . $filename;
