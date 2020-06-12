@@ -57,8 +57,6 @@ const copyright = {
                 y = draw.height() - 12;
         }
 
-        console.log("y=",y);
-
         copyright.svg.move( 10, y )
             .rotate( -90, copyright.svg.x(), copyright.svg.y() )
             ;

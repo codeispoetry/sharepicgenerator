@@ -250,28 +250,31 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 list-group-item-content">
-                <div class="d-flex w-100 justify-content-between">
-                     <span class="text-primary cursor-pointer addpicclicker">
-                        <i class="fa fa-upload"></i> Zusatzbild (Portrait) hochladen
-                    </span>
-                    <small class="text-primary cursor-pointer" id="addpicdelete"><i class="fas fa-trash"></i>
-                        löschen</small>
-                </div>
-                <div class="mb-1 mt-2">
-                    <div class="slider">
-                        <small>klein</small>
-                        <input type="range" class="custom-range" name="addPicSize" id="addPicSize" min="1" max="100" value="15">
-                        <small>groß</small>
-                        <div class="ml-3">
-                            <label>
-                                <input type="checkbox" name="addpicrounded" id="addpicrounded" data-size="xs" data-toggle="toggle" data-on="eckig" data-off="rund">
-                            </label>
+           <?php for($i = 1; $i <=2; $i++){ ?>
+                <div class="mb-1 list-group-item-content">
+                    <div class="d-flex w-100 justify-content-between">
+                         <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
+                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild (Portrait) hochladen
+                        </span>
+                        <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>"><i class="fas fa-trash"></i>
+                            löschen</small>
+                    </div>
+                    <div class="mb-1 mt-2">
+                        <div class="slider">
+                            <small>klein</small>
+                            <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
+                            <small>groß</small>
+                            <div class="ml-3">
+                                <label>
+                                    <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="eckig" data-off="rund">
+                                </label>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
+           <?php } ?>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -299,7 +302,8 @@
             <input type="hidden" name="backgroundY" id="backgroundY">
             <input type="hidden" name="backgroundURL" id="backgroundURL">
             <input type="hidden" name="iconfile" id="iconfile">
-            <input type="hidden" name="addpicfile" id="addpicfile">
+            <input type="hidden" name="addpicfile1" id="addpicfile1">
+            <input type="hidden" name="addpicfile2" id="addpicfile2">
             <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
             <input type="hidden" name="textX" id="textX">
             <input type="hidden" name="textY" id="textY">
@@ -315,7 +319,8 @@
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
-        <input type="file" class="custom-file-input upload-file" id="uploadaddpic" accept="image/*">
+        <input type="file" class="custom-file-input upload-file" id="uploadaddpic1" accept="image/*">
+        <input type="file" class="custom-file-input upload-file" id="uploadaddpic2" accept="image/*">
     </div>
 
 
