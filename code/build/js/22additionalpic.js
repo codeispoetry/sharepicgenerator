@@ -1,54 +1,59 @@
 
-const addPic = {
+const addPic1 = {
     svg: draw.circle(0),
+    i: 1,
 
-    draw: function () {
+    draw: function (  ) {
 
-        addPic.svg.remove();
-        addPic.svg = draw.group().addClass('draggable').draggable();
-        addPic.svg.on('dragmove.namespace', function (event) {
+        this.svg.remove();
+        this.svg = draw.group().addClass('draggable').draggable();
+        this.svg.on('dragmove.namespace', function (event) {
              circleMask.move(pic.x(), pic.y());
         });
 
         var circleMask = draw.circle(0).fill({color: '#fff'});
-
-        var pic = draw.image($('#addpicfile').val(), function (event) {
-
+        var pic = draw.image($('#addpicfile' + this.i).val(), () => {
             let radius = pic.height();
             if( pic.height() > pic.width() ){
                 radius = pic.width();
             }
 
-            if( $('#addpicrounded').prop("checked")) {
+            if( $('#addpicrounded' + this.i).prop("checked")) {
                 circleMask.move(pic.width()/2, pic.height() / 2 ).radius( radius / 2  - 3).back();
                 pic.maskWith(circleMask);
             }else{
                 circleMask.size(0);
             }
-            addPic.svg.add(pic);
+            this.svg.add(pic);
 
-            addPic.resize();
+            this.resize( );
 
             text.svg.front();
         });
     },
 
     delete: function(){
-        addPic.svg.remove();
-        addPic.svg = draw.circle(0);
+        this.svg.remove();
+        this.svg = draw.circle(0);
     },
 
-    resize: function () {
-        let percentage = draw.width() * parseInt($('#addPicSize').val()) / 100;
-        addPic.svg.size(percentage);
+    resize: function ( ) {
+        let percentage = draw.width() * parseInt($('#addPicSize' + this.i).val()) / 100;
+        this.svg.size(percentage);
     }
 
 };
 
+const addPic2 = Object.assign({}, addPic1);
+addPic2.i = 2;
 
-$('#addPicSize').bind('input propertychange', addPic.resize);
-$('#addpicrounded').bind('change', addPic.draw);
-$('#addpicdelete').bind('click', addPic.delete);
+$('#addPicSize1').bind('input propertychange', function() { addPic1.resize(); });
+$('#addpicrounded1').bind('change', function() { addPic1.draw(); } );
+$('#addpicdelete1').bind('click', function() { addPic1.delete(); } );
+
+$('#addPicSize2').bind('input propertychange', function() { addPic2.resize(); });
+$('#addpicrounded2').bind('change', function() { addPic2.draw(); } );
+$('#addpicdelete2').bind('click', function() { addPic2.delete(); } );
 
 
 
