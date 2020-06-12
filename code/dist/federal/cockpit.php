@@ -192,7 +192,9 @@
                 </div>
             </div>
             <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
+                <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
+
+                <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
                     <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
         </div>

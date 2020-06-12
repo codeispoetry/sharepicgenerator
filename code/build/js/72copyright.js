@@ -41,12 +41,25 @@ const copyright = {
 
         copyright.svg = draw.text($('#copyright').val())
             .font(copyrightfont)
-            .fill( copyrightColors[ copyrightColorIndex ])
-            .move( 10, draw.height() - 12 )
+            .fill( copyrightColors[ copyrightColorIndex ]);
+
+        let y;
+
+        switch( $('#copyrightPosition').val() ){
+            case "upperLeft":
+                y = copyright.svg.length() + 12;
+                break;
+            default:
+                y = draw.height() - 12;
+        }
+
+        console.log("y=",y);
+
+        copyright.svg.move( 10, y )
             .rotate( -90, copyright.svg.x(), copyright.svg.y() )
             ;
 
     }
-}
+};
 
 
