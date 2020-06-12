@@ -10,7 +10,11 @@ $('.copyright-change-color').click( function(){
 
 let copyrights = { }
 function setCopyright( message, mode){
-    
+
+    if( message == undefined ){
+        return false;
+    }
+
     if( mode == 'pixabay'){
         copyrights[ mode ] = "Foto: " + message + "@pixabay.com";
     }else{
