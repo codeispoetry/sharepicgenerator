@@ -44,6 +44,7 @@
                             <div class="row">
                                 <?php
                                 $files = glob("templates/*.jpg");
+
                                 $templates = parse_ini_file('templates.ini', TRUE);
 
                                 foreach($files AS $file){

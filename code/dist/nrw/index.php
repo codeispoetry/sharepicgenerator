@@ -3,7 +3,7 @@ require_once('../functions.php');
 $samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
 $user = "generic";
-$tenant = "federal";
+$tenant = "nrw";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
