@@ -11,8 +11,10 @@ $('.templatepic').click(function(){
     uploadFileByUrl( $(this).data("url"), function(){
         setCopyright( attribution, '');
 
-        let str = template.data('text').replace(/@/g,'!').replace(/§/g,"\n");
-        $('#text').val( str );
+        if( template.data('text') ) {
+            let str = template.data('text').replace(/@/g, '!').replace(/§/g, "\n");
+            $('#text').val(str);
+        }
 
         $('#textX').val(template.data("x"));
         $('#textY').val(template.data("y"));
