@@ -218,6 +218,8 @@ const text = {
 
         text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
         text.positionGrayBackground();
+
+        showActionDayHint();
     },
 
     positionGrayBackground: function(){
