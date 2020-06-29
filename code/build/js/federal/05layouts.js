@@ -1,8 +1,6 @@
 function showLayout(){
-   $('[data-layout]').removeClass("btn-info").addClass("btn-outline-info");
+   config.layout =  $('#layout').val();
 
-    config.layout =  $(this).data("layout");
-    $(this).addClass("btn-info").removeClass("btn-outline-info");
 
     $(".noquote").toggleClass("d-none");
 
@@ -13,4 +11,4 @@ function showLayout(){
     text.draw();
 }
 
-$('[data-layout]').click( showLayout );
+$('#layout').click( showLayout );

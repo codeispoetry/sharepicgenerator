@@ -60,6 +60,7 @@ function load(){
             copyright.draw();
             pin.draw();
             icon.load();
+            showLayout();
         }, 100);
 
 
