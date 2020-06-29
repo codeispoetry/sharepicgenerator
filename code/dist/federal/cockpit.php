@@ -125,7 +125,14 @@
                         <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1" data-click="textChangeColor" title="Farbe wechseln"></i>
                     </div>
                 </div>
-                <small>Text in eckigen Klammern [ ] wird gelb</small>
+
+                <div class="mb-1 mt-2">
+                    <div class="d-flex justify-content-between mt-3">
+                        <small>Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="cursor-pointer ml-3 text-primary aligncenter">mittig ausrichten</small>
+                    </div>
+                </div>
+
 
                 <div class="mb-1 mt-2">
                     <div class="slider">
