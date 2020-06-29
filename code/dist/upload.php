@@ -5,7 +5,7 @@ $id = $_POST['id'];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 
-if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','jpeg','png','gif','svg','webp','mp4')) ){
+if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','jpeg','png','gif','svg','webp','mp4','zip')) ){
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
@@ -31,6 +31,9 @@ switch( $id ){
         break;
     case "uploadaddpic1":  case "uploadaddpic2":
         handle_addpic_upload();
+        break;
+    case "uploadwork":
+        handle_uploadwork();
         break;
     default:
         echo json_encode(array("error"=>"nothing done. id=" . $id));
@@ -82,6 +85,20 @@ function handle_icon_upload(){
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
     $return['iconfile'] = '../' . $filename;
+    $return['okay'] = true;
+
+    echo json_encode($return);
+
+}
+
+function handle_uploadwork(){
+
+
+    $filebasename = 'tmp/' . uniqid('work');
+    $filename = $filebasename . '.zip';
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+
     $return['okay'] = true;
 
     echo json_encode($return);
