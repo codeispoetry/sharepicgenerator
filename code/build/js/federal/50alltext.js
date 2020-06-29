@@ -26,3 +26,14 @@ function alignCenter(){
 
 }
 $('.aligncenter').click( alignCenter );
+
+
+function showActionDayHint(){
+    if( !/tag/i.test($('#text').val())){
+        $('#actiondayshint').hide();
+        return false;
+    }
+
+    $("#actiondayshint").show();
+
+}

@@ -25,6 +25,7 @@ logthis();
 
 $accessToken = createAccessToken( $user );
 
+require_once("../actionday.php");
 
 ?>
 <!DOCTYPE html>
@@ -76,6 +77,15 @@ $accessToken = createAccessToken( $user );
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
                 <div id="warning" class="text-danger text-center p-4" style="display:none">Gesicht</div>
+                <div id="actiondayshint" class="text-center p-4" style="display:none">
+                    Du scheinst für einen Aktionstag ein Sharepic zu erstellen.<br>
+                    Falls dieser Aktionstag noch nicht in der
+                    <a href="#" class="overlay-opener" data-target="actiondays"> Liste der Aktionstage</a>
+                    ( <?php echo getNextActionDays( 3 ); ?>, <a href="#" class="overlay-opener" data-target="actiondays">...</a>)
+                    enthalten ist,<br>
+                    <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"> schlage ihn vor</a>,
+                    damit auch andere daran denken. #Danke.
+                </div>
             </div>
 
             <div class="col-12 text-center mb-5">
@@ -86,7 +96,7 @@ $accessToken = createAccessToken( $user );
 
 
             <?php
-                 require_once("../actionday.php");
+                 nextActionDay();
             ?>
 
             <?php
