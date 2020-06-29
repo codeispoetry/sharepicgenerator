@@ -95,19 +95,11 @@
 
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex">
-                <button type="button" class="btn btn-info btn-sm mr-2"  data-layout="standard">
-                    <i class="fab fa-servicestack"></i> Standard
-                </button>
-                
-                <button type="button" class="btn btn-outline-info btn-sm mr-2 "  data-layout="quote">
-                    <i class="fas fa-quote-right"></i> Zitat
-                </button>
 
-                <button type="button" class="btn btn-outline-info btn-sm d-none" data-layout="inverted">
-                    <i class="far fa-dot-circle"></i> Invertiert
-                </button>
-            </div>
+            <select class="form-control" name="layout" id="layout">
+                <option value="standard">Layout: Standard</option>
+                <option value="quote">Layout: Zitat</option>
+            </select>
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
