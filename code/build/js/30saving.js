@@ -71,3 +71,21 @@ function load(){
 
     });
 }
+
+function savework(){
+    let data = $('#pic').serialize();
+
+
+    $.ajax({
+        type: "POST",
+        url: '../savework.php',
+        data: {data: data},
+        success: function (data, textStatus, jqXHR) {
+            let obj = JSON.parse(data);
+
+            let downloadname = "sharepic";
+
+            window.location.href = '../downloadwork.php?basename=' + obj.basename +  '&downloadname=' + downloadname;
+        }
+    });
+}
