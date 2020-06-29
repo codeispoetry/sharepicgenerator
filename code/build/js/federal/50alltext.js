@@ -11,3 +11,18 @@ function textChangeColor(){
     text.draw();
     quote.draw();
 }
+
+
+function alignCenter(){
+    let x = (draw.width() - text.svg.width() ) / 2;
+    let y = (draw.height() - text.svg.height() ) / 2;
+
+    text.svg.move( x, y );
+
+    $('#textX').val(Math.round(x));
+    $('#textY').val(Math.round(y));
+    text.bounce();
+    text.positionGrayBackground();
+
+}
+$('.aligncenter').click( alignCenter );
