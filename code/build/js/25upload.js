@@ -70,6 +70,10 @@ $('.upload-file').change(function (event) {
                 $('#addpicfile2').val(obj.addpicfile);
                 addPic2.draw();
                 break;
+            case "uploadwork":
+                $('#addpicfile2').val(obj.addpicfile);
+                alert("Work uploaded")
+                break;
             default:
                 console.log("error in upload", obj);
         }
@@ -185,6 +189,9 @@ $('.uploadlogoclicker').click(function(){
 
 $('.uploadiconclicker').click(function(){
     $('#uploadicon').click();
+});
+$('.uploadworkclicker').click(function(){
+    $('#uploadwork').click();
 });
 
 $('.addpicclicker1').click(function(){

@@ -289,7 +289,11 @@
             <div class="mb-1 d-flex align-items-lg-center">
                 <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" ><i class="fas fa-save"></i> speichern</button>
                 <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load"><i class="fas fa-folder-open"></i> öffnen</button>
-                <button type="button" class="btn btn-info btn-sm d-none" id="delete" data-click="unlink"><i class="fas fa-trash-alt"></i> löschen</button>
+                <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="delete" data-click="unlink"><i class="fas fa-trash-alt"></i> löschen</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
+                <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
             <div class="saving-response text-secondary"></div>
         </div>
@@ -320,6 +324,7 @@
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadaddpic1" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadaddpic2" accept="image/*">
+        <input type="file" class="custom-file-input upload-file" id="uploadwork" accept="application/zip">
     </div>
 
 
