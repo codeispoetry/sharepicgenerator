@@ -30,9 +30,12 @@ const addPic1 = {
                 circleMask.size(0);
             }
             this.svg.add(pic);
+            this.svg.move( $('#addPic' + this.i +'x').val(), $('#addPic' + this.i + 'y').val( ) );
+
 
             this.resize( );
             this.svg.move( $('#addPic' + this.i +'x').val(), $('#addPic' + this.i + 'y').val( ) );
+
 
             text.svg.front();
         });
