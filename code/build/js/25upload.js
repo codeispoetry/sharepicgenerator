@@ -71,7 +71,10 @@ $('.upload-file').change(function (event) {
                 addPic2.draw();
                 break;
             case "uploadwork":
-                loadFormData( JSON.parse( obj.data ) );
+                let json = JSON.parse( obj.data );
+                uploadFileByUrl( obj.dir + '/' + json.savedBackground, function (){
+                    loadFormData(  json );
+                });
                 break;
             default:
                 console.log("error in upload", obj);
