@@ -11,6 +11,11 @@ const addPic1 = {
              circleMask.move(pic.x(), pic.y());
         });
 
+        this.svg.on('dragend.namespace', () => {
+            $('#addPic' + this.i + 'x').val(Math.round(this.svg.x()));
+            $('#addPic' + this.i + 'y').val(Math.round(this.svg.y()));
+        });
+
         var circleMask = draw.circle(0).fill({color: '#fff'});
         var pic = draw.image($('#addpicfile' + this.i).val(), () => {
             let radius = pic.height();
@@ -27,6 +32,7 @@ const addPic1 = {
             this.svg.add(pic);
 
             this.resize( );
+            this.svg.move( $('#addPic' + this.i +'x').val(), $('#addPic' + this.i + 'y').val( ) );
 
             text.svg.front();
         });
