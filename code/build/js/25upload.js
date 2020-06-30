@@ -71,8 +71,7 @@ $('.upload-file').change(function (event) {
                 addPic2.draw();
                 break;
             case "uploadwork":
-                $('#addpicfile2').val(obj.addpicfile);
-                alert("Work uploaded")
+                loadFormData( JSON.parse( obj.data ) );
                 break;
             default:
                 console.log("error in upload", obj);

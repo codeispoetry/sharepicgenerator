@@ -47,25 +47,7 @@ $('#download').click(function () {
             $('#download').html(description);
             window.clearInterval(secondsWaitingInterval);
 
-            let downloadname = $('#text').val().toLowerCase();
-            downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, function (match) {
-                switch (match) {
-                    case 'ä':
-                        return 'ae';
-                    case 'ö':
-                        return 'oe';
-                    case 'ü':
-                        return 'ue';
-                    case 'ß':
-                        return 'ss';
-                }
-            });
-            downloadname = downloadname.replace(/[^a-zA-Z0-9]/g, '-');
-            downloadname = downloadname.replace(/\-+/g, '-');
-            downloadname = downloadname.replace(/^\-/g, '');
-            downloadname = downloadname.replace(/\-$/g, '');
-
-            downloadname = downloadname.substring(0, 20);
+            let downloadname = getDownloadName();
 
             if( config.socialmediaplatform ){
                 downloadname = downloadname.substring(0, 14) + '-' + config.socialmediaplatform.toLowerCase();
@@ -79,6 +61,29 @@ $('#download').click(function () {
     });
 });
 
+function getDownloadName(){
+    let downloadname = $('#text').val().toLowerCase();
+    downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, function (match) {
+        switch (match) {
+            case 'ä':
+                return 'ae';
+            case 'ö':
+                return 'oe';
+            case 'ü':
+                return 'ue';
+            case 'ß':
+                return 'ss';
+        }
+    });
+    downloadname = downloadname.replace(/[^a-zA-Z0-9]/g, '-');
+    downloadname = downloadname.replace(/\-+/g, '-');
+    downloadname = downloadname.replace(/^\-/g, '');
+    downloadname = downloadname.replace(/\-$/g, '');
+
+    downloadname = downloadname.substring(0, 20);
+
+    return downloadname;
+}
 
 function getEncodingStatus(){
     $.ajax({
