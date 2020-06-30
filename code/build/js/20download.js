@@ -80,7 +80,7 @@ function getDownloadName(){
     downloadname = downloadname.replace(/^\-/g, '');
     downloadname = downloadname.replace(/\-$/g, '');
 
-    downloadname = downloadname.substring(0, 20);
+    downloadname = downloadname.substring(0, 30);
 
     return downloadname;
 }
