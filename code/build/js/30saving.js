@@ -54,10 +54,11 @@ function loadFormData( formdata ){
         $('#' + elem).val( formdata[ elem ]);
     }
 
-    let checkboxes = ["textsamesize","greenbehindtext"];
+    let checkboxes = ["textsamesize","greenbehindtext","graybehindtext","addpicrounded1","addpicrounded2"];
     checkboxes.forEach( function(elem){
         if( formdata[ elem ] === "on" ){
             $("#" + elem).prop('checked', true);
+            $('#' + elem).bootstrapToggle("on");
         }
     });
 
@@ -70,6 +71,8 @@ function loadFormData( formdata ){
         copyright.draw();
         pin.draw();
         icon.load();
+        addPic1.draw();
+        addPic2.draw();
         showLayout();
     }, 100);
 
@@ -94,7 +97,7 @@ function savework(){
         data: {data: data},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
-
+            console.log(obj)
             let downloadname = getDownloadName();
 
             window.location.href = '../downloadwork.php?basename=' + obj.basename +  '&downloadname=' + downloadname;

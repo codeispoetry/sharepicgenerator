@@ -287,11 +287,13 @@
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
+                <span class="mr-2">Arbeitsdatei:</span>
                 <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" ><i class="fas fa-save"></i> speichern</button>
                 <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load"><i class="fas fa-folder-open"></i> öffnen</button>
                 <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="delete" data-click="unlink"><i class="fas fa-trash-alt"></i> löschen</button>
             </div>
             <div>
+
                 <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
                 <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
@@ -310,8 +312,10 @@
             <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
             <input type="hidden" name="textX" id="textX">
             <input type="hidden" name="textY" id="textY">
-            <input type="hidden" name="addPicX" id="addPicX">
-            <input type="hidden" name="addPicY" id="addPicY">
+            <input type="hidden" name="addPic1x" id="addPic1x">
+            <input type="hidden" name="addPic1y" id="addPic1y">
+            <input type="hidden" name="addPic2x" id="addPic2x">
+            <input type="hidden" name="addPic2y" id="addPic2y">
             <input type="hidden" name="textColor" id="textColor" value="0">
 
         </div>
