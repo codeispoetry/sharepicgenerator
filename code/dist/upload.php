@@ -93,13 +93,24 @@ function handle_icon_upload(){
 
 function handle_uploadwork(){
 
-
     $filebasename = 'tmp/' . uniqid('work');
     $filename = $filebasename . '.zip';
+    $savedir = 'tmp/' . basename( $filename,  '.zip' );
 
     move_uploaded_file($_FILES['file']['tmp_name'], $filename );
 
+    $cmd = sprintf('unzip %s -d %s 2>&1', $filename, $savedir );
+    exec( $cmd, $output );
+
     $return['okay'] = true;
+    //$return['debug'] = $output;
+
+    $datafile = $savedir . '/data.ser';
+    $data = file_get_contents( $datafile );
+    $values = array();
+    parse_str($data, $values);
+
+    $return['data'] = json_encode( $values );
 
     echo json_encode($return);
 
