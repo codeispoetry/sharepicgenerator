@@ -45,8 +45,6 @@ function load(){
 
 function loadFormData( formdata ){
 
-console.log(formdata);
-
     // set the draw size manually, because it recalculates boundaries, etc.
     $('#width').val( formdata[ "width" ]);
     $('#height').val( formdata[ "height" ]);

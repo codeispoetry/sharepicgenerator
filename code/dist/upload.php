@@ -92,7 +92,6 @@ function handle_icon_upload(){
 }
 
 function handle_uploadwork(){
-
     $filebasename = 'tmp/' . uniqid('work');
     $filename = $filebasename . '.zip';
     $savedir = 'tmp/' . basename( $filename,  '.zip' );
@@ -105,12 +104,12 @@ function handle_uploadwork(){
     $return['okay'] = true;
     //$return['debug'] = $output;
 
-    $datafile = $savedir . '/data.ser';
-    $data = file_get_contents( $datafile );
-    $values = array();
-    parse_str($data, $values);
+    $datafile = $savedir . '/data.json';
+    $json = file_get_contents( $datafile );
 
-    $return['data'] = json_encode( $values );
+
+    $return['data'] = $json;
+    $return['dir'] = $savedir;
 
     echo json_encode($return);
 
