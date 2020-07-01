@@ -22,12 +22,12 @@ function loadFormData( formdata ){
     window.setTimeout(function () {
         text.draw();
         logo.load();
-        background.draw();
+        //background.draw();
         copyright.draw();
         pin.draw();
         icon.load();
-        addPic1.draw();
-        addPic2.draw();
+        //addPic1.draw();
+        //addPic2.draw();
         showLayout();
     }, 100);
 
