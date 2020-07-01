@@ -1,4 +1,4 @@
-$('#download').click(function () {
+$('#download,.download').click(function () {
     $(this).prop("disabled", true);
     let description = $(this).html();
     let secondsWaitingInterval;
