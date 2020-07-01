@@ -253,10 +253,20 @@
                 <div class="mb-1 list-group-item-content">
                     <div class="d-flex w-100 justify-content-between">
                          <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
-                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild (Portrait) hochladen
+                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild hochladen
                         </span>
-                        <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>"><i class="fas fa-trash"></i>
-                            löschen</small>
+
+                        <?php if($i == 2 ){?>
+                        <small class="text-primary cursor-pointer" id="addpicalign" data-click="addpicAlign">
+                            <i class="fas fa-align-justify"></i>
+                            angleichen
+                        </small>
+                        <?php } ?>
+
+                        <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>">
+                            <i class="fas fa-trash"></i>
+                            löschen
+                        </small>
                     </div>
                     <div class="mb-1 mt-2">
                         <div class="slider">
@@ -265,7 +275,7 @@
                             <small>groß</small>
                             <div class="ml-3">
                                 <label>
-                                    <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="eckig" data-off="rund">
+                                    <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                 </label>
                             </div>
                         </div>
