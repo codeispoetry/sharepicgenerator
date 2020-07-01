@@ -15,7 +15,6 @@ $(document).ready(function () {
     pin.draw();
     window.setTimeout(text.draw, 10);
     afterUpload(bgpic);
-    window.setTimeout( load, 1000 );
 
 
     $('[data-click]').click(function(){
