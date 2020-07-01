@@ -1,7 +1,8 @@
 <form id="pic">
     <div class="list-group">
 
-    <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="" data-toggle="collapse" data-target=".picture">Bild</h3>
+        <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild/Video hochladen
@@ -54,18 +55,55 @@
                     zentrieren
                 </small>
             </div>
-      
 
-    </div>
+            <div class="flex-column align-items-start">
+                <?php for($i = 1; $i <=2; $i++){ ?>
+                    <div class="mb-1 list-group-item-content">
+                        <div class="d-flex w-100 justify-content-between">
+                         <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
+                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild hochladen
+                        </span>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start novideo">
-            <div class="d-flex w-100 justify-content-between">
-                <h6 class="mb-1">Ausgabegröße</h6>
-                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>
-                    zurücksetzen</small>
+                            <?php if($i == 2 ){?>
+                                <small class="text-primary cursor-pointer" id="addpicalign" data-click="addpicAlign">
+                                    <i class="fas fa-align-justify"></i>
+                                    angleichen
+                                </small>
+                            <?php } ?>
 
+                            <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>">
+                                <i class="fas fa-trash"></i>
+                                löschen
+                            </small>
+                        </div>
+                        <div class="mb-1 mt-2">
+                            <div class="slider">
+                                <small>klein</small>
+                                <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
+                                <small>groß</small>
+                                <div class="ml-3">
+                                    <label>
+                                        <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                <?php } ?>
             </div>
-            <div class="mb-1 list-group-item-content">
+            <div class="d-flex align-items-lg-center">
+                <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
+
+                <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
+                <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+            </div>
+         </div>
+
+        <h3 class="collapsed" data-toggle="collapse" data-target=".layout">Ausgabegröße</h3>
+        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+            <div class="d-flex w-100 justify-content-between">
                 <div class="form-inline">
                     <div class="form-row sizecontainer">
                         <input type="number" class="form-control size" name="width" id="width" step="10">
@@ -90,19 +128,20 @@
                         </select>
                     </div>
                 </div>
+                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>zurücksetzen</small>
             </div>
         </div>
 
+        <h3 class="" data-toggle="collapse" data-target=".text">Text</h3>
+        <div class="text show list-group-item list-group-item-action flex-column align-items-start">
+            <div class="list-group-item-content">
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <select class="form-control" name="layout" id="layout">
+                    <option value="standard">Layout: Standard</option>
+                    <option value="quote">Layout: Zitat</option>
+                </select>
+            </div>
 
-            <select class="form-control" name="layout" id="layout">
-                <option value="standard">Layout: Standard</option>
-                <option value="quote">Layout: Zitat</option>
-            </select>
-        </div>
-
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="list-group-item-content">
                 <div class="noquote">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
@@ -177,7 +216,8 @@
             </div>    
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start collapse preferences-text">
+        <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher">Störer</h3>
+        <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
                     <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
@@ -190,15 +230,10 @@
                     <small>groß</small>
                 </div>
             </div>
-            <div class="d-flex align-items-lg-center">
-                <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
-
-                <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
-                </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed" data-toggle="collapse" data-target=".logo">Logo</h3>
+        <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
@@ -248,45 +283,8 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-           <?php for($i = 1; $i <=2; $i++){ ?>
-                <div class="mb-1 list-group-item-content">
-                    <div class="d-flex w-100 justify-content-between">
-                         <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
-                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild hochladen
-                        </span>
-
-                        <?php if($i == 2 ){?>
-                        <small class="text-primary cursor-pointer" id="addpicalign" data-click="addpicAlign">
-                            <i class="fas fa-align-justify"></i>
-                            angleichen
-                        </small>
-                        <?php } ?>
-
-                        <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>">
-                            <i class="fas fa-trash"></i>
-                            löschen
-                        </small>
-                    </div>
-                    <div class="mb-1 mt-2">
-                        <div class="slider">
-                            <small>klein</small>
-                            <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
-                            <small>groß</small>
-                            <div class="ml-3">
-                                <label>
-                                    <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-           <?php } ?>
-        </div>
-
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed" data-toggle="collapse" data-target=".screen">Screen</h3>
+        <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <span class="mr-2">Hintergrund:</span>
                <input id="color-scheme" type="checkbox" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
@@ -295,38 +293,37 @@
             </div>
         </div>
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="" data-toggle="collapse" data-target=".finish">Download</h3>
+        <div class="finish show list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <span class="mr-2">Arbeitsdatei:</span>
                 <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
                 <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
-            <div class="saving-response text-secondary"></div>
+            <div class="mt-1">
+                <button type="button" class="btn btn-secondary btn-lg download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
+            </div>
         </div>
-
-        <div>
-            <input type="hidden" name="pinX" id="pinX">
-            <input type="hidden" name="pinY" id="pinY">
-            <input type="hidden" name="backgroundX" id="backgroundX">
-            <input type="hidden" name="backgroundY" id="backgroundY">
-            <input type="hidden" name="backgroundURL" id="backgroundURL">
-            <input type="hidden" name="iconfile" id="iconfile">
-            <input type="hidden" name="addpicfile1" id="addpicfile1">
-            <input type="hidden" name="addpicfile2" id="addpicfile2">
-            <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
-            <input type="hidden" name="textX" id="textX">
-            <input type="hidden" name="textY" id="textY">
-            <input type="hidden" name="addPic1x" id="addPic1x">
-            <input type="hidden" name="addPic1y" id="addPic1y">
-            <input type="hidden" name="addPic2x" id="addPic2x">
-            <input type="hidden" name="addPic2y" id="addPic2y">
-            <input type="hidden" name="textColor" id="textColor" value="0">
-
-        </div>
-
 
     </div>
     <div class="d-none">
+        <input type="hidden" name="pinX" id="pinX">
+        <input type="hidden" name="pinY" id="pinY">
+        <input type="hidden" name="backgroundX" id="backgroundX">
+        <input type="hidden" name="backgroundY" id="backgroundY">
+        <input type="hidden" name="backgroundURL" id="backgroundURL">
+        <input type="hidden" name="iconfile" id="iconfile">
+        <input type="hidden" name="addpicfile1" id="addpicfile1">
+        <input type="hidden" name="addpicfile2" id="addpicfile2">
+        <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
+        <input type="hidden" name="textX" id="textX">
+        <input type="hidden" name="textY" id="textY">
+        <input type="hidden" name="addPic1x" id="addPic1x">
+        <input type="hidden" name="addPic1y" id="addPic1y">
+        <input type="hidden" name="addPic2x" id="addPic2x">
+        <input type="hidden" name="addPic2y" id="addPic2y">
+        <input type="hidden" name="textColor" id="textColor" value="0">
+
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
@@ -334,6 +331,4 @@
         <input type="file" class="custom-file-input upload-file" id="uploadaddpic2" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadwork" accept="application/zip">
     </div>
-
-
 </form>
