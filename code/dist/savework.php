@@ -10,12 +10,14 @@ $data = $_POST['data'];
 $values = array();
 parse_str($data, $values);
 $backgroundfile = $values[ 'fullBackgroundName' ];
-$addpic1 = 'tmp/'. basename($values[ 'addpicfile1' ]) ?: '';
-$addpic2 = 'tmp/'. basename($values[ 'addpicfile2' ]) ?: '';
+if( $values[ 'addpicfile1' ] ) $addpic1 = 'tmp/'. basename($values[ 'addpicfile1' ]);
+if( $values[ 'addpicfile2' ] ) $addpic2 = 'tmp/'. basename($values[ 'addpicfile2' ]);
 $ext = pathinfo( $backgroundfile, PATHINFO_EXTENSION);
 $newBackgroundName = 'background.' . $ext;
 
 $values[ 'savedBackground' ] = $newBackgroundName;
+if( $addpic1 != '' ) $values[ 'addpicfile1' ] = 'addpic1.jpg';
+if( $addpic2 != '' ) $values[ 'addpicfile2' ] = 'addpic2.jpg';
 unset( $values[ 'backgroundURL' ] );
 
 file_put_contents( $datafile, json_encode( $values ) );
@@ -31,10 +33,18 @@ $debug = $command;
 $command = sprintf('printf "@ %s\n@=data.json\n" | zipnote -w %s 2>&1', basename($datafile), $zipfile);
 exec( $command, $output );
 
-
 $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename( $backgroundfile ), $newBackgroundName, $zipfile);
 exec( $command, $output );
 
+if( $addpic1 != '' ) {
+    $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename($addpic1), 'addpic1.jpg', $zipfile);
+    exec($command, $output);
+}
+
+if( $addpic2 != '' ) {
+    $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename($addpic2), 'addpic2.jpg', $zipfile);
+    exec($command, $output);
+}
 
 $return = array(
     "status" => 200,
