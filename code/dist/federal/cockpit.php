@@ -296,14 +296,8 @@
         </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 d-flex align-items-lg-center">
-                <span class="mr-2">Arbeitsdatei:</span>
-                <button type="button" class="btn btn-info btn-sm mr-1" id="save" data-click="save" ><i class="fas fa-save"></i> speichern</button>
-                <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="load" data-click="load"><i class="fas fa-folder-open"></i> öffnen</button>
-                <button type="button" class="btn btn-info btn-sm mr-1 d-none" id="delete" data-click="unlink"><i class="fas fa-trash-alt"></i> löschen</button>
-            </div>
             <div>
-
+                <span class="mr-2">Arbeitsdatei:</span>
                 <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
                 <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
