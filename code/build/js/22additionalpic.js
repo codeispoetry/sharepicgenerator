@@ -1,14 +1,17 @@
 
 const addPic1 = {
     svg: draw.circle(0),
+    circleMask: draw.circle( 0 ),
+    pic: draw.circle( 0 ),
     i: 1,
 
     draw: function (  ) {
 
         this.svg.remove();
         this.svg = draw.group().addClass('draggable').draggable();
-        this.svg.on('dragmove.namespace', function (event) {
-             circleMask.move(pic.x(), pic.y());
+
+        this.svg.on('dragmove.namespace', () => {
+             this.circleMask.move(this.pic.x(), this.pic.y());
         });
 
         this.svg.on('dragend.namespace', () => {
@@ -16,29 +19,32 @@ const addPic1 = {
             $('#addPic' + this.i + 'y').val(Math.round(this.svg.y()));
         });
 
-        var circleMask = draw.circle(0).fill({color: '#fff'});
-        var pic = draw.image($('#addpicfile' + this.i).val(), () => {
-            let radius = pic.height();
-            if( pic.height() > pic.width() ){
-                radius = pic.width();
+        this.circleMask = draw.circle(0).fill({color: '#fff'});
+        this.pic = draw.image($('#addpicfile' + this.i).val(), () => {
+            let radius = this.pic.height();
+            if( this.pic.height() > this.pic.width() ){
+                radius = this.pic.width();
             }
 
             if( $('#addpicrounded' + this.i).prop("checked")) {
-                circleMask.move(pic.width()/2, pic.height() / 2 ).radius( radius / 2  - 3).back();
-                pic.maskWith(circleMask);
+                this.circleMask.move( this.pic.width()/2, this.pic.height() / 2 ).radius( radius / 2  - 3).back();
+                this.pic.maskWith(this.circleMask);
             }else{
-                circleMask.size(0);
+                this.circleMask.size(0);
             }
-            this.svg.add(pic);
+            this.svg.add(this.pic);
             this.svg.move( $('#addPic' + this.i +'x').val(), $('#addPic' + this.i + 'y').val( ) );
-
 
             this.resize( );
             this.svg.move( $('#addPic' + this.i +'x').val(), $('#addPic' + this.i + 'y').val( ) );
-
+            this.setMask( );
 
             text.svg.front();
         });
+    },
+
+    setMask: function(){
+        this.circleMask.move(this.pic.x(), this.pic.y());
     },
 
     delete: function(){
@@ -52,6 +58,16 @@ const addPic1 = {
     }
 
 };
+
+function addpicAlign(){
+    let y = addPic1.svg.y();
+    let size = ( addPic1.pic.height() / addPic2.pic.height() ) * $('#addPicSize1').val()  ;
+console.log( size )
+    $('#addPic2y').val( y );
+    $('#addPicSize2').val( size );
+
+    addPic2.draw();
+}
 
 const addPic2 = Object.assign({}, addPic1);
 addPic2.i = 2;
