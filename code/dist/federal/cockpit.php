@@ -5,7 +5,7 @@
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Bild/Video hochladen
+                    <i class="fa fa-upload"></i> Hintergrundbild/ -video hochladen
                 </a>
                 
                 <span class="text-primary cursor-pointer" id="pixabayopener">
@@ -134,7 +134,7 @@
 
         <h3 class="" data-toggle="collapse" data-target=".text">Text</h3>
         <div class="text show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="list-group-item-content">
+            <div class="list-group-item-content mb-2">
 
                 <select class="form-control" name="layout" id="layout">
                     <option value="standard">Layout: Standard</option>
@@ -172,11 +172,8 @@
                         <small>groß</small>
                     </div>
                 </div>
-               
-                <small class="text-primary cursor-pointer preferences-text-btn" data-toggle="collapse" data-target=".preferences-text" aria-expanded="false" aria-controls="collapsePreferecesPic">
-                    Texteinstellungen <i class="fa fa-caret-down"></i>
-                </small>
-                <div class="collapse preferences-text">
+
+                <div class="preferences-text">
                     <div class="d-flex justify-content-between">
                         <div class="noquote">
                             <label>
