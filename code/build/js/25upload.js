@@ -51,6 +51,7 @@ $('.upload-file').change(function (event) {
 
         switch ( id ){
             case "uploadfile":
+                show( 'show-copyright');
                 afterUpload(obj);
                 break;
             case "uploadlogo":
@@ -64,10 +65,15 @@ $('.upload-file').change(function (event) {
                 break;
             case "uploadaddpic1":
                 $('#addpicfile1').val(obj.addpicfile);
+                show( 'show-add-pic-1');
+                show( 'show-copyright');
+                show( 'show-add-pic-upload');
                 addPic1.draw();
                 break;
             case "uploadaddpic2":
                 $('#addpicfile2').val(obj.addpicfile);
+                show( 'show-add-pic-2');
+                show( 'show-copyright');
                 addPic2.draw();
                 break;
             case "uploadwork":
