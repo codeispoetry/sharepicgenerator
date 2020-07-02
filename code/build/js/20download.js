@@ -42,9 +42,9 @@ $('#download,.download').click(function () {
         data: {svg: data, format: format, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform,videofile: config.videofile, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
-            $('#download').prop("disabled", false);
+            $('.download').prop("disabled", false);
             $('#canvas').removeClass('opacity');
-            $('#download').html(description);
+            $('.download').html(description);
             window.clearInterval(secondsWaitingInterval);
 
             let downloadname = getDownloadName();
