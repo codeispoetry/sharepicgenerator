@@ -12,8 +12,8 @@
                     <i class="fas fa-search"></i> suchen
                 </span>
             </div>
-            <small class="cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
-               Bildeinstellungen <i class="fa fa-caret-down"></i>
+            <small class="collapsed cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
+               Bildeinstellungen
             </small>
             <div class="mb-1 list-group-item-content collapse preferences-pic">
                 <div class="slider novideo">
@@ -58,29 +58,31 @@
 
             <div class="flex-column align-items-start">
                 <?php for($i = 1; $i <=2; $i++){ ?>
-                    <div class="mb-1 list-group-item-content">
+                    <div class="mb-1 list-group-item-content <?php if($i > 1) echo 'show-add-pic-upload d-none'; ?>">
                         <div class="d-flex w-100 justify-content-between">
                          <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
-                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild hochladen
+                            <i class="fa fa-upload"></i> <?php echo $i;?>. Vordergrundbild hochladen
                         </span>
 
                             <?php if($i == 2 ){?>
-                                <small class="text-primary cursor-pointer" id="addpicalign" data-click="addpicAlign">
+                                <small class="text-primary cursor-pointer d-none show-add-pic-<?php echo $i;?>" id="addpicalign" data-click="addpicAlign">
                                     <i class="fas fa-align-justify"></i>
                                     angleichen
                                 </small>
                             <?php } ?>
 
-                            <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>">
+                            <small class="text-primary cursor-pointer d-none show-add-pic-<?php echo $i;?>" id="addpicdelete<?php echo $i;?>">
                                 <i class="fas fa-trash"></i>
                                 löschen
                             </small>
                         </div>
-                        <div class="mb-1 mt-2">
-                            <div class="slider">
-                                <small>klein</small>
-                                <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
-                                <small>groß</small>
+                        <div class="mb-1 mt-2 d-none show-add-pic-<?php echo $i;?>">
+                            <div class="d-flex align-items-center">
+                               <div class="slider">
+                                    <small>klein</small>
+                                    <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
+                                    <small>groß</small>
+                                </div>
                                 <div class="ml-3">
                                     <label>
                                         <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
@@ -93,17 +95,19 @@
 
                 <?php } ?>
             </div>
-            <div class="d-flex align-items-lg-center">
-                <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
+            <div class="align-items-lg-center show-copyright d-none">
+                <div class="d-flex align-items-center">
+                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
-                <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-                <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                    <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                </div>
             </div>
          </div>
 
         <h3 class="collapsed" data-toggle="collapse" data-target=".layout">Ausgabegröße</h3>
         <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
-            <div class="d-flex w-100 justify-content-between">
+            <div class="d-flex w-100 justify-content-between align-items-center">
                 <div class="form-inline">
                     <div class="form-row sizecontainer">
                         <input type="number" class="form-control size" name="width" id="width" step="10">
@@ -112,7 +116,7 @@
                         <span class="mt-2 mr-2 small">Px</span>
 
                         <select class="form-control" id="sizepresets">
-                            <option class="">Größe</option>
+                            <option class="">Vorgabe</option>
                             <?php
                             $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
                             foreach ($sizes AS $name => $group) {
@@ -128,7 +132,7 @@
                         </select>
                     </div>
                 </div>
-                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i>zurücksetzen</small>
+                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
             </div>
         </div>
 
@@ -160,7 +164,9 @@
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small>Text in eckigen Klammern [ ] wird gelb</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter">mittig ausrichten</small>
+                        <small class="cursor-pointer ml-3 text-primary aligncenter">
+                            <i class="fa fa-align-center"></i>
+                            mittig ausrichten</small>
                     </div>
                 </div>
 
@@ -192,7 +198,7 @@
                     </div>
                 </div>    
             </div>
-            <div class="noquote collapse preferences-text">
+            <div class="noquote preferences-text">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
@@ -290,18 +296,16 @@
             </div>
         </div>
 
-        <h3 class="" data-toggle="collapse" data-target=".finish">Download</h3>
-        <div class="finish show list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed" data-toggle="collapse" data-target=".finish">Arbeitsdatei</h3>
+        <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
-                <span class="mr-2">Arbeitsdatei:</span>
-                <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
+                <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> Arbeitsdatei herunterladen</button>
                 <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
-            <div class="mt-1">
-                <button type="button" class="btn btn-secondary btn-lg download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
-            </div>
         </div>
-
+        <div class="mt-1">
+            <button type="button" class="btn btn-secondary btn-lg download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
+        </div>
     </div>
     <div class="d-none">
         <input type="hidden" name="pinX" id="pinX">

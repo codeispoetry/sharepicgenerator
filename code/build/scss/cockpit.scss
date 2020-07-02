@@ -29,28 +29,42 @@
   height: 5em;
 }
 
-#pic{
-  h3{
-    font-size: 1em;
+#pic {
+  h3 {
+    font-size: 1.05em;
     margin: 10px 0 0 0;
-    &[data-toggle="collapse"]{
-      cursor:pointer;
-      &:hover{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+  }
+
+  * {
+    &[data-toggle="collapse"] {
+      cursor: pointer;
+
+      &:hover {
         color: $green;
       }
-      &.collapsed{
-        &:after{
-          content: "\f0da";
+
+      &.collapsed {
+        &:after {
+          transform: rotate(-90deg);
         }
       }
+
       &:after {
         font-family: "Font Awesome\ 5 Free";
         content: "\f0d7";
         display: inline-block;
-        padding: 0 0 3px 5px;
+        padding: 4px;
         vertical-align: middle;
         font-weight: 900;
+        transition: 200ms;
       }
     }
   }
+}
+
+.hide-add-pic-1,
+.hide-add-pic-2{
+  display: none;
 }

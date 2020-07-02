@@ -117,14 +117,15 @@ header .container {
           <li>Templates für alle gängigen Social-Media-Plattformen</li>
           <li>eigenes Bild hochladbar</li>
           <li>mobil voll nutzbar</li>
-          <li>Zwischenspeicherung von bearbeiteten Sharepics</li>
-          <li>voll mandantenfähig</li>
+          <li>herunterladbare Zwischenspeicherung von bearbeiteten Sharepics</li>
+          <li>mandantenfähig</li>
           <li>Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a></li>
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
-          <li>eigenes Logo wird dauerhaft gespeichert</li><li>Schwarz-weiß-Filter für Hintergrundbild</li>
+          <li>eigenes Logo wird dauerhaft gespeichert</li>
+          <li>Schwarz-weiß-Filter für Hintergrundbild</li>
           <li>Bedienbar über einen Telegram-Bot</li>
           <li>Dark Mode für Wirkung auf dunklen Untergründen</li>
-          <li>mit API, z.B. für Massenabfertigung</li>
+          <li>API, z.B. für Massenabfertigung</li>
           <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
           <li><em>und vieles mehr</em></li>
         </ul>
