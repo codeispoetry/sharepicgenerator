@@ -50,6 +50,7 @@ const addPic1 = {
     delete: function(){
         this.svg.remove();
         this.svg = draw.circle(0);
+        hide('show-add-pic-' + this.i );
     },
 
     resize: function ( ) {

@@ -38,3 +38,11 @@ function redrawCockpit(){
         $('.novideo').removeClass("d-none");
    }
 }
+
+function hide( className ){
+    $( '.' + className ).addClass( 'd-none' );
+}
+
+function show( className ){
+    $( '.' + className ).removeClass( 'd-none' );
+}
