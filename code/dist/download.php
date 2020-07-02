@@ -1,4 +1,5 @@
 <?php
+
 $filename = sanitize_userinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
 
