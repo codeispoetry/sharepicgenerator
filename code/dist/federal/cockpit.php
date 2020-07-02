@@ -298,6 +298,18 @@
             </div>
         </div>
 
+        <h3 class="collapsed" data-toggle="collapse" data-target=".cloud">Wolke</h3>
+        <div class="cloud collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div>
+                <a href="https://wolke.netzbegruenung.de/apps/files/?dir=/sharepicgenerator" target="_blank">
+                    Meine Wolke
+                </a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info btn-sm download"  data-cloud="save"><i class="fas fa-cloud-download-alt"></i> in Cloud speichern</button>
+            </div>
+        </div>
+
         <h3 class="collapsed" data-toggle="collapse" data-target=".finish">Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>

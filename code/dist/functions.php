@@ -4,15 +4,16 @@ setlocale (LC_ALL, ' de_DE.UTF-8','de_DE.utf8');
 
 function isAllowed( ){
     if( !isset($_POST['accesstoken'] )) return false;
+
     $accesstoken = preg_replace('/[^a-zA-Z0-9]/','', $_POST['accesstoken']);
 
     $user = getUser();
 
     $userDir = 'persistent/user/' . $user;
+
     if( !file_exists($userDir)){
         return false;
     }
-
     return ( file_get_contents( sprintf('%s/accesstoken.php',$userDir)) == $accesstoken);
 }
 
@@ -21,6 +22,15 @@ function getUser(){
     if( !isset($_POST['user'] )) return false;
     $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
     return $user;
+}
+
+function getCloudToken( ){
+    $tokenfile = getUserDir() .'/cloudtoken.php';
+
+    if( !file_exists( $tokenfile ) ){
+        return false;
+    }
+    return file_get_contents( $tokenfile );
 }
 
 
@@ -149,4 +159,11 @@ function checkPermission( $user, $accesstoken){
     }
 
     return ( file_get_contents( sprintf('%s/accesstoken.php',$userDir)) == $accesstoken);
+}
+
+
+
+function sanitize_userinput($var)
+{
+    return preg_replace('/[^a-zA-Z0-9]/', '', $var);
 }

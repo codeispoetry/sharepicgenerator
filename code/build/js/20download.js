@@ -1,9 +1,10 @@
 $('#download,.download').click(function () {
     $(this).prop("disabled", true);
+
+    config.toCloud = $(this).data('cloud');
+
     let description = $(this).html();
     let secondsWaitingInterval;
-
-
 
     if(config.video){
         $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt ...</span>');
@@ -56,7 +57,28 @@ $('#download,.download').click(function () {
             if(config.isMosaic){
                 format = "zip";
             }
-            window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
+
+            if( config.toCloud ){
+                $('.download').html('speichere in der Cloud ... ');
+                $.ajax({
+                    type: "POST",
+                    url: '../nextcloudsend.php',
+                    data: {
+                        file: obj.basename,
+                        user: config.user,
+                        accesstoken: config.accesstoken,
+                        downloadname: downloadname
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        console.log( data )
+                        let obj = JSON.parse(data);
+                        console.log( obj );
+                        $('.download').html(description);
+                    }
+                });
+            }else {
+                window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
+            }
         }
     });
 });
