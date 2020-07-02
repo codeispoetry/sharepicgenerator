@@ -288,11 +288,11 @@
 
         <h3 class="collapsed" data-toggle="collapse" data-target=".screen">Screen</h3>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 d-flex align-items-lg-center">
+            <div class="mb-1 align-items-center">
                 <span class="mr-2">Hintergrund:</span>
-               <input id="color-scheme" type="checkbox" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
+               <input id="color-scheme" type="checkbox" data-width="60" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
                 <span class="ml-5 mr-2">Hilflinien:</span>
-               <input id="gridlines" type="checkbox" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
+               <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
 
