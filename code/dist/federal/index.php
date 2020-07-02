@@ -89,7 +89,7 @@ require_once("../actionday.php");
             </div>
 
             <div class="col-12 text-center mb-5">
-                <button class="btn btn-secondary btn-lg" id="download">
+                <button class="btn btn-secondary btn-lg download" id="download">
                     <i class="fas fa-download"></i> Herunterladen
                 </button>
             </div>
