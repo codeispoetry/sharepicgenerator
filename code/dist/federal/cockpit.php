@@ -240,21 +240,21 @@
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
-                        <option value="sonnenblume">Logo: Sonnenblume</option>
-                        <option value="sonnenblume-weiss">Logo: Weiße Sonnenblume</option>
-                        <option value="sonnenblume-big">Logo: Sonnenblume links unten</option>
+                        <option value="sonnenblume">Sonnenblume</option>
+                        <option value="sonnenblume-weiss">weiße Sonnenblume</option>
+                        <option value="sonnenblume-big">Sonnenblume links unten</option>
                     </optgroup>
-                    <optgroup label="Standardlogo">
-                        <option value="logo-weiss">Logo: weiß</option>
-                        <option value="logo-gruen">Logo: grün</option>
+                    <optgroup label="Logo mit Schriftzug">
+                        <option value="logo-weiss">weiß, mit Schriftzug</option>
+                        <option value="logo-gruen">grün, mit Schriftzug</option>
                     </optgroup>
                     
                     <?php
                         if( $landesverband == 3 ){
                     ?>
                     <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Logo Berlin: grün</option>
-                        <option value="logo-berlin-weiss" selected>Logo Berlin: weiss</option>
+                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
+                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
                     </optgroup>
                     <?php
                         }
@@ -271,10 +271,12 @@
                         }
                     ?>
                     </optgroup>
-                    <optgroup label="Allgemein">
-                        <option value="frauenrechte">Logo: Frauenrechte</option>
-                        <option value="regenbogen">Logo: Regenbogen</option>
-                        <option value="europa">Logo: Europa</option>
+                    <optgroup label="Speziallogos">
+                        <option value="frauenrechte">Frauenrechte</option>
+                        <option value="regenbogen">Regenbogen</option>
+                        <option value="europa">Europa</option>
+                    </optgroup>
+                    <optgroup label="Kein Logo">
                         <option value="void">kein Logo</option>
                     </optgroup>
                 </select>
