@@ -24,9 +24,6 @@
             <div class="row mt-1">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="templates-tab" data-toggle="tab" href="#templates" role="tab" aria-controls="templates" aria-selected="true">Vorlagen</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" id="images-tab" data-toggle="tab" href="#pixabay-images" role="tab" aria-controls="images" aria-selected="false">Bilder</a>
                     </li>
                     <li class="nav-item">
@@ -36,39 +33,7 @@
             </div>
             <div class="row mt-2">
                 <div class="tab-content">
-                    <div class="tab-pane active" id="templates" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="col-12">
-                            <h2>Vorschläge</h2>
-                        </div>
-                        <div class="col-12">
-                            <div class="row">
-                                <?php
-                                $files = glob("templates/*.jpg");
-
-                                $templates = parse_ini_file('templates.ini', TRUE);
-
-                                foreach($files AS $file){
-                                    if( isset($templates[ basename($file) ] ) ){
-                                        $data = '';
-                                        foreach($templates[ basename($file) ] AS $key => $value ){
-                                            $data .= sprintf('data-%s="%s"', $key, $value);
-                                        }
-                                    };
-
-                                    $data .= sprintf('data-url="%s/%s"', $tenant, $file);
-
-                                    ?>
-                                    <div class="col-12 col-md-3">
-                                        <img src="<?php echo $file;?>" <?php echo $data; ?> class="img-fluid templatepic cursor-pointer">
-                                    </div>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="tab-pane" id="pixabay-images" role="tabpanel" aria-labelledby="images-tab">
+                    <div class="tab-pane active" id="pixabay-images" role="tabpanel" aria-labelledby="images-tab">
                         <div class="pixabay-hint">
                             <a href="https://pixabay.com/" target="_blank" id="pixabay-link">
                                 Die Bilder stammen von
