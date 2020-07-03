@@ -9,13 +9,13 @@ if( !isAllowed() ){
 }
 
 
-$filename = sprintf('../tmp/%s.jpg', sanitize_userinput($_POST['file']));
+$filename = sprintf('tmp/%s', sanitize_userinput($_POST['file']));
 $remoteFile = $_POST['downloadname'] ?: 'sharepic';
 
 $payload     = sprintf('--data-binary @"%s" ', $filename );
 $credentials = sprintf('-u %s', getCloudCredentials() );
 
-$endpoint    = sprintf("PUT 'https://wolke.netzbegruenung.de/remote.php/dav/files/%s/sharepicgenerator/%s.jpg'", getUserFromCloudCredentials(), $remoteFile);
+$endpoint    = sprintf("PUT 'https://wolke.netzbegruenung.de/remote.php/dav/files/%s/sharepicgenerator/%s'", getUserFromCloudCredentials(), $remoteFile);
 
 $command = sprintf('curl -X %s %s %s',
     $endpoint,
@@ -26,7 +26,8 @@ $command = sprintf('curl -X %s %s %s',
 exec( $command, $debug);
 
 echo json_encode( array(
-    "status" => 200
+    "status" => 200,
+    "command" => $command
     )
 );
 

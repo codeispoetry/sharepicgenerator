@@ -42,7 +42,9 @@ function xml2json( $xml ){
 
     $return = array();
     foreach($array->response AS $file ){
-        $return[] =  $file->href;
+        if( strToLower(pathinfo($file->href, PATHINFO_EXTENSION)) == 'zip') {
+            $return[] = $file->href;
+        }
     }
 
     return $return;
