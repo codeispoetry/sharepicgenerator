@@ -59,29 +59,65 @@ $('#download,.download').click(function () {
             }
 
             if( config.toCloud ){
-                $('.download').html('speichere in der Cloud ... ');
+                $('.download').html('speichere Sharepic in der Cloud ... ');
                 $.ajax({
                     type: "POST",
                     url: '../nextcloudsend.php',
                     data: {
-                        file: obj.basename,
+                        file: obj.basename + 'jpg',
                         user: config.user,
                         accesstoken: config.accesstoken,
-                        downloadname: downloadname
+                        downloadname: downloadname + '.jpg'
                     },
                     success: function (data, textStatus, jqXHR) {
-                        console.log( data )
+                        console.log("sharepic cloud saved: ", data );
+                        $('.download').html('speichere Arbeitsdatei in der Cloud ... ');
                         let obj = JSON.parse(data);
-                        console.log( obj );
-                        $('.download').html(description);
+
+
+                        $.ajax({
+                            type: "POST",
+                            url: '../savework.php',
+                            data: {data: $('#pic').serialize()},
+                            success: function (data, textStatus, jqXHR) {
+                                let obj = JSON.parse(data);
+                                $.ajax({
+                                        type: "POST",
+                                        url: '../nextcloudsend.php',
+                                        data: {
+                                            file: obj.basename + '.zip',
+                                            user: config.user,
+                                            accesstoken: config.accesstoken,
+                                            downloadname: downloadname + '.zip'
+                                        },
+                                        success: function (data, textStatus, jqXHR) {
+                                            $('.download').html(description);
+                                        }
+                                    }
+                                );
+
+                                console.log(obj)
+
+
+                            }
+                        });
+
                     }
                 });
+
+                let data = $('#pic').serialize();
+
+
+
+
             }else {
                 window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
             }
         }
     });
 });
+
+
 
 function getDownloadName(){
     let downloadname = $('#text').val().toLowerCase();
