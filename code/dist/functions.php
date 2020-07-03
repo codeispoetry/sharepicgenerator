@@ -170,5 +170,5 @@ function checkPermission( $user, $accesstoken){
 
 function sanitize_userinput($var)
 {
-    return preg_replace('/[^a-zA-Z0-9]/', '', $var);
+    return preg_replace('/[^a-zA-Z0-9\.]/', '', $var);
 }
