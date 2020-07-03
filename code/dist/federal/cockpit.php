@@ -302,7 +302,7 @@
         <div class="cloud KILLcollapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <a href="https://wolke.netzbegruenung.de/apps/files/?dir=/sharepicgenerator" target="_blank">
-                    <i class="fas fa-cloud"></i> Meine Wolke
+                    <i class="fas fa-link"></i> Meine Wolke
                 </a>
             </div>
             <div>
