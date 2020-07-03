@@ -49,10 +49,15 @@ $('#cloudfiles').on('change', function () {
         },
         success: function (data, textStatus, jqXHR) {
             $('#cloudmessage').hide();
-            console.log( data );
-            let obj = JSON.parse(data);
 
-            console.log(obj)
+            let obj = JSON.parse( data );
+            let json = JSON.parse( obj.data );
+
+            if( json.addpicfile1 != '') json.addpicfile1 = '../' + obj.dir + '/' + json.addpicfile1;
+            if( json.addpicfile2 != '')json.addpicfile2 = '../' + obj.dir + '/' + json.addpicfile2;
+            uploadFileByUrl( obj.dir + '/' + json.savedBackground, function (){
+                loadFormData(  json );
+            });
 
         }
     });
