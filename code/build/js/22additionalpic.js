@@ -63,7 +63,6 @@ const addPic1 = {
 function addpicAlign(){
     let y = addPic1.svg.y();
     let size = ( addPic1.pic.height() / addPic2.pic.height() ) * $('#addPicSize1').val()  ;
-console.log( size )
     $('#addPic2y').val( y );
     $('#addPicSize2').val( size );
 

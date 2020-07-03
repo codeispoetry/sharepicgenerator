@@ -70,7 +70,7 @@ $('#download,.download').click(function () {
                         downloadname: downloadname + '.jpg'
                     },
                     success: function (data, textStatus, jqXHR) {
-                        console.log("sharepic cloud saved: ", data );
+
                         $('.download').html('speichere Arbeitsdatei in der Cloud ... ');
                         let obj = JSON.parse(data);
 
@@ -95,9 +95,6 @@ $('#download,.download').click(function () {
                                         }
                                     }
                                 );
-
-                                console.log(obj)
-
 
                             }
                         });
