@@ -24,13 +24,18 @@ function getUser(){
     return $user;
 }
 
-function getCloudToken( ){
-    $tokenfile = getUserDir() .'/cloudtoken.php';
+function getCloudCredentials( ){
+    $tokenfile = getUserDir() .'/cloudcredentials.php';
 
     if( !file_exists( $tokenfile ) ){
         return false;
     }
     return file_get_contents( $tokenfile );
+}
+
+function getUserFromCloudCredentials(  ){
+    list($user, $token) = explode( ':', getCloudCredentials());
+    return $user;
 }
 
 
