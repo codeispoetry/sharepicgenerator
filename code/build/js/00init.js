@@ -46,3 +46,8 @@ function hide( className ){
 function show( className ){
     $( '.' + className ).removeClass( 'd-none' );
 }
+
+function basename(path) {
+    let name = path.split('/').reverse()[0];
+    return name.split('.')[0]
+}
