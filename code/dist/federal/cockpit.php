@@ -302,12 +302,15 @@
         <div class="cloud KILLcollapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <a href="https://wolke.netzbegruenung.de/apps/files/?dir=/sharepicgenerator" target="_blank">
-                    Meine Wolke
+                    <i class="fas fa-cloud"></i> Meine Wolke
                 </a>
             </div>
             <div>
-                <select class="form-control" id="cloudfiles">
-                    <option value="">bitte wählen</option>
+                <div id="cloudmessage" style="display:none">
+                    <p class="bg-danger p-1 text-white"></p>
+                </div>
+                <select class="form-control" id="cloudfiles" disabled>
+                    <option value="">lade Sharepics ...</option>
                 </select>
             </div>
             <div>

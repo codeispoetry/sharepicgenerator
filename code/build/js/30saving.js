@@ -52,7 +52,7 @@ function savework(){
         data: {data: data},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
-            console.log(obj)
+
             let downloadname = getDownloadName();
 
             window.location.href = '../downloadwork.php?basename=' + obj.basename +  '&downloadname=' + downloadname;
