@@ -3,6 +3,7 @@ $('.upload-file').change(function (event) {
     let file = document.getElementById(id).files[0];
     let size = document.getElementById(id).files[0].size/1024/1024;
     let maxFileSize = 100; // in MB, note this in .htaccess as well
+    let isBackgroundUpload = ( $(this).attr('id') == 'uploadfile' );
     if( size > maxFileSize ){
         alert("Die Datei ist zu groß. Es sind maximal " + maxFileSize + " MB erlaubt.\n\nSchicke Dir die Datei per z.B. WhatsApp zu, dann wird sie automatisch verkleinert. Mehr als 20 MB pro Minute Video braucht es nicht.");
         return false;
@@ -36,8 +37,11 @@ $('.upload-file').change(function (event) {
             console.log(obj.error);
             return false;
         }
-       
-        config.video = (obj.video == 1);
+
+        if( isBackgroundUpload ) {
+            config.video = (obj.video == 1);
+        }
+
         if(obj.video == 1){
             config.videofile = obj.videofile;
             config.filename = obj.filename;
