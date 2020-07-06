@@ -21,6 +21,7 @@ function setCopyright( message, mode){
         copyrights[ mode ] = "Icon: " + message;
     }
 
+    show( 'show-copyright');
     $('#copyright').val( Object.values(copyrights).join(', ') );
     copyright.draw();
 }
