@@ -56,39 +56,52 @@
                     </small>
                 </div>
 
-            <div class="addpics flex-column align-items-start">
-                <?php for($i = 1; $i <=2; $i++){ ?>
-                    <div class="mb-1 list-group-item-content">
-                        <div class="d-flex w-100 justify-content-between">
-                         <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
-                            <i class="fa fa-upload"></i> <?php echo $i;?>. Zusatzbild (Portrait) hochladen
-                        </span>
-                            <small class="text-primary cursor-pointer" id="addpicdelete<?php echo $i;?>"><i class="fas fa-trash"></i>
-                                löschen</small>
-                        </div>
-                        <div class="mb-1 mt-2">
-                            <div class="slider">
-                                <small>klein</small>
-                                <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
-                                <small>groß</small>
-                                <div class="ml-3">
-                                    <label>
-                                        <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="eckig" data-off="rund">
-                                    </label>
+                <div class="flex-column align-items-start">
+                    <?php for($i = 1; $i <=2; $i++){ ?>
+                        <div class="mb-1 list-group-item-content <?php if($i > 1) echo 'show-add-pic-upload d-none'; ?>">
+                            <div class="d-flex w-100 justify-content-between">
+                             <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
+                                <i class="fa fa-upload"></i> <?php echo $i;?>. Vordergrundbild hochladen
+                            </span>
+
+                                <?php if($i == 2 ){?>
+                                    <small class="text-primary cursor-pointer d-none show-add-pic-<?php echo $i;?>" id="addpicalign" data-click="addpicAlign">
+                                        <i class="fas fa-align-justify"></i>
+                                        angleichen
+                                    </small>
+                                <?php } ?>
+
+                                <small class="text-primary cursor-pointer d-none show-add-pic-<?php echo $i;?>" id="addpicdelete<?php echo $i;?>">
+                                    <i class="fas fa-trash"></i>
+                                    löschen
+                                </small>
+                            </div>
+                            <div class="mb-1 mt-2 d-none show-add-pic-<?php echo $i;?>">
+                                <div class="d-flex align-items-center">
+                                    <div class="slider">
+                                        <small>klein</small>
+                                        <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
+                                        <small>groß</small>
+                                    </div>
+                                    <div class="ml-3">
+                                        <label>
+                                            <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
-                    </div>
+                    <?php } ?>
+                </div>
+                <div class="align-items-lg-center show-copyright d-none">
+                <div class="d-flex align-items-center">
+                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="upperLeft">
 
-                <?php } ?>
-            </div>
-
-
-            <div class="d-flex align-items-lg-center">
-                <input type="hidden" name="copyrightPosition" id="copyrightPosition" value="upperLeft">
-                <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
-                <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                    <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                </div>
             </div>
         </div>
 
