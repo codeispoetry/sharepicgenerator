@@ -76,11 +76,14 @@ const text = {
 
                 value = value.replace(/^!/, '');
 
+                let textColor = textColors[ $('#textColor2').val() ];
                 if( style ){
                     value = value.toUpperCase();
+                    textColor = textColors[ $('#textColor1').val() ];
                 }
 
-                let t = draw.text(value).font(Object.assign(text.font, {size: text.fontsizes[style]})).fill(text.colors[style]).move(0, y + text.yBiases[style]);
+
+                let t = draw.text(value).font(Object.assign(text.font, {size: text.fontsizes[style]})).fill(textColor).move(0, y + text.yBiases[style]);
 
                 t.dx( -t.length() ); // align text right
 
@@ -88,13 +91,6 @@ const text = {
                 y += text.lineheights[style] + text.linemargin;
             }
         );
-
-
-
-
-
-
-
 
         text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
 
