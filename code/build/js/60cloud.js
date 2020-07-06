@@ -36,6 +36,10 @@ getCloudfiles();
 
 
 $('#cloudfiles').on('change', function () {
+    if($(this).val() == ''){
+        return false;
+    }
+
     $('#cloudmessage').show();
     $('#cloudmessage p').html("Das Bild wird geladen...");
     $.ajax({
@@ -61,4 +65,13 @@ $('#cloudfiles').on('change', function () {
 
         }
     });
+});
+
+
+$('#cloudtokensave').click(function(){
+    let token = $('#cloudtoken').val();
+    alert("Save " + token );
+
+    $('#cloudnotoken').hide();
+    $('#cloudhastoken').show();
 });

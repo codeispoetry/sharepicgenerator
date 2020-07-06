@@ -305,16 +305,23 @@
                     <i class="fas fa-link"></i> Meine Wolke
                 </a>
             </div>
-            <div>
-                <div id="cloudmessage" style="display:none">
-                    <p class="bg-danger p-1 text-white"></p>
-                </div>
-                <select class="form-control" id="cloudfiles" disabled>
-                    <option value="">lade Sharepics ...</option>
-                </select>
+            <div id="cloudnotoken" class="">
+                Bitte hinterlege Deine Zugangsdaten zur Wolke.
+                <input type="text"  class="form-control" name="cloudtoken" id="cloudtoken">
+                <input type="button" id="cloudtokensave" class="btn btn-sm btn-primary" value="Token speichern">
             </div>
-            <div>
-                <button type="button" class="btn btn-info btn-sm download"  data-cloud="save"><i class="fas fa-cloud-download-alt"></i> in Cloud speichern</button>
+            <div id="cloudhastoken" style="display: none">
+                <div>
+                    <div id="cloudmessage" style="display:none">
+                        <p class="bg-danger p-1 text-white"></p>
+                    </div>
+                    <select class="form-control" id="cloudfiles" disabled>
+                        <option value="">lade Sharepics ...</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-info btn-sm download"  data-cloud="save"><i class="fas fa-cloud-download-alt"></i> in Cloud speichern</button>
+                </div>
             </div>
         </div>
 
