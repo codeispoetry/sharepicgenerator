@@ -1,6 +1,13 @@
 <form id="pic">
     <div class="list-group">
 
+        <h3 class="">
+            <a href="/documentation/nrw/" target="_blank">
+                <i class="fas fa-question-circle"></i>
+                Anleitung
+            </a>
+        </h3>
+
         <h3 class="" data-toggle="collapse" data-target=".picture">Bild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
