@@ -1,4 +1,5 @@
 function getCloudfiles(){
+
     $.ajax({
         type: "POST",
         url: '../nextcloudget.php',
@@ -8,6 +9,14 @@ function getCloudfiles(){
         },
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
+
+            if(obj.status == "500"){
+
+                $('#cloudmessage').show();
+                $('#cloudmessage p').html("Kein Zugang zur Cloud.");
+                $('#cloudnotoken').show();
+                return;
+            }
 
             let count = obj.data.length;
             let sharepics =  '';
@@ -29,10 +38,21 @@ function getCloudfiles(){
             obj.data.forEach ( element => {
                 $("#cloudfiles").append(new Option( basename(element), element ));
             });
+
+            $('#cloudhastoken').show();
+            $('#cloudmessage').hide();
+
         }
     });
 }
-getCloudfiles();
+
+if( config.hasCloudCredentials ){
+    $('#cloudmessage').show();
+    getCloudfiles();
+}else{
+    $('#cloudmessage').hide();
+    $('#cloudnotoken').show();
+}
 
 
 $('#cloudfiles').on('change', function () {
@@ -67,10 +87,41 @@ $('#cloudfiles').on('change', function () {
     });
 });
 
-
 $('#cloudtokensave').click(function(){
     let token = $('#cloudtoken').val();
-    alert("Save " + token );
+
+    $('#cloudmessage').show();
+    $('#cloudmessage p').html('Speichere Token ...');
+    $('#cloudnotoken').hide();
+
+
+    $.post( "../save.php", { user: config.user,action: 'saveCloudToken',data: token, accesstoken: config.accesstoken })
+        .done(function( data ) {
+
+            $('#load').removeClass('d-none');
+            $('#delete').removeClass('d-none');
+            $('.saving-response').html("Gespeichert.").delay(2000).fadeOut();
+
+            $('#cloudmessage').hide();
+
+            $('#cloudhastoken').show();
+        });
+
+
+});
+
+$('.cloudtokendelete').click(function(){
+
+    if( !confirm("Wirklich die Verbindung zur Cloud löschen?") ){
+        return false;
+    }
+
+    $.post( "../save.php", { user: config.user,action: 'deleteCloudToken', accesstoken: config.accesstoken })
+        .done(function( data ) {
+            $('#load').removeClass('d-none');
+            $('#delete').removeClass('d-none');
+            $('.saving-response').html("Gespeichert.").delay(2000).fadeOut();
+        });
 
     $('#cloudnotoken').hide();
     $('#cloudhastoken').show();

@@ -44,6 +44,15 @@ if( $_POST['mode'] == 'file'){
 
     echo json_encode($return);
 }else {
+    if(empty($output)){
+        echo json_encode( array(
+                "status" => 501,
+                "data" => "Access denied"
+            )
+        );
+        die();
+    }
+
     $files = xml2json(join('', $output));
     echo json_encode( array(
             "status" => 200,
@@ -62,6 +71,19 @@ function xml2json( $xml ){
     $xml = simplexml_load_string( $xml);
     $json = json_encode($xml);
     $array = json_decode($json,FALSE);
+
+    if(is_null($array->response)){
+        echo json_encode( array(
+                "status" => 502,
+                "data" => "Access denied"
+            )
+        );
+        die();
+    }
+
+    if(!is_array($array->response)){
+        return array();
+    }
 
     // the first item is the directory, skip it
     array_shift( $array->response);

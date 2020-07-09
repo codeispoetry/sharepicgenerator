@@ -1,7 +1,14 @@
 Options -Indexes
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+
 
 # Force HTTPS
 RewriteCond %{HTTPS} off

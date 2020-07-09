@@ -25,7 +25,7 @@ function getUser(){
 }
 
 function getCloudCredentials( ){
-    $tokenfile = getUserDir() .'/cloudcredentials.php';
+    $tokenfile = getUserDir() .'/.cloudcredentials.txt';
 
     if( !file_exists( $tokenfile ) ){
         return false;
@@ -48,6 +48,11 @@ function getUserDir(){
   return $userDir;
 }
 
+function hasCloudCredentials(){
+    global $user;
+    $cloudTokenFile = sprintf('../persistent/user/%s/.cloudcredentials.txt', $user) ;
+    return file_exists( $cloudTokenFile );
+}
 
 function returnJsonErrorAndDie( $code = 1){
     echo json_encode(array('success'=>'false','error'=>array('code'=>$code)));
