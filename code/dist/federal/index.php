@@ -20,7 +20,7 @@ if( !$hasAccess ){
         $user = "nosamlfile";
     }
 }
-
+$user='ThomasPf';
 logthis();
 
 $accessToken = createAccessToken( $user );
@@ -53,7 +53,12 @@ require_once("../actionday.php");
     <link rel="manifest" href="../favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="../favicons/ms-icon-144x144.png">
-
+    <script>
+        <?php echo 'var config ='; @readfile('../config.json') || readfile('../config-sample.json'); echo ';'?>
+        <?php printf('config.landesverband = %d;', $landesverband); ?>
+        <?php printf('config.user="%s";', $user); ?>
+        <?php printf('config.accesstoken="%s";', $accessToken); ?>
+    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -160,14 +165,7 @@ require_once("../actionday.php");
     ?>
 </div>
 
-<script>
-    <?php echo 'var config ='; @readfile('../config.json') || readfile('../config-sample.json'); echo ';'?>
-    <?php printf('config.landesverband = %d;', $landesverband); ?>
-    <?php printf('config.user="%s";', $user); ?>
-    <?php printf('config.accesstoken="%s";', $accessToken); ?>
 
-   
-</script>
 <script src="../vendor/jquery-3.4.1.min.js"></script>
 <script src="../vendor/bootstrap.min.js"></script>
 <script src="../vendor/bootstrap4-toggle.min.js"></script>

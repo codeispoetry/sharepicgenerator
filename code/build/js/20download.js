@@ -74,7 +74,6 @@ $('#download,.download').click(function () {
                         $('.download').html('speichere Arbeitsdatei in der Cloud ... ');
                         let obj = JSON.parse(data);
 
-
                         $.ajax({
                             type: "POST",
                             url: '../savework.php',

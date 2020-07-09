@@ -26,13 +26,51 @@ switch( $action ){
     case 'delete':
         deleteSavedPic( $user );
         break;
+    case 'saveCloudToken':
+        saveCloudToken( );
+
+        break;
+    case 'deleteCloudToken':
+        deleteCloudToken( );
+        break;
     default:
         $return['success'] = false;
         die(json_encode($return));
 
 }
 
+function deleteCloudToken(){
+    $cloudTokenFile = getUserDir() . '/.cloudcredentials.txt';
+    unlink( $cloudTokenFile );
 
+    returnJsonSuccessAndDie();
+}
+
+function saveCloudToken(){
+    $cloudTokenFile = getUserDir() . '/.cloudcredentials.txt';
+
+    $credentials = sprintf('%s:%s', getUser(), $_POST['data']);
+    file_put_contents( $cloudTokenFile, $credentials );
+
+
+    // Create folder in cloud
+    $credentials = sprintf('-u %s', getCloudCredentials() );
+    $endpoint    = sprintf("MKCOL 'https://wolke.netzbegruenung.de/remote.php/dav/files/%s/sharepicgenerator'", getUserFromCloudCredentials() );
+    $payload = '';
+    $command = sprintf('curl -X %s %s %s',
+        $endpoint,
+        $payload,
+        $credentials
+    );
+
+    exec( $command, $debug);
+
+    returnJsonSuccessAndDie();
+}
+
+/**
+ * @deprecated deprecated
+ */
 function deleteSavedPic( $user ){
     $userDir = sprintf('persistent/user/%s', $user);
     $userSaveFile = $userDir . '/save.txt';
@@ -48,7 +86,9 @@ function deleteSavedPic( $user ){
     }
 }
 
-
+/**
+ * @deprecated deprecated
+ */
 function savePic( $user, $data ){
 
     $userDir = sprintf('persistent/user/%s', $user);

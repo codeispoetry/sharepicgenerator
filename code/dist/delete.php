@@ -10,7 +10,6 @@ deleteUserLogo( getUser() );
 
 
 function deleteUserLogo( $user ){
-
     $userDir = 'persistent/user/' . $user;
     if( !file_exists($userDir)){
         returnJsonErrorAndDie('not allowed');
