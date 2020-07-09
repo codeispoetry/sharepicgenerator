@@ -298,8 +298,8 @@
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".cloud">Wolke</h3>
-        <div class="cloud KILLcollapse list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed debug" data-toggle="collapse" data-target=".cloud">Wolke</h3>
+        <div class="cloud collapse list-group-item list-group-item-action flex-column align-items-start ">
             <?php
                 if( hasCloudCredentials() ) {
                     echo '<script type="text/javascript">config.hasCloudCredentials = true;</script>';
@@ -315,7 +315,7 @@
                 </a>
             </div>
             <div id="cloudmessage" style="display:none">
-                <p class="bg-danger p-1 pl-3 text-white">Verbinde mich mit Wolke ...</p>
+                <p class="bg-info p-1 pl-3 text-white">Verbinde mich mit Wolke ...</p>
             </div>
             <div id="cloudnotoken" class="" style="display:none">
                  <div>
