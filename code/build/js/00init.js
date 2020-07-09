@@ -51,3 +51,7 @@ function basename(path) {
     let name = path.split('/').reverse()[0];
     return name.split('.')[0]
 }
+
+function debug(){
+    $('.debug').show();
+}
