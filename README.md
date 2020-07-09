@@ -5,7 +5,7 @@ Sharepicgenerator with Docker and Webpack.
   ``git clone ...``
  
  1. Install dependencies with
-  ``docker-compose run grunt sh -c 'npm install'``
+  ``docker-compose run node sh -c 'npm install'``
 
  1. Bring up the project with
  ``docker-compose up -d``
