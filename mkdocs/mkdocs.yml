@@ -5,6 +5,7 @@ nav:
   - Wie kann ich ein Sharepic erstellen: wie.md
   - Tabellen erstellen: markdown.md
   - Profieinstellungen: profi.md
+  - NRW: nrw.md
 theme:
   name: null
   custom_dir: 'theme/'

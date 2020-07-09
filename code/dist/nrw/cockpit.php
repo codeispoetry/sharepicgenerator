@@ -1,6 +1,18 @@
 <form id="pic">
     <div class="list-group">
 
+        <divc class="d-flex justify-content-between">
+            <a href="/documentation/nrw/" class="h6" target="_blank">
+                <i class="fas fa-question-circle"></i>
+                Anleitung
+            </a>
+            <a href="/federal" class="h6">
+                <i class="fas fa-arrow-right"></i>
+                Zum Standardlayout
+            </a>
+        </h3>
+        </divc>
+
         <h3 class="" data-toggle="collapse" data-target=".picture">Bild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
