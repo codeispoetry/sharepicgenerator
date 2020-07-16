@@ -20,7 +20,7 @@ if( !$hasAccess ){
         $user = "nosamlfile";
     }
 }
-$user='ThomasPf';
+
 logthis();
 
 $accessToken = createAccessToken( $user );
