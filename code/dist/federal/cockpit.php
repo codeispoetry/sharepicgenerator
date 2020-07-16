@@ -137,7 +137,7 @@
         </div>
 
         <h3 class="" data-toggle="collapse" data-target=".text">Text</h3>
-        <div class="text collapse KILLshow list-group-item list-group-item-action flex-column align-items-start">
+        <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="list-group-item-content mb-2">
 
                 <select class="form-control" name="layout" id="layout">
