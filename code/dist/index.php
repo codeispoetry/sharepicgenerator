@@ -88,7 +88,7 @@ header .container {
           <a href="federal/" class="mt-5 btn btn-secondary btn-lg">
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
           </a>
-          <a href="bayern" class="mt-2 btn btn-info btn-sm d-none"><i class="fas fa-pen-fancy"></i> Bayern</a>
+          <a href="nrw" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> NRW</a>
         </div>
       </div>
     </div>
