@@ -78,7 +78,8 @@ const logo = {
         draw() {
             if (!logo.isLoaded) return false;
 
-            let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
+            //let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
+            let width = draw.width() * logo.logoinfo.widthFraction;
             logo.svg.size(width);
             let x, y;
 
@@ -98,7 +99,18 @@ const logo = {
 
             logo.svg.move(x, y);
 
+        },
+
+        resize: function( percent ){
+            percent = parseInt( percent );
+            percent = Math.min(100, percent );
+            percent = Math.max(1, percent );
+
+            logo.logoinfo.widthFraction = percent / 100;
+            logo.draw();
         }
+
+
 
 
     }
