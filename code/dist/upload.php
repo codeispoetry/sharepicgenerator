@@ -175,7 +175,7 @@ function handle_video_upload(){
 
 function edit_video_and_send_info( $videofile, $thumbnail){
 
-    $command =sprintf('ffmpeg -ss 00:00:05 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
+    $command =sprintf('ffmpeg -ss 00:00:02 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
     exec($command, $output);
 
     $return['filename'] = '../' . $thumbnail;
