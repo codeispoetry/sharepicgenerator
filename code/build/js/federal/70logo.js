@@ -69,6 +69,8 @@ const logo = {
 
             this.logoinfo = this.config[whichLogo];
 
+            $('#logosize').val( this.logoinfo.widthFraction * 100 );
+
             this.svg = draw.image(this.logoinfo.file, function (event) {
                 logo.isLoaded = true;
                 logo.draw();
@@ -152,4 +154,11 @@ $('.uselogo').on('click', function () {
     $('#logoselect').val( $(this).data('logo'));
     logo.load();
 });
+
+
+
+$('#logosize').bind('input propertychange', function(){
+    logo.resize( $('#logosize').val() );
+});
+
 

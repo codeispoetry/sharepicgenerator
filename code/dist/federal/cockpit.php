@@ -283,6 +283,11 @@
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
                 
             </div>
+            <div class="slider">
+                <small>klein</small>
+                    <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
+                <small>groß</small>
+            </div>
             <div class="">
                 Erstelle Dein OV-Logo mit dem <a href="/logo" target="_blank">Logogenerator</a>.
             </div>
