@@ -349,6 +349,17 @@
                 <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
         </div>
+
+        <h3 class="collapsed" data-toggle="collapse" data-target=".code">Code-API</h3>
+        <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div>
+                <textarea placeholder="JavaScript-Code" name="text" id="code" class="form-control"></textarea>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
+                <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
+            </div>
+        </div>
         <div class="mt-1">
             <button type="button" class="btn btn-secondary btn-lg download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
         </div>
