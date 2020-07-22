@@ -36,7 +36,8 @@ if( in_array($_POST['format'], array('png','pdf','jpg','mp4'))){
 }
 
 $exportWidth = (int) $_POST['width'];
-convert($filename, $exportWidth, $format);
+$quality = (int) $_POST['quality'] ?: 75;
+convert($filename, $exportWidth, $format, $quality);
 
 logthis();
 
@@ -45,7 +46,7 @@ $return['basename'] = basename($filename, 'svg');
 echo json_encode($return);
 
 
-function convert($filename, $width, $format)
+function convert($filename, $width, $format, $quality = 75)
 {
     if($format == 'pdf'){
         $tempformat = 'pdf';
@@ -60,8 +61,9 @@ function convert($filename, $width, $format)
     exec($command);
 
     if($format == 'jpg'){
-        $command = sprintf("convert %s -background white -flatten %s",
+        $command = sprintf("convert %s -background white -flatten -quality %s %s",
             'tmp/' . basename($filename, 'svg') . $tempformat,
+            $quality,
             'tmp/' . basename($filename, 'svg') . $format
         );
         exec($command);
