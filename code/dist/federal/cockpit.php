@@ -122,9 +122,9 @@
                             foreach ($sizes AS $name => $group) {
                                 printf('<optgroup label="%s">', $name);
                                 foreach ($group AS $label => $size) {
-                                    list($width, $height) = preg_split("/[^0-9]/", trim($size));
+                                    list($width, $height, $quality) = preg_split("/[^0-9]/", trim($size));
                                     $socialmediaplatform = preg_replace('/ /','-', "$name-$label");
-                                    printf('<option value="%d:%d" data-socialmediaplatform="%s">%s</option>', $width, $height, $socialmediaplatform, $label);
+                                    printf('<option value="%d:%d" data-socialmediaplatform="%s" data-quality="%s">%s</option>', $width, $height, $socialmediaplatform, $quality, $label);
                                 }
                                 echo '</optgroup>';
                             }
