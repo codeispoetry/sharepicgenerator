@@ -6,6 +6,7 @@ $('#sizepresets').on('change', function () {
     setDimensions( ...dimensions );
 
     config.socialmediaplatform =  $("#sizepresets option:selected").data('socialmediaplatform');
+    config.quality =  $("#sizepresets option:selected").data('quality');
 
     config.isMosaic = (config.socialmediaplatform.search(/Mosaik/g) != -1 );
 
