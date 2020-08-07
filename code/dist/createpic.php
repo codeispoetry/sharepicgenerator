@@ -38,6 +38,10 @@ if( in_array($_POST['format'], array('png','pdf','jpg','mp4'))){
 $exportWidth = (int) $_POST['width'];
 $quality = (int) $_POST['quality'] ?: 75;
 convert($filename, $exportWidth, $format, $quality);
+if( isset($_POST['addtogallery']) AND $_POST['addtogallery'] == "true" ) {
+    saveInGallery($filename);
+}
+
 
 logthis();
 
@@ -112,4 +116,17 @@ function logthis()
     $socialmediaplatform = sanitize_userinput( $_POST['socialmediaplatform']);
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), '',  'download', $pixabay, $socialmediaplatform);
     file_put_contents('log/log.log', $line, FILE_APPEND);
+}
+
+function saveInGallery( $filename ){
+    $command = sprintf("convert %s -background white -flatten -resize 800x800 -quality 75 %s",
+        'tmp/' . basename($filename, 'svg') . 'jpg',
+        'gallery/img/' . basename($filename, 'svg') . 'jpg'
+    );
+    exec($command);
+
+    $info = array(
+        "Nutzer*in"=>sanitize_userinput($_POST['user'])
+    );
+    file_put_contents('gallery/img/' . basename($filename, 'svg') . 'json', json_encode($info));
 }
