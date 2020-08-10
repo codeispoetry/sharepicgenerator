@@ -1,6 +1,6 @@
 <form id="pic">
     <div class="list-group">
-        
+
     <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">Ausgabegröße</h6>
@@ -18,7 +18,7 @@
                         <select class="form-control" id="sizepresets">
                             <option class="">Größe</option>
                             <?php
-                            $sizes = parse_ini_file('../ini/picturesizes.ini', TRUE);
+                            $sizes = parse_ini_file('../../ini/picturesizes.ini', TRUE);
                             foreach ($sizes AS $name => $group) {
                                 printf('<optgroup label="%s">', $name);
                                 foreach ($group AS $label => $size) {
@@ -34,21 +34,21 @@
                 </div>
             </div>
         </div>
-        
-        
+
+
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild/Video hochladen
                 </a>
-                
+
                 <a href="#" class="text-primary cursor-pointer" id="pixabayopener">
                     <i class="fa fa-search"></i> suchen
                 </a>
-                
+
             </div>
-            
-  
+
+
             <div class="mb-1 list-group-item-content">
                 <div class="slider">
                     <small>klein</small>
@@ -141,7 +141,7 @@
                 <input type="text" placeholder="Bildnachweis" name="copyright" id="copyright" value="" class="form-control">
                 <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
             </div>
-        </div> 
+        </div>
 
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex align-items-lg-center">
@@ -154,7 +154,7 @@
                     <a href="https://telegram.me/bayernbot/" target="_blank">@Bayernbot</a>.
                 </div>
             </div>
-        </div> 
+        </div>
 
     </div>
 
