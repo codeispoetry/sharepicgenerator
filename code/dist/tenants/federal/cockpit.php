@@ -7,7 +7,7 @@
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Hintergrundbild/ -video hochladen
                 </a>
-                
+
                 <span class="text-primary cursor-pointer" id="pixabayopener">
                     <i class="fas fa-search"></i> suchen
                 </span>
@@ -196,14 +196,14 @@
                             Grau hinter Text
                         </label>
                     </div>
-                </div>    
+                </div>
             </div>
             <div class="noquote preferences-text">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
                     </span>
-                    
+
                     <span class="text-primary cursor-pointer" id="iconopener">
                         <i class="fas fa-search"></i> Icon suchen
                     </span>
@@ -216,7 +216,7 @@
                         <option value="0">Icon entfernen</option>
                     </select>
                 </div>
-            </div>    
+            </div>
         </div>
 
         <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher">Störer</h3>
@@ -248,7 +248,7 @@
                         <option value="logo-weiss">weiß, mit Schriftzug</option>
                         <option value="logo-gruen">grün, mit Schriftzug</option>
                     </optgroup>
-                    
+
                     <?php
                         if( $landesverband == 3 ){
                     ?>
@@ -281,7 +281,7 @@
                     </optgroup>
                 </select>
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
-                
+
             </div>
             <div class="slider">
                 <small>klein</small>
