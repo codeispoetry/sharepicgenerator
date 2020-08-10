@@ -50,7 +50,7 @@ function getUserDir(){
 
 function hasCloudCredentials(){
     global $user;
-    $cloudTokenFile = sprintf('../persistent/user/%s/.cloudcredentials.txt', $user) ;
+    $cloudTokenFile = sprintf('../../persistent/user/%s/.cloudcredentials.txt', $user) ;
     return file_exists( $cloudTokenFile );
 }
 
@@ -69,7 +69,7 @@ function returnJsonSuccessAndDie(){
 function logthis(){
     global $user, $landesverband, $tenant;
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant );
-    file_put_contents('../log/log.log', $line, FILE_APPEND);
+    file_put_contents('../../log/log.log', $line, FILE_APPEND);
 }
 
 
@@ -80,7 +80,7 @@ function isLocal(){
 
 
 function createAccessToken( $user ){
-    $userDir = '../persistent/user/' . $user;
+    $userDir = '../../persistent/user/' . $user;
     if( !file_exists($userDir)){
         mkdir( $userDir );
     }
@@ -97,7 +97,7 @@ function isLocalUser(){
         return false;
     }
 
-    if( !file_exists('../passwords.php')){
+    if( !file_exists('../../passwords.php')){
         return false;
     }
 
@@ -106,7 +106,7 @@ function isLocalUser(){
         die("Bitte warten. Zu viele Fehlversuche");
     }
 
-    require_once('../passwords.php');
+    require_once('../../passwords.php');
     if( in_array($_POST['pass'], $passwords)){
         return true;
     }
@@ -119,7 +119,7 @@ function isLocalUser(){
 
 
 function increaseLoginAttempts(){
-    $file = '../loginattempts.txt';
+    $file = '../../loginattempts.txt';
     if( file_exists( $file ) ){
         $attempts = file_get_contents( $file );
         $attempts++;
@@ -132,7 +132,7 @@ function increaseLoginAttempts(){
 
 
 function loginAttemptsLeft(){
-    $file = '../loginattempts.txt';
+    $file = '../../loginattempts.txt';
 
     if( !file_exists( $file ) ){
         return true;

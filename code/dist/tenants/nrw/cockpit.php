@@ -6,7 +6,7 @@
                 <i class="fas fa-question-circle"></i>
                 Anleitung
             </a>
-            <a href="/federal" class="h6">
+            <a href="/tenants/federal" class="h6">
                 <i class="fas fa-arrow-right"></i>
                 Zum Standardlayout
             </a>
@@ -188,7 +188,7 @@
 
 
                 </div>
-               
+
 
             </div>
         </div>
