@@ -26,7 +26,7 @@ down:
 	docker-compose down
 
 get-config:
-    docker-compose exec webserver rsync rsync tom@sharepicgenerator.de:/var/www/html/ini/* ini/
+	docker-compose exec webserver rsync rsync tom@sharepicgenerator.de:/var/www/html/ini/* ini/
 
 get-log:
 	docker-compose exec webserver rsync tom@sharepicgenerator.de:/var/www/html/log/log.log dist/log.log
@@ -39,4 +39,3 @@ test:
 
 doc:
 	docker-compose exec mkdocs mkdocs build
-
