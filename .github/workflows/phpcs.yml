@@ -1,0 +1,11 @@
+name: PHP Code Style Validation
+on: pull_request
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: chindit/actions-phpcs@master
+          with:
+            # Folder to check code style
+            dir: code/dist/
