@@ -1,6 +1,5 @@
 <?php
-require_once('../functions.php');
-$samlfile = '/var/simplesaml/lib/_autoload.php';
+require_once('lib/functions.php');
 $landesverband = 0;
 $user = "generic";
 $tenant = "federal";
@@ -8,24 +7,14 @@ $tenant = "federal";
 $hasAccess = isLocal() ?: isLocalUser();
 
 if( !$hasAccess ){
-    if (file_exists($samlfile)) {
-        require_once($samlfile);
-        $as = new SimpleSAML_Auth_Simple('default-sp');
-        $as->requireAuth();
-        $samlattributes = $as->getAttributes();
-        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-
-        require_once('../inc/versionswitch.php');
-    }else {
-        $user = "nosamlfile";
-    }
+    $user = handleSamlAuth();
 }
 
 logthis();
 
 $accessToken = createAccessToken( $user );
 
-require_once("../actionday.php");
+require_once("../lib/actionday.php");
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +53,7 @@ require_once("../actionday.php");
     </div>
     <div class="row pb-5 mb-3">
         <?php
-            show_images('img/shpic*.jpg');
+            showImages('img/shpic*.jpg');
         ?>
     </div>
 </div>
@@ -99,7 +88,7 @@ require_once("../actionday.php");
 </html>
 <?php
 
-function show_images($dir)
+function showImages($dir)
 {
     $files = array_reverse(glob( $dir ) );
     foreach ($files AS $file) {

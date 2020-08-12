@@ -18,7 +18,7 @@
                         <select class="form-control" id="sizepresets">
                             <option class="">Größe</option>
                             <?php
-                            $sizes = parse_ini_file('../../ini/picturesizes.ini', TRUE);
+                            $sizes = parse_ini_file(getPathToFile('ini/picturesizes.ini'), TRUE);
                             foreach ($sizes AS $name => $group) {
                                 printf('<optgroup label="%s">', $name);
                                 foreach ($group AS $label => $size) {

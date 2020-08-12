@@ -1,7 +1,7 @@
 <?php
-require_once('../../functions.php');
+require_once('base.php');
+require_once(getPathToFile("lib/functions.php"));
 
-$samlfile = '/var/simplesaml/lib/_autoload.php';
 $landesverband = 0;
 $user = "generic";
 $tenant = "bayern";
@@ -9,17 +9,7 @@ $tenant = "bayern";
 $hasAccess = isLocal() ?: isLocalUser();
 
 if( !$hasAccess ){
-    if (file_exists($samlfile)) {
-        require_once($samlfile);
-        $as = new SimpleSAML_Auth_Simple('default-sp');
-        $as->requireAuth();
-        $samlattributes = $as->getAttributes();
-        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-
-        require_once('../../inc/versionswitch.php');
-    }else {
-        $user = "nosamlfile";
-    }
+    $user = handleSamlAuth();
 }
 
 logthis();
@@ -98,14 +88,14 @@ $accessToken = createAccessToken( $user );
 
 <div class="overlays">
     <?php
-        require_once('../../inc/overlays/pixabay.php');
-        require_once('../../inc/overlays/icons.php');
-        require_once('../../inc/overlays/waiting.php');
+        require_once(getPathToFile('/inc/overlays/pixabay.php'));
+        require_once(getPathToFile('/inc/overlays/icons.php'));
+        require_once(getPathToFile('/inc/overlays/waiting.php'));
     ?>
 </div>
 
 <script>
-    <?php echo 'var config ='; @readfile('../../config.json') || readfile('../../config-sample.json'); echo ';'?>
+    <?php echo 'var config ='; @readfile(getPathToFile('/config.json')) || readfile(getPathToFile('/config-sample.json')); echo ';'?>
     <?php printf('config.landesverband = %d;', $landesverband); ?>
     <?php printf('config.user="%s";', $user); ?>
     <?php printf('config.accesstoken="%s";', $accessToken); ?>
