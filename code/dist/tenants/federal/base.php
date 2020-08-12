@@ -1,11 +1,10 @@
 <?php
 
-$basedir = "../../";
+define("BASEDIR", "../../");
 
 # this is just a helper function to get the path to the
-# files located in the $basedir
-function getPathToFile($file){
-  return $basedir . $file;
+# files/dir located in the BASEDIR
+function getBasePath($file)
+{
+    return BASEDIR . $file;
 }
-
-?>

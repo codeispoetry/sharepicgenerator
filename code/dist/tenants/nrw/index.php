@@ -1,6 +1,6 @@
 <?php
 require_once('base.php');
-require_once(getPathToFile("lib/functions.php"));
+require_once(getBasePath("lib/functions.php"));
 
 $landesverband = 0;
 $user = "generic";
@@ -8,13 +8,13 @@ $tenant = "nrw";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
-if( !$hasAccess ){
+if (!$hasAccess) {
     $user = handleSamlAuth();
 }
 
 logthis();
 
-$accessToken = createAccessToken( $user );
+$accessToken = createAccessToken($user);
 
 
 ?>
@@ -77,24 +77,22 @@ $accessToken = createAccessToken( $user );
 
 
             <?php
-                 require_once(getPathToFile("lib/actionday.php"));
+                 require_once(getBasePath("lib/actionday.php"));
             ?>
 
             <?php
-                if( isDaysBefore("8.3.", 14)){
-             ?>
+            if (isDaysBefore("8.3.", 14)) { ?>
             <div class="col-12 text-center mb-5">
                 <span class="uselogo text-primary cursor-pointer" data-logo="frauenrechte">
-                    <img src="../assets/logos/frauenrechte.svg">
-                    Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
+                <img src="../assets/logos/frauenrechte.svg">
+                Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
                 </span>
             </div>
             <?php } ?>
 
 
             <?php
-            if( isDaysBefore("9.5.", 14)){
-                ?>
+            if (isDaysBefore("9.5.", 14)) { ?>
                 <div class="col-12 text-center mb-5">
                 <span class="uselogo text-primary cursor-pointer" data-logo="europa">
                     <img src="../assets/logos/europa.svg">
@@ -102,9 +100,6 @@ $accessToken = createAccessToken( $user );
                 </span>
                 </div>
             <?php } ?>
-
-
-
 
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
@@ -133,15 +128,16 @@ $accessToken = createAccessToken( $user );
 
 <div class="overlays">
     <?php
-        require_once(getPathToFile('/inc/overlays/pixabay.php'));
-        require_once(getPathToFile('/inc/overlays/icons.php'));
-        require_once(getPathToFile('/inc/overlays/waiting.php'));
-        require_once(getPathToFile('/inc/overlays/actiondays.php'));
+        require_once(getBasePath('/inc/overlays/pixabay.php'));
+        require_once(getBasePath('/inc/overlays/icons.php'));
+        require_once(getBasePath('/inc/overlays/waiting.php'));
+        require_once(getBasePath('/inc/overlays/actiondays.php'));
     ?>
 </div>
 
 <script>
-    <?php echo 'var config ='; @readfile(getPathToFile('/config.json')) || readfile(getPathToFile('/config-sample.json')); echo ';'?>
+    <?php echo 'var config =';
+    @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
     <?php printf('config.landesverband = %d;', $landesverband); ?>
     <?php printf('config.user="%s";', $user); ?>
     <?php printf('config.accesstoken="%s";', $accessToken); ?>

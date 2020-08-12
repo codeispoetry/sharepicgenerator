@@ -1,3 +1,7 @@
+<?php
+// phpcs:ignoreFile -- mainly html, ignore it
+?>
+
 <form id="pic">
     <div class="list-group">
 
@@ -69,40 +73,45 @@
                 </div>
 
                 <div class="flex-column align-items-start">
-                    <?php for($i = 1; $i <=2; $i++){ ?>
-                        <div class="mb-1 list-group-item-content <?php if($i > 1) echo 'show-add-pic-upload d-none'; ?>">
+                    <?php
+                    for ($i = 1; $i <=2; $i++) {
+                        $divclass='mb-1 list-group-item-content';
+                        if ($i > 1) {
+                            $divclas .= ' show-add-pic-upload d-none';
+                        }
+                    ?>
+                      <div class="<?= $divclass; ?>">
                             <div class="d-flex w-100 justify-content-between">
-                             <span class="text-primary cursor-pointer addpicclicker<?php echo $i;?>">
-                                <i class="fa fa-upload"></i> <?php echo $i;?>. Vordergrundbild hochladen
+                             <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
+                                <i class="fa fa-upload"></i> <?= $i; ?>. Vordergrundbild hochladen
                             </span>
 
-                                <?php if($i == 2 ){?>
-                                    <small class="text-primary cursor-pointer d-none show-add-pic-<?php echo $i;?>" id="addpicalign" data-click="addpicAlign">
+                                <?php if ($i == 2) {?>
+                                    <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
                                         <i class="fas fa-align-justify"></i>
                                         angleichen
                                     </small>
                                 <?php } ?>
 
-                                <small class="text-primary cursor-pointer d-none show-add-pic-<?php echo $i;?>" id="addpicdelete<?php echo $i;?>">
+                                <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicdelete<?= $i; ?>">
                                     <i class="fas fa-trash"></i>
                                     löschen
                                 </small>
                             </div>
-                            <div class="mb-1 mt-2 d-none show-add-pic-<?php echo $i;?>">
+                            <div class="mb-1 mt-2 d-none show-add-pic-<?= $i; ?>">
                                 <div class="d-flex align-items-center">
                                     <div class="slider">
                                         <small>klein</small>
-                                        <input type="range" class="custom-range" name="addPicSize<?php echo $i;?>" id="addPicSize<?php echo $i;?>" min="1" max="100" value="15">
+                                        <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
                                         <small>groß</small>
                                     </div>
                                     <div class="ml-3">
                                         <label>
-                                            <input type="checkbox" name="addpicrounded<?php echo $i;?>" id="addpicrounded<?php echo $i;?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
+                                            <input type="checkbox" name="addpicrounded<?= $i; ?>" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                         </label>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                     <?php } ?>
@@ -136,12 +145,12 @@
                         <select class="form-control" id="sizepresets">
                             <option class="">Größe</option>
                             <?php
-                            $sizes = parse_ini_file(getPathToFile('ini/picturesizes.ini'), TRUE);
-                            foreach ($sizes AS $name => $group) {
+                            $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
+                            foreach ($sizes as $name => $group) {
                                 printf('<optgroup label="%s">', $name);
-                                foreach ($group AS $label => $size) {
+                                foreach ($group as $label => $size) {
                                     list($width, $height) = preg_split("/[^0-9]/", trim($size));
-                                    $socialmediaplatform = preg_replace('/ /','-', "$name-$label");
+                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
                                     printf('<option value="%d:%d" data-socialmediaplatform="%s">%s</option>', $width, $height, $socialmediaplatform, $label);
                                 }
                                 echo '</optgroup>';

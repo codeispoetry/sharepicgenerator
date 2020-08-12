@@ -1,7 +1,7 @@
 name: PHP Code Style Validation
 on: pull_request
 jobs:
-  phplint:
+  phpcs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2

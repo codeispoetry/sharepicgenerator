@@ -1,13 +1,15 @@
 <?php
 
+require_once('lib/functions.php');
+
 $filename = sanitizeUserinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
 
-if( !in_array($_GET['format'], array('png','pdf','jpg','mp4','zip'))){
+if (!in_array($_GET['format'], array('png','pdf','jpg','mp4','zip'))) {
     die("wrong format");
 }
 
-switch($_GET['format']){
+switch ($_GET['format']) {
     case 'png':
         $contentType = 'image/png';
         $format = 'png';
@@ -27,7 +29,6 @@ switch($_GET['format']){
     default:
         $contentType = 'image/jpg';
         $format = 'jpg';
-
 }
 
 debug($filename, $format);
@@ -41,39 +42,3 @@ header("Pragma: no-cache");
 readfile('tmp/' . $filename . '.' . $format);
 
 tidyUp();
-
-function tidyUp(){
-    global $filename, $format;
-
-    if($format == 'mp4'){
-        return;
-    }
-
-    $command = sprintf("convert -resize 500x500 -background white -flatten -quality 60  %s %s",
-        'tmp/' . $filename . '.png',
-        'tmp/log' . time() . '_' . $filename . '.jpg'
-    );
-    exec($command);
-
-    //unlink('tmp/' . $filename . '.' . $format);
-    //unlink('tmp/' . $filename . '.svg');
-    //unlink('tmp/' . $filename . '.png');
-}
-
-function sanitizeUserinput($var)
-{
-    return preg_replace('/[^a-zA-Z0-9]/', '', $var);
-}
-
-function debug( $filename, $format ){
-    $get = http_build_query($_GET,'',', ');
-    $file = 'tmp/' . $filename . '.' . $format;
-    if(file_exists($file)){
-        $size = filesize($file);
-    }else{
-        $size = -1;
-    }
-
-    $debug = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
-    file_put_contents('log/error.log', $debug, FILE_APPEND);
-}

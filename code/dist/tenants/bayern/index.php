@@ -1,6 +1,6 @@
 <?php
 require_once('base.php');
-require_once(getPathToFile("lib/functions.php"));
+require_once(getBasePath("lib/functions.php"));
 
 $landesverband = 0;
 $user = "generic";
@@ -8,13 +8,13 @@ $tenant = "bayern";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
-if( !$hasAccess ){
+if (!$hasAccess) {
     $user = handleSamlAuth();
 }
 
 logthis();
 
-$accessToken = createAccessToken( $user );
+$accessToken = createAccessToken($user);
 
 ?>
 <!DOCTYPE html>
@@ -81,21 +81,23 @@ $accessToken = createAccessToken( $user );
 
     <div class="col-12 col-lg-6 text-lg-right">
         <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">Feedback im Chat-Channel</a> |
-        Programmiert mit <i class="fas fa-heart text-yellow"></i> von <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
+        Programmiert mit <i class="fas fa-heart text-yellow"></i> von
+        <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
     </div>
 </footer>
 
 
 <div class="overlays">
     <?php
-        require_once(getPathToFile('/inc/overlays/pixabay.php'));
-        require_once(getPathToFile('/inc/overlays/icons.php'));
-        require_once(getPathToFile('/inc/overlays/waiting.php'));
+        require_once(getBasePath('/inc/overlays/pixabay.php'));
+        require_once(getBasePath('/inc/overlays/icons.php'));
+        require_once(getBasePath('/inc/overlays/waiting.php'));
     ?>
 </div>
 
 <script>
-    <?php echo 'var config ='; @readfile(getPathToFile('/config.json')) || readfile(getPathToFile('/config-sample.json')); echo ';'?>
+    <?php echo 'var config =';
+    @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
     <?php printf('config.landesverband = %d;', $landesverband); ?>
     <?php printf('config.user="%s";', $user); ?>
     <?php printf('config.accesstoken="%s";', $accessToken); ?>

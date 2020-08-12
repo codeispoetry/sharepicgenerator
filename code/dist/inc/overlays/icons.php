@@ -22,9 +22,6 @@
                     </form>
                 </div>
             </div>
-
-            <div class="col-12 d-flex flex-wrap results">
-            </div>
+            <div class="col-12 d-flex flex-wrap results"></div>
         </div>
-
     </div>

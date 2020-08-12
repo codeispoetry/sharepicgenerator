@@ -1,3 +1,7 @@
+<?php
+// phpcs:ignoreFile -- mainly html, ignore it
+?>
+
 <form id="pic">
     <div class="list-group">
 
@@ -18,12 +22,12 @@
                         <select class="form-control" id="sizepresets">
                             <option class="">Größe</option>
                             <?php
-                            $sizes = parse_ini_file(getPathToFile('ini/picturesizes.ini'), TRUE);
-                            foreach ($sizes AS $name => $group) {
+                                $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
+                            foreach ($sizes as $name => $group) {
                                 printf('<optgroup label="%s">', $name);
-                                foreach ($group AS $label => $size) {
+                                foreach ($group as $label => $size) {
                                     list($width, $height) = preg_split("/[^0-9]/", trim($size));
-                                    $socialmediaplatform = preg_replace('/ /','-', "$name-$label");
+                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
                                     printf('<option value="%d:%d" data-socialmediaplatform="%s">%s</option>', $width, $height, $socialmediaplatform, $label);
                                 }
                                 echo '</optgroup>';
@@ -124,7 +128,7 @@
                     $claim = "Am Sonntag grün wählen";
                     //$claim = "Dank für Ihre Stimme";
                     // Mach's möglich
-                    ?>
+                ?>
                 <input type="text" name="claim" id="claim" value="<?php echo $claim; ?>" placeholder="Danke für Ihre Stimme" class="form-control">
 
                 <i class="fa fa-broom ml-1 text-primary cursor-pointer claim-change-color ml-1" id="claim-change-color" title="Farbe wechseln"></i>
