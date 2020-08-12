@@ -1,54 +1,51 @@
 <?php
 
-require_once( 'functions.php');
+require_once('lib/functions.php');
+
 $id = $_POST['id'];
 
 $extension = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 
-if (isset($_FILES['file']) && !is_file_allowed($extension, array('jpg','jpeg','png','gif','svg','webp','mp4','zip')) ){
+if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','gif','svg','webp','mp4','zip')) ){
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
 
-
-
 switch( $id ){
     case "uploadfile":
         if($extension == 'mp4'){
-            handle_video_upload();
+            handleVideoUpload();
         }
-        handle_background_upload();
+        handleBackgroundUpload();
         break;
 
     case "uploadlogo":
-        handle_logo_upload();
+        handleLogoUpload();
         break;
     case "uploadicon":
-        handle_icon_upload();
+        handleIconUpload();
         break;
     case "uploadbyurl":
-        handle_uploadbyurl();
+        handleUploadByUrl();
         break;
     case "uploadaddpic1":  case "uploadaddpic2":
-        handle_addpic_upload();
+        handleAddPicUpload();
         break;
     case "uploadwork":
-        handle_uploadwork();
+        handleUploadWork();
         break;
     default:
         echo json_encode(array("error"=>"nothing done. id=" . $id));
         die();
 }
 
-
-
-function handle_background_upload(){
+function handleBackgroundUpload(){
     global $extension;
 
     $filebasename = 'tmp/' . uniqid('upload', true);
     $filename = $filebasename . '.' . $extension;
 
-    $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+    $moved = moveUploadedFile($_FILES['file']['tmp_name'], $filename );
 
     // convert webp to jpg, as inkscape cannot handle webp
     if( strToLower($extension) == 'webp' ){
@@ -71,18 +68,17 @@ function handle_background_upload(){
     file_put_contents('log/uploads.log', $line, FILE_APPEND);
 
     $filename_small = $filebasename . '_small.' . $extension;
-    prepare_file_and_send_info($filename, $filename_small);
+    prepareFileAndSendInfo($filename, $filename_small);
 
 }
 
-
-function handle_icon_upload(){
+function handleIconUpload(){
     global $extension;
 
     $filebasename = 'tmp/' . uniqid('icon');
     $filename = $filebasename . '.' . $extension;
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+    moveUploadedFile($_FILES['file']['tmp_name'], $filename );
 
     $return['iconfile'] = '../' . $filename;
     $return['okay'] = true;
@@ -91,12 +87,12 @@ function handle_icon_upload(){
 
 }
 
-function handle_uploadwork(){
+function handleUploadWork(){
     $filebasename = 'tmp/' . uniqid('work');
     $filename = $filebasename . '.zip';
     $savedir = 'tmp/' . basename( $filename,  '.zip' );
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+    moveUploadedFile($_FILES['file']['tmp_name'], $filename );
 
     $cmd = sprintf('unzip %s -d %s 2>&1', $filename, $savedir );
     exec( $cmd, $output );
@@ -115,13 +111,13 @@ function handle_uploadwork(){
 
 }
 
-function handle_addpic_upload(){
+function handleAddPicUpload(){
     global $extension;
 
     $filebasename = 'tmp/' . uniqid('addpic');
     $filename = $filebasename . '.' . $extension;
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+    moveUploadedFile($_FILES['file']['tmp_name'], $filename );
 
     $command = sprintf("mogrify -auto-orient %s", $filename);
     exec($command);
@@ -133,7 +129,7 @@ function handle_addpic_upload(){
 
 }
 
-function handle_logo_upload(){
+function handleLogoUpload(){
     global $extension;
 
     if( !isAllowed() ) {
@@ -143,7 +139,7 @@ function handle_logo_upload(){
     $userDir = getUserDir();
 
     $filename = $userDir . '/logo.' . $extension;
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename );
+    moveUploadedFile($_FILES['file']['tmp_name'], $filename );
 
     if( $extension != 'png'){
         $command = sprintf("convert -resize 500x500 -background none %s %s/logo.png",
@@ -158,23 +154,22 @@ function handle_logo_upload(){
     die();
 }
 
-function is_file_allowed( $extension, $allowed){
+function isFileAllowed( $extension, $allowed){
     return in_array( strtolower($extension), $allowed);
 }
 
-function handle_video_upload(){
+function handleVideoVpload(){
     global $extension;
     $basename = 'tmp/' . uniqid('video');
     $videofile = $basename . '.' . $extension;
     $thumbnail =  $basename . '.jpg';
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $videofile );
-    edit_video_and_send_info( $videofile, $thumbnail);
+    moveUploadedFile($_FILES['file']['tmp_name'], $videofile );
+    editVideoAndSendInfo( $videofile, $thumbnail);
 }
 
 
-function edit_video_and_send_info( $videofile, $thumbnail){
-
+function editVideoAndSendInfo( $videofile, $thumbnail){
     $command =sprintf('ffmpeg -ss 00:00:02 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
     exec($command, $output);
 
@@ -196,7 +191,7 @@ function edit_video_and_send_info( $videofile, $thumbnail){
     die();
 }
 
-function handle_uploadbyurl(){
+function handleUploadByUrl(){
     $url = $_POST['url2copy'];
     $extension = pathinfo($url,PATHINFO_EXTENSION);
 
@@ -205,31 +200,29 @@ function handle_uploadbyurl(){
         $basename = 'tmp/' . uniqid('video');
         $videofile = $basename . '.mp4';
         $thumbnail =  $basename . '.jpg';
-    
+
         if( !copy($url, $videofile ) ){
             echo json_encode(array("error"=>"could not copy video file"));
             die();
         }
-        edit_video_and_send_info( $videofile, $thumbnail);
+        editVideoAndSendInfo( $videofile, $thumbnail);
 
         return;
     }
 
-
     $filebasename = 'tmp/' . uniqid('upload');
     $filename = $filebasename . '.' . $extension;
     $filename_small = $filebasename . '_small.' . $extension;
-
 
     if( !copy($url, $filename ) ){
         echo json_encode(array("error"=>"could not copy file"));
         die();
     }
 
-    prepare_file_and_send_info($filename, $filename_small);
+    prepareFileAndSendInfo($filename, $filename_small);
 }
 
-function prepare_file_and_send_info( $filename, $filename_small ){
+function prepareFileAndSendInfo($filename, $filename_small){
     $command = sprintf("mogrify -auto-orient %s",
         $filename
     );
@@ -241,7 +234,6 @@ function prepare_file_and_send_info( $filename, $filename_small ){
     );
     exec($command);
 
-
     $return['filename'] = '../' . $filename_small;
     list($width, $height, $type, $attr) = getimagesize($filename_small);
     list($originalWidth, $originalHeight, $type, $attr) = getimagesize($filename);
@@ -251,15 +243,14 @@ function prepare_file_and_send_info( $filename, $filename_small ){
     $return['originalWidth'] = $originalWidth;
     $return['originalHeight'] = $originalHeight;
     $return['fullBackgroundName'] = $filename;
-    $return['warning'] = (has_face($filename)) ? 'face' : '';
+    $return['warning'] = (hasFace($filename)) ? 'face' : '';
 
     echo json_encode($return);
     die();
 }
 
-function has_face( $filename ){
+function hasFace( $filename ){
     $command = sprintf("facedetect %s", $filename);
     exec( $command, $output );
     return !empty($output);
 }
-

@@ -13,7 +13,6 @@ if( preg_match_all('/time=(.*?) /',$output[0],$matches)) {
     die();
 }
 
-
 function timecode2seconds( $timecode ){
     $parts = explode(":",$timecode);
     $parts = array_reverse($parts);
