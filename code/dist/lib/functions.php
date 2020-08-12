@@ -24,7 +24,7 @@ function getUser(){
     return $user;
 }
 
-function getCloudCredentials( ){
+function getCloudCredentials(){
     $tokenfile = getUserDir() .'/.cloudcredentials.txt';
 
     if( !file_exists( $tokenfile ) ){
@@ -54,7 +54,7 @@ function hasCloudCredentials(){
     return file_exists( $cloudTokenFile );
 }
 
-function returnJsonErrorAndDie( $code = 1){
+function returnJsonErrorAndDie($code = 1){
     echo json_encode(array('success'=>'false','error'=>array('code'=>$code)));
     die();
 }
@@ -169,6 +169,23 @@ function checkPermission( $user, $accesstoken){
     }
 
     return ( file_get_contents( sprintf('%s/accesstoken.php',$userDir)) == $accesstoken);
+}
+
+
+function handleSamlAuth() {
+  $samlfile = '/var/simplesaml/lib/_autoload.php';
+  if (file_exists($samlfile)) {
+    require_once($samlfile);
+    $as = new SimpleSAML_Auth_Simple('default-sp');
+    $as->requireAuth();
+    $samlattributes = $as->getAttributes();
+    $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
+    require_once('./inc/versionswitch.php');
+  }else {
+    $user = "nosamlfile";
+  }
+
+  return $user;
 }
 
 

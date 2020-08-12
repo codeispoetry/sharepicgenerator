@@ -1,10 +1,10 @@
 <?php
+
 $basename = uniqid('save');
 $datafile = 'tmp/' . $basename . '.json';
 $zipfile = 'tmp/' . $basename .'.zip';
 
 $data = $_POST['data'];
-
 
 // extract
 $values = array();
@@ -21,7 +21,6 @@ if( $addpic2 != '' ) $values[ 'addpicfile2' ] = 'addpic2.jpg';
 unset( $values[ 'backgroundURL' ] );
 
 file_put_contents( $datafile, json_encode( $values ) );
-
 
 // zip
 $assets = "$backgroundfile $addpic1 $addpic2";

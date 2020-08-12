@@ -1,6 +1,7 @@
 <?php
-require_once('../functions.php');
-$samlfile = '/var/simplesaml/lib/_autoload.php';
+require_once('base.php');
+require_once(getPathToFile("lib/functions.php"));
+
 $landesverband = 0;
 $user = "generic";
 $tenant = "nrw";
@@ -8,17 +9,7 @@ $tenant = "nrw";
 $hasAccess = isLocal() ?: isLocalUser();
 
 if( !$hasAccess ){
-    if (file_exists($samlfile)) {
-        require_once($samlfile);
-        $as = new SimpleSAML_Auth_Simple('default-sp');
-        $as->requireAuth();
-        $samlattributes = $as->getAttributes();
-        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-
-        require_once('../inc/versionswitch.php');
-    }else {
-        $user = "nosamlfile";
-    }
+    $user = handleSamlAuth();
 }
 
 logthis();
@@ -49,7 +40,7 @@ $accessToken = createAccessToken( $user );
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-    <link rel="manifest" href="../favicons/manifest.json">
+    <link rel="manifest" href="/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
 
@@ -86,7 +77,7 @@ $accessToken = createAccessToken( $user );
 
 
             <?php
-                 require_once("../actionday.php");
+                 require_once(getPathToFile("lib/actionday.php"));
             ?>
 
             <?php
@@ -142,16 +133,15 @@ $accessToken = createAccessToken( $user );
 
 <div class="overlays">
     <?php
-        require_once('../inc/overlays/pixabay.php');
-        require_once('../inc/overlays/icons.php');
-        require_once('../inc/overlays/waiting.php');
-        require_once('../inc/overlays/actiondays.php');
-
+        require_once(getPathToFile('/inc/overlays/pixabay.php'));
+        require_once(getPathToFile('/inc/overlays/icons.php'));
+        require_once(getPathToFile('/inc/overlays/waiting.php'));
+        require_once(getPathToFile('/inc/overlays/actiondays.php'));
     ?>
 </div>
 
 <script>
-    <?php echo 'var config ='; @readfile('../config.json') || readfile('../config-sample.json'); echo ';'?>
+    <?php echo 'var config ='; @readfile(getPathToFile('/config.json')) || readfile(getPathToFile('/config-sample.json')); echo ';'?>
     <?php printf('config.landesverband = %d;', $landesverband); ?>
     <?php printf('config.user="%s";', $user); ?>
     <?php printf('config.accesstoken="%s";', $accessToken); ?>

@@ -1,5 +1,5 @@
 <?php
-require_once('functions.php');
+require_once('lib/functions.php');
 
 if( !isAllowed() ){
     die(  );
@@ -60,10 +60,6 @@ if( $_POST['mode'] == 'file'){
         )
     );
 }
-
-
-
-
 
 function xml2json( $xml ){
     $xml = preg_replace('/d\:/','', $xml);

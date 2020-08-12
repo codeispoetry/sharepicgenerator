@@ -17,14 +17,9 @@ if (!preg_match("/xmlns:xlink/", $matches[1][0])) {
 
 $svg = preg_replace('/NS([1-9]|[1-9][0-9]|[1-9][0-9][0-9]):/', 'xlink:', $svg); // Remove offending NS<number>: in front of href tags, will only remove NS0 - NS999
 
-
 // Für den Firefox
 $svg = preg_replace('#([^:])\/\/#', "$1/", $svg);
-
-
 $svg = $svgHeader . $svg; // Prefix SVG string with required XML node
-
-
 
 
 file_put_contents($filename, $svg);
@@ -42,13 +37,11 @@ if( isset($_POST['addtogallery']) AND $_POST['addtogallery'] == "true" ) {
     saveInGallery($filename);
 }
 
-
 logthis();
 
 $return = [];
 $return['basename'] = basename($filename, 'svg');
 echo json_encode($return);
-
 
 function convert($filename, $width, $format, $quality = 75)
 {
@@ -103,17 +96,15 @@ function convert($filename, $width, $format, $quality = 75)
     }
 }
 
-
-function sanitize_userinput($var)
+function sanitizeUserinput($var)
 {
     return preg_replace('/[^a-zA-Z0-9]/', '', $var);
 }
 
-
 function logthis()
 {
-    $pixabay = sanitize_userinput( $_POST['usepixabay']);
-    $socialmediaplatform = sanitize_userinput( $_POST['socialmediaplatform']);
+    $pixabay = sanitizeUserinput( $_POST['usepixabay']);
+    $socialmediaplatform = sanitizeUserinput( $_POST['socialmediaplatform']);
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), '',  'download', $pixabay, $socialmediaplatform);
     file_put_contents('log/log.log', $line, FILE_APPEND);
 }
@@ -126,7 +117,7 @@ function saveInGallery( $filename ){
     exec($command);
 
     $info = array(
-        "Nutzer*in"=>sanitize_userinput($_POST['user'])
+        "Nutzer*in"=>sanitizeUserinput($_POST['user'])
     );
     file_put_contents('gallery/img/' . basename($filename, 'svg') . 'json', json_encode($info));
 }

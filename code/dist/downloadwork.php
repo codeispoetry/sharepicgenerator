@@ -1,7 +1,7 @@
 <?php
+
 $basename = sanitize_userinput($_GET['basename']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
-
 
 header('Content-Type: application/zip');
 header("Content-Length: ".filesize('tmp/' . $basename . '.zip'));
@@ -15,5 +15,3 @@ function sanitize_userinput($var)
 {
     return preg_replace('/[^a-zA-Z0-9]/', '', $var);
 }
-
-

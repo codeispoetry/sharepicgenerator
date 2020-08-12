@@ -1,9 +1,9 @@
 <?php
 
-require_once('functions.php');
+require_once('lib/functions.php');
 
-if( !isset($_POST['user'] )) die();
-if( !isset($_POST['accesstoken'] )) die();
+if(!isset($_POST['user'] )) die();
+if(!isset($_POST['accesstoken'] )) die();
 
 $user = preg_replace('/[^a-zA-Z0-9]/','', $_POST['user']);
 $accesstoken = preg_replace('/[^a-zA-Z0-9]/','', $_POST['accesstoken']);
@@ -28,7 +28,6 @@ switch( $action ){
         break;
     case 'saveCloudToken':
         saveCloudToken( );
-
         break;
     case 'deleteCloudToken':
         deleteCloudToken( );
@@ -51,7 +50,6 @@ function saveCloudToken(){
 
     $credentials = sprintf('%s:%s', getUser(), $_POST['data']);
     file_put_contents( $cloudTokenFile, $credentials );
-
 
     // Create folder in cloud
     $credentials = sprintf('-u %s', getCloudCredentials() );
@@ -90,7 +88,6 @@ function deleteSavedPic( $user ){
  * @deprecated deprecated
  */
 function savePic( $user, $data ){
-
     $userDir = sprintf('persistent/user/%s', $user);
     if( !file_exists($userDir)){
         mkdir( $userDir );
