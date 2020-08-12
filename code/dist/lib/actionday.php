@@ -1,14 +1,13 @@
 <?php
 
-$actionsdays = parse_ini_file('ini/actiondays.ini', TRUE);
-
-function getNextActionDays( $count = 3){
-    global $actionsdays;
+function getNextActionDays($count = 3)
+{
+    $actionsdays = parse_ini_file(getBasePath('/ini/actiondays.ini'), true);
 
     $remainingActionDays = array();
 
     $i = 0;
-    foreach ($actionsdays AS $name => $day) {
+    foreach ($actionsdays as $name => $day) {
         if (empty($day['strtotime'])) {
             continue;
         }
@@ -22,7 +21,7 @@ function getNextActionDays( $count = 3){
             $i++;
         }
 
-        if( $i == $count ){
+        if ($i == $count) {
             break;
         }
     }
@@ -31,9 +30,9 @@ function getNextActionDays( $count = 3){
 
 function nextActionDay()
 {
-    global $actionsdays;
+    $actionsdays = parse_ini_file(BASEDIR.'/ini/actiondays.ini', true);
 
-    foreach ($actionsdays AS $name => $day) {
+    foreach ($actionsdays as $name => $day) {
         if (empty($day['strtotime'])) {
             continue;
         }
@@ -42,7 +41,7 @@ function nextActionDay()
         if ($timestamp == 0) {
             continue;
         }
-        if (time() > strToTime("- 1 week", $timestamp) AND time() < $timestamp) {
+        if (time() > strToTime("- 1 week", $timestamp) and time() < $timestamp) {
             switch (floor((($timestamp - time()) / 3600 / 24))) {
                 case 0:
                     $remainingTimeText = "Heute ";
@@ -53,7 +52,6 @@ function nextActionDay()
                     break;
                 default:
                     $remainingTimeText = sprintf("Am kommenden %s ", strftime("%A", $timestamp));
-
             }
             break;
         }
@@ -66,7 +64,11 @@ function nextActionDay()
         <div class="col-12 text-center mb-5">
             <i class="far fa-hand-point-right"></i>
             Sharepic-Idee:
-            <?php printf('%s ist <a href=#" class="overlay-opener" data-target="actiondays">%s</a>.', $remainingTimeText, $day['description']); ?>
+            <?php printf(
+                '%s ist <a href=#" class="overlay-opener" data-target="actiondays">%s</a>.',
+                $remainingTimeText,
+                $day['description']
+            ); ?>
         </div>
 
         <?php

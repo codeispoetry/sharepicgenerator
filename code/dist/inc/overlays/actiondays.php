@@ -1,9 +1,11 @@
 <?php
-$actiondaysIni = parse_ini_file('../ini/actiondays.ini', TRUE);
+
+$actiondaysIni = parse_ini_file(getBasePath('/ini/actiondays.ini'), true);
 $actiondays = [];
-foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
-    $timestamp = strToTime( $actionDayInfo['strtotime'] . " + 23 hours 59 minutes");
-    if( $timestamp == 0 ){
+
+foreach ($actiondaysIni as $actionDayId => $actionDayInfo) {
+    $timestamp = strToTime($actionDayInfo['strtotime'] . " + 23 hours 59 minutes");
+    if ($timestamp == 0) {
         continue;
     }
 
@@ -25,22 +27,21 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                     <?php
-                    for($month = 1; $month <=12; $month++){
+                    for ($month = 1; $month <=12; $month++) {
                         $id = "month" . $month;
-                        $name = strftime("%B", mktime(0,0,0,$month, 1, date('Y')));
+                        $name = strftime("%B", mktime(0, 0, 0, $month, 1, date('Y')));
                         $active = '';
 
-                        if( $month == date("n" )){
+                        if ($month == date("n")) {
                             $active = 'active';
-                        }
-                    ?>
+                        } ?>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo $active; ?>" id="<?php echo $id; ?>-tab" data-toggle="tab" href="#<?php echo $id; ?>" role="tab" aria-controls="videos" aria-selected="false"><?php echo $name; ?></a>
+                        <a class="nav-link <?= $active; ?>" id="<?= $id; ?>-tab" data-toggle="tab"
+                           href="#<?= $id; ?>" role="tab" aria-controls="videos" aria-selected="false">
+                            <?= $name; ?>
+                        </a>
                     </li>
-                    <?php
-                    }
-                    ?>
-
+                    <?php } ?>
                 </ul>
             </div>
             <div class="row mt-2">
@@ -48,52 +49,53 @@ foreach ($actiondaysIni AS $actionDayId => $actionDayInfo) {
 
                     <?php
                     $nextYear =' next year ';
-                    for($month = 1; $month <=12; $month++) {
+                    for ($month = 1; $month <=12; $month++) {
                         $id = "month" . $month;
                         $name = strftime("%B", mktime(0, 0, 0, $month, 1, date('Y')));
                         $active = '';
 
-                        if ($month == date("n" )) {
+                        if ($month == date("n")) {
                             $nextYear ='';
                             $active = 'active';
-                        }
-                        ?>
-                        <div class="tab-pane <?php echo $active; ?>" id="<?php echo $id;?>" role="tabpanel" aria-labelledby="home-tab">
+                        } ?>
+                        <div class="tab-pane <?php echo $active; ?>" id="<?php echo $id; ?>" role="tabpanel" aria-labelledby="home-tab">
                             <div class="col-12">
-                                <h2 class="mt-3"><?php echo $name;?></h2>
+                                <h2 class="mt-3"><?php echo $name; ?></h2>
                             </div>
                             <div class="col-12">
                                 <ul>
                                 <?php
-                                if( isset($actiondays[ $month ])) {
-                                    foreach ($actiondays[$month] AS $actionday) {
+                                if (isset($actiondays[ $month ])) {
+                                    foreach ($actiondays[$month] as $actionday) {
                                         $timecode = $actionday['strtotime'] . $nextYear;
-                                        $timestamp = strToTime( $timecode );
-                                        if( $timestamp == 0 ) continue;
-                                        printf('<li>%s: <a href="%s" target="_blank">%s</a></li>', strftime("%A, den %e. %B %G", $timestamp), $actionday['url'], $actionday['description']);
+                                        $timestamp = strToTime($timecode);
+                                        if ($timestamp == 0) {
+                                            continue;
+                                        }
+                                        printf(
+                                            '<li>%s: <a href="%s" target="_blank">%s</a></li>',
+                                            strftime("%A, den %e. %B %G", $timestamp),
+                                            $actionday['url'],
+                                            $actionday['description']
+                                        );
                                     }
-                                }
-                                ?>
+                                } ?>
                                 </ul>
 
                                 <div class="small mt-5 font-italic text-right">
                                 <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">
                                     Fehlende Tage kannst Du im Chat melden</a>
                                     oder als
-                                <a href="https://github.com/codeispoetry/sharepicgenerator/blob/master/code/dist/ini/actiondays.ini" target="_blank">
-                                    Pull-request auf github</a>.
-                                    Alle Angaben ohne Gewähr.
+                                <a href="https://github.com/codeispoetry/sharepicgenerator/blob/master/code/dist/ini/actiondays.ini"
+                                   target="_blank">
+                                    Pull-request auf github
+                                </a>.
+                                Alle Angaben ohne Gewähr.
                                 </div>
                             </div>
-
                         </div>
-
-                        <?php
-                        }
-                        ?>
-
+                    <?php } ?>
                 </div>
             </div>
         </div>
-
     </div>

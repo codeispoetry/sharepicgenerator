@@ -1,6 +1,6 @@
 <?php
 require_once('base.php');
-require_once(getPathToFile("inc/functions.php"));
+require_once(getBasePath("lib/functions.php"));
 
 $landesverband = 0;
 $user = "generic";
@@ -8,15 +8,15 @@ $tenant = "federal";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
-if( !$hasAccess ){
+if (!$hasAccess) {
     $user = handleSamlAuth();
 }
 
 logthis();
 
-$accessToken = createAccessToken( $user );
+$accessToken = createAccessToken($user);
 
-require_once(getPathToFile("lib/actionday.php"));
+require_once(getBasePath("lib/actionday.php"));
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +45,8 @@ require_once(getPathToFile("lib/actionday.php"));
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
     <script>
-        <?php echo 'var config ='; @readfile(getPathToFile('/config.json')) || readfile(getPathToFile('/config-sample.json')); echo ';'?>
+        <?php echo 'var config =';
+        @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
         <?php printf('config.landesverband = %d;', $landesverband); ?>
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.accesstoken="%s";', $accessToken); ?>
@@ -77,7 +78,7 @@ require_once(getPathToFile("lib/actionday.php"));
                     Du scheinst für einen Aktionstag ein Sharepic zu erstellen.<br>
                     Falls dieser Aktionstag noch nicht in der
                     <a href="#" class="overlay-opener" data-target="actiondays"> Liste der Aktionstage</a>
-                    ( <?php echo getNextActionDays( 3 ); ?>, <a href="#" class="overlay-opener" data-target="actiondays">...</a>)
+                    ( <?php echo getNextActionDays(3); ?>, <a href="#" class="overlay-opener" data-target="actiondays">...</a>)
                     enthalten ist,<br>
                     <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"> schlage ihn vor</a>,
                     damit auch andere daran denken. #Danke.
@@ -104,19 +105,19 @@ require_once(getPathToFile("lib/actionday.php"));
             ?>
 
             <?php
-                if( isDaysBefore("8.3.", 14)){
-             ?>
+            if (isDaysBefore("8.3.", 14)) {
+                ?>
             <div class="col-12 text-center mb-5">
                 <span class="uselogo text-primary cursor-pointer" data-logo="frauenrechte">
-                    <img src="/assets/logos/frauenrechte.svg">
-                    Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
+                <img src="/assets/logos/frauenrechte.svg">
+                Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
                 </span>
             </div>
             <?php } ?>
 
 
             <?php
-            if( isDaysBefore("9.5.", 14)){
+            if (isDaysBefore("9.5.", 14)) {
                 ?>
                 <div class="col-12 text-center mb-5">
                 <span class="uselogo text-primary cursor-pointer" data-logo="europa">
@@ -125,9 +126,6 @@ require_once(getPathToFile("lib/actionday.php"));
                 </span>
                 </div>
             <?php } ?>
-
-
-
 
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
@@ -157,10 +155,10 @@ require_once(getPathToFile("lib/actionday.php"));
 
 <div class="overlays">
     <?php
-        require_once(getPathToFile('/inc/overlays/pixabay.php'));
-        require_once(getPathToFile('/inc/overlays/icons.php'));
-        require_once(getPathToFile('/inc/overlays/waiting.php'));
-        require_once(getPathToFile('/inc/overlays/actiondays.php'));
+        require_once(getBasePath('/inc/overlays/pixabay.php'));
+        require_once(getBasePath('/inc/overlays/icons.php'));
+        require_once(getBasePath('/inc/overlays/waiting.php'));
+        require_once(getBasePath('/inc/overlays/actiondays.php'));
     ?>
 </div>
 
