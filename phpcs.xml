@@ -13,4 +13,7 @@
             <property name="lineLimit" value="140"/>
         </properties>
     </rule>
+    <rule ref="Internal.NoCodeFound">
+        <severity>0</severity>
+    </rule>
 </ruleset>
