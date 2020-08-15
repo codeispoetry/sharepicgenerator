@@ -39,3 +39,10 @@ test:
 
 doc:
 	docker-compose exec mkdocs mkdocs build
+
+checkstyle:
+	phpcs -s code/dist/
+
+fixstyle:
+	phpcbf code/dist/
+
