@@ -1,5 +1,6 @@
 <?php
 
+require_once('base.php');
 require_once('lib/functions.php');
 require_once('lib/gallery_functions.php');
 
@@ -27,9 +28,10 @@ if (!preg_match("/xmlns:xlink/", $matches[1][0])) {
 // Remove offending NS<number>: in front of href tags, will only remove NS0 - NS999
 $svg = preg_replace('/NS([1-9]|[1-9][0-9]|[1-9][0-9][0-9]):/', 'xlink:', $svg);
 
-// for firefox
+// For firefox
 $svg = preg_replace('#([^:])\/\/#', "$1/", $svg);
-$svg = $svgHeader . $svg; // Prefix SVG string with required XML node
+// Prefix SVG string with required XML node
+$svg = $svgHeader . $svg;
 
 file_put_contents($filename, $svg);
 

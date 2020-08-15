@@ -1,5 +1,6 @@
 <?php
 
+require_once('base.php');
 require_once('lib/functions.php');
 
 $filename = sanitizeUserinput($_GET['file']);
