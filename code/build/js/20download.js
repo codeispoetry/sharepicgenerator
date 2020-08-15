@@ -18,9 +18,6 @@ $('#download,.download').click(function () {
         $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
     }
 
-
-
-
     $('#canvas').addClass('opacity');
 
     let format = 'jpg';
@@ -31,15 +28,14 @@ $('#download,.download').click(function () {
     }
 
     let data = draw.svg();
-   
+
     if( config.video == 1 ){
         background.svg.show();
     }
-    
 
     $.ajax({
         type: "POST",
-        url: '../createpic.php',
+        url: '/createpic.php',
         data: {svg: data, format: format, addtogallery: $('#add-to-gallery').prop('checked'), user: config.user, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform,videofile: config.videofile, width: $('#width').val()},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
@@ -62,7 +58,7 @@ $('#download,.download').click(function () {
                 $('.download').html('speichere Sharepic in der Cloud ... ');
                 $.ajax({
                     type: "POST",
-                    url: '../nextcloudsend.php',
+                    url: '/nextcloudsend.php',
                     data: {
                         file: obj.basename + 'jpg',
                         user: config.user,
@@ -76,13 +72,13 @@ $('#download,.download').click(function () {
 
                         $.ajax({
                             type: "POST",
-                            url: '../savework.php',
+                            url: '/savework.php',
                             data: {data: $('#pic').serialize()},
                             success: function (data, textStatus, jqXHR) {
                                 let obj = JSON.parse(data);
                                 $.ajax({
                                         type: "POST",
-                                        url: '../nextcloudsend.php',
+                                        url: '/nextcloudsend.php',
                                         data: {
                                             file: obj.basename + '.zip',
                                             user: config.user,
@@ -94,26 +90,19 @@ $('#download,.download').click(function () {
                                         }
                                     }
                                 );
-
                             }
                         });
-
                     }
                 });
 
                 let data = $('#pic').serialize();
 
-
-
-
             }else {
-                window.location.href = '../download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
+                window.location.href = '/download.php?file=' + obj.basename + '&format=' + format + '&downloadname=' + downloadname;
             }
         }
     });
 });
-
-
 
 function getDownloadName(){
     let downloadname = $('#text').val().toLowerCase();
@@ -133,7 +122,6 @@ function getDownloadName(){
     downloadname = downloadname.replace(/\-+/g, '-');
     downloadname = downloadname.replace(/^\-/g, '');
     downloadname = downloadname.replace(/\-$/g, '');
-
     downloadname = downloadname.substring(0, 30);
 
     return downloadname;
@@ -141,7 +129,7 @@ function getDownloadName(){
 
 function getEncodingStatus(){
     $.ajax({
-        url:"../getvideoencodestatus.php?videofile=" + config.videofile,
+        url:"/getvideoencodestatus.php?videofile=" + config.videofile,
         type: 'GET',
         dataType: 'JSON',
         success : function(data){
@@ -151,4 +139,3 @@ function getEncodingStatus(){
         }
     });
 }
-

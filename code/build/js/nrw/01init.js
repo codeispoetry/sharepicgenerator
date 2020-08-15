@@ -3,7 +3,7 @@ const bgpic = {
     height: 450,
     originalWidth: 1920,
     originalHeight: 1080,
-    filename: '../assets/nrw/wiese_small.jpg'
+    filename: '/assets/nrw/wiese_small.jpg'
 };
 
 $(document).ready(function () {

@@ -2,12 +2,12 @@ const logo = {
         isLoaded: false,
         config: {
             "sonnenblume": {
-                file: "../assets/logos/sonnenblume.svg",
+                file: "/assets/logos/sonnenblume.svg",
                 widthFraction: 0.1,
                 position: 'bottomright'
             },
             "sonnenblume-weiss": {
-                file: "../assets/logos/sonnenblume-weiss.svg",
+                file: "/assets/logos/sonnenblume-weiss.svg",
                 widthFraction: 0.1,
                 position: 'bottomright'
             }
@@ -56,10 +56,7 @@ const logo = {
             }
 
             logo.svg.move(x, y);
-
         }
-
-
     }
 ;
 logo.load();
@@ -77,18 +74,16 @@ $('#logoselect').on('change', function () {
 
         $("#logoselect").val($("#logoselect option:first").val());
 
-        $.post( "../delete.php", { user: config.user,accesstoken: config.accesstoken })
+        $.post( "/delete.php", { user: config.user,accesstoken: config.accesstoken })
         .done(function( data ) {
 
             let obj = JSON.parse(data);
             if(obj.error){
                 return false;
             }
-
         });
 
         logo.load( );
-
         return;
     }
 
@@ -99,4 +94,3 @@ $('.uselogo').on('click', function () {
     $('#logoselect').val( $(this).data('logo'));
     logo.load();
 });
-
