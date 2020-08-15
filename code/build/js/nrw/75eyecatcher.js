@@ -1,32 +1,31 @@
-$('#pinsize').bind('input propertychange', function () {
-    pin.draw();
+$('#pinsize').bind('input propertychange', () => {
+  pin.draw();
 });
 
-
 const pin = {
-    isLoaded: false,
-    svg: draw.circle(0),
+  isLoaded: false,
+  svg: draw.circle(0),
 
-    load( file = "/assets/nrw/eyecatcher.svg"){
-        pin.svg.remove();
-        pin.svg = draw.image( file, function (event) {
-            pin.isLoaded = true;
+  load(file = '/assets/nrw/eyecatcher.svg') {
+    pin.svg.remove();
+    pin.svg = draw.image(file, (event) => {
+      pin.isLoaded = true;
 
-            pin.draw();
-        })
-    },
+      pin.draw();
+    });
+  },
 
-    draw() {
-        if (!pin.isLoaded) return false;
+  draw() {
+    if (!pin.isLoaded) return false;
 
-        let offsetLeft = -154/948;
-        pin.svg.size( draw.width() * 0.33 ).move( offsetLeft * pin.svg.width(), draw.height() - pin.svg.height() - 70 );
-        pin.svg.front();
-    },
+    const offsetLeft = -154 / 948;
+    pin.svg.size(draw.width() * 0.33).move(offsetLeft * pin.svg.width(), draw.height() - pin.svg.height() - 70);
+    pin.svg.front();
+  },
 
-    bounce(){
-        // leave here for legacy reasons
-    }
+  bounce() {
+    // leave here for legacy reasons
+  },
 };
 
 pin.load();

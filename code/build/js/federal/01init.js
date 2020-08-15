@@ -1,16 +1,16 @@
 const bgpic = {
-    width: 800,
-    height: 450,
-    originalWidth: 1920,
-    originalHeight: 1080,
-    filename: '/assets/bg_small.jpg',
-    fullBackgroundName: 'assets/bg.jpg',
+  width: 800,
+  height: 450,
+  originalWidth: 1920,
+  originalHeight: 1080,
+  filename: '/assets/bg_small.jpg',
+  fullBackgroundName: 'assets/bg.jpg',
 };
 
-$(document).ready(function () {
-    $('#text').val("Neue Zeiten\nneue [Antworten].");
+$(document).ready(() => {
+  $('#text').val('Neue Zeiten\nneue [Antworten].');
 });
 
-function reset(){
-    // do nothing, stay here
+function reset() {
+  // do nothing, stay here
 }
