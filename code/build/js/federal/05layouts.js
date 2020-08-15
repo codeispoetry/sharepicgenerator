@@ -1,14 +1,13 @@
-function showLayout(){
-   config.layout =  $('#layout').val();
+function showLayout() {
+  config.layout = $('#layout').val();
 
+  $('.noquote').toggleClass('d-none');
 
-    $(".noquote").toggleClass("d-none");
-
-    // this better with trigger
-    background.svg.unmask();
-    quote.draw();
-    inverted.draw();
-    text.draw();
+  // this better with trigger
+  background.svg.unmask();
+  quote.draw();
+  inverted.draw();
+  text.draw();
 }
 
-$('#layout').click( showLayout );
+$('#layout').click(showLayout);
