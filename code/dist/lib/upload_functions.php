@@ -1,9 +1,7 @@
 <?php
 
-function handleBackgroundUpload()
+function handleBackgroundUpload($extension)
 {
-    global $extension;
-
     $filebasename = 'tmp/' . uniqid('upload', true);
     $filename = $filebasename . '.' . $extension;
 
@@ -34,10 +32,8 @@ function handleBackgroundUpload()
     prepareFileAndSendInfo($filename, $filename_small);
 }
 
-function handleIconUpload()
+function handleIconUpload($extension)
 {
-    global $extension;
-
     $filebasename = 'tmp/' . uniqid('icon');
     $filename = $filebasename . '.' . $extension;
 
@@ -73,10 +69,8 @@ function handleUploadWork()
     echo json_encode($return);
 }
 
-function handleAddPicUpload()
+function handleAddPicUpload($extension)
 {
-    global $extension;
-
     $filebasename = 'tmp/' . uniqid('addpic');
     $filename = $filebasename . '.' . $extension;
 
@@ -91,10 +85,8 @@ function handleAddPicUpload()
     echo json_encode($return);
 }
 
-function handleLogoUpload()
+function handleLogoUpload($extension)
 {
-    global $extension;
-
     if (!isAllowed()) {
         returnJsonErrorAndDie('not allowed');
     }
@@ -123,9 +115,8 @@ function isFileAllowed($extension, $allowed)
     return in_array(strtolower($extension), $allowed);
 }
 
-function handleVideoVpload()
+function handleVideoVpload($extension)
 {
-    global $extension;
     $basename = 'tmp/' . uniqid('video');
     $videofile = $basename . '.' . $extension;
     $thumbnail =  $basename . '.jpg';

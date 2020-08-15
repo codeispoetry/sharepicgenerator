@@ -13,7 +13,7 @@ function isAllowed()
 
     $accesstoken = preg_replace('/[^a-zA-Z0-9]/', '', $_POST['accesstoken']);
     $user = getUser();
-    $userDir = 'persistent/user/' . $user;
+    $userDir = getBasePath('persistent/user/' . $user);
 
     if (!file_exists($userDir)) {
         return false;
@@ -48,7 +48,7 @@ function getUserFromCloudCredentials()
 
 function getUserDir()
 {
-    $userDir = 'persistent/user/' . getUser();
+    $userDir = getBasePath('persistent/user/' . getUser());
     if (!file_exists($userDir)) {
         return false;
     }
@@ -59,7 +59,7 @@ function getUserDir()
 function hasCloudCredentials()
 {
     global $user;
-    $cloudTokenFile = sprintf('../../persistent/user/%s/.cloudcredentials.txt', $user) ;
+    $cloudTokenFile = getBasePath(sprintf('persistent/user/%s/.cloudcredentials.txt', $user));
     return file_exists($cloudTokenFile);
 }
 
@@ -90,7 +90,7 @@ function isLocal()
 
 function createAccessToken($user)
 {
-    $userDir = getBasePath("/persistent/user/' . $user");
+    $userDir = getBasePath('persistent/user/' . $user);
     if (!file_exists($userDir)) {
         mkdir($userDir);
     }
@@ -103,20 +103,21 @@ function createAccessToken($user)
 function isLocalUser()
 {
     $GLOBALS['user'] = "localuser";
+
     if (!isset($_POST['pass'])) {
         return false;
     }
 
-    if (!file_exists('../../passwords.php')) {
+    if (!file_exists(getBasePath('passwords.php'))) {
         return false;
     }
 
 
     if (!loginAttemptsLeft()) {
-        die("Bitte warten. Zu viele Fehlversuche");
+        die("Bitte warten. Zu viele Fehlversuche.");
     }
 
-    require_once('../../passwords.php');
+    require_once(getBasePath('passwords.php'));
     if (in_array($_POST['pass'], $passwords)) {
         return true;
     }
@@ -129,7 +130,8 @@ function isLocalUser()
 
 function increaseLoginAttempts()
 {
-    $file = '../../loginattempts.txt';
+    $file = getBasePath('loginattempts.txt');
+
     if (file_exists($file)) {
         $attempts = file_get_contents($file);
         $attempts++;
@@ -142,7 +144,7 @@ function increaseLoginAttempts()
 
 function loginAttemptsLeft()
 {
-    $file = '../../loginattempts.txt';
+    $file = getBasePath('loginattempts.txt');
 
     if (!file_exists($file)) {
         return true;
@@ -173,7 +175,7 @@ function isDaysBefore($dayMonth, $days = 14)
 
 function checkPermission($user, $accesstoken)
 {
-    $userDir = 'persistent/user/' . $user;
+    $userDir = getBasePath('persistent/user/' . $user);
     if (!file_exists($userDir)) {
         return false;
     }
@@ -209,6 +211,7 @@ function timecode2seconds($timecode)
     $parts = array_reverse($parts);
     $seconds = 0;
     $multiplier = 1;
+
     foreach ($parts as $part) {
         $seconds += $part * $multiplier;
         $multiplier *= 60;
@@ -323,15 +326,18 @@ function debug($filename, $format)
 
 function deleteUserLogo($user)
 {
-    $userDir = 'persistent/user/' . $user;
+    $userDir = getBasePath('persistent/user/' . $user);
+
     if (!file_exists($userDir)) {
         returnJsonErrorAndDie('not allowed');
     }
 
     $logos = glob(sprintf('%s/logo.*', $userDir));
+
     array_walk($logos, function (&$file) {
         unlink($file);
     });
+
     returnJsonSuccessAndDie();
 }
 

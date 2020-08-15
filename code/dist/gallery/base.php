@@ -4,7 +4,7 @@ define("BASEDIR", "../");
 
 # this is just a helper function to get the path to the
 # files/dir located in the BASEDIR
-function getBasePath($file)
+function getBasePath($path)
 {
-    return BASEDIR . $file;
+    return BASEDIR . $path;
 }

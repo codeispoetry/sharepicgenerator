@@ -1,5 +1,6 @@
 <?php
 
+require_once('base.php');
 require_once('lib/functions.php');
 
 $logfile = sprintf('tmp/%s.log', basename($_GET['videofile'], '.mp4'));
