@@ -5,10 +5,9 @@ $('#pinsize').bind('input propertychange', function () {
 
 const pin = {
     isLoaded: false,
-
     svg: draw.circle(0),
 
-    load( file = "../assets/nrw/eyecatcher.svg"){
+    load( file = "/assets/nrw/eyecatcher.svg"){
         pin.svg.remove();
         pin.svg = draw.image( file, function (event) {
             pin.isLoaded = true;
@@ -20,7 +19,6 @@ const pin = {
     draw() {
         if (!pin.isLoaded) return false;
 
-
         let offsetLeft = -154/948;
         pin.svg.size( draw.width() * 0.33 ).move( offsetLeft * pin.svg.width(), draw.height() - pin.svg.height() - 70 );
         pin.svg.front();
@@ -29,8 +27,6 @@ const pin = {
     bounce(){
         // leave here for legacy reasons
     }
-
-
 };
 
 pin.load();

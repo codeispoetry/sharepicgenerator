@@ -17,8 +17,6 @@ function loadFormData( formdata ){
         }
     });
 
-
-
     window.setTimeout(function () {
         text.draw();
         logo.load();
@@ -40,22 +38,17 @@ function loadFormData( formdata ){
 
 }
 
-
-
 function savework(){
     let data = $('#pic').serialize();
 
-
     $.ajax({
         type: "POST",
-        url: '../savework.php',
+        url: '/savework.php',
         data: {data: data},
         success: function (data, textStatus, jqXHR) {
             let obj = JSON.parse(data);
-
             let downloadname = getDownloadName();
-
-            window.location.href = '../downloadwork.php?basename=' + obj.basename +  '&downloadname=' + downloadname;
+            window.location.href = '/downloadwork.php?basename=' + obj.basename +  '&downloadname=' + downloadname;
         }
     });
 }

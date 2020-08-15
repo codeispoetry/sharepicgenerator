@@ -14,7 +14,7 @@ $('.upload-file').change(function (event) {
 
     let formData = new FormData();
     client = new XMLHttpRequest();
-    
+
     if(!file)
         return;
 
@@ -23,11 +23,10 @@ $('.upload-file').change(function (event) {
     formData.append("user", config.user);
     formData.append("accesstoken", config.accesstoken);
 
-    
     client.onerror = function(e) {
         console.log("onError",e);
     };
-    
+
     client.onload = function(e) {
         let obj = JSON.parse(e.target.response);
         $('#' + id).prop('disabled', false);
@@ -93,17 +92,17 @@ $('.upload-file').change(function (event) {
         }
 
     };
-    
+
     client.upload.onprogress = function(e) {
         let p = Math.round(100 / e.total * e.loaded);
         $('#uploadpercentage').html( p );
     };
-    
+
     client.onabort = function(e) {
         console.log("Upload abgebrochen");
     };
-    
-    client.open("POST", "../upload.php");
+
+    client.open("POST", "/upload.php");
     client.send(formData);
 
 });
@@ -144,7 +143,7 @@ function uploadFileByUrl(url, callback = function () {}) {
         config.filename = obj.filename;
         config.video = (obj.video == 1);
         if( obj.video == 1 ){
-            
+
             config.videofile = obj.videofile;
             config.filename = obj.filename;
             config.videoduration = obj.videoduration;
@@ -159,7 +158,7 @@ function uploadFileByUrl(url, callback = function () {}) {
         callback();
     };
 
-    client.open("POST", "../upload.php");
+    client.open("POST", "/upload.php");
     client.send(formData);
 }
 
@@ -214,5 +213,3 @@ $('.addpicclicker1').click(function(){
 $('.addpicclicker2').click(function(){
     $('#uploadaddpic2').click();
 });
-
-

@@ -1,14 +1,12 @@
 
 const claim = {
     isLoaded: false,
-
     svg: draw.circle(0),
 
-    load( file = "../assets/nrw/claim.png"){
+    load( file = "/assets/nrw/claim.png"){
         claim.svg.remove();
         claim.svg = draw.image( file, function (event) {
             claim.isLoaded = true;
-
             claim.draw();
         })
     },
@@ -23,8 +21,6 @@ const claim = {
     bounce(){
         // leave here for legacy reasons
     }
-
-
 };
 
 claim.load();
