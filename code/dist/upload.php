@@ -1,5 +1,6 @@
 <?php
 
+require_once('base.php');
 require_once('lib/functions.php');
 require_once('lib/upload_functions.php');
 
@@ -15,23 +16,23 @@ if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png
 switch ($id) {
     case "uploadfile":
         if ($extension == 'mp4') {
-            handleVideoUpload();
+            handleVideoUpload($extension);
         }
-        handleBackgroundUpload();
+        handleBackgroundUpload($extension);
         break;
 
     case "uploadlogo":
-        handleLogoUpload();
+        handleLogoUpload($extension);
         break;
     case "uploadicon":
-        handleIconUpload();
+        handleIconUpload($extension);
         break;
     case "uploadbyurl":
         handleUploadByUrl();
         break;
     case "uploadaddpic1":
     case "uploadaddpic2":
-        handleAddPicUpload();
+        handleAddPicUpload($extension);
         break;
     case "uploadwork":
         handleUploadWork();
