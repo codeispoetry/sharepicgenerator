@@ -1,7 +1,7 @@
-function runCode(){
-    let code = $('#code').val();
+function runCode() {
+  const code = $('#code').val();
 
-    eval( code );
+  eval(code);
 }
 
 $('.runcode').click(runCode);

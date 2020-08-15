@@ -1,3 +1,3 @@
-$('#color-scheme').bind('change', function(){
-    $('body').toggleClass('dark');
+$('#color-scheme').bind('change', () => {
+  $('body').toggleClass('dark');
 });
