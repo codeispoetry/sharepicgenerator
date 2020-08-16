@@ -5,7 +5,7 @@ require_once(getBasePath('lib/functions.php'));
 
 $basename = sanitizeUserInput($_GET['basename']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
-$filepath = getBasePath('tmp/' . $basename . '.zip')
+$filepath = getBasePath('tmp/' . $basename . '.zip');
 
 header('Content-Type: application/zip');
 header("Content-Length: ".filesize($filepath));
