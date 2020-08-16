@@ -1,7 +1,7 @@
 <?php
 
 require_once('base.php');
-require_once('lib/functions.php');
+require_once(getBasePath('lib/functions.php'));
 
 $filename = sanitizeUserinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
@@ -33,13 +33,14 @@ switch ($_GET['format']) {
 }
 
 debug($filename, $format);
+$filepath = getBasePath('tmp/' . $filename . '.' . $format);
 
 header('Content-Type: ' . $contentType);
-header("Content-Length: ".filesize('tmp/' . $filename . '.' . $format));
+header("Content-Length: ".filesize($filepath));
 header('Content-Disposition: attachment; filename="' . $downloadname . '.' . $format . '"');
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
-readfile('tmp/' . $filename . '.' . $format);
+readfile($filepath);
 
 tidyUp();

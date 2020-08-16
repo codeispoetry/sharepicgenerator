@@ -1,9 +1,9 @@
 <?php
 
 require_once('base.php');
-require_once('lib/functions.php');
+require_once(getBasePath('lib/functions.php'));
 
-$logfile = sprintf('tmp/%s.log', basename($_GET['videofile'], '.mp4'));
+$logfile = getBasePath(sprintf('tmp/%s.log', basename($_GET['videofile'], '.mp4')));
 
 $command = sprintf('tail -n 1 %s', $logfile);
 exec($command, $output);

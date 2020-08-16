@@ -34,7 +34,7 @@ $('#download,.download').click(function () {
 
   $.ajax({
     type: 'POST',
-    url: '/createpic.php',
+    url: '/actions/createpic.php',
     data: {
       svg: data, format, addtogallery: $('#add-to-gallery').prop('checked'), user: config.user, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
     },
@@ -59,7 +59,7 @@ $('#download,.download').click(function () {
         $('.download').html('speichere Sharepic in der Cloud ... ');
         $.ajax({
           type: 'POST',
-          url: '/nextcloudsend.php',
+          url: '/actions/nextcloudsend.php',
           data: {
             file: `${obj.basename}jpg`,
             user: config.user,
@@ -72,13 +72,13 @@ $('#download,.download').click(function () {
 
             $.ajax({
               type: 'POST',
-              url: '/savework.php',
+              url: '/actions/savework.php',
               data: { data: $('#pic').serialize() },
               success(data, textStatus, jqXHR) {
                 const obj = JSON.parse(data);
                 $.ajax({
                   type: 'POST',
-                  url: '/nextcloudsend.php',
+                  url: '/actions/nextcloudsend.php',
                   data: {
                     file: `${obj.basename}.zip`,
                     user: config.user,
@@ -96,7 +96,7 @@ $('#download,.download').click(function () {
 
         const data = $('#pic').serialize();
       } else {
-        window.location.href = `/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
+        window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
       }
     },
   });
@@ -127,7 +127,7 @@ function getDownloadName() {
 
 function getEncodingStatus() {
   $.ajax({
-    url: `/getvideoencodestatus.php?videofile=${config.videofile}`,
+    url: `/actions/getvideoencodestatus.php?videofile=${config.videofile}`,
     type: 'GET',
     dataType: 'JSON',
     success(data) {
