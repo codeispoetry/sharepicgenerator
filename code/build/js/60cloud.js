@@ -3,8 +3,7 @@ function getCloudfiles() {
     type: 'POST',
     url: '/actions/nextcloudget.php',
     data: {
-      user: config.user,
-      accesstoken: config.accesstoken,
+      csrf: config.csrf,
     },
     success(data, textStatus, jqXHR) {
       const obj = JSON.parse(data);
@@ -63,8 +62,7 @@ $('#cloudfiles').on('change', function () {
     data: {
       mode: 'file',
       file: $(this).val(),
-      user: config.user,
-      accesstoken: config.accesstoken,
+      csrf: config.csrf,
     },
     success(data, textStatus, jqXHR) {
       $('#cloudmessage').hide();
@@ -89,7 +87,7 @@ $('#cloudtokensave').click(() => {
   $('#cloudnotoken').hide();
 
   $.post('/actions/save.php', {
-    user: config.user, action: 'saveCloudToken', data: token, accesstoken: config.accesstoken,
+    csrf: config.csrf, action: 'saveCloudToken', data: token,
   })
     .done((data) => {
       $('#load').removeClass('d-none');
@@ -107,7 +105,7 @@ $('.cloudtokendelete').click(() => {
     return false;
   }
 
-  $.post('/actions/save.php', { user: config.user, action: 'deleteCloudToken', accesstoken: config.accesstoken })
+  $.post('/actions/save.php', { csrf: config.csrf, action: 'deleteCloudToken' })
     .done((data) => {
       $('#load').removeClass('d-none');
       $('#delete').removeClass('d-none');

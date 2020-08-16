@@ -5,29 +5,55 @@ function useDeLocale()
     setlocale(LC_ALL, ' de_DE.UTF-8', 'de_DE.utf8');
 }
 
-function isAllowed()
+function isAllowed($with_csrf = false)
 {
-    if (!isset($_POST['accesstoken'])) {
+    if (!isset($_SESSION['accesstoken'])) {
+        logFailure('no session access token');
         return false;
     }
 
-    $accesstoken = preg_replace('/[^a-zA-Z0-9]/', '', $_POST['accesstoken']);
+    $accesstoken = $_SESSION['accesstoken'];
     $user = getUser();
+
+    if ($user == false) {
+        return false;
+    }
+
+    if (checkPermission($user, $accesstoken) == false) {
+        logFailure('permissions denied');
+        return false;
+    }
+
+    if ($with_csrf == true) {
+        if (($_POST['csrf'] == '') || ($_POST['csrf'] != $_SESSION['csrf'])) {
+            logFailure('csrf missmatch');
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function checkPermission($user, $accesstoken)
+{
     $userDir = getBasePath('persistent/user/' . $user);
 
     if (!file_exists($userDir)) {
         return false;
     }
-    return (file_get_contents(sprintf('%s/accesstoken.php', $userDir)) == $accesstoken);
+
+    require_once(sprintf('%s/accesstoken.php', $userDir));
+    return $accesstoken == ACCESSTOKEN;
 }
 
 function getUser()
 {
-    if (!isset($_POST['user'])) {
+    if (!isset($_SESSION['user'])) {
+        logFailure('no session user');
         return false;
     }
-    $user = preg_replace('/[^a-zA-Z0-9]/', '', $_POST['user']);
-    return $user;
+
+    return $_SESSION['user'];
 }
 
 function getCloudCredentials()
@@ -58,7 +84,7 @@ function getUserDir()
 
 function hasCloudCredentials()
 {
-    global $user;
+    $user = getUser();
     $cloudTokenFile = getBasePath(sprintf('persistent/user/%s/.cloudcredentials.txt', $user));
     return file_exists($cloudTokenFile);
 }
@@ -75,29 +101,57 @@ function returnJsonSuccessAndDie()
     die();
 }
 
-function logthis()
+function logFailure($msg)
 {
-    global $user, $landesverband, $tenant;
+    $accesstoken = $_SESSION['accestoken'];
+    $user = $_SESSION['user'];
+    $landesverband = $_SESSION['landesverband'];
+    $tenant = $_SESSION['tenant'];
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, $accesstoken, $msg, $landesverband, $tenant);
+    file_put_contents(getBasePath('log/error.log'), $line, FILE_APPEND);
+}
+
+function logLogin()
+{
+    $user = $_SESSION['user'];
+    $landesverband = $_SESSION['landesverband'];
+    $tenant = $_SESSION['tenant'];
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant);
     file_put_contents(getBasePath('log/log.log'), $line, FILE_APPEND);
+}
+
+function logDownload()
+{
+    $user = $_SESSION['user'];
+    $pixabay = sanitizeUserinput($_POST['usepixabay']);
+    $socialmediaplatform = sanitizeUserinput($_POST['socialmediaplatform']);
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, 'download', $pixabay, $socialmediaplatform);
+    file_put_contents(getBasePath('log/log.log'), $line, FILE_APPEND);
+}
+
+function createAccessToken($user)
+{
+    $userDir = getBasePath('persistent/user/' . $user);
+
+    if (!file_exists($userDir)) {
+        mkdir($userDir);
+    }
+
+    $accesstoken = uniqid();
+    $content = <<<EOF
+<?php
+define("ACCESSTOKEN", "$accesstoken");
+
+EOF;
+
+    file_put_contents(sprintf('%s/accesstoken.php', $userDir), $content);
+    return $accesstoken;
 }
 
 function isLocal()
 {
     $GLOBALS['user'] = "localaccessed";
     return ($_SERVER['REMOTE_ADDR'] == '127.0.0.1');
-}
-
-function createAccessToken($user)
-{
-    $userDir = getBasePath('persistent/user/' . $user);
-    if (!file_exists($userDir)) {
-        mkdir($userDir);
-    }
-
-    $accessToken = uniqid();
-    file_put_contents(sprintf('%s/accesstoken.php', $userDir), $accessToken);
-    return $accessToken;
 }
 
 function isLocalUser()
@@ -111,7 +165,6 @@ function isLocalUser()
     if (!file_exists(getBasePath('passwords.php'))) {
         return false;
     }
-
 
     if (!loginAttemptsLeft()) {
         die("Bitte warten. Zu viele Fehlversuche.");
@@ -173,16 +226,6 @@ function isDaysBefore($dayMonth, $days = 14)
     return ($interval->days < $days and $interval->invert == 1);
 }
 
-function checkPermission($user, $accesstoken)
-{
-    $userDir = getBasePath('persistent/user/' . $user);
-    if (!file_exists($userDir)) {
-        return false;
-    }
-
-    return (file_get_contents(sprintf('%s/accesstoken.php', $userDir)) == $accesstoken);
-}
-
 function handleSamlAuth()
 {
     $samlfile = '/var/simplesaml/lib/_autoload.php';
@@ -232,21 +275,21 @@ function convert($filename, $width, $format, $quality = 75)
         "inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90",
         $filename,
         $width,
-        'tmp/' . basename($filename, 'svg') . $tempformat
+        getBasePath('tmp/' . basename($filename, 'svg') . $tempformat)
     );
     exec($command);
 
     if ($format == 'jpg') {
         $command = sprintf(
             "convert %s -background white -flatten -quality %s %s",
-            'tmp/' . basename($filename, 'svg') . $tempformat,
+            getBasePath('tmp/' . basename($filename, 'svg') . $tempformat),
             $quality,
-            'tmp/' . basename($filename, 'svg') . $format
+            getBasePath('tmp/' . basename($filename, 'svg') . $format)
         );
         exec($command);
 
         if ($_POST['ismosaic'] == "true") {
-            $dir = 'tmp/' . basename($filename, '.svg');
+            $dir = getBasePath('tmp/' . basename($filename, '.svg'));
 
             $command = sprintf('mkdir %s', $dir);
             exec($command);
@@ -255,7 +298,7 @@ function convert($filename, $width, $format, $quality = 75)
 
             $command = sprintf(
                 'convert %s -crop 3x3@ +repage +adjoin -scene 1 %s/bild_%%d.jpg',
-                'tmp/' . basename($filename, 'svg') . $format,
+                getBasePath('tmp/' . basename($filename, 'svg') . $format),
                 $dir
             );
             exec($command);
@@ -272,48 +315,38 @@ function convert($filename, $width, $format, $quality = 75)
     if ($format == 'mp4') {
         $command =sprintf(
             'ffmpeg -i %s -i %s -filter_complex "[0:v][1:v] overlay=0:0" -b:v 2M -pix_fmt yuv420p -c:a copy %s 2>%s',
-            'tmp/'. basename($_POST['videofile']),
-            'tmp/' . basename($filename, 'svg') . 'png',
-            'tmp/' . basename($filename, 'svg') . 'mp4',
-            'tmp/' . basename($_POST['videofile'], 'mp4') . 'log'
+            getBasePath('tmp/'. basename($_POST['videofile'])),
+            getBasePath('tmp/' . basename($filename, 'svg') . 'png'),
+            getBasePath('tmp/' . basename($filename, 'svg') . 'mp4'),
+            getBasePath('tmp/' . basename($_POST['videofile'], 'mp4') . 'log')
         );
         exec($command);
     }
 }
 
-# FIXME: logThis should be used instead with different parameters
-function logthis2()
+function tidyUp($filename, $format)
 {
-    $pixabay = sanitizeUserinput($_POST['usepixabay']);
-    $socialmediaplatform = sanitizeUserinput($_POST['socialmediaplatform']);
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), '', 'download', $pixabay, $socialmediaplatform);
-    file_put_contents('log/log.log', $line, FILE_APPEND);
-}
-
-function tidyUp()
-{
-    global $filename, $format;
-
     if ($format == 'mp4') {
         return;
     }
 
     $command = sprintf(
         "convert -resize 500x500 -background white -flatten -quality 60  %s %s",
-        'tmp/' . $filename . '.png',
-        'tmp/log' . time() . '_' . $filename . '.jpg'
+        getBasePath('tmp/' . $filename . '.png'),
+        getBasePath('tmp/log' . time() . '_' . $filename . '.jpg')
     );
     exec($command);
 
-    //unlink('tmp/' . $filename . '.' . $format);
-    //unlink('tmp/' . $filename . '.svg');
-    //unlink('tmp/' . $filename . '.png');
+    //unlink(getBasePath('tmp/' . $filename . '.' . $format));
+    //unlink(getBasePath('tmp/' . $filename . '.svg'));
+    //unlink(getBasePath('tmp/' . $filename . '.png'));
 }
 
 function debug($filename, $format)
 {
     $get = http_build_query($_GET, '', ', ');
-    $file = 'tmp/' . $filename . '.' . $format;
+    $file = getBasePath('tmp/' . $filename . '.' . $format);
+
     if (file_exists($file)) {
         $size = filesize($file);
     } else {
@@ -321,7 +354,7 @@ function debug($filename, $format)
     }
 
     $debug = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
-    file_put_contents('log/error.log', $debug, FILE_APPEND);
+    file_put_contents(getBasePath('log/error.log'), $debug, FILE_APPEND);
 }
 
 function deleteUserLogo($user)

@@ -3,24 +3,19 @@
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/save_functions.php'));
+useDeLocale();
 
-if (!isset($_POST['user'])) {
+session_start();
+
+if (!isAllowed(true)) {
     die();
 }
-if (!isset($_POST['accesstoken'])) {
-    die();
-}
 
-$user = preg_replace('/[^a-zA-Z0-9]/', '', $_POST['user']);
-$accesstoken = preg_replace('/[^a-zA-Z0-9]/', '', $_POST['accesstoken']);
+$user = $_SESSION['user'];
 $action = preg_replace('/[^a-zA-Z0-9]/', '', $_POST['action']);
 $data = $_POST['data'];
 
 $return = array();
-
-if (!checkPermission($user, $accesstoken)) {
-    die('-1');
-};
 
 switch ($action) {
     case 'save':

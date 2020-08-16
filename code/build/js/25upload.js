@@ -19,8 +19,7 @@ $('.upload-file').change(function (event) {
 
   formData.append('file', file);
   formData.append('id', id);
-  formData.append('user', config.user);
-  formData.append('accesstoken', config.accesstoken);
+  formData.append('csrf', config.csrf);
 
   client.onerror = function (e) {
     console.log('onError', e);

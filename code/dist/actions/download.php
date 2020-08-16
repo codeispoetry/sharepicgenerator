@@ -2,6 +2,13 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+useDeLocale();
+
+session_start();
+
+if (!isAllowed()) {
+    die();
+}
 
 $filename = sanitizeUserinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
@@ -43,4 +50,4 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 readfile($filepath);
 
-tidyUp();
+tidyUp($filename, $format);

@@ -2,10 +2,10 @@
 
 function handleBackgroundUpload($extension)
 {
-    $filebasename = 'tmp/' . uniqid('upload', true);
+    $filebasename = getBasePath('tmp/' . uniqid('upload', true));
     $filename = $filebasename . '.' . $extension;
 
-    $moved = moveUploadedFile($_FILES['file']['tmp_name'], $filename);
+    $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     // convert webp to jpg, as inkscape cannot handle webp
     if (strToLower($extension) == 'webp') {
@@ -26,7 +26,7 @@ function handleBackgroundUpload($extension)
 
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, $fe1);
 
-    file_put_contents('log/uploads.log', $line, FILE_APPEND);
+    file_put_contents(getBasePath('log/uploads.log'), $line, FILE_APPEND);
 
     $filename_small = $filebasename . '_small.' . $extension;
     prepareFileAndSendInfo($filename, $filename_small);
@@ -34,10 +34,10 @@ function handleBackgroundUpload($extension)
 
 function handleIconUpload($extension)
 {
-    $filebasename = 'tmp/' . uniqid('icon');
+    $filebasename = getBasePaath('tmp/' . uniqid('icon'));
     $filename = $filebasename . '.' . $extension;
 
-    moveUploadedFile($_FILES['file']['tmp_name'], $filename);
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     $return['iconfile'] = '../' . $filename;
     $return['okay'] = true;
@@ -47,11 +47,11 @@ function handleIconUpload($extension)
 
 function handleUploadWork()
 {
-    $filebasename = 'tmp/' . uniqid('work');
+    $filebasename = getBasePath('tmp/' . uniqid('work'));
     $filename = $filebasename . '.zip';
-    $savedir = 'tmp/' . basename($filename, '.zip');
+    $savedir = getBasePath('tmp/' . basename($filename, '.zip'));
 
-    moveUploadedFile($_FILES['file']['tmp_name'], $filename);
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     $cmd = sprintf('unzip %s -d %s 2>&1', $filename, $savedir);
     exec($cmd, $output);
@@ -71,10 +71,10 @@ function handleUploadWork()
 
 function handleAddPicUpload($extension)
 {
-    $filebasename = 'tmp/' . uniqid('addpic');
+    $filebasename = getBasePath('tmp/' . uniqid('addpic'));
     $filename = $filebasename . '.' . $extension;
 
-    moveUploadedFile($_FILES['file']['tmp_name'], $filename);
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     $command = sprintf("mogrify -auto-orient %s", $filename);
     exec($command);
@@ -94,7 +94,7 @@ function handleLogoUpload($extension)
     $userDir = getUserDir();
 
     $filename = $userDir . '/logo.' . $extension;
-    moveUploadedFile($_FILES['file']['tmp_name'], $filename);
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     if ($extension != 'png') {
         $command = sprintf(
@@ -117,11 +117,11 @@ function isFileAllowed($extension, $allowed)
 
 function handleVideoVpload($extension)
 {
-    $basename = 'tmp/' . uniqid('video');
+    $basename = getBasePath('tmp/' . uniqid('video'));
     $videofile = $basename . '.' . $extension;
     $thumbnail =  $basename . '.jpg';
 
-    moveUploadedFile($_FILES['file']['tmp_name'], $videofile);
+    move_uploaded_file($_FILES['file']['tmp_name'], $videofile);
     editVideoAndSendInfo($videofile, $thumbnail);
 }
 
@@ -159,7 +159,7 @@ function handleUploadByUrl()
 
     // handle video upload
     if (substr($extension, 0, 3) == 'mp4') {
-        $basename = 'tmp/' . uniqid('video');
+        $basename = getBasePath('tmp/' . uniqid('video'));
         $videofile = $basename . '.mp4';
         $thumbnail =  $basename . '.jpg';
 
@@ -172,7 +172,7 @@ function handleUploadByUrl()
         return;
     }
 
-    $filebasename = 'tmp/' . uniqid('upload');
+    $filebasename = getBasePath('tmp/' . uniqid('upload'));
     $filename = $filebasename . '.' . $extension;
     $filename_small = $filebasename . '_small.' . $extension;
 
