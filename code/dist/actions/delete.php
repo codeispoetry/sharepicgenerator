@@ -2,8 +2,11 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+useDeLocale();
 
-if (!isAllowed()) {
+session_start();
+
+if (!isAllowed(true)) {
     returnJsonErrorAndDie('not allowed');
 }
 

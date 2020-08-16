@@ -3,6 +3,13 @@
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/upload_functions.php'));
+useDeLocale();
+
+session_start();
+
+if (!isAllowed(true)) {
+    die();
+}
 
 $id = $_POST['id'];
 

@@ -1,6 +1,9 @@
 <?php
 require_once('base.php');
 require_once(getBasePath("lib/functions.php"));
+useDeLocale();
+
+session_start();
 
 $landesverband = 0;
 $user = "generic";
@@ -12,9 +15,15 @@ if (!$hasAccess) {
     $user = handleSamlAuth();
 }
 
-logthis();
+$accesstoken = createAccessToken($user);
+$_SESSION['accesstoken'] = $accesstoken;
+$_SESSION['user'] = $user;
+$_SESSION['landesverband'] = $landesverband;
 
-$accessToken = createAccessToken($user);
+$csrf = uniqid();
+$_SESSION['csrf'] = $csrf;
+
+logLogin();
 
 require_once(getBasePath("lib/actionday.php"));
 
@@ -47,9 +56,7 @@ require_once(getBasePath("lib/actionday.php"));
     <script>
         <?php echo 'var config =';
         @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
-        <?php printf('config.landesverband = %d;', $landesverband); ?>
-        <?php printf('config.user="%s";', $user); ?>
-        <?php printf('config.accesstoken="%s";', $accessToken); ?>
+        <?php printf('config.csrf="%s";', $csrf); ?>
     </script>
 </head>
 <body>
@@ -99,7 +106,6 @@ require_once(getBasePath("lib/actionday.php"));
                 </div>
             </div>
 
-
             <?php
                  nextActionDay();
             ?>
@@ -114,7 +120,6 @@ require_once(getBasePath("lib/actionday.php"));
                 </span>
             </div>
             <?php } ?>
-
 
             <?php
             if (isDaysBefore("9.5.", 14)) {
@@ -152,7 +157,6 @@ require_once(getBasePath("lib/actionday.php"));
     </div>
 </footer>
 
-
 <div class="overlays">
     <?php
         require_once(getBasePath('/inc/overlays/pixabay.php'));
@@ -161,7 +165,6 @@ require_once(getBasePath("lib/actionday.php"));
         require_once(getBasePath('/inc/overlays/actiondays.php'));
     ?>
 </div>
-
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>
 <script src="/vendor/bootstrap.min.js"></script>

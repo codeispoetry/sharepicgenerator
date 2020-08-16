@@ -2,6 +2,13 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+useDeLocale();
+
+session_start();
+
+if (!isAllowed(true)) {
+    die();
+}
 
 $basename = uniqid('save');
 $datafile = getBasePath('tmp/' . $basename . '.json');

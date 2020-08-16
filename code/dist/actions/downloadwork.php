@@ -2,6 +2,13 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+useDeLocale();
+
+session_start();
+
+if (!isAllowed()) {
+    die();
+}
 
 $basename = sanitizeUserInput($_GET['basename']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
