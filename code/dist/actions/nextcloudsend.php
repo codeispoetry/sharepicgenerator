@@ -1,14 +1,14 @@
 <?php
 
 require_once('base.php');
-require_once('lib/functions.php');
+require_once(getBasePath('lib/functions.php'));
 
 if (!isAllowed()) {
     die();
 }
 
 // send file
-$filename = sprintf('tmp/%s', sanitizeUserInput($_POST['file']));
+$filename = getBasePath(sprintf('tmp/%s', sanitizeUserInput($_POST['file'])));
 $remoteFile = $_POST['downloadname'] ?: 'sharepic';
 
 $payload = sprintf('--data-binary @"%s" ', $filename);
