@@ -1,7 +1,7 @@
 function getCloudfiles() {
   $.ajax({
     type: 'POST',
-    url: '/nextcloudget.php',
+    url: '/actions/nextcloudget.php',
     data: {
       user: config.user,
       accesstoken: config.accesstoken,
@@ -59,7 +59,7 @@ $('#cloudfiles').on('change', function () {
   $('#cloudmessage p').html('Das Bild wird geladen...');
   $.ajax({
     type: 'POST',
-    url: '/nextcloudget.php',
+    url: '/actions/nextcloudget.php',
     data: {
       mode: 'file',
       file: $(this).val(),
@@ -88,7 +88,7 @@ $('#cloudtokensave').click(() => {
   $('#cloudmessage p').html('Speichere Token ...');
   $('#cloudnotoken').hide();
 
-  $.post('/save.php', {
+  $.post('/actions/save.php', {
     user: config.user, action: 'saveCloudToken', data: token, accesstoken: config.accesstoken,
   })
     .done((data) => {
@@ -107,7 +107,7 @@ $('.cloudtokendelete').click(() => {
     return false;
   }
 
-  $.post('/save.php', { user: config.user, action: 'deleteCloudToken', accesstoken: config.accesstoken })
+  $.post('/actions/save.php', { user: config.user, action: 'deleteCloudToken', accesstoken: config.accesstoken })
     .done((data) => {
       $('#load').removeClass('d-none');
       $('#delete').removeClass('d-none');

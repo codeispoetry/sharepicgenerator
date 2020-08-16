@@ -39,12 +39,12 @@ function savework() {
 
   $.ajax({
     type: 'POST',
-    url: '/savework.php',
+    url: '/actions/savework.php',
     data: { data },
     success(data, textStatus, jqXHR) {
       const obj = JSON.parse(data);
       const downloadname = getDownloadName();
-      window.location.href = `/downloadwork.php?basename=${obj.basename}&downloadname=${downloadname}`;
+      window.location.href = `/actions/downloadwork.php?basename=${obj.basename}&downloadname=${downloadname}`;
     },
   });
 }

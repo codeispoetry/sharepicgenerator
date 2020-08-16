@@ -1,8 +1,11 @@
 <?php
 
+require_once('base.php');
+require_once(getBasePath('lib/functions.php'));
+
 $basename = uniqid('save');
-$datafile = 'tmp/' . $basename . '.json';
-$zipfile = 'tmp/' . $basename .'.zip';
+$datafile = getBasePath('tmp/' . $basename . '.json');
+$zipfile = getBasePath('tmp/' . $basename .'.zip');
 
 $data = $_POST['data'];
 
@@ -11,10 +14,10 @@ $values = array();
 parse_str($data, $values);
 $backgroundfile = $values[ 'fullBackgroundName' ];
 if ($values[ 'addpicfile1' ]) {
-    $addpic1 = 'tmp/'. basename($values[ 'addpicfile1' ]);
+    $addpic1 = getBasePath('tmp/'. basename($values[ 'addpicfile1' ]));
 }
 if ($values[ 'addpicfile2' ]) {
-    $addpic2 = 'tmp/'. basename($values[ 'addpicfile2' ]);
+    $addpic2 = getBasePath('tmp/'. basename($values[ 'addpicfile2' ]));
 }
 $ext = pathinfo($backgroundfile, PATHINFO_EXTENSION);
 $newBackgroundName = 'background.' . $ext;

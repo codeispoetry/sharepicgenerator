@@ -127,7 +127,7 @@ $('#logoselect').on('change', function () {
 
     $('#logoselect').val($('#logoselect option:first').val());
 
-    $.post('/delete.php', { user: config.user, accesstoken: config.accesstoken })
+    $.post('/actions/delete.php', { user: config.user, accesstoken: config.accesstoken })
       .done((data) => {
         const obj = JSON.parse(data);
         if (obj.error) {

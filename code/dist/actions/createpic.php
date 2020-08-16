@@ -1,10 +1,10 @@
 <?php
 
 require_once('base.php');
-require_once('lib/functions.php');
-require_once('lib/gallery_functions.php');
+require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/gallery_functions.php'));
 
-$filename = 'tmp/' . uniqid('shpic') . '.svg';
+$filename = getBasePath('tmp/' . uniqid('shpic') . '.svg');
 
 $svg = $_POST['svg'];
 $svg = preg_replace('/_small/', '', $svg);

@@ -1,7 +1,7 @@
 <?php
 
 require_once('base.php');
-require_once('lib/functions.php');
+require_once(getBasePath('lib/functions.php'));
 
 if (!isAllowed()) {
     die();
@@ -10,11 +10,11 @@ if (!isAllowed()) {
 $credentials = sprintf('-u %s', getCloudCredentials());
 
 if ($_POST['mode'] == 'file') {
-    $filebasename = 'tmp/' . uniqid('workfromcloud');
+    $filebasename = getBasePath('tmp/' . uniqid('workfromcloud'));
     $zipfilename = $filebasename . '.zip';
 
     $payload = '';
-    $destinationFile = 'tmp/' . uniqid('workfromcloud', true) . '.zip';
+    $destinationFile = getBasePath('tmp/' . uniqid('workfromcloud', true) . '.zip');
     $endpoint = sprintf("GET 'https://wolke.netzbegruenung.de%s' --output %s", $_POST['file'], $zipfilename);
 } else {
     $payload = '';
@@ -34,7 +34,7 @@ $command = sprintf(
 exec($command, $output);
 
 if ($_POST['mode'] == 'file') {
-    $savedir = 'tmp/' . basename($zipfilename, '.zip');
+    $savedir = getBasePath('tmp/' . basename($zipfilename, '.zip'));
     $cmd = sprintf('unzip %s -d %s 2>&1', $zipfilename, $savedir);
     exec($cmd, $output);
 
@@ -43,7 +43,6 @@ if ($_POST['mode'] == 'file') {
 
     $datafile = $savedir . '/data.json';
     $json = file_get_contents($datafile);
-
 
     $return['data'] = $json;
     $return['dir'] = $savedir;

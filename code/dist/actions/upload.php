@@ -1,8 +1,8 @@
 <?php
 
 require_once('base.php');
-require_once('lib/functions.php');
-require_once('lib/upload_functions.php');
+require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/upload_functions.php'));
 
 $id = $_POST['id'];
 
