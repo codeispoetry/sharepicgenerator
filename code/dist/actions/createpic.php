@@ -3,6 +3,13 @@
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/gallery_functions.php'));
+useDeLocale();
+
+session_start();
+
+if (!isAllowed(true)) {
+    die();
+}
 
 $filename = getBasePath('tmp/' . uniqid('shpic') . '.svg');
 
@@ -49,7 +56,7 @@ if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
     saveInGallery($filename);
 }
 
-logthis();
+logDownload();
 
 $return = [];
 $return['basename'] = basename($filename, 'svg');

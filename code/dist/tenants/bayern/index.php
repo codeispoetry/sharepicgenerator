@@ -1,6 +1,9 @@
 <?php
 require_once('base.php');
 require_once(getBasePath("lib/functions.php"));
+useDeLocale();
+
+session_start();
 
 $landesverband = 0;
 $user = "generic";
@@ -12,9 +15,15 @@ if (!$hasAccess) {
     $user = handleSamlAuth();
 }
 
-logthis();
+$accesstoken = createAccessToken($user);
+$_SESSION['accesstoken'] = $accesstoken;
+$_SESSION['user'] = $user;
+$_SESSION['landesverband'] = $landesverband;
 
-$accessToken = createAccessToken($user);
+$csrf = uniqid();
+$_SESSION['csrf'] = $csrf;
+
+logLogin();
 
 ?>
 <!DOCTYPE html>
@@ -98,9 +107,7 @@ $accessToken = createAccessToken($user);
 <script>
     <?php echo 'var config =';
     @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
-    <?php printf('config.landesverband = %d;', $landesverband); ?>
-    <?php printf('config.user="%s";', $user); ?>
-    <?php printf('config.accesstoken="%s";', $accessToken); ?>
+    <?php printf('config.csrf="%s";', $csrf); ?>
 </script>
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>

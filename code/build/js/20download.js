@@ -36,7 +36,7 @@ $('#download,.download').click(function () {
     type: 'POST',
     url: '/actions/createpic.php',
     data: {
-      svg: data, format, addtogallery: $('#add-to-gallery').prop('checked'), user: config.user, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
+      svg: data, format, addtogallery: $('#add-to-gallery').prop('checked'), csrf: config.csrf, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
     },
     success(data, textStatus, jqXHR) {
       const obj = JSON.parse(data);
@@ -62,9 +62,7 @@ $('#download,.download').click(function () {
           url: '/actions/nextcloudsend.php',
           data: {
             file: `${obj.basename}jpg`,
-            user: config.user,
-            accesstoken: config.accesstoken,
-            downloadname: `${downloadname}.jpg`,
+            csrf: config.csrf,
           },
           success(data, textStatus, jqXHR) {
             $('.download').html('speichere Arbeitsdatei in der Cloud ... ');
@@ -73,7 +71,7 @@ $('#download,.download').click(function () {
             $.ajax({
               type: 'POST',
               url: '/actions/savework.php',
-              data: { data: $('#pic').serialize() },
+              data: { csrf: config.csrf, data: $('#pic').serialize() },
               success(data, textStatus, jqXHR) {
                 const obj = JSON.parse(data);
                 $.ajax({
@@ -81,8 +79,7 @@ $('#download,.download').click(function () {
                   url: '/actions/nextcloudsend.php',
                   data: {
                     file: `${obj.basename}.zip`,
-                    user: config.user,
-                    accesstoken: config.accesstoken,
+                    csrf: config.csrf,
                     downloadname: `${downloadname}.zip`,
                   },
                   success(data, textStatus, jqXHR) {

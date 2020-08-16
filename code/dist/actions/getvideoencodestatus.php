@@ -2,6 +2,13 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+useDeLocale();
+
+session_start();
+
+if (!isAllowed()) {
+    die();
+}
 
 $logfile = getBasePath(sprintf('tmp/%s.log', basename($_GET['videofile'], '.mp4')));
 

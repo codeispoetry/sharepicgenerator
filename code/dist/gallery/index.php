@@ -16,9 +16,12 @@ if (!$hasAccess) {
     $user = handleSamlAuth();
 }
 
-logthis();
+$accesstoken = createAccessToken($user);
+$_SESSION['accesstoken'] = $accesstoken;
+$_SESSION['user'] = $user;
+$_SESSION['landesverband'] = $landesverband;
 
-$accessToken = createAccessToken($user);
+logLogin();
 
 require_once(getBasePath("/lib/actionday.php"));
 
