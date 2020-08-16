@@ -5,6 +5,25 @@ function useDeLocale()
     setlocale(LC_ALL, ' de_DE.UTF-8', 'de_DE.utf8');
 }
 
+function createAccessToken($user)
+{
+    $userDir = getBasePath('persistent/user/' . $user);
+
+    if (!file_exists($userDir)) {
+        mkdir($userDir);
+    }
+
+    $accesstoken = uniqid();
+    $content = <<<EOF
+<?php
+define("ACCESSTOKEN", "$accesstoken");
+
+EOF;
+
+    file_put_contents(sprintf('%s/accesstoken.php', $userDir), $content);
+    return $accesstoken;
+}
+
 function isAllowed($with_csrf = false)
 {
     if (!isset($_SESSION['accesstoken'])) {
@@ -56,22 +75,6 @@ function getUser()
     return $_SESSION['user'];
 }
 
-function getCloudCredentials()
-{
-    $tokenfile = getUserDir() .'/.cloudcredentials.txt';
-
-    if (!file_exists($tokenfile)) {
-        return false;
-    }
-    return file_get_contents($tokenfile);
-}
-
-function getUserFromCloudCredentials()
-{
-    list($user, $token) = explode(':', getCloudCredentials());
-    return $user;
-}
-
 function getUserDir()
 {
     $userDir = getBasePath('persistent/user/' . getUser());
@@ -80,13 +83,6 @@ function getUserDir()
     }
 
     return $userDir;
-}
-
-function hasCloudCredentials()
-{
-    $user = getUser();
-    $cloudTokenFile = getBasePath(sprintf('persistent/user/%s/.cloudcredentials.txt', $user));
-    return file_exists($cloudTokenFile);
 }
 
 function returnJsonErrorAndDie($code = 1)
@@ -127,25 +123,6 @@ function logDownload()
     $socialmediaplatform = sanitizeUserinput($_POST['socialmediaplatform']);
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, 'download', $pixabay, $socialmediaplatform);
     file_put_contents(getBasePath('log/log.log'), $line, FILE_APPEND);
-}
-
-function createAccessToken($user)
-{
-    $userDir = getBasePath('persistent/user/' . $user);
-
-    if (!file_exists($userDir)) {
-        mkdir($userDir);
-    }
-
-    $accesstoken = uniqid();
-    $content = <<<EOF
-<?php
-define("ACCESSTOKEN", "$accesstoken");
-
-EOF;
-
-    file_put_contents(sprintf('%s/accesstoken.php', $userDir), $content);
-    return $accesstoken;
 }
 
 function isLocal()
@@ -407,4 +384,66 @@ function xml2json($xml)
     }
 
     return $return;
+}
+
+function getUserFromCloudCredentials()
+{
+    list($user, $token) = explode(':', getCloudCredentials());
+    return $user;
+}
+
+function hasCloudCredentials()
+{
+    $tokenfile = getUserDir() .'/.cloudcredentials.php';
+    return file_exists($tokenfile);
+}
+
+function getCloudCredentials()
+{
+    if (hasCloudCredentials() == false) {
+        return false;
+    }
+
+    require_once($tokenfile);
+    return USERCLOUDCREDENTIALS;
+}
+
+function deleteCloudToken()
+{
+    $cloudTokenFile = getUserDir() . '/.cloudcredentials.php';
+    unlink($cloudTokenFile);
+
+    returnJsonSuccessAndDie();
+}
+
+function saveCloudToken()
+{
+    $cloudTokenFile = getUserDir() . '/.cloudcredentials.php';
+
+    $credentials = sprintf('%s:%s', getUser(), $_POST['data']);
+    $content = <<<EOF
+<?php
+define("USERCLOUDCREDENTIALS", "$credentials");
+
+EOF;
+
+    file_put_contents($cloudTokenFile, $content);
+
+    // Create folder in cloud
+    $credentials = sprintf('-u %s', getCloudCredentials());
+    $endpoint    = sprintf(
+        "MKCOL 'https://wolke.netzbegruenung.de/remote.php/dav/files/%s/sharepicgenerator'",
+        getUserFromCloudCredentials()
+    );
+    $payload = '';
+    $command = sprintf(
+        'curl -X %s %s %s',
+        $endpoint,
+        $payload,
+        $credentials
+    );
+
+    exec($command, $debug);
+
+    returnJsonSuccessAndDie();
 }
