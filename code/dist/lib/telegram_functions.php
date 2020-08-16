@@ -1,14 +1,5 @@
 <?php
 
-function sendMessage($message)
-{
-    if (!$message) {
-        return;
-    }
-    global $botID, $chatID;
-    readfile('https://api.telegram.org/' . $botID . '/sendMessage?chat_id=' . $chatID . '&text=' . $message);
-}
-
 function sendFile($file)
 {
     global $botID, $chatID;
@@ -28,6 +19,15 @@ function sendFile($file)
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
     $output = curl_exec($ch);
+}
+
+function sendMessage($message)
+{
+    if (!$message) {
+        return;
+    }
+    global $botID, $chatID;
+    readfile('https://api.telegram.org/' . $botID . '/sendMessage?chat_id=' . $chatID . '&text=' . urlencode($message));
 }
 
 function handleRequest()
@@ -125,36 +125,6 @@ function getFile($message)
     copy($url, sprintf('%s/picture.jpg', $userDir));
 
     sendMessage("Dein Bild ist angekommen. Welcher Text soll drauf?\nZeilen, die mit einem ! beginnen, werden größer dargestellt.");
-}
-
-function sendFile($file)
-{
-    global $botID, $chatID;
-    $botURL = "https://api.telegram.org/$botID/";
-    $url = $botURL . "sendPhoto?chat_id=" . $chatID;
-
-    $post_fields = array('chat_id' => $chatID,
-        'photo' => new CURLFile(realpath($file)),
-        'silent' => true
-    );
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        "Content-Type:multipart/form-data"
-    ));
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
-    $output = curl_exec($ch);
-}
-
-function sendMessage($message)
-{
-    if (!$message) {
-        return;
-    }
-    global $botID, $chatID;
-    readfile('https://api.telegram.org/' . $botID . '/sendMessage?chat_id=' . $chatID . '&text=' . urlencode($message));
 }
 
 function has_emojis($string)
