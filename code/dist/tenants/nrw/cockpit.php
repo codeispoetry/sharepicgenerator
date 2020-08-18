@@ -213,7 +213,6 @@
 
         </div>
 
-
         <h3 class="collapsed" data-toggle="collapse" data-target=".screen">Screen</h3>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
@@ -223,7 +222,6 @@
                <input id="gridlines" type="checkbox" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
-
 
         <div class="mt-1">
             <button type="button" class="btn btn-secondary btn-lg download"><i class="fas fa-download"></i> Sharepic herunterladen</button>

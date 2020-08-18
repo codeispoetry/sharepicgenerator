@@ -147,6 +147,7 @@ logLogin();
     <?php echo 'var config =';
     @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
     <?php printf('config.csrf="%s";', $csrf); ?>
+    <?php printf('config.user="%s";', $user); ?>
 </script>
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>

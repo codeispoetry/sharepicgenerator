@@ -61,7 +61,7 @@ $('#download,.download').click(function () {
           type: 'POST',
           url: '/actions/nextcloudsend.php',
           data: {
-            file: `${obj.basename}jpg`,
+            file: `${obj.basename}.jpg`,
             csrf: config.csrf,
           },
           success(data, textStatus, jqXHR) {

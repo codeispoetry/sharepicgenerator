@@ -37,6 +37,12 @@ $svg = preg_replace('/NS([1-9]|[1-9][0-9]|[1-9][0-9][0-9]):/', 'xlink:', $svg);
 
 // For firefox
 $svg = preg_replace('#([^:])\/\/#', "$1/", $svg);
+
+// set correct path to directories
+$svg = preg_replace('/xlink:href="..\/..\/tmp\//', 'xlink:href="' . getBasePath('tmp') . '/', $svg);
+$svg = preg_replace('/xlink:href="\/assets\//', 'xlink:href="' . getBasePath('assets') . '/', $svg);
+$svg = preg_replace('/xlink:href="\/persistent\//', 'xlink:href="' . getBasePath('persistent') . '/', $svg);
+
 // Prefix SVG string with required XML node
 $svg = $svgHeader . $svg;
 
@@ -59,5 +65,5 @@ if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
 logDownload();
 
 $return = [];
-$return['basename'] = basename($filename, 'svg');
+$return['basename'] = basename($filename, '.svg');
 echo json_encode($return);

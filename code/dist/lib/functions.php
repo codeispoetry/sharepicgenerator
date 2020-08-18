@@ -99,7 +99,7 @@ function returnJsonSuccessAndDie()
 
 function logFailure($msg)
 {
-    $accesstoken = $_SESSION['accestoken'];
+    $accesstoken = $_SESSION['accesstoken'];
     $user = $_SESSION['user'];
     $landesverband = $_SESSION['landesverband'];
     $tenant = $_SESSION['tenant'];
@@ -319,7 +319,12 @@ function tidyUp($filename, $format)
     //unlink(getBasePath('tmp/' . $filename . '.png'));
 }
 
-function debug($filename, $format)
+function debug($msg)
+{
+    file_put_contents(getBasePath('log/error.log'), $msg, FILE_APPEND);
+}
+
+function debugPic($filename, $format)
 {
     $get = http_build_query($_GET, '', ', ');
     $file = getBasePath('tmp/' . $filename . '.' . $format);
@@ -329,9 +334,8 @@ function debug($filename, $format)
     } else {
         $size = -1;
     }
-
-    $debug = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
-    file_put_contents(getBasePath('log/error.log'), $debug, FILE_APPEND);
+    $debugTxt = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
+    debug($debugTxt);
 }
 
 function deleteUserLogo($user)
