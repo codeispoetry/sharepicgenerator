@@ -270,7 +270,7 @@
                     ?>
                     <optgroup label="Eigenes Logo">
                     <?php
-                    if (file_exists('../persistent/user/' . $user . '/logo.png')) {
+                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
                         ?>
                         <option value="custom" selected>eigenes Logo</option>
                         <option value="deletecustomlogo">eigenes Logo löschen</option>

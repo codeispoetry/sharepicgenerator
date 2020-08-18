@@ -34,7 +34,7 @@ function handleBackgroundUpload($extension)
 
 function handleIconUpload($extension)
 {
-    $filebasename = getBasePaath('tmp/' . uniqid('icon'));
+    $filebasename = getBasePath('tmp/' . uniqid('icon'));
     $filename = $filebasename . '.' . $extension;
 
     move_uploaded_file($_FILES['file']['tmp_name'], $filename);
@@ -61,7 +61,6 @@ function handleUploadWork()
 
     $datafile = $savedir . '/data.json';
     $json = file_get_contents($datafile);
-
 
     $return['data'] = $json;
     $return['dir'] = $savedir;

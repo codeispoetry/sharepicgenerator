@@ -57,6 +57,7 @@ require_once(getBasePath("lib/actionday.php"));
         <?php echo 'var config =';
         @readfile(getBasePath('/config.json')) || readfile(getBasePath('/config-sample.json')); echo ';'?>
         <?php printf('config.csrf="%s";', $csrf); ?>
+        <?php printf('config.user="%s";', $user); ?>
     </script>
 </head>
 <body>
