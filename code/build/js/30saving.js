@@ -40,7 +40,7 @@ function savework() {
   $.ajax({
     type: 'POST',
     url: '/actions/savework.php',
-    data: { data },
+    data: { csrf: config.csrf, data },
     success(data, textStatus, jqXHR) {
       const obj = JSON.parse(data);
       const downloadname = getDownloadName();

@@ -78,9 +78,9 @@ $('.upload-file').change(function (event) {
         break;
       case 'uploadwork':
         const json = JSON.parse(obj.data);
-        if (json.addpicfile1 != '') json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`;
-        if (json.addpicfile2 != '')json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`;
-        uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
+        if (json.addpicfile1 != '') { json.addpicfile1 = `../../${obj.dir}/${json.addpicfile1}`; }
+        if (json.addpicfile2 != '') { json.addpicfile2 = `../../${obj.dir}/${json.addpicfile2}`; }
+        uploadFileByUrl(`../../${obj.dir}/${json.savedBackground}`, () => {
           loadFormData(json);
         });
         break;

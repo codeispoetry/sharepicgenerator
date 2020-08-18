@@ -39,7 +39,7 @@ switch ($_GET['format']) {
         $format = 'jpg';
 }
 
-debug($filename, $format);
+debugPic($filename, $format);
 $filepath = getBasePath('tmp/' . $filename . '.' . $format);
 
 header('Content-Type: ' . $contentType);
