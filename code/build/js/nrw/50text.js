@@ -15,11 +15,11 @@ const text = {
 
   draw() {
     text.svg.remove();
-    if ($('#text').val() == '') return;
+    if ($('#text').val() === '') return;
 
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
 
-    text.svg.on('dragmove.namespace', function (event) {
+    text.svg.on('dragmove.namespace', function dragMove() {
       $('.gridline-active').removeClass('gridline-active');
 
       const centerX = this.x() + (this.width() / 2);
@@ -47,7 +47,7 @@ const text = {
       }
     });
 
-    text.svg.on('dragend.namespace', function (event) {
+    text.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
       text.bounce();
@@ -60,25 +60,28 @@ const text = {
 
     const quotationMarks = ['„', '“'];
     let qmI = 0;
-    while ((lines.match(/\"/g) || []).length) {
-      lines = lines.replace(/\"/, quotationMarks[qmI]);
+    while ((lines.match(/"/g) || []).length) {
+      lines = lines.replace(/"/, quotationMarks[qmI]);
       qmI = (qmI + 1) % 2;
     }
 
     lines = lines.replace(/\n$/, '').split(/\n/);
 
-    lines.forEach((value, index, array) => {
-      const style = /^!/.test(value) ? 1 : 0;
-
-      value = value.replace(/^!/, '');
+    lines.forEach((value) => {
+      let line = value;
+      const style = /^!/.test(line) ? 1 : 0;
+      line = line.replace(/^!/, '');
 
       let textColor = textColors[$('#textColor2').val()];
       if (style) {
-        value = value.toUpperCase();
+        line = line.toUpperCase();
         textColor = textColors[$('#textColor1').val()];
       }
 
-      const t = draw.text(value).font(Object.assign(text.font, { size: text.fontsizes[style] })).fill(textColor).move(0, y + text.yBiases[style]);
+      const t = draw.text(line)
+        .font(Object.assign(text.font, { size: text.fontsizes[style] }))
+        .fill(textColor)
+        .move(0, y + text.yBiases[style]);
 
       t.dx(-t.length()); // align text right
 
@@ -86,7 +89,7 @@ const text = {
       y += text.lineheights[style] + text.linemargin;
     });
 
-    text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+    text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
   },
 
   bounce() {

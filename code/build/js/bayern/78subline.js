@@ -22,7 +22,7 @@ const sublineColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
 let sublineColorIndex = 0;
 
 $('.subline-change-color').click(() => {
-  sublineColorIndex++;
+  sublineColorIndex += 1;
   sublineColorIndex %= sublineColors.length;
   $('#sublineColor').val(sublineColors[sublineColorIndex]);
   subline.draw();

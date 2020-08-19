@@ -13,9 +13,9 @@ const pin = {
 
   load(file = 'pin.svg') {
     pin.svg.remove();
-    pin.svg = draw.image(`../bayern/${file}`, (event) => {
+    pin.svg = draw.image(`../bayern/${file}`, () => {
       pin.isLoaded = true;
-      pin.svg.on('dragend.namespace', (event) => {
+      pin.svg.on('dragend.namespace', () => {
         $('#pinX').val(Math.round(pin.svg.x()));
         $('#pinY').val(Math.round(pin.svg.y()));
         pin.bounce();
@@ -27,9 +27,10 @@ const pin = {
   draw() {
     if (!pin.isLoaded) return false;
 
-    pin.svg.move(parseInt($('#pinX').val()), parseInt($('#pinY').val()));
-    pin.svg.size(parseInt($('#pinsize').val()));
+    pin.svg.move(parseInt($('#pinX').val(), 10), parseInt($('#pinY').val(), 10));
+    pin.svg.size(parseInt($('#pinsize').val(), 10));
     pin.svg.front();
+    return true;
   },
 
   bounce() {
@@ -50,6 +51,7 @@ const pin = {
       $('#pinY').val(draw.height() - this.svg.height() - 30);
       this.draw();
     }
+    return true;
   },
 };
 

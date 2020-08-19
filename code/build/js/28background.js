@@ -10,15 +10,15 @@ const background = {
 
     const filename = $('#backgroundURL').val();
 
-    this.svg = draw.image(filename, function (event) {
+    this.svg = draw.image(filename, function drawImage() {
       this.back().draggable();
       background.isLoaded = true;
       background.resize();
       background.addFilter();
 
-      background.svg.move(parseInt($('#backgroundX').val()), parseInt($('#backgroundY').val()));
+      background.svg.move(parseInt($('#backgroundX').val(), 10), parseInt($('#backgroundY').val(), 10));
 
-      this.on('dragend.namespace', function (event) {
+      this.on('dragend.namespace', function dragEnd() {
         $('#backgroundX').val(Math.round(this.x()));
         $('#backgroundY').val(Math.round(this.y()));
         background.uncoveredAreaWarning();
@@ -26,10 +26,10 @@ const background = {
 
       // no dragging when nothing to drag
       this.draggable().on('beforedrag', (e) => {
-        if (background.svg.width() == draw.width()
-                    && background.svg.x() == 0
-                    && background.svg.height() == draw.height()
-                    && background.svg.y() == 0
+        if (background.svg.width() === draw.width()
+                    && background.svg.x() === 0
+                    && background.svg.height() === draw.height()
+                    && background.svg.y() === 0
         ) {
           e.preventDefault();
         }
@@ -80,17 +80,17 @@ const background = {
   reset() {
     $('#backgroundX').val(0);
     $('#backgroundY').val(0);
-    $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min')));
+    $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     this.draw();
     background.uncoveredAreaWarning();
   },
 
   resize() {
-    const val = parseInt($('#backgroundsize').val());
+    const val = parseInt($('#backgroundsize').val(), 10);
     this.svg.size(val);
 
     if (background.hasRoundingError()) {
-      let size = parseInt($('#backgroundsize').val());
+      let size = parseInt($('#backgroundsize').val(), 10);
       $('#backgroundsize').val(size += 5);
       this.resize();
     }
@@ -124,6 +124,7 @@ const background = {
     } else {
       message();
     }
+    return true;
   },
 };
 
@@ -143,7 +144,7 @@ $('#darklightlayer').bind('input propertychange', () => {
   background.addDarkLightLayer();
 });
 
-$('#darklightlayer').dblclick(function () {
+$('#darklightlayer').dblclick(function dblClickLayer() {
   $(this).val(0);
   background.addDarkLightLayer();
 });

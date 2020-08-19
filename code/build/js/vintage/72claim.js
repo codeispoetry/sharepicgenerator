@@ -21,7 +21,7 @@ const claimColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
 let claimColorIndex = 0;
 
 $('.claim-change-color').click(() => {
-  claimColorIndex++;
+  claimColorIndex += 1;
   claimColorIndex %= claimColors.length;
   $('#claimColor').val(claimColors[claimColorIndex]);
   claim.draw();

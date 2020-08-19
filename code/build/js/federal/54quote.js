@@ -23,11 +23,11 @@ const quote = {
     }
 
     text.svg.remove();
-    if ($('#text').val() == '') return;
+    if ($('#text').val() === '') return;
 
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
 
-    text.svg.on('dragend.namespace', function (event) {
+    text.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
       text.bounce();
@@ -41,8 +41,8 @@ const quote = {
     let lines = $('#text').val();
     const quotationMarks = ['„', '“'];
     let qmI = 0;
-    while ((lines.match(/\"/g) || []).length) {
-      lines = lines.replace(/\"/, quotationMarks[qmI]);
+    while ((lines.match(/"/g) || []).length) {
+      lines = lines.replace(/"/, quotationMarks[qmI]);
       qmI = (qmI + 1) % 2;
     }
 
@@ -53,18 +53,18 @@ const quote = {
     const linesRendered = [];
     let color;
 
-    lines.forEach((value, index, array) => {
+    lines.forEach((value, index) => {
       let style = 1;
 
       // the main text
-      values = value.split(/\[|\]/);
+      const values = value.split(/\[|\]/);
 
       const t = draw.text((add) => {
         for (let i = 0; i < values.length; i++) {
-          style = (style == 0) ? 1 : 0;
+          style = (style === 0) ? 1 : 0;
 
           color = quote.colors[style];
-          if (style == 0) {
+          if (style === 0) {
             color = textColors[$('#textColor').val()];
           }
 
@@ -88,16 +88,17 @@ const quote = {
     if ($('#textafter').val().length > 0) {
       const lineWidth = text.svg.width() * 0.5;
       const lineOffset = (text.svg.width() - lineWidth) / 2;
-      const lineafter = draw.rect(lineWidth, 1).fill(color).dx(-1 * lineOffset).dy(text.svg.height() + 4);
+      const lineafter = draw.rect(lineWidth, 1)
+        .fill(color).dx(-1 * lineOffset).dy(text.svg.height() + 4);
       text.svg.add(lineafter);
     }
 
     // text below the line
     const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
-    style = 1;
+    let style = 1;
     const textafter = draw.text((add) => {
       for (let i = 0; i < textafterParts.length; i++) {
-        style = (style == 0) ? 1 : 0;
+        style = (style === 0) ? 1 : 0;
         add.tspan(textafterParts[i]).fill(color).font(quote.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
@@ -121,7 +122,7 @@ const quote = {
         .back();
     }
 
-    text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+    text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
   },
 

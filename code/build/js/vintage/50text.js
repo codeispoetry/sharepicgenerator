@@ -17,7 +17,7 @@ const text = {
     text.svg.remove();
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
 
-    text.svg.on('dragend.namespace', function (event) {
+    text.svg.on('dragend.namespace', function drag() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
       text.bounce();
@@ -25,16 +25,18 @@ const text = {
 
     let y = 0;
 
-    $('#text').val().split(/\n/).forEach((value, index, array) => {
+    $('#text').val().split(/\n/).forEach((value) => {
       const style = 0;
       const color = $('#textColor').val();
-      const t = draw.text(value).font(Object.assign(text.font, { size: text.fontsizes[style] })).fill(color).move(0, y + text.yBiases[style]);
+      const t = draw.text(value).font(Object.assign(text.font, {
+        size: text.fontsizes[style],
+      })).fill(color).move(0, y + text.yBiases[style]);
 
       text.svg.add(t);
       y += text.lineheights[style] + text.linemargin;
     });
 
-    text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+    text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
 
     pin.draw();
   },
@@ -66,7 +68,7 @@ const textColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
 let textColorIndex = 0;
 
 $('.text-change-color').click(() => {
-  textColorIndex++;
+  textColorIndex += 1;
   textColorIndex %= textColors.length;
   $('#textColor').val(textColors[textColorIndex]);
   text.draw();

@@ -6,6 +6,7 @@ $(document).ready(() => {
   subline.draw();
 });
 
+// eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
 }

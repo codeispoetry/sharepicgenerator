@@ -23,11 +23,11 @@ const text = {
     }
 
     text.svg.remove();
-    if ($('#text').val() == '') return;
+    if ($('#text').val() === '') return;
 
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
 
-    text.svg.on('dragmove.namespace', function (event) {
+    text.svg.on('dragmove.namespace', function dragMove() {
       $('.gridline-active').removeClass('gridline-active');
 
       const centerX = this.x() + (this.width() / 2);
@@ -55,7 +55,7 @@ const text = {
       }
     });
 
-    text.svg.on('dragend.namespace', function (event) {
+    text.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
       text.bounce();
@@ -69,8 +69,8 @@ const text = {
 
     const quotationMarks = ['„', '“'];
     let qmI = 0;
-    while ((lines.match(/\"/g) || []).length) {
-      lines = lines.replace(/\"/, quotationMarks[qmI]);
+    while ((lines.match(/"/g) || []).length) {
+      lines = lines.replace(/"/, quotationMarks[qmI]);
       qmI = (qmI + 1) % 2;
     }
 
@@ -85,21 +85,23 @@ const text = {
     const linesRendered = [];
     let color;
 
-    lines.forEach((value, index, array) => {
+    lines.forEach((value, index) => {
       let style = 1;
+      let changedValue = value;
 
       // the main text
       if (lines.length < 4) {
-        value = value.toUpperCase();
+        changedValue = changedValue.toUpperCase();
       }
-      values = value.split(/\[|\]/);
+      const values = changedValue.split(/\[|\]/);
 
       let t = draw.text((add) => {
         for (let i = 0; i < values.length; i++) {
-          style = (style == 0) ? 1 : 0;
+          style = (style === 0) ? 1 : 0;
 
           color = text.colors[style];
-          if (style == 0) {
+          if (style === 0) {
+            // eslint-disable-next-line prefer-destructuring
             color = textColors[0];
             // always white, and not  $('#textColor').val()
           }
@@ -114,7 +116,8 @@ const text = {
       t.move(0, y);
 
       if ($('#textsamesize').prop('checked')) {
-        t = draw.group().add(t).size(widthSameLineHeihgts); // the number defines the size of the white bars
+        // the number defines the size of the white bars
+        t = draw.group().add(t).size(widthSameLineHeihgts);
       }
 
       y += (t.rbox().h) + text.linemargin;
@@ -126,7 +129,7 @@ const text = {
 
     // Icon
     let licon;
-    const iconHeightInLines = Math.min(lines.length, parseInt($('#iconsize').val()));
+    const iconHeightInLines = Math.min(lines.length, parseInt($('#iconsize').val(), 10));
 
     if (icon.isLoaded) {
       licon = icon.svg.clone();
@@ -150,7 +153,7 @@ const text = {
     let style = 1;
     const textbefore = draw.text((add) => {
       for (let i = 0; i < textbeforeParts.length; i++) {
-        style = (style == 0) ? 1 : 0;
+        style = (style === 0) ? 1 : 0;
         add.tspan(textbeforeParts[i]).fill(text.colors[style]).font(text.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
@@ -162,7 +165,7 @@ const text = {
     style = 1;
     const textafter = draw.text((add) => {
       for (let i = 0; i < textafterParts.length; i++) {
-        style = (style == 0) ? 1 : 0;
+        style = (style === 0) ? 1 : 0;
         add.tspan(textafterParts[i]).fill(text.colors[style]).font(text.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
@@ -176,7 +179,8 @@ const text = {
     // green background behind text
     if ($('#greenbehindtext').prop('checked')) {
       const textbackgroundpadding = 10;
-      const textbackground = draw.rect(text.svg.width() + 2 * textbackgroundpadding, text.svg.height() + 2 * textbackgroundpadding)
+      const textbackground = draw.rect(text.svg.width() + 2 * textbackgroundpadding,
+        text.svg.height() + 2 * textbackgroundpadding)
         .fill('#46962b')
         .move(-textbackgroundpadding, -14).back();
 
@@ -206,14 +210,14 @@ const text = {
         .back();
     }
 
-    text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+    text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
 
     showActionDayHint();
   },
 
   positionGrayBackground() {
-    text.grayBackground.x(text.svg.x()).y(text.svg.y()).size(parseInt($('#textsize').val()));
+    text.grayBackground.x(text.svg.x()).y(text.svg.y()).size(parseInt($('#textsize').val(), 10));
     text.grayBackground.transform({ scale: 2.5 });
     background.svg.back();
   },
