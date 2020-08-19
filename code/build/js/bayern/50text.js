@@ -17,7 +17,7 @@ const text = {
     text.svg.remove();
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
 
-    text.svg.on('dragend.namespace', function (event) {
+    text.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
       text.bounce();
@@ -25,14 +25,17 @@ const text = {
 
     let y = 0;
 
-    $('#text').val().split(/\n/).forEach((value, index, array) => {
+    $('#text').val().split(/\n/).forEach((value) => {
       const style = /^!/.test(value) ? 1 : 0;
-      value = value.replace(/^!/, '').toUpperCase();
+      const changedValue = value.replace(/^!/, '').toUpperCase();
 
-      const t = draw.text(value).font(Object.assign(text.font, { size: text.fontsizes[style] })).fill(text.colors[style]).move(0, y + text.yBiases[style]);
+      const t = draw.text(changedValue)
+        .font(Object.assign(text.font, { size: text.fontsizes[style] }))
+        .fill(text.colors[style])
+        .move(0, y + text.yBiases[style]);
 
       let barWidth = t.length() + 2 * text.paddingLr;
-      if (value == '') {
+      if (changedValue === '') {
         barWidth = 0;
       }
       const r = draw.rect(barWidth, text.lineheights[style]).fill('white').move(-text.paddingLr, y);
@@ -41,7 +44,7 @@ const text = {
       y += text.lineheights[style] + text.linemargin;
     });
 
-    text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+    text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
 
     pin.draw();
   },

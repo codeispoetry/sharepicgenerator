@@ -59,11 +59,11 @@ const logo = {
   },
 
   load() {
-    whichLogo = $('#logoselect').val();
+    const whichLogo = $('#logoselect').val();
     if (logo.svg) logo.svg.remove();
     logo.isLoaded = false;
 
-    if (whichLogo == 'void') {
+    if (whichLogo === 'void') {
       return false;
     }
 
@@ -71,10 +71,11 @@ const logo = {
 
     $('#logosize').val(this.logoinfo.widthFraction * 100);
 
-    this.svg = draw.image(this.logoinfo.file, (event) => {
+    this.svg = draw.image(this.logoinfo.file, () => {
       logo.isLoaded = true;
       logo.draw();
     });
+    return true;
   },
 
   draw() {
@@ -101,26 +102,28 @@ const logo = {
     }
 
     logo.svg.move(x, y);
+    return true;
   },
 
   resize(percent) {
-    percent = parseInt(percent);
-    percent = Math.min(100, percent);
-    percent = Math.max(1, percent);
+    let newPercent = parseInt(percent, 10);
+    newPercent = Math.min(100, newPercent);
+    newPercent = Math.max(1, newPercent);
 
-    logo.logoinfo.widthFraction = percent / 100;
+    logo.logoinfo.widthFraction = newPercent / 100;
     logo.draw();
   },
 };
 logo.load();
 
-$('#logoselect').on('change', function () {
-  if ($(this).val() == 'custom') {
+$('#logoselect').on('change', function changeLogo() {
+  if ($(this).val() === 'custom') {
     $('#uploadlogo').click();
     return;
   }
 
-  if ($(this).val() == 'deletecustomlogo') {
+  if ($(this).val() === 'deletecustomlogo') {
+    // eslint-disable-next-line no-restricted-globals
     if (!confirm('Eigenes Logo wirklich dauerhaft löschen?')) {
       return;
     }
@@ -133,6 +136,7 @@ $('#logoselect').on('change', function () {
         if (obj.error) {
           return false;
         }
+        return true;
       });
 
     logo.load();
@@ -142,7 +146,7 @@ $('#logoselect').on('change', function () {
   logo.load();
 });
 
-$('.uselogo').on('click', function () {
+$('.uselogo').on('click', function clickUseLogo() {
   $('#logoselect').val($(this).data('logo'));
   logo.load();
 });

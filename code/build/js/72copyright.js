@@ -1,20 +1,24 @@
+const copyrights = { };
+const copyrightColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
+let copyrightColorIndex = 0;
+
 $('#copyright').bind('input propertychange', () => {
   copyright.draw();
 });
 
 $('.copyright-change-color').click(() => {
-  copyrightColorIndex++;
+  copyrightColorIndex += 1;
   copyrightColorIndex %= copyrightColors.length;
   copyright.draw();
 });
 
-const copyrights = { };
+// eslint-disable-next-line no-unused-vars
 function setCopyright(message, mode) {
-  if (message == undefined) {
+  if (message === undefined) {
     return false;
   }
 
-  if (mode == 'pixabay') {
+  if (mode === 'pixabay') {
     copyrights[mode] = `Foto: ${message}@pixabay.com`;
   } else {
     copyrights[mode] = `Icon: ${message}`;
@@ -23,10 +27,8 @@ function setCopyright(message, mode) {
   show('show-copyright');
   $('#copyright').val(Object.values(copyrights).join(', '));
   copyright.draw();
+  return true;
 }
-
-var copyrightColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
-var copyrightColorIndex = 0;
 
 const copyrightfont = {
   family: 'Arial',

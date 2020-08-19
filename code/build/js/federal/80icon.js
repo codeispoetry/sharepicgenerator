@@ -6,7 +6,7 @@ const icon = {
     icon.isLoaded = false;
 
     const file = $('#iconfile').val();
-    this.svg = draw.image(file, (event) => {
+    this.svg = draw.image(file, () => {
       icon.isLoaded = true;
       icon.svg.size(1).move(-100, -100); // cannot be resized to zero
       text.draw();
@@ -24,8 +24,8 @@ const icon = {
   },
 };
 
-$('#iconsize').on('change', function () {
-  if ($(this).val() == 0) {
+$('#iconsize').on('change', function changeIcon() {
+  if ($(this).val() === 0) {
     icon.remove();
   }
   text.draw();
@@ -49,30 +49,30 @@ function getIcons(q) {
   }, 10);
   $.ajax({
     url,
-    success(data, textStatus, jqXHR) {
+    success(data) {
       $('#iconoverlay .results').html('');
       const json = JSON.parse(data);
 
-      json.hits.forEach((icon) => {
-        $('#iconoverlay .results').append(`<div class="chooseicon" data-icon-url="${icon.icon_url}"  data-attribution="${icon.attribution}"><img src="${icon.preview_url}" title="${icon.attribution}"/></div>`);
+      json.hits.forEach((thisIcon) => {
+        $('#iconoverlay .results').append(`<div class="chooseicon" data-icon-url="${thisIcon.icon_url}"  data-attribution="${thisIcon.attribution}"><img src="${thisIcon.preview_url}" title="${thisIcon.attribution}"/></div>`);
       });
 
-      if (json.hits.length == 0) {
+      if (json.hits.length === 0) {
         $('#iconoverlay .results').append('<div class="col-12 bg-danger text-white p-3 text-center">Keine Icons gefunden. Bitte suche auf Englisch.</div>');
       }
 
-      $('#iconoverlay .results .chooseicon').click(function () {
+      $('#iconoverlay .results .chooseicon').click(function clickChoose() {
         $('#waiting').addClass('active');
         $('#iconoverlay').removeClass('active');
 
         const nounprojectattribution = $(this).data('attribution');
 
         $.get('/nounproject/get_icon.php', { icon_url: $(this).data('icon-url') })
-          .done((data) => {
-            if (data == 'error') {
+          .done((iconData) => {
+            if (iconData === 'error') {
               console.log('error downloading icon');
             } else {
-              $('#iconfile').val(`/tmp/${data}`);
+              $('#iconfile').val(`/tmp/${iconData}`);
               icon.load();
               setCopyright(nounprojectattribution, 'nounproject');
             }

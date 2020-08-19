@@ -20,7 +20,7 @@ const pin = {
   svg: draw.text(''),
 
   draw() {
-    $('#eyecatchersize').prop('disabled', ($('#pintext').val().length == 0));
+    $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
     const countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
 
@@ -30,22 +30,22 @@ const pin = {
 
     pin.svg.remove();
     pin.svg = draw.group();
-    if ($('#pintext').val() == '') return;
+    if ($('#pintext').val() === '') return;
 
     pin.svg.addClass('draggable').draggable();
 
-    pin.svg.on('dragstart.namespace', (e) => {
+    pin.svg.on('dragstart.namespace', () => {
       pin.svg.rotate(9, draw.width(), pin.svg.y());
     });
     pin.svg.on('dragmove.namespace', (e) => {
       const { handler, box } = e.detail;
       e.preventDefault();
 
-      const { x, y } = box;
+      const { y } = box;
 
       handler.move(draw.width() - pin.svg.width(), y);
     });
-    pin.svg.on('dragend.namespace', (e) => {
+    pin.svg.on('dragend.namespace', () => {
       pin.svg.rotate(-9, draw.width(), pin.svg.y());
       $('#pinX').val(Math.round(pin.svg.x()));
       $('#pinY').val(Math.round(pin.svg.y()));

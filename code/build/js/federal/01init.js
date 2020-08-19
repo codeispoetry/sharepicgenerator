@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const bgpic = {
   width: 800,
   height: 450,
@@ -11,6 +12,7 @@ $(document).ready(() => {
   $('#text').val('Neue Zeiten\nneue [Antworten].');
 });
 
+// eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
 }

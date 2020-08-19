@@ -5,10 +5,10 @@ function getCloudfiles() {
     data: {
       csrf: config.csrf,
     },
-    success(data, textStatus, jqXHR) {
+    success(data) {
       const obj = JSON.parse(data);
 
-      if (obj.status == '500') {
+      if (obj.status === 500) {
         $('#cloudmessage').show();
         $('#cloudmessage p').html('Kein Zugang zur Cloud.');
         $('#cloudnotoken').show();
@@ -49,8 +49,8 @@ if (config.hasCloudCredentials) {
   $('#cloudnotoken').show();
 }
 
-$('#cloudfiles').on('change', function () {
-  if ($(this).val() == '') {
+$('#cloudfiles').on('change', function changeCloud() {
+  if ($(this).val() === '') {
     return false;
   }
 
@@ -64,19 +64,20 @@ $('#cloudfiles').on('change', function () {
       file: $(this).val(),
       csrf: config.csrf,
     },
-    success(data, textStatus, jqXHR) {
+    success(data) {
       $('#cloudmessage').hide();
 
       const obj = JSON.parse(data);
       const json = JSON.parse(obj.data);
 
-      if (json.addpicfile1 != '') json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`;
-      if (json.addpicfile2 != '')json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`;
+      if (json.addpicfile1 !== '') json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`;
+      if (json.addpicfile2 !== '')json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`;
       uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
         loadFormData(json);
       });
     },
   });
+  return true;
 });
 
 $('#cloudtokensave').click(() => {
@@ -89,7 +90,7 @@ $('#cloudtokensave').click(() => {
   $.post('/actions/save.php', {
     csrf: config.csrf, action: 'saveCloudToken', data: token,
   })
-    .done((data) => {
+    .done(() => {
       $('#load').removeClass('d-none');
       $('#delete').removeClass('d-none');
       $('.saving-response').html('Gespeichert.').delay(2000).fadeOut();
@@ -101,12 +102,13 @@ $('#cloudtokensave').click(() => {
 });
 
 $('.cloudtokendelete').click(() => {
+  // eslint-disable-next-line no-restricted-globals
   if (!confirm('Wirklich die Verbindung zur Cloud löschen?')) {
     return false;
   }
 
   $.post('/actions/save.php', { csrf: config.csrf, action: 'deleteCloudToken' })
-    .done((data) => {
+    .done(() => {
       $('#load').removeClass('d-none');
       $('#delete').removeClass('d-none');
       $('.saving-response').html('Gespeichert.').delay(2000).fadeOut();
@@ -114,4 +116,6 @@ $('.cloudtokendelete').click(() => {
 
   $('#cloudnotoken').hide();
   $('#cloudhastoken').show();
+
+  return true;
 });

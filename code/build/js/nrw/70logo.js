@@ -14,20 +14,21 @@ const logo = {
   },
 
   load() {
-    whichLogo = $('#logoselect').val();
+    const whichLogo = $('#logoselect').val();
     if (logo.svg) logo.svg.remove();
     logo.isLoaded = false;
 
-    if (whichLogo == 'void') {
+    if (whichLogo === 'void') {
       return false;
     }
 
     this.logoinfo = this.config[whichLogo];
 
-    this.svg = draw.image(this.logoinfo.file, (event) => {
+    this.svg = draw.image(this.logoinfo.file, () => {
       logo.isLoaded = true;
       logo.draw();
     });
+    return true;
   },
 
   draw() {
@@ -57,17 +58,19 @@ const logo = {
     }
 
     logo.svg.move(x, y);
+    return true;
   },
 };
 logo.load();
 
-$('#logoselect').on('change', function () {
-  if ($(this).val() == 'custom') {
+$('#logoselect').on('change', function changeIt() {
+  if ($(this).val() === 'custom') {
     $('#uploadlogo').click();
     return;
   }
 
-  if ($(this).val() == 'deletecustomlogo') {
+  if ($(this).val() === 'deletecustomlogo') {
+    // eslint-disable-next-line no-restricted-globals
     if (!confirm('Eigenes Logo wirklich dauerhaft löschen?')) {
       return;
     }
@@ -80,6 +83,7 @@ $('#logoselect').on('change', function () {
         if (obj.error) {
           return false;
         }
+        return true;
       });
 
     logo.load();
@@ -89,7 +93,7 @@ $('#logoselect').on('change', function () {
   logo.load();
 });
 
-$('.uselogo').on('click', function () {
+$('.uselogo').on('click', function useOwnLogo() {
   $('#logoselect').val($(this).data('logo'));
   logo.load();
 });

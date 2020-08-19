@@ -18,11 +18,11 @@ const inverted = {
     }
 
     text.svg.remove();
-    if ($('#text').val() == '') return;
+    if ($('#text').val() === '') return;
 
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
 
-    text.svg.on('dragend.namespace', function (event) {
+    text.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
       text.bounce();
@@ -34,8 +34,8 @@ const inverted = {
 
     const quotationMarks = ['„', '“'];
     let qmI = 0;
-    while ((lines.match(/\"/g) || []).length) {
-      lines = lines.replace(/\"/, quotationMarks[qmI]);
+    while ((lines.match(/"/g) || []).length) {
+      lines = lines.replace(/"/, quotationMarks[qmI]);
       qmI = (qmI + 1) % 2;
     }
 
@@ -50,21 +50,23 @@ const inverted = {
     const linesRendered = [];
     let color;
 
-    lines.forEach((value, index, array) => {
+    lines.forEach((value, index) => {
       let style = 1;
+      let changedValue = value;
 
       // the main text
       if (lines.length < 4) {
-        value = value.toUpperCase();
+        changedValue = value.toUpperCase();
       }
-      values = value.split(/\[|\]/);
+      const values = changedValue.split(/\[|\]/);
 
       let t = draw.text((add) => {
         for (let i = 0; i < values.length; i++) {
-          style = (style == 0) ? 1 : 0;
+          style = (style === 0) ? 1 : 0;
 
           color = text.colors[style];
-          if (style == 0) {
+          if (style === 0) {
+            // eslint-disable-next-line prefer-destructuring
             color = textColors[0];
             // always white, and not  $('#textColor').val()
           }
@@ -79,7 +81,8 @@ const inverted = {
       t.move(0, y);
 
       if ($('#textsamesize').prop('checked')) {
-        t = draw.group().add(t).size(widthSameLineHeihgts); // the number defines the size of the white bars
+        // the number defines the size of the white bars
+        t = draw.group().add(t).size(widthSameLineHeihgts);
       }
 
       y += (t.rbox().h) + text.linemargin;
@@ -90,7 +93,7 @@ const inverted = {
     });
 
     // the mask for text
-    text.svg.move(parseInt($('#textX').val()), parseInt($('#textY').val())).size(parseInt($('#textsize').val()));
+    text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
 
     const above = draw.rect(2000, 1000).fill('white').move(-100, text.svg.y() - 1010);
     const below = draw.rect(2000, 1000).fill('white').move(-100, text.svg.y() + text.svg.height() + 10);

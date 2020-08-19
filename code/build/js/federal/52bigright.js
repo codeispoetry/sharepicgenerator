@@ -21,7 +21,7 @@ const bigright = {
   },
 
   draw() {
-    if ($('#design').val() != 'bigright') return;
+    if ($('#design').val() !== 'bigright') return;
 
     bigright.svg.remove();
     bigright.svg = draw.group();
@@ -34,13 +34,18 @@ const bigright = {
     const lines = $('#text').val().split(/\n/);
     const fontweight = (lines.length <= 3) ? 700 : 300;
 
-    lines.forEach((value, index, array) => {
+    lines.forEach((value) => {
       const style = /^!/.test(value) ? 1 : 0;
 
-      value = value.replace(/^!/, '').toUpperCase();
+      const changedValue = value.replace(/^!/, '').toUpperCase();
       // no lodash-syntax, because of Edge
-      // let t = draw.text(value).font({...bigright.font, ...{weight: fontweight, size: bigright.fontsizes[style]}}).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
-      const t = draw.text(value).font(Object.assign(bigright.font, { weight: fontweight, size: bigright.fontsizes[style] })).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
+      // let t = draw.text(changedValue).font({
+      // ...bigright.font, ...{ // weight: fontweight, size: bigright.fontsizes[style]}
+      // }).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
+      const t = draw.text(changedValue).font(Object.assign(bigright.font, {
+        weight: fontweight,
+        size: bigright.fontsizes[style],
+      })).fill(bigright.colors[style]).move(0, y + bigright.yBiases[style]);
 
       bigright.svg.add(t);
       y += bigright.lineheights[style] + bigright.linemargin;
@@ -58,7 +63,9 @@ const bigright = {
     bigright.svg.add(textbefore);
     bigright.svg.add(textafter);
 
-    bigright.svg.size(draw.width() * 0.4).move(draw.width() * 0.55, (draw.height() - bigright.svg.height()) / 2).front();
+    bigright.svg.size(draw.width() * 0.4)
+      .move(draw.width() * 0.55, (draw.height() - bigright.svg.height()) / 2)
+      .front();
   },
 
 };

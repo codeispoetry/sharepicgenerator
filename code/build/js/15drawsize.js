@@ -1,14 +1,14 @@
 $('.size').bind('input propertychange', setDrawsize);
 $('#sizereset').click(resetDrawsize);
 
-$('#sizepresets').on('change', function () {
+$('#sizepresets').on('change', function changeSize() {
   const dimensions = this.value.split(':');
   setDimensions(...dimensions);
 
   config.socialmediaplatform = $('#sizepresets option:selected').data('socialmediaplatform');
   config.quality = $('#sizepresets option:selected').data('quality');
 
-  config.isMosaic = (config.socialmediaplatform.search(/Mosaik/g) != -1);
+  config.isMosaic = (config.socialmediaplatform.search(/Mosaik/g) !== -1);
 
   deleteMosaicLines();
   if (config.isMosaic) {

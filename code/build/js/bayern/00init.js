@@ -2,6 +2,7 @@ $(document).ready(() => {
   $('#text').val('!Leben\nlassen');
 });
 
+// eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
 
