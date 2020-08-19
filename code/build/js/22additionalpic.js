@@ -25,7 +25,8 @@ const addPic1 = {
       }
 
       if ($(`#addpicrounded${this.i}`).prop('checked')) {
-        this.circleMask.move(this.pic.width() / 2, this.pic.height() / 2).radius(radius / 2 - 3).back();
+        this.circleMask.move(this.pic.width() / 2, this.pic.height() / 2)
+          .radius(radius / 2 - 3).back();
         this.pic.maskWith(this.circleMask);
       } else {
         this.circleMask.size(0);
@@ -52,18 +53,17 @@ const addPic1 = {
   },
 
   resize() {
-    const percentage = draw.width() * parseInt($(`#addPicSize${this.i}`).val()) / 100;
+    const percentage = (draw.width() * parseInt($(`#addPicSize${this.i}`).val(), 10)) / 100;
     this.svg.size(percentage);
   },
-
 };
 
+// eslint-disable-next-line no-unused-vars
 function addpicAlign() {
   const y = addPic1.svg.y();
   const size = (addPic1.pic.height() / addPic2.pic.height()) * $('#addPicSize1').val();
   $('#addPic2y').val(y);
   $('#addPicSize2').val(size);
-
   addPic2.draw();
 }
 

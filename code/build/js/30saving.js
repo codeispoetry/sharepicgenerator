@@ -1,9 +1,11 @@
+// eslint-disable-next-line no-unused-vars
 function loadFormData(formdata) {
   // set the draw size manually, because it recalculates boundaries, etc.
   $('#width').val(formdata.width);
   $('#height').val(formdata.height);
   setDrawsize();
 
+  // eslint-disable-next-line no-restricted-syntax, guard-for-in
   for (const elem in formdata) {
     $(`#${elem}`).val(formdata[elem]);
   }
@@ -34,6 +36,7 @@ function loadFormData(formdata) {
   }, 500);
 }
 
+// eslint-disable-next-line no-unused-vars
 function savework() {
   const data = $('#pic').serialize();
 
@@ -41,8 +44,8 @@ function savework() {
     type: 'POST',
     url: '/actions/savework.php',
     data: { csrf: config.csrf, data },
-    success(data, textStatus, jqXHR) {
-      const obj = JSON.parse(data);
+    success(saveWorkData) {
+      const obj = JSON.parse(saveWorkData);
       const downloadname = getDownloadName();
       window.location.href = `/actions/downloadwork.php?basename=${obj.basename}&downloadname=${downloadname}`;
     },

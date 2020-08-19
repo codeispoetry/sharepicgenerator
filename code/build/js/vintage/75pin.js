@@ -8,7 +8,6 @@ $('#pintofront').click(() => {
 
 const pin = {
   isLoaded: false,
-
   svg: draw.rect(0, 0),
 
   draw() {

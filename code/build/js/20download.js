@@ -1,4 +1,4 @@
-$('#download,.download').click(function () {
+$('#download,.download').click(function onDownloadClick() {
   $(this).prop('disabled', true);
 
   config.toCloud = $(this).data('cloud');
@@ -21,14 +21,14 @@ $('#download,.download').click(function () {
 
   let format = 'jpg';
 
-  if (config.video == 1) {
+  if (config.video === 1) {
     format = 'mp4';
     background.svg.hide();
   }
 
   const data = draw.svg();
 
-  if (config.video == 1) {
+  if (config.video === 1) {
     background.svg.show();
   }
 
@@ -38,8 +38,8 @@ $('#download,.download').click(function () {
     data: {
       svg: data, format, addtogallery: $('#add-to-gallery').prop('checked'), csrf: config.csrf, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
     },
-    success(data, textStatus, jqXHR) {
-      const obj = JSON.parse(data);
+    success(createPicData) {
+      const obj = JSON.parse(createPicData);
       $('.download').prop('disabled', false);
       $('#canvas').removeClass('opacity');
       $('.download').html(description);
@@ -64,25 +64,25 @@ $('#download,.download').click(function () {
             file: `${obj.basename}.jpg`,
             csrf: config.csrf,
           },
-          success(data, textStatus, jqXHR) {
+          success() {
             $('.download').html('speichere Arbeitsdatei in der Cloud ... ');
-            const obj = JSON.parse(data);
+            // const obj = JSON.parse(data);
 
             $.ajax({
               type: 'POST',
               url: '/actions/savework.php',
               data: { csrf: config.csrf, data: $('#pic').serialize() },
-              success(data, textStatus, jqXHR) {
-                const obj = JSON.parse(data);
+              success(saveWorkData) {
+                const saveWorkObj = JSON.parse(saveWorkData);
                 $.ajax({
                   type: 'POST',
                   url: '/actions/nextcloudsend.php',
                   data: {
-                    file: `${obj.basename}.zip`,
+                    file: `${saveWorkObj.basename}.zip`,
                     csrf: config.csrf,
                     downloadname: `${downloadname}.zip`,
                   },
-                  success(data, textStatus, jqXHR) {
+                  success() {
                     $('.download').html(description);
                   },
                 });
@@ -91,7 +91,7 @@ $('#download,.download').click(function () {
           },
         });
 
-        const data = $('#pic').serialize();
+        // const data = $('#pic').serialize();
       } else {
         window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
       }
@@ -111,12 +111,14 @@ function getDownloadName() {
         return 'ue';
       case 'ß':
         return 'ss';
+      default:
+        return '';
     }
   });
   downloadname = downloadname.replace(/[^a-zA-Z0-9]/g, '-');
-  downloadname = downloadname.replace(/\-+/g, '-');
-  downloadname = downloadname.replace(/^\-/g, '');
-  downloadname = downloadname.replace(/\-$/g, '');
+  downloadname = downloadname.replace(/-+/g, '-');
+  downloadname = downloadname.replace(/^-/g, '');
+  downloadname = downloadname.replace(/-$/g, '');
   downloadname = downloadname.substring(0, 30);
 
   return downloadname;
@@ -128,8 +130,7 @@ function getEncodingStatus() {
     type: 'GET',
     dataType: 'JSON',
     success(data) {
-      const percentage = Math.round(100 * data.currentposition / config.videoduration);
-
+      const percentage = Math.round((100 * data.currentposition) / config.videoduration);
       $('#download').html(`${percentage}% des Videos sind schon fertig. Bitte warten.`);
     },
   });

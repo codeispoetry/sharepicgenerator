@@ -1,9 +1,9 @@
-$('.upload-file').change(function (event) {
+$('.upload-file').change(function changeFile() {
   const id = $(this).attr('id');
   const file = document.getElementById(id).files[0];
   const size = document.getElementById(id).files[0].size / 1024 / 1024;
   const maxFileSize = 100; // in MB, note this in .htaccess as well
-  const isBackgroundUpload = ($(this).attr('id') == 'uploadfile');
+  const isBackgroundUpload = ($(this).attr('id') === 'uploadfile');
   if (size > maxFileSize) {
     alert(`Die Datei ist zu groß. Es sind maximal ${maxFileSize} MB erlaubt.\n\nSchicke Dir die Datei per z.B. WhatsApp zu, dann wird sie automatisch verkleinert. Mehr als 20 MB pro Minute Video braucht es nicht.`);
     return false;
@@ -13,19 +13,21 @@ $('.upload-file').change(function (event) {
   $(this).prop('disabled', true);
 
   const formData = new FormData();
-  client = new XMLHttpRequest();
+  const client = new XMLHttpRequest();
 
-  if (!file) return;
+  if (!file) {
+    return false;
+  }
 
   formData.append('file', file);
   formData.append('id', id);
   formData.append('csrf', config.csrf);
 
-  client.onerror = function (e) {
+  client.onerror = function onError(e) {
     console.log('onError', e);
   };
 
-  client.onload = function (e) {
+  client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
     $(`#${id}`).prop('disabled', false);
     $('#waiting').removeClass('active');
@@ -36,10 +38,10 @@ $('.upload-file').change(function (event) {
     }
 
     if (isBackgroundUpload) {
-      config.video = (obj.video == 1);
+      config.video = (obj.video === 1);
     }
 
-    if (obj.video == 1) {
+    if (obj.video === 1) {
       config.videofile = obj.videofile;
       config.filename = obj.filename;
       config.videoduration = obj.videoduration;
@@ -77,46 +79,50 @@ $('.upload-file').change(function (event) {
         addPic2.draw();
         break;
       case 'uploadwork':
-        const json = JSON.parse(obj.data);
-        if (json.addpicfile1 != '') { json.addpicfile1 = `../../${obj.dir}/${json.addpicfile1}`; }
-        if (json.addpicfile2 != '') { json.addpicfile2 = `../../${obj.dir}/${json.addpicfile2}`; }
-        uploadFileByUrl(`../../${obj.dir}/${json.savedBackground}`, () => {
-          loadFormData(json);
-        });
+        {
+          const json = JSON.parse(obj.data);
+          if (json.addpicfile1 !== '') { json.addpicfile1 = `../../${obj.dir}/${json.addpicfile1}`; }
+          if (json.addpicfile2 !== '') { json.addpicfile2 = `../../${obj.dir}/${json.addpicfile2}`; }
+          uploadFileByUrl(`../../${obj.dir}/${json.savedBackground}`, () => {
+            loadFormData(json);
+          });
+        }
         break;
       default:
         console.log('error in upload', obj);
     }
+    return true;
   };
 
-  client.upload.onprogress = function (e) {
-    const p = Math.round(100 / e.total * e.loaded);
+  client.upload.onprogress = function onProgress(e) {
+    const p = Math.round((100 / e.total) * e.loaded);
     $('#uploadpercentage').html(p);
   };
 
-  client.onabort = function (e) {
+  client.onabort = function onAbort() {
     console.log('Upload abgebrochen');
   };
 
   client.open('POST', '/actions/upload.php');
   client.send(formData);
+  return true;
 });
 
-function uploadFileByUrl(url, callback = function () {}) {
+function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   $('#waiting').addClass('active');
   const id = 'uploadbyurl';
 
   const formData = new FormData();
-  client = new XMLHttpRequest();
+  const client = new XMLHttpRequest();
   formData.append('id', id);
   formData.append('url2copy', url);
 
-  client.onerror = function (e) {
+  client.onerror = function onError(e) {
     console.log('onError', e);
   };
 
-  client.upload.onprogress = function (e) {
-    const p = Math.round(100 / e.total * e.loaded);
+  client.upload.onprogress = function onProgress(e) {
+    const p = Math.round((100 / e.total) * e.loaded);
     $('#uploadpercentage').html(p);
 
     if (p > 99) {
@@ -124,7 +130,7 @@ function uploadFileByUrl(url, callback = function () {}) {
     }
   };
 
-  client.onload = function (e) {
+  client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
 
     closeOverlay();
@@ -134,8 +140,8 @@ function uploadFileByUrl(url, callback = function () {}) {
     }
 
     config.filename = obj.filename;
-    config.video = (obj.video == 1);
-    if (obj.video == 1) {
+    config.video = (obj.video === 1);
+    if (obj.video === 1) {
       config.videofile = obj.videofile;
       config.filename = obj.filename;
       config.videoduration = obj.videoduration;
@@ -176,7 +182,7 @@ function afterUpload(data) {
 
   background.draw();
 
-  if (data.warning == 'face') {
+  if (data.warning === 'face') {
     $('#warning').html('Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.').show(1000).delay(6000)
       .hide(1000);
   } else {

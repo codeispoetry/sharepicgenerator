@@ -20,13 +20,13 @@ function getPixabayVideos(q) {
 
   $.ajax({
     url,
-    success(data, textStatus, jqXHR) {
+    success(data) {
       $('#pixabay-videos .results').html('');
       data.hits.forEach((video) => {
         $('#pixabay-videos .results').append(`<div class="col-12 col-md-3 video pb-4"><video controls><source src="${video.videos.tiny.url}" type="video/mp4"></video><button class="btn btn-outline-primary btn-sm" data-url="${video.videos.small.url}" data-user="${video.user}">verwenden</button></div>`);
       });
 
-      $('#pixabay-videos .results button').click(function () {
+      $('#pixabay-videos .results button').click(function clickButton() {
         const pixabayAttribution = $(this).data('user');
         uploadFileByUrl($(this).data('url'), () => {
           setCopyright(pixabayAttribution, 'pixabay');
@@ -42,11 +42,11 @@ function getPixabayVideos(q) {
 }
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', (e) => {
-  e.target; // newly activated tab
-  e.relatedTarget; // previous active tab
+  // e.target; -> newly activated tab
+  // e.relatedTarget; -> previous active tab
   const id = $(e.target).attr('id');
-  if (id == 'videos-tab') {
-    if ($('#pixabay .q').val() == '') {
+  if (id === 'videos-tab') {
+    if ($('#pixabay .q').val() === '') {
       return;
     }
     getPixabayVideos($('#pixabay .q').val());
@@ -63,13 +63,13 @@ function getPixabayImages(q) {
 
   $.ajax({
     url,
-    success(data, textStatus, jqXHR) {
+    success(data) {
       $('#pixabay-images .results').html('');
       data.hits.forEach((image) => {
         $('#pixabay-images .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user}" class="img-fluid">`);
       });
 
-      $('#pixabay-images .results>img').click(function () {
+      $('#pixabay-images .results>img').click(function clickImg() {
         const pixabayAttribution = $(this).data('user');
         uploadFileByUrl($(this).data('url'), () => {
           setCopyright(pixabayAttribution, 'pixabay');

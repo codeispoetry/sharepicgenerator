@@ -14,7 +14,7 @@ const logo = {
 
     this.logoinfo = this.config[whichLogo];
 
-    this.svg = draw.image(this.logoinfo.file, (event) => {
+    this.svg = draw.image(this.logoinfo.file, () => {
       logo.isLoaded = true;
       logo.draw();
     });
@@ -43,6 +43,7 @@ const logo = {
     }
 
     logo.svg.move(x, y);
+    return true;
   },
 
 };

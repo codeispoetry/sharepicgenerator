@@ -4,7 +4,7 @@ const claim = {
 
   load(file = '/assets/nrw/claim.png') {
     claim.svg.remove();
-    claim.svg = draw.image(file, (event) => {
+    claim.svg = draw.image(file, () => {
       claim.isLoaded = true;
       claim.draw();
     });
@@ -15,6 +15,7 @@ const claim = {
 
     claim.svg.size(draw.width() * 0.51).move(0, draw.height() - claim.svg.height() - 20);
     claim.svg.front();
+    return true;
   },
 
   bounce() {
