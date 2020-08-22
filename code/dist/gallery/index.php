@@ -1,31 +1,29 @@
 <?php
-require_once('../functions.php');
-$samlfile = '/var/simplesaml/lib/_autoload.php';
+require_once('base.php');
+require_once(getBasePath('lib/functions.php'));
+
+// FIXME: the function showGallery should be part of lib/gallery_functions.php
+// phpcs:ignoreFile
+
+
 $landesverband = 0;
 $user = "generic";
 $tenant = "federal";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
-if( !$hasAccess ){
-    if (file_exists($samlfile)) {
-        require_once($samlfile);
-        $as = new SimpleSAML_Auth_Simple('default-sp');
-        $as->requireAuth();
-        $samlattributes = $as->getAttributes();
-        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-
-        require_once('../inc/versionswitch.php');
-    }else {
-        $user = "nosamlfile";
-    }
+if (!$hasAccess) {
+    $user = handleSamlAuth();
 }
 
-logthis();
+$accesstoken = createAccessToken($user);
+$_SESSION['accesstoken'] = $accesstoken;
+$_SESSION['user'] = $user;
+$_SESSION['landesverband'] = $landesverband;
 
-$accessToken = createAccessToken( $user );
+logLogin();
 
-require_once("../actionday.php");
+require_once(getBasePath("/lib/actionday.php"));
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +62,7 @@ require_once("../actionday.php");
     </div>
     <div class="row pb-5 mb-3">
         <?php
-            show_images('img/shpic*.jpg');
+            showImages('img/shpic*.jpg');
         ?>
     </div>
 </div>
@@ -99,28 +97,25 @@ require_once("../actionday.php");
 </html>
 <?php
 
-function show_images($dir)
+function showImages($dir)
 {
-    $files = array_reverse(glob( $dir ) );
-    foreach ($files AS $file) {
-
+    $files = array_reverse(glob($dir));
+    foreach ($files as $file) {
         $info = array(
             'Datum' => strftime('%e. %B %Y', filemtime($file)),
             'ID' => basename($file, '.jpg'),
         );
 
-        $infofile = 'img/' . basename($file,'jpg').'json';
-        if( file_exists($infofile)){
-            $info = array_merge(json_decode( file_get_contents( $infofile ), true), $info);
-        }
-
-        ?>
+        $infofile = 'img/' . basename($file, 'jpg').'json';
+        if (file_exists($infofile)) {
+            $info = array_merge(json_decode(file_get_contents($infofile), true), $info);
+        } ?>
         <div class="col-4 col-md-3 col-lg-3">
             <figure>
                 <img src="<?php echo $file?>" class="img-fluid"/>
                 <figcaption>
                     <table class="small">
-                        <?php foreach ($info as $key=>$value) { ?>
+                        <?php foreach ($info as $key => $value) { ?>
                         <tr>
                             <td class="pr-3 "><?php echo $key; ?>:</td>
                             <td><?php echo $value; ?></td>

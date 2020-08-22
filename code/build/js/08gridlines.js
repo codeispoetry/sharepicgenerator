@@ -1,15 +1,16 @@
-$('#gridlines').bind('change', function(){
-    $('.gridline').toggleClass('d-none');
+$('#gridlines').bind('change', () => {
+  $('.gridline').toggleClass('d-none');
 });
 
-function showMosaicLines(){
-    for (i = 1; i <= 2; i++) {
-        $("#canvas").append('<div class="gridline horizontal mosaicline" style="top:' + ( 100 * i / 3 ) + '%;"></div>');
-        $("#canvas").append('<div class="gridline vertical mosaicline" style="top:0;left:' + ( 100 * i / 3 ) + '%;"></div>');
-    }
+// eslint-disable-next-line no-unused-vars
+function showMosaicLines() {
+  for (let i = 1; i <= 2; i++) {
+    $('#canvas').append(`<div class="gridline horizontal mosaicline" style="top:${(100 * i) / 3}%;"></div>`);
+    $('#canvas').append(`<div class="gridline vertical mosaicline" style="top:0;left:${(100 * i) / 3}%;"></div>`);
+  }
 }
 
-function deleteMosaicLines(){
-    $('.mosaicline').remove();
+// eslint-disable-next-line no-unused-vars
+function deleteMosaicLines() {
+  $('.mosaicline').remove();
 }
-
