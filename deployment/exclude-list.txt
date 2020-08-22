@@ -12,3 +12,4 @@ bayern
 vintage
 passwords.php
 config.json
+gallery/img
