@@ -116,6 +116,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   const client = new XMLHttpRequest();
   formData.append('id', id);
   formData.append('url2copy', url);
+  formData.append('csrf', config.csrf);
 
   client.onerror = function onError(e) {
     console.log('onError', e);
