@@ -213,6 +213,8 @@ function handleSamlAuth()
         $samlattributes = $as->getAttributes();
         $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
 
+        $session = SimpleSAML_Session::getSessionFromRequest();
+        $session->cleanup();
         require_once(getBasePath('./inc/versionswitch.php'));
     } else {
         $user = "nosamlfile";
