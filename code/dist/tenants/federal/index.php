@@ -98,7 +98,7 @@ require_once(getBasePath("lib/actionday.php"));
                     <label>
                         <input type="checkbox" id="add-to-gallery" name="add-to-gallery"> In der Galerie veröffentlichen
                     </label>
-                    <a href="gallery" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                    <a href="/gallery" target="_blank"><i class="fa fa-external-link-alt"></i></a>
                 </div>
                 <div>
                     <button class="btn btn-secondary btn-lg download" id="download">
