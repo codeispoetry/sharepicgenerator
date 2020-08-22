@@ -18,7 +18,8 @@ const pin = {
   draw() {
     if (!pin.isLoaded) return false;
 
-    const offsetLeft = -154 / 948;
+    const offsetLeft = -45 / 948;
+    console.log("w",offsetLeft);
     const pinMoveX = offsetLeft * pin.svg.width();
     const pinMoveY = draw.height() - pin.svg.height() - 70;
     pin.svg.size(draw.width() * 0.33).move(pinMoveX, pinMoveY);
