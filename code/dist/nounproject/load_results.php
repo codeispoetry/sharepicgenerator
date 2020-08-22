@@ -1,13 +1,14 @@
 <?php
 if (!file_exists('../ini/config.ini')) { 
-    die(); 
+    die();
 }
+
 $keys = parse_ini_file('../ini/config.ini', TRUE);
 
 ( isset($_GET['q'] ) ) ? $q = $_GET['q'] : die();
 
-
 require_once 'TheNounProject.class.php';
+
 $key  = $keys["NounProject"]["key"];
 $secret = $keys["NounProject"]["secret"];
 $theNounProject = new TheNounProject($key, $secret, true);
@@ -21,5 +22,3 @@ if( empty($icons) ){
 }else{
     echo json_encode( array("hits" => $icons ));
 }
-
-
