@@ -212,7 +212,8 @@ function handleSamlAuth()
         $as->requireAuth();
         $samlattributes = $as->getAttributes();
         $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
-        require_once('./inc/versionswitch.php');
+
+        require_once(getBasePath('./inc/versionswitch.php'));
     } else {
         $user = "nosamlfile";
     }
