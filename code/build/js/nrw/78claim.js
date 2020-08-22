@@ -13,9 +13,10 @@ const claim = {
   draw() {
     if (!claim.isLoaded) return false;
 
-    let claimHeight = draw.width() * 0.51 / ( 1280 / 102 );
+    const claimHeight = (draw.width() * 0.51) / (1280 / 102);
 
-    claim.svg.size(draw.width() * 0.51, claimHeight ).move(0, draw.height() - claim.svg.height() - 20);
+    claim.svg.size(draw.width() * 0.51, claimHeight)
+      .move(0, draw.height() - claim.svg.height() - 20);
     claim.svg.front();
     return true;
   },
