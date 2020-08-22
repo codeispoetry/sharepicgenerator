@@ -60,7 +60,7 @@
                 </ul>
                 Wir verwenden Ihre Daten nicht, um Rückschlüsse auf Ihre Person zu ziehen. Informationen dieser Art werden von uns ggfs. statistisch ausgewertet, um unseren Internetauftritt und die dahinterstehende Technik zu optimieren.
                 </p>
-            
+
                 <h5 class="mt-3">Erfasste Daten beim Einloggen</h5>
                 <p>
                     Bilder, die Du hochlädst und Sharepics, die Du erstellst, werden
@@ -94,23 +94,20 @@
                     <br>
                     Bilder und Videos stammen von Pixabay, hier findest Du die 
                     <a href="https://pixabay.com/de/service/privacy/" target="_blank">Datenschutzerklärung von Pixabay</a>.
-                    <br> 
+                    <br>
                     Icons stammen von TheNounProject, hier findest Du die 
                     <a href="https://thenounproject.com/legal/#!privacy-policy" target="_blank">Datenschutzerklärung von TheNounProject</a>.
                 </p>
 
-
-                
             </div>
       </div>
     </div>
-   
 </div>
 
 
 <footer class="row bg-primary p-2 text-white mt-5">
     <div class="col-12 col-lg-6">
-    <a href="javascript:window.history.back();"><i class="fas fa-angle-left"></i> zurück</a> 
+        <a href="javascript:window.history.back();"><i class="fas fa-angle-left"></i> zurück</a> 
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">

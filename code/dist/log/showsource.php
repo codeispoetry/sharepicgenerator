@@ -10,16 +10,16 @@ echo $matches[1];
 
 echo '<h2>Auszug aus der Uploads.log-Datei</h2>';
 $lines = file('uploads.log');
-foreach($lines AS $line){
-    if(preg_match('/' . basename($matches[1]) . '/', $line)){
+foreach ($lines as $line) {
+    if (preg_match('/' . basename($matches[1]) . '/', $line)) {
         echo $line;
     }
 }
 
 echo '<h2>Auszug aus der inotify.log-Datei</h2>';
 $lines = file('inotify.log');
-foreach($lines AS $line){
-    if(preg_match('/' . basename($matches[1]) . '/', $line)){
+foreach ($lines as $line) {
+    if (preg_match('/' . basename($matches[1]) . '/', $line)) {
         echo $line."<br>";
     }
 }

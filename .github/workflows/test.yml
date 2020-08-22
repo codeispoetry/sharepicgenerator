@@ -1,0 +1,23 @@
+name: PR test
+on: pull_request
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: michaelw90/PHP-Lint@master
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chindit/actions-phpcs@master
+        with:
+          dir: code/dist/
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - name: Install modules
+          run: cd code && npm install
+        - name: Run ESLint
+          run: cd code && npx eslint build --ext .js,.jsx,.ts,.tsx

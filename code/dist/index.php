@@ -85,10 +85,10 @@ header .container {
         <h1 class="display-4 text-shadow">Sharepic&shy;generator</h1>
         <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.<br>im Design von Bündnis 90/Die Grünen</p>
         <div class="mt-3 d-flex flex-column align-items-center">
-          <a href="federal/" class="mt-5 btn btn-secondary btn-lg">
+          <a href="tenants/federal/" class="mt-5 btn btn-secondary btn-lg">
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
           </a>
-          <a href="nrw" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> NRW</a>
+          <a href="tenants/nrw" class="mt-2 btn btn-info btn-sm"><i class="fas fa-pen-fancy"></i> NRW</a>
         </div>
       </div>
     </div>

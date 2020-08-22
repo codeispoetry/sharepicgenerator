@@ -5,7 +5,7 @@ stop:
 	docker-compose stop
 
 build:
-	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/
+	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/ code/dist/gallery/img/
 
 install:
 	docker-compose run node sh -c 'npm install'
@@ -26,7 +26,7 @@ down:
 	docker-compose down
 
 get-config:
-    docker-compose exec webserver rsync rsync tom@sharepicgenerator.de:/var/www/html/ini/* ini/
+	docker-compose exec webserver rsync rsync tom@sharepicgenerator.de:/var/www/html/ini/* ini/
 
 get-log:
 	docker-compose exec webserver rsync tom@sharepicgenerator.de:/var/www/html/log/log.log dist/log.log
@@ -39,4 +39,10 @@ test:
 
 doc:
 	docker-compose exec mkdocs mkdocs build
+
+checkstyle:
+	phpcs -s code/dist/
+
+fixstyle:
+	phpcbf code/dist/
 
