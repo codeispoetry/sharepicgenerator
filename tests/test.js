@@ -1,6 +1,5 @@
 var auth = require('./auth.json');
 
-
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
 (async function example() {
@@ -12,8 +11,12 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
         await driver.findElement(By.id('download')).click();
         console.log("passed");
     } catch( error ){
-        const core = require('@actions/core');
-        core.setFailed(error.message);
+        if(process.env.ENV == 'local'){
+            console.log("failed");
+        }else {
+            const core = require('@actions/core');
+            core.setFailed(error.message);
+        }
     } finally {
         await driver.quit();
     }
