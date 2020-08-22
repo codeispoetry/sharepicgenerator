@@ -26,7 +26,7 @@ except:
     sys.stderr.write("no json file")
     sys.exit()
 
-text = data['text'] 
+text = data['text']
 chatID = data['chatID']
 userDir = dir + '/user/' + str(chatID)
 
@@ -43,7 +43,7 @@ driver.set_window_size(1400,800)
 
 try:
     driver.get('https://127.0.0.1/bayern')
-    #driver.get('http://127.0.0.1/create.php')
+    #driver.get('http://127.0.0.1/actions/create.php')
 except:
     driver.save_screenshot("screenshot.png")
     sys.stderr.write("Could not connect. Screenshot saved.")

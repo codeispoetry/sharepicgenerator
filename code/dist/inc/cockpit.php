@@ -18,13 +18,19 @@
                         <select class="form-control fas" id="sizepresets">
                             <option class="fas">&#xf5cb;</option>
                             <?php
-                            $sizes = parse_ini_file('ini/picturesizes.ini', TRUE);
-                            foreach ($sizes AS $name => $group) {
+                            $sizes = parse_ini_file('ini/picturesizes.ini', true);
+                            foreach ($sizes as $name => $group) {
                                 printf('<optgroup label="%s">', $name);
-                                foreach ($group AS $label => $size) {
+                                foreach ($group as $label => $size) {
                                     list($width, $height) = preg_split("/[^0-9]/", trim($size));
-                                    $socialmediaplatform = preg_replace('/ /','-', "$name-$label");
-                                    printf('<option value="%d:%d" data-socialmediaplatform="%s">%s</option>', $width, $height, $socialmediaplatform, $label);
+                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
+                                    printf(
+                                        '<option value="%d:%d" data-socialmediaplatform="%s">%s</option>',
+                                        $width,
+                                        $height,
+                                        $socialmediaplatform,
+                                        $label
+                                    );
                                 }
                                 echo '</optgroup>';
                             }
@@ -41,11 +47,11 @@
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild/Video hochladen
                 </a>
-                
+
                 <span class="text-primary cursor-pointer" id="pixabayopener">
                     <i class="fas fa-search"></i> suchen
                 </span>
-                
+
                 <a href="#" class="text-primary cursor-pointer" id="templateopener">
                     <i class="fa fa-thumbs-up"></i> Vorlagen
                 </a>
@@ -88,7 +94,7 @@
                         <small>groß</small>
                     </div>
                 </div>
-               
+
                 <div class="d-flex justify-content-between">
                     <label>
                         <input type="checkbox" name="textsamesize" id="textsamesize">
@@ -107,7 +113,7 @@
                 <a href="#" class="text-primary cursor-pointer uploadiconclicker">
                     <i class="fa fa-upload"></i> Icon hochladen
                 </a>
-                
+
                 <a href="#" class="text-primary cursor-pointer" id="iconopener">
                 <i class="fas fa-search"></i> Icon suchen
                 </a>
@@ -127,7 +133,8 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
+                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." 
+                      value="" class="form-control"></textarea>
                     <i class="fas fa-undo-alt text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"></i>
                 </div>
                 <div class="slider">
@@ -156,30 +163,24 @@
                         <option value="logo-weiss">Logo: weiß</option>
                         <option value="logo-gruen">Logo: grün</option>
                     </optgroup>
-                    
+
                     <?php
-                        if( $landesverband == 3 ){
-                    ?>
+                    if ($landesverband == 3) { ?>
                     <optgroup label="Berlin">
                         <option value="logo-berlin-gruen">Logo Berlin: grün</option>
                         <option value="logo-berlin-weiss" selected>Logo Berlin: weiss</option>
                     </optgroup>
-                    <?php
-                        }
-                    ?>
+                    <?php } ?>
 
                     <?php
-                        if( file_exists('persistent/user/' . $user . '/logo.png') ){
-                    ?>
+                    if (file_exists('persistent/user/' . $user . '/logo.png')) { ?>
                     <optgroup label="Eigenes Logo">
-                         <option value="custom" selected>eigenes Logo</option>
+                     <option value="custom" selected>eigenes Logo</option>
                         <option value="deletecustomlogo">eigenes Logo löschen</option>
                     </optgroup>
-                            <?php
-                        }else{
-                            echo '<option value="custom">eigenes Logo hochladen</option>';
-                        }
-                    ?>
+                    <?php } else { ?>
+                        <option value="custom">eigenes Logo hochladen</option>
+                    <?php } ?>
                     <option value="void">kein Logo</option>
                 </select>
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
@@ -217,13 +218,10 @@
             <input type="hidden" name="textY" id="textY">
         </div>
 
-
     </div>
     <div class="d-none">
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
     </div>
-
-
 </form>

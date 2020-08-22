@@ -1,3 +1,11 @@
+<?php
+
+require_once('base.php');
+require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/log_functions.php'));
+
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,22 +14,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logs</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-	<style>
+    <style>
         scroll-container {
             scroll-behavior: smooth;
         }
-	</style>
+    </style>
 </head>
 <body>
 <scroll-container>
 <div class="container-fluid">
     <div class="row mt-3">
-		<div class="col-12 text-center">
+        <div class="col-12 text-center">
             <a href="#logos" class="btn btn-info btn-md">Logos</a>
             <a href="?deleteall=true" class="btn btn-danger btn-md ml-2">alle löschen</a>
-			<a href="index.php" class="btn btn-primary btn-md ml-2">Statistik</a>
-		</div>
-
+            <a href="index.php" class="btn btn-primary btn-md ml-2">Statistik</a>
+        </div>
 
         <div class="col-12 text-center">
             <?php
@@ -30,7 +37,6 @@
             ?>
         </div>
 
-
         <div class="col-12 text-center">
             <a name="videos"><h2>Videos</h2></a>
             <?php
@@ -38,7 +44,6 @@
             ?>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-12 text-center">
@@ -61,52 +66,3 @@
 </div>
 </scroll-container>
 </html>
-<?php
-
-
-function show_videos($dir)
-{
-    $files = array_reverse(glob($dir));
-
-    echo '<ol>';
-    foreach ($files AS $file) {
-        printf('<li><a href="%s"/>%s</a></li>', $file, date("d. F Y, H:i", filemtime($file)));
-    }
-    echo '</ol>';
-}
-
-function show_images($dir)
-{
-    $files = array_reverse(glob( $dir ) );
-
-    foreach ($files AS $file) {
-        printf('<div class="col-6 col-md-3 col-lg-2"><a href="showsource.php?file=%s&picture=%s"><img src="%s" class="img-fluid"/></a></div>',
-        substr(preg_replace('/^(.*?)_/','', $file ),0,-4), 
-        $file,
-        $file);
-    }
-}
-
-
-function deleteFilesInPathOlderThanHours($hours, $path)
-{
-    $files = glob($path);
-    $now = time();
-    $counter = 0;
-
-    foreach ($files AS $file) {
-        if (is_file($file) AND $now - filemtime($file) >= 60 * 60 * $hours) {
-            $counter++;
-            unlink($file);
-        }
-    }
-
-    printf('%d Dateien gelöscht ', $counter);
-}
-
-function showCustomLogos(){
-    exec('find ../persistent/user/ -name logo.png', $output);
-    foreach( $output AS $file){
-        printf('<div class="col-2"><img src="%s" class="img-fluid"></div>', $file);
-    }
-}

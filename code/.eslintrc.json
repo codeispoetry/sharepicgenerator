@@ -1,0 +1,67 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2020": true,
+        "jquery": true
+    },
+    "extends": [
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 11
+    },
+    "rules": {
+      "no-use-before-define": [
+        "error", { "functions": false, "classes": false, "variables": false }
+      ],
+      "no-plusplus": [
+        2, { "allowForLoopAfterthoughts": true }
+      ],
+      "no-alert": "off",
+      "no-console": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "9999.9999.9999"
+        }
+    },
+    "globals": {
+      "SVG": true,
+      "addPic1": true,
+      "addPic2": true,
+      "background": true,
+      "bgpic": true,
+      "claim": true,
+      "copyright": true,
+      "config": true,
+      "draw": true,
+      "icon": true,
+      "info": true,
+      "logo": true,
+      "pin": true,
+      "quote": true,
+      "subline": true,
+      "inverted": true,
+      "text": true,
+      "textColors": true,
+      "afterUpload": true,
+      "basename": true,
+      "closeOverlay": true,
+      "deleteMosaicLines": true,
+      "getDownloadName": true,
+      "hide": true,
+      "loadFormData": true,
+      "message": true,
+      "redrawCockpit": true,
+      "reset": true,
+      "setCopyright": true,
+      "setDrawsize": true,
+      "show": true,
+      "showActionDayHint": true,
+      "showLayout": true,
+      "showMosaicLines": true,
+      "uploadFileByUrl": true
+    }
+}

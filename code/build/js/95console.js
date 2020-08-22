@@ -1,7 +1,8 @@
-function runCode(){
-    let code = $('#code').val();
+function runCode() {
+  const code = $('#code').val();
 
-    eval( code );
+  // eslint-disable-next-line no-eval
+  eval(code);
 }
 
 $('.runcode').click(runCode);

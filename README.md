@@ -3,6 +3,8 @@ Sharepicgenerator with Docker and Webpack.
 ## Installation
  1. Clone this repo with
   ``git clone ...``
+
+ 1. Create docker-compose.yml from docker-compose.yml.sample
  
  1. Install dependencies with
   ``docker-compose run node sh -c 'npm install'``

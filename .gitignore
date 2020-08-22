@@ -38,3 +38,6 @@ code/dist/passwords.php
 *.dll
 *.exe
 .idea
+**swp
+
+docker-compose.yml
