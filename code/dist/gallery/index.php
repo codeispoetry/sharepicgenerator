@@ -110,7 +110,7 @@ function showImages($dir)
         if (file_exists($infofile)) {
             $info = array_merge(json_decode(file_get_contents($infofile), true), $info);
         } ?>
-        <div class="col-4 col-md-3 col-lg-3">
+        <div class="col-6 col-md-3 col-lg-3">
             <figure>
                 <img src="<?php echo $file?>" class="img-fluid"/>
                 <figcaption>
