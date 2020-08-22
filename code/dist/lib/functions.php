@@ -215,7 +215,7 @@ function handleSamlAuth()
 
         $session = SimpleSAML_Session::getSessionFromRequest();
         $session->cleanup();
-        require_once(getBasePath('./inc/versionswitch.php'));
+        tenantsSwitch($as);
     } else {
         $user = "nosamlfile";
     }
@@ -453,4 +453,24 @@ EOF;
     exec($command, $debug);
 
     returnJsonSuccessAndDie();
+}
+
+function tenantsSwitch($as)
+{
+    $attributes = $as->getAttributes();
+    $landesverband = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
+
+    if ($landesverband == 5 and isset($_SERVER['HTTP_REFERER'])) {
+        if ('saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
+            // freshly logged in
+            header('Location: /tenants/nrw', true, 302);
+            die();
+        }
+    }
+}
+
+function pixabayConfig()
+{
+    $keys = parse_ini_file(getBasePath('/ini/config.ini'), true);
+    return "config.pixabay={ 'apikey': '". $keys["Pixabay"]["apikey"] . "' };";
 }

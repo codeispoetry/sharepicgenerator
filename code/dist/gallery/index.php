@@ -5,7 +5,6 @@ require_once(getBasePath('lib/functions.php'));
 // FIXME: the function showGallery should be part of lib/gallery_functions.php
 // phpcs:ignoreFile
 
-
 $landesverband = 0;
 $user = "generic";
 $tenant = "federal";
@@ -33,24 +32,24 @@ require_once(getBasePath("/lib/actionday.php"));
     <meta name="theme-color" content="#46962b">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap4-toggle.min.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
-    <link rel="manifest" href="../favicons/manifest.json">
+    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap4-toggle.min.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
-    <meta name="msapplication-TileImage" content="../favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
 </head>
 <body>
 <div class="container-fluid">
@@ -86,12 +85,9 @@ require_once(getBasePath("/lib/actionday.php"));
     </div>
 </footer>
 
-
-
-<script src="../vendor/jquery-3.4.1.min.js"></script>
-<script src="../vendor/bootstrap.min.js"></script>
-<script src="../vendor/bootstrap4-toggle.min.js"></script>
-
+<script src="/vendor/jquery-3.4.1.min.js"></script>
+<script src="/vendor/bootstrap.min.js"></script>
+<script src="/vendor/bootstrap4-toggle.min.js"></script>
 
 </body>
 </html>
