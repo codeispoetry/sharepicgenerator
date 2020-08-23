@@ -111,7 +111,7 @@
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
-        Programmiert mit <i class="fas fa-heart text-yellow"></i> von 
+        Programmiert mit <i class="fas fa-heart text-highliht"></i> von 
         <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
     </div>
 </footer>

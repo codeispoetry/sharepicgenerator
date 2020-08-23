@@ -28,7 +28,6 @@ body{
   font-size: 70px;
   align-items: center;
   justify-content: center;
-  
   flex-direction: column;
 
   p{
@@ -69,17 +68,13 @@ footer {
   a {
     color: $white;
     &:hover{
-      color: $yellow;
+      color: $fourth;
     }
   }
 }
 
-.text-yellow{
-  color: $yellow;
-}
-
-.text-blue{
-  color: $blue;
+.text-highlight{
+  color: $fourth;
 }
 
 .cockpit{
@@ -90,7 +85,7 @@ footer {
 }
 
 h6{
-  color: $purple;
+  color: $secondary;
   font-family: Arial;
   @include media-breakpoint-up(lg) {
       color: inherit;
@@ -109,7 +104,7 @@ optgroup{
       background: $primary;
       border-radius: $size / 2;
       width: $size;
-      height: $size; 
+      height: $size;
       margin: 0 10px 10px 0;
       display: flex;
       justify-content: center;
@@ -117,7 +112,7 @@ optgroup{
       cursor: pointer;
 
       &:hover{
-        background: $purple;
+        background: $secondary;
       }
     }
 
