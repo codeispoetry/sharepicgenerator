@@ -379,7 +379,6 @@
         </div>
     </div>
     <div class="d-none">
-        <input type="hidden" name="tenant" id="federal">
         <input type="hidden" name="pinX" id="pinX">
         <input type="hidden" name="pinY" id="pinY">
         <input type="hidden" name="backgroundX" id="backgroundX">

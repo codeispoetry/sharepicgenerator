@@ -58,6 +58,7 @@ require_once(getBasePath("lib/actionday.php"));
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
+        <?php printf('config.tenant="%s";', "federal"); ?>
     </script>
 </head>
 <body>
