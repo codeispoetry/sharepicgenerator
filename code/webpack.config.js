@@ -1,7 +1,31 @@
 const path = require('path');
+const fs = require('fs');
 const ConcatPlugin = require('webpack-concat-plugin');
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = process.env.NODE_ENV === 'production';
+const tenants = [];
+
+tenants.push(
+    new ConcatPlugin({
+        uglify: isProduction,
+        sourceMap: isDevelopment,
+        name: 'result',
+        outputPath: "./js/",
+        injectType: "none",
+        fileName: 'main.min.js',
+        filesToConcat: [ './build/js/*.js'],
+        attributes: {
+            async: true
+        }
+    })
+);
+
+const tenant_files = fs.readdirSync('./webpack.tenants/');
+tenant_files.forEach(file => {
+  if (path.extname(file) == ".js") {
+    tenants.push(require('./webpack.tenants/' + file).tenant);
+  }
+});
 
 module.exports = (env = {}) => {
     return {
@@ -13,44 +37,7 @@ module.exports = (env = {}) => {
             path:  path.resolve(__dirname,"dist/assets/"),
             sourceMapFilename: '[file].map'
         },
-        plugins:[
-            new ConcatPlugin({
-                uglify: isProduction,
-                sourceMap: isDevelopment,
-                name: 'result',
-                outputPath: "./js/",
-                injectType: "none",
-                fileName: 'main.min.js',
-                filesToConcat: [ './build/js/*.js'],
-                attributes: {
-                    async: true
-                }
-            }),
-            new ConcatPlugin({
-                uglify: isProduction,
-                sourceMap: isDevelopment,
-                name: 'result',
-                outputPath: "./js/",
-                injectType: "none",
-                fileName: 'federal.min.js',
-                filesToConcat: [ './build/js/federal/*.js'],
-                attributes: {
-                    async: true
-                }
-            }),
-            new ConcatPlugin({
-                uglify: isProduction,
-                sourceMap: isDevelopment,
-                name: 'result',
-                outputPath: "./js/",
-                injectType: "none",
-                fileName: 'nrw.min.js',
-                filesToConcat: [ './build/js/nrw/*.js'],
-                attributes: {
-                    async: true
-                }
-            })
-        ],
+        plugins: tenants,
         module: {
             rules: [
                 {
@@ -102,5 +89,3 @@ module.exports = (env = {}) => {
         }
     }
 };
-
-
