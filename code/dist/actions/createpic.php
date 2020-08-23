@@ -59,7 +59,7 @@ $quality = (int) $_POST['quality'] ?: 75;
 
 convert($filename, $exportWidth, $format, $quality);
 if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
-    saveInGallery($filename);
+    saveInGallery($filename, sanitizeUserinput($_POST['tenant']));
 }
 
 logDownload();

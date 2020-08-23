@@ -5,25 +5,6 @@ require_once(getBasePath('lib/functions.php'));
 // FIXME: the function showGallery should be part of lib/gallery_functions.php
 // phpcs:ignoreFile
 
-$landesverband = 0;
-$user = "generic";
-$tenant = "federal";
-
-$hasAccess = isLocal() ?: isLocalUser();
-
-if (!$hasAccess) {
-    $user = handleSamlAuth();
-}
-
-$accesstoken = createAccessToken($user);
-$_SESSION['accesstoken'] = $accesstoken;
-$_SESSION['user'] = $user;
-$_SESSION['landesverband'] = $landesverband;
-
-logLogin();
-
-require_once(getBasePath("/lib/actionday.php"));
-
 ?>
 <!DOCTYPE html>
 <html lang="de">
