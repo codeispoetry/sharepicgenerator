@@ -98,7 +98,7 @@ require_once(getBasePath("lib/actionday.php"));
                     <label>
                         <input type="checkbox" id="add-to-gallery" name="add-to-gallery"> In der Galerie veröffentlichen
                     </label>
-                    <a href="/gallery" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                    <a href="gallery" target="_blank"><i class="fa fa-external-link-alt"></i></a>
                 </div>
                 <div>
                     <button class="btn btn-secondary btn-lg download" id="download">
@@ -145,7 +145,7 @@ require_once(getBasePath("lib/actionday.php"));
         <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
         <a href="#" class="overlay-opener" data-target="actiondays"><i class="far fa-hand-point-right ml-3"></i> Aktionstage</a>
         <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
-        <a href="/gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
+        <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
