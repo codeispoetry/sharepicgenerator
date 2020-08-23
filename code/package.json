@@ -33,6 +33,7 @@
     "expose-loader": "^0.7.5",
     "extract-loader": "^2.0.1",
     "file-loader": "^2.0.0",
+    "husky": "^4.2.5",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "postcss-cli": "^7.1.1",
@@ -46,5 +47,11 @@
     "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^4.5.2",
     "install": "^0.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx eslint code/build --ext .js,.jsx,.ts,.tsx",
+      "pre-push": "npm test"
+    }
   }
 }
