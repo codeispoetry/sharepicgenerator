@@ -1,6 +1,8 @@
 code/node_modules
 code/.sass-cache
 
+code/build/scss/_brand.scss
+
 code/dist/assets/css/*
 code/dist/assets/js/*
 
