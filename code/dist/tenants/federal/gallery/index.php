@@ -1,9 +1,7 @@
 <?php
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
-
-// FIXME: the function showGallery should be part of lib/gallery_functions.php
-// phpcs:ignoreFile
+require_once(getBasePath('lib/gallery_functions.php'));
 
 ?>
 <!DOCTYPE html>
@@ -72,36 +70,3 @@ require_once(getBasePath('lib/functions.php'));
 
 </body>
 </html>
-<?php
-
-function showImages($dir)
-{
-    $files = array_reverse(glob($dir));
-    foreach ($files as $file) {
-        $info = array(
-            'Datum' => strftime('%e. %B %Y', filemtime($file)),
-            'ID' => basename($file, '.jpg'),
-        );
-
-        $infofile = 'img/' . basename($file, 'jpg').'json';
-        if (file_exists($infofile)) {
-            $info = array_merge(json_decode(file_get_contents($infofile), true), $info);
-        } ?>
-        <div class="col-6 col-md-3 col-lg-3">
-            <figure>
-                <img src="<?php echo $file?>" class="img-fluid"/>
-                <figcaption>
-                    <table class="small">
-                        <?php foreach ($info as $key => $value) { ?>
-                        <tr>
-                            <td class="pr-3 "><?php echo $key; ?>:</td>
-                            <td><?php echo $value; ?></td>
-                        </tr>
-                        <?php } ?>
-                    </table>
-                </figcaption>
-            </figure>
-        </div>
-        <?php
-    }
-}
