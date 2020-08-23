@@ -50,8 +50,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx eslint code/build --ext .js,.jsx,.ts,.tsx",
-      "pre-push": "npm test"
+      "pre-commit": "npx eslint build --ext .js,.jsx,.ts,.tsx"
     }
   }
 }
