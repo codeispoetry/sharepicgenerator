@@ -16,6 +16,7 @@ mkdocs/site
 
 code/dist/config.json
 code/dist/api/data.json
+code/dist/ini/config.ini
 
 code/dist/loginattempts.txt
 
