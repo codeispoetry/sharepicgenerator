@@ -157,8 +157,8 @@ logLogin();
 <script src="/vendor/svg.min.js"></script>
 <script src="/vendor/svg.draggable.min.js"></script>
 <script src="/vendor/svg.filter.min.js"></script>
-<script src="/assets/js/main.min.js"></script>
-<script src="/assets/js/nrw.min.js"></script>
+<script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
+<script src="/assets/js/nrw.min.js?v=<?php echo @filemtime('../../assets/js/nrw.min.js'); ?>"></script>
 
 </body>
 </html>
