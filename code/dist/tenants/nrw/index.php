@@ -128,7 +128,7 @@ logLogin();
         <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> Quellcode</a>
         <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
         <span class="ml-3">
-            <i class="fas fa-spa text-yellow"></i> Programmiert von
+            <i class="fas fa-spa text-highlight"></i> Programmiert von
             <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.</span>
     </div>
 </footer>
