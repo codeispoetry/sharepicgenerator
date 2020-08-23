@@ -4,14 +4,6 @@ const draw = SVG().addTo('#canvas');
 // eslint-disable-next-line no-unused-vars
 const info = { foo: null };
 
-// eslint-disable-next-line no-unused-vars
-const secondaryfont = {
-  family: 'ArvoGruen',
-  size: 15,
-  anchor: 'left',
-  weight: 700,
-};
-
 $(document).ready(() => {
   $('#width').val(bgpic.originalWidth);
   $('#height').val(bgpic.originalHeight);
