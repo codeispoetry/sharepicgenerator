@@ -351,7 +351,7 @@
                     </select>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-info btn-sm download"  data-cloud="save"><i class="fas fa-cloud-download-alt"></i> in Cloud speichern</button>
+                    <button type="button" class="btn btn-secondary btn-sm download"  data-cloud="save"><i class="fas fa-cloud-download-alt"></i> in Cloud speichern</button>
                 </div>
             </div>
         </div>
@@ -359,8 +359,8 @@
         <h3 class="collapsed" data-toggle="collapse" data-target=".finish">Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
-                <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> Arbeitsdatei herunterladen</button>
-                <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> Arbeitsdatei herunterladen</button>
+                <button type="button" class="btn btn-secondary btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
         </div>
 
@@ -370,7 +370,7 @@
                 <textarea placeholder="JavaScript-Code" name="code" id="code" class="form-control"></textarea>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
+                <button type="button" class="btn btn-secondary btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>

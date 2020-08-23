@@ -5,7 +5,7 @@ stop:
 	docker-compose stop
 
 build:
-	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/ code/dist/gallery/img/
+	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/ code/dist/tenants/federal/gallery/img/
 
 install:
 	docker-compose run node sh -c 'npm install'
