@@ -32,6 +32,8 @@ code/tests/livetest/*.png
 code/tests/livetest/*.jpg
 
 code/dist/passwords.php
+code/dist/log/.htusers
+
 
 *main.min.js
 
