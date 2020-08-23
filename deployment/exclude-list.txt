@@ -14,3 +14,4 @@ passwords.php
 config.json
 gallery/img
 config.ini
+.htusers
