@@ -46,3 +46,6 @@ checkstyle:
 fixstyle:
 	phpcbf code/dist/
 
+phplint:
+	docker run -it --rm overtrue/phplint:latest
+
