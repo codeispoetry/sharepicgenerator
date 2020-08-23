@@ -148,6 +148,7 @@ logLogin();
     <?php echo pixabayConfig(); ?>
     <?php printf('config.csrf="%s";', $csrf); ?>
     <?php printf('config.user="%s";', $user); ?>
+    <?php printf('config.quality="90";'); ?>
 </script>
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>
