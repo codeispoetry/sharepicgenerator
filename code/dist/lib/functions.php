@@ -471,6 +471,12 @@ function tenantsSwitch($as)
 
 function pixabayConfig()
 {
-    $keys = parse_ini_file(getBasePath('/ini/config.ini'), true);
-    return "config.pixabay={ 'apikey': '". $keys["Pixabay"]["apikey"] . "' };";
+    $retval = "";
+    $config_file = getBasePath('/ini/config.ini');
+
+    if (file_exists($config_file)) {
+        $keys = parse_ini_file($config_file, true);
+        $retval = "config.pixabay={ 'apikey': '". $keys["Pixabay"]["apikey"] . "' };";
+    }
+    return $retval;
 }
