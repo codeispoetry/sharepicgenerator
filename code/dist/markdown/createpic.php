@@ -1,7 +1,6 @@
 <?php
 
 $uniqid = uniqid('md2html');
-$uniqid = "1";
 $filename = 'tmp/' . $uniqid . '.html';
 $filenamePic = 'tmp/' . $uniqid . '.png';
 
@@ -35,6 +34,6 @@ $command = sprintf("chmod 755 %s", $filenamePic);
 exec($command, $output);
 
 $return = [];
-$return['basename'] = basename($filenamePic, 'png');
+$return['basename'] = basename($filenamePic, '.png');
 $return['error'] = $output;
 echo json_encode($return);
