@@ -1,6 +1,9 @@
 const copyrights = { };
-const copyrightColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
 let copyrightColorIndex = 0;
+let copyrightColors = ['white', 'black'];
+if (textColors !== undefined) {
+  copyrightColors = textColors;
+}
 
 $('#copyright').bind('input propertychange', () => {
   copyright.draw();
