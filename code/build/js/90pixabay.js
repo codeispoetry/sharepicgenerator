@@ -74,6 +74,11 @@ function getPixabayImages(q) {
         uploadFileByUrl($(this).data('url'), () => {
           setCopyright(pixabayAttribution, 'pixabay');
 
+          if (typeof reDraw === 'function') {
+            // eslint-disable-next-line no-undef
+            reDraw();
+          }
+
           config.usePixabay = 'pixabay';
         });
       });
