@@ -83,9 +83,9 @@ const logo = {
 
     // let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
     const width = draw.width() * logo.logoinfo.widthFraction;
-    logo.svg.size(width);
-    let x; let
-      y;
+    logo.svg.size(width, null);
+    let x;
+    let y;
 
     switch (logo.logoinfo.position) {
       case 'bottomleft':
