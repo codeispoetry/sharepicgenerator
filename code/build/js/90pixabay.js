@@ -76,7 +76,7 @@ function getPixabayImages(q) {
 
           if (typeof reDraw === 'function') {
             // eslint-disable-next-line no-undef
-            reDraw();
+            reDraw(false);
           }
 
           config.usePixabay = 'pixabay';
