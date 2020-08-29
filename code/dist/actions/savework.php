@@ -2,6 +2,7 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/gallery_functions.php'));
 useDeLocale();
 
 session_start();
@@ -15,6 +16,7 @@ $datafile = getBasePath('tmp/' . $basename . '.json');
 $zipfile = getBasePath('tmp/' . $basename .'.zip');
 
 $data = $_POST['data'];
+$saveingallery = $_POST['saveingallery'];
 
 // extract
 $values = array();
@@ -61,6 +63,13 @@ if ($addpic1 != '') {
 if ($addpic2 != '') {
     $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename($addpic2), 'addpic2.jpg', $zipfile);
     exec($command, $output);
+}
+
+if ($saveingallery == 'true') {
+    $filename = $_POST['filename'];
+    $tenant = $_POST['tenant'];
+    saveWorkInGallery($zipfile, $tenant, $filename);
+    $debug = $debug . " added $zipfile to $tenant / $filename";
 }
 
 $return = array(
