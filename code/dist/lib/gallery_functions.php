@@ -73,16 +73,18 @@ function showImages($dir_glob)
         $origLink='';
         if (isset($info['origFile'])) {
             $origFilePath = $shpic . '/' . $info['origFile'];
-            $origLink = "<a href=". $origFilePath ." download><i class='fas fa-image'> Sharepic</i></a>";
+            $origLink = "<a href='". $origFilePath ."' download><i class='fas fa-image'> Sharepic</i></a>";
         }
 
         $saveLink='';
         $saveFile = $shpic . '/save_' . basename($shpic) . '.zip';
 
         if (file_exists($saveFile)) {
-            $saveLink = "<a href=". $saveFile ." download><i class='fas fa-download'> Arbeitsdatei</i></a>";
+            $saveLink = "<a href='". $saveFile ."' download><i class='fas fa-download'> Download Arbeitsdatei</i></a>";
+            $useLink = "<a href='../index.php?useSavework=gallery/".$saveFile ."' ><i class='fas fa-play'> Nutze Arbeitsdatei</i></a>";
         }
-        $additional = "<tr><td colspan='2'>$origLink &nbsp; $saveLink</td></tr>";
+
+        $additional = "<tr><td colspan='2'>$origLink &nbsp; $saveLink &nbsp; $useLink</td></tr>";
 
         echo <<<EOL
         <div class="col-6 col-md-3 col-lg-3">

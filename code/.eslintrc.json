@@ -54,6 +54,7 @@
       "getEncodingStatus": true,
       "hide": true,
       "loadFormData": true,
+      "loadSavework": true,
       "message": true,
       "redrawCockpit": true,
       "reset": true,
