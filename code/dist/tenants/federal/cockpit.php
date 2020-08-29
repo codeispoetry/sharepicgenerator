@@ -374,8 +374,9 @@
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
-        <div class="mt-1">
-            <button type="button" class="btn btn-secondary btn-lg download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
+        <div class="mt-2">
+            <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
+            <button type="button" class="btn btn-secondary saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> Gallery speichern</button>
         </div>
     </div>
     <div class="d-none">

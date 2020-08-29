@@ -51,6 +51,7 @@
       "closeOverlay": true,
       "deleteMosaicLines": true,
       "getDownloadName": true,
+      "getEncodingStatus": true,
       "hide": true,
       "loadFormData": true,
       "message": true,

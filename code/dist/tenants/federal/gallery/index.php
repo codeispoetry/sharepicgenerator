@@ -40,7 +40,7 @@ require_once(getBasePath('lib/gallery_functions.php'));
     </div>
     <div class="row pb-5 mb-3">
         <?php
-            showImages('img/shpic*.jpg');
+            showImages('img/shpic*');
         ?>
     </div>
 </div>
