@@ -9,7 +9,7 @@
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack",
     "build:production": "cross-env NODE_ENV=production webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch --progress"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
