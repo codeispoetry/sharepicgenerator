@@ -182,6 +182,7 @@ function afterUpload(data) {
   $('#sizepresets').val($('#sizepresets option:first').val());
 
   background.draw();
+  background.back();
 
   if (data.warning === 'face') {
     $('#warning').html('Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.').show(1000).delay(6000)
