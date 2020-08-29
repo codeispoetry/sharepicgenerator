@@ -10,30 +10,24 @@ function loadFormData(formdata) {
     $(`#${elem}`).val(formdata[elem]);
   }
 
-  const checkboxes = ['textsamesize', 'greenbehindtext', 'graybehindtext', 'addpicrounded1', 'addpicrounded2'];
-  checkboxes.forEach((elem) => {
-    if (formdata[elem] === 'on') {
-      $(`#${elem}`).prop('checked', true);
-      $(`#${elem}`).bootstrapToggle('on');
+  $('form[id="pic"]').find(':checkbox').each(function allCheckboxes(idx, elem) {
+    const elemName = elem.name;
+    if (formdata[elemName] === 'on') {
+      $(`#${elemName}`).prop('checked', true);
     }
   });
 
   window.setTimeout(() => {
-    text.draw();
-    logo.load();
-    // background.draw();
-    copyright.draw();
-    pin.draw();
-    icon.load();
-    // addPic1.draw();
-    // addPic2.draw();
-    showLayout();
-  }, 100);
+    if (typeof reDraw === 'function') {
+      // eslint-disable-next-line no-undef
+      reDraw();
+    }
 
-  window.setTimeout(() => {
-    copyright.draw(); // unknow, why this has to be performed later
-    pin.draw();
-  }, 500);
+    if (typeof showLayout === 'function') {
+      // eslint-disable-next-line no-undef
+      showLayout();
+    }
+  }, 100);
 }
 
 // eslint-disable-next-line no-unused-vars

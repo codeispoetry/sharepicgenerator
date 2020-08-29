@@ -16,3 +16,20 @@ $(document).ready(() => {
 function reset() {
   // do nothing, stay here
 }
+
+function reDraw() {
+  addPic1.draw();
+  addPic2.draw();
+  logo.load();
+
+  window.setTimeout(() => {
+    text.draw();
+    subText.draw();
+    pin.draw();
+  }, 10);
+
+  window.setTimeout(() => {
+    copyright.draw();
+    icon.load();
+  }, 20);
+}
