@@ -225,7 +225,7 @@ function handleSamlAuth()
 
 function sanitizeUserInput($var)
 {
-    return preg_replace('/[^a-zA-Z0-9\.]/', '', $var);
+    return preg_replace('/[^a-zA-Z0-9\._]/', '', $var);
 }
 
 function timecode2seconds($timecode)
