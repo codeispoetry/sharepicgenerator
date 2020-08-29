@@ -178,5 +178,16 @@ require_once(getBasePath("lib/actionday.php"));
 <script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
 <script src="/assets/js/federal.min.js?v=<?php echo @filemtime('../../assets/js/federal.min.js'); ?>"></script>
 
+<script>
+<?php
+if (isset($_GET['useSavework'])) {
+    $saveData = reuseSavework($_GET['useSavework']);
+    if (isset($saveData)) {
+        printf('loadSavework(%s);', $saveData);
+    }
+}
+?>
+</script>
+
 </body>
 </html>
