@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
@@ -50,7 +52,17 @@ jobs:
         run: |
           echo "$DEPLOY_KEY" > "$HOME/deploy_key"
           chmod 600 "$HOME/deploy_key"
-      - name: rsync files
+
+      - name: Deploy to develop
+        if: github.ref == 'refs/heads/develop'
+        uses: musps/action-deployer-php@master
+        with:
+          args: deploy
+          env:
+            SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+
+      - name: rsync to live
+        if: github.ref == 'refs/heads/main'
         run: |
           pwd
           rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" --exclude-from 'deployment/exclude-list.txt' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html

@@ -206,7 +206,7 @@ function isDaysBefore($dayMonth, $days = 14)
 function handleSamlAuth()
 {
     $samlfile = '/var/simplesaml/lib/_autoload.php';
-    if (file_exists($samlfile)) {
+    if (getcwd() == "/var/www/html" AND file_exists($samlfile)) {
         require_once($samlfile);
         $as = new SimpleSAML_Auth_Simple('default-sp');
         $as->requireAuth();
