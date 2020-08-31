@@ -49,3 +49,8 @@ fixstyle:
 phplint:
 	docker run -it --rm overtrue/phplint:latest
 
+composer-install:
+	composer install
+
+deploy-develop:
+	php vendor/bin/dep deploy

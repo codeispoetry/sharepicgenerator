@@ -2,7 +2,7 @@
 namespace Deployer;
 
 require 'recipe/common.php';
-require 'recipe/rsync.php';
+require 'vendor/deployer/recipes/recipe/rsync.php';
 
 
 // Project name
