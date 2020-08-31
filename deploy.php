@@ -8,12 +8,6 @@ require 'vendor/deployer/recipes/recipe/rsync.php';
 // Project name
 set('application', 'develop.sharepicgenerator.de');
 
-// Project repository
-set('repository', 'git@github.com:codeispoetry/sharepicgenerator.git');
-
-// [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', false);
-
 // Shared files/dirs between deploys 
 set('shared_files', [
     'ini/config.ini',
@@ -46,6 +40,7 @@ set('rsync',[
 // Hosts
 host('develop.sharepicgenerator.de')
     ->addSshOption('StrictHostKeyChecking', 'no')
+    ->stage('develop')
     ->set('deploy_path','/var/www/develop.sharepicgenerator.de')
     ->set('rsync_src', 'code/dist')
     ->set('rsync_dest','{{release_path}}');
