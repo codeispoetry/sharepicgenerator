@@ -50,9 +50,10 @@ function setDrawsize() {
   text.bounce();
   pin.bounce();
 
-  window.setTimeout(logo.draw, 100);
-  window.setTimeout(copyright.draw, 200);
-  window.setTimeout(copyright.draw, 300);// has to be here twice. Don't know, why.
+  if (typeof reDraw === 'function') {
+    // eslint-disable-next-line no-undef
+    reDraw(true);
+  }
 }
 
 function resetDrawsize() {
