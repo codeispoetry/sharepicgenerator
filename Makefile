@@ -53,4 +53,4 @@ composer-install:
 	composer install
 
 deploy-develop:
-	php vendor/bin/dep deploy
+	php vendor/bin/dep deploy develop
