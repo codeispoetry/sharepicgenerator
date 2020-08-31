@@ -1,0 +1,6 @@
+{
+  "require-dev": {
+    "deployer/dist": "^6.8",
+    "deployer/recipes": "^6.2"
+  }
+}
