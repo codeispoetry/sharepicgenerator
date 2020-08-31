@@ -20,3 +20,22 @@ function reset() {
     claim.draw();
   }
 }
+
+// eslint-disable-next-line no-unused-vars
+function reDraw(withAddPic = false) {
+  if (withAddPic === true) {
+    addPic1.draw();
+    addPic2.draw();
+  }
+
+  window.setTimeout(() => {
+    logo.load();
+    text.draw();
+    pin.draw();
+  }, 10);
+
+  window.setTimeout(() => {
+    copyright.draw();
+    icon.load();
+  }, 20);
+}
