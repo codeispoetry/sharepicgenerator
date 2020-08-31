@@ -55,3 +55,42 @@ function basename(path) {
 function debug() {
   $('.debug').show();
 }
+
+// eslint-disable-next-line no-unused-vars
+function getDownloadName() {
+  let downloadname = $('#text').val().toLowerCase();
+  downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, (match) => {
+    switch (match) {
+      case 'ä':
+        return 'ae';
+      case 'ö':
+        return 'oe';
+      case 'ü':
+        return 'ue';
+      case 'ß':
+        return 'ss';
+      default:
+        return '';
+    }
+  });
+  downloadname = downloadname.replace(/[^a-zA-Z0-9]/g, '-');
+  downloadname = downloadname.replace(/-+/g, '-');
+  downloadname = downloadname.replace(/^-/g, '');
+  downloadname = downloadname.replace(/-$/g, '');
+  downloadname = downloadname.substring(0, 30);
+
+  return downloadname;
+}
+
+// eslint-disable-next-line no-unused-vars
+function getEncodingStatus(elem) {
+  $.ajax({
+    url: `/actions/getvideoencodestatus.php?videofile=${config.videofile}`,
+    type: 'GET',
+    dataType: 'JSON',
+    success(data) {
+      const percentage = Math.round((100 * data.currentposition) / config.videoduration);
+      elem.html(`${percentage}% des Videos sind schon fertig. Bitte warten.`);
+    },
+  });
+}

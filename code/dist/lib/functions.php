@@ -480,3 +480,23 @@ function pixabayConfig()
     }
     return $retval;
 }
+
+function reuseSavework($saveworkFile)
+{
+    $tmpdir = 'tmp/' . uniqid('work');
+    $savedir = getBasePath($tmpdir);
+
+    $cmd = sprintf('unzip %s -d %s 2>&1', $saveworkFile, $savedir);
+    exec($cmd, $output);
+
+    $return['okay'] = true;
+    //$return['debug'] = $output;
+
+    $datafile = $savedir . '/data.json';
+    $json = file_get_contents($datafile);
+
+    $return['data'] = $json;
+    $return['dir'] = '../'. $tmpdir;
+
+    return json_encode($return);
+}

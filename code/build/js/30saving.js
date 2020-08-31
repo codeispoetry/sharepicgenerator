@@ -45,3 +45,13 @@ function savework() {
     },
   });
 }
+
+// eslint-disable-next-line no-unused-vars
+function loadSavework(obj) {
+  const json = JSON.parse(obj.data);
+  if (json.addpicfile1 !== '') { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; }
+  if (json.addpicfile2 !== '') { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; }
+  uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
+    loadFormData(json);
+  });
+}

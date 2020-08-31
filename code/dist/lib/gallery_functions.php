@@ -1,55 +1,114 @@
 <?php
 
-function saveInGallery($filename, $tenant)
+function ensureGalleryDir($tenant, $filename)
 {
-    $directory = sprintf("tenants/%s/gallery/img/", $tenant);
+    $directory = sprintf("tenants/%s/gallery/img/%s/", $tenant, $filename);
+    if (!file_exists(getBasePath($directory))) {
+        mkdir(getBasePath($directory));
+    }
+    return $directory;
+}
+
+function saveOrigFile()
+{
+    $saveOrig = false;
+    $config_file = getBasePath('/ini/config.ini');
+    if (file_exists($config_file)) {
+        $keys = parse_ini_file($config_file, true);
+        if ($keys["Gallery"]["saveOrigFile"] == 'true') {
+            $saveOrig = true;
+        }
+    }
+    return $saveOrig;
+}
+
+function saveInGallery($file, $format, $tenant)
+{
+    $filename = basename($file, '.svg');
+    $thumb = $filename . "_thumb.jpg";
+
+    $directory = ensureGalleryDir($tenant, $filename);
+
     $command = sprintf(
         "convert %s -background white -flatten -resize 800x800 -quality 75 %s",
-        getBasePath('tmp/' . basename($filename, 'svg') . 'jpg'),
-        getBasePath($directory . basename($filename, 'svg') . 'jpg')
+        getBasePath('tmp/' . basename($file, 'svg') . 'jpg'),
+        getBasePath($directory . $thumb)
     );
     exec($command);
 
     $info = array(
-        "Nutzer*in"=>sanitizeUserinput($_POST['user'])
+      "Nutzer*in"=>sanitizeUserinput($_POST['user']),
+      'Datum' => date("Y-m-d H:i:s"),
+      'ID' => $filename
     );
-    file_put_contents(getBasePath($directory . basename($filename, 'svg') . 'json'), json_encode($info));
+
+    if (saveOrigFile() == true) {
+        $origFilename = $filename . "." . $format;
+        copy(getBasePath('tmp/' . $origFilename), getBasePath($directory . $origFilename));
+        $info['origFile'] = $origFilename;
+    }
+    file_put_contents(getBasePath($directory . 'info.json'), json_encode($info));
 }
 
-function showImages($dir)
+function saveWorkInGallery($zipfile, $tenant, $filename)
 {
-    $files = array_reverse(glob($dir));
-    foreach ($files as $file) {
-        $info = array(
-            'Datum' => strftime('%e. %B %Y', filemtime($file)),
-            'ID' => basename($file, '.jpg'),
-        );
+    $directory = ensureGalleryDir($tenant, $filename);
+    copy($zipfile, getBasePath($directory . "save_" . $filename . ".zip"));
+}
 
-        $infofile = 'img/' . basename($file, 'jpg').'json';
+function showImages($dir_glob)
+{
+    $dirs = array_reverse(glob($dir_glob));
+    foreach ($dirs as $shpic) {
+        $thumb = $shpic . '/' . basename($shpic) . '_thumb.jpg';
+        $infofile = $shpic . '/info.json';
+
         if (file_exists($infofile)) {
-            $info = array_merge(json_decode(file_get_contents($infofile), true), $info);
+            $info = json_decode(file_get_contents($infofile), true);
+        }
+        $id = $info['ID'];
+        $user = $info['Nutzer*in'];
+        $date = $info['Datum'];
+
+        $origLink='';
+        if (isset($info['origFile'])) {
+            $origFilePath = $shpic . '/' . $info['origFile'];
+            $origLink = "<a href='". $origFilePath ."' download><i class='fas fa-image'> Sharepic</i></a>";
         }
 
-        echo <<<EOHEADER
+        $saveLink='';
+        $saveFile = $shpic . '/save_' . basename($shpic) . '.zip';
+
+        if (file_exists($saveFile)) {
+            $saveLink = "<a href='". $saveFile ."' download><i class='fas fa-download'> Download Arbeitsdatei</i></a>";
+            $useLink = "<a href='../index.php?useSavework=gallery/".$saveFile ."' ><i class='fas fa-play'> Nutze Arbeitsdatei</i></a>";
+        }
+
+        $additional = "<tr><td colspan='2'>$origLink &nbsp; $saveLink &nbsp; $useLink</td></tr>";
+
+        echo <<<EOL
         <div class="col-6 col-md-3 col-lg-3">
             <figure>
-                <img src="$file" class="img-fluid" />
+                <img src="$thumb" class="img-fluid" />
                 <figcaption>
                     <table class="small">
-EOHEADER;
-        foreach ($info as $key => $value) {
-            echo <<<EOLINE
                         <tr>
-                            <td class="pr-3 ">$key</td>
-                            <td>$value</td>
+                            <td class="pr-3 ">Id</td>
+                            <td>$id</td>
                         </tr>
-EOLINE;
-        }
-        echo <<<EOFOOTER
+                        <tr>
+                            <td class="pr-3 ">Nutzer*in</td>
+                            <td>$user</td>
+                        </tr>
+                        <tr>
+                            <td class="pr-3 ">Erstellt am</td>
+                            <td>$date</td>
+                        </tr>
+                        $additional
                     </table>
                 </figcaption>
             </figure>
         </div>
-EOFOOTER;
+EOL;
     }
 }
