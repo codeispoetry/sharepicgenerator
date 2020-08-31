@@ -8,7 +8,7 @@ const logging = require('selenium-webdriver/lib/logging');
     let driver = await new Builder().forBrowser('chrome').build();
     try {
         driver.setFileDetector(new remote.FileDetector);
-        await driver.get('https://sharepicgenerator.de');
+        await driver.get('http://develop.sharepicgenerator.de');
         await driver.wait(until.titleIs('Sharepicgenerator'), 1000);
         await driver.findElement(By.id('test-access-password')).sendKeys(auth.password, Key.RETURN);
 

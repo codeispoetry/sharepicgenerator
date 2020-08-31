@@ -35,7 +35,7 @@ get-passwords:
 	docker-compose exec webserver rsync tom@sharepicgenerator.de:/var/www/html/passwords.php dist/passwords.php
 
 test:
-	docker-compose run python python /tests/test.py
+	cd tests && SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" ENV=local node test.js
 
 doc:
 	docker-compose exec mkdocs mkdocs build
