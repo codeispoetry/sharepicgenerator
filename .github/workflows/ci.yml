@@ -59,8 +59,9 @@ jobs:
           composer install
 
       - name: run deployer
+        if: github.ref == 'refs/heads/develop'
         run: |
-          php vendor/bin/dep deploy
+          php vendor/bin/dep deploy develop
 
       - name: rsync to live
         if: github.ref == 'refs/heads/main'
