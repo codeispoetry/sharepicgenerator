@@ -8,10 +8,8 @@ $('#download,.download').click(function onDownloadClick() {
 
   if (config.video) {
     $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt ...</span>');
-    window.setTimeout(() => {
-      secondsWaitingInterval = window.setInterval(() => {
-        getEncodingStatus();
-      }, 3000);
+    secondsWaitingInterval = window.setInterval(() => {
+      getEncodingStatus($('#download'));
     }, 3000);
   } else {
     $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
@@ -21,14 +19,14 @@ $('#download,.download').click(function onDownloadClick() {
 
   let format = 'jpg';
 
-  if (config.video === 1) {
+  if (config.video === true) {
     format = 'mp4';
     background.svg.hide();
   }
 
   const data = draw.svg();
 
-  if (config.video === 1) {
+  if (config.video === true) {
     background.svg.show();
   }
 
