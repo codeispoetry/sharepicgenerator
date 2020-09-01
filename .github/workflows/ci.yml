@@ -98,6 +98,7 @@ jobs:
           echo "$PASSWORD_JSON" > "tests/auth.json"
 
       - name: Run test
+        if: github.ref == 'refs/heads/develop'
         run: |
           cd tests
-          SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" node test.js
+          SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" URL=http://develop.sharepicgenerator.de node test.js
