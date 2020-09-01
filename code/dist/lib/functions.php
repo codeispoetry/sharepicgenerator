@@ -203,20 +203,31 @@ function isDaysBefore($dayMonth, $days = 14)
     return ($interval->days < $days and $interval->invert == 1);
 }
 
-function handleSamlAuth()
+function handleSamlAuth($doLogout = false)
 {
     $samlfile = '/var/simplesaml/lib/_autoload.php';
+    $host = configValue("Main", "host");
+    $logoutTarget = configValue("Main", "logoutTarget");
+    $userAttr = configValue("SAML", "userAttr");
 
-    if ($_SERVER['HTTP_HOST'] == "sharepicgenerator.de" AND file_exists($samlfile)) {
+    if ($_SERVER['HTTP_HOST'] == $host and file_exists($samlfile)) {
         require_once($samlfile);
         $as = new SimpleSAML_Auth_Simple('default-sp');
         $as->requireAuth();
+
+        if ($doLogout == true) {
+            header("Location: ".$as->getLogoutURL($logoutTarget));
+        }
+
         $samlattributes = $as->getAttributes();
-        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
+        $user = $samlattributes[$userAttr][0];
 
         $session = SimpleSAML_Session::getSessionFromRequest();
         $session->cleanup();
-        tenantsSwitch($as);
+
+        if (configValue("SAML", "doTenantsSwitch") == "true") {
+            tenantsSwitch($as);
+        }
     } else {
         $user = "nosamlfile";
     }
@@ -470,14 +481,30 @@ function tenantsSwitch($as)
     }
 }
 
-function pixabayConfig()
+function readConfig()
 {
     $retval = "";
     $config_file = getBasePath('/ini/config.ini');
 
     if (file_exists($config_file)) {
-        $keys = parse_ini_file($config_file, true);
-        $retval = "config.pixabay={ 'apikey': '". $keys["Pixabay"]["apikey"] . "' };";
+        $_SESSION['config'] = parse_ini_file($config_file, true);
+    }
+}
+
+function configValue($group, $attribute)
+{
+    $value = false;
+    if (isset($_SESSION["config"][$group][$attribute])) {
+        $value = $_SESSION["config"][$group][$attribute];
+    }
+    return $value;
+}
+
+function pixabayConfig()
+{
+    $apikey = configValue("Pixabay", "apikey");
+    if ($apikey != false) {
+        $retval = "config.pixabay={ 'apikey': '". $apikey . "' };";
     }
     return $retval;
 }
@@ -491,8 +518,6 @@ function reuseSavework($saveworkFile)
     exec($cmd, $output);
 
     $return['okay'] = true;
-    //$return['debug'] = $output;
-
     $datafile = $savedir . '/data.json';
     $json = file_get_contents($datafile);
 

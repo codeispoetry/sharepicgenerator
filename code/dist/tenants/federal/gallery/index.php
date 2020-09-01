@@ -3,6 +3,14 @@ require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/gallery_functions.php'));
 
+session_start();
+readConfig();
+
+if (!isAllowed(false)) {
+    header("Location: ". configValue("Main", "logoutTarget"));
+    die();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
