@@ -18,14 +18,27 @@ if(process.env.URL) {
         .build();
     try {
         driver.setFileDetector(new remote.FileDetector);
+        await driver.manage().window().setRect({ width: 1280, height: 1280 } );
+
         await driver.get( url );
         await driver.wait(until.titleIs('Sharepicgenerator'), 1000);
         await driver.findElement(By.id('test-access-password')).sendKeys(auth.password, Key.RETURN);
 
-        await driver.findElement(By.id('uploadfile')).sendKeys('background.jpg');
-
         let downloadEl = await driver.findElement(By.id('download'));
+        let iconopener = await driver.findElement(By.id('iconopener'));
+
+        await driver.findElement(By.id('uploadfile')).sendKeys('background.jpg');
+        await driver.sleep(3000);
+
+        await iconopener.click();
+        await driver.findElement(By.id('icon-q')).sendKeys('bike',Key.RETURN);
+        await driver.sleep(3000);
+
+
+        await driver.findElement(By.className('chooseicon')).click();
+        await driver.sleep(1000);
         await driver.wait(until.elementIsVisible(downloadEl));
+        await driver.sleep(1000);
 
         let entries = await driver.manage().logs().get(logging.Type.BROWSER);
         entries.forEach(function(entry) {
@@ -36,6 +49,17 @@ if(process.env.URL) {
             throw  entries[0].message;
         }
 
+
+        await driver.takeScreenshot().then(
+            function(image, err) {
+                require('fs').writeFile('screenshot.png', image, 'base64', function(err) {
+                    if(err != null){
+                        console.log("Screenshot",err);
+                    }
+                });
+            }
+        );
+        await downloadEl.click();
 
         console.log("passed");
     } catch( error ){
@@ -51,7 +75,3 @@ if(process.env.URL) {
         }, 100);
     }
 })();
-
-function consoleException(message) {
-    this.message = message;
-};

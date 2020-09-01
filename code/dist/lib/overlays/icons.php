@@ -14,9 +14,9 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-icons"></i></div>
                             </div>
-                            <input type="text" class="form-control q" placeholder="bitte auf englisch suchen">
+                            <input type="text" id="icon-q" class="form-control q" placeholder="bitte auf englisch suchen">
                             <div class="input-group-append">
-                                <button type="submit" class="input-group-text btn-primary">Suchen</button>
+                                <button type="submit" class="input-group-text btn-primary" id="icon-submit">Suchen</button>
                             </div>
                         </div>
                     </form>
