@@ -206,9 +206,8 @@ function isDaysBefore($dayMonth, $days = 14)
 function handleSamlAuth()
 {
     $samlfile = '/var/simplesaml/lib/_autoload.php';
-    $host = parse_url( $_SERVER['HTTP_HOST'], PHP_URL_HOST );
 
-    if ($host == "sharepicgenerator.de" AND file_exists($samlfile)) {
+    if ($_SERVER['HTTP_HOST'] == "sharepicgenerator.de" AND file_exists($samlfile)) {
         require_once($samlfile);
         $as = new SimpleSAML_Auth_Simple('default-sp');
         $as->requireAuth();
