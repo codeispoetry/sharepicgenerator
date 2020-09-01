@@ -58,5 +58,5 @@ deploy-develop:
 deploy-production:
 	php vendor/bin/dep deploy production
 
-deploy-rollback:
-	php vendor/bin/dep deploy production
+rollback:
+	php vendor/bin/dep rollback production
