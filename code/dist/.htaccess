@@ -5,20 +5,21 @@ Options -Indexes
 </FilesMatch>
 
 <IfModule mod_rewrite.c>
-RewriteEngine On
+    RewriteEngine On
 
-Redirect 301 /nrw /tenants/nrw
-Redirect 301 /federal /tenants/federal
+    Redirect 301 /nrw /tenants/nrw
+    Redirect 301 /federal /tenants/federal
 
-# Force non www. domain
-RewriteCond %{HTTP_HOST} ^www\.sharepicgenerator\.de$ [NC]
-RewriteRule (.*) https://sharepicgenerator\.de/$1 [R=301,L]
+    # Force non www. domain
+    RewriteCond %{HTTP_HOST} ^www\.sharepicgenerator\.de$ [NC]
+    RewriteRule (.*) https://sharepicgenerator\.de/$1 [R=301,L]
+
+
+    # Force HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} ^sharepicgenerator\.de
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
-
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} ^sharepicgenerator\.de
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 php_value upload_max_filesize 110M
 php_value post_max_size 112M
