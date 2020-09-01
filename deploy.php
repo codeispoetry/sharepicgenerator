@@ -38,14 +38,21 @@ set('rsync',[
 ]);
 
 // Hosts
-host('sharepicgenerator.de')
+host('develop')
     ->addSshOption('StrictHostKeyChecking', 'no')
     ->user('tom')
-    ->stage('develop')
+    ->hostname('sharepicgenerator.de')
     ->set('deploy_path','/var/www/develop.sharepicgenerator.de')
     ->set('rsync_src', 'code/dist')
     ->set('rsync_dest','{{release_path}}');
 
+host('production')
+    ->addSshOption('StrictHostKeyChecking', 'no')
+    ->user('tom')
+    ->hostname('sharepicgenerator.de')
+    ->set('deploy_path','/var/www/sharepicgenerator.de')
+    ->set('rsync_src', 'code/dist')
+    ->set('rsync_dest','{{release_path}}');
 
 // Tasks
 desc('Deploy sharepicgenerator');
