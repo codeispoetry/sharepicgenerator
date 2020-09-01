@@ -55,5 +55,8 @@ composer-install:
 deploy-develop:
 	php vendor/bin/dep deploy develop
 
+deploy-production:
+	php vendor/bin/dep deploy production
+
 deploy-rollback:
-	php vendor/bin/dep deploy develop
+	php vendor/bin/dep deploy production
