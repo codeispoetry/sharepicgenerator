@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   build:
@@ -45,18 +46,26 @@ jobs:
           cd code
           npm run build:production
 
-      - name: Add deploy_key
+      - name: provide deploy_key
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          echo "$DEPLOY_KEY" > "$HOME/deploy_key"
-          chmod 600 "$HOME/deploy_key"
+          echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+
+      - name: install composer
+        run: |
+          composer install
+
+      - name: run deployer
+        run: |
+          php vendor/bin/dep deploy
 
       - name: rsync to live
         if: github.ref == 'refs/heads/main'
         run: |
           pwd
-          rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" --exclude-from 'deployment/exclude-list.txt' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
+          rsync -avhz -e "ssh -o StrictHostKeyChecking=no" --exclude-from 'deployment/exclude-list.txt' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
 
 
   test:

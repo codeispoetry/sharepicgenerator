@@ -6,19 +6,19 @@ require 'vendor/deployer/recipes/recipe/rsync.php';
 
 
 // Project name
-set('application', 'develop.sharepicgenerator.de');
+set('application', 'sharepicgenerator.de');
 
-// Shared files/dirs between deploys 
+// Shared files/dirs between deploys
 set('shared_files', [
     'ini/config.ini',
     'passwords.php'
-    ]);
+]);
 set('shared_dirs', [
     'tmp',
     'persistent/user',
-    ]);
+]);
 
-// Writable dirs by web server 
+// Writable dirs by web server
 set('writable_dirs', []);
 
 set('rsync',[
@@ -38,8 +38,9 @@ set('rsync',[
 ]);
 
 // Hosts
-host('develop.sharepicgenerator.de')
+host('sharepicgenerator.de')
     ->addSshOption('StrictHostKeyChecking', 'no')
+    ->user('tom')
     ->stage('develop')
     ->set('deploy_path','/var/www/develop.sharepicgenerator.de')
     ->set('rsync_src', 'code/dist')
@@ -56,7 +57,7 @@ task('deploy', [
     'rsync',
     'deploy:shared',
     'deploy:writable',
-   // 'deploy:vendors',
+    // 'deploy:vendors',
     'deploy:clear_paths',
     'deploy:symlink',
     'deploy:unlock',
@@ -66,5 +67,3 @@ task('deploy', [
 
 // [Optional] If deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
-
-
