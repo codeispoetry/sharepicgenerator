@@ -58,16 +58,15 @@ jobs:
         run: |
           composer install
 
-      - name: run deployer
+      - name: run deployer for develop
         if: github.ref == 'refs/heads/develop'
         run: |
           php vendor/bin/dep deploy develop
 
-      - name: rsync to live
+      - name: run deployer for production
         if: github.ref == 'refs/heads/main'
         run: |
-          pwd
-          rsync -avhz -e "ssh -o StrictHostKeyChecking=no" --exclude-from 'deployment/exclude-list.txt' --delete code/dist/ tom@sharepicgenerator.de:/var/www/html
+          php vendor/bin/dep deploy production
 
 
   test:
@@ -97,8 +96,14 @@ jobs:
         run: |
           echo "$PASSWORD_JSON" > "tests/auth.json"
 
-      - name: Run test
+      - name: Run test on develop
         if: github.ref == 'refs/heads/develop'
         run: |
           cd tests
           SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" URL=http://develop.sharepicgenerator.de node test.js
+
+      - name: Run test on production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd tests
+          SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" URL=https://sharepicgenerator.de node test.js
