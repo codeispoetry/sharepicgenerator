@@ -40,6 +40,7 @@ $svg = preg_replace('#([^:])\/\/#', "$1/", $svg);
 
 // set correct path to directories
 $svg = preg_replace('/xlink:href="..\/..\/tmp\//', 'xlink:href="' . getBasePath('tmp') . '/', $svg);
+$svg = preg_replace('/xlink:href="\/tmp\//', 'xlink:href="' . getBasePath('tmp') . '/', $svg);
 $svg = preg_replace('/xlink:href="\/assets\//', 'xlink:href="' . getBasePath('assets') . '/', $svg);
 $svg = preg_replace('/xlink:href="\/persistent\//', 'xlink:href="' . getBasePath('persistent') . '/', $svg);
 
