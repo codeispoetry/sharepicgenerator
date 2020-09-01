@@ -7,6 +7,6 @@ Allow From All
 <If "req('Host') = 'sharepicgenerator.de'">
     AuthType Basic
     AuthName "Geschützter Bereich - Bitte geben Sie ein Passwort ein!"
-    AuthUserFile /var/www/html/log/.htusers
+    AuthUserFile /var/www/sharepicgenerator.de/current/log/.htusers
     Require valid-user
 </If>

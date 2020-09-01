@@ -11,7 +11,8 @@ set('application', 'sharepicgenerator.de');
 // Shared files/dirs between deploys
 set('shared_files', [
     'ini/config.ini',
-    'passwords.php'
+    'passwords.php',
+    'log/.htusers'
 ]);
 set('shared_dirs', [
     'tmp',
