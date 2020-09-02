@@ -10,8 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    needs: build
-
     services:
       hub:
         image: selenium/hub:3.141.59-gold
