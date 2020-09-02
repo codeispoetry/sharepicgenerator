@@ -139,7 +139,7 @@ function isLocalUser()
         return false;
     }
 
-    if (!file_exists(getBasePath('passwords.php'))) {
+    if (!file_exists(getBasePath('ini/passwords.php'))) {
         return false;
     }
 
@@ -147,7 +147,7 @@ function isLocalUser()
         die("Bitte warten. Zu viele Fehlversuche.");
     }
 
-    require_once(getBasePath('passwords.php'));
+    require_once(getBasePath('ini/passwords.php'));
     if (in_array($_POST['pass'], $passwords)) {
         return true;
     }
