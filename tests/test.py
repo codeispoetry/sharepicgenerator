@@ -1,4 +1,5 @@
 import unittest
+import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -12,10 +13,15 @@ class sharepicgenerator(unittest.TestCase):
         self.driver.implicitly_wait(10) # seconds
 
 
-    def test_search_in_python_org(self):
+    def test_startpage(self):
         driver = self.driver
-        #driver.get("http://webserver")
-        driver.get("http://develop.sharepicgenerator.de")
+        if "URL" in os.environ:
+            url = os.environ['URL']
+        else:
+            url = "http://webserver"
+
+        driver.get( url )
+
         self.assertIn("Sharepicgenerator", driver.title)
 
         #elem = driver.find_element_by_name("q")
