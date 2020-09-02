@@ -35,4 +35,4 @@ jobs:
       - name: Run test
         run: |
           cd tests
-          python test.py
+          URL=http://develop.sharepicgenerator.de python test.py
