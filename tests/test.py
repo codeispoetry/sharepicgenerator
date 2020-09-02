@@ -14,7 +14,8 @@ class sharepicgenerator(unittest.TestCase):
 
     def test_search_in_python_org(self):
         driver = self.driver
-        driver.get("http://webserver")
+        #driver.get("http://webserver")
+        driver.get("http://develop.sharepicgenerator.de")
         self.assertIn("Sharepicgenerator", driver.title)
 
         #elem = driver.find_element_by_name("q")
