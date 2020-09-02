@@ -10,7 +10,7 @@ youtubedownloader
 tmp
 bayern
 vintage
-passwords.php
+ini/passwords.php
 config.json
 gallery/img
 config.ini
