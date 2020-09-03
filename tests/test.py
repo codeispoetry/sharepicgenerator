@@ -2,14 +2,25 @@ import unittest, time, os, shutil, json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 
 class sharepicgenerator(unittest.TestCase):
 
     def setUp(self):
+        prefs = {
+            "download.default_directory": os.getcwd() + "/artifacts",
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "safebrowsing.enabled": False
+        }
         self.chrome_options = webdriver.ChromeOptions()
-        self.chrome_options.add_argument('--window-size=1280,800')
+        self.chrome_options.add_argument('--window-size=1280,1280')
         self.chrome_options.add_argument('--ignore-certificate-errors')
-        self.chrome_options.add_argument("--incognito")
+
+        self.chrome_options.add_experimental_option("prefs", prefs)
 
         self.driver = webdriver.Remote(
                    command_executor='http://localhost:4444/wd/hub',
@@ -27,6 +38,11 @@ class sharepicgenerator(unittest.TestCase):
         else:
             url = "http://webserver"
 
+        # See settings
+        driver.get("chrome://settings/?search=downloads")
+        time.sleep( 3 )
+        driver.save_screenshot("artifacts/settings.png")
+
         # Startpage
         driver.get( url )
         self.assertIn("Sharepicgenerator", driver.title)
@@ -36,6 +52,16 @@ class sharepicgenerator(unittest.TestCase):
             auth = json.load(auth_json)
         driver.find_element_by_id("test-access-password").send_keys(auth['password'] + u'\ue007')
 
+        # Upload picture
+        driver.find_element_by_id("uploadfile").send_keys(os.getcwd()+"/assets/background.jpg")
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
+        time.sleep( 1 )
+
+        # Download Sharepic
+        driver.find_element_by_id("download").click()
+        print ("clicked")
+        time.sleep( 5 )
+        print ("waited")
 
     def tearDown(self):
         self.driver.save_screenshot("artifacts/screenshot.png")
