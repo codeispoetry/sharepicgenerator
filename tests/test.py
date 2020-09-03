@@ -36,7 +36,7 @@ class sharepicgenerator(unittest.TestCase):
         #elem.send_keys(Keys.RETURN)
         # assert "No results found." not in driver.page_source
 
-        driver.save_screenshot("screenshot.png")
+        driver.save_screenshot("artifacts/screenshot.png")
 
         for entry in driver.get_log('browser'):
             print(entry)
