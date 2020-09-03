@@ -4,6 +4,7 @@ require_once(getBasePath("lib/functions.php"));
 useDeLocale();
 
 session_start();
+readConfig();
 
 $landesverband = 0;
 $user = "generic";
@@ -11,8 +12,13 @@ $tenant = "federal";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
+$doLogout = false;
+if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
+    $doLogout = true;
+}
+
 if (!$hasAccess) {
-    $user = handleSamlAuth();
+    $user = handleSamlAuth($doLogout);
 }
 
 $accesstoken = createAccessToken($user);
