@@ -4,6 +4,7 @@ require_once(getBasePath("lib/functions.php"));
 useDeLocale();
 
 session_start();
+readConfig();
 
 $landesverband = 0;
 $user = "generic";

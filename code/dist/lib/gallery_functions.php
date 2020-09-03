@@ -12,12 +12,9 @@ function ensureGalleryDir($tenant, $filename)
 function saveOrigFile()
 {
     $saveOrig = false;
-    $config_file = getBasePath('/ini/config.ini');
-    if (file_exists($config_file)) {
-        $keys = parse_ini_file($config_file, true);
-        if ($keys["Gallery"]["saveOrigFile"] == 'true') {
-            $saveOrig = true;
-        }
+
+    if (configValue("Gallery", "saveOrigFile") == 'true') {
+        $saveOrig = true;
     }
     return $saveOrig;
 }
