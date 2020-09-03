@@ -59,14 +59,12 @@ class sharepicgenerator(unittest.TestCase):
 
         # Download Sharepic
         driver.find_element_by_id("download").click()
-        print ("clicked")
-        time.sleep( 5 )
-        print ("waited")
+        #time.sleep( 5 )
 
     def tearDown(self):
         self.driver.save_screenshot("artifacts/screenshot.png")
         for entry in self.driver.get_log('browser'):
-            print(entry)
+            print( entry )
         self.driver.quit()
 
 if __name__ == "__main__":
