@@ -26,7 +26,7 @@ down:
 	docker-compose down
 
 test:
-	cd tests && SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" ENV=local node test.js
+	cd tests && URL=http://webserver python test.py
 
 doc:
 	docker-compose exec mkdocs mkdocs build
