@@ -62,10 +62,17 @@ class sharepicgenerator(unittest.TestCase):
         #time.sleep( 5 )
 
     def tearDown(self):
+        jsErrors = 0
         self.driver.save_screenshot("artifacts/screenshot.png")
         for entry in self.driver.get_log('browser'):
-            print( entry )
+            if entry['level'] == 'SEVERE':
+                jsErrors += 1
+                print( entry['level'] )
+
         self.driver.quit()
+
+        if( jsErrors > 0 ):
+            self.fail( str(jsErrors)  + " JavaScript error(s)")
 
 if __name__ == "__main__":
     unittest.main()
