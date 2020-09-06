@@ -526,3 +526,80 @@ function reuseSavework($saveworkFile)
 
     return json_encode($return);
 }
+
+function human_filesize($bytes, $decimals = 2)
+{
+    $factor = floor((strlen($bytes) - 1) / 3);
+    if ($factor > 0) {
+        $sz = 'KMGT';
+    }
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
+}
+
+function showPictures($main_dir)
+{
+    $dirs = glob($main_dir . '/*', GLOB_ONLYDIR);
+    $formats = "*.{jpg,JPG,jpeg,JPEG,png,PNG}";
+
+    foreach ($dirs as $album) {
+        $pics = array_reverse(glob($album . '/' . $formats, GLOB_BRACE));
+        $albumname = basename($album);
+        $dirname = $album;
+        $photographer = "";
+        $tags = "";
+
+        $meta_file = $album . '/meta.ini';
+        if (file_exists($meta_file)) {
+            $meta = parse_ini_file($meta_file);
+            $photographer = "<tr><td class='pr-3'>Fotograf</td><td class='llphotographer'>". $meta['Photographer'] ."</td></tr>";
+            $tags = "<tr><td class='pr-3'>Tags</td><td class='lltags'>". $meta['Tags'] ."</td></tr>";
+        }
+
+        foreach ($pics as $pic) {
+            $file_parts = pathinfo($pic);
+            $ext = $file_parts['extension'];
+            $name = $file_parts['basename'];
+            $fsize = human_filesize(filesize($pic));
+            $useLink = "<a href='../index.php?usePicture=pictures/".$pic ."' ><i class='fas fa-upload'> Verwenden</i></a>";
+
+            $showPic = $pic;
+            if (file_exists("$dirname/thumbs/$name")) {
+                $showPic = "$dirname/thumbs/$name";
+            }
+
+            $img_data = getimagesize($pic);
+            $img_size = $img_data[0] . " x " . $img_data[1];
+
+            echo <<<EOL
+          <div class="col-6 col-md-3 col-lg-3" data-id="1">
+              <figure>
+                  <img src="$showPic" class="img-fluid" />
+                  <figcaption>
+                      <table class="small">
+                          <tr>
+                              <td class="pr-3">Name</td>
+                              <td class="llname">$name</td>
+                          </tr>
+                          $photographer
+                          <tr>
+                              <td class="pr-3">Album</td>
+                              <td class="llalbum">$albumname</td>
+                          </tr>
+                          <tr>
+                              <td class="pr-3 llsize">Dateigröße</td>
+                              <td>$fsize</td>
+                          </tr>
+                          <tr>
+                              <td class="pr-3 llformat">Format / Größe</td>
+                              <td>$ext / $img_size</td>
+                          </tr>
+                          $tags
+                          $useLink
+                      </table>
+                  </figcaption>
+              </figure>
+          </div>
+EOL;
+        }
+    }
+}
