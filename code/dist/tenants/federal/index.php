@@ -192,6 +192,10 @@ if (isset($_GET['useSavework'])) {
     if (isset($saveData)) {
         printf('loadSavework(%s);', $saveData);
     }
+
+    if (isset($_GET['usePicture'])) {
+        printf('uploadFileByUrl(`../tenants/federal/%s`, () => {})', $_GET['usePicture']);
+    }
 }
 ?>
 </script>
