@@ -298,7 +298,7 @@
                 <small>groß</small>
             </div>
             <div class="">
-                Erstelle Dein OV-Logo mit dem <a href="/logo" target="_blank">Logogenerator</a>.
+                Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
             </div>
         </div>
 
