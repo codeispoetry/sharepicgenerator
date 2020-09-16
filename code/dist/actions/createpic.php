@@ -56,7 +56,7 @@ if (in_array($_POST['format'], array('png','pdf','jpg','mp4'))) {
 }
 
 $exportWidth = (int) $_POST['width'];
-$quality = (int) $_POST['quality'] ?: 75;
+$quality = (int) $_POST['quality'] ?: 90;
 
 convert($filename, $exportWidth, $format, $quality);
 if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
