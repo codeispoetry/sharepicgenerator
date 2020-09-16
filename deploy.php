@@ -17,6 +17,7 @@ set('shared_files', [
 set('shared_dirs', [
     'tmp',
     'persistent/user',
+    'tenants/federal/gallery/img'
 ]);
 
 // Writable dirs by web server
