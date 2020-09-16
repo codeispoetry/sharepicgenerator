@@ -95,7 +95,7 @@ require_once(getBasePath("lib/actionday.php"));
             </div>
 
             <div class="col-12 text-center mb-5">
-                <div>
+                <div class="d-none">
                     <label>
                         <input type="checkbox" id="add-to-gallery" name="add-to-gallery"> In der Galerie veröffentlichen
                     </label>

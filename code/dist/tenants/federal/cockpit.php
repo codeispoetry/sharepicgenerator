@@ -376,7 +376,7 @@
         </div>
         <div class="mt-2">
             <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
-            <button type="button" class="btn btn-secondary saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> Gallery speichern</button>
+            <button type="button" class="btn btn-secondary saveInGallery d-none" id='saveInGallery'><i class="fas fa-save"></i> Gallery speichern</button>
         </div>
     </div>
     <div class="d-none">
