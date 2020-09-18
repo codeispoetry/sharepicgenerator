@@ -55,11 +55,11 @@ class sharepicgenerator(unittest.TestCase):
         # Upload picture
         driver.find_element_by_id("uploadfile").send_keys(os.getcwd()+"/assets/background.jpg")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-        time.sleep( 1 )
+        time.sleep( 3 )
 
         # Download Sharepic
         driver.find_element_by_id("download").click()
-        #time.sleep( 5 )
+        time.sleep( 5 )
 
     def tearDown(self):
         jsErrors = 0
@@ -75,7 +75,6 @@ class sharepicgenerator(unittest.TestCase):
             self.fail( str(jsErrors)  + " JavaScript error(s)")
 
 if __name__ == "__main__":
-    unittest.main()
-
+    unittest.main(warnings='ignore')
 
 
