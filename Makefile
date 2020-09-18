@@ -26,7 +26,7 @@ down:
 	docker-compose down
 
 test:
-	cd tests && URL=http://webserver python test.py
+	cd tests && URL=http://webserver python3 test.py
 
 doc:
 	docker-compose exec mkdocs mkdocs build
