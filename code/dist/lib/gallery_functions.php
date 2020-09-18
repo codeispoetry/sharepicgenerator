@@ -55,7 +55,7 @@ function saveWorkInGallery($zipfile, $tenant, $filename)
 
 function showImages($dir_glob)
 {
-    $dirs = array_reverse(glob($dir_glob));
+    $dirs = array_reverse(glob($dir_glob, GLOB_ONLYDIR));
     foreach ($dirs as $shpic) {
         $thumb = $shpic . '/' . basename($shpic) . '_thumb.jpg';
         $infofile = $shpic . '/info.json';
