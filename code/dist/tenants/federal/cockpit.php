@@ -24,10 +24,14 @@ if (!isAllowed(false)) {
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Hintergrundbild/ -video hochladen
                 </a>
-
+            </div>
+            <div class="d-flex justify-content-between mb-1">
                 <span class="text-primary cursor-pointer" id="pixabayopener">
                     <i class="fas fa-search"></i> suchen
                 </span>
+                <a href="pictures" title="Bild aus der internen Mediengalerie auswählen">
+                    <i class="fas fa-image ml-3"></i> Mediengalerie
+                </a>
             </div>
             <small class="collapsed cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Bildeinstellungen
