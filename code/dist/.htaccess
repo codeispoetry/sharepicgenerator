@@ -9,6 +9,8 @@ Options -Indexes
 
     Redirect 301 /nrw /tenants/nrw
     Redirect 301 /federal /tenants/federal
+    Redirect 301 /logo https://logo.sharepicgenerator.de
+
 
     # Force non www. domain
     RewriteCond %{HTTP_HOST} ^www\.sharepicgenerator\.de$ [NC]
