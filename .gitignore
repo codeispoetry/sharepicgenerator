@@ -47,3 +47,4 @@ code/dist/log/.htusers
 
 docker-compose.yml
 vendor/
+passwords.php
