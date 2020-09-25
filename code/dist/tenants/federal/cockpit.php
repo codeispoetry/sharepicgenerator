@@ -37,7 +37,7 @@ if (!isAllowed(false)) {
             <?php } ?>
            
                
-            <small class="collapsed cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
+            <small class="collapsed cursor-pointer text-primary preferences-pic-btn novideo" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Bildeinstellungen
             </small>
             <div class="mb-1 list-group-item-content collapse preferences-pic">
