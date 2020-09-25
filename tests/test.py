@@ -75,6 +75,8 @@ class sharepicgenerator(unittest.TestCase):
             self.fail( str(jsErrors)  + " JavaScript error(s)")
 
 if __name__ == "__main__":
-    unittest.main(warnings='ignore')
-
+    if "LOCAL" in os.environ:
+        unittest.main(warnings='ignore')
+    else:
+        unittest.main()
 
