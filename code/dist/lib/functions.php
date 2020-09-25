@@ -104,7 +104,7 @@ function logFailure($msg)
     $landesverband = $_SESSION['landesverband'];
     $tenant = $_SESSION['tenant'];
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, $accesstoken, $msg, $landesverband, $tenant);
-    file_put_contents(getBasePath('log/error.log'), $line, FILE_APPEND);
+    file_put_contents(getBasePath('log/logs/error.log'), $line, FILE_APPEND);
 }
 
 function logLogin()
@@ -113,7 +113,7 @@ function logLogin()
     $landesverband = $_SESSION['landesverband'];
     $tenant = $_SESSION['tenant'];
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant);
-    file_put_contents(getBasePath('log/log.log'), $line, FILE_APPEND);
+    file_put_contents(getBasePath('log/logs/log.log'), $line, FILE_APPEND);
 }
 
 function logDownload()
@@ -122,7 +122,7 @@ function logDownload()
     $pixabay = sanitizeUserinput($_POST['usepixabay']);
     $socialmediaplatform = sanitizeUserinput($_POST['socialmediaplatform']);
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, 'download', $pixabay, $socialmediaplatform);
-    file_put_contents(getBasePath('log/log.log'), $line, FILE_APPEND);
+    file_put_contents(getBasePath('log/logs/log.log'), $line, FILE_APPEND);
 }
 
 function isLocal()
@@ -325,7 +325,7 @@ function tidyUp($filename, $format)
 
 function debug($msg)
 {
-    file_put_contents(getBasePath('log/error.log'), $msg, FILE_APPEND);
+    file_put_contents(getBasePath('log/logs/error.log'), $msg, FILE_APPEND);
 }
 
 function debugPic($filename, $format)

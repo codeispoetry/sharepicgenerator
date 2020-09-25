@@ -9,7 +9,7 @@ echo '<h2>Pfad in der SVG-Datei</h2>';
 echo $matches[1];
 
 echo '<h2>Auszug aus der Uploads.log-Datei</h2>';
-$lines = file('uploads.log');
+$lines = file('logs/uploads.log');
 foreach ($lines as $line) {
     if (preg_match('/' . basename($matches[1]) . '/', $line)) {
         echo $line;
