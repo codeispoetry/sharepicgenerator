@@ -23,16 +23,37 @@ function getPixabayVideos(q) {
     success(data) {
       $('#pixabay-videos .results').html('');
       data.hits.forEach((video) => {
-        $('#pixabay-videos .results').append(`<div class="col-12 col-md-3 video pb-4"><video controls><source src="${video.videos.tiny.url}" type="video/mp4"></video><button class="btn btn-outline-primary btn-sm" data-url="${video.videos.small.url}" data-user="${video.user}">verwenden</button></div>`);
+        $('#pixabay-videos .results').append(`
+          <div class="col-12 col-md-3 video pb-4">
+            <video id="v${video.id}">
+              <source src="${video.videos.tiny.url}" type="video/mp4">
+            </video>
+            <button class="btn btn-outline-secondary btn-sm play" data-id="v${video.id}">abspielen</button>
+            <button class="btn btn-outline-primary btn-sm use" data-url="${video.videos.small.url}" data-user="${video.user}">verwenden</button>
+            <small>${video.duration} Sek.</small>
+          </div>`);
       });
 
-      $('#pixabay-videos .results button').click(function clickButton() {
+      $('#pixabay-videos .results button.use').click(function clickButton() {
         const pixabayAttribution = $(this).data('user');
         uploadFileByUrl($(this).data('url'), () => {
           setCopyright(pixabayAttribution, 'pixabay');
 
           config.usePixabay = 'pixabay';
         });
+      });
+
+      $('#pixabay-videos .results button.play').click(function clickButton() {
+        let videoId = $(this).data('id');
+        let videoElement = $('#' + videoId ).get(0);
+        
+        if( videoElement.paused ){
+          videoElement.play();
+          $(this).html("stop");
+        }else{
+          videoElement.pause();
+          $(this).html("abspielen");
+        }
       });
     },
     error(data, textStatus, jqXHR) {
