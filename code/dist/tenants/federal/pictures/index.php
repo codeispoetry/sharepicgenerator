@@ -2,6 +2,7 @@
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/gallery_functions.php'));
+useDeLocale();
 
 session_start();
 readConfig();
@@ -42,18 +43,22 @@ if (!isAllowed(false)) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center pt-4 pb-3">
-            <h1 class="text-uppercase h2">Muster-Sharepics </h1>
-            <small>von anderen zur Inspiration</small>
+            <h1 class="text-uppercase h2">Mediengalerie</h1>
         </div>
     </div>
-    <div class="row pb-5 mb-3">
+    <div id="picture-list">
+      <div class="pb-3">
+        <input class="search" placeholder="Suche" />
+        <button class="sort" data-sort="llname">Nach Name sortieren</button>
+        <button class="sort" data-sort="llalbum">Nach Album sortieren</button>
+      </div>
+      <div class="row pb-5 mb-3 list">
         <?php
-            showImages('img/shpic*');
+          showPictures('img/');
         ?>
+      </div>
     </div>
 </div>
-
-
 
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
@@ -75,6 +80,16 @@ if (!isAllowed(false)) {
 <script src="/vendor/jquery-3.4.1.min.js"></script>
 <script src="/vendor/bootstrap.min.js"></script>
 <script src="/vendor/bootstrap4-toggle.min.js"></script>
+<script src="/vendor/list.min.js"></script>
+
+<script>
+var options = {
+  valueNames: [ 'llalbum', 'llname', 'llphotographer', 'lltags' ]
+};
+
+let hackerList = new List('picture-list', options);
+
+</script>
 
 </body>
 </html>

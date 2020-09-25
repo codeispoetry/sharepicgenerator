@@ -7,3 +7,5 @@ npm install selenium-webdriver
 ```
 SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub"  URL=http://develop.sharepicgenerator.de ENV=local node test.js
 ```
+
+``` URL=http://webserver  python tests/test.py```

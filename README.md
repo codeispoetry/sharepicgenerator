@@ -54,4 +54,29 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 ### vendor
 SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 
+# Setup picture gallery
+1. The structure in tenants/federal/pictures/img needs to be 
+
+```
+    'albumname/1.jpeg'
+    'albumname/2.jpeg'
+    'foodir/A.JPG'
+    'foodir/B.JPG'
+
+```
+
+2. Use deployment/scripts/generate_thumbnails.sh as a cronjob in your docker to generate the thumbnails automatically if new pictures are available in tenants/federal/pictures/img
+
+```
+   deployment/scripts/generate_thumbnails.sh tenants/federal/pictures/img
+
+```
+
+3. Use a meta file like 'albumname/meta.ini' or 'foodir/meta.ini' with the following content:
+```
+    Photographer = "Max Mustermann"
+    Tags = "Flowers Green"
+```
+
+4. Be happy with your small picture gallery
 

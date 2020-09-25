@@ -4,6 +4,7 @@ require_once(getBasePath("lib/functions.php"));
 useDeLocale();
 
 session_start();
+readConfig();
 
 $landesverband = 0;
 $user = "generic";
@@ -11,8 +12,13 @@ $tenant = "federal";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
+$doLogout = false;
+if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
+    $doLogout = true;
+}
+
 if (!$hasAccess) {
-    $user = handleSamlAuth();
+    $user = handleSamlAuth($doLogout);
 }
 
 $accesstoken = createAccessToken($user);
@@ -147,6 +153,7 @@ require_once(getBasePath("lib/actionday.php"));
         <a href="#" class="overlay-opener" data-target="actiondays"><i class="far fa-hand-point-right ml-3"></i> Aktionstage</a>
         <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
         <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
+        <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
@@ -184,6 +191,10 @@ if (isset($_GET['useSavework'])) {
     $saveData = reuseSavework($_GET['useSavework']);
     if (isset($saveData)) {
         printf('loadSavework(%s);', $saveData);
+    }
+
+    if (isset($_GET['usePicture'])) {
+        printf('uploadFileByUrl(`../tenants/federal/%s`, () => {})', $_GET['usePicture']);
     }
 }
 ?>
