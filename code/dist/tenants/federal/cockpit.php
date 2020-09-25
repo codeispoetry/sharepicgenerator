@@ -29,7 +29,7 @@ if (!isAllowed(false)) {
                 </span>
             </div>
             <div class="d-flex justify-content-between mb-1">
-                <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="d-none">
+                <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">
                     <i class="fas fa-image ml-3"></i> Mediengalerie
                 </a>
             </div>
