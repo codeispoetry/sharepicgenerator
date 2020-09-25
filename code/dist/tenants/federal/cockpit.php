@@ -28,11 +28,15 @@ if (!isAllowed(false)) {
                     <i class="fas fa-search"></i> suchen
                 </span>
             </div>
-            <div class="d-flex justify-content-between mb-1">
-                <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">
-                    <i class="fas fa-image ml-3"></i> Mediengalerie
-                </a>
-            </div>
+            <?php if(configValue("Features","showMediaGallery")){ ?>
+                <div class="d-flex justify-content-between mb-1">
+                    <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">
+                        <i class="fas fa-image ml-3"></i> Mediengalerie
+                    </a>
+                </div>
+            <?php } ?>
+           
+               
             <small class="collapsed cursor-pointer text-primary preferences-pic-btn" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Bildeinstellungen
             </small>
@@ -393,8 +397,10 @@ if (!isAllowed(false)) {
         </div>
         <div class="mt-2">
             <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
-            <button type="button" class="btn btn-secondary saveInGallery d-none" id='saveInGallery'><i class="fas fa-save"></i> Gallery speichern</button>
-        </div>
+            <?php if(configValue("Features","showGallery")){ ?>
+                <button type="button" class="btn btn-secondary saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> in Galerie veröffentlichen</button>
+            <?php } ?>
+            </div>
     </div>
     <div class="d-none">
         <input type="hidden" name="pinX" id="pinX">
