@@ -26,7 +26,7 @@ function handleBackgroundUpload($extension)
 
     $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, $fe1);
 
-    file_put_contents(getBasePath('log/uploads.log'), $line, FILE_APPEND);
+    file_put_contents(getBasePath('log/logs/uploads.log'), $line, FILE_APPEND);
 
     $filename_small = $filebasename . '_small.' . $extension;
     prepareFileAndSendInfo($filename, $filename_small);

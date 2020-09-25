@@ -11,13 +11,14 @@ set('application', 'sharepicgenerator.de');
 // Shared files/dirs between deploys
 set('shared_files', [
     'ini/config.ini',
-    'passwords.php',
+    'ini/passwords.php',
     'log/.htusers'
 ]);
 set('shared_dirs', [
     'tmp',
     'persistent/user',
-    'tenants/federal/gallery/img'
+    'tenants/federal/gallery/img',
+    'log/logs'
 ]);
 
 // Writable dirs by web server

@@ -53,7 +53,7 @@ function readLogs()
 {
     global $info;
 
-    $lines = file('log.log');
+    $lines = file('logs/log.log');
 
     $info = array(
         'socialmedia' => array()
