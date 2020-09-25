@@ -12,12 +12,9 @@ function ensureGalleryDir($tenant, $filename)
 function saveOrigFile()
 {
     $saveOrig = false;
-    $config_file = getBasePath('/ini/config.ini');
-    if (file_exists($config_file)) {
-        $keys = parse_ini_file($config_file, true);
-        if ($keys["Gallery"]["saveOrigFile"] == 'true') {
-            $saveOrig = true;
-        }
+
+    if (configValue("Gallery", "saveOrigFile") == 'true') {
+        $saveOrig = true;
     }
     return $saveOrig;
 }
@@ -58,7 +55,7 @@ function saveWorkInGallery($zipfile, $tenant, $filename)
 
 function showImages($dir_glob)
 {
-    $dirs = array_reverse(glob($dir_glob));
+    $dirs = array_reverse(glob($dir_glob, GLOB_ONLYDIR));
     foreach ($dirs as $shpic) {
         $thumb = $shpic . '/' . basename($shpic) . '_thumb.jpg';
         $infofile = $shpic . '/info.json';

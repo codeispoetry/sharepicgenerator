@@ -139,7 +139,7 @@ function isLocalUser()
         return false;
     }
 
-    if (!file_exists(getBasePath('passwords.php'))) {
+    if (!file_exists(getBasePath('ini/passwords.php'))) {
         return false;
     }
 
@@ -147,7 +147,7 @@ function isLocalUser()
         die("Bitte warten. Zu viele Fehlversuche.");
     }
 
-    require_once(getBasePath('passwords.php'));
+    require_once(getBasePath('ini/passwords.php'));
     if (in_array($_POST['pass'], $passwords)) {
         return true;
     }
@@ -203,20 +203,31 @@ function isDaysBefore($dayMonth, $days = 14)
     return ($interval->days < $days and $interval->invert == 1);
 }
 
-function handleSamlAuth()
+function handleSamlAuth($doLogout = false)
 {
     $samlfile = '/var/simplesaml/lib/_autoload.php';
+    $host = configValue("Main", "host");
+    $logoutTarget = configValue("Main", "logoutTarget");
+    $userAttr = configValue("SAML", "userAttr");
 
-    if ($_SERVER['HTTP_HOST'] == "sharepicgenerator.de" AND file_exists($samlfile)) {
+    if ($_SERVER['HTTP_HOST'] == $host and file_exists($samlfile)) {
         require_once($samlfile);
         $as = new SimpleSAML_Auth_Simple('default-sp');
         $as->requireAuth();
+
+        if ($doLogout == true) {
+            header("Location: ".$as->getLogoutURL($logoutTarget));
+        }
+
         $samlattributes = $as->getAttributes();
-        $user = $samlattributes['urn:oid:0.9.2342.19200300.100.1.1'][0];
+        $user = $samlattributes[$userAttr][0];
 
         $session = SimpleSAML_Session::getSessionFromRequest();
         $session->cleanup();
-        tenantsSwitch($as);
+
+        if (configValue("SAML", "doTenantsSwitch") == "true") {
+            tenantsSwitch($as);
+        }
     } else {
         $user = "nosamlfile";
     }
@@ -470,14 +481,30 @@ function tenantsSwitch($as)
     }
 }
 
-function pixabayConfig()
+function readConfig()
 {
     $retval = "";
     $config_file = getBasePath('/ini/config.ini');
 
     if (file_exists($config_file)) {
-        $keys = parse_ini_file($config_file, true);
-        $retval = "config.pixabay={ 'apikey': '". $keys["Pixabay"]["apikey"] . "' };";
+        $_SESSION['config'] = parse_ini_file($config_file, true);
+    }
+}
+
+function configValue($group, $attribute)
+{
+    $value = false;
+    if (isset($_SESSION["config"][$group][$attribute])) {
+        $value = $_SESSION["config"][$group][$attribute];
+    }
+    return $value;
+}
+
+function pixabayConfig()
+{
+    $apikey = configValue("Pixabay", "apikey");
+    if ($apikey != false) {
+        $retval = "config.pixabay={ 'apikey': '". $apikey . "' };";
     }
     return $retval;
 }
@@ -491,8 +518,6 @@ function reuseSavework($saveworkFile)
     exec($cmd, $output);
 
     $return['okay'] = true;
-    //$return['debug'] = $output;
-
     $datafile = $savedir . '/data.json';
     $json = file_get_contents($datafile);
 
@@ -500,4 +525,81 @@ function reuseSavework($saveworkFile)
     $return['dir'] = '../'. $tmpdir;
 
     return json_encode($return);
+}
+
+function human_filesize($bytes, $decimals = 2)
+{
+    $factor = floor((strlen($bytes) - 1) / 3);
+    if ($factor > 0) {
+        $sz = 'KMGT';
+    }
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
+}
+
+function showPictures($main_dir)
+{
+    $dirs = glob($main_dir . '/*', GLOB_ONLYDIR);
+    $formats = "*.{jpg,JPG,jpeg,JPEG,png,PNG}";
+
+    foreach ($dirs as $album) {
+        $pics = array_reverse(glob($album . '/' . $formats, GLOB_BRACE));
+        $albumname = basename($album);
+        $dirname = $album;
+        $photographer = "";
+        $tags = "";
+
+        $meta_file = $album . '/meta.ini';
+        if (file_exists($meta_file)) {
+            $meta = parse_ini_file($meta_file);
+            $photographer = "<tr><td class='pr-3'>Fotograf</td><td class='llphotographer'>". $meta['Photographer'] ."</td></tr>";
+            $tags = "<tr><td class='pr-3'>Tags</td><td class='lltags'>". $meta['Tags'] ."</td></tr>";
+        }
+
+        foreach ($pics as $pic) {
+            $file_parts = pathinfo($pic);
+            $ext = $file_parts['extension'];
+            $name = $file_parts['basename'];
+            $fsize = human_filesize(filesize($pic));
+            $useLink = "<a href='../index.php?usePicture=pictures/".$pic ."' ><i class='fas fa-upload'> Verwenden</i></a>";
+
+            $showPic = $pic;
+            if (file_exists("$dirname/thumbs/$name")) {
+                $showPic = "$dirname/thumbs/$name";
+            }
+
+            $img_data = getimagesize($pic);
+            $img_size = $img_data[0] . " x " . $img_data[1];
+
+            echo <<<EOL
+          <div class="col-6 col-md-3 col-lg-3" data-id="1">
+              <figure>
+                  <img src="$showPic" class="img-fluid" />
+                  <figcaption>
+                      <table class="small">
+                          <tr>
+                              <td class="pr-3">Name</td>
+                              <td class="llname">$name</td>
+                          </tr>
+                          $photographer
+                          <tr>
+                              <td class="pr-3">Album</td>
+                              <td class="llalbum">$albumname</td>
+                          </tr>
+                          <tr>
+                              <td class="pr-3 llsize">Dateigröße</td>
+                              <td>$fsize</td>
+                          </tr>
+                          <tr>
+                              <td class="pr-3 llformat">Format / Größe</td>
+                              <td>$ext / $img_size</td>
+                          </tr>
+                          $tags
+                          $useLink
+                      </table>
+                  </figcaption>
+              </figure>
+          </div>
+EOL;
+        }
+    }
 }
