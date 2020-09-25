@@ -114,7 +114,7 @@ function isFileAllowed($extension, $allowed)
     return in_array(strtolower($extension), $allowed);
 }
 
-function handleVideoVpload($extension)
+function handleVideoUpload($extension)
 {
     $basename = getBasePath('tmp/' . uniqid('video'));
     $videofile = $basename . '.' . $extension;
