@@ -101,12 +101,14 @@ require_once(getBasePath("lib/actionday.php"));
             </div>
 
             <div class="col-12 text-center mb-5">
-                <div class="">
-                    <label>
-                        <input type="checkbox" id="add-to-gallery" name="add-to-gallery"> In der Galerie veröffentlichen
-                    </label>
-                    <a href="gallery" target="_blank"><i class="fa fa-external-link-alt"></i></a>
-                </div>
+                <?php if(configValue("Features","showGallery")){ ?>
+                    <div class="">
+                        <label>
+                            <input type="checkbox" id="add-to-gallery" name="add-to-gallery"> In der Galerie veröffentlichen
+                        </label>
+                        <a href="gallery" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                    </div>
+                <?php } ?>
                 <div>
                     <button class="btn btn-secondary btn-lg download" id="download">
                         <i class="fas fa-download"></i> Herunterladen
