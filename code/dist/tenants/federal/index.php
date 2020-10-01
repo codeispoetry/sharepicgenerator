@@ -25,6 +25,8 @@ $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
 $_SESSION['user'] = $user;
 $_SESSION['landesverband'] = $landesverband;
+$_SESSION['tenant'] = $tenant;
+
 
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;

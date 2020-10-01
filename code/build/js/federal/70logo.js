@@ -131,7 +131,8 @@ $('#logoselect').on('change', function changeLogo() {
     $('#logoselect').val($('#logoselect option:first').val());
 
     $.post('/actions/delete.php', { action: 'logo', csrf: config.csrf })
-      .done((data) => {
+      .done((response) => {
+        const data = JSON.parse(response);
         if (data.error) {
           return false;
         }
