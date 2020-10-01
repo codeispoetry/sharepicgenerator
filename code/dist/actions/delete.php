@@ -2,6 +2,8 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/gallery_functions.php'));
+
 useDeLocale();
 
 session_start();
@@ -18,7 +20,9 @@ switch( $_POST['action']) {
     case 'logo':
         deleteUserLogo(getUser());
     break;
-
+    case 'workfile':
+        deleteWorkfile($_POST['workfileiId']);
+    break;
     default:
         returnJsonErrorAndDie('unknown action');
 

@@ -3,6 +3,8 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/gallery_functions.php'));
+
 useDeLocale();
 
 session_start();
@@ -323,16 +325,6 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".screen">Screen</h3>
-        <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 align-items-center">
-                <span class="mr-2">Hintergrund:</span>
-               <input id="color-scheme" type="checkbox" data-width="60" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
-                <span class="ml-5 mr-2">Hilflinien:</span>
-               <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
-            </div>
-        </div>
-
         <h3 class="collapsed debug" data-toggle="collapse" data-target=".cloud">Wolke</h3>
         <div class="cloud collapse list-group-item list-group-item-action flex-column align-items-start ">
             <?php
@@ -385,6 +377,48 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
+        <?php if(configValue("Features","showGallery")){ 
+            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
+        ?>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery">Muster-Sharepics (<?php echo $ownGalleryImages.'/'.$allGalleryImages;?>)</h3>
+            <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
+                <div>
+                    <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Muster-Sharepics ansehen
+                    <br>
+                    Du hast
+                    <?php
+                        switch($ownGalleryImages)
+                        {
+                            case 0:
+                                echo "noch kein eigenes";
+                            break;
+                            case 1:
+                                echo "ein eigenes.";
+                            break;
+                            default:
+                                echo $ownGalleryImages . ' eigene';
+                        }
+                    ?>
+                    Muster veröffentlicht.
+                    </a>
+                </div>
+                <div id="gallery-note" class="text-danger"></div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Muster-Sharepic veröffentlichen</button>
+                </div>
+            </div>
+        <?php } ?>
+
+        <h3 class="collapsed" data-toggle="collapse" data-target=".screen">Screen</h3>
+        <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div class="mb-1 align-items-center">
+                <span class="mr-2">Hintergrund:</span>
+               <input id="color-scheme" type="checkbox" data-width="60" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
+                <span class="ml-5 mr-2">Hilflinien:</span>
+               <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
+            </div>
+        </div>
+
         <h3 class="collapsed" data-toggle="collapse" data-target=".code">Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
@@ -395,18 +429,6 @@ if (!isAllowed(false)) {
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
-
-        <?php if(configValue("Features","showGallery")){ ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery">Galerie</h3>
-            <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
-                <div>
-                    <a href="gallery/" target="_blank">Link zur Galerie</a>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn btn-secondary saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> in Galerie veröffentlichen</button>
-                </div>
-            </div>
-        <?php } ?>
 
         <div class="mt-2">
             <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>

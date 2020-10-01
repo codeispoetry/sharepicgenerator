@@ -39,16 +39,26 @@ if (!isAllowed(false)) {
     <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
 </head>
 <body>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center pt-4 pb-3">
-            <h1 class="text-uppercase h2">Muster-Sharepics </h1>
-            <small>von anderen zur Inspiration</small>
+            <h1 class="text-uppercase h2"><i class="fas fa-store"></i> Muster-Sharepics </h1>
+            <small>von anderen zur Inspiration
+                <a href="../"><i class="fas fa-wrench"></i> selbst erstellen</a>
+        </small>
         </div>
     </div>
     <div class="row pb-5 mb-3">
+        <div class="col-12 font-weight-bold">Meine Muster-Sharepics</div>
         <?php
-            showImages('img/shpic*');
+            showImages('img/shpic*', 'ownFiles');
+        ?>
+    </div>
+    <div class="row pb-5 mb-3">
+        <div class="col-12 font-weight-bold">Von anderen</div>
+        <?php
+            showImages('img/shpic*', 'foreignFiles');
         ?>
     </div>
 </div>
@@ -75,6 +85,28 @@ if (!isAllowed(false)) {
 <script src="/vendor/jquery-3.4.1.min.js"></script>
 <script src="/vendor/bootstrap.min.js"></script>
 <script src="/vendor/bootstrap4-toggle.min.js"></script>
+
+<script>
+    $('.deleteWorkfile').on('click', function deleteWorkfile() {
+    if (!confirm('Wirklich dauerhaft löschen?')) {
+      return;
+    }
+
+     $.post('/actions/delete.php', { action: 'workfile', 'workfileiId': $(this).data('id'), csrf: '<?php echo $_SESSION['csrf'];?>' })
+      .done((response) => {
+        const data = JSON.parse(response);
+        console.log(data.success)
+        if (data.error) {
+          console.log(data);
+          alert("Die Datei konnte nicht gelöscht werden.");
+          return;
+        }
+        
+        $(this).closest('.samplesharepic').parent().fadeOut(1000);
+
+      });
+    });
+    </script>
 
 </body>
 </html>

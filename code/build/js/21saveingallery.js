@@ -55,6 +55,7 @@ $('.saveInGallery').click(function onSaveInGalleryClick() {
           $('.saveInGallery').prop('disabled', false);
           $('#canvas').removeClass('opacity');
           $('.saveInGallery').html(description);
+          $('#gallery-note').html("Gespeichert.").fadeIn().delay(5000).fadeOut("slow");
         },
       });
     },
