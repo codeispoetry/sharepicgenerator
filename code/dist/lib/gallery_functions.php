@@ -81,7 +81,7 @@ function showImages($dir_glob)
         }
 
         $additional = "<tr> <td class=\"pr-3\"></td><td> $useLink</td></tr>";
-        // <a href="$origFilePath" class="samplesharepic-image" download>
+
         echo <<<EOL
         <div class="col-6 col-md-3 col-lg-3">
             <figure class="samplesharepic">
