@@ -1,0 +1,23 @@
+.samplesharepic{
+    position: relative;
+   
+    figcaption{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease;
+        background-color: white;
+        opacity: 0;
+    }
+
+    &:hover{
+        figcaption{
+            opacity: 0.8;
+        }
+    }
+   
+}

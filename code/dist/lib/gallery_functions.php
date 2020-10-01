@@ -70,25 +70,26 @@ function showImages($dir_glob)
         $origLink='';
         if (isset($info['origFile'])) {
             $origFilePath = $shpic . '/' . $info['origFile'];
-            $origLink = "<a href='". $origFilePath ."' download><i class='fas fa-image'> Sharepic</i></a>";
         }
 
         $saveLink='';
         $saveFile = $shpic . '/save_' . basename($shpic) . '.zip';
 
         if (file_exists($saveFile)) {
-            $saveLink = "<a href='". $saveFile ."' download><i class='fas fa-download'> Download Arbeitsdatei</i></a>";
-            $useLink = "<a href='../index.php?useSavework=gallery/".$saveFile ."' ><i class='fas fa-play'> Nutze Arbeitsdatei</i></a>";
+            $saveLink = "<a href='". $saveFile ."' download><i class='fas fa-download'></i> Download Arbeitsdatei</a>";
+            $useLink = "<a href='../index.php?useSavework=gallery/".$saveFile ."' ><i class='fas fa-wrench'></i> weiterbearbeiten</a>";
         }
 
-        $additional = "<tr><td colspan='2'>$origLink &nbsp; $saveLink &nbsp; $useLink</td></tr>";
-
+        $additional = "<tr> <td class=\"pr-3\"></td><td> $useLink</td></tr>";
+        // <a href="$origFilePath" class="samplesharepic-image" download>
         echo <<<EOL
         <div class="col-6 col-md-3 col-lg-3">
-            <figure>
-                <img src="$thumb" class="img-fluid" />
-                <figcaption>
-                    <table class="small">
+            <figure class="samplesharepic">
+                
+                <img src="$thumb" class="img-fluid"/>
+
+                <figcaption class="d-flex justify-content-around align-items-center">
+                    <table class="small m-2">
                         <tr>
                             <td class="pr-3 ">Id</td>
                             <td>$id</td>
@@ -97,13 +98,9 @@ function showImages($dir_glob)
                             <td class="pr-3 ">Nutzer*in</td>
                             <td>$user</td>
                         </tr>
-                        <tr>
-                            <td class="pr-3 ">Erstellt am</td>
-                            <td>$date</td>
-                        </tr>
                         $additional
                     </table>
-                </figcaption>
+                </figcaption> 
             </figure>
         </div>
 EOL;
