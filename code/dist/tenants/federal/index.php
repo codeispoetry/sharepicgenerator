@@ -136,6 +136,14 @@ require_once(getBasePath("lib/actionday.php"));
                 </div>
             <?php } ?>
 
+
+            <div class="col-12 text-center mt-4 small">
+                <a href="gallery" target="_blank">
+                    <i class="fas fa-store"></i> Sieh Dir Muster-Sharepics von anderen an.
+                </a><br>
+                Um ein eigenes Muster-Sharepic hier zu veröffentlichen, klicke rechts auf <em>Muster-Sharepics</em>.
+            </div>
+
         </div>
         <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
             <?php require_once('cockpit.php'); ?>
