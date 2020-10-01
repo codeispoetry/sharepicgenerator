@@ -17,6 +17,12 @@ function loadFormData(formdata) {
     }
   });
 
+  for (let i = 1; i <= 2; i++) {
+    if ($(`#addpicfile${i}`).val()) {
+      show(`show-add-pic-${i}`);
+    }
+  }
+
   window.setTimeout(() => {
     if (typeof reDraw === 'function') {
       // eslint-disable-next-line no-undef
