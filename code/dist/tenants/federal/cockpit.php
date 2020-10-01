@@ -395,12 +395,22 @@ if (!isAllowed(false)) {
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
+
+        <?php if(configValue("Features","showGallery")){ ?>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery">Galerie</h3>
+            <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
+                <div>
+                    <a href="gallery/" target="_blank">Link zur Galerie</a>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-secondary saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> in Galerie veröffentlichen</button>
+                </div>
+            </div>
+        <?php } ?>
+
         <div class="mt-2">
             <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
-            <?php if(configValue("Features","showGallery")){ ?>
-                <button type="button" class="btn btn-secondary saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> in Galerie veröffentlichen</button>
-            <?php } ?>
-            </div>
+        </div>
     </div>
     <div class="d-none">
         <input type="hidden" name="pinX" id="pinX">
