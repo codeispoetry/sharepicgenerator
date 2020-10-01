@@ -6,8 +6,21 @@ useDeLocale();
 
 session_start();
 
+if (!isset($_POST['action'])) {
+    returnJsonErrorAndDie('no action given');
+}
+
 if (!isAllowed(true)) {
     returnJsonErrorAndDie('not allowed');
 }
 
-deleteUserLogo(getUser());
+switch( $_POST['action']) {
+    case 'logo':
+        deleteUserLogo(getUser());
+    break;
+
+    default:
+        returnJsonErrorAndDie('unknown action');
+
+}
+
