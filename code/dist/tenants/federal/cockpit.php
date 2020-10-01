@@ -20,7 +20,7 @@ if (!isAllowed(false)) {
 <form id="pic">
     <div class="list-group">
 
-        <h3 class="" data-toggle="collapse" data-target=".picture">Bild</h3>
+        <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Bild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
@@ -137,7 +137,7 @@ if (!isAllowed(false)) {
             </div>
          </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout">Ausgabegröße</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> Ausgabegröße</h3>
         <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
             <div class="d-flex w-100 justify-content-between align-items-center">
                 <div class="form-inline">
@@ -168,7 +168,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="" data-toggle="collapse" data-target=".text">Text</h3>
+        <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="list-group-item-content mb-2">
 
@@ -251,7 +251,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher">Störer</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
         <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
@@ -267,7 +267,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".logo">Logo</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
         <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
@@ -369,7 +369,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".finish">Arbeitsdatei</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <button type="button" class="btn btn-secondary btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> Arbeitsdatei herunterladen</button>
@@ -380,7 +380,7 @@ if (!isAllowed(false)) {
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery">Muster-Sharepics (<?php echo $ownGalleryImages.'/'.$allGalleryImages;?>)</h3>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> Muster-Sharepics (<?php echo $ownGalleryImages.'/'.$allGalleryImages;?>)</h3>
             <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
                 <div>
                     <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Muster-Sharepics ansehen
@@ -409,7 +409,7 @@ if (!isAllowed(false)) {
             </div>
         <?php } ?>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".screen">Screen</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".screen"><i class="fas fa-adjust"></i> Screen</h3>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 align-items-center">
                 <span class="mr-2">Hintergrund:</span>
@@ -419,7 +419,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".code">Code-API</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <textarea placeholder="JavaScript-Code" name="code" id="code" class="form-control"></textarea>
