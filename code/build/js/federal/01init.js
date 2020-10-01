@@ -5,7 +5,7 @@ const bgpic = {
   originalWidth: 1920,
   originalHeight: 1080,
   filename: '/assets/bg_small.jpg',
-  fullBackgroundName: 'assets/bg.jpg',
+  fullBackgroundName: '../assets/bg.jpg',
 };
 
 $(document).ready(() => {
