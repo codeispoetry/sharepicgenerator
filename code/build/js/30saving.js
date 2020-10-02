@@ -39,6 +39,7 @@ function loadFormData(formdata) {
 // eslint-disable-next-line no-unused-vars
 function savework() {
   const data = $('#pic').serialize();
+  delete data.fullBackgroundName;
 
   $.ajax({
     type: 'POST',
