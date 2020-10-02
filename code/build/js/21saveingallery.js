@@ -55,7 +55,15 @@ $('.saveInGallery').click(function onSaveInGalleryClick() {
           $('.saveInGallery').prop('disabled', false);
           $('#canvas').removeClass('opacity');
           $('.saveInGallery').html(description);
-          $('#gallery-note').html("Gespeichert.").fadeIn().delay(5000).fadeOut("slow");
+          $('#gallery-note').html('Gespeichert.')
+            .fadeIn()
+            .delay(5000)
+            .fadeOut('slow');
+
+          let a = parseInt($('#allGalleryImages').html(), 10) + 1;
+          $('#allGalleryImages').html(a);
+          a = parseInt($('#ownGalleryImages').html(), 10) + 1;
+          $('#ownGalleryImages').html(a);
         },
       });
     },

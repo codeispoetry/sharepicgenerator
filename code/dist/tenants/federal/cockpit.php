@@ -380,7 +380,7 @@ if (!isAllowed(false)) {
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> Muster-Sharepics (<?php echo $ownGalleryImages.'/'.$allGalleryImages;?>)</h3>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> Muster-Sharepics (<span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>/<span id="allGalleryImages"><?php echo $allGalleryImages;?></span>)</h3>
             <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
                 <div>
                     <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Muster-Sharepics ansehen
