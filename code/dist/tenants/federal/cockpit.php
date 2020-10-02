@@ -393,7 +393,7 @@ if (!isAllowed(false)) {
                                 echo "noch kein eigenes";
                             break;
                             case 1:
-                                echo "ein eigenes.";
+                                echo "ein eigenes";
                             break;
                             default:
                                 echo $ownGalleryImages . ' eigene';
