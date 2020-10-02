@@ -51,3 +51,6 @@ deploy-production:
 
 rollback:
 	php vendor/bin/dep rollback production
+
+clean:
+	rm code/dist/tmp/* -rf
