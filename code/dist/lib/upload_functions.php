@@ -56,7 +56,7 @@ function handleUploadWork()
     $cmd = sprintf('unzip %s -d %s 2>&1', $filename, $savedir);
     exec($cmd, $output);
 
-    $cmd = sprintf("chmod -R 775 %s", $savedir);
+    $cmd = sprintf("chmod -R 777 %s", $savedir);
     exec($cmd, $output);
 
     $return['okay'] = true;
