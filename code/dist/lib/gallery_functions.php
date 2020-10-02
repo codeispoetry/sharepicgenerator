@@ -11,12 +11,7 @@ function ensureGalleryDir($tenant, $filename)
 
 function saveOrigFile()
 {
-    $saveOrig = false;
-
-    if (configValue("Gallery", "saveOrigFile") == 'true') {
-        $saveOrig = true;
-    }
-    return $saveOrig;
+    return (configValue("Gallery", "saveOrigFile") == 'true');
 }
 
 function saveInGallery($file, $format, $tenant)
