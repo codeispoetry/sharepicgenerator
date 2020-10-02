@@ -31,7 +31,7 @@ function saveInGallery($file, $format, $tenant)
     exec($command);
 
     $info = array(
-      "user"=>sanitizeUserinput($_POST['user']),
+      "user"=>getUser(),
       'date' => date("Y-m-d H:i:s"),
       'ID' => $filename
     );
