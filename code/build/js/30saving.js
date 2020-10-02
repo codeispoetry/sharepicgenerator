@@ -33,6 +33,9 @@ function loadFormData(formdata) {
       // eslint-disable-next-line no-undef
       showLayout();
     }
+
+    $('#logosize').val(formdata.logosize);
+    logo.resize($('#logosize').val());
   }, 100);
 }
 
