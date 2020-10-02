@@ -9,7 +9,7 @@ const bgpic = {
 };
 
 $(document).ready(() => {
-  $('#text').val('Neue Zeiten\nneue [Antworten].');
+  $('#text').val('Es beginnt\n[#mitdir]');
 });
 
 // eslint-disable-next-line no-unused-vars
