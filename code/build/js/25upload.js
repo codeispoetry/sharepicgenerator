@@ -131,7 +131,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
     }
   };
 
-  client.onload = function onLoad(e) {console.log(e.target)
+  client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
 
     closeOverlay();

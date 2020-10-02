@@ -517,6 +517,9 @@ function reuseSavework($saveworkFile)
     $cmd = sprintf('unzip %s -d %s 2>&1', $saveworkFile, $savedir);
     exec($cmd, $output);
 
+    $cmd = sprintf("chmod -R 777 %s", $savedir);
+    exec($cmd, $output);
+
     $return['okay'] = true;
     $datafile = $savedir . '/data.json';
     $json = file_get_contents($datafile);
