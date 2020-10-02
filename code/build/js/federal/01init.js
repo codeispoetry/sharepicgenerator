@@ -10,6 +10,11 @@ const bgpic = {
 
 $(document).ready(() => {
   $('#text').val('Es beginnt\n[#mitdir]');
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const clickId = urlParams.get('clickId');
+  $(`#${clickId}`).click();
 });
 
 // eslint-disable-next-line no-unused-vars
