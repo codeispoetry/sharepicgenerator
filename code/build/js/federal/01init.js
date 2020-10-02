@@ -10,6 +10,9 @@ const bgpic = {
 
 $(document).ready(() => {
   $('#text').val('Es beginnt\n[#mitdir]');
+  $('#textsize').val(513);
+  $('#textX').val(147);
+  $('#textY').val(131);
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
