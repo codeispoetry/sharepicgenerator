@@ -4,7 +4,9 @@ function ensureGalleryDir($tenant, $filename)
 {
     $directory = sprintf("tenants/%s/gallery/img/%s/", $tenant, $filename);
     if (!file_exists(getBasePath($directory))) {
-        mkdir(getBasePath($directory));
+        mkdir(getBasePath($directory),0775);
+        $command = sprintf("chmod 775 %s", getBasePath($directory));
+        exec($command, $output);
     }
     return $directory;
 }
@@ -45,7 +47,8 @@ function saveInGallery($file, $format, $tenant)
 function saveWorkInGallery($zipfile, $tenant, $filename)
 {
     $directory = ensureGalleryDir($tenant, $filename);
-    copy($zipfile, getBasePath($directory . "save_" . $filename . ".zip"));
+    $targetFile = getBasePath($directory . "save_" . $filename . ".zip");
+    copy($zipfile, $targetFile);
 }
 
 function showImages($dir_glob, $whoseFiles='foreignFiles')
