@@ -2,9 +2,11 @@ import unittest, time, os, shutil, json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+
 
 
 class sharepicgenerator(unittest.TestCase):
@@ -55,11 +57,46 @@ class sharepicgenerator(unittest.TestCase):
         # Upload picture
         driver.find_element_by_id("uploadfile").send_keys(os.getcwd()+"/assets/background.jpg")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-        time.sleep( 3 )
+
+        # Upload additional picture
+        driver.find_element_by_id("uploadaddpic1").send_keys(os.getcwd()+"/assets/addpic.jpg")
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
+        time.sleep( 1 )
+        driver.find_element_by_xpath("//*[@for='addpicrounded1'][2]").click()
+        moveAddPic = ActionChains(driver)
+        addPicElement = driver.find_element_by_id("addpic1")
+        moveAddPic.drag_and_drop_by_offset(addPicElement,90,320).perform()
+
+        # Change text
+        driver.find_element_by_id("text").send_keys(Keys.CONTROL, "a")
+        driver.find_element_by_id("text").send_keys("Automatischer\n[Akzeptanztest]")
+        driver.find_element_by_id("textsamesize").click()
+        textSizeElement =  driver.find_element_by_id("textsize")
+        move = ActionChains(driver)
+        move.click_and_hold(textSizeElement).move_by_offset(50, 0).release().perform()
+
+        # Add icon
+        driver.find_element_by_id("uploadicon").send_keys(os.getcwd()+"/assets/icon.svg")
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
+
+        # Move text
+        moveText = ActionChains(driver)
+        textElement = driver.find_element_by_id("svg-text")
+        moveText.drag_and_drop_by_offset(textElement,-120,-10).perform()
+
+        # Change logo
+        driver.find_element_by_xpath("//*[@data-target='.logo']").click()
+        logoSelect = Select(driver.find_element_by_id('logoselect'))
+        logoSelect.select_by_value('sonnenblume-weiss')
+
+        # Eyecatcher
+        driver.find_element_by_xpath("//*[@data-target='.eyecatcher']").click()
+        driver.find_element_by_id("pintext").send_keys("bestanden")
+
 
         # Download Sharepic
-        driver.find_element_by_id("download").click()
-        time.sleep( 5 )
+        #driver.find_element_by_id("download").click()
+        #time.sleep( 5 )
 
     def tearDown(self):
         jsErrors = 0
