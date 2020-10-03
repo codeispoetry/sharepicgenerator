@@ -20,7 +20,7 @@ if (!isAllowed(false)) {
 <form id="pic">
     <div class="">
 
-        <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Bild</h3>
+        <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
@@ -82,7 +82,17 @@ if (!isAllowed(false)) {
                     zentrieren
                 </small>
             </div>
+            <div class="align-items-lg-center show-copyright d-none">
+                <div class="d-flex align-items-center">
+                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
+                    <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                </div>
+            </div>
+        </div>    
+        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Zusatzbilder</h3>
+        <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
                 for ($i = 1; $i <=2; $i++) {
@@ -126,14 +136,6 @@ if (!isAllowed(false)) {
                     </div>
 
                 <?php } ?>
-            </div>
-            <div class="align-items-lg-center show-copyright d-none">
-                <div class="d-flex align-items-center">
-                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
-
-                    <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
-                </div>
             </div>
          </div>
 
