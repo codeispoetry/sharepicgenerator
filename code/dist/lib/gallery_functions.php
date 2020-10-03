@@ -137,7 +137,7 @@ EOL;
 function deleteWorkfile($id)
 {
     $galleryDir = getBasePath('tenants/' . $_SESSION['tenant'] . '/gallery/img/' . $id);
-    if (!$userOfGalleryFile = getUserOfGalleryFile($galleryDir)) {
+    if (!isAdmin() && !$userOfGalleryFile = getUserOfGalleryFile($galleryDir)) {
         returnJsonErrorAndDie("could not delete");
     }
 
