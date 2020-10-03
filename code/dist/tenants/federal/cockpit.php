@@ -173,22 +173,23 @@ if (!isAllowed(false)) {
             <div class="list-group-item-content mb-2">
 
                 <select class="form-control" name="layout" id="layout">
-                    <option value="standard">Layout: Standard</option>
+                    <option value="lines">Layout: Mit Linien</option>
+                    <option value="nolines">Layout: Ohne Linien</option>
                     <option value="quote">Layout: Zitat</option>
                 </select>
             </div>
 
             <div class="list-group-item-content">
-                <div class="noquote">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
-                           class="form-control">
+                <div class="">
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="#Hashtag"
+                           class="form-control showonly lines nolines">
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control">
-                    <div class="d-none noquote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="text drunter" class="form-control">
+                    <div class="d-none">
                         <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1" data-click="textChangeColor" title="Farbe wechseln"></i>
                     </div>
                 </div>
@@ -213,12 +214,12 @@ if (!isAllowed(false)) {
 
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
-                        <div class="noquote">
-                            <label>
+                        <div class="">
+                            <label class="showonly lines">
                                 <input type="checkbox" name="textsamesize" id="textsamesize">
                                 Zeilen gleich lang
                             </label>
-                            <label>
+                            <label class="showonly lines">
                                 <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
                                 Grün hinter Text
                             </label>
@@ -230,7 +231,7 @@ if (!isAllowed(false)) {
                     </div>
                 </div>
             </div>
-            <div class="noquote preferences-text">
+            <div class="preferences-text showonly lines">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen

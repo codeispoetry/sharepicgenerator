@@ -1,13 +1,16 @@
 function showLayout() {
   config.layout = $('#layout').val();
 
-  $('.noquote').toggleClass('d-none');
+  $('.showonly').hide();
+
+  $(`.${config.layout}`).show();
 
   // this better with trigger
   background.svg.unmask();
   quote.draw();
   inverted.draw();
   text.draw();
+  nolines.draw();
 }
 
 $('#layout').click(showLayout);
