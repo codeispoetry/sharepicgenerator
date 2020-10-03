@@ -372,7 +372,7 @@ if (!isAllowed(false)) {
         <h3 class="collapsed" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
-                <button type="button" class="btn btn-secondary btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> Arbeitsdatei herunterladen</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
                 <button type="button" class="btn btn-secondary btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
         </div>
