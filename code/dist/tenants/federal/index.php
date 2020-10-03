@@ -70,8 +70,8 @@ require_once(getBasePath("lib/actionday.php"));
     </script>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid h-100">
+    <div class="row h-100">
 
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
@@ -145,33 +145,34 @@ require_once(getBasePath("lib/actionday.php"));
             </div>
 
         </div>
-        <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
-            <?php require_once('cockpit.php'); ?>
+        <div class="col-12 col-lg-3 p-0">
+            <div class="cockpit h-100">
+                <?php require_once('cockpit.php'); ?>
+            </div> 
         </div>
     </div>
+
+    <footer class="row bg-primary p-2 text-white">
+        <div class="col-12 col-lg-6">
+            <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
+            <a href="#" class="overlay-opener" data-target="actiondays" id="actiondaysopener">
+                <i class="far fa-hand-point-right ml-3"></i> Aktionstage
+            </a>
+            <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
+            <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
+            <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
+        </div>
+
+        <div class="col-12 col-lg-6 text-lg-right">
+            <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"><i class="fas fa-comment-dots"></i> Feedback</a>
+            <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> Quellcode</a>
+            <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
+            <span class="ml-3">
+                <i class="fas fa-spa text-highlight"></i> Programmiert von
+                <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.</span>
+        </div>
+    </footer>
 </div>
-
-<footer class="row bg-primary p-2 text-white">
-    <div class="col-12 col-lg-6">
-        <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
-        <a href="#" class="overlay-opener" data-target="actiondays" id="actiondaysopener">
-            <i class="far fa-hand-point-right ml-3"></i> Aktionstage
-        </a>
-        <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
-        <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
-        <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
-    </div>
-
-    <div class="col-12 col-lg-6 text-lg-right">
-        <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"><i class="fas fa-comment-dots"></i> Feedback</a>
-        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> Quellcode</a>
-        <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
-        <span class="ml-3">
-            <i class="fas fa-spa text-highlight"></i> Programmiert von
-            <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.</span>
-    </div>
-</footer>
-
 <div class="overlays">
     <?php
         require_once(getBasePath('/lib/overlays/pixabay.php'));

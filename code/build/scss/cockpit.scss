@@ -1,3 +1,18 @@
+.cockpit{
+  background: $lightgray;
+  a{
+    color: white;
+  }
+}
+
+.list-group-item{
+  background: $verylightgray;
+  border: none;
+  width: 100%;
+  &:hover{
+    background: $verylightgray;
+  }
+}
 
 .slider {
   display: flex;
@@ -32,9 +47,23 @@
 #pic {
   h3 {
     font-size: 0.9em;
-    margin: 10px 0 0 0;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    border-bottom: 1px solid $lightgray;
+    padding: 8px;
+    margin: 0;
+    transition: 200ms;
+    background: $lightgray;
+    color: white;
+    i{
+      margin-right: 1em;
+    }
+
+    &.collapsed{
+      border-color: white;
+    }
   }
 
   * {
@@ -42,23 +71,24 @@
       cursor: pointer;
 
       &:hover {
-        color: $primary;
+        color: $darkgray;
       }
 
       &.collapsed {
         &:after {
           transform: rotate(-90deg);
+          transition: 200ms;
         }
       }
 
       &:after {
         font-family: "Font Awesome\ 5 Free";
         content: "\f0d7";
-        display: inline-block;
-        padding: 4px;
-        vertical-align: middle;
+        font-size: 120%;
         font-weight: 900;
-        transition: 200ms;
+        
+        position: absolute;
+        right: 10px;
       }
     }
   }
