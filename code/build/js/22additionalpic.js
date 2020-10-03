@@ -6,7 +6,7 @@ const addPic1 = {
 
   draw() {
     this.svg.remove();
-    this.svg = draw.group().addClass('draggable').draggable();
+    this.svg = draw.group().addClass('draggable').attr('id', `addpic${this.i}`).draggable();
 
     this.svg.on('dragmove.namespace', () => {
       this.circleMask.move(this.pic.x(), this.pic.y());
