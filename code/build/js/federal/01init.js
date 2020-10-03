@@ -13,6 +13,7 @@ $(document).ready(() => {
   $('#textsize').val(513);
   $('#textX').val(147);
   $('#textY').val(131);
+  config.layout = 'nolines';
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -34,7 +35,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     logo.load();
-    text.draw();
+    nolines.draw();
     pin.draw();
   }, 10);
 
