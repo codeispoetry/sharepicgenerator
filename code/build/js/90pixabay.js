@@ -44,15 +44,15 @@ function getPixabayVideos(q) {
       });
 
       $('#pixabay-videos .results button.play').click(function clickButton() {
-        let videoId = $(this).data('id');
-        let videoElement = $('#' + videoId ).get(0);
-        
-        if( videoElement.paused ){
+        const videoId = $(this).data('id');
+        const videoElement = $(`#${videoId}`).get(0);
+
+        if (videoElement.paused) {
           videoElement.play();
-          $(this).html("stop");
-        }else{
+          $(this).html('stop');
+        } else {
           videoElement.pause();
-          $(this).html("abspielen");
+          $(this).html('abspielen');
         }
       });
     },
