@@ -68,8 +68,6 @@ if (!isAllowed(false)) {
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
         <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
-        <a href="#" class="overlay-opener" data-target="actiondays"><i class="far fa-hand-point-right ml-3"></i> Aktionstage</a>
-        <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">
