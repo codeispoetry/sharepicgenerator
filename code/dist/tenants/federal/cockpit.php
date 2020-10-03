@@ -24,7 +24,7 @@ if (!isAllowed(false)) {
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Hintergrundbild/ -video hochladen
+                    <i class="fa fa-upload"></i> Bilder oder Video hochladen
                 </a> 
                 <span class="text-primary cursor-pointer" id="pixabayopener">
                     <i class="fas fa-search"></i> suchen
@@ -39,7 +39,7 @@ if (!isAllowed(false)) {
             <?php } ?>
            
                
-            <small class="collapsed cursor-pointer text-primary preferences-pic-btn novideo" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
+            <small class="collapsed cursor-pointer text-primary preferences-pic-btn novideo arrownarrow" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
                Bildeinstellungen
             </small>
             <div class="mb-1 list-group-item-content collapse preferences-pic">
@@ -139,7 +139,7 @@ if (!isAllowed(false)) {
             </div>
          </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> Ausgabegröße</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> Größe</h3>
         <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
             <div class="d-flex w-100 justify-content-between align-items-center">
                 <div class="form-inline">
@@ -177,7 +177,7 @@ if (!isAllowed(false)) {
                     <input type="radio" class="form-check-input layout" name="layout" value="lines" checked>Mit Linien
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="nolines">Ohne Linien
+                    <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
@@ -262,7 +262,6 @@ if (!isAllowed(false)) {
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
                     <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
-                    <i class="fas fa-undo-alt text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"></i>
                 </div>
                 <div class="slider">
                     <small>klein</small>
@@ -378,6 +377,9 @@ if (!isAllowed(false)) {
         <h3 class="collapsed" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
+                Mit der Arbeitsdatei kannst Du Dein Sharepic später weiter bearbeiten.
+            </div>
+            <div>
                 <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
                 <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
@@ -389,7 +391,7 @@ if (!isAllowed(false)) {
             <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Muster-Sharepics 
 
-                <span class="badge btn-light">
+                <span class="badge btn-light ml-2">
                     <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
                     /
                     <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
