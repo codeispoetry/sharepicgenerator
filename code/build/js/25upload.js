@@ -203,7 +203,7 @@ $('.uploadiconclicker').click(() => {
   $('#uploadicon').click();
 });
 $('.uploadworkclicker').click(() => {
-  document.getElementById("pic").reset();
+  document.getElementById('pic').reset();
   reDraw();
   $('#uploadwork').click();
 });

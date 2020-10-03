@@ -45,7 +45,6 @@ function nextActionDay()
             switch (floor((($timestamp - time()) / 3600 / 24))) {
                 case 0:
                     $remainingTimeText = "Heute ";
-                    print_r($day);
                     break;
                 case 1:
                     $remainingTimeText = "Morgen";

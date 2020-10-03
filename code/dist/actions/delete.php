@@ -16,15 +16,13 @@ if (!isAllowed(true)) {
     returnJsonErrorAndDie('not allowed');
 }
 
-switch( $_POST['action']) {
+switch ($_POST['action']) {
     case 'logo':
         deleteUserLogo(getUser());
-    break;
+        break;
     case 'workfile':
         deleteWorkfile($_POST['workfileiId']);
-    break;
+        break;
     default:
         returnJsonErrorAndDie('unknown action');
-
 }
-
