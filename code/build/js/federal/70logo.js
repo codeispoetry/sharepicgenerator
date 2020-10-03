@@ -106,10 +106,6 @@ const logo = {
     logo.svg.move(x, y);
 
     $('#svg-logo').hover(() => {
-      const position = $('#canvas svg').position();
-      $('#fancy-logo-select').css('top', position.top);
-      $('#fancy-logo-select').css('left', position.left + $('#canvas svg').width() + 5);
-
       $('#fancy-logo-select').fadeIn();
     });
 
@@ -168,6 +164,10 @@ $('#logosize').bind('input propertychange', () => {
 });
 
 $(document).ready(() => {
+  const position = $('#canvas svg').position();
+  $('#fancy-logo-select').css('top', position.top);
+  $('#fancy-logo-select').css('left', position.left + $('#canvas svg').width() + 5);
+
   $('#logoselect option').each(function setfancylogos() {
     const logoId = $(this).val();
     const logoName = $(this).html();
@@ -190,4 +190,6 @@ $(document).ready(() => {
   });
 
   logo.load(); // otherwise sometimes to logo is not rendered
+
+  $('#fancy-logo-select').fadeIn().delay(2000).fadeOut('slow');
 });
