@@ -85,7 +85,7 @@ jobs:
 
       - name: Install selenium
         run: |
-          python -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip
           pip install selenium
 
       - name: Add Password
