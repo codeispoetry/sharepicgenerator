@@ -1,5 +1,5 @@
 function showLayout() {
-  config.layout = $('#layout').val();
+  config.layout = $('input[name=layout]:checked', '#pic').val();
 
   $('.showonly').hide();
 
@@ -13,4 +13,4 @@ function showLayout() {
   nolines.draw();
 }
 
-$('#layout').click(showLayout);
+$('.layout').click(showLayout);

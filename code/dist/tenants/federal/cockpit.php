@@ -170,13 +170,16 @@ if (!isAllowed(false)) {
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="list-group-item-content mb-2">
-
-                <select class="form-control" name="layout" id="layout">
-                    <option value="lines">Layout: Mit Linien</option>
-                    <option value="nolines">Layout: Ohne Linien</option>
-                    <option value="quote">Layout: Zitat</option>
-                </select>
+            <div class="d-flex justify-content-between form-check form-check-inline">
+                <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="lines" checked>Mit Linien
+                 </label>
+                 <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="nolines">Ohne Linien
+                 </label>
+                 <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
+                 </label>
             </div>
 
             <div class="list-group-item-content">
