@@ -188,4 +188,6 @@ $(document).ready(() => {
     $(`#logoselect [value="${logoId}"]`).prop('selected', true);
     logo.load();
   });
+
+  logo.load(); // otherwise sometimes to logo is not rendered
 });
