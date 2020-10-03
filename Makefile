@@ -28,6 +28,9 @@ down:
 test:
 	cd tests && URL=http://webserver LOCAL=true python3 test.py
 
+test-live:
+	cd tests && URL=https://sharepicgenerator.de LOCAL=true python3 test.py
+
 doc:
 	docker-compose exec mkdocs mkdocs build
 
