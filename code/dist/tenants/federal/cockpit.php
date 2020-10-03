@@ -90,86 +90,8 @@ if (!isAllowed(false)) {
                     <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
             </div>
-        </div>    
-        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Zusatzbilder</h3>
-        <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
-            <div class="flex-column align-items-start">
-                <?php
-                for ($i = 1; $i <=2; $i++) {
-                    $divclass='mb-1 list-group-item-content';
-                    if ($i > 1) {
-                        $divclas .= ' show-add-pic-upload d-none';
-                    }
-                ?>
-                    <div class="<?= $divclass; ?>">
-                        <div class="d-flex w-100 justify-content-between">
-                         <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
-                            <i class="fa fa-upload"></i> <?= $i; ?>. Vordergrundbild hochladen
-                        </span>
-
-                            <?php if ($i == 2) { ?>
-                                <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
-                                    <i class="fas fa-align-justify"></i>
-                                    angleichen
-                                </small>
-                            <?php } ?>
-
-                            <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicdelete<?= $i; ?>">
-                                <i class="fas fa-trash"></i>
-                                löschen
-                            </small>
-                        </div>
-                        <div class="mb-1 mt-2 d-none show-add-pic-<?= $i; ?>">
-                            <div class="d-flex align-items-center">
-                               <div class="slider">
-                                    <small>klein</small>
-                                    <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
-                                    <small>groß</small>
-                                </div>
-                                <div class="ml-3">
-                                    <label>
-                                        <input type="checkbox" name="addpicrounded<?= $i; ?>" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php } ?>
-            </div>
-         </div>
-
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> Größe</h3>
-        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
-            <div class="d-flex w-100 justify-content-between align-items-center">
-                <div class="form-inline">
-                    <div class="form-row sizecontainer">
-                        <input type="number" class="form-control size" name="width" id="width" step="10">
-                        <span class="mt-2 small">x</span>
-                        <input type="number" class="form-control size" name="height" id="height" step="10">
-                        <span class="mt-2 mr-2 small">Px</span>
-
-                        <select class="form-control" id="sizepresets">
-                            <option class="">Vorgabe</option>
-                            <?php
-                            $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
-                            foreach ($sizes as $name => $group) {
-                                printf('<optgroup label="%s">', $name);
-                                foreach ($group as $label => $size) {
-                                    list($width, $height, $quality) = preg_split("/[^0-9]/", trim($size));
-                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
-                                    printf('<option value="%d:%d" data-socialmediaplatform="%s" data-quality="%s">%s</option>', $width, $height, $socialmediaplatform, $quality, $label);
-                                }
-                                echo '</optgroup>';
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
-            </div>
-        </div>
-
+        </div>   
+        
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
@@ -257,22 +179,54 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
-        <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
-            <div class="mb-1 list-group-item-content">
-                <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
-                </div>
-                <div class="slider">
-                    <small>klein</small>
-                    <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
-                           max="300" value="100" disabled>
-                    <small>groß</small>
-                </div>
-            </div>
-        </div>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Zusatzbilder</h3>
+        <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div class="flex-column align-items-start">
+                <?php
+                for ($i = 1; $i <=2; $i++) {
+                    $divclass='mb-1 list-group-item-content';
+                    if ($i > 1) {
+                        $divclas .= ' show-add-pic-upload d-none';
+                    }
+                ?>
+                    <div class="<?= $divclass; ?>">
+                        <div class="d-flex w-100 justify-content-between">
+                         <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
+                            <i class="fa fa-upload"></i> <?= $i; ?>. Vordergrundbild hochladen
+                        </span>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+                            <?php if ($i == 2) { ?>
+                                <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
+                                    <i class="fas fa-align-justify"></i>
+                                    angleichen
+                                </small>
+                            <?php } ?>
+
+                            <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicdelete<?= $i; ?>">
+                                <i class="fas fa-trash"></i>
+                                löschen
+                            </small>
+                        </div>
+                        <div class="mb-1 mt-2 d-none show-add-pic-<?= $i; ?>">
+                            <div class="d-flex align-items-center">
+                               <div class="slider">
+                                    <small>klein</small>
+                                    <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
+                                    <small>groß</small>
+                                </div>
+                                <div class="ml-3">
+                                    <label>
+                                        <input type="checkbox" name="addpicrounded<?= $i; ?>" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php } ?>
+            </div>
+         </div>
+         <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
         <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
@@ -329,6 +283,52 @@ if (!isAllowed(false)) {
                 Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
             </div>
         </div>
+         <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
+        <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
+            <div class="mb-1 list-group-item-content">
+                <div class="d-flex align-items-lg-center">
+                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
+                </div>
+                <div class="slider">
+                    <small>klein</small>
+                    <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                           max="300" value="100" disabled>
+                    <small>groß</small>
+                </div>
+            </div>
+        </div>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> Größe</h3>
+        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+            <div class="d-flex w-100 justify-content-between align-items-center">
+                <div class="form-inline">
+                    <div class="form-row sizecontainer">
+                        <input type="number" class="form-control size" name="width" id="width" step="10">
+                        <span class="mt-2 small">x</span>
+                        <input type="number" class="form-control size" name="height" id="height" step="10">
+                        <span class="mt-2 mr-2 small">Px</span>
+
+                        <select class="form-control" id="sizepresets">
+                            <option class="">Vorgabe</option>
+                            <?php
+                            $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
+                            foreach ($sizes as $name => $group) {
+                                printf('<optgroup label="%s">', $name);
+                                foreach ($group as $label => $size) {
+                                    list($width, $height, $quality) = preg_split("/[^0-9]/", trim($size));
+                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
+                                    printf('<option value="%d:%d" data-socialmediaplatform="%s" data-quality="%s">%s</option>', $width, $height, $socialmediaplatform, $quality, $label);
+                                }
+                                echo '</optgroup>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
+            </div>
+        </div>
+
+
 
         <h3 class="collapsed debug" data-toggle="collapse" data-target=".cloud">Wolke</h3>
         <div class="cloud collapse list-group-item list-group-item-action flex-column align-items-start ">
