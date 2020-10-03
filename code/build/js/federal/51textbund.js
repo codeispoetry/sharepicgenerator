@@ -18,7 +18,7 @@ const text = {
   },
 
   draw() {
-    if (config.layout !== undefined && config.layout !== 'standard') {
+    if (config.layout !== undefined && config.layout !== 'lines') {
       return;
     }
 
