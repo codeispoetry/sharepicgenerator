@@ -83,9 +83,16 @@
         content: "\f0d7";
         font-size: 120%;
         font-weight: 900;
-        
         position: absolute;
         right: 10px;
+      }
+
+      &.arrownarrow {
+        position: relative;
+        &:after{
+          right: -14px;
+          top: -3px;
+        }
       }
     }
   }
