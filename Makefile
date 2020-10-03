@@ -54,3 +54,6 @@ rollback:
 
 clean:
 	rm code/dist/tmp/* -rf
+
+eslint:
+	cd code && npx eslint build --ext .js,.jsx,.ts,.tsx
