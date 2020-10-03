@@ -65,6 +65,12 @@ function checkPermission($user, $accesstoken)
     return $accesstoken == ACCESSTOKEN;
 }
 
+function isAdmin()
+{
+    $admins = explode(",", configValue("Main", "admins"));
+    return in_array(getUser(), $admins);
+}
+
 function getUser()
 {
     if (!isset($_SESSION['user'])) {
