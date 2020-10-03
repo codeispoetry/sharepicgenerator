@@ -154,7 +154,9 @@ require_once(getBasePath("lib/actionday.php"));
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
         <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
-        <a href="#" class="overlay-opener" data-target="actiondays" id="actiondaysopener"><i class="far fa-hand-point-right ml-3"></i> Aktionstage</a>
+        <a href="#" class="overlay-opener" data-target="actiondays" id="actiondaysopener">
+            <i class="far fa-hand-point-right ml-3"></i> Aktionstage
+        </a>
         <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
         <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
         <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
