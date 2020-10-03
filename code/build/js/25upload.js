@@ -57,6 +57,7 @@ $('.upload-file').change(function changeFile() {
         afterUpload(obj);
         break;
       case 'uploadlogo':
+        $('#logoselect').append(new Option('Eigenes Logo', 'custom'));
         $('#logoselect').val('custom');
         logo.load();
         break;

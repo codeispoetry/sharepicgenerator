@@ -291,18 +291,18 @@ if (!isAllowed(false)) {
                     <?php
                     }
                     ?>
-                    <optgroup label="Eigenes Logo">
+                    
                     <?php
                     if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
                         ?>
-                        <option value="custom" selected>eigenes Logo</option>
-                        <option value="deletecustomlogo">eigenes Logo löschen</option>
+                        <optgroup label="Eigenes Logo">
+                            <option value="custom" selected>eigenes Logo</option>
+                            <option value="deletecustomlogo">eigenes Logo löschen</option>
+                        </optgroup>
                     <?php
-                    } else {
-                        echo '<option value="custom">eigenes Logo hochladen</option>';
                     }
                     ?>
-                    </optgroup>
+                   
                     <optgroup label="Speziallogos">
                         <option value="frauenrechte">Frauenrechte</option>
                         <option value="regenbogen">Regenbogen</option>
