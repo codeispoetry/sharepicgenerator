@@ -31,6 +31,9 @@ test:
 test-live:
 	cd tests && URL=https://sharepicgenerator.de LOCAL=true python3 test.py
 
+test-develop:
+	cd tests && URL=https://develop.sharepicgenerator.de LOCAL=true python3 test.py
+
 doc:
 	docker-compose exec mkdocs mkdocs build
 
