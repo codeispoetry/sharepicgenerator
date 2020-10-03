@@ -98,7 +98,7 @@ jobs:
         if: github.ref == 'refs/heads/develop'
         run: |
           cd tests
-          URL=https://develop.sharepicgenerator.de python test.py
+          URL=https://develop.sharepicgenerator.de python3 test.py
       - name: Run test against live
         if: github.ref == 'refs/heads/main'
         run: |
