@@ -165,7 +165,8 @@ require_once(getBasePath("lib/actionday.php"));
 
         <div class="col-12 col-lg-6 text-lg-right">
             <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"><i class="fas fa-comment-dots"></i> Feedback</a>
-            <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> Quellcode</a>
+            <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> 
+                Quellcode</a>
             <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
             <span class="ml-3">
                 <i class="fas fa-spa text-highlight"></i> Programmiert von
@@ -179,12 +180,15 @@ require_once(getBasePath("lib/actionday.php"));
         require_once(getBasePath('/lib/overlays/icons.php'));
         require_once(getBasePath('/lib/overlays/waiting.php'));
         require_once(getBasePath('/lib/overlays/actiondays.php'));
+        require_once(getBasePath('/lib/overlays/logos.php'));
+
     ?>
 </div>
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>
 <script src="/vendor/bootstrap.min.js"></script>
 <script src="/vendor/bootstrap4-toggle.min.js"></script>
+
 
 <script src="/vendor/svg.min.js"></script>
 <script src="/vendor/svg.draggable.min.js"></script>
