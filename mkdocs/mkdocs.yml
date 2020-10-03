@@ -7,7 +7,6 @@ nav:
   - Profieinstellungen: profi.md
   - Verbindung zur grünen Wolke (Cloud): cloud.md
   - Code-API: code.md
-  - NRW: nrw.md
 theme:
   name: null
   custom_dir: 'theme/'

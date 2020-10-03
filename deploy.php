@@ -19,7 +19,6 @@ set('shared_dirs', [
     'persistent/user',
     'tenants/federal/gallery/img',
     'log/logs',
-    'tenants/nrw/gallery/img'
 ]);
 
 // Writable dirs by web server
