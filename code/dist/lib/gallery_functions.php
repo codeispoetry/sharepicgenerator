@@ -104,7 +104,7 @@ function showImage($shpic)
     }
 
     $deleteLink = '';
-    if ($user == $_SESSION['user']) {
+    if ($user == $_SESSION['user'] || isAdmin()) {
         $deleteLink = "<tr><td class=\"pr-3\"></td><td><a data-id=\""
         .$id .
         "\" class=\"deleteWorkfile text-danger cursor-pointer\"><i class='fas fa-trash'></i> löschen</a></td></tr>";
@@ -141,7 +141,7 @@ function deleteWorkfile($id)
         returnJsonErrorAndDie("could not delete");
     }
 
-    if (getUser() != $userOfGalleryFile) {
+    if (!isAdmin() && getUser() != $userOfGalleryFile) {
         returnJsonErrorAndDie("could not delete");
     }
 
