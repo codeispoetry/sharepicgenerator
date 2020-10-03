@@ -61,7 +61,7 @@ class sharepicgenerator(unittest.TestCase):
         # Upload additional picture
         driver.find_element_by_id("uploadaddpic1").send_keys(os.getcwd()+"/assets/addpic.jpg")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-        time.sleep( 1 )
+        time.sleep( 3 )
         driver.find_element_by_xpath("//*[@for='addpicrounded1'][2]").click()
         moveAddPic = ActionChains(driver)
         addPicElement = driver.find_element_by_id("addpic1")
