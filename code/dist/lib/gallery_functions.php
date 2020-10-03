@@ -4,7 +4,7 @@ function ensureGalleryDir($tenant, $filename)
 {
     $directory = sprintf("tenants/%s/gallery/img/%s/", $tenant, $filename);
     if (!file_exists(getBasePath($directory))) {
-        mkdir(getBasePath($directory),0775);
+        mkdir(getBasePath($directory), 0775);
         $command = sprintf("chmod 775 %s", getBasePath($directory));
         exec($command, $output);
     }
@@ -51,18 +51,18 @@ function saveWorkInGallery($zipfile, $tenant, $filename)
     copy($zipfile, $targetFile);
 }
 
-function showImages($dir_glob, $whoseFiles='foreignFiles')
+function showImages($dir_glob, $whoseFiles = 'foreignFiles')
 {
     $dirs = array_reverse(glob($dir_glob, GLOB_ONLYDIR));
     $i=0;
     foreach ($dirs as $shpic) {
-        if($whoseFiles == 'ownFiles'){
-            if(getUser()!=getUserOfGalleryFile($shpic)){
+        if ($whoseFiles == 'ownFiles') {
+            if (getUser()!=getUserOfGalleryFile($shpic)) {
                 continue;
             }
         }
-        if($whoseFiles == 'foreignFiles'){
-            if(getUser()==getUserOfGalleryFile($shpic)){
+        if ($whoseFiles == 'foreignFiles') {
+            if (getUser()==getUserOfGalleryFile($shpic)) {
                 continue;
             }
         }
@@ -71,10 +71,10 @@ function showImages($dir_glob, $whoseFiles='foreignFiles')
         $i++;
     }
 
-    if($i==0){
-        echo '<div class="col-12">Du hast noch kein eigenes Muster-Sharepic veröffentlicht.<br><a href="../"><i class="fas fa-wrench"></i> erstelle ein eigenes Sharepic</a></div>';
+    if ($i==0) {
+        echo '<div class="col-12">Du hast noch kein eigenes Muster-Sharepic veröffentlicht.<br>
+            <a href="../"><i class="fas fa-wrench"></i> erstelle ein eigenes Sharepic</a></div>';
     }
-    
 }
 
 function showImage($shpic)
@@ -98,13 +98,16 @@ function showImage($shpic)
     $saveFile = $shpic . '/save_' . basename($shpic) . '.zip';
 
     if (file_exists($saveFile)) {
-        $useLink = "<tr> <td class=\"pr-3\"></td><td><a href='../index.php?useSavework=gallery/".$saveFile ."' ><i class='fas fa-wrench'></i> weiterarbeiten</a></td></tr>";
+        $useLink = "<tr> <td class=\"pr-3\"></td><td><a href='../index.php?useSavework=gallery/"
+            .$saveFile .
+            "' ><i class='fas fa-wrench'></i> weiterarbeiten</a></td></tr>";
     }
 
     $deleteLink = '';
-    if($user == $_SESSION['user'])
-    {
-        $deleteLink = "<tr><td class=\"pr-3\"></td><td><a data-id=\"".$id ."\" class=\"deleteWorkfile text-danger cursor-pointer\"><i class='fas fa-trash'></i> löschen</a></td></tr>";
+    if ($user == $_SESSION['user']) {
+        $deleteLink = "<tr><td class=\"pr-3\"></td><td><a data-id=\""
+        .$id .
+        "\" class=\"deleteWorkfile text-danger cursor-pointer\"><i class='fas fa-trash'></i> löschen</a></td></tr>";
     }
 
     echo <<<EOL
@@ -133,25 +136,24 @@ EOL;
 
 function deleteWorkfile($id)
 {
-    $galleryDir = getBasePath('tenants/' . $_SESSION['tenant'] . '/gallery/img/' . $id );
-    if (!$userOfGalleryFile = getUserOfGalleryFile($galleryDir))
-    {
+    $galleryDir = getBasePath('tenants/' . $_SESSION['tenant'] . '/gallery/img/' . $id);
+    if (!$userOfGalleryFile = getUserOfGalleryFile($galleryDir)) {
         returnJsonErrorAndDie("could not delete");
     }
 
-    if(getUser() != $userOfGalleryFile){
+    if (getUser() != $userOfGalleryFile) {
         returnJsonErrorAndDie("could not delete");
     }
 
     exec('rm -rf ' . $galleryDir);
     returnJsonSuccessAndDie();
-    
 }
 
-function getUserOfGalleryFile($dir){
+function getUserOfGalleryFile($dir)
+{
     
     $dataFile = $dir . '/info.json';
-    if(!file_exists($dataFile)){
+    if (!file_exists($dataFile)) {
         return false;
     }
     $data = json_decode(file_get_contents($dataFile));
@@ -164,11 +166,10 @@ function countGalleryImages($dir_glob)
     $dirs = array_reverse(glob($dir_glob, GLOB_ONLYDIR));
     $ownFiles = 0;
     foreach ($dirs as $shpic) {
-        if(getUser()==getUserOfGalleryFile($shpic)){
+        if (getUser()==getUserOfGalleryFile($shpic)) {
             $ownFiles++;
         }
     }
 
     return array(count($dirs),$ownFiles);
 }
-       
