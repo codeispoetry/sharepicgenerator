@@ -18,7 +18,7 @@ if (!isAllowed(false)) {
 ?>
 
 <form id="pic">
-    <div class="list-group">
+    <div class="">
 
         <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Bild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
@@ -372,15 +372,23 @@ if (!isAllowed(false)) {
         <h3 class="collapsed" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
-                <button type="button" class="btn btn-secondary btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
-                <button type="button" class="btn btn-secondary btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
+                <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
+                <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
         </div>
 
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> Muster-Sharepics (<span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>/<span id="allGalleryImages"><?php echo $allGalleryImages;?></span>)</h3>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
+                Muster-Sharepics 
+
+                <span class="badge btn-light">
+                    <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
+                    /
+                    <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
+                </span>
+                </h3>
             <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
                 <div>
                     <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Muster-Sharepics ansehen
@@ -419,18 +427,18 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
+        <h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <textarea placeholder="JavaScript-Code" name="code" id="code" class="form-control"></textarea>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-secondary btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
+                <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
 
-        <div class="mt-2">
+        <div class="mt-2 text-center">
             <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
         </div>
     </div>
