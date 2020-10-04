@@ -190,6 +190,4 @@ $(document).ready(() => {
   });
 
   logo.load(); // otherwise sometimes to logo is not rendered
-
-  $('#fancy-logo-select').fadeIn().delay(2000).fadeOut('slow');
 });
