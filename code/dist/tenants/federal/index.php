@@ -110,7 +110,7 @@ nextActionDay();
         </ul>
         <span class="navbar-text">
             Eingeloggt als <em><?php echo getUser(); ?></em>
-            <a href="?logout=true" class=""><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
+            <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
         </span>
     </div>
     </nav>
