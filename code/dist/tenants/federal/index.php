@@ -71,12 +71,9 @@ nextActionDay();
 </head>
 <body>
 <div class="container-fluid h-100">
-    <div class="row h-100">
+    <div class="row h-100 flex-row-reverse">
 
-        <div class="col-12 col-lg-9">
-            <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="h6"><a href="/index.php" class="text-body">Sharepicgenerator.de</a></h1>
-            </div>
+        <div class="col-12 col-lg-9 pt-4">
             <div class="col-12">
                 <div id="canvas">
                     <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
