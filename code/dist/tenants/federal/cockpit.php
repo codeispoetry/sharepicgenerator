@@ -18,7 +18,7 @@ if (!isAllowed(false)) {
 ?>
 
 <form id="pic">
-    <div class="">
+    <div class="mb-5">
 
         <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
@@ -455,10 +455,6 @@ if (!isAllowed(false)) {
                 <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
-        </div>
-
-        <div class="mt-2 text-center">
-            <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
         </div>
     </div>
     <div class="d-none">
