@@ -72,7 +72,7 @@ function showImages($dir_glob, $whoseFiles = 'foreignFiles')
     }
 
     if ($i==0) {
-        echo '<div class="col-12">Du hast noch kein eigenes Muster-Sharepic veröffentlicht.<br>
+        echo '<div class="col-12">Du hast noch keine eigene Vorlage veröffentlicht.<br>
             <a href="../"><i class="fas fa-wrench"></i> erstelle ein eigenes Sharepic</a></div>';
     }
 }

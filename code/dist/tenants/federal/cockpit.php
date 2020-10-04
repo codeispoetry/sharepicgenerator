@@ -389,7 +389,7 @@ if (!isAllowed(false)) {
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
             <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
-                Muster-Sharepics 
+                Vorlagen
 
                 <span class="badge btn-light ml-2">
                     <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
@@ -399,28 +399,28 @@ if (!isAllowed(false)) {
                 </h3>
             <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
                 <div>
-                    <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Muster-Sharepics ansehen
+                    <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Vorlagen ansehen
                     <br>
                     Du hast
                     <?php
                         switch($ownGalleryImages)
                         {
                             case 0:
-                                echo "noch kein eigenes";
+                                echo "noch keine eigene";
                             break;
                             case 1:
-                                echo "ein eigenes";
+                                echo "eine eigene";
                             break;
                             default:
                                 echo $ownGalleryImages . ' eigene';
                         }
                     ?>
-                    Muster veröffentlicht.
+                    Vorlage veröffentlicht.
                     </a>
                 </div>
                 <div id="gallery-note" class="text-danger"></div>
                 <div class="d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Muster-Sharepic veröffentlichen</button>
+                    <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Vorlage veröffentlichen</button>
                 </div>
             </div>
         <?php } ?>
