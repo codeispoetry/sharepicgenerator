@@ -81,7 +81,6 @@ function nextActionDay()
         </div>
         </div>
 EOL;
-
     }
 }
-?>
+
