@@ -22,13 +22,10 @@ if (!isAllowed(false)) {
 
         <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between mb-1">
+            <div class="mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Bilder oder Video hochladen
+                    <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
-                <span class="text-primary cursor-pointer" id="pixabayopener">
-                    <i class="fas fa-search"></i> suchen
-                </span>
             </div>
             <div>
                 <div class="input-group">
@@ -450,8 +447,6 @@ if (!isAllowed(false)) {
         <h3 class="collapsed" data-toggle="collapse" data-target=".screen"><i class="fas fa-adjust"></i> Screen</h3>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 align-items-center">
-                <span class="mr-2">Hintergrund:</span>
-               <input id="color-scheme" type="checkbox" data-width="60" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
                 <span class="ml-5 mr-2">Hilflinien:</span>
                <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
@@ -466,6 +461,13 @@ if (!isAllowed(false)) {
                 <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
+        </div>
+        <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
+            <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
+            <a href="gallery" target="_blank" class="text-white"><i class="fas fa-store"></i> Vorlagen</a>
+            <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
+                <i class="far fa-hand-point-right"></i> Aktionstage
+            </a>
         </div>
     </div>
     <div class="d-none">

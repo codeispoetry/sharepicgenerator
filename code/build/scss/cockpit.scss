@@ -66,6 +66,7 @@
   * {
     &[data-toggle="collapse"] {
       cursor: pointer;
+     
 
       &:hover {
         color: $darkgray;
@@ -74,7 +75,6 @@
       &.collapsed {
         &:after {
           transform: rotate(-90deg);
-          transition: 200ms;
         }
       }
 
@@ -85,6 +85,7 @@
         font-weight: 900;
         position: absolute;
         right: 10px;
+        transition: 300ms;
       }
 
       &.arrownarrow {
