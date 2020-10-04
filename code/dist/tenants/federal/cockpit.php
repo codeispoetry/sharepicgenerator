@@ -30,6 +30,17 @@ if (!isAllowed(false)) {
                     <i class="fas fa-search"></i> suchen
                 </span>
             </div>
+            <div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-images"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="pixabay-direct-search-q" placeholder="z.B. Berge oder Sonnenblume">
+                    <div class="input-group-append">
+                        <button type="button" class="input-group-text btn-primary pixabay-direct-search">suchen</button>
+                    </div>
+                </div>
+            </div>
             <?php if(configValue("Features","showMediaGallery")){ ?>
                 <div class="d-flex justify-content-between mb-1">
                     <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">

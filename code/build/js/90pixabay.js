@@ -4,6 +4,19 @@ $('#pixabayopener').click(() => {
   $('#pixabay').addClass('active');
 });
 
+$('.pixabay-direct-search').click(() => {
+  $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
+  $('#pixabay-form .q').val($('#pixabay-direct-search-q').val());
+  $('#pixabay-form').submit();
+  $('#pixabay').addClass('active');
+});
+
+$('#pixabay-direct-search-q').on('keyup', (e) => {
+  if (e.key === 'Enter' || e.keyCode === 13) {
+    $('.pixabay-direct-search').click();
+  }
+});
+
 $('#pixabay-form').submit((e) => {
   e.preventDefault();
   getPixabayImages($('#pixabay .q').val());
@@ -100,6 +113,7 @@ function getPixabayImages(q) {
             reDraw(false);
           }
 
+          $('.picture').collapse('hide');
           config.usePixabay = 'pixabay';
         });
       });
