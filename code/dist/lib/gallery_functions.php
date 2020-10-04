@@ -98,9 +98,16 @@ function showImage($shpic)
     $saveFile = $shpic . '/save_' . basename($shpic) . '.zip';
 
     if (file_exists($saveFile)) {
-        $useLink = "<tr> <td class=\"pr-3\"></td><td><a href='../index.php?useSavework=gallery/"
-            .$saveFile .
-            "' ><i class='fas fa-wrench'></i> weiterarbeiten</a></td></tr>";
+        $useLink = sprintf(
+            '<tr> 
+                <td class="pr-3"></td>
+                <td><a href="../index.php?useSavework=gallery/%s&r=%s">
+                    <i class="fas fa-wrench"></i> weiterarbeiten
+                </a></td>
+            </tr>',
+            $saveFile,
+            rand()
+        );
     }
 
     $deleteLink = '';
