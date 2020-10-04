@@ -75,7 +75,7 @@ require_once(getBasePath("lib/actionday.php"));
 
         <div class="col-12 col-lg-9">
             <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase h6"><a href="/index.php" class="text-body">Sharepicgenerator</a></h1>
+                <h1 class="h6"><a href="/index.php" class="text-body">Sharepicgenerator.de</a></h1>
             </div>
             <div class="col-12">
                 <div id="canvas">
@@ -137,13 +137,6 @@ require_once(getBasePath("lib/actionday.php"));
             <?php } ?>
 
 
-            <div class="col-12 text-center mt-4 small">
-                <a href="gallery" target="_blank">
-                    <i class="fas fa-store"></i> Sieh Dir Muster-Sharepics von anderen an.
-                </a><br>
-                Um ein eigenes Muster-Sharepic hier zu veröffentlichen, klicke rechts auf <em>Muster-Sharepics</em>.
-            </div>
-
         </div>
         <div class="col-12 col-lg-3 p-0">
             <div class="cockpit h-100">
@@ -159,7 +152,7 @@ require_once(getBasePath("lib/actionday.php"));
                 <i class="far fa-hand-point-right ml-3"></i> Aktionstage
             </a>
             <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
-            <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
+            <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Vorlagen</a>
             <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
         </div>
 
