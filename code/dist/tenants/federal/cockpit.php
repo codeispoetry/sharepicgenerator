@@ -469,6 +469,10 @@ if (!isAllowed(false)) {
                 <i class="far fa-hand-point-right"></i> Aktionstage
             </a>
         </div>
+        <div class="text-center text-white mt-3">
+            <i class="fas fa-spa text-highlight"></i> Programmiert von
+            <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">Tom Rose</a>.
+        </div>
     </div>
     <div class="d-none">
         <input type="hidden" name="pinX" id="pinX">
