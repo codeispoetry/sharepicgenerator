@@ -34,7 +34,7 @@ $_SESSION['csrf'] = $csrf;
 logLogin();
 
 require_once(getBasePath("lib/actionday.php"));
-
+nextActionDay();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -110,34 +110,7 @@ require_once(getBasePath("lib/actionday.php"));
                 </div>
             </div>
 
-            <?php
-                 nextActionDay();
-            ?>
-
-            <?php
-            if (isDaysBefore("8.3.", 14)) {
-                ?>
-            <div class="col-12 text-center mb-5">
-                <span class="uselogo text-primary cursor-pointer" data-logo="frauenrechte">
-                <img src="/assets/logos/frauenrechte.svg">
-                Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
-                </span>
             </div>
-            <?php } ?>
-
-            <?php
-            if (isDaysBefore("9.5.", 14)) {
-                ?>
-                <div class="col-12 text-center mb-5">
-                <span class="uselogo text-primary cursor-pointer" data-logo="europa">
-                    <img src="../assets/logos/europa.svg">
-                    Am 9. Mai ist Europatag. Nutze das grüne Europa-Logo
-                </span>
-                </div>
-            <?php } ?>
-
-
-        </div>
         <div class="col-12 col-lg-3 p-0">
             <div class="cockpit h-100">
                 <?php require_once('cockpit.php'); ?>
