@@ -70,6 +70,51 @@ nextActionDay();
     </script>
 </head>
 <body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/">Sharepicgenerator.de</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hilfe
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
+                <a href="gallery" target="_blank" class="dropdown-item"><i class="fas fa-store"></i> Vorlagen</a>
+                <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
+                    <i class="far fa-hand-point-right"></i> Aktionstage
+                </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Über
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a href="https://chatbegruenung.de/channel/sharepicgenerator" class="dropdown-item" target="_blank">
+                    <i class="fas fa-comment-dots"></i> Feedback</a>
+                <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
+                    <i class="fab fa-github"></i> Quellcode</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="/imprint.php" class="nav-link"> Impressum</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            Eingeloggt als <em><?php echo getUser(); ?></em>
+            <a href="?logout=true" class=""><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
+        </span>
+    </div>
+    </nav>
+</header>
 <div class="container-fluid h-100">
     <div class="row h-100 flex-row-reverse">
 
@@ -115,27 +160,6 @@ nextActionDay();
         </div>
     </div>
 
-    <footer class="row bg-primary p-2 text-white">
-        <div class="col-12 col-lg-6">
-            <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
-            <a href="#" class="overlay-opener" data-target="actiondays" id="actiondaysopener">
-                <i class="far fa-hand-point-right ml-3"></i> Aktionstage
-            </a>
-            <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
-            <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Vorlagen</a>
-            <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
-        </div>
-
-        <div class="col-12 col-lg-6 text-lg-right">
-            <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"><i class="fas fa-comment-dots"></i> Feedback</a>
-            <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> 
-                Quellcode</a>
-            <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
-            <span class="ml-3">
-                <i class="fas fa-spa text-highlight"></i> Programmiert von
-                <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.</span>
-        </div>
-    </footer>
     <?php
         require_once(getBasePath('/lib/toasts/toasts.php'));
     ?>
