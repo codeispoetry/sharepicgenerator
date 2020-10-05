@@ -119,7 +119,7 @@
         $('#download').click(function () {
             $(this).prop("disabled", true);
             let description = $(this).html();
-            $(this).html('Augebnblick bitte ...');
+            $(this).html('Augenblick bitte ...');
 
             $.ajax({
                 type: "POST",
