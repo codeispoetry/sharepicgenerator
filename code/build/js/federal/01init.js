@@ -20,8 +20,10 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  $('.toast').toast({ delay: 1000000 });
-  $('.toast').toast('show');
+  $('.toast').toast({ delay: 10000 });
+  $('.toast-actionday').toast('show');
+
+  showLayout();
 });
 
 // eslint-disable-next-line no-unused-vars
