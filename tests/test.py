@@ -72,7 +72,7 @@ class sharepicgenerator(unittest.TestCase):
         # Change text
         driver.find_element_by_id("text").send_keys(Keys.CONTROL, "a")
         driver.find_element_by_id("text").send_keys("Automatischer\n[Akzeptanztest]")
-        driver.find_element_by_id("textsamesize").click()
+        #driver.find_element_by_id("textsamesize").click()
         textSizeElement =  driver.find_element_by_id("textsize")
         move = ActionChains(driver)
         move.click_and_hold(textSizeElement).move_by_offset(50, 0).release().perform()
@@ -84,7 +84,7 @@ class sharepicgenerator(unittest.TestCase):
         # Move text
         moveText = ActionChains(driver)
         textElement = driver.find_element_by_id("svg-text")
-        moveText.drag_and_drop_by_offset(textElement,-120,-10).perform()
+        moveText.drag_and_drop_by_offset(textElement,20,30).perform()
 
         # Change logo
         driver.find_element_by_xpath("//*[@data-target='.logo']").click()
