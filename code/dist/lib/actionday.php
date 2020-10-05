@@ -61,7 +61,7 @@ function nextActionDay()
         <?php
 
         $GLOBALS['toasts'] .= <<<EOL
-        <div class="toast border-info" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast toast-actionday border-info" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-info text-white">
         
             <strong class="mr-auto">Sharepic-Idee</strong>
