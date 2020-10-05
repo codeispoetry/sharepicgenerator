@@ -9,10 +9,10 @@ const bgpic = {
 };
 
 $(document).ready(() => {
-  $('#text').val('Es beginnt\n[#mitdir]');
-  $('#textsize').val(513);
-  $('#textX').val(147);
-  $('#textY').val(131);
+  //$('#text').val('Es beginnt\n[#mitdir]');
+  $('#textsize').val(407);
+  $('#textX').val(35);
+  $('#textY').val(181);
   config.layout = 'nolines';
 
   const queryString = window.location.search;
@@ -39,7 +39,6 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    logo.load();
     nolines.draw();
     pin.draw();
   }, 10);
@@ -47,5 +46,6 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     copyright.draw();
     icon.load();
+    logo.load();
   }, 20);
 }
