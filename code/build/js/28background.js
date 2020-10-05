@@ -33,6 +33,10 @@ const background = {
         ) {
           e.preventDefault();
         }
+
+        if (config.layout === 'invers') {
+          e.preventDefault();
+        }
       });
 
       background.addGreenLayer();

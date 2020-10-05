@@ -110,6 +110,9 @@ if (!isAllowed(false)) {
                     <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
                  </label>
                  <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="invers" checked>Invers
+                 </label>
+                 <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
                  </label>
             </div>
@@ -124,16 +127,13 @@ if (!isAllowed(false)) {
 Design.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Bitte gib Feedback" class="form-control">
-                    <div class="d-none">
-                        <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1" data-click="textChangeColor" title="Farbe wechseln"></i>
-                    </div>
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Bitte gib Feedback" class="form-control showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small>Text in eckigen Klammern [ ] wird gelb</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter">
+                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
                     </div>
@@ -160,7 +160,7 @@ Design.</textarea>
                                 Grün hinter Text
                             </label>
                         </div>
-                        <label>
+                        <label class="showonly lines nolines quote">
                             <input type="checkbox" name="graybehindtext" id="graybehindtext">
                             Grau hinter Text
                         </label>
