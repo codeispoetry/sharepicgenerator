@@ -48,4 +48,8 @@ function reDraw(withAddPic = false) {
     icon.load();
     logo.load();
   }, 20);
+
+  window.setTimeout(() => {
+    logo.load();
+  }, 100);
 }
