@@ -48,9 +48,9 @@ const invers = {
     invers.backgroundClone.clipWith(inversTextSvg);
 
     const inversRect = draw.rect(inversTextSvg.bbox().width, inversTextSvg.bbox().height)
-      .move(text.svg.x(), text.svg.y())
       .fill('white')
-      .size(parseInt($('#textsize').val(), 10));
+      .size(parseInt($('#textsize').val(), 10) + 20)
+      .move(inversTextSvg.bbox().x - 10, inversTextSvg.bbox().y - 4);
 
     invers.backgroundClone.front();
 

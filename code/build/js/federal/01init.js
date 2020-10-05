@@ -39,7 +39,6 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    nolines.draw();
     pin.draw();
   }, 10);
 
@@ -51,6 +50,9 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     logo.load();
+    text.draw();
+    quote.draw();
     nolines.draw();
+    invers.draw();
   }, 100);
 }
