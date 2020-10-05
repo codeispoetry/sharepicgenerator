@@ -95,28 +95,29 @@ const nolines = {
     }
 
     // text below the line
-    const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
-    let style = 1;
-    const textafter = draw.text((add) => {
-      for (let i = 0; i < textafterParts.length; i++) {
-        style = (style === 0) ? 1 : 0;
-        add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textafter.dx(2).dy(text.svg.height() - 2);
+    if ($('#textafter').val()) {
+      const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
+      let style = 1;
+      const textafter = draw.text((add) => {
+        for (let i = 0; i < textafterParts.length; i++) {
+          style = (style === 0) ? 1 : 0;
+          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
+          add.attr('xml:space', 'preserve');
+          add.attr('style', 'white-space:pre');
+        }
+      });
+      textafter.dx(2).dy(text.svg.height() - 2);
 
-    // make background the same width as the text
-    lineafter.width(textafter.bbox().width + 2);
+      // make background the same width as the text
+      lineafter.width(textafter.bbox().width + 2);
 
-    text.svg.add(textafter);
+      text.svg.add(textafter);
+    }
 
     // text above the line
     const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
     const textbefore = draw.text((add) => {
       for (let i = 0; i < textbeforeParts.length; i++) {
-        style = (style === 0) ? 1 : 0;
         add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
@@ -126,7 +127,7 @@ const nolines = {
     text.svg.add(textbefore);
 
     showActionDayHint();
-    
+
     // gray layer behind text
     text.grayBackground.remove();
     if ($('#graybehindtext').prop('checked')) {
@@ -147,4 +148,4 @@ const nolines = {
 
 };
 
-$('#text, #textafter, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);
+$('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);

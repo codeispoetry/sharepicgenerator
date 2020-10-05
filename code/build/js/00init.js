@@ -94,3 +94,13 @@ function getEncodingStatus(elem) {
     },
   });
 }
+
+// eslint-disable-next-line no-unused-vars
+function getTextInfo() {
+  console.log(
+    'Size, X, Y:',
+    $('#textsize').val(),
+    $('#textX').val(),
+    $('#textY').val(),
+  );
+}

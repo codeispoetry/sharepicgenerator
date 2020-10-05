@@ -116,14 +116,15 @@ if (!isAllowed(false)) {
 
             <div class="list-group-item-content">
                 <div class="">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="#Hashtag"
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepic-Generator"
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control"></textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Das neue
+Design.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="text drunter" class="form-control">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Bitte gib Feedback" class="form-control">
                     <div class="d-none">
                         <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1" data-click="textChangeColor" title="Farbe wechseln"></i>
                     </div>
