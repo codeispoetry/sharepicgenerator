@@ -101,12 +101,11 @@ function showImage($shpic)
         $useLink = sprintf(
             '<tr> 
                 <td class="pr-3"></td>
-                <td><a href="../index.php?useSavework=gallery/%s&r=%s">
+                <td><a href="../index.php?useSavework=gallery/%s">
                     <i class="fas fa-wrench"></i> weiterarbeiten
                 </a></td>
             </tr>',
-            $saveFile,
-            rand()
+            $saveFile
         );
     }
 
