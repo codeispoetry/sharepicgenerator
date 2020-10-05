@@ -104,13 +104,13 @@ if (!isAllowed(false)) {
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
                 <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="lines" checked>Mit Linien
+                    <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="invers" checked>Invers
+                    <input type="radio" class="form-check-input layout" name="layout" value="invers">Invers
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
