@@ -1,15 +1,11 @@
 loginattempts.txt
 api/user
-visitenkarten
 quiz
 logo
 log/*.log
 log/*.txt
 persistent
-youtubedownloader
-tmp
-bayern
-vintage
+/tmp
 ini/passwords.php
 config.json
 gallery/img
