@@ -51,5 +51,6 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     logo.load();
+    nolines.draw();
   }, 100);
 }
