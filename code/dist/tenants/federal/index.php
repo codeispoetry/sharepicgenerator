@@ -138,10 +138,12 @@ require_once(getBasePath("lib/actionday.php"));
 
 
             <div class="col-12 text-center mt-4 small">
-                <a href="gallery" target="_blank">
-                    <i class="fas fa-store"></i> Sieh Dir Muster-Sharepics von anderen an.
+                <a href="https://develop.sharepicgenerator.de/tenants/federal/" class="btn-danger btn btn-sm mb-1">
+                    <i class="fas fa-bullhorn"></i> Teste jetzt das neue Design
                 </a><br>
-                Um ein eigenes Muster-Sharepic hier zu veröffentlichen, klicke rechts auf <em>Muster-Sharepics</em>.
+                Den Sharepicgenerator gibt es bald in einem neuen Design.<br>
+               Du kannst es schon jetzt testen und Rückmeldung geben.<br>
+              Machen wir gemeinsam den  <em>Sharepicgenerator</em> noch besser.
             </div>
 
         </div>
