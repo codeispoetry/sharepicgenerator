@@ -23,6 +23,8 @@ const quote = {
     }
 
     text.svg.remove();
+    invers.svg.remove();
+    invers.backgroundClone.remove();
     if ($('#text').val() === '') return;
 
     text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
