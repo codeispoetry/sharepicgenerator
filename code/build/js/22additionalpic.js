@@ -18,6 +18,8 @@ const addPic1 = {
     });
 
     this.circleMask = draw.circle(0).fill({ color: '#fff' });
+    this.circleBorder = draw.circle(0).attr({ fill: 'transparent', stroke: '#fff' });
+
     this.pic = draw.image($(`#addpicfile${this.i}`).val(), () => {
       let radius = this.pic.height();
       if (this.pic.height() > this.pic.width()) {
@@ -28,6 +30,13 @@ const addPic1 = {
         this.circleMask.move(this.pic.width() / 2, this.pic.height() / 2)
           .radius(radius / 2 - 3).back();
         this.pic.maskWith(this.circleMask);
+
+        if ($(`#addpicroundedbordered${this.i}`).prop('checked')) {
+          this.circleBorder.move(radius / 2, radius / 2)
+            .radius(radius / 2 - 3);
+          this.circleBorder.attr({ 'stroke-width': radius / 15 });
+          this.svg.add(this.circleBorder);
+        }
       } else {
         this.circleMask.size(0);
       }
@@ -70,8 +79,10 @@ addPic2.i = 2;
 
 $('#addPicSize1').bind('input propertychange', () => { addPic1.resize(); });
 $('#addpicrounded1').bind('change', () => { addPic1.draw(); });
+$('#addpicroundedbordered1').bind('change', () => { addPic1.draw(); });
 $('#addpicdelete1').bind('click', () => { addPic1.delete(); });
 
 $('#addPicSize2').bind('input propertychange', () => { addPic2.resize(); });
 $('#addpicrounded2').bind('change', () => { addPic2.draw(); });
+$('#addpicroundedbordered2').bind('change', () => { addPic2.draw(); });
 $('#addpicdelete2').bind('click', () => { addPic2.delete(); });
