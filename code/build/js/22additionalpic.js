@@ -37,8 +37,6 @@ const addPic1 = {
       this.resize();
       this.svg.move($(`#addPic${this.i}x`).val(), $(`#addPic${this.i}y`).val());
       this.setMask();
-
-      text.svg.front();
     });
   },
 
