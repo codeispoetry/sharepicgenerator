@@ -104,3 +104,17 @@ function getTextInfo() {
     $('#textY').val(),
   );
 }
+
+$('.to-front').click(function tofront() {
+  const indirectEval = eval;
+  let target = $(this).data('target');
+  if (target === 'text' && config.layout !== 'lines') {
+    target = config.layout;
+  }
+
+  if (target === 'logo') {
+    indirectEval(target).load();
+  } else {
+    indirectEval(target).draw();
+  }
+});
