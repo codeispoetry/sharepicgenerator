@@ -238,6 +238,9 @@ Design.</textarea>
                                     <label>
                                         <input type="checkbox" name="addpicrounded<?= $i; ?>" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     </label>
+                                    <label>
+                                        <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit" data-off="ohne">
+                                    </label>
                                 </div>
                             </div>
                         </div>
