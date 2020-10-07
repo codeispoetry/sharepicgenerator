@@ -23,7 +23,7 @@ const eraser = {
       const radius = parseInt(circleValues[2], 10);
       const circle1 = draw.circle(radius)
         .move(
-          parseInt(circleValues[0], 10) - radius / 2, parseInt(circleValues[1], 10) - radius / 2
+          parseInt(circleValues[0], 10), parseInt(circleValues[1], 10)
         )
         .fill('black');
       eraser.svg.add(circle1);
@@ -81,7 +81,7 @@ const eraser = {
     $('#btn-eraser').html('Radierer einschalten');
     $('#btn-eraser').data('action', 'on');
     $('#canvas').css('cursor', 'auto');
-
+    eraser.pointer.radius(0);
     draw.off();
   },
 
@@ -90,8 +90,10 @@ const eraser = {
 $('#btn-eraser').click(() => {
   if ($('#btn-eraser').data('action') === 'on') {
     eraser.start();
+    $('.eraser').addClass('highlight');
   } else {
     eraser.stop();
+    $('.eraser').removeClass('highlight');
   }
 });
 
