@@ -52,7 +52,10 @@
     padding: 8px;
     margin: 0;
     transition: 10ms;
-    background: $lightgray;
+
+    background: rgb(159,159,159);
+    background: linear-gradient(0deg, rgba(159,159,159,1) 0%, rgba(180,180,180,1) 100%);
+
     color: white;
     i{
       margin-right: 1em;
