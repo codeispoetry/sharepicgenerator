@@ -117,4 +117,6 @@ $('.to-front').click(function tofront() {
   } else {
     indirectEval(target).draw();
   }
+
+  eraser.draw();
 });
