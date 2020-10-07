@@ -27,14 +27,9 @@ const quote = {
     invers.backgroundClone.remove();
     if ($('#text').val() === '') return;
 
-    text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
+    text.svg = draw.group().attr('id', 'svg-text');
 
-    text.svg.on('dragend.namespace', function dragEnd() {
-      $('#textX').val(Math.round(this.x()));
-      $('#textY').val(Math.round(this.y()));
-      text.bounce();
-      text.positionGrayBackground();
-    });
+    textDragging();
 
     let y = 0;
 

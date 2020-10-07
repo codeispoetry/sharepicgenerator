@@ -372,6 +372,17 @@ Design.</textarea>
             </div>
         </div>
 
+        <h3 class="collapsed" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
+            3-D-Effekt
+         </h3>
+        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start">
+           Um eine 3-D-Anmtung zu bekommen, kannst Du Text wegradieren. Dadurch entseht der Eindruck, der 
+           Text stünde hinter einem Objekt.
+            <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
+            <span id="eraser-delete">
+                <i class="fas fa-trash" title="löschen"></i>
+            </span>
+        </div>
 
 
         <h3 class="collapsed debug" data-toggle="collapse" data-target=".cloud">Wolke</h3>
@@ -527,6 +538,8 @@ Design.</textarea>
         <input type="hidden" name="addPic2x" id="addPic2x">
         <input type="hidden" name="addPic2y" id="addPic2y">
         <input type="hidden" name="textColor" id="textColor" value="0">
+        <input type="hidden" name="eraser" id="eraser">
+
 
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
