@@ -22,6 +22,8 @@ const nolines = {
       return;
     }
 
+    config.noBackgroundDradAndDrop = false;
+
     text.svg.remove();
     invers.svg.remove();
     invers.backgroundClone.remove();
@@ -123,6 +125,7 @@ const nolines = {
     textbefore.dx(2).dy(text.svg.y() - 0.7);
     text.svg.add(textbefore);
 
+    eraser.front();
     showActionDayHint();
 
     // gray layer behind text

@@ -46,11 +46,7 @@ if (!isAllowed(false)) {
                 </div>
             <?php } ?>
            
-               
-            <small class="collapsed cursor-pointer text-primary preferences-pic-btn novideo arrownarrow" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
-               Bildeinstellungen
-            </small>
-            <div class="mb-1 list-group-item-content collapse preferences-pic">
+            <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
                 <div class="slider novideo">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
@@ -372,10 +368,10 @@ Design.</textarea>
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
+        <h3 class="collapsed showonly nolines quote lines" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
             3-D-Effekt
          </h3>
-        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start">
+        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start showonly nolines quote lines">
            Um eine 3-D-Anmtung zu bekommen, kannst Du Text wegradieren. Dadurch entseht der Eindruck, der 
            Text stünde hinter einem Objekt.
             <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
