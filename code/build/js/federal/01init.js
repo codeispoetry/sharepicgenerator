@@ -10,9 +10,9 @@ const bgpic = {
 
 $(document).ready(() => {
   //$('#text').val('Es beginnt\n[#mitdir]');
-  $('#textsize').val(407);
-  $('#textX').val(35);
-  $('#textY').val(181);
+  $('#textsize').val(502);
+  $('#textX').val(41);
+  $('#textY').val(172);
   config.layout = 'nolines';
 
   const queryString = window.location.search;

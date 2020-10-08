@@ -115,15 +115,15 @@ if (!isAllowed(false)) {
 
             <div class="list-group-item-content">
                 <div class="">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepic-Generator"
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Das neue
-Design.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
+#mitdir.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Bitte gib Feedback" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -145,7 +145,7 @@ Design.</textarea>
                         </div>
                         <div>
                             <span class="to-front" data-target="text" title="Text nach vorne">
-                                <i class="fas fa-layer-group"></i>
+                                <i class="fas fa-layer-group text-primary"></i>
                             </span> 
                         </div>
                     </div> 
@@ -215,7 +215,7 @@ Design.</textarea>
                             <?php } ?>
                             
                             <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
-                                <i class="fas fa-layer-group"></i>
+                                <i class="fas fa-layer-group text-primary"></i>
                             </span> 
                         
                             <span id="addpicdelete<?= $i; ?>">
@@ -301,7 +301,7 @@ Design.</textarea>
                 </div>
                 <div>
                     <span class="to-front" data-target="logo" title="Logo nach vorne">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-layer-group text-primary"></i>
                     </span> 
                 </div>
             </div>
@@ -324,7 +324,7 @@ Design.</textarea>
                     </div>
                     <div>
                         <span class="to-front" data-target="pin" title="Störer nach vorne">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-layer-group text-primary"></i>
                         </span> 
                     </div>
                 </div>    
@@ -374,10 +374,14 @@ Design.</textarea>
         <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start">
            Um eine 3-D-Anmtung zu bekommen, kannst Du Text wegradieren. Dadurch entseht der Eindruck, der 
            Text stünde hinter einem Objekt.
-            <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
-            <span id="eraser-delete">
-                <i class="fas fa-trash" title="löschen"></i>
-            </span>
+           
+            <div class="d-flex justify-content-between mb-2">
+                <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
+                <span id="eraser-delete">
+                    <i class="fas fa-trash text-primary" title="löschen"></i>
+                </span>
+            </div>
+            <img src="/assets/3d-effekt.jpg" class="img-fluid">
         </div>
 
 
