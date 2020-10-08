@@ -77,7 +77,7 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
+        <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
@@ -108,11 +108,6 @@ nextActionDay();
                 <a href="/imprint.php" class="nav-link"> Impressum</a>
             </li>
         </ul>
-        <span class="navbar-nav mr-auto mt-2 mt-lg-0">
-            Dies ist eine Vorab-Verison mit neuem Design. Ich freue mich über 
-            <a href="https://chatbegruenung.de/channel/sharepicgenerator" class="text-white ml-2" target="_blank">
-                    <i class="fas fa-comment-dots"></i> Rückmeldung</a>.
-        </span>
         <span class="navbar-text">
             Eingeloggt als <em><?php echo getUser(); ?></em>
             <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
