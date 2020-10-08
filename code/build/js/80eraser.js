@@ -86,7 +86,7 @@ const eraser = {
   },
 
   front() {
-    eraser.svg.front();
+    eraser.backgroundClone.front();
   },
 
 };
@@ -95,9 +95,11 @@ $('#btn-eraser').click(() => {
   if ($('#btn-eraser').data('action') === 'on') {
     eraser.start();
     $('.eraser').addClass('highlight');
+    $('.canvas-wrapper').addClass('highlight');
   } else {
     eraser.stop();
     $('.eraser').removeClass('highlight');
+    $('.canvas-wrapper').removeClass('highlight');
   }
 });
 
