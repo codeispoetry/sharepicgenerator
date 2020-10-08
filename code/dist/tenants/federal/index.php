@@ -34,7 +34,7 @@ $_SESSION['csrf'] = $csrf;
 logLogin();
 
 require_once(getBasePath("lib/actionday.php"));
-
+nextActionDay();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -70,13 +70,55 @@ require_once(getBasePath("lib/actionday.php"));
     </script>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hilfe
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
+                    <a href="gallery" target="_blank" class="dropdown-item"><i class="fas fa-store"></i> Vorlagen</a>
+                    <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
+                        <i class="far fa-hand-point-right"></i> Aktionstage
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Über
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a href="https://chatbegruenung.de/channel/sharepicgenerator" class="dropdown-item" target="_blank">
+                    <i class="fas fa-comment-dots"></i> Feedback</a>
+                <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
+                    <i class="fab fa-github"></i> Quellcode</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="/imprint.php" class="nav-link"> Impressum</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            Eingeloggt als <em><?php echo getUser(); ?></em>
+            <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
+        </span>
+    </div>
+    </nav>
+</header>
+<div class="container-fluid h-100">
+    <div class="row h-100 flex-row-reverse">
 
-        <div class="col-12 col-lg-9">
-            <div class="col-12 text-center pt-4 pb-3">
-                <h1 class="text-uppercase h6"><a href="/index.php" class="text-body">Sharepicgenerator</a></h1>
-            </div>
+        <div class="col-12 col-lg-9 pt-4 canvas-wrapper">
             <div class="col-12">
                 <div id="canvas">
                     <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
@@ -110,82 +152,34 @@ require_once(getBasePath("lib/actionday.php"));
                 </div>
             </div>
 
-            <?php
-                 nextActionDay();
-            ?>
-
-            <?php
-            if (isDaysBefore("8.3.", 14)) {
-                ?>
-            <div class="col-12 text-center mb-5">
-                <span class="uselogo text-primary cursor-pointer" data-logo="frauenrechte">
-                <img src="/assets/logos/frauenrechte.svg">
-                Am 8. März ist Frauentag. Nutze das grüne Frauenrechte-Logo
-                </span>
             </div>
-            <?php } ?>
-
-            <?php
-            if (isDaysBefore("9.5.", 14)) {
-                ?>
-                <div class="col-12 text-center mb-5">
-                <span class="uselogo text-primary cursor-pointer" data-logo="europa">
-                    <img src="../assets/logos/europa.svg">
-                    Am 9. Mai ist Europatag. Nutze das grüne Europa-Logo
-                </span>
-                </div>
-            <?php } ?>
-
-
-            <div class="col-12 text-center mt-4 small">
-                <a href="https://develop.sharepicgenerator.de/tenants/federal/" class="btn-danger btn btn-sm mb-1">
-                    <i class="fas fa-bullhorn"></i> Teste jetzt das neue Design
-                </a><br>
-                Den Sharepicgenerator gibt es bald in einem neuen Design.<br>
-               Du kannst es schon jetzt testen und Rückmeldung geben.<br>
-              Machen wir gemeinsam den  <em>Sharepicgenerator</em> noch besser.
-            </div>
-
-        </div>
-        <div class="col-12 col-lg-3 mt-3 mb-5 cockpit">
-            <?php require_once('cockpit.php'); ?>
+        <div class="col-12 col-lg-3 p-0">
+            <div class="cockpit h-100">
+                <?php require_once('cockpit.php'); ?>
+            </div> 
         </div>
     </div>
+
+    <?php
+        require_once(getBasePath('/lib/toasts/toasts.php'));
+    ?>
 </div>
-
-<footer class="row bg-primary p-2 text-white">
-    <div class="col-12 col-lg-6">
-        <a href="/documentation" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
-        <a href="#" class="overlay-opener" data-target="actiondays" id="actiondaysopener">
-            <i class="far fa-hand-point-right ml-3"></i> Aktionstage
-        </a>
-        <a href="/markdown" target="_blank"><i class="fas fa-table ml-3"></i> Tabelle erstellen</a>
-        <a href="gallery" target="_blank"><i class="fas fa-store ml-3"></i> Muster-Sharepics</a>
-        <a href="?logout=true" target="_blank"><i class="fas fa-sign-out-alt ml-3"></i> Ausloggen</a>
-    </div>
-
-    <div class="col-12 col-lg-6 text-lg-right">
-        <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"><i class="fas fa-comment-dots"></i> Feedback</a>
-        <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank" class="ml-3"><i class="fab fa-github"></i> Quellcode</a>
-        <a href="/imprint.php" target="_blank" class="ml-3"><i class="fas fa-balance-scale-right"></i> Impressum</a>
-        <span class="ml-3">
-            <i class="fas fa-spa text-highlight"></i> Programmiert von
-            <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.</span>
-    </div>
-</footer>
-
 <div class="overlays">
     <?php
         require_once(getBasePath('/lib/overlays/pixabay.php'));
         require_once(getBasePath('/lib/overlays/icons.php'));
         require_once(getBasePath('/lib/overlays/waiting.php'));
         require_once(getBasePath('/lib/overlays/actiondays.php'));
+        require_once(getBasePath('/lib/overlays/logos.php'));
     ?>
 </div>
+
+
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>
 <script src="/vendor/bootstrap.min.js"></script>
 <script src="/vendor/bootstrap4-toggle.min.js"></script>
+
 
 <script src="/vendor/svg.min.js"></script>
 <script src="/vendor/svg.draggable.min.js"></script>

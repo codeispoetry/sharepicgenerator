@@ -1,4 +1,4 @@
-const quote = {
+const nolines = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
   colors: ['#ffffff', '#ffee00'],
@@ -6,21 +6,22 @@ const quote = {
   linemargin: -4,
   paddingLr: 5,
   font: {
-    anchor: 'middle',
+    anchor: 'left',
     leading: '1.0em',
     size: 20,
   },
   fontoutsidelines: {
-    family: 'Arvo',
-    size: 10,
-    anchor: 'middle',
+    family: 'ArvoGruen',
+    size: 6,
+    anchor: 'left',
     leading: '1.0em',
   },
 
   draw() {
-    if (config.layout !== 'quote') {
+    if (config.layout !== 'nolines') {
       return;
     }
+
     config.noBackgroundDradAndDrop = false;
 
     text.svg.remove();
@@ -36,7 +37,7 @@ const quote = {
 
     // let lines = '„' + $('#text').val() + '“';
 
-    let lines = $('#text').val();
+    let lines = $('#text').val().toUpperCase();
     const quotationMarks = ['„', '“'];
     let qmI = 0;
     while ((lines.match(/"/g) || []).length) {
@@ -45,7 +46,7 @@ const quote = {
     }
 
     lines = lines.replace(/\n$/, '').split(/\n/);
-    const fontfamily = 'Arvo';
+    const fontfamily = 'ArvoGruen';
 
     const lineBeginsY = [];
     const linesRendered = [];
@@ -61,12 +62,14 @@ const quote = {
         for (let i = 0; i < values.length; i++) {
           style = (style === 0) ? 1 : 0;
 
-          color = quote.colors[style];
+          color = nolines.colors[style];
           if (style === 0) {
             color = textColors[$('#textColor').val()];
           }
 
-          add.tspan(values[i]).fill(color).font(Object.assign(quote.font, { family: fontfamily }));
+          add.tspan(values[i]).fill(color).font(
+            Object.assign(nolines.font, { family: fontfamily }),
+          );
 
           add.attr('xml:space', 'preserve');
           add.attr('style', 'white-space:pre');
@@ -75,7 +78,7 @@ const quote = {
 
       t.y(y);
 
-      y += (t.rbox().h) + quote.linemargin;
+      y += (t.rbox().h) + nolines.linemargin;
 
       lineBeginsY[index] = y;
       linesRendered[index] = t;
@@ -83,28 +86,47 @@ const quote = {
     });
 
     // add lower line
+    let lineafter;
     if ($('#textafter').val().length > 0) {
-      const lineWidth = text.svg.width() * 0.5;
-      const lineOffset = (text.svg.width() - lineWidth) / 2;
-      const lineafter = draw.rect(lineWidth, 1)
-        .fill(color).dx(-1 * lineOffset).dy(text.svg.height() + 4);
+      lineafter = draw.rect(10, 8)
+        .fill('#E6007E').dy(text.svg.height());
       text.svg.add(lineafter);
     }
 
     // text below the line
-    const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
-    let style = 1;
-    const textafter = draw.text((add) => {
-      for (let i = 0; i < textafterParts.length; i++) {
-        style = (style === 0) ? 1 : 0;
-        add.tspan(textafterParts[i]).fill(color).font(quote.fontoutsidelines);
+    if ($('#textafter').val()) {
+      const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
+      let style = 1;
+      const textafter = draw.text((add) => {
+        for (let i = 0; i < textafterParts.length; i++) {
+          style = (style === 0) ? 1 : 0;
+          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
+          add.attr('xml:space', 'preserve');
+          add.attr('style', 'white-space:pre');
+        }
+      });
+      textafter.dx(2).dy(text.svg.height() - 2);
+
+      // make background the same width as the text
+      lineafter.width(textafter.bbox().width + 2);
+
+      text.svg.add(textafter);
+    }
+
+    // text above the line
+    const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
+    const textbefore = draw.text((add) => {
+      for (let i = 0; i < textbeforeParts.length; i++) {
+        add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
       }
     });
-    textafter.dy(text.svg.height() + 12);
+    textbefore.dx(2).dy(text.svg.y() - 0.7);
+    text.svg.add(textbefore);
 
-    text.svg.add(textafter);
+    eraser.front();
+    showActionDayHint();
 
     // gray layer behind text
     text.grayBackground.remove();
@@ -121,11 +143,9 @@ const quote = {
     }
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
-    eraser.front();
-    showActionDayHint();
     text.positionGrayBackground();
   },
 
 };
 
-$('#text, #textafter, #textsize, #graybehindtext').bind('input propertychange', quote.draw);
+$('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);

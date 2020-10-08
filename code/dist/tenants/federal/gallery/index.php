@@ -43,14 +43,14 @@ if (!isAllowed(false)) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center pt-4 pb-3">
-            <h1 class="text-uppercase h2"><i class="fas fa-store"></i> Muster-Sharepics </h1>
+            <h1 class="text-uppercase h2"><i class="fas fa-store"></i> Vorlagen </h1>
             <small>von anderen zur Inspiration
                 <a href="../"><i class="fas fa-wrench"></i> selbst erstellen</a>
         </small>
         </div>
     </div>
     <div class="row pb-5 mb-3">
-        <div class="col-12 font-weight-bold">Meine Muster-Sharepics</div>
+        <div class="col-12 font-weight-bold">Meine Vorlagen</div>
         <?php
             showImages('img/shpic*', 'ownFiles');
         ?>

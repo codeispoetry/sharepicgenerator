@@ -72,7 +72,7 @@ function showImages($dir_glob, $whoseFiles = 'foreignFiles')
     }
 
     if ($i==0) {
-        echo '<div class="col-12">Du hast noch kein eigenes Muster-Sharepic veröffentlicht.<br>
+        echo '<div class="col-12">Du hast noch keine eigene Vorlage veröffentlicht.<br>
             <a href="../"><i class="fas fa-wrench"></i> erstelle ein eigenes Sharepic</a></div>';
     }
 }
@@ -98,13 +98,19 @@ function showImage($shpic)
     $saveFile = $shpic . '/save_' . basename($shpic) . '.zip';
 
     if (file_exists($saveFile)) {
-        $useLink = "<tr> <td class=\"pr-3\"></td><td><a href='../index.php?useSavework=gallery/"
-            .$saveFile .
-            "' ><i class='fas fa-wrench'></i> weiterarbeiten</a></td></tr>";
+        $useLink = sprintf(
+            '<tr> 
+                <td class="pr-3"></td>
+                <td><a href="../index.php?useSavework=gallery/%s">
+                    <i class="fas fa-wrench"></i> weiterarbeiten
+                </a></td>
+            </tr>',
+            $saveFile
+        );
     }
 
     $deleteLink = '';
-    if ($user == $_SESSION['user']) {
+    if ($user == $_SESSION['user'] || isAdmin()) {
         $deleteLink = "<tr><td class=\"pr-3\"></td><td><a data-id=\""
         .$id .
         "\" class=\"deleteWorkfile text-danger cursor-pointer\"><i class='fas fa-trash'></i> löschen</a></td></tr>";
@@ -137,11 +143,11 @@ EOL;
 function deleteWorkfile($id)
 {
     $galleryDir = getBasePath('tenants/' . $_SESSION['tenant'] . '/gallery/img/' . $id);
-    if (!$userOfGalleryFile = getUserOfGalleryFile($galleryDir)) {
+    if (!isAdmin() && !$userOfGalleryFile = getUserOfGalleryFile($galleryDir)) {
         returnJsonErrorAndDie("could not delete");
     }
 
-    if (getUser() != $userOfGalleryFile) {
+    if (!isAdmin() && getUser() != $userOfGalleryFile) {
         returnJsonErrorAndDie("could not delete");
     }
 

@@ -18,50 +18,20 @@ const text = {
   },
 
   draw() {
-    if (config.layout !== undefined && config.layout !== 'standard') {
+    if (config.layout !== undefined && config.layout !== 'lines') {
       return;
     }
 
+    config.noBackgroundDradAndDrop = false;
+
     text.svg.remove();
+    invers.svg.remove();
+    invers.backgroundClone.remove();
     if ($('#text').val() === '') return;
 
-    text.svg = draw.group().addClass('draggable').attr('id', 'svg-text').draggable();
+    text.svg = draw.group().attr('id', 'svg-text');
 
-    text.svg.on('dragmove.namespace', function dragMove() {
-      $('.gridline-active').removeClass('gridline-active');
-
-      const centerX = this.x() + (this.width() / 2);
-      const centerY = this.y() + (this.height() / 2);
-      const snapDistance = 5;
-
-      if (Math.abs((draw.width() * 0.5) - centerX) < snapDistance) {
-        $('#grid-vertical-center').addClass('gridline-active');
-      }
-      if (Math.abs((draw.width() * 0.382) - centerX) < snapDistance) {
-        $('#grid-vertical-left').addClass('gridline-active');
-      }
-      if (Math.abs((draw.width() * 0.618) - centerX) < snapDistance) {
-        $('#grid-vertical-right').addClass('gridline-active');
-      }
-
-      if (Math.abs((draw.height() * 0.5) - centerY) < snapDistance) {
-        $('#grid-horizontal-center').addClass('gridline-active');
-      }
-      if (Math.abs((draw.height() * 0.382) - centerY) < snapDistance) {
-        $('#grid-horizontal-upper').addClass('gridline-active');
-      }
-      if (Math.abs((draw.height() * 0.618) - centerY) < snapDistance) {
-        $('#grid-horizontal-lower').addClass('gridline-active');
-      }
-    });
-
-    text.svg.on('dragend.namespace', function dragEnd() {
-      $('#textX').val(Math.round(this.x()));
-      $('#textY').val(Math.round(this.y()));
-      text.bounce();
-      text.positionGrayBackground();
-      $('.gridline-active').removeClass('gridline-active');
-    });
+    textDragging();
 
     let y = 0;
 
@@ -212,7 +182,7 @@ const text = {
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
-
+    eraser.front();
     showActionDayHint();
   },
 

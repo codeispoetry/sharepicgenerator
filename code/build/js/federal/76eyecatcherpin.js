@@ -2,11 +2,6 @@ $('#pinsize').bind('input propertychange', () => {
   pin.draw();
 });
 
-$('.pinreset').click(() => {
-  $('#pinY').val(draw.height() / 2);
-  pin.draw();
-});
-
 const pinfont = {
   family: 'Arvo',
   size: 15,

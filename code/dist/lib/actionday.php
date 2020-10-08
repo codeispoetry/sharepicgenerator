@@ -44,13 +44,13 @@ function nextActionDay()
         if (time() > strToTime("- 1 week", $timestamp) and time() < $timestamp) {
             switch (floor((($timestamp - time()) / 3600 / 24))) {
                 case 0:
-                    $remainingTimeText = "Heute ";
+                    $remainingTimeText = "Heute ist";
                     break;
                 case 1:
-                    $remainingTimeText = "Morgen";
+                    $remainingTimeText = "Morgen ist";
                     break;
                 default:
-                    $remainingTimeText = sprintf("Am kommenden %s ", strftime("%A", $timestamp));
+                    $remainingTimeText = sprintf("Am kommenden %s ist", strftime("%A", $timestamp));
             }
             break;
         }
@@ -58,19 +58,29 @@ function nextActionDay()
 
     if (isset($remainingTimeText)) {
         ?>
-
-
-        <div class="col-12 text-center">
-            <i class="far fa-hand-point-right"></i>
-            Sharepic-Idee:
-            <?php printf(
-                '%s ist <a href=#" class="overlay-opener" data-target="actiondays">%s</a>.',
-                $remainingTimeText,
-                $day['description']
-            ); ?>
-        </div>
-
         <?php
+
+        $GLOBALS['toasts'] .= <<<EOL
+        <div class="toast toast-actionday border-info" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-info text-white">
+        
+            <strong class="mr-auto">Sharepic-Idee</strong>
+            <small class="small text-white">
+                <a href=#" class="overlay-opener text-white" data-target="actiondays">Alle Aktionstage</a> 
+            </small>
+            <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            $remainingTimeText<br>
+            <strong>{$day['description']}</strong>
+            <div class="text-right">
+                <a href="{$day['url']}" class="small"><i class="fa fa-link"></i> mehr Informationen</a>
+            </div>        
+        </div>
+        </div>
+EOL;
     }
 }
-?>
+
