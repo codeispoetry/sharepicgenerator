@@ -371,7 +371,7 @@ Design.</textarea>
         <h3 class="collapsed showonly nolines quote lines" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
             3-D-Effekt
          </h3>
-        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start showonly nolines quote lines">
+        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start">
            Um eine 3-D-Anmtung zu bekommen, kannst Du Text wegradieren. Dadurch entseht der Eindruck, der 
            Text stünde hinter einem Objekt.
             <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
