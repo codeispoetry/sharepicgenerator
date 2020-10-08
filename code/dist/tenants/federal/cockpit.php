@@ -330,6 +330,28 @@ if (!isAllowed(false)) {
                 </div>    
             </div>
         </div>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
+        <div class="addtext list-group-item list-group-item-action flex-column align-items-start collapse">
+            <div class="mb-1 list-group-item-content">
+                <div class="d-flex align-items-lg-center">
+                    <textarea name="pintext" id="addtext" placeholder="Sternchentext" value="" class="form-control">Holla die Waldfee</textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="slider">
+                        <small>klein</small>
+                        <input type="range" class="custom-range" name="addtextsize" id="addtextsize" min="0"
+                            max="50" value="20">
+                        <small>groß</small>
+                    </div>
+                    <div>
+                        <span class="to-front" data-target="addtext" title="Sternchentext nach vorne">
+                            <i class="fas fa-layer-group text-primary"></i>
+                        </span> 
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer addtext-change-color ml-1" title="Farbe wechseln"></i>
+                    </div>
+                </div>    
+            </div>
+        </div>
         <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> 
             Größe
             <small class="ml-2">
@@ -533,6 +555,8 @@ if (!isAllowed(false)) {
         <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
+        <input type="hidden" name="addtextX" id="addtextX">
+        <input type="hidden" name="addtextY" id="addtextY">
         <input type="hidden" name="addPic1x" id="addPic1x">
         <input type="hidden" name="addPic1y" id="addPic1y">
         <input type="hidden" name="addPic2x" id="addPic2x">

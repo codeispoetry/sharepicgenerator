@@ -23,6 +23,9 @@ $(document).ready(() => {
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');
 
+  $('#addtextX').val(50);
+  $('#addtextY').val(draw.height() - 50);
+
   showLayout();
 });
 
@@ -50,6 +53,7 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     logo.load();
     text.draw();
+    addtext.draw();
     quote.draw();
     nolines.draw();
     invers.draw();
