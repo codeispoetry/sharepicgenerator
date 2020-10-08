@@ -21,7 +21,7 @@ const quote = {
     if (config.layout !== 'quote') {
       return;
     }
-    config.noBackgroundDradAndDrop = false;
+    config.noBackgroundDragAndDrop = false;
 
     text.svg.remove();
     invers.svg.remove();

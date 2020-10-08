@@ -43,6 +43,7 @@ const eraser = {
 
   start() {
     config.noTextDradAndDrop = true;
+    config.noBackgroundDragAndDrop = true;
     $('#btn-eraser').html('Radierer ausschalten');
     $('#btn-eraser').data('action', 'off');
     eraser.pointer.radius(eraser.pointSize / 2);
@@ -78,6 +79,7 @@ const eraser = {
 
   stop() {
     config.noTextDradAndDrop = false;
+    config.noBackgroundDragAndDrop = false;
     $('#btn-eraser').html('Radierer einschalten');
     $('#btn-eraser').data('action', 'on');
     $('#canvas').css('cursor', 'auto');

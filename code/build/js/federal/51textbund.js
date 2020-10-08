@@ -22,7 +22,7 @@ const text = {
       return;
     }
 
-    config.noBackgroundDradAndDrop = false;
+    config.noBackgroundDragAndDrop = false;
 
     text.svg.remove();
     invers.svg.remove();

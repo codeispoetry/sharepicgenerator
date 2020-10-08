@@ -38,7 +38,7 @@ const background = {
           e.preventDefault();
         }
 
-        if (config.noBackgroundDradAndDrop) {
+        if (config.noBackgroundDragAndDrop) {
           e.preventDefault();
         }
       });
