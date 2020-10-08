@@ -21,6 +21,7 @@ const quote = {
     if (config.layout !== 'quote') {
       return;
     }
+    config.noBackgroundDradAndDrop = false;
 
     text.svg.remove();
     invers.svg.remove();
@@ -120,6 +121,8 @@ const quote = {
     }
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
+    eraser.front();
+    showActionDayHint();
     text.positionGrayBackground();
   },
 

@@ -45,7 +45,6 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     copyright.draw();
     icon.load();
-    logo.load();
   }, 20);
 
   window.setTimeout(() => {
@@ -54,5 +53,6 @@ function reDraw(withAddPic = false) {
     quote.draw();
     nolines.draw();
     invers.draw();
+    eraser.draw();
   }, 100);
 }

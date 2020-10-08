@@ -85,6 +85,10 @@ const eraser = {
     draw.off();
   },
 
+  front() {
+    eraser.svg.front();
+  },
+
 };
 
 $('#btn-eraser').click(() => {

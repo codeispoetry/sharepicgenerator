@@ -18,6 +18,12 @@ const background = {
 
       background.svg.move(parseInt($('#backgroundX').val(), 10), parseInt($('#backgroundY').val(), 10));
 
+      background.svg.draggable().on('beforedrag', (e) => {
+        if (config.noBackgroundDradAndDrop) {
+          e.preventDefault();
+        }
+      });
+
       this.on('dragend.namespace', function dragEnd() {
         $('#backgroundX').val(Math.round(this.x()));
         $('#backgroundY').val(Math.round(this.y()));

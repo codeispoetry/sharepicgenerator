@@ -22,6 +22,8 @@ const text = {
       return;
     }
 
+    config.noBackgroundDradAndDrop = false;
+
     text.svg.remove();
     invers.svg.remove();
     invers.backgroundClone.remove();
@@ -180,7 +182,7 @@ const text = {
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
-
+    eraser.front();
     showActionDayHint();
   },
 

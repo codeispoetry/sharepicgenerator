@@ -5,7 +5,6 @@ function showLayout() {
 
   $(`.${config.layout}`).show();
 
-  // this better with trigger
   quote.draw();
   text.draw();
   nolines.draw();

@@ -16,6 +16,8 @@ const invers = {
       return false;
     }
 
+    config.noBackgroundDradAndDrop = true;
+
     invers.svg.remove();
     invers.backgroundClone.remove();
     text.svg.remove();
