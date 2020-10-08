@@ -330,7 +330,7 @@ if (!isAllowed(false)) {
         <div class="addtext list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="addtext" placeholder="Sternchentext" value="" class="form-control">Holla die Waldfee</textarea>
+                    <textarea name="pintext" id="addtext" placeholder="Sternchentext" value="" class="form-control"></textarea>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="slider">
