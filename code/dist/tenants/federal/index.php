@@ -123,7 +123,7 @@ nextActionDay();
 <div class="container-fluid h-100">
     <div class="row h-100 flex-row-reverse">
 
-        <div class="col-12 col-lg-9 pt-4">
+        <div class="col-12 col-lg-9 pt-4 canvas-wrapper">
             <div class="col-12">
                 <div id="canvas">
                     <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
