@@ -9,15 +9,21 @@ const bgpic = {
 };
 
 $(document).ready(() => {
-  $('#text').val('Es beginnt\n[#mitdir]');
-  $('#textsize').val(513);
-  $('#textX').val(147);
-  $('#textY').val(131);
+  //$('#text').val('Es beginnt\n[#mitdir]');
+  $('#textsize').val(502);
+  $('#textX').val(41);
+  $('#textY').val(172);
+  config.layout = 'nolines';
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
+
+  $('.toast').toast({ delay: 10000 });
+  $('.toast-actionday').toast('show');
+
+  showLayout();
 });
 
 // eslint-disable-next-line no-unused-vars
@@ -33,8 +39,6 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    logo.load();
-    text.draw();
     pin.draw();
   }, 10);
 
@@ -42,4 +46,13 @@ function reDraw(withAddPic = false) {
     copyright.draw();
     icon.load();
   }, 20);
+
+  window.setTimeout(() => {
+    logo.load();
+    text.draw();
+    quote.draw();
+    nolines.draw();
+    invers.draw();
+    eraser.draw();
+  }, 100);
 }

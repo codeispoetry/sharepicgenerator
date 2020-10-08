@@ -17,6 +17,8 @@ function loadFormData(formdata) {
     }
   });
 
+  $(`input.layout[value=${formdata.layout}]`).prop('checked', true);
+
   for (let i = 1; i <= 2; i++) {
     if ($(`#addpicfile${i}`).val()) {
       show(`show-add-pic-${i}`);

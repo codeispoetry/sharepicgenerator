@@ -18,17 +18,25 @@ if (!isAllowed(false)) {
 ?>
 
 <form id="pic">
-    <div class="list-group">
+    <div class="mb-5">
 
-        <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Bild</h3>
+        <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
         <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between mb-1">
+            <div class="mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
-                    <i class="fa fa-upload"></i> Hintergrundbild/ -video hochladen
+                    <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
-                <span class="text-primary cursor-pointer" id="pixabayopener">
-                    <i class="fas fa-search"></i> suchen
-                </span>
+            </div>
+            <div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-images"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="pixabay-direct-search-q" placeholder="z.B. Berge oder Sonnenblume">
+                    <div class="input-group-append">
+                        <button type="button" class="input-group-text btn-primary pixabay-direct-search">suchen</button>
+                    </div>
+                </div>
             </div>
             <?php if(configValue("Features","showMediaGallery")){ ?>
                 <div class="d-flex justify-content-between mb-1">
@@ -38,11 +46,7 @@ if (!isAllowed(false)) {
                 </div>
             <?php } ?>
            
-               
-            <small class="collapsed cursor-pointer text-primary preferences-pic-btn novideo" data-toggle="collapse" data-target=".preferences-pic" aria-expanded="false" aria-controls="collapsePreferecesPic">
-               Bildeinstellungen
-            </small>
-            <div class="mb-1 list-group-item-content collapse preferences-pic">
+            <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
                 <div class="slider novideo">
                     <small>klein</small>
                     <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
@@ -82,7 +86,113 @@ if (!isAllowed(false)) {
                     zentrieren
                 </small>
             </div>
+            <div class="align-items-lg-center show-copyright d-none">
+                <div class="d-flex align-items-center">
+                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
+                    <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                </div>
+            </div>
+        </div>   
+        
+        <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
+        <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex justify-content-between form-check form-check-inline">
+                <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
+                 </label>
+                 <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
+                 </label>
+                 <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="invers">Invers
+                 </label>
+                 <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
+                 </label>
+            </div>
+
+            <div class="list-group-item-content">
+                <div class="">
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
+                           class="form-control showonly lines nolines">
+                </div>
+                <div class="">
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
+#mitdir.</textarea>
+                </div>
+                <div class="d-flex align-items-lg-center">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                </div>
+
+                <div class="mb-1 mt-2">
+                    <div class="d-flex justify-content-between mt-3">
+                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                            <i class="fa fa-align-center"></i>
+                            mittig ausrichten</small>
+                    </div>
+                </div>
+
+
+                <div class="mb-1 mt-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="slider">
+                            <small>klein</small>
+                            <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
+                            <small>groß</small>
+                        </div>
+                        <div>
+                            <span class="to-front" data-target="text" title="Text nach vorne">
+                                <i class="fas fa-layer-group text-primary"></i>
+                            </span> 
+                        </div>
+                    </div> 
+                    </div>
+
+                <div class="preferences-text">
+                    <div class="d-flex justify-content-between">
+                        <div class="">
+                            <label class="showonly lines">
+                                <input type="checkbox" name="textsamesize" id="textsamesize">
+                                Zeilen gleich lang
+                            </label>
+                            <label class="showonly lines">
+                                <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
+                                Grün hinter Text
+                            </label>
+                        </div>
+                        <label class="showonly lines nolines quote">
+                            <input type="checkbox" name="graybehindtext" id="graybehindtext">
+                            Grau hinter Text
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="preferences-text showonly lines">
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="text-primary cursor-pointer uploadiconclicker">
+                        <i class="fa fa-upload"></i> Icon hochladen
+                    </span>
+
+                    <span class="text-primary cursor-pointer" id="iconopener">
+                        <i class="fas fa-search"></i> Icon suchen
+                    </span>
+                </div>
+                <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
+                    <select class="form-control" name="iconsize" id="iconsize">
+                        <option value="1">Icon: 1 Zeile hoch</option>
+                        <option value="2">Icon: 2 Zeilen hoch</option>
+                        <option value="3">Icon: 3 Zeilen hoch</option>
+                        <option value="0">Icon entfernen</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Zusatzbilder</h3>
+        <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
                 for ($i = 1; $i <=2; $i++) {
@@ -94,20 +204,24 @@ if (!isAllowed(false)) {
                     <div class="<?= $divclass; ?>">
                         <div class="d-flex w-100 justify-content-between">
                          <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
-                            <i class="fa fa-upload"></i> <?= $i; ?>. Vordergrundbild hochladen
+                            <i class="fa fa-upload"></i> <?= $i; ?>. Bild hochladen
                         </span>
 
+                        <div class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>">
                             <?php if ($i == 2) { ?>
-                                <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
-                                    <i class="fas fa-align-justify"></i>
-                                    angleichen
-                                </small>
+                                <span class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
+                                    <i class="fas fa-align-justify" title="angleichen"></i>
+                                </span>
                             <?php } ?>
-
-                            <small class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicdelete<?= $i; ?>">
-                                <i class="fas fa-trash"></i>
-                                löschen
-                            </small>
+                            
+                            <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
+                                <i class="fas fa-layer-group text-primary"></i>
+                            </span> 
+                        
+                            <span id="addpicdelete<?= $i; ?>">
+                                <i class="fas fa-trash" title="löschen"></i>
+                            </span>
+                            </div>
                         </div>
                         <div class="mb-1 mt-2 d-none show-add-pic-<?= $i; ?>">
                             <div class="d-flex align-items-center">
@@ -120,6 +234,9 @@ if (!isAllowed(false)) {
                                     <label>
                                         <input type="checkbox" name="addpicrounded<?= $i; ?>" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     </label>
+                                    <label>
+                                        <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit" data-off="ohne">
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -127,17 +244,100 @@ if (!isAllowed(false)) {
 
                 <?php } ?>
             </div>
-            <div class="align-items-lg-center show-copyright d-none">
-                <div class="d-flex align-items-center">
-                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
+         </div>
+         <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+        <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div class="mb-1 d-flex align-items-lg-center">
+                <select class="form-control" name="logoselect" id="logoselect">
+                    <optgroup label="Sonnenblume">
+                        <option value="sonnenblume">Sonnenblume</option>
+                        <option value="sonnenblume-weiss">weiße Sonnenblume</option>
+                        <option value="sonnenblume-big">Sonnenblume links unten</option>
+                    </optgroup>
+                    <optgroup label="Logo mit Schriftzug">
+                        <option value="logo-weiss">weiß, mit Schriftzug</option>
+                        <option value="logo-gruen">grün, mit Schriftzug</option>
+                    </optgroup>
 
-                    <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                    <?php
+                    if ($landesverband == 3) {
+                        ?>
+                    <optgroup label="Berlin">
+                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
+                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
+                    </optgroup>
+                    <?php
+                    }
+                    ?>
+                    
+                    <?php
+                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
+                        ?>
+                        <optgroup label="Eigenes Logo">
+                            <option value="custom" selected>eigenes Logo</option>
+                            <option value="deletecustomlogo">eigenes Logo löschen</option>
+                        </optgroup>
+                    <?php
+                    }
+                    ?>
+                   
+                    <optgroup label="Speziallogos">
+                        <option value="frauenrechte">Frauenrechte</option>
+                        <option value="regenbogen">Regenbogen</option>
+                        <option value="europa">Europa</option>
+                    </optgroup>
+                    <optgroup label="Kein Logo">
+                        <option value="void">kein Logo</option>
+                    </optgroup>
+                </select>
+                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
+
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="slider">
+                    <small>klein</small>
+                        <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
+                    <small>groß</small>
+                </div>
+                <div>
+                    <span class="to-front" data-target="logo" title="Logo nach vorne">
+                        <i class="fas fa-layer-group text-primary"></i>
+                    </span> 
                 </div>
             </div>
-         </div>
-
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> Ausgabegröße</h3>
+            <div class="">
+                Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
+            </div>
+        </div>
+         <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
+        <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
+            <div class="mb-1 list-group-item-content">
+                <div class="d-flex align-items-lg-center">
+                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="slider">
+                        <small>klein</small>
+                        <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                            max="300" value="100" disabled>
+                        <small>groß</small>
+                    </div>
+                    <div>
+                        <span class="to-front" data-target="pin" title="Störer nach vorne">
+                            <i class="fas fa-layer-group text-primary"></i>
+                        </span> 
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> 
+            Größe
+            <small class="ml-2">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+             </small>
+            </h3>
         <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
             <div class="d-flex w-100 justify-content-between align-items-center">
                 <div class="form-inline">
@@ -168,162 +368,22 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
-        <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="list-group-item-content mb-2">
-
-                <select class="form-control" name="layout" id="layout">
-                    <option value="standard">Layout: Standard</option>
-                    <option value="quote">Layout: Zitat</option>
-                </select>
+        <h3 class="collapsed showonly nolines quote lines" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
+            3-D-Effekt
+         </h3>
+        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start">
+           Um eine 3-D-Anmtung zu bekommen, kannst Du Text wegradieren. Dadurch entseht der Eindruck, der 
+           Text stünde hinter einem Objekt.
+           
+            <div class="d-flex justify-content-between mb-2">
+                <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
+                <span id="eraser-delete">
+                    <i class="fas fa-trash text-primary" title="löschen"></i>
+                </span>
             </div>
-
-            <div class="list-group-item-content">
-                <div class="noquote">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
-                           class="form-control">
-                </div>
-                <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control"></textarea>
-                </div>
-                <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control">
-                    <div class="d-none noquote">
-                        <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1" data-click="textChangeColor" title="Farbe wechseln"></i>
-                    </div>
-                </div>
-
-                <div class="mb-1 mt-2">
-                    <div class="d-flex justify-content-between mt-3">
-                        <small>Text in eckigen Klammern [ ] wird gelb</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter">
-                            <i class="fa fa-align-center"></i>
-                            mittig ausrichten</small>
-                    </div>
-                </div>
-
-
-                <div class="mb-1 mt-2">
-                    <div class="slider">
-                        <small>klein</small>
-                        <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
-                        <small>groß</small>
-                    </div>
-                </div>
-
-                <div class="preferences-text">
-                    <div class="d-flex justify-content-between">
-                        <div class="noquote">
-                            <label>
-                                <input type="checkbox" name="textsamesize" id="textsamesize">
-                                Zeilen gleich lang
-                            </label>
-                            <label>
-                                <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
-                                Grün hinter Text
-                            </label>
-                        </div>
-                        <label>
-                            <input type="checkbox" name="graybehindtext" id="graybehindtext">
-                            Grau hinter Text
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="noquote preferences-text">
-                <div class="d-flex justify-content-between mt-3">
-                    <span class="text-primary cursor-pointer uploadiconclicker">
-                        <i class="fa fa-upload"></i> Icon hochladen
-                    </span>
-
-                    <span class="text-primary cursor-pointer" id="iconopener">
-                        <i class="fas fa-search"></i> Icon suchen
-                    </span>
-                </div>
-                <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
-                    <select class="form-control" name="iconsize" id="iconsize">
-                        <option value="1">Icon: 1 Zeile hoch</option>
-                        <option value="2">Icon: 2 Zeilen hoch</option>
-                        <option value="3">Icon: 3 Zeilen hoch</option>
-                        <option value="0">Icon entfernen</option>
-                    </select>
-                </div>
-            </div>
+            <img src="/assets/3d-effekt.jpg" class="img-fluid">
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
-        <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
-            <div class="mb-1 list-group-item-content">
-                <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
-                    <i class="fas fa-undo-alt text-primary cursor-pointer pinreset ml-1" title="Störer in die Mitte setzen"></i>
-                </div>
-                <div class="slider">
-                    <small>klein</small>
-                    <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
-                           max="300" value="100" disabled>
-                    <small>groß</small>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 d-flex align-items-lg-center">
-                <select class="form-control" name="logoselect" id="logoselect">
-                    <optgroup label="Sonnenblume">
-                        <option value="sonnenblume">Sonnenblume</option>
-                        <option value="sonnenblume-weiss">weiße Sonnenblume</option>
-                        <option value="sonnenblume-big">Sonnenblume links unten</option>
-                    </optgroup>
-                    <optgroup label="Logo mit Schriftzug">
-                        <option value="logo-weiss">weiß, mit Schriftzug</option>
-                        <option value="logo-gruen">grün, mit Schriftzug</option>
-                    </optgroup>
-
-                    <?php
-                    if ($landesverband == 3) {
-                        ?>
-                    <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
-                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
-                    </optgroup>
-                    <?php
-                    }
-                    ?>
-                    <optgroup label="Eigenes Logo">
-                    <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
-                        ?>
-                        <option value="custom" selected>eigenes Logo</option>
-                        <option value="deletecustomlogo">eigenes Logo löschen</option>
-                    <?php
-                    } else {
-                        echo '<option value="custom">eigenes Logo hochladen</option>';
-                    }
-                    ?>
-                    </optgroup>
-                    <optgroup label="Speziallogos">
-                        <option value="frauenrechte">Frauenrechte</option>
-                        <option value="regenbogen">Regenbogen</option>
-                        <option value="europa">Europa</option>
-                    </optgroup>
-                    <optgroup label="Kein Logo">
-                        <option value="void">kein Logo</option>
-                    </optgroup>
-                </select>
-                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
-
-            </div>
-            <div class="slider">
-                <small>klein</small>
-                    <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
-                <small>groß</small>
-            </div>
-            <div class="">
-                Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
-            </div>
-        </div>
 
         <h3 class="collapsed debug" data-toggle="collapse" data-target=".cloud">Wolke</h3>
         <div class="cloud collapse list-group-item list-group-item-action flex-column align-items-start ">
@@ -372,39 +432,61 @@ if (!isAllowed(false)) {
         <h3 class="collapsed" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
-                <button type="button" class="btn btn-secondary btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
-                <button type="button" class="btn btn-secondary btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
+                Mit der Arbeitsdatei kannst Du Dein Sharepic später weiter bearbeiten.
+            </div>
+            <div>
+                <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
+                <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
             </div>
         </div>
+
+        <h3 class="collapsed" data-toggle="collapse" data-target=".tables"><i class="fas fa-table"></i> 
+                Tabellen
+         </h3>
+        <div class="tables collapse list-group-item list-group-item-action flex-column align-items-start">
+            Mit dem Tabellengenerator kanst Du eine Tabelle erstellen, z.B. über ein
+            Abstimmungsverhalten. Diese Tabelle kannst du anschließend hier hochladen.
+            <a href="/documentation/markdown/">Mehr erfahren.</a>
+            <a href="/markdown" class="btn btn-info btn-sm" target="_blank">Tabelle erstellen</a>
+        </div>
+
 
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> Muster-Sharepics (<span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>/<span id="allGalleryImages"><?php echo $allGalleryImages;?></span>)</h3>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
+                Vorlagen
+
+                <span class="badge btn-light ml-2">
+                    <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
+                    /
+                    <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
+                </span>
+                </h3>
             <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
                 <div>
-                    <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Muster-Sharepics ansehen
+                    <a href="gallery/" target="_blank"><i class="fas fa-store"></i> Vorlagen ansehen
                     <br>
                     Du hast
                     <?php
                         switch($ownGalleryImages)
                         {
                             case 0:
-                                echo "noch kein eigenes";
+                                echo "noch keine eigene";
                             break;
                             case 1:
-                                echo "ein eigenes";
+                                echo "eine eigene";
                             break;
                             default:
                                 echo $ownGalleryImages . ' eigene';
                         }
                     ?>
-                    Muster veröffentlicht.
+                    Vorlage veröffentlicht.
                     </a>
                 </div>
                 <div id="gallery-note" class="text-danger"></div>
                 <div class="d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Muster-Sharepic veröffentlichen</button>
+                    <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Vorlage veröffentlichen</button>
                 </div>
             </div>
         <?php } ?>
@@ -412,26 +494,31 @@ if (!isAllowed(false)) {
         <h3 class="collapsed" data-toggle="collapse" data-target=".screen"><i class="fas fa-adjust"></i> Screen</h3>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 align-items-center">
-                <span class="mr-2">Hintergrund:</span>
-               <input id="color-scheme" type="checkbox" data-width="60" data-size="xs" data-toggle="toggle" data-on="dunkel" data-off="hell">
                 <span class="ml-5 mr-2">Hilflinien:</span>
                <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
+        <h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <textarea placeholder="JavaScript-Code" name="code" id="code" class="form-control"></textarea>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-secondary btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
+                <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
-
-        <div class="mt-2">
-            <button type="button" class="btn btn-secondary download"><i class="fas fa-download"></i> Sharepic herunterladen</button>
+        <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
+            <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
+            <a href="gallery" target="_blank" class="text-white"><i class="fas fa-store"></i> Vorlagen</a>
+            <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
+                <i class="far fa-hand-point-right"></i> Aktionstage
+            </a>
+        </div>
+        <div class="text-center text-white mt-3">
+            <i class="fas fa-spa text-highlight"></i> Programmiert von
+            <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">Tom Rose</a>.
         </div>
     </div>
     <div class="d-none">
@@ -451,6 +538,8 @@ if (!isAllowed(false)) {
         <input type="hidden" name="addPic2x" id="addPic2x">
         <input type="hidden" name="addPic2y" id="addPic2y">
         <input type="hidden" name="textColor" id="textColor" value="0">
+        <input type="hidden" name="eraser" id="eraser">
+
 
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">

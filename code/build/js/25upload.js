@@ -47,6 +47,10 @@ $('.upload-file').change(function changeFile() {
       config.videoduration = obj.videoduration;
       $('#width').val(obj.originalWidth);
       $('#height').val(obj.originalHeight);
+      $('#graybackground').val(1);
+      $('#blurbackground').val(0);
+      $('#darklightlayer').val(0);
+      $('#greenlayer').val(0);
     }
 
     redrawCockpit();
@@ -57,6 +61,7 @@ $('.upload-file').change(function changeFile() {
         afterUpload(obj);
         break;
       case 'uploadlogo':
+        $('#logoselect').append(new Option('Eigenes Logo', 'custom'));
         $('#logoselect').val('custom');
         logo.load();
         break;

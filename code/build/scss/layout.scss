@@ -1,6 +1,11 @@
+html{
+  height: 100%;
+}
+
 body{
   position: relative;
   overflow-y: scroll;
+  height: 100%;
 }
 
 .overlay {
@@ -166,4 +171,8 @@ optgroup{
 
 .debug{
   display: none;
+}
+
+.text-shadow-none{
+  text-shadow: none !important;
 }
