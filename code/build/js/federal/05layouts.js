@@ -60,3 +60,6 @@ function textDragging() {
     }
   });
 }
+$('.addpictures').on('shown.bs.collapse', () => {
+  $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
+});

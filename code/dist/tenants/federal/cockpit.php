@@ -231,12 +231,8 @@ if (!isAllowed(false)) {
                                     <small>groß</small>
                                 </div>
                                 <div class="ml-3">
-                                    <label>
-                                        <input type="checkbox" name="addpicrounded<?= $i; ?>" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit" data-off="ohne">
-                                    </label>
+                                    <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
+                                    <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit Rand" data-off="ohne Rand">
                                 </div>
                             </div>
                         </div>
