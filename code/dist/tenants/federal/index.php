@@ -122,25 +122,31 @@ nextActionDay();
 
         <div class="col-12 col-lg-9 pt-4 canvas-wrapper">
             <div class="col-12">
-                <div id="canvas">
-                    <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
-                    <div id="grid-horizontal-upper" class="gridline horizontal d-none"></div>
-                    <div id="grid-horizontal-lower" class="gridline horizontal d-none"></div>
-                    <div id="grid-vertical-center" class="gridline vertical d-none"></div>
-                    <div id="grid-vertical-left" class="gridline vertical d-none"></div>
-                    <div id="grid-vertical-right" class="gridline vertical d-none"></div>
-                    <div id="grid-round" class="gridline d-none"></div>
+                <div id="canvas-area">
+                    <div id="canvas">
+                        <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
+                        <div id="grid-horizontal-upper" class="gridline horizontal d-none"></div>
+                        <div id="grid-horizontal-lower" class="gridline horizontal d-none"></div>
+                        <div id="grid-vertical-center" class="gridline vertical d-none"></div>
+                        <div id="grid-vertical-left" class="gridline vertical d-none"></div>
+                        <div id="grid-vertical-right" class="gridline vertical d-none"></div>
+                        <div id="grid-round" class="gridline d-none"></div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <div>
+                            <button class="btn btn-secondary btn-lg download" id="download">
+                                <i class="fas fa-download"></i> Herunterladen
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-           
 
             <?php
                 require_once(getBasePath('/lib/overlays/pixabay.php'));
                 require_once(getBasePath('/lib/overlays/waiting.php'));
                 require_once(getBasePath('/lib/overlays/actiondays.php'));
                 require_once(getBasePath('/lib/overlays/icons.php'));
-
             ?>
 
             <div class="col-12 mt-3 mb-3">
@@ -154,14 +160,6 @@ nextActionDay();
                     enthalten ist,<br>
                     <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"> schlage ihn vor</a>,
                     damit auch andere daran denken. #Danke.
-                </div>
-            </div>
-
-            <div class="col-12 text-center mb-5">
-                <div>
-                    <button class="btn btn-secondary btn-lg download" id="download">
-                        <i class="fas fa-download"></i> Herunterladen
-                    </button>
                 </div>
             </div>
 
