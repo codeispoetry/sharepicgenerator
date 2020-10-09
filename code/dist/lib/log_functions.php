@@ -13,7 +13,9 @@ function show_videos($dir)
 
 function show_images($dir)
 {
-    $files = array_reverse(glob($dir));
+    $files = array_reverse(glob($dir), GLOB_NOSORT);
+
+    array_multisort(array_map('filemtime', $files), SORT_NUMERIC, SORT_DESC, $files);
 
     foreach ($files as $file) {
         list($foo, $user, $foo ) = explode('_', $file);
