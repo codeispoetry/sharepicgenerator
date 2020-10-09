@@ -22,9 +22,7 @@ function handleBackgroundUpload($extension)
 
     $filesJoin = join(':', $_FILES['file']);
 
-    $fe1 = (file_exists($filename)) ? "yes" : "no";
-
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, $fe1);
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $filename, $moved, $filesJoin, getUser());
 
     file_put_contents(getBasePath('log/logs/uploads.log'), $line, FILE_APPEND);
 

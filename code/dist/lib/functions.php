@@ -329,9 +329,9 @@ function tidyUp($filename, $format)
     }
 
     $command = sprintf(
-        "convert -resize 500x500 -background white -flatten -quality 60  %s %s",
+        "convert -resize 800x800 -background white -flatten -quality 75  %s %s",
         getBasePath('tmp/' . $filename . '.png'),
-        getBasePath('tmp/log' . time() . '_' . $filename . '.jpg')
+        getBasePath('tmp/log_' . getUser() . '_' . time() . '.jpg')
     );
     exec($command);
 
