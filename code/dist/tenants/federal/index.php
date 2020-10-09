@@ -1,6 +1,8 @@
 <?php
 require_once('base.php');
 require_once(getBasePath("lib/functions.php"));
+require_once(getBasePath("lib/gallery_functions.php"));
+
 useDeLocale();
 
 session_start();
@@ -88,7 +90,7 @@ nextActionDay();
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
-                    <a href="gallery" target="_blank" class="dropdown-item"><i class="fas fa-store"></i> Vorlagen</a>
+                    <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>
@@ -147,6 +149,7 @@ nextActionDay();
                 require_once(getBasePath('/lib/overlays/waiting.php'));
                 require_once(getBasePath('/lib/overlays/actiondays.php'));
                 require_once(getBasePath('/lib/overlays/icons.php'));
+                require_once(getBasePath('/lib/overlays/gallery.php'));
             ?>
 
             <div class="col-12 mt-3 mb-3">

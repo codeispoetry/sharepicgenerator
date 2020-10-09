@@ -72,8 +72,7 @@ function showImages($dir_glob, $whoseFiles = 'foreignFiles')
     }
 
     if ($i==0) {
-        echo '<div class="col-12">Du hast noch keine eigene Vorlage veröffentlicht.<br>
-            <a href="../"><i class="fas fa-wrench"></i> erstelle ein eigenes Sharepic</a></div>';
+        echo '<div class="col-12">Du hast noch keine eigene Vorlage veröffentlicht.</div>';
     }
 }
 
@@ -101,7 +100,7 @@ function showImage($shpic)
         $useLink = sprintf(
             '<tr> 
                 <td class="pr-3"></td>
-                <td><a href="../index.php?useSavework=gallery/%s">
+                <td><a href="index.php?useSavework=%s">
                     <i class="fas fa-wrench"></i> weiterarbeiten
                 </a></td>
             </tr>',
