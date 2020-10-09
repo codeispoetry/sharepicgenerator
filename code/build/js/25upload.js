@@ -9,7 +9,7 @@ $('.upload-file').change(function changeFile() {
     return false;
   }
 
-  $('#waiting').addClass('active');
+  $('#waiting').show();
   $(this).prop('disabled', true);
 
   const formData = new FormData();
@@ -30,7 +30,7 @@ $('.upload-file').change(function changeFile() {
   client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
     $(`#${id}`).prop('disabled', false);
-    $('#waiting').removeClass('active');
+    $('#waiting').hide();
 
     if (obj.error) {
       console.log(obj.error);
@@ -116,7 +116,7 @@ $('.upload-file').change(function changeFile() {
 });
 
 function uploadFileByUrl(url, callback = function uploadCallback() {}) {
-  $('#waiting').addClass('active');
+  $('#waiting').show();
   const id = 'uploadbyurl';
 
   const formData = new FormData();
@@ -133,7 +133,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
     const p = Math.round((100 / e.total) * e.loaded);
     $('#uploadpercentage').html(p);
 
-    if (p > 99) {
+    if (p > 98) {
       $('#uploadstatus').html('Dein Bild wird verarbeitet...');
     }
   };

@@ -62,7 +62,7 @@ function getIcons(q) {
       }
 
       $('#iconoverlay .results .chooseicon').click(function clickChoose() {
-        $('#waiting').addClass('active');
+        $('#waiting').show();
         $('#iconoverlay').removeClass('active');
 
         const nounprojectattribution = $(this).data('attribution');
