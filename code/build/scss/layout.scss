@@ -9,22 +9,7 @@ body{
 }
 
 .overlay {
-  position: absolute;
-  display: none;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  width: 100%;
   background: white;
-  z-index: 100;
-
-  &.active {
-    display: block;
-  }
-
-  img{
-    margin: 0 10px 10px 0;
-  }
 }
 
 

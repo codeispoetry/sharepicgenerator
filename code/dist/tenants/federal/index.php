@@ -132,33 +132,14 @@ nextActionDay();
                     <div id="grid-round" class="gridline d-none"></div>
                 </div>
             </div>
-            <div class="col-12">
-                <div id="pixabay-search" style="display:none;">
-                    <a href="#" class="close closer text-danger" data-target="#pixabay-search">
-                        <i class="fas fa-times"></i>
-                    </a>
-                    <div class="pixabay-hint">
-                        <a href="https://pixabay.com/" target="_blank" id="pixabay-link">
-                            Die Bilder stammen von
-                            <img src="/assets/img/pixabay.svg" alt="Pixabay">
-                        </a>
-                        <p>
-                            Du darfst sie kostenlos und ohne Quellenangabe nutzen. Allerdings keine Bilder, auf denen einzelne 
-                            Menschen zu erkennen sind.
-                        </p>
-                    </div>
-                    <div class="results">
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div id="waiting" class="text-center"  style="display:none;">
-                    <h1>Augenblick bitte</h1>
-                    <p>Deine Datei wird hochgeladen</p>
+            
+           
 
-                    <p id="uploadstatus"><span id="uploadpercentage">0</span> % hochgeladen</p>
-                </div>
-            </div>
+            <?php
+                require_once(getBasePath('/lib/overlays/pixabay.php'));
+                require_once(getBasePath('/lib/overlays/waiting.php'));
+                require_once(getBasePath('/lib/overlays/actiondays.php'));
+            ?>
 
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
@@ -197,7 +178,6 @@ nextActionDay();
 <div class="overlays">
     <?php
         require_once(getBasePath('/lib/overlays/icons.php'));
-        require_once(getBasePath('/lib/overlays/actiondays.php'));
         require_once(getBasePath('/lib/overlays/logos.php'));
     ?>
 </div>
