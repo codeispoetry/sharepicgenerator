@@ -5,7 +5,7 @@ $('.pixabay-direct-search').click(() => {
 
 function performPixabaySearch() {
   $('#pixabay-search').show();
-  $('#canvas').slideUp();
+  $('#canvas-area').slideUp();
 
   if (config.pixabaySearchIn === 'video') {
     getPixabayVideos($('#pixabay-direct-search-q').val());
@@ -55,7 +55,7 @@ function getPixabayVideos(q) {
 
           $('.picture').collapse('hide');
           config.usePixabay = 'pixabay';
-          $('#canvas').slideDown();
+          $('#canvas-area').slideDown();
           $('#pixabay-search').hide();
           $('#waiting').hide();
         });
@@ -120,7 +120,7 @@ function getPixabayImages(q) {
 
           $('.picture').collapse('hide');
           config.usePixabay = 'pixabay';
-          $('#canvas').slideDown();
+          $('#canvas-area').slideDown();
           $('#pixabay-search').hide();
           $('#waiting').hide();
         });

@@ -5,14 +5,14 @@ function closeOverlay() {
 
   $('head meta[name="viewport"]').attr('content', `width=800, initial-scale=${initScale}`);
   $('.overlay').hide();
-  $('#canvas').show();
+  $('#canvas-area').show();
 }
 
 
 $('.closer').click(function doCloser() {
   // $($(this).data('target')).hide();
   $('.overlay').hide();
-  $('#canvas').show();
+  $('#canvas-area').show();
 });
 
 $('.overlay-opener').click(function clickOpener() {
@@ -20,6 +20,6 @@ $('.overlay-opener').click(function clickOpener() {
   $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
   $('.overlay').hide();
   $(`#${target}`).show();
-  $('#canvas').slideUp();
+  $('#canvas-area').slideUp();
   return false;
 });
