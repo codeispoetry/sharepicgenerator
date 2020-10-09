@@ -13,9 +13,9 @@ foreach ($actiondaysIni as $actionDayId => $actionDayInfo) {
     $actiondays[ $month ][] = $actionDayInfo;
 }
 ?>
-<div id="actiondays" class="overlay">
+<div id="actiondays" class="overlay" style="display:none">
         <div class="container">
-            <a href="#" class="close text-danger">
+            <a href="#" class="close closer text-danger">
                 <i class="fas fa-times"></i>
             </a>
             <div class="row pt-2 mt-1">
