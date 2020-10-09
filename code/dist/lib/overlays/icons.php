@@ -1,7 +1,7 @@
-
-    <div id="iconoverlay" class="overlay">
+<div class="col-12">
+    <div id="iconoverlay" class="overlay" style="display:none">
         <div class="container-fluid">
-            <a href="#" class="close text-danger">
+            <a href="#" class="close closer text-danger">
                 <i class="fas fa-times"></i>
             </a>
             <div class="row pt-2 mt-1">
@@ -25,3 +25,4 @@
             <div class="col-12 d-flex flex-wrap results"></div>
         </div>
     </div>
+</div>

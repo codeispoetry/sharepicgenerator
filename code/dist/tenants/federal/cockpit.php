@@ -183,7 +183,7 @@ if (!isAllowed(false)) {
                         <i class="fa fa-upload"></i> Icon hochladen
                     </span>
 
-                    <span class="text-primary cursor-pointer" id="iconopener">
+                    <span class="text-primary cursor-pointer overlay-opener" data-target="iconoverlay">
                         <i class="fas fa-search"></i> Icon suchen
                     </span>
                 </div>

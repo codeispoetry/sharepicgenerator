@@ -31,11 +31,6 @@ $('#iconsize').on('change', function changeIcon() {
   text.draw();
 });
 
-$('#iconopener').click(() => {
-  $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
-  $('#iconoverlay').addClass('active');
-});
-
 $('#iconoverlay form').submit(() => {
   getIcons($('#iconoverlay .q').val());
   return false;
@@ -63,7 +58,7 @@ function getIcons(q) {
 
       $('#iconoverlay .results .chooseicon').click(function clickChoose() {
         $('#waiting').show();
-        $('#iconoverlay').removeClass('active');
+        $('#iconoverlay').hide();
 
         const nounprojectattribution = $(this).data('attribution');
 

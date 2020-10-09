@@ -139,6 +139,8 @@ nextActionDay();
                 require_once(getBasePath('/lib/overlays/pixabay.php'));
                 require_once(getBasePath('/lib/overlays/waiting.php'));
                 require_once(getBasePath('/lib/overlays/actiondays.php'));
+                require_once(getBasePath('/lib/overlays/icons.php'));
+
             ?>
 
             <div class="col-12 mt-3 mb-3">
@@ -177,7 +179,6 @@ nextActionDay();
 </div>
 <div class="overlays">
     <?php
-        require_once(getBasePath('/lib/overlays/icons.php'));
         require_once(getBasePath('/lib/overlays/logos.php'));
     ?>
 </div>
