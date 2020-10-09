@@ -16,11 +16,15 @@ function show_images($dir)
     $files = array_reverse(glob($dir));
 
     foreach ($files as $file) {
+        list($foo, $user, $foo ) = explode('_', $file);
         printf(
-            '<div class="col-6 col-md-3 col-lg-2"><a href="showsource.php?file=%s&picture=%s"><img src="%s" class="img-fluid"/></a></div>',
-            substr(preg_replace('/^(.*?)_/', '', $file), 0, -4),
+            '<div class="col-6 col-md-3 col-lg-2">
+                <figure>
+                    <a href="%1$s"><img src="%1$s" class="img-fluid"/></a>
+                    <figcaption>%2$s</figcaption>
+            </div>',
             $file,
-            $file
+            $user
         );
     }
 }
