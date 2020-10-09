@@ -146,7 +146,6 @@ nextActionDay();
                             Du darfst sie kostenlos und ohne Quellenangabe nutzen. Allerdings keine Bilder, auf denen einzelne 
                             Menschen zu erkennen sind.
                         </p>
-                        <a href="">Videos suchen</a>
                     </div>
                     <div class="results">
                     </div>
