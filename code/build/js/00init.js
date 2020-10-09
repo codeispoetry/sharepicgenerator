@@ -120,3 +120,8 @@ $('.to-front').click(function tofront() {
 
   eraser.draw();
 });
+
+$('.closer').click(function doCloser() {
+  $($(this).data('target')).hide();
+  $('#canvas').show();
+});

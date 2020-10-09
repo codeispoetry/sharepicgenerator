@@ -28,11 +28,18 @@ if (!isAllowed(false)) {
                 </a> 
             </div>
             <div>
-                <div class="input-group">
+                <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-images"></i></div>
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-images pixabay-selected-type"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <span class="dropdown-item pixabay-search-in" data-files="images"><i class="fas fa-images"></i> Bilder</span>
+                            <span class="dropdown-item pixabay-search-in" data-files="video"><i class="fas fa-video"></i> Videos</span>
+                        </div>
                     </div>
-                    <input type="text" class="form-control" id="pixabay-direct-search-q" placeholder="z.B. Berge oder Sonnenblume">
+
+                    <input type="text" class="form-control" id="pixabay-direct-search-q" placeholder="Suchbegriff">
                     <div class="input-group-append">
                         <button type="button" class="input-group-text btn-primary pixabay-direct-search">suchen</button>
                     </div>

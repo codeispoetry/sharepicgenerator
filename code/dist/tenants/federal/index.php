@@ -67,6 +67,8 @@ nextActionDay();
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "federal"); ?>
+        <?php printf('config.pixabaySearchIn="images";'); ?>
+
     </script>
 </head>
 <body>
@@ -130,6 +132,35 @@ nextActionDay();
                     <div id="grid-round" class="gridline d-none"></div>
                 </div>
             </div>
+            <div class="col-12">
+                <div id="pixabay-search" style="display:none;">
+                    <a href="#" class="close closer text-danger" data-target="#pixabay-search">
+                        <i class="fas fa-times"></i>
+                    </a>
+                    <div class="pixabay-hint">
+                        <a href="https://pixabay.com/" target="_blank" id="pixabay-link">
+                            Die Bilder stammen von
+                            <img src="/assets/img/pixabay.svg" alt="Pixabay">
+                        </a>
+                        <p>
+                            Du darfst sie kostenlos und ohne Quellenangabe nutzen. Allerdings keine Bilder, auf denen einzelne 
+                            Menschen zu erkennen sind.
+                        </p>
+                        <a href="">Videos suchen</a>
+                    </div>
+                    <div class="results">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div id="waiting" class="text-center"  style="display:none;">
+                    <h1>Augenblick bitte</h1>
+                    <p>Deine Datei wird hochgeladen</p>
+
+                    <p id="uploadstatus"><span id="uploadpercentage">0</span> % hochgeladen</p>
+                </div>
+            </div>
+
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
                 <div id="warning" class="text-danger text-center p-4" style="display:none">Gesicht</div>
@@ -166,19 +197,18 @@ nextActionDay();
 </div>
 <div class="overlays">
     <?php
-        require_once(getBasePath('/lib/overlays/pixabay.php'));
         require_once(getBasePath('/lib/overlays/icons.php'));
-        require_once(getBasePath('/lib/overlays/waiting.php'));
         require_once(getBasePath('/lib/overlays/actiondays.php'));
         require_once(getBasePath('/lib/overlays/logos.php'));
     ?>
 </div>
 
 
-
 <script src="/vendor/jquery-3.4.1.min.js"></script>
+<script src="/vendor/popper.min.js"></script>
 <script src="/vendor/bootstrap.min.js"></script>
 <script src="/vendor/bootstrap4-toggle.min.js"></script>
+
 
 
 <script src="/vendor/svg.min.js"></script>
@@ -186,6 +216,8 @@ nextActionDay();
 <script src="/vendor/svg.filter.min.js"></script>
 <script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
 <script src="/assets/js/federal.min.js?v=<?php echo @filemtime('../../assets/js/federal.min.js'); ?>"></script>
+
+
 
 <script>
 <?php
