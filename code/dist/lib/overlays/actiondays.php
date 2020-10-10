@@ -48,7 +48,7 @@ foreach ($actiondaysIni as $actionDayId => $actionDayInfo) {
                 <div class="tab-content w-75">
 
                     <?php
-                    $nextYear =' next year ';
+                    $nextYear = sprintf(' %s', date('Y') + 1);
                     for ($month = 1; $month <=12; $month++) {
                         $id = "month" . $month;
                         $name = strftime("%B", mktime(0, 0, 0, $month, 1, date('Y')));
@@ -68,6 +68,7 @@ foreach ($actiondaysIni as $actionDayId => $actionDayInfo) {
                                 if (isset($actiondays[ $month ])) {
                                     foreach ($actiondays[$month] as $actionday) {
                                         $timecode = $actionday['strtotime'] . $nextYear;
+                                       
                                         $timestamp = strToTime($timecode);
                                         if ($timestamp == 0) {
                                             continue;
