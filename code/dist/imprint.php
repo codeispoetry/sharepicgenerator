@@ -73,7 +73,7 @@
                     Eine verkleinerte Kopie davon bleibt zu Prüfzwecken für maximal
                     sieben Tage auf dem Server gespeichert. Das hilft, fehlerhafte
                     Sharepics zu entdecken und den Programmcode zu verbessern. Diese
-                    Bilder weren unter einem Zufallsnamen gespeichert.
+                    Bilder werden mit dem Usernamen gespeichert.
                 </p>
 
                 <h5 class="mt-3">Cookies</h5>
