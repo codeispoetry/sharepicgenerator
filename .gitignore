@@ -46,5 +46,4 @@ code/dist/log/.htusers
 **swp
 
 docker-compose.yml
-vendor/
 passwords.php
