@@ -106,7 +106,7 @@ class sharepicgenerator(unittest.TestCase):
         for entry in self.driver.get_log('browser'):
             if entry['level'] == 'SEVERE':
                 jsErrors += 1
-                print( entry['level'] )
+                print( entry )
 
         self.driver.quit()
 
