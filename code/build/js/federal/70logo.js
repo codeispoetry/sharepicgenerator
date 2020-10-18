@@ -45,9 +45,9 @@ const logo = {
       showChapter: true,
     },
     'sonnenblume-big': {
-      file: '/assets/logos/sonnenblume.svg',
-      widthFraction: 0.5,
-      position: 'bottomleftOutside',
+      file: '/assets/logos/sonnenblume-viertel.svg',
+      widthFraction: 0.28,
+      position: 'bottomleftbig',
     },
     'logo-berlin-weiss': {
       file: '/assets/logos/berlin-weiss.svg',
@@ -109,9 +109,9 @@ const logo = {
         x = 10;
         y = draw.height() - logo.svg.height() - 10 - 20;
         break;
-      case 'bottomleftOutside':
-        x = -(width * 0.5) + 20;
-        y = -20 + draw.height() - logo.svg.height() * 0.5;
+      case 'bottomleftbig':
+        x = 0;
+        y = draw.height() - logo.svg.height();
         break;
       default:
         x = draw.width() - width - 10;
