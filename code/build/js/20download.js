@@ -34,7 +34,7 @@ $('#download,.download').click(function onDownloadClick() {
     type: 'POST',
     url: '/actions/createpic.php',
     data: {
-      svg: data, format, addtogallery: $('#add-to-gallery').prop('checked'), tenant: config.tenant, user: config.user, csrf: config.csrf, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
+      svg: data, format, addtogallery: $('#add-to-gallery').prop('checked'), sharepic: $('#pic').serialize(), tenant: config.tenant, user: config.user, csrf: config.csrf, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
     },
     success(createPicData) {
       const obj = JSON.parse(createPicData);

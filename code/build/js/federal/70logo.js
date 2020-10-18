@@ -86,11 +86,11 @@ const logo = {
 
       // add text to logo
       if (this.logoinfo.showChapter && $('#logochapter').val()) {
-        const chapter = draw.text($('#logochapter').val().toUpperCase()).font(logofont).fill('#ffffff').move(20, 1495);
+        const chapter = draw.text($('#logochapter').val().toUpperCase()).font(logofont).fill('#ffffff').move(23, 1495);
         logo.svg.add(chapter);
       }
 
-      setTimeout(logo.draw, 10); // with no timeout, error at hard reload of page
+      setTimeout(logo.draw, 100); // with no timeout, error at hard reload of page
     });
     return true;
   },

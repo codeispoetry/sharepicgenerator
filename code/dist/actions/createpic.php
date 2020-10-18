@@ -2,6 +2,7 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/save_functions.php'));
 require_once(getBasePath('lib/gallery_functions.php'));
 useDeLocale();
 
@@ -63,6 +64,7 @@ if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
     saveInGallery($filename, $format, sanitizeUserinput($_POST['tenant']));
 }
 
+saveUserPreferences();
 logDownload();
 
 $return = [];
