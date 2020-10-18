@@ -297,7 +297,7 @@ if (!isAllowed(false)) {
 
             </div>
             <div class="">
-                <input type="text" placeholder="Text im blauen Balken: KV oder OV" name="logochapter" id="logochapter" value=""
+                <input type="text" placeholder="Text im blauen Balken: KV oder OV" name="logochapter" id="logochapter" value="<? echo getUserPref('logochapter');?>"
                         class="form-control form-control-sm">
             </div>
             <div class="d-flex justify-content-between">

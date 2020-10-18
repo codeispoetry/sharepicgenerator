@@ -50,3 +50,38 @@ function savePic($user, $data)
     file_put_contents($userSaveFile, json_encode($params));
     return true;
 }
+
+function saveUserPreferences()
+{
+    $data = $_POST['sharepic'];
+    $values = array();
+    parse_str($data, $values);
+
+    $prefs = readUserPreferences();
+    $prefs['logochapter'] = preg_replace('/[^a-zA-Z\/\.\-äöüÄÖÜß ]/', '', $values['logochapter']);
+    file_put_contents(getUserDir() . '/preferences.json', json_encode($prefs));
+}
+
+
+function readUserPreferences()
+{
+    $prefsFile = getUserDir() . '/preferences.json';
+
+    if (!file_exists($prefsFile)) {
+        return array();
+    }
+
+    $prefs = json_decode(file_get_contents($prefsFile), true);
+
+    return $prefs;
+}
+
+function getUserPref($var)
+{
+    $prefs = readUserPreferences();
+    if (!isset($prefs[$var])) {
+        return false;
+    }
+
+    return $prefs[$var];
+}
