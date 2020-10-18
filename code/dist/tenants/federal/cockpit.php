@@ -296,6 +296,10 @@ if (!isAllowed(false)) {
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
 
             </div>
+            <div class="">
+                <input type="text" placeholder="Text im blauen Balken: KV oder OV" name="logochapter" id="logochapter" value=""
+                        class="form-control form-control-sm">
+            </div>
             <div class="d-flex justify-content-between">
                 <div class="slider">
                     <small>klein</small>

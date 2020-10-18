@@ -1,3 +1,9 @@
+const logofont = {
+  family: 'FuturaCondensedExtraBold',
+  size: 78,
+  anchor: 'left',
+};
+
 const logo = {
   isLoaded: false,
   config: {
@@ -30,11 +36,13 @@ const logo = {
       file: '/assets/logos/logo-weiss.svg',
       widthFraction: 0.2,
       position: 'topright',
+      showChapter: true,
     },
     'logo-gruen': {
       file: '/assets/logos/logo-gruen.svg',
       widthFraction: 0.20,
       position: 'topright',
+      showChapter: true,
     },
     'sonnenblume-big': {
       file: '/assets/logos/sonnenblume.svg',
@@ -71,17 +79,24 @@ const logo = {
 
     $('#logosize').val(this.logoinfo.widthFraction * 100);
 
-    this.svg = draw.image(this.logoinfo.file, () => {
+    this.svg = draw.group().attr('id', 'svg-logo');
+    const logofile = draw.image(this.logoinfo.file, () => {
       logo.isLoaded = true;
-      logo.draw();
+      logo.svg.add(logofile);
+
+      // add text to logo
+      if (this.logoinfo.showChapter && $('#logochapter').val()) {
+        const chapter = draw.text($('#logochapter').val().toUpperCase()).font(logofont).fill('#ffffff').move(20, 1495);
+        logo.svg.add(chapter);
+      }
+
+      setTimeout(logo.draw, 10); // with no timeout, error at hard reload of page
     });
     return true;
   },
 
   draw() {
     if (!logo.isLoaded) return false;
-
-    logo.svg.attr('id', 'svg-logo');
 
     // let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
     const width = draw.width() * logo.logoinfo.widthFraction;
@@ -191,3 +206,5 @@ $(document).ready(() => {
 
   logo.load(); // otherwise sometimes to logo is not rendered
 });
+
+$('#logochapter').bind('input propertychange', () => logo.load());
