@@ -2,7 +2,7 @@ const nolines = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
   colors: ['white', 'black', '#46962b', '#E6007E', '#FEEE00'],
-  textColorIndex: 0,
+  textColorIndex: 2,
   textbeforeColorIndex: 1,
   textafterColorIndex: 3,
   texthighlightColorIndex: 4,
