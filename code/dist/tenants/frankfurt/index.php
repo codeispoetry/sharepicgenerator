@@ -45,7 +45,7 @@ nextActionDay();
     <meta charset="utf-8"/>
     <meta name="theme-color" content="#46962b">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sharepicgenerator</title>
+    <title>Sharepicgenerator/Frankfurt</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/vendor/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
@@ -82,7 +82,7 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de/frankfurt</a>
+        <a class="navbar-brand arvo" href="/tenants/frankfurt">Sharepicgenerator.de/frankfurt</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
