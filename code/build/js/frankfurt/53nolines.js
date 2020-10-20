@@ -1,7 +1,11 @@
 const nolines = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
-  colors: ['#ffffff', '#ffee00'],
+  colors: ['white', 'black', '#46962b', '#E6007E', '#FEEE00'],
+  textColorIndex: 0,
+  textbeforeColorIndex: 1,
+  textafterColorIndex: 3,
+  texthighlightColorIndex: 4,
   lineheight: 20,
   linemargin: -4,
   paddingLr: 5,
@@ -62,9 +66,10 @@ const nolines = {
         for (let i = 0; i < values.length; i++) {
           style = (style === 0) ? 1 : 0;
 
-          color = nolines.colors[style];
-          if (style === 0) {
-            color = textColors[$('#textColor').val()];
+          color = nolines.colors[nolines.textColorIndex];
+          if (style === 1) {
+            // eslint-disable-next-line prefer-destructuring
+            color = nolines.colors[nolines.texthighlightColorIndex];
           }
 
           add.tspan(values[i]).fill(color).font(
@@ -85,14 +90,6 @@ const nolines = {
       text.svg.add(t);
     });
 
-    // add lower line
-    let lineafter;
-    if ($('#textafter').val().length > 0) {
-      lineafter = draw.rect(10, 8)
-        .fill('#E6007E').dy(text.svg.height());
-      text.svg.add(lineafter);
-    }
-
     // text below the line
     if ($('#textafter').val()) {
       const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
@@ -100,16 +97,13 @@ const nolines = {
       const textafter = draw.text((add) => {
         for (let i = 0; i < textafterParts.length; i++) {
           style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
+          add.tspan(textafterParts[i])
+            .fill(nolines.colors[nolines.textafterColorIndex]).font(nolines.fontoutsidelines);
           add.attr('xml:space', 'preserve');
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.dx(2).dy(text.svg.height() - 2);
-
-      // make background the same width as the text
-      lineafter.width(textafter.bbox().width + 2);
-
+      textafter.dx(2).dy(text.svg.height() + 5);
       text.svg.add(textafter);
     }
 
@@ -117,7 +111,8 @@ const nolines = {
     const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
     const textbefore = draw.text((add) => {
       for (let i = 0; i < textbeforeParts.length; i++) {
-        add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
+        add.tspan(textbeforeParts[i])
+          .fill(nolines.colors[nolines.textbeforeColorIndex]).font(nolines.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
       }
@@ -149,3 +144,27 @@ const nolines = {
 };
 
 $('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);
+
+$('.text-change-color').click(() => {
+  nolines.textColorIndex += 1;
+  nolines.textColorIndex %= nolines.colors.length;
+  nolines.draw();
+});
+
+$('.textbefore-change-color').click(() => {
+  nolines.textbeforeColorIndex += 1;
+  nolines.textbeforeColorIndex %= nolines.colors.length;
+  nolines.draw();
+});
+
+$('.textafter-change-color').click(() => {
+  nolines.textafterColorIndex += 1;
+  nolines.textafterColorIndex %= nolines.colors.length;
+  nolines.draw();
+});
+
+$('.texthighlight-change-color').click(() => {
+  nolines.texthighlightColorIndex += 1;
+  nolines.texthighlightColorIndex %= nolines.colors.length;
+  nolines.draw();
+});

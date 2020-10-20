@@ -121,21 +121,26 @@ if (!isAllowed(false)) {
             </div>
 
             <div class="list-group-item-content">
-                <div class="">
+                <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
                            class="form-control showonly lines nolines">
+                           <i class="fa fa-broom ml-1 text-primary cursor-pointer textbefore-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
-                <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
-#mitdir.</textarea>
+                <div class="d-flex align-items-lg-center">
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Frankfurt</textarea>
+                    <div class="d-flex flex-column">
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1 mb-2" title="Farbe wechseln"></i>
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer texthighlight-change-color ml-1" title="Farbe für [] wechseln"></i>
+                    </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer textafter-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] bekommt Zweitfarbe</small>
                         <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
