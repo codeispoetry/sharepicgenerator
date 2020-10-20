@@ -4,8 +4,8 @@ const bgpic = {
   height: 450,
   originalWidth: 1920,
   originalHeight: 1080,
-  filename: '/assets/bg_small.jpg',
-  fullBackgroundName: '../assets/bg.jpg',
+  filename: '/assets/white_small.jpg',
+  fullBackgroundName: '../assets/white.jpg',
 };
 
 $(document).ready(() => {
@@ -51,7 +51,7 @@ function reDraw(withAddPic = false) {
   }, 20);
 
   window.setTimeout(() => {
-    logo.load();
+    logo.draw();
     text.draw();
     addtext.draw();
     quote.draw();
