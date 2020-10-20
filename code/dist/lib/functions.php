@@ -118,17 +118,17 @@ function logLogin()
     $user = $_SESSION['user'];
     $landesverband = $_SESSION['landesverband'];
     $tenant = $_SESSION['tenant'];
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant);
-    file_put_contents(getBasePath('log/logs/log.log'), $line, FILE_APPEND);
+    $line = sprintf("%s\t%s\t%s\t%s\n", time(), $user, $landesverband, $tenant);
+    file_put_contents(getBasePath('log/logs/logins.log'), $line, FILE_APPEND);
 }
 
 function logDownload()
 {
-    $user = $_SESSION['user'];
-    $pixabay = sanitizeUserinput($_POST['usepixabay']);
-    $socialmediaplatform = sanitizeUserinput($_POST['socialmediaplatform']);
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, 'download', $pixabay, $socialmediaplatform);
-    file_put_contents(getBasePath('log/logs/log.log'), $line, FILE_APPEND);
+    $sharepic = $_POST['sharepic'];
+    $config = $_POST['config'];
+
+    $line = sprintf("%s\t%s\t%s\n", time(), $config, $sharepic);
+    file_put_contents(getBasePath('log/logs/downloads.log'), $line, FILE_APPEND);
 }
 
 function isLocal()
