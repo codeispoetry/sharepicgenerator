@@ -29,7 +29,7 @@ if (!isAllowed(false)) {
             </div>
             <?php if(configValue("Features","showMediaGallery")){ ?>
                 <div class="d-flex justify-content-between mb-1">
-                    <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">
+                    <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
                         <i class="fas fa-image"></i> Mediengalerie
                     </a>
                 </div>

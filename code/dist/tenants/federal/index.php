@@ -151,6 +151,7 @@ nextActionDay();
                 require_once(getBasePath('/lib/overlays/actiondays.php'));
                 require_once(getBasePath('/lib/overlays/icons.php'));
                 require_once(getBasePath('/lib/overlays/gallery.php'));
+                require_once(getBasePath('/lib/overlays/pictures.php'));
             ?>
 
             <div class="col-12 mt-3 mb-3">
