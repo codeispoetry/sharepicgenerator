@@ -27,6 +27,11 @@ if (!isAllowed(false)) {
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
             </div>
+            <div class="mb-1">
+                <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">
+                    <i class="fas fa-image"></i> Frankfurter Icons
+                </a>
+            </div>
             <div>
                 <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
@@ -45,13 +50,6 @@ if (!isAllowed(false)) {
                     </div>
                 </div>
             </div>
-            <?php if(configValue("Features","showMediaGallery")){ ?>
-                <div class="d-flex justify-content-between mb-1">
-                    <a href="pictures" title="Bild aus der internen Mediengalerie auswählen" class="">
-                        <i class="fas fa-image ml-3"></i> Mediengalerie
-                    </a>
-                </div>
-            <?php } ?>
            
             <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
                 <div class="slider novideo">
