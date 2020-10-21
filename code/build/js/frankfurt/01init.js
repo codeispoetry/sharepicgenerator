@@ -9,10 +9,10 @@ const bgpic = {
 };
 
 $(document).ready(() => {
-  $('#text').val('Hier ist Frankfurt');
+  $('#text').val('Hier ist\nFrankfurt');
   $('#textsize').val(502);
   $('#textX').val(41);
-  $('#textY').val(172);
+  $('#textY').val(122);
   config.layout = 'nolines';
 
   const queryString = window.location.search;
