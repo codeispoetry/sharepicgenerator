@@ -582,9 +582,7 @@ function showPictures($main_dir)
             echo <<<EOL
           <div class="col-6 col-md-3 col-lg-1">
               <figure>
-                  <a href="../index.php?usePicture=pictures/$pic" >
-                    <img src="$showPic" class="img-fluid" />
-                  </a>
+                    <img src="$showPic" class="img-fluid galleryPicture cursor-pointer" data-url="$pic"/>
                   <figcaption class="d-none">
                       <table class="small">
                           <tr>
