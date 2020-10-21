@@ -69,7 +69,7 @@ nextActionDay();
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
-        <?php printf('config.tenant="%s";', "federal"); ?>
+        <?php printf('config.tenant="%s";', "frankfurt"); ?>
         <?php printf('config.pixabaySearchIn="images";'); ?>
 
     </script>
@@ -208,11 +208,11 @@ if (isset($_GET['useSavework'])) {
     if (isset($saveData)) {
         printf('loadSavework(%s);', $saveData);
     }
-
-    if (isset($_GET['usePicture'])) {
-        printf('uploadFileByUrl(`../tenants/federal/%s`, () => {})', $_GET['usePicture']);
-    }
 }
+if (isset($_GET['usePicture'])) {
+    printf('uploadFileByUrl(`../tenants/frankfurt/%s`, () => {})', $_GET['usePicture']);
+}
+
 ?>
 </script>
 
