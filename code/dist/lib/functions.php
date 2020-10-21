@@ -580,10 +580,12 @@ function showPictures($main_dir)
             $img_size = $img_data[0] . " x " . $img_data[1];
 
             echo <<<EOL
-          <div class="col-6 col-md-3 col-lg-3" data-id="1">
+          <div class="col-6 col-md-3 col-lg-1">
               <figure>
-                  <img src="$showPic" class="img-fluid" />
-                  <figcaption>
+                  <a href="../index.php?usePicture=pictures/$pic" >
+                    <img src="$showPic" class="img-fluid" />
+                  </a>
+                  <figcaption class="d-none">
                       <table class="small">
                           <tr>
                               <td class="pr-3">Name</td>
