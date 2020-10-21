@@ -60,6 +60,9 @@ $exportWidth = (int) $_POST['width'];
 $quality = (int) $_POST['quality'] ?: 90;
 
 convert($filename, $exportWidth, $format, $quality);
+if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
+    saveInGallery($filename, $format, sanitizeUserinput($_POST['tenant']));
+}
 
 saveUserPreferences();
 logDownload();
