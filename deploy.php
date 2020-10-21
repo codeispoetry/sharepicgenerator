@@ -18,6 +18,7 @@ set('shared_dirs', [
     'tmp',
     'persistent/user',
     'tenants/federal/gallery/img',
+    'tenants/frankfurt/gallery/img',
     'log/logs',
 ]);
 
