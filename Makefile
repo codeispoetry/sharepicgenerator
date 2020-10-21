@@ -17,7 +17,7 @@ compile:
 	docker-compose exec node npm run build:dev
 
 log:
-	docker-compose logs -f node
+	docker-compose logs -f --tail 20 node
 
 shell:
 	docker-compose exec webserver bash
