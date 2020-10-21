@@ -10,6 +10,7 @@ const logo = {
 
     logo.logoRect = draw.rect(draw.width(), draw.height() * logo.heightFraction)
       .fill('#46962b')
+      .opacity(0.85)
       .move(0, draw.height() - draw.height() * logo.heightFraction);
 
     const size = draw.height() * logo.sunflowerFraction;
