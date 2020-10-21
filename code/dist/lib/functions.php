@@ -569,7 +569,7 @@ function showPictures($main_dir)
             $ext = $file_parts['extension'];
             $name = $file_parts['basename'];
             $fsize = human_filesize(filesize($pic));
-            $useLink = "<a href='../index.php?usePicture=pictures/".$pic ."' ><i class='fas fa-upload'> Verwenden</i></a>";
+            $useLink = "<a href='../index.php?usePicture=pictures/".$pic ."' ><i class='fas fa-edit'></i> Verwenden</a>";
 
             $showPic = $pic;
             if (file_exists("$dirname/thumbs/$name")) {
