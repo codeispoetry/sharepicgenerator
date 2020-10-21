@@ -46,12 +46,13 @@ if (!isAllowed(false)) {
             <h1 class="text-uppercase h2">Mediengalerie</h1>
         </div>
     </div>
-    <div id="picture-list">
-      <div class="pb-3">
-        <input class="search" placeholder="Suche" />
-        <button class="sort" data-sort="llname">Nach Name sortieren</button>
-        <button class="sort" data-sort="llalbum">Nach Album sortieren</button>
+    <div id="picture-list" class="row">
+      <div class="pb-3 col-6 d-none">
+        <input class="form-control search" placeholder="Suche" />
+        <button class="btn btn-primary sort" data-sort="llname">Nach Name sortieren</button>
+        <button class="btn btn-secondary sort" data-sort="llalbum">Nach Album sortieren</button>
       </div>
+        
       <div class="row pb-5 mb-3 list">
         <?php
           showPictures('img/');
