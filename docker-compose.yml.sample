@@ -9,7 +9,6 @@ services:
     volumes:
       - ./code:/var/www/html
       - ./fonts:/usr/share/fonts/truetype/custom
-      - ./deployment/sshkeys:/root/.ssh
       - ./deployment/scripts:/root/scripts
     networks:
       - sharepicgenerator
