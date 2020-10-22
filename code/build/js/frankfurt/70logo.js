@@ -8,8 +8,13 @@ const logo = {
     logo.logoRect.remove();
     logo.logoFile.remove();
 
+    let color = '#46962b';
+    if (config.logoBlack) {
+      color = '#000000';
+    }
+
     logo.logoRect = draw.rect(draw.width(), draw.height() * logo.heightFraction)
-      .fill('#46962b')
+      .fill(color)
       .opacity(0.85)
       .move(0, draw.height() - draw.height() * logo.heightFraction);
 
