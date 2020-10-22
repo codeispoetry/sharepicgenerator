@@ -11,7 +11,7 @@
             </div>
             <div class="row pb-5 mb-3">
                 <?php
-                    showPictures('pictures/img/');
+                    showPictures('pictures/img');
                 ?>
             </div>
         </div>
