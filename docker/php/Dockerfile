@@ -10,11 +10,14 @@ RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev
 RUN pecl install oauth 
 RUN docker-php-ext-enable oauth
 
+RUN a2enmod rewrite
+
+
 # Needed for api for telegram
 #RUN apt-get install python-pip -y
 #RUN pip install selenium
 
-RUN apt-get install -y chromium
+#RUN apt-get install -y chromium
 #RUN wget https://chromedriver.storage.googleapis.com/78.0.3904.105/chromedriver_linux64.zip
 #RUN unzip chromedriver_linux64.zip
 #RUN chmod +x chromedriver
