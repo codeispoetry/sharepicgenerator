@@ -27,6 +27,13 @@ $(document).ready(() => {
   $('#addtextY').val(draw.height() - 50);
 
   showLayout();
+
+  $(".galleryPicture[data-url!='pictures/img/frankfurt/Gruene-Icon_11-Trauer.png']").click(() => {
+    config.logoBlack = false;
+  });
+  $(".galleryPicture[data-url='pictures/img/frankfurt/Gruene-Icon_11-Trauer.png']").click(() => {
+    config.logoBlack = true;
+  });
 });
 
 // eslint-disable-next-line no-unused-vars
