@@ -128,9 +128,34 @@ function logDownload()
 
 
     $db = new SQLite3(getBasePath('log/logs/log.db'));
+
+    if (isAdmin()) {
+        $db->exec('CREATE TABLE IF NOT EXISTS downloads(
+                id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)');
+
+        // add missing columns
+        $columns = [];
+        $results = $db->query("PRAGMA table_info('downloads');");
+        while ($row = $results->fetchArray()) {
+            $columns[] = $row['name'];
+        }
+        $newColumns = array_diff(array_keys($data), $columns);
+  
+        foreach ($newColumns as $newColumn) {
+            $db->exec("ALTER TABLE downloads ADD $newColumn");
+            $columns[] = $newColumn;
+        }
+    }
     
-    $smt = $db->prepare("INSERT INTO downloads (user,tenant,pixabaySearchIn,socialmediaplatform,noBackgroundDragAndDrop,layout,backgroundsize,graybackground,blurbackground,darklightlayer,greenlayer,copyrightPosition,copyright,textbefore,text,textafter,textsize,iconsize,addPicSize1,addPicSize2,logoselect,logochapter,logosize,pintext,addtextsize,width,height,cloudtoken,code,pinX,pinY,backgroundX,backgroundY,backgroundURL,iconfile,addpicfile1,addpicfile2,fullBackgroundName,textX,textY,addtextX,addtextY,addPic1x,addPic1y,addPic2x,addPic2y,textColor,eraser) values (:user,:tenant,:pixabaySearchIn,:socialmediaplatform,:noBackgroundDragAndDrop,:layout,:backgroundsize,:graybackground,:blurbackground,:darklightlayer,:greenlayer,:copyrightPosition,:copyright,:textbefore,:text,:textafter,:textsize,:iconsize,:addPicSize1,:addPicSize2,:logoselect,:logochapter,:logosize,:pintext,:addtextsize,:width,:height,:cloudtoken,:code,:pinX,:pinY,:backgroundX,:backgroundY,:backgroundURL,:iconfile,:addpicfile1,:addpicfile2,:fullBackgroundName,:textX,:textY,:addtextX,:addtextY,:addPic1x,:addPic1y,:addPic2x,:addPic2y,:textColor,:eraser)");
-    $smt->bindValue(':time', time(), SQLITE3_TEXT);
+    // do logging
+    $smt = $db->prepare(
+        sprintf(
+            'INSERT INTO downloads (%s) values (:%s)',
+            join(',', $columns),
+            join(',:', $columns)
+        )
+    );
     foreach ($data as $variable => $value) {
         $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
     }
