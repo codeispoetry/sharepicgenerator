@@ -27,13 +27,11 @@ if (!isAllowed(false)) {
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
             </div>
-            <?php if(configValue("Features","showMediaGallery")){ ?>
-                <div class="d-flex justify-content-between mb-1">
-                    <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
-                        <i class="fas fa-image"></i> Mediengalerie
-                    </a>
-                </div>
-            <?php } ?>
+            <div class="mb-1">
+                <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
+                    <i class="fas fa-image"></i> Frankfurter Icons
+                </a>
+            </div>
             <div>
                 <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
@@ -105,7 +103,7 @@ if (!isAllowed(false)) {
         
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between form-check form-check-inline">
+            <div class="d-none justify-content-between form-check form-check-inline">
                 <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
                  </label>
@@ -121,21 +119,26 @@ if (!isAllowed(false)) {
             </div>
 
             <div class="list-group-item-content">
-                <div class="">
+                <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
                            class="form-control showonly lines nolines">
+                           <i class="fa fa-broom ml-1 text-primary cursor-pointer textbefore-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
-                <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
-#mitdir.</textarea>
+                <div class="d-flex align-items-lg-center">
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Frankfurt</textarea>
+                    <div class="d-flex flex-column">
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1 mb-2" title="Farbe wechseln"></i>
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer texthighlight-change-color ml-1" title="Farbe für [] wechseln"></i>
+                    </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer textafter-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] bekommt Zweitfarbe</small>
                         <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
@@ -248,8 +251,8 @@ if (!isAllowed(false)) {
                 <?php } ?>
             </div>
          </div>
-         <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
+         <h3 class="d-none collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+         <div class="d-none logo collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
@@ -262,28 +265,6 @@ if (!isAllowed(false)) {
                         <option value="logo-gruen">grün, mit Schriftzug</option>
                     </optgroup>
 
-                    <?php
-                    if ($landesverband == 3) {
-                        ?>
-                    <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
-                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
-                    </optgroup>
-                    <?php
-                    }
-                    ?>
-                    
-                    <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
-                        ?>
-                        <optgroup label="Eigenes Logo">
-                            <option value="custom" selected>eigenes Logo</option>
-                            <option value="deletecustomlogo">eigenes Logo löschen</option>
-                        </optgroup>
-                    <?php
-                    }
-                    ?>
-                   
                     <optgroup label="Speziallogos">
                         <option value="frauenrechte">Frauenrechte</option>
                         <option value="regenbogen">Regenbogen</option>
@@ -316,7 +297,7 @@ if (!isAllowed(false)) {
                 Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
             </div>
         </div>
-         <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
+         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
         <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
@@ -337,7 +318,7 @@ if (!isAllowed(false)) {
                 </div>    
             </div>
         </div>
-        <h3 class="collapsed" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
+        <h3 class="collapsed d-none" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
         <div class="addtext list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">

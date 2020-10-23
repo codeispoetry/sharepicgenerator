@@ -11,7 +11,7 @@ readConfig();
 
 $landesverband = 0;
 $user = "generic";
-$tenant = "federal";
+$tenant = "frankfurt";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
@@ -43,7 +43,7 @@ nextActionDay();
     <meta charset="utf-8"/>
     <meta name="theme-color" content="#46962b">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sharepicgenerator</title>
+    <title>Sharepicgenerator/Frankfurt</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/vendor/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
@@ -67,7 +67,7 @@ nextActionDay();
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
-        <?php printf('config.tenant="%s";', "federal"); ?>
+        <?php printf('config.tenant="%s";', "frankfurt"); ?>
         <?php printf('config.pixabaySearchIn="images";'); ?>
 
     </script>
@@ -80,7 +80,8 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de</a>
+        <a class="navbar-brand arvo" href="/tenants/frankfurt">
+            <img src="skyline.svg"> Sharepicgenerator.de/frankfurt</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
@@ -196,7 +197,7 @@ nextActionDay();
 <script src="/vendor/svg.draggable.min.js"></script>
 <script src="/vendor/svg.filter.min.js"></script>
 <script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
-<script src="/assets/js/federal.min.js?v=<?php echo @filemtime('../../assets/js/federal.min.js'); ?>"></script>
+<script src="/assets/js/frankfurt.min.js?v=<?php echo @filemtime('../../assets/js/frankfurt.min.js'); ?>"></script>
 
 
 
@@ -208,10 +209,10 @@ if (isset($_GET['useSavework'])) {
         printf('loadSavework(%s);', $saveData);
     }
 }
-
 if (isset($_GET['usePicture'])) {
-    printf('uploadFileByUrl(`../tenants/federal/%s`, () => {})', $_GET['usePicture']);
+    printf('uploadFileByUrl(`../tenants/frankfurt/%s`, () => {})', $_GET['usePicture']);
 }
+
 ?>
 </script>
 
