@@ -38,9 +38,9 @@ require_once(getBasePath('lib/log_functions.php'));
                 <dt><i class="fas fa-users"></i> User</dt>
                 <dd>
                     <?php
-                        $totalUsers = getUsers();
+                        $totalDownloads = getDownloads();
                     ?>
-                    gesamt: <?php echo number_format($totalUsers, 0, ',', '.'); ?>
+                    gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
                         <br>
                     Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
                         <br>
@@ -61,13 +61,42 @@ require_once(getBasePath('lib/log_functions.php'));
                     täglich: <?php echo getDailyDownloads(); ?>
                     <br>
                     mit Pixabay: <?php echo getPixabay(); ?>
-                        (<?php printf('%02d', 100*getPixabay()/$totalUsers); ?>%)
+                        (<?php printf('%2d', 100*getPixabay()/$totalDownloads); ?>%)
                     <br>
                     für Social Media: <?php echo number_format(getSocialMedia(), 0, ',', '.'); ?>
-                        (<?php printf('%02d', 100*getSocialMedia()/$totalUsers); ?>%)
+                        (<?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%)
+                    <br>
+                    mit Zusatzbild: <?php echo number_format(getAddPic(), 0, ',', '.'); ?>
+                        (<?php printf('%2d', 100*getAddPic()/$totalDownloads); ?>%)
                         <br>
-                    Gesichter: <?php showFaces(); ?>
-
+                    mit Störer: <?php echo number_format(getWithEyecatcher(), 0, ',', '.'); ?>
+                        (<?php printf('%2d', 100*getWithEyecatcher()/$totalDownloads); ?>%)
+                    <br>
+                    mit Sternchentext: <?php echo number_format(getAddText(), 0, ',', '.'); ?>
+                        (<?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%)
+                    <br>
+                    mit 3-D-Effekt: <?php echo number_format(getEraser(), 0, ',', '.'); ?>
+                        (<?php printf('%2d', 100*getEraser()/$totalDownloads); ?>%)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="far fa-smile-wink"></i> Gesichter</dt>
+                <dd>
+                    <ul>
+                        <?php showFaces(); ?>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="fas fa-ruler-combined"></i> Layouts (nur federal)</dt>
+                <dd>
+                    <ul>
+                        <?php showLayouts(); ?>
+                    </ul>
                 </dd>
             </dl>
         </div>
@@ -83,8 +112,14 @@ require_once(getBasePath('lib/log_functions.php'));
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
+                <dt><i class="fas fa-fan"></i> Logos</dt>
+                <dd><ul><?php echo showLogos(); ?></ul></dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
                 <dt><i class="fas fa-sitemap"></i> Mandanten</dt>
-                <dd><?php echo showTenants(); ?></dd>
+                <dd><ul><?php echo showTenants(); ?></ul></dd>
             </dl>
         </div>
      
