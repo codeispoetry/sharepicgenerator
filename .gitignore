@@ -40,6 +40,7 @@ code/dist/log/.htusers
 *main.min.js
 
 *.log
+*.db
 *.dll
 *.exe
 .idea

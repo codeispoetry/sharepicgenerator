@@ -113,22 +113,53 @@ function logFailure($msg)
     file_put_contents(getBasePath('log/logs/error.log'), $line, FILE_APPEND);
 }
 
-function logLogin()
-{
-    $user = $_SESSION['user'];
-    $landesverband = $_SESSION['landesverband'];
-    $tenant = $_SESSION['tenant'];
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, "login", $landesverband, $tenant);
-    file_put_contents(getBasePath('log/logs/log.log'), $line, FILE_APPEND);
-}
-
 function logDownload()
 {
-    $user = $_SESSION['user'];
-    $pixabay = sanitizeUserinput($_POST['usepixabay']);
-    $socialmediaplatform = sanitizeUserinput($_POST['socialmediaplatform']);
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, 'download', $pixabay, $socialmediaplatform);
-    file_put_contents(getBasePath('log/logs/log.log'), $line, FILE_APPEND);
+    $sharepic = $_POST['sharepic'];
+    $config = $_POST['config'];
+  
+    parse_str($sharepic, $data);
+    $data = array_merge(json_decode($config, true), $data);
+    unset($data['pixabay']);
+    unset($data['csrf']);
+    if ($data['eraser']) {
+        $data['eraser'] = 'true';
+    };
+
+
+    $db = new SQLite3(getBasePath('log/logs/log.db'));
+
+    if (isAdmin()) {
+        $db->exec('CREATE TABLE IF NOT EXISTS downloads(
+                id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)');
+
+        // add missing columns
+        $columns = [];
+        $results = $db->query("PRAGMA table_info('downloads');");
+        while ($row = $results->fetchArray()) {
+            $columns[] = $row['name'];
+        }
+        $newColumns = array_diff(array_keys($data), $columns);
+  
+        foreach ($newColumns as $newColumn) {
+            $db->exec("ALTER TABLE downloads ADD $newColumn");
+            $columns[] = $newColumn;
+        }
+    }
+    
+    // do logging
+    $smt = $db->prepare(
+        sprintf(
+            'INSERT INTO downloads (%s) values (:%s)',
+            join(',', $columns),
+            join(',:', $columns)
+        )
+    );
+    foreach ($data as $variable => $value) {
+        $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
+    }
+    $smt->execute();
 }
 
 function isLocal()
@@ -569,7 +600,7 @@ function showPictures($main_dir)
             $ext = $file_parts['extension'];
             $name = $file_parts['basename'];
             $fsize = human_filesize(filesize($pic));
-            $useLink = "<a href='../index.php?usePicture=pictures/".$pic ."' ><i class='fas fa-upload'> Verwenden</i></a>";
+            $useLink = "<a href='../index.php?usePicture=pictures/".$pic ."' ><i class='fas fa-edit'></i> Verwenden</a>";
 
             $showPic = $pic;
             if (file_exists("$dirname/thumbs/$name")) {
@@ -580,10 +611,10 @@ function showPictures($main_dir)
             $img_size = $img_data[0] . " x " . $img_data[1];
 
             echo <<<EOL
-          <div class="col-6 col-md-3 col-lg-3" data-id="1">
+          <div class="col-6 col-md-3 col-lg-1">
               <figure>
-                  <img src="$showPic" class="img-fluid" />
-                  <figcaption>
+                    <img src="$showPic" class="img-fluid galleryPicture cursor-pointer" data-url="$pic"/>
+                  <figcaption class="d-none">
                       <table class="small">
                           <tr>
                               <td class="pr-3">Name</td>

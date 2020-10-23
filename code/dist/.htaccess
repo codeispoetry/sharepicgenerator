@@ -8,6 +8,7 @@ Options -Indexes
     RewriteEngine On
 
     Redirect 301 /federal /tenants/federal
+    Redirect 301 /frankfurt /tenants/frankfurt
     Redirect 301 /logo https://logo.sharepicgenerator.de
 
 

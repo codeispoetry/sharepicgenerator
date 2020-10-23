@@ -25,7 +25,6 @@ require_once(getBasePath('lib/log_functions.php'));
     </style>
 </head>
 <body>
-<?php readLogs(); ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center">
@@ -44,10 +43,6 @@ require_once(getBasePath('lib/log_functions.php'));
                         <br>
                     täglich: <?php printf("%d", getAverageUserPerDay()); ?>
                         <br>
-                    Telegram-User <?php echo getTelegramUser(); ?>
-                        <br>
-                    mit Zwischenspeicherung: <?php echo getUserWithSaving(); ?>
-                        <br>
                     mit eigenem Logo: <?php echo getUserWithCustomLogo(); ?>
                         <br>
                 </dd>
@@ -57,11 +52,11 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="fas fa-download"></i> Downloads</dt>
                 <dd>
-                    gesamt: <?php echo number_format(getDownloads(), 0, ',', '.'); ?>
+                    gesamt: <?php echo getDownloads(); ?>
                     <br>
-                    täglich: <?php echo number_format(getDailyDownloads(), 0, ',', '.'); ?>
+                    täglich: <?php echo getDailyDownloads(); ?>
                     <br>
-                    mit Pixabay: <?php echo number_format(getPixabay(), 0, ',', '.'); ?>
+                    mit Pixabay: <?php echo getPixabay(); ?>
                         (<?php printf('%02d', 100*getPixabay()/getDownloads()); ?>%)
                     <br>
 
@@ -81,42 +76,13 @@ require_once(getBasePath('lib/log_functions.php'));
                 </dd>
             </dl>
         </div>
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fas fa-sitemap"></i>> Bundesländer</dt>
-                <dd><?php echo showProvinces(); ?></dd>
-            </dl>
-        </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-sitemap"></i> Mandanten</dt>
                 <dd><?php echo showTenants(); ?></dd>
             </dl>
         </div>
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fas fa-clock"></i> Uhrzeiten</dt>
-                <dd><?php echo showHours(); ?></dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fas fa-church"></i> Wochentage</dt>
-                <dd><?php echo showWeekdays(); ?></dd>
-            </dl>
-        </div>
-
-        <div class="col-12">
-            <dl>
-                <dt><i class="fas fa-chart-line"></i> Entwicklung</i></dt>
-                <dd class="graphCanvas"><?php echo drawTimeline(); ?></dd>
-            </dl>
-        </div>
-
-        <div class="col-12 d-none">
-            <i class="fab fa-telegram"></i> Telegram</i>
-            <div class="row"><?php /* echo showTelegramPics(); */?></div>
-        </div>
+     
     </div>
 </div>
 </body>

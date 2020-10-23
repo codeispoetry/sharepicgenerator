@@ -1,6 +1,6 @@
 <?php
 
-define("BASEDIR", "../../../");
+define("BASEDIR", "../../");
 
 # this is just a helper function to get the path to the
 # files/dir located in the BASEDIR
