@@ -65,6 +65,19 @@ function singleResult($sql)
     return $row['result'];
 }
 
+function echoResults($sql)
+{
+    global $db;
+    $results = $db->query($sql);
+    while ($row = $results->fetchArray()) {
+        printf(
+            '<li>%s:%s</li>',
+            $row['name'],
+            $row['count']
+        );
+    }
+}
+
 function getUsers()
 {
     return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads;');
@@ -82,22 +95,17 @@ function getDailyDownloads()
 
 function getPixabay()
 {
-    return singleResult("select count(*) as result from downloads WHERE ;");
+    return singleResult("select count(*) as result from downloads WHERE usePixabay NOT NULL;");
 }
 
 function showSocialMedia()
 {
-    global $db;
-    arsort($info['socialmedia']);
-    foreach ($info['socialmedia'] as $platform => $counter) {
-        printf('<li>%s: %d</li>', $platform, $counter);
-    }
+    return echoResults("select socialmediaplatform As name,count(*) as count from downloads GROUP BY socialmediaplatform;");
 }
 
 function getSocialMedia()
 {
-    global $db;
-    return array_sum($info['socialmedia']);
+    return singleResult("select count(*) as result from downloads WHERE socialmediaplatform !=''");
 }
 
 function getTelegramUser()
@@ -167,37 +175,22 @@ function showWeekdays()
 
 function showProvinces()
 {
-    global $db;
-    $totalUsers = getUsers();
 
-    ksort($info['provinces']);
     $provinces = array('offbyone','Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen',
                         'Mecklenburg-Vorpommern','Niedersachsen','Nordrhein-Westfalen','Rheinland-Pfalz','Saarland',
                     'Sachsen','Sachen-Anhalt','Schleswig-Holstein','Thürigen');
-    foreach ($info['provinces'] as $province => $users) {
-        printf('<li>%s: %.1f%%</li>', $provinces[ $province ], 100*count(array_unique($users))/$totalUsers);
-    }
+
+  
 }
 
 function showTenants()
 {
-    global $db;
-
-    foreach ($info['tenants'] as $tenant => $users) {
-        printf('<li>%s: %s</li>', $tenant, number_format(count(array_unique($users)), 0, ',', '.'));
-    }
+    return echoResults("select tenant As name,count(*) as count from downloads GROUP BY tenant;");
 }
 
 function drawTimeline()
 {
-    global $db;
-
-    $i = 0;
-    echo array_keys($info['logins'])[0];
-    foreach ($info['logins'] as $day => $users) {
-        printf('<span class="graph" style="height:%dpx" title="%1$d am %2$s"></span>', count(array_unique($users)), $day);
-    }
-    echo end(array_keys($info['logins']));
+    
 }
 
 function getAverageUserPerDay()
