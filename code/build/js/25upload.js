@@ -105,7 +105,13 @@ $('.upload-file').change(function changeFile() {
 
   client.upload.onprogress = function onProgress(e) {
     const p = Math.round((100 / e.total) * e.loaded);
-    $('#uploadpercentage').html(p);
+
+    if (p < 95) {
+      $('#uploadpercentage').html(p);
+    } else {
+      $('#uploadstatus').html('Dein Bild wird verarbeitet...');
+      $('#beinguploaded').hide();
+    }
   };
 
   client.onabort = function onAbort() {
@@ -134,10 +140,12 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
 
   client.upload.onprogress = function onProgress(e) {
     const p = Math.round((100 / e.total) * e.loaded);
-    $('#uploadpercentage').html(p);
 
-    if (p > 98) {
+    if (p < 90) {
+      $('#uploadpercentage').html(p);
+    } else {
       $('#uploadstatus').html('Dein Bild wird verarbeitet...');
+      $('#beinguploaded').hide();
     }
   };
 
