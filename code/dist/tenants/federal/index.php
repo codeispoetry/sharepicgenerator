@@ -34,8 +34,6 @@ $_SESSION['tenant'] = $tenant;
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;
 
-logLogin();
-
 require_once(getBasePath("lib/actionday.php"));
 nextActionDay();
 ?>
