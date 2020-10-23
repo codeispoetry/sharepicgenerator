@@ -9,6 +9,7 @@ $('.upload-file').change(function changeFile() {
     return false;
   }
 
+  $('#canvas-area').slideUp();
   $('#waiting').show();
   $(this).prop('disabled', true);
 
@@ -31,6 +32,7 @@ $('.upload-file').change(function changeFile() {
     const obj = JSON.parse(e.target.response);
     $(`#${id}`).prop('disabled', false);
     $('#waiting').hide();
+    $('#canvas-area').slideDown();
 
     if (obj.error) {
       console.log(obj.error);
@@ -117,6 +119,7 @@ $('.upload-file').change(function changeFile() {
 
 function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   $('#waiting').show();
+  $('#canvas-area').slideUp();
   const id = 'uploadbyurl';
 
   const formData = new FormData();
@@ -141,7 +144,8 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
 
-    closeOverlay();
+    $('#waiting').hide();
+    $('#canvas-area').slideDown();
 
     if (obj.error) {
       console.log(obj);

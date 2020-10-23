@@ -34,7 +34,20 @@ $('.saveInGallery').click(function onSaveInGalleryClick() {
     type: 'POST',
     url: '/actions/createpic.php',
     data: {
-      svg: data, format, addtogallery: true, tenant: config.tenant, user: config.user, csrf: config.csrf, quality: config.quality, usepixabay: config.usePixabay, ismosaic: config.isMosaic, socialmediaplatform: config.socialmediaplatform, videofile: config.videofile, width: $('#width').val(),
+      svg: data,
+      format,
+      addtogallery: true,
+      tenant: config.tenant,
+      user: config.user,
+      csrf: config.csrf,
+      quality: config.quality,
+      usepixabay: config.usePixabay,
+      ismosaic: config.isMosaic,
+      socialmediaplatform: config.socialmediaplatform,
+      videofile: config.videofile,
+      width: $('#width').val(),
+      sharepic: $('#pic').serialize(),
+      config: JSON.stringify(config),
     },
     success(createPicData) {
       const obj = JSON.parse(createPicData);
