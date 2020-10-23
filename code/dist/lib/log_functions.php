@@ -120,22 +120,22 @@ function getAddPic()
 
 function showSocialMedia()
 {
-    return echoResults("select socialmediaplatform As name,count(*) as count from downloads GROUP BY socialmediaplatform;");
+    return echoResults("select SUBSTR(socialmediaplatform,0,INSTR(socialmediaplatform,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;");
 }
 
 function showFaces()
 {
-    return echoResults("select faces As name,count(*) as count from downloads GROUP BY faces;");
+    return echoResults("select faces As name,count(*) as count from downloads GROUP BY faces ORDER BY count DESC;");
 }
 
 function showLogos()
 {
-    return echoResults("select logoselect As name,count(*) as count from downloads GROUP BY logoselect;");
+    return echoResults("select logoselect As name,count(*) as count from downloads GROUP BY logoselect ORDER BY count DESC;");
 }
 
 function showLayouts()
 {
-    return echoResults("select layout As name,count(*) as count from downloads WHERE tenant='federal' GROUP BY layout;");
+    return echoResults("select layout As name,count(*) as count from downloads WHERE tenant='federal' GROUP BY layout ORDER BY count DESC;");
 }
 
 function getSocialMedia()
