@@ -208,15 +208,15 @@ function prepareFileAndSendInfo($filename, $filename_small)
     $return['originalWidth'] = $originalWidth;
     $return['originalHeight'] = $originalHeight;
     $return['fullBackgroundName'] = $filename;
-    $return['warning'] = (hasFace($filename)) ? 'face' : '';
+    $return['faces'] = countFaces($filename);
 
     echo json_encode($return);
     die();
 }
 
-function hasFace($filename)
+function countFaces($filename)
 {
     $command = sprintf("facedetect %s", $filename);
     exec($command, $output);
-    return !empty($output);
+    return count($output);
 }
