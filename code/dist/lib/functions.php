@@ -128,6 +128,11 @@ function logDownload()
 
 
     $db = new SQLite3(getBasePath('log/logs/log.db'));
+    $columns = [];
+    $results = $db->query("PRAGMA table_info('downloads');");
+    while ($row = $results->fetchArray()) {
+        $columns[] = $row['name'];
+    }
 
     if (isAdmin()) {
         $db->exec('CREATE TABLE IF NOT EXISTS downloads(
@@ -135,11 +140,6 @@ function logDownload()
                 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)');
 
         // add missing columns
-        $columns = [];
-        $results = $db->query("PRAGMA table_info('downloads');");
-        while ($row = $results->fetchArray()) {
-            $columns[] = $row['name'];
-        }
         $newColumns = array_diff(array_keys($data), $columns);
   
         foreach ($newColumns as $newColumn) {
