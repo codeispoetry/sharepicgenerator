@@ -1,4 +1,5 @@
 <?php
+$db = new SQLite3(getBasePath('log/logs/log.db'));
 
 function show_videos($dir)
 {
@@ -55,86 +56,38 @@ function showCustomLogos()
     }
 }
 
-function readLogs()
+function singleResult($sql)
 {
-    global $info;
+    global $db;
+    $results = $db->query($sql);
+    $row = $results->fetchArray();
 
-    $lines = file('logs/log.log');
-
-    $info = array(
-        'socialmedia' => array()
-    );
-
-    foreach ($lines as $line) {
-        list($time, $user, $action, $payload1, $payload2) = explode("\t", trim($line));
-
-        if (floor(time()/86400) == floor($time/86400)) {
-            // do not evaluate data from today
-            // break;
-        }
-
-        $day =  date('l, d.m.', $time);
-        $hour =  date('G', $time) / 6;
-        $weekday =  date('w', $time);
-
-
-        switch ($action) {
-            case "login":
-                $info['logins'][ $day ][] =  $user;
-                $info['users'][] = $user;
-                $info['hours'][ $hour ][] = $user;
-                $info['weekdays'][ $weekday ][] = $user;
-                $info['provinces'][ $payload1 ][] = $user;
-                $info['tenants'][ $payload2 ][] = $user;
-
-                break;
-            case "download":
-                $info['downloads']++;
-                if ($payload1) {
-                    $info['pixabay']++;
-                }
-                if ($payload2) {
-                    // by Platform and subtitle
-                    // $info['socialmedia'][ $payload2 ] = $info['socialmedia'][ $payload2 ] + 1 ?: 1;
-                    // by Platform
-                    $platform = preg_replace("/(.(.*?))[A-Z](.*)$/", "$1", $payload2);
-                    $info['socialmedia'][ $platform ] = $info['socialmedia'][ $platform ] + 1 ?: 1;
-                }
-                break;
-
-            default:
-                echo("error for line: " . $line);
-        }
-    }
+    return $row['result'];
 }
 
 function getUsers()
 {
-    global $info;
-    return count(array_unique($info['users']));
+    return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads;');
 }
 
 function getDownloads()
 {
-    global $info;
-    return $info['downloads'];
+    return singleResult('SELECT COUNT(*) AS result FROM downloads;');
 }
 
 function getDailyDownloads()
 {
-    global $info;
-    return $info['downloads'] / getLoggingPeriodInDays();
+    return singleResult("select avg(perDay) as result from (select count(*) as perDay from downloads GROUP BY date(timestamp));");
 }
 
 function getPixabay()
 {
-    global $info;
-    return $info['pixabay'];
+    return singleResult("select count(*) as result from downloads WHERE ;");
 }
 
 function showSocialMedia()
 {
-    global $info;
+    global $db;
     arsort($info['socialmedia']);
     foreach ($info['socialmedia'] as $platform => $counter) {
         printf('<li>%s: %d</li>', $platform, $counter);
@@ -143,7 +96,7 @@ function showSocialMedia()
 
 function getSocialMedia()
 {
-    global $info;
+    global $db;
     return array_sum($info['socialmedia']);
 }
 
@@ -163,13 +116,13 @@ function showTelegramPics()
 
 function getLoggingPeriodInDays()
 {
-    global $info;
-    return count($info['logins']);
+    return singleResult(
+    "SELECT date('now') - date(timestamp) AS result FROM downloads ORDER BY timestamp DESC LIMIT 1;");
 }
 
 function showTimeline()
 {
-    global $info;
+    global $db;
 
     $i = 0;
     foreach (array_reverse($info['logins']) as $day => $users) {
@@ -184,7 +137,7 @@ function showTimeline()
 
 function showHours()
 {
-    global $info;
+    global $db;
     $totalUsers = 0 ;
     foreach ($info['hours'] as $hour => $users) {
         $totalUsers += count(array_unique($users));
@@ -202,7 +155,7 @@ function showHours()
 
 function showWeekdays()
 {
-    global $info;
+    global $db;
 
     ksort($info['weekdays']);
     $days = array('Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag');
@@ -214,7 +167,7 @@ function showWeekdays()
 
 function showProvinces()
 {
-    global $info;
+    global $db;
     $totalUsers = getUsers();
 
     ksort($info['provinces']);
@@ -228,7 +181,7 @@ function showProvinces()
 
 function showTenants()
 {
-    global $info;
+    global $db;
 
     foreach ($info['tenants'] as $tenant => $users) {
         printf('<li>%s: %s</li>', $tenant, number_format(count(array_unique($users)), 0, ',', '.'));
@@ -237,7 +190,7 @@ function showTenants()
 
 function drawTimeline()
 {
-    global $info;
+    global $db;
 
     $i = 0;
     echo array_keys($info['logins'])[0];
@@ -249,15 +202,7 @@ function drawTimeline()
 
 function getAverageUserPerDay()
 {
-    global $info;
-
-    $days = array();
-
-    foreach ($info['logins'] as $day => $users) {
-        $days[ $day ] = count(array_unique($users));
-    }
-
-    return array_sum($days) / count($days);
+    return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads GROUP BY date(timestamp));");
 }
 
 function getUserWithSaving()
