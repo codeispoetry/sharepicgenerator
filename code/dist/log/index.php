@@ -25,7 +25,6 @@ require_once(getBasePath('lib/log_functions.php'));
     </style>
 </head>
 <body>
-<?php readLogs(); ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center">
@@ -57,11 +56,11 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="fas fa-download"></i> Downloads</dt>
                 <dd>
-                    gesamt: <?php echo number_format(getDownloads(), 0, ',', '.'); ?>
+                    gesamt: <?php echo getDownloads(); ?>
                     <br>
-                    täglich: <?php echo number_format(getDailyDownloads(), 0, ',', '.'); ?>
+                    täglich: <?php echo getDailyDownloads(); ?>
                     <br>
-                    mit Pixabay: <?php echo number_format(getPixabay(), 0, ',', '.'); ?>
+                    mit Pixabay: <?php echo getPixabay(); ?>
                         (<?php printf('%02d', 100*getPixabay()/getDownloads()); ?>%)
                     <br>
 
