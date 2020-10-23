@@ -37,7 +37,10 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="fas fa-users"></i> User</dt>
                 <dd>
-                    gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
+                    <?php
+                        $totalUsers = getUsers();
+                    ?>
+                    gesamt: <?php echo number_format($totalUsers, 0, ',', '.'); ?>
                         <br>
                     Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
                         <br>
@@ -52,16 +55,18 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="fas fa-download"></i> Downloads</dt>
                 <dd>
+                    
                     gesamt: <?php echo getDownloads(); ?>
                     <br>
                     täglich: <?php echo getDailyDownloads(); ?>
                     <br>
                     mit Pixabay: <?php echo getPixabay(); ?>
-                        (<?php printf('%02d', 100*getPixabay()/getDownloads()); ?>%)
+                        (<?php printf('%02d', 100*getPixabay()/$totalUsers); ?>%)
                     <br>
-
                     für Social Media: <?php echo number_format(getSocialMedia(), 0, ',', '.'); ?>
-                        (<?php printf('%02d', 100*getSocialMedia()/getDownloads()); ?>%)
+                        (<?php printf('%02d', 100*getSocialMedia()/$totalUsers); ?>%)
+                        <br>
+                    Gesichter: <?php showFaces(); ?>
 
                 </dd>
             </dl>

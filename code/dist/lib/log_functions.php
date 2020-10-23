@@ -71,7 +71,7 @@ function echoResults($sql)
     $results = $db->query($sql);
     while ($row = $results->fetchArray()) {
         printf(
-            '<li>%s:%s</li>',
+            '<li>%s: %s</li>',
             $row['name'],
             $row['count']
         );
@@ -103,6 +103,11 @@ function showSocialMedia()
     return echoResults("select socialmediaplatform As name,count(*) as count from downloads GROUP BY socialmediaplatform;");
 }
 
+function showFaces()
+{
+    return echoResults("select faces As name,count(*) as count from downloads GROUP BY faces;");
+}
+
 function getSocialMedia()
 {
     return singleResult("select count(*) as result from downloads WHERE socialmediaplatform !=''");
@@ -128,51 +133,6 @@ function getLoggingPeriodInDays()
     "SELECT date('now') - date(timestamp) AS result FROM downloads ORDER BY timestamp DESC LIMIT 1;");
 }
 
-function showTimeline()
-{
-    global $db;
-
-    $i = 0;
-    foreach (array_reverse($info['logins']) as $day => $users) {
-        printf('<li>%s: %d</li>', $day, count(array_unique($users)));
-        $i++;
-
-        if ($i == 7) {
-            return;
-        }
-    }
-}
-
-function showHours()
-{
-    global $db;
-    $totalUsers = 0 ;
-    foreach ($info['hours'] as $hour => $users) {
-        $totalUsers += count(array_unique($users));
-    }
-
-    ksort($info['hours']);
-
-    $hours = array('0 bis 6', '6 bis 12', '12 bis 18', '18 bis 24');
-
-
-    foreach ($info['hours'] as $hour => $users) {
-        printf('<li>%s: %.1f%%</li>', $hours[ $hour ], 100*count(array_unique($users))/$totalUsers);
-    }
-}
-
-function showWeekdays()
-{
-    global $db;
-
-    ksort($info['weekdays']);
-    $days = array('Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag');
-
-    foreach ($info['weekdays'] as $weekday => $users) {
-        printf('<li>%s: %d</li>', $days[$weekday], count(array_unique($users)));
-    }
-}
-
 function showProvinces()
 {
 
@@ -188,20 +148,9 @@ function showTenants()
     return echoResults("select tenant As name,count(*) as count from downloads GROUP BY tenant;");
 }
 
-function drawTimeline()
-{
-    
-}
-
 function getAverageUserPerDay()
 {
     return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads GROUP BY date(timestamp));");
-}
-
-function getUserWithSaving()
-{
-    exec('find ../persistent/user/ -name save.txt | wc -l', $output);
-    return $output[0];
 }
 
 function getUserWithCustomLogo()

@@ -190,12 +190,14 @@ function afterUpload(data) {
 
   background.draw();
 
-  if (data.warning === 'face') {
+  if (data.faces > 0) {
     $('#warning').html('Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.').show(1000).delay(6000)
       .hide(1000);
   } else {
     $('#warning').hide();
   }
+
+  config.faces = data.faces;
 }
 
 $('.uploadfileclicker').click(() => {
