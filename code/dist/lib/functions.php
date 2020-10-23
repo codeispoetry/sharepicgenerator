@@ -113,22 +113,28 @@ function logFailure($msg)
     file_put_contents(getBasePath('log/logs/error.log'), $line, FILE_APPEND);
 }
 
-function logLogin()
-{
-    $user = $_SESSION['user'];
-    $landesverband = $_SESSION['landesverband'];
-    $tenant = $_SESSION['tenant'];
-    $line = sprintf("%s\t%s\t%s\t%s\n", time(), $user, $landesverband, $tenant);
-    file_put_contents(getBasePath('log/logs/logins.log'), $line, FILE_APPEND);
-}
-
 function logDownload()
 {
     $sharepic = $_POST['sharepic'];
     $config = $_POST['config'];
+  
+    parse_str($sharepic, $data);
+    $data = array_merge(json_decode($config, true), $data);
+    unset($data['pixabay']);
+    unset($data['csrf']);
+    if ($data['eraser']) {
+        $data['eraser'] = 'true';
+    };
 
-    $line = sprintf("%s\t%s\t%s\n", time(), $config, $sharepic);
-    file_put_contents(getBasePath('log/logs/downloads.log'), $line, FILE_APPEND);
+
+    $db = new SQLite3(getBasePath('log/logs/log.db'));
+    
+    $smt = $db->prepare("INSERT INTO downloads (user,tenant,pixabaySearchIn,socialmediaplatform,noBackgroundDragAndDrop,layout,backgroundsize,graybackground,blurbackground,darklightlayer,greenlayer,copyrightPosition,copyright,textbefore,text,textafter,textsize,iconsize,addPicSize1,addPicSize2,logoselect,logochapter,logosize,pintext,addtextsize,width,height,cloudtoken,code,pinX,pinY,backgroundX,backgroundY,backgroundURL,iconfile,addpicfile1,addpicfile2,fullBackgroundName,textX,textY,addtextX,addtextY,addPic1x,addPic1y,addPic2x,addPic2y,textColor,eraser) values (:user,:tenant,:pixabaySearchIn,:socialmediaplatform,:noBackgroundDragAndDrop,:layout,:backgroundsize,:graybackground,:blurbackground,:darklightlayer,:greenlayer,:copyrightPosition,:copyright,:textbefore,:text,:textafter,:textsize,:iconsize,:addPicSize1,:addPicSize2,:logoselect,:logochapter,:logosize,:pintext,:addtextsize,:width,:height,:cloudtoken,:code,:pinX,:pinY,:backgroundX,:backgroundY,:backgroundURL,:iconfile,:addpicfile1,:addpicfile2,:fullBackgroundName,:textX,:textY,:addtextX,:addtextY,:addPic1x,:addPic1y,:addPic2x,:addPic2y,:textColor,:eraser)");
+    $smt->bindValue(':time', time(), SQLITE3_TEXT);
+    foreach ($data as $variable => $value) {
+        $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
+    }
+    $smt->execute();
 }
 
 function isLocal()
