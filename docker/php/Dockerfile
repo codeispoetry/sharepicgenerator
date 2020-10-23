@@ -6,7 +6,7 @@ ENV APACHE_DOCUMENT_ROOT=/var/www/html/dist
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev
+RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev sqlite3
 RUN pecl install oauth 
 RUN docker-php-ext-enable oauth
 
