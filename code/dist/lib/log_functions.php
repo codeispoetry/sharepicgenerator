@@ -72,7 +72,7 @@ function echoResults($sql)
     while ($row = $results->fetchArray()) {
         printf(
             '<li>%s: %s</li>',
-            $row['name'],
+            ($row['name']) ?: 'ohne',
             $row['count']
         );
     }
@@ -95,7 +95,27 @@ function getDailyDownloads()
 
 function getPixabay()
 {
-    return singleResult("select count(*) as result from downloads WHERE usePixabay NOT NULL;");
+    return singleResult("select count(*) as result from downloads WHERE usePixabay !='';");
+}
+
+function getWithEyecatcher()
+{
+    return singleResult("select count(*) as result from downloads WHERE pintext !='';");
+}
+
+function getAddText()
+{
+    return singleResult("select count(*) as result from downloads WHERE addtext !='';");
+}
+
+function getEraser()
+{
+    return singleResult("select count(*) as result from downloads WHERE eraser !='';");
+}
+
+function getAddPic()
+{
+    return singleResult("select count(*) as result from downloads WHERE addpicfile1 !='' OR addpicfile2 != '';");
 }
 
 function showSocialMedia()
@@ -106,6 +126,16 @@ function showSocialMedia()
 function showFaces()
 {
     return echoResults("select faces As name,count(*) as count from downloads GROUP BY faces;");
+}
+
+function showLogos()
+{
+    return echoResults("select logoselect As name,count(*) as count from downloads GROUP BY logoselect;");
+}
+
+function showLayouts()
+{
+    return echoResults("select layout As name,count(*) as count from downloads WHERE tenant='federal' GROUP BY layout;");
 }
 
 function getSocialMedia()
