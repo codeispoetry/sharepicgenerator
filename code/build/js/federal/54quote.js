@@ -97,7 +97,7 @@ const quote = {
     const textafter = draw.text((add) => {
       for (let i = 0; i < textafterParts.length; i++) {
         style = (style === 0) ? 1 : 0;
-        add.tspan(textafterParts[i]).fill(color).font(quote.fontoutsidelines);
+        add.tspan(textafterParts[i]).fill(text.colors[style]).font(quote.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
       }
