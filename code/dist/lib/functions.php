@@ -353,22 +353,26 @@ function convert($filename, $width, $format, $quality = 75)
     }
 }
 
-function tidyUp($filename, $format)
+function logPicture($filename, $format)
 {
     if ($format == 'mp4') {
         return;
     }
 
+    $afterFileBase =  getBasePath('tmp/log_' . getUser() . '_'. time());
+    
     $command = sprintf(
         "convert -resize 800x800 -background white -flatten -quality 75  %s %s",
         getBasePath('tmp/' . $filename . '.png'),
-        getBasePath('tmp/log_' . getUser() . '_' . time() . '.jpg')
+        $afterFileBase . '.jpg'
     );
     exec($command);
 
-    //unlink(getBasePath('tmp/' . $filename . '.' . $format));
-    //unlink(getBasePath('tmp/' . $filename . '.svg'));
-    //unlink(getBasePath('tmp/' . $filename . '.png'));
+    $url = 'https://sharepicgenerator.de/assets/example2.jpg';
+
+    $tags = join('|', get_tags($url));
+   
+    rename($afterFileBase . '.jpg', $afterFileBase . '_' . $tags .'_.jpg');
 }
 
 function debug($msg)
@@ -642,4 +646,40 @@ function showPictures($main_dir)
 EOL;
         }
     }
+}
+
+
+function get_tags($image_url)
+{
+    readConfig();
+    $api_credentials = array(
+    'key' => configValue('Imagga', 'key'),
+    'secret' => configValue('Imagga', 'secret')
+    );
+
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, 'https://api.imagga.com/v2/tags?image_url='.$image_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_USERPWD, $api_credentials['key'].':'.$api_credentials['secret']);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $json_response = json_decode($response);
+
+    if ($json_response->status->type !== 'success') {
+        return false;
+    }
+
+    $tags = [];
+    foreach ($json_response->result->tags as $tag) {
+        if ($tag->confidence < 30) {
+            break;
+        }
+        $tags[] = $tag->tag->en;
+    }
+
+    return array_slice($tags, 0, 10);
 }
