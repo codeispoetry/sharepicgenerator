@@ -87,4 +87,6 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 4. Copy code/webpack.tenats/federal.js
 5. make compile
 
-
+# Enable logging
+To create or update the downlaods-table for logging, log in as Admin-User and download
+a sharepic with all the featurs or the new feature respectivly.
