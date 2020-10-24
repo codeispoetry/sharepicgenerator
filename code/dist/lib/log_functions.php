@@ -19,15 +19,16 @@ function show_images($dir)
     array_multisort(array_map('filemtime', $files), SORT_NUMERIC, SORT_DESC, $files);
 
     foreach ($files as $file) {
-        list($foo, $user, $foo ) = explode('_', $file);
+        list($id, $user, $time, $tags ) = explode('_', $file);
         printf(
             '<div class="col-6 col-md-3 col-lg-2">
                 <figure>
                     <a href="%1$s"><img src="%1$s" class="img-fluid"/></a>
-                    <figcaption>%2$s</figcaption>
+                    <figcaption>%2$s, %3$s</figcaption>
             </div>',
             $file,
-            $user
+            $user,
+            str_replace('|', ' ', $tags)
         );
     }
 }
