@@ -73,7 +73,7 @@ require_once(getBasePath('lib/log_functions.php'));
                         (<?php printf('%2d', 100*getWithEyecatcher()/$totalDownloads); ?>%)
                     <br>
                     mit Sternchentext: <?php echo number_format(getAddText(), 0, ',', '.'); ?>
-                        (<?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%)
+                        (<?php printf('%2d', 100*getAddText()/$totalDownloads); ?>%)
                     <br>
                     mit 3-D-Effekt: <?php echo number_format(getEraser(), 0, ',', '.'); ?>
                         (<?php printf('%2d', 100*getEraser()/$totalDownloads); ?>%)
