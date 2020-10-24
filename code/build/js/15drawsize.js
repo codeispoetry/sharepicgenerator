@@ -74,9 +74,9 @@ function calculateSizes() {
   // here are also the default sizes after init
   $('#textsize').attr('min', draw.width() * 0.1);
   $('#textsize').attr('max', draw.width());
-  $('#textsize').val(draw.width() * 0.3);
+  $('#textsize').val(draw.width() * 0.5);
 
-  $('#textX').val(0);
+  $('#textX').val(draw.width() * 0.05);
   $('#textY').val(draw.height() / 5);
 
   $('#pinX').val(draw.width() * 0.7);
