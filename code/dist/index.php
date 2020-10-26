@@ -89,7 +89,7 @@ header .container {
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
           </a>
 
-          <a href="tenants/frankfurt/" class="mt-5 btn btn-info btn-sm">
+          <a href="tenants/frankfurt/" class="mt-5 btn btn-info btn-sm d-none">
             <img src="tenants/frankfurt/skyline-white.svg" style="height:1rem"> Frankfurt
           </a>
         </div>
