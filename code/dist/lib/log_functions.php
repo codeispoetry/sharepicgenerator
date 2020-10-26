@@ -160,8 +160,7 @@ function showTelegramPics()
 
 function getLoggingPeriodInDays()
 {
-    return singleResult(
-    "SELECT date('now') - date(timestamp) AS result FROM downloads ORDER BY timestamp DESC LIMIT 1;");
+    return singleResult("SELECT date('now') - date(timestamp) AS result FROM downloads ORDER BY timestamp ASC LIMIT 1;");
 }
 
 function showProvinces()
