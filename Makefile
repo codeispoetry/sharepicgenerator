@@ -63,3 +63,9 @@ clean:
 
 eslint:
 	cd code && npx eslint build --ext .js,.jsx,.ts,.tsx
+
+log-get:
+	rsync sharepic:/var/www/sharepicgenerator.de/current/log/logs/log.db log.db
+
+log-read:
+	docker-compose exec webserver sqlite3 dist/log/logs/log.db
