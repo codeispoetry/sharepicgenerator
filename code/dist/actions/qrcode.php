@@ -1,7 +1,7 @@
 <?php
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
-$file = sprintf('tmp/%s.jpg', sanitizeUserinput($_GET['f']));
+$file = sprintf('%s/%s.jpg', getBasePath('tmp'), sanitizeUserinput($_GET['f']));
 
 header('Content-Type: image/jpg');
 header("Content-Length: ".filesize($file));
