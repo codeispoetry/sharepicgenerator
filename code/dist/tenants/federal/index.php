@@ -68,10 +68,12 @@ nextActionDay();
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "federal"); ?>
-        <?php printf('config.pixabaySearchIn="images";'); ?>
-        <?php printf('config.backgroundSource="standard";'); ?>
-        <?php printf('config.faces=-1'); ?>
-
+        config.pixabaySearchIn="images";
+        config.backgroundSource="standard";
+        config.faces=-1;
+        config.uploadTime=-1;
+        config.createTime=-1;
+        config.pixabaySearchStrings='';
 
     </script>
 </head>

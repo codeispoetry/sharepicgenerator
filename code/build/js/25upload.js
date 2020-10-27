@@ -16,6 +16,8 @@ $('.upload-file').change(function changeFile() {
   const formData = new FormData();
   const client = new XMLHttpRequest();
 
+  const startUploadTime = Date.now();
+
   if (!file) {
     return false;
   }
@@ -60,6 +62,7 @@ $('.upload-file').change(function changeFile() {
     switch (id) {
       case 'uploadfile':
         show('show-copyright');
+        config.uploadTime = Date.now() - startUploadTime;
         afterUpload(obj);
         break;
       case 'uploadlogo':

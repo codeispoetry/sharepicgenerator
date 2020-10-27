@@ -17,6 +17,8 @@ $('#download,.download').click(function onDownloadClick() {
 
   $('#canvas').addClass('opacity');
 
+  const startCreatingTime = Date.now();
+
   let format = 'jpg';
 
   if (config.video === true) {
@@ -53,6 +55,9 @@ $('#download,.download').click(function onDownloadClick() {
       window.clearInterval(secondsWaitingInterval);
 
       let downloadname = getDownloadName();
+
+      config.createTime = Date.now() - startCreatingTime;
+      config.uploadTime = -1;
 
       if (config.socialmediaplatform) {
         downloadname = `${downloadname.substring(0, 14)}-${config.socialmediaplatform.toLowerCase()}`;
