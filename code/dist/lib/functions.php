@@ -131,6 +131,9 @@ function logDownload()
     $columns = [];
     $results = $db->query("PRAGMA table_info('downloads');");
     while ($row = $results->fetchArray()) {
+        if ($row['name'] === 'timestamp') {
+            continue;
+        }
         $columns[] = $row['name'];
     }
 
