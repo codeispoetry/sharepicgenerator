@@ -153,6 +153,16 @@ function showLayouts()
     return echoResults("select layout As name,count(*) as count from downloads WHERE tenant='federal' GROUP BY layout ORDER BY count DESC;");
 }
 
+function showBackgroundSources()
+{
+    return echoResults("select backgroundsource As name,count(*) as count from downloads GROUP BY backgroundsource ORDER BY count DESC;");
+}
+
+function showPixabaySearches()
+{
+    return echoResults("select pixabaySearchStrings As name,count(*) as count from downloads WHERE pixabaySearchStrings !='' GROUP BY pixabaySearchStrings ORDER BY timestamp DESC LIMIT 10;");
+}
+
 function getSocialMedia()
 {
     return singleResult("select count(*) as result from downloads WHERE socialmediaplatform !=''");
@@ -171,7 +181,7 @@ function getMedianCreatingTime()
 
 function getAvgCreatingTime()
 {
-    return round(singleResult("select avg(createTime) as result from downloads")) .' ms';
+    return round(singleResult("select avg(createTime) as result from downloads where createTime>0")) .' ms';
 }
 
 function getMedianUploadTime()

@@ -107,6 +107,26 @@ require_once(getBasePath('lib/log_functions.php'));
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
+                <dt><i class="far fa-image"></i> Pixabay</dt>
+                <dd>
+                    <ul>
+                        <?php showPixabaySearches(); ?>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="far fa-images"></i> Bildquellen</dt>
+                <dd>
+                    <ul>
+                        <?php showBackgroundSources(); ?>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
                 <dt><i class="fas fa-ruler-combined"></i> Layouts (nur federal)</dt>
                 <dd>
                     <ul>
