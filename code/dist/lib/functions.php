@@ -146,7 +146,11 @@ function logDownload()
         $newColumns = array_diff(array_keys($data), $columns);
   
         foreach ($newColumns as $newColumn) {
-            $db->exec("ALTER TABLE downloads ADD $newColumn");
+            $type = 'TEXT';
+            if (in_array($newColumn, ['uploadTime','createTime'])) {
+                $type = 'INTEGER';
+            }
+            $db->exec("ALTER TABLE downloads ADD $newColumn $type");
             $columns[] = $newColumn;
         }
     }

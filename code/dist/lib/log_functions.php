@@ -79,6 +79,20 @@ function echoResults($sql)
     }
 }
 
+function getMedianSQLQuery($column, $table = 'downloads')
+{
+    return sprintf(
+        'SELECT %1$s AS result
+        FROM %2$s
+        WHERE %1$s > 0
+        ORDER BY %1$s
+        LIMIT 1
+        OFFSET (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0) / 2',
+        $column,
+        $table
+    );
+}
+
 function getUsers()
 {
     return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads;');
@@ -148,6 +162,26 @@ function getTelegramUser()
 {
     $telegram = glob('../api/user/*', GLOB_ONLYDIR);
     return count($telegram);
+}
+
+function getMedianCreatingTime()
+{
+    return singleResult(getMedianSQLQuery('createTime')) .' ms';
+}
+
+function getAvgCreatingTime()
+{
+    return round(singleResult("select avg(createTime) as result from downloads")) .' ms';
+}
+
+function getMedianUploadTime()
+{
+    return singleResult(getMedianSQLQuery('uploadTime')) .' ms';
+}
+
+function getAvgUploadTime()
+{
+    return round(singleResult("select avg(uploadTime) as result from downloads WHERE uploadTime>0")) .' ms';
 }
 
 function showTelegramPics()

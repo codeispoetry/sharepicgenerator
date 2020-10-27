@@ -58,7 +58,6 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="fas fa-download"></i> Downloads</dt>
                 <dd>
-                    
                     gesamt: <?php echo getDownloads(); ?>
                     <br>
                     täglich: <?php echo getDailyDownloads(); ?>
@@ -80,6 +79,19 @@ require_once(getBasePath('lib/log_functions.php'));
                     <br>
                     mit 3-D-Effekt: <?php echo number_format(getEraser(), 0, ',', '.'); ?>
                         (<?php printf('%2d', 100*getEraser()/$totalDownloads); ?>%)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="far fa-time"></i> Zeiten</dt>
+                <dd>
+                    Median Createtime: <?php echo getMedianCreatingTime(); ?><br>
+                    Mittel Createtime: <?php echo getAvgCreatingTime(); ?>
+                </dd>
+                <dd>
+                    Median Uploadtime: <?php echo getMedianUploadTime(); ?><br>
+                    Mittel Uploadtime: <?php echo getAvgUploadTime(); ?>
                 </dd>
             </dl>
         </div>
