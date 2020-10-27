@@ -15,6 +15,8 @@ $(document).ready(() => {
   $('[data-click]').click(function onClickData() {
     window[$(this).data('click')]();
   });
+
+  $('input').change(() => { $('#qrcode').hide(); });
 });
 
 // eslint-disable-next-line no-unused-vars

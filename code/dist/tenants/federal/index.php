@@ -144,6 +144,12 @@ nextActionDay();
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
                         </div>
+                        <div id="qrcode" class="qrcode mt-5" style="display:none">
+                            Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
+                            Scanne dazu diesen Code:<br>
+                            <div id="qrcode-img">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -68,5 +68,14 @@ saveUserPreferences();
 logDownload();
 
 $return = [];
+
+exec(sprintf(
+    'qrencode -s 4 -o %s %s 2>&1',
+    getBasePath('tmp/qrcode_' . basename($filename, '.svg') . '.png'),
+    'https://develop.sharepicgenerator.de/actions/qrcode.php?f=' . basename($filename, '.svg')
+));
+
+
+
 $return['basename'] = basename($filename, '.svg');
 echo json_encode($return);
