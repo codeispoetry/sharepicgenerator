@@ -202,6 +202,9 @@ function afterUpload(data) {
 
   background.draw();
 
+  if (data.faces === undefined) {
+    config.faces = -1;
+  }
   if (data.faces > 0) {
     $('#warning').html('Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.').show(1000).delay(6000)
       .hide(1000);
@@ -209,7 +212,7 @@ function afterUpload(data) {
     $('#warning').hide();
   }
 
-  config.faces = data.faces;
+  config.backgroundSource = 'upload';
 }
 
 $('.uploadfileclicker').click(() => {
