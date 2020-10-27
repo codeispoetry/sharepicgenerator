@@ -96,7 +96,7 @@ function getDailyDownloads()
 
 function getPixabay()
 {
-    return singleResult("select count(*) as result from downloads WHERE usePixabay !='';");
+    return singleResult("select count(*) as result from downloads WHERE backgroundSource='pixabay';");
 }
 
 function getWithEyecatcher()

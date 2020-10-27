@@ -41,7 +41,6 @@ $('.saveInGallery').click(function onSaveInGalleryClick() {
       user: config.user,
       csrf: config.csrf,
       quality: config.quality,
-      usepixabay: config.usePixabay,
       ismosaic: config.isMosaic,
       socialmediaplatform: config.socialmediaplatform,
       videofile: config.videofile,

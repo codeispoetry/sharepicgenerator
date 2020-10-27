@@ -69,6 +69,9 @@ nextActionDay();
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "federal"); ?>
         <?php printf('config.pixabaySearchIn="images";'); ?>
+        <?php printf('config.backgroundSource="standard";'); ?>
+        <?php printf('config.faces=-1'); ?>
+
 
     </script>
 </head>

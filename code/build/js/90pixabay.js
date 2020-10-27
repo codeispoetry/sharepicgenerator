@@ -54,7 +54,7 @@ function getPixabayVideos(q) {
           }
 
           $('.picture').collapse('hide');
-          config.usePixabay = 'pixabay';
+          config.backgroundSource = 'pixabay';
           $('#canvas-area').slideDown();
           $('#pixabay-search').hide();
           $('#waiting').hide();
@@ -119,7 +119,7 @@ function getPixabayImages(q) {
           }
 
           $('.picture').collapse('hide');
-          config.usePixabay = 'pixabay';
+          config.backgroundSource = 'pixabay';
           $('#canvas-area').slideDown();
           $('#pixabay-search').hide();
           $('#waiting').hide();
