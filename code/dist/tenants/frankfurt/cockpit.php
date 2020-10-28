@@ -138,7 +138,7 @@ if (!isAllowed(false)) {
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] bekommt Zweitfarbe</small>
+                        <small class="showonly lines nolines quote">Haupttext in eckigen Klammern [ ] bekommt Zweitfarbe</small>
                         <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
