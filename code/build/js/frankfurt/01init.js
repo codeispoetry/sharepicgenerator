@@ -58,7 +58,6 @@ function reDraw(withAddPic = false) {
   }, 20);
 
   window.setTimeout(() => {
-    logo.draw();
     text.draw();
     addtext.draw();
     quote.draw();
@@ -66,4 +65,8 @@ function reDraw(withAddPic = false) {
     invers.draw();
     eraser.draw();
   }, 100);
+
+  window.setTimeout(() => {
+    logo.draw();
+  }, 200);
 }
