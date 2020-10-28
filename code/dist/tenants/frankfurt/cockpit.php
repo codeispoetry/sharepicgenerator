@@ -27,11 +27,6 @@ if (!isAllowed(false)) {
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
             </div>
-            <div class="mb-1">
-                <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
-                    <i class="fas fa-image"></i> Frankfurter Icons
-                </a>
-            </div>
             <div>
                 <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
@@ -99,7 +94,58 @@ if (!isAllowed(false)) {
                     <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
             </div>
-        </div>   
+        </div>  
+
+        <h3 class="collapsed" data-toggle="collapse" data-target=".addicon"><i class="fas fa-images"></i> Frankfurter Icons</h3>
+        <div class="addicon collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div class="flex-column align-items-start">
+                <?php
+                for ($i = 1; $i <=1; $i++) {
+                    $divclass='mb-1 list-group-item-content';
+                    if ($i > 1) {
+                        $divclas .= ' show-add-pic-upload d-none';
+                    }
+                ?>
+                    <div class="<?= $divclass; ?>">
+                        <div class="d-flex w-100 justify-content-between">
+                        <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
+                            <i class="fas fa-image"></i> Icon auswählen
+                        </a>
+
+                        <div class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>">
+                            <?php if ($i == 2) { ?>
+                                <span class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
+                                    <i class="fas fa-align-justify" title="angleichen"></i>
+                                </span>
+                            <?php } ?>
+                            
+                            <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
+                                <i class="fas fa-layer-group text-primary"></i>
+                            </span> 
+                        
+                            <span id="addpicdelete<?= $i; ?>">
+                                <i class="fas fa-trash" title="löschen"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="mb-1 mt-2 d-none show-add-pic-<?= $i; ?>">
+                            <div class="d-flex align-items-center">
+                               <div class="slider">
+                                    <small>klein</small>
+                                    <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
+                                    <small>groß</small>
+                                </div>
+                                <div class="ml-3">
+                                    <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
+                                    <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php } ?>
+            </div>
+         </div> 
         
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
@@ -251,6 +297,7 @@ if (!isAllowed(false)) {
                 <?php } ?>
             </div>
          </div>
+
          <h3 class="d-none collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
          <div class="d-none logo collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
