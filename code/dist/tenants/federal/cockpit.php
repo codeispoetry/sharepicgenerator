@@ -205,7 +205,7 @@ if (!isAllowed(false)) {
                 for ($i = 1; $i <=2; $i++) {
                     $divclass='mb-1 list-group-item-content';
                     if ($i > 1) {
-                        $divclas .= ' show-add-pic-upload d-none';
+                        $divclass .= ' show-add-pic-upload d-none';
                     }
                 ?>
                     <div class="<?= $divclass; ?>">

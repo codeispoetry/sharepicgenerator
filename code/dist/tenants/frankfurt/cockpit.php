@@ -100,11 +100,8 @@ if (!isAllowed(false)) {
         <div class="addicon collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
-                for ($i = 1; $i <=1; $i++) {
+                for ($i = 99; $i <=99; $i++) {
                     $divclass='mb-1 list-group-item-content';
-                    if ($i > 1) {
-                        $divclas .= ' show-add-pic-upload d-none';
-                    }
                 ?>
                     <div class="<?= $divclass; ?>">
                         <div class="d-flex w-100 justify-content-between">
@@ -112,13 +109,7 @@ if (!isAllowed(false)) {
                             <i class="fas fa-image"></i> Icon auswählen
                         </a>
 
-                        <div class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>">
-                            <?php if ($i == 2) { ?>
-                                <span class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
-                                    <i class="fas fa-align-justify" title="angleichen"></i>
-                                </span>
-                            <?php } ?>
-                            
+                        <div class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>">                            
                             <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
                                 <i class="fas fa-layer-group text-primary"></i>
                             </span> 
@@ -135,7 +126,7 @@ if (!isAllowed(false)) {
                                     <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
                                     <small>groß</small>
                                 </div>
-                                <div class="ml-3">
+                                <div class="ml-3 d-none">
                                     <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
@@ -254,7 +245,7 @@ if (!isAllowed(false)) {
                 for ($i = 1; $i <=2; $i++) {
                     $divclass='mb-1 list-group-item-content';
                     if ($i > 1) {
-                        $divclas .= ' show-add-pic-upload d-none';
+                        $divclass .= ' show-add-pic-upload d-none';
                     }
                 ?>
                     <div class="<?= $divclass; ?>">
@@ -587,6 +578,7 @@ if (!isAllowed(false)) {
         <input type="hidden" name="iconfile" id="iconfile">
         <input type="hidden" name="addpicfile1" id="addpicfile1">
         <input type="hidden" name="addpicfile2" id="addpicfile2">
+        <input type="hidden" name="addpicfile99" id="addpicfile99">
         <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
@@ -596,6 +588,8 @@ if (!isAllowed(false)) {
         <input type="hidden" name="addPic1y" id="addPic1y">
         <input type="hidden" name="addPic2x" id="addPic2x">
         <input type="hidden" name="addPic2y" id="addPic2y">
+        <input type="hidden" name="addPic99x" id="addPic99x">
+        <input type="hidden" name="addPic99y" id="addPic99y">
         <input type="hidden" name="textColor" id="textColor" value="0">
         <input type="hidden" name="eraser" id="eraser">
 
