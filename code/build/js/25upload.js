@@ -204,10 +204,12 @@ function afterUpload(data) {
   $('#sizepresets').val($('#sizepresets option:first').val());
 
   background.draw();
-
   if (data.faces === undefined) {
     config.faces = -1;
+  } else {
+    config.faces = data.faces;
   }
+
   if (data.faces > 0) {
     $('#warning').html('Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.').show(1000).delay(6000)
       .hide(1000);

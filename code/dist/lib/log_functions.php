@@ -105,7 +105,7 @@ function getDownloads()
 
 function getDailyDownloads()
 {
-    return singleResult("select avg(perDay) as result from (select count(*) as perDay from downloads GROUP BY date(timestamp));");
+    return singleResult("select avg(perDay) as result from (select count(*) as perDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
 }
 
 function getPixabay()
@@ -160,7 +160,7 @@ function showBackgroundSources()
 
 function showPixabaySearches()
 {
-    return echoResults("select pixabaySearchStrings As name,count(*) as count from downloads WHERE pixabaySearchStrings !='' GROUP BY pixabaySearchStrings ORDER BY timestamp DESC LIMIT 10;");
+    return echoResults("select replace(pixabaySearchStrings,',',' ') As name,count(*) as count from downloads WHERE pixabaySearchStrings !='' GROUP BY pixabaySearchStrings ORDER BY timestamp DESC LIMIT 10;");
 }
 
 function getSocialMedia()
@@ -204,7 +204,7 @@ function showTelegramPics()
 
 function getLoggingPeriodInDays()
 {
-    return singleResult("SELECT date('now') - date(timestamp) AS result FROM downloads ORDER BY timestamp ASC LIMIT 1;");
+    return singleResult("SELECT julianday('now') - julianday(timestamp) AS result FROM downloads ORDER BY timestamp ASC LIMIT 1;");
 }
 
 function showProvinces()
@@ -222,9 +222,9 @@ function showTenants()
     return echoResults("select tenant As name,count(*) as count from downloads GROUP BY tenant;");
 }
 
-function getAverageUserPerDay()
+function getDailyUsers()
 {
-    return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads GROUP BY date(timestamp));");
+    return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
 }
 
 function getUserWithCustomLogo()
