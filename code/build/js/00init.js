@@ -8,6 +8,11 @@ $(document).ready(() => {
   $('#width').val(bgpic.originalWidth);
   $('#height').val(bgpic.originalHeight);
 
+  if ($(window).width() < 800) {
+    const fraction = $(window).width() / 800;
+    $('head meta[name="viewport"]').attr('content', `width=800, initial-scale=${fraction}`);
+  }
+
   pin.draw();
   window.setTimeout(text.draw, 10);
   afterUpload(bgpic);
