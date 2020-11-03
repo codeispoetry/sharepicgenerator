@@ -375,9 +375,9 @@ function logPicture($filename, $format)
     );
     exec($command);
 
-    $tags = join('|', get_category($afterFileBase . '.jpg'));
+    //$tags = join('|', get_category($afterFileBase . '.jpg'));
    
-    rename($afterFileBase . '.jpg', $afterFileBase . '_' . $tags .'_.jpg');
+    //rename($afterFileBase . '.jpg', $afterFileBase . '_' . $tags .'_.jpg');
 }
 
 function debug($msg)
