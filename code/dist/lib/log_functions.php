@@ -160,7 +160,8 @@ function showBackgroundSources()
 
 function showPixabaySearches()
 {
-    return echoResults("select replace(pixabaySearchStrings,',',' ') As name,count(*) as count from downloads WHERE pixabaySearchStrings !='' GROUP BY pixabaySearchStrings ORDER BY timestamp DESC LIMIT 10;");
+
+   
 }
 
 function getSocialMedia()
