@@ -7,7 +7,7 @@ function performPixabaySearch() {
   $('#pixabay-search').show();
   $('#canvas-area').slideUp();
 
-  config.pixabaySearchStrings += `${$('#pixabay-direct-search-q').val()},`;
+  config.pixabaySearchStrings += `${$('#pixabay-direct-search-q').val()}|`;
 
   if (config.pixabaySearchIn === 'video') {
     getPixabayVideos($('#pixabay-direct-search-q').val());
