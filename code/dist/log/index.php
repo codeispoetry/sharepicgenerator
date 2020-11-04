@@ -47,7 +47,7 @@ require_once(getBasePath('lib/log_functions.php'));
                         <br>
                     Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
                         <br>
-                    täglich: <?php printf("%d", getAverageUserPerDay()); ?>
+                    täglich: <?php printf("%d", getDailyUsers()); ?>
                         <br>
                     mit eigenem Logo: <?php echo getUserWithCustomLogo(); ?>
                         <br>

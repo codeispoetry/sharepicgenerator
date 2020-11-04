@@ -153,9 +153,16 @@ function logDownload()
             $db->exec("ALTER TABLE downloads ADD $newColumn $type");
             $columns[] = $newColumn;
         }
+
+
+        $db->exec('CREATE TABLE IF NOT EXISTS searches(
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            query TEXT,
+            carrier TEXT)');
     }
     
-    // do logging
+    // do logging into download
     $smt = $db->prepare(
         sprintf(
             'INSERT INTO downloads (%s) values (:%s)',
@@ -167,6 +174,21 @@ function logDownload()
         $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
     }
     $smt->execute();
+
+    // do logging into searches
+    $pixabaySearchStrings = explode('|', $data['pixabaySearchStrings']);
+    foreach ($pixabaySearchStrings as $pixabaySearchString) {
+        if ($pixabaySearchString === '') {
+            continue;
+        }
+        $smt = $db->prepare(
+            'INSERT INTO searches (query,carrier) values (:query,:carrier)'
+        );
+        $smt->bindValue(':query', $pixabaySearchString, SQLITE3_TEXT);
+        $smt->bindValue(':carrier', 'pixabay', SQLITE3_TEXT);
+
+        $smt->execute();
+    }
 }
 
 function isLocal()
@@ -375,9 +397,9 @@ function logPicture($filename, $format)
     );
     exec($command);
 
-    $tags = join('|', get_category($afterFileBase . '.jpg'));
+    //$tags = join('|', get_category($afterFileBase . '.jpg'));
    
-    rename($afterFileBase . '.jpg', $afterFileBase . '_' . $tags .'_.jpg');
+    //rename($afterFileBase . '.jpg', $afterFileBase . '_' . $tags .'_.jpg');
 }
 
 function debug($msg)
