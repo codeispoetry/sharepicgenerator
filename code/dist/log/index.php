@@ -86,12 +86,16 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="far fa-time"></i> Zeiten</dt>
                 <dd>
-                    Median Createtime: <?php echo getMedianCreatingTime(); ?><br>
-                    Mittel Createtime: <?php echo getAvgCreatingTime(); ?>
+                    Median Createtime: <?php echo round(getMedianCreatingTime()/1000, 1); ?>s<br>
+                    80% Createtime: <?php echo round(getMedianCreatingTime(80)/1000, 1); ?>s<br>
+                    90% Createtime: <?php echo round(getMedianCreatingTime(90)/1000, 1); ?>s<br>
+                    Mittel Createtime: <?php echo round(getAvgCreatingTime()/1000, 1); ?>s
                 </dd>
                 <dd>
-                    Median Uploadtime: <?php echo getMedianUploadTime(); ?><br>
-                    Mittel Uploadtime: <?php echo getAvgUploadTime(); ?>
+                    Median Uploadtime: <?php echo round(getMedianUploadTime()/1000, 1); ?>s<br>
+                    80% Uploadtime: <?php echo round(getMedianUploadTime(90)/1000, 1); ?>s<br>
+
+                    Mittel Uploadtime: <?php echo round(getAvgUploadTime()/1000, 1); ?>s
                 </dd>
             </dl>
         </div>
