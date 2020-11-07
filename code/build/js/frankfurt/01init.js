@@ -28,12 +28,14 @@ $(document).ready(() => {
 
   showLayout();
 
-  $(".galleryPicture[data-url!='pictures/img/frankfurt/Gruene-Icon_11-Trauer.png']").click(() => {
+  $(".galleryPicture[data-url!='pictures/img/frankfurt/090_Gruene-Icon_11-Trauer.png']").click(() => {
     config.logoBlack = false;
   });
-  $(".galleryPicture[data-url='pictures/img/frankfurt/Gruene-Icon_11-Trauer.png']").click(() => {
+  $(".galleryPicture[data-url='pictures/img/frankfurt/090_Gruene-Icon_11-Trauer.png']").click(() => {
     config.logoBlack = true;
   });
+
+  logo.draw();
 });
 
 // eslint-disable-next-line no-unused-vars
