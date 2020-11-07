@@ -22,7 +22,7 @@ function convertExoticExtensions($filebasename, $extension)
     if (strToLower($extension) == 'heic') {
         $newFilename = $filebasename .'.jpg';
         $command = sprintf(
-            "convert %s %s",
+            "heif-convert %s %s",
             $filename,
             $newFilename
         );
