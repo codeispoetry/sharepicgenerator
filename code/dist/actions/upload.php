@@ -15,7 +15,7 @@ $id = $_POST['id'];
 
 $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
-if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','gif','svg','webp','mp4','zip'))) {
+if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','heic','gif','svg','webp','mp4','zip'))) {
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
