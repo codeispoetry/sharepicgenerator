@@ -37,6 +37,7 @@ $('.upload-file').change(function changeFile() {
     $('#canvas-area').slideDown();
 
     if (obj.error) {
+      alert('Es ist ein Fehler beim Upload aufgetreten. Bitte versuche, ein jpg-Bild hochzuladen.');
       console.log(obj.error);
       return false;
     }

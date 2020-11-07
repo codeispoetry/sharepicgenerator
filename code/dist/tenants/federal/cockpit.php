@@ -572,7 +572,7 @@ if (!isAllowed(false)) {
         <input type="hidden" name="eraser" id="eraser">
 
 
-        <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,video/mp4">
+        <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,.heic,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadaddpic1" accept="image/*">

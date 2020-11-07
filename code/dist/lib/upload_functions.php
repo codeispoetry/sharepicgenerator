@@ -1,11 +1,8 @@
 <?php
 
-function handleBackgroundUpload($extension)
+function convertExoticExtensions($filebasename, $extension)
 {
-    $filebasename = getBasePath('tmp/' . uniqid('upload', true));
     $filename = $filebasename . '.' . $extension;
-
-    $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     // convert webp to jpg, as inkscape cannot handle webp
     if (strToLower($extension) == 'webp') {
@@ -16,9 +13,41 @@ function handleBackgroundUpload($extension)
             $newFilename
         );
         exec($command);
-        $extension = 'jpg';
         $filename = $newFilename;
+
+        return $newFilename;
     }
+
+    // convert heic
+    if (strToLower($extension) == 'heic') {
+        $newFilename = $filebasename .'.jpg';
+        $command = sprintf(
+            "convert %s %s",
+            $filename,
+            $newFilename
+        );
+        exec($command);
+        $filename = $newFilename;
+
+        return $newFilename;
+    }
+
+    return $filebasename;
+}
+
+function handleBackgroundUpload($extension)
+{
+    $filebasename = getBasePath('tmp/' . uniqid('upload', true));
+    $filename = $filebasename . '.' . $extension;
+
+    $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
+
+    // convert webp to jpg, as inkscape cannot handle webp
+    if (in_array(strToLower($extension), ['webp','heic'])) {
+        $filename = convertExoticExtensions($filebasename, $extension);
+        $extension = 'jpg';
+    }
+
 
     $filesJoin = join(':', $_FILES['file']);
 
