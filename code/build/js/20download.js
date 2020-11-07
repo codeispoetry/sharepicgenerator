@@ -104,13 +104,13 @@ $('#download,.download').click(function onDownloadClick() {
         });
 
         // const data = $('#pic').serialize();
-      } else {
-        const qrcode = `/tmp/qrcode_${obj.basename}.png`;
-        $('#qrcode').show();
-        $('#qrcode-img').html(`<img src="${qrcode}">`);
-
-        window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
       }
+
+      const qrcode = `/tmp/qrcode_${obj.basename}.png`;
+      $('#qrcode').show();
+      $('#qrcode-img').html(`<img src="${qrcode}">`);
+
+      window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
     },
   });
 });
