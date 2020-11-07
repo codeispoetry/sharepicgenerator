@@ -72,9 +72,10 @@ logDownload();
 $return = [];
 
 exec(sprintf(
-    'qrencode -s 4 -o %s %s 2>&1',
+    'qrencode -s 4 -o %s https://%s%s 2>&1',
     getBasePath('tmp/qrcode_' . basename($filename, '.svg') . '.png'),
-    'https://develop.sharepicgenerator.de/actions/qrcode.php?f=' . basename($filename, '.svg')
+    $_SERVER['HTTP_HOST'],
+    '/actions/qrcode.php?f=' . basename($filename, '.svg')
 ));
 
 
