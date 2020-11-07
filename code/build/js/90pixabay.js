@@ -14,6 +14,21 @@ function performPixabaySearch() {
   } else {
     getPixabayImages($('#pixabay-direct-search-q').val());
   }
+
+  $.ajax({
+    type: 'POST',
+    url: '/actions/logging.php',
+    data: {
+      q: $('#pixabay-direct-search-q').val(),
+      carrier: config.pixabaySearchIn,
+    },
+    success(response) {
+      console.log(response);
+    },
+    error(response) {
+      console.log(response);
+    },
+  });
 }
 
 $('#pixabay-direct-search-q').on('keyup', (e) => {

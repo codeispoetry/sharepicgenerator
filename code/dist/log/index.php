@@ -110,7 +110,10 @@ require_once(getBasePath('lib/log_functions.php'));
                 <dt><i class="far fa-image"></i> Pixabay</dt>
                 <dd>
                     <ul>
-                        <?php showPixabaySearches(); ?>
+                        Letzen 7 Tage:
+                        <?php  showPixabaySearchesLastDays(7) ?>
+                        Allzeit:
+                        <?php showPixabaySearchesAllTime(); ?>
                     </ul>
                 </dd>
             </dl>

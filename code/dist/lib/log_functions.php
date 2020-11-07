@@ -158,10 +158,14 @@ function showBackgroundSources()
     return echoResults("select backgroundsource As name,count(*) as count from downloads GROUP BY backgroundsource ORDER BY count DESC;");
 }
 
-function showPixabaySearches()
+function showPixabaySearchesAllTime()
 {
+    return echoResults("select query As name,count(*) as count from searches GROUP BY query ORDER BY count DESC LIMIT 7;");
+}
 
-   
+function showPixabaySearchesLastDays($days = 7)
+{
+    return echoResults("select query As name,count(*) as count from searches WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY query ORDER BY count DESC LIMIT 7;");
 }
 
 function getSocialMedia()
