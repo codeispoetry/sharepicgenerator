@@ -93,7 +93,7 @@ require_once(getBasePath('lib/log_functions.php'));
                 </dd>
                 <dd>
                     Median Uploadtime: <?php echo round(getMedianUploadTime()/1000, 1); ?>s<br>
-                    80% Uploadtime: <?php echo round(getMedianUploadTime(90)/1000, 1); ?>s<br>
+                    80% Uploadtime: <?php echo round(getMedianUploadTime(80)/1000, 1); ?>s<br>
 
                     Mittel Uploadtime: <?php echo round(getAvgUploadTime()/1000, 1); ?>s
                 </dd>

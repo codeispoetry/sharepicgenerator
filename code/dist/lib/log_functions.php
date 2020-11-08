@@ -192,7 +192,7 @@ function getAvgCreatingTime()
 
 function getMedianUploadTime($percent = 50)
 {
-    return singleResult(getMedianSQLQuery('uploadTime'), $percent);
+    return singleResult(getMedianSQLQuery('uploadTime', $percent));
 }
 
 function getAvgUploadTime()
