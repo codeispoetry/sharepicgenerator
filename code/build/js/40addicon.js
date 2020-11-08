@@ -2,8 +2,8 @@ const addPic99 = { ...addPic1 };
 addPic99.i = 99;
 
 $('#addPicSize99').bind('input propertychange', () => { addPic99.resize(); });
-$('#addpicrounded1').bind('change', () => { addPic1.draw(); });
-$('#addpicroundedbordered1').bind('change', () => { addPic1.draw(); });
+$('#addpicrounded99').bind('change', () => { addPic99.draw(); });
+$('#addpicroundedbordered99').bind('change', () => { addPic99.draw(); });
 $('#addpicdelete99').bind('click', () => { addPic99.delete(); });
 
 // eslint-disable-next-line no-unused-vars
