@@ -1,7 +1,8 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-else-return */
 const draw = SVG().addTo('#canvas');
 
-// eslint-disable-next-line no-unused-vars
 const info = { foo: null };
 
 $(document).ready(() => {
@@ -24,7 +25,6 @@ $(document).ready(() => {
   $('input,textarea').change(() => { $('#qrcode').hide(); });
 });
 
-// eslint-disable-next-line no-unused-vars
 function message(text = false) {
   if (!text) {
     $('#message').hide();
@@ -33,7 +33,6 @@ function message(text = false) {
   $('#message').show().html(text);
 }
 
-// eslint-disable-next-line no-unused-vars
 function redrawCockpit() {
   if (config.video) {
     $('.novideo').addClass('d-none');
@@ -127,3 +126,19 @@ $('.to-front').click(function tofront() {
 
   eraser.draw();
 });
+
+function getBrowser() {
+  if ((navigator.userAgent.indexOf('Opera') || navigator.userAgent.indexOf('OPR')) !== -1) {
+    return 'Opera';
+  } else if (navigator.userAgent.indexOf('Chrome') !== -1) {
+    return 'Chrome';
+  } else if (navigator.userAgent.indexOf('Safari') !== -1) {
+    return 'Safari';
+  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
+    return 'Firefox';
+  } else if ((navigator.userAgent.indexOf('MSIE') !== -1) || (!!document.documentMode === true)) {
+    return 'IE';
+  } else {
+    return 'Unknown';
+  }
+}
