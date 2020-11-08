@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const nolines = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
@@ -108,7 +109,11 @@ const nolines = {
       textafter.dx(2).dy(text.svg.height() - 2);
 
       // make background the same width as the text
-      lineafter.width(textafter.bbox().width + 2);
+      let paddingRight = 2;
+      if (getBrowser() === 'Firefox') {
+        paddingRight = 4;
+      }
+      lineafter.width(textafter.bbox().width + paddingRight);
 
       text.svg.add(textafter);
     }
