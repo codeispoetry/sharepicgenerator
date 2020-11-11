@@ -120,16 +120,6 @@ const logo = {
 
     logo.svg.move(x, y);
 
-    $('#svg-logo').hover(() => {
-      $('#fancy-logo-select').fadeIn();
-    });
-
-    $('#fancy-logo-select').mouseleave(
-      () => {
-        $('#fancy-logo-select').hide();
-      },
-    );
-
     return true;
   },
 
@@ -176,35 +166,6 @@ $('.uselogo').on('click', function clickUseLogo() {
 
 $('#logosize').bind('input propertychange', () => {
   logo.resize($('#logosize').val());
-});
-
-$(document).ready(() => {
-  const position = $('#canvas svg').position();
-  $('#fancy-logo-select').css('top', position.top);
-  $('#fancy-logo-select').css('left', position.left + $('#canvas svg').width() + 5);
-
-  $('#logoselect option').each(function setfancylogos() {
-    const logoId = $(this).val();
-    const logoName = $(this).html();
-
-    if (logo.config[logoId] === undefined) {
-      return true;
-    }
-    const logofile = logo.config[logoId].file;
-    $('#fancy-logo-select').prepend($('<img>', {
-      src: logofile, 'data-logo': logoId, 'data-toggle': 'tooltip', title: logoName,
-    }));
-
-    return true;
-  });
-
-  $('#fancy-logo-select img').click(function fancylogoclick() {
-    const logoId = $(this).data('logo');
-    $(`#logoselect [value="${logoId}"]`).prop('selected', true);
-    logo.load();
-  });
-
-  logo.load(); // otherwise sometimes to logo is not rendered
 });
 
 $('#logochapter').bind('input propertychange', () => logo.load());
