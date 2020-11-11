@@ -26,7 +26,7 @@ $(document).ready(() => {
     logo.resize($('#logosize').val());
     $('#textY').val(320);
     $('#textsize').val(402);
-  }, 50);
+  }, 2000);
 
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');
