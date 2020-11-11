@@ -68,7 +68,7 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 2. Use deployment/scripts/generate_thumbnails.sh as a cronjob in your docker to generate the thumbnails automatically if new pictures are available in tenants/federal/pictures/img
 
 ```
-   deployment/scripts/generate_thumbnails.sh tenants/federal/pictures/img
+   ./deployment/scripts/generate_thumbnails.sh code/dist/tenants/federal/pictures/img
 
 ```
 
