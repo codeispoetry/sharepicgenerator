@@ -179,11 +179,7 @@ nextActionDay();
         require_once(getBasePath('/lib/toasts/toasts.php'));
     ?>
 </div>
-<div class="overlays">
-    <?php
-        require_once(getBasePath('/lib/overlays/logos.php'));
-    ?>
-</div>
+
 
 
 <script src="/vendor/jquery-3.4.1.min.js"></script>
