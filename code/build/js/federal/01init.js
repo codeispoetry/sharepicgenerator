@@ -12,13 +12,21 @@ $(document).ready(() => {
   //$('#text').val('Es beginnt\n[#mitdir]');
   $('#textsize').val(502);
   $('#textX').val(41);
-  $('#textY').val(172);
+  $('#textY').val(372);
   config.layout = 'nolines';
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
+
+  window.setTimeout(() => {
+    $('#sizepresets').val('1200:1200').change();
+    $('#logosize').val(17);
+    logo.resize($('#logosize').val());
+    $('#textY').val(320);
+    $('#textsize').val(402);
+  }, 50);
 
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');

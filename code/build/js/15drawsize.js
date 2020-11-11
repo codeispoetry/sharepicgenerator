@@ -35,7 +35,7 @@ function setDrawsize() {
     height = width / aspectratio;
   }
 
-  while (height > 800) {
+  while (height > 600) {
     width -= 50;
     height = width / aspectratio;
   }
