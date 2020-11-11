@@ -4,4 +4,4 @@ for i in *.png ; do convert "$i" -gravity SouthEast -background white -extent 12
 Single
 convert input.png -gravity SouthEast -background white -extent 1280x720  output.jpg
 
-rsync -avz frankfurt sharepic://var/www/develop.sharepicgenerator.de/shared/tenants/frankfurt/pictures/img/
+rsync -avz code/dist/tenants/frankfurt/pictures/img/frankfurt sharepic://var/www/sharepicgenerator.de/shared/tenants/frankfurt/pictures/img/
