@@ -140,7 +140,7 @@ if (!isAllowed(false)) {
                 <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
             </div>
         </div>
-        
+
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
@@ -525,7 +525,7 @@ if (!isAllowed(false)) {
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 align-items-center">
                 <span class="ml-5 mr-2">Hilflinien:</span>
-               <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
+               <input id="gridlines" type="checkbox" checked data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
 
