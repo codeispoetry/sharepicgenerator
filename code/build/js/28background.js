@@ -45,6 +45,9 @@ const background = {
 
       background.addGreenLayer();
       background.addDarkLightLayer();
+
+      // eslint-disable-next-line no-undef
+      initSharepic();
     });
   },
 
