@@ -23,11 +23,6 @@ $(document).ready(() => {
   });
 
   $('input,textarea').change(() => { $('#qrcode').hide(); });
-  $('#logosize').val(17);
-  window.setTimeout(() => {
-    $('#sizepresets').val('1200:1200').change();
-    
-  }, 50);
 });
 
 function message(text = false) {
