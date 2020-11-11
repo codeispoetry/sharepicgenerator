@@ -9,7 +9,6 @@ const bgpic = {
 };
 
 $(document).ready(() => {
-  //$('#text').val('Es beginnt\n[#mitdir]');
   $('#textsize').val(502);
   $('#textX').val(41);
   $('#textY').val(372);
@@ -20,13 +19,8 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  window.setTimeout(() => {
-    $('#sizepresets').val('1200:1200').change();
-    $('#logosize').val(17);
-    logo.resize($('#logosize').val());
-    $('#textY').val(320);
-    $('#textsize').val(402);
-  }, 2000);
+  $('#logosize').val(17);
+  logo.resize($('#logosize').val());
 
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');
@@ -36,6 +30,14 @@ $(document).ready(() => {
 
   showLayout();
 });
+
+// eslint-disable-next-line no-unused-vars
+function initSharepic() {
+  // called after background pic is loaded
+  $('#sizepresets').val('1200:1200').trigger('change');
+  $('#textY').val(320);
+  $('#textsize').val(402);
+}
 
 // eslint-disable-next-line no-unused-vars
 function reset() {
