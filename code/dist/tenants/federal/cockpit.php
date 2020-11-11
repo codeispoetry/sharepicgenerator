@@ -103,6 +103,44 @@ if (!isAllowed(false)) {
             </div>
         </div>   
         
+        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> 
+            Größe
+            <small class="ml-2">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+             </small>
+            </h3>
+        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+            <div class="d-flex w-100 justify-content-between align-items-center">
+                <div class="form-inline">
+                    <div class="form-row sizecontainer">
+                        <input type="number" class="form-control size" name="width" id="width" step="10">
+                        <span class="mt-2 small">x</span>
+                        <input type="number" class="form-control size" name="height" id="height" step="10">
+                        <span class="mt-2 mr-2 small">Px</span>
+
+                        <select class="form-control" id="sizepresets">
+                            <option class="">Vorgabe</option>
+                            <?php
+                            $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
+                            foreach ($sizes as $name => $group) {
+                                printf('<optgroup label="%s">', $name);
+                                foreach ($group as $label => $size) {
+                                    list($width, $height, $quality) = preg_split("/[^0-9]/", trim($size));
+                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
+                                    printf('<option value="%d:%d" data-socialmediaplatform="%s" data-quality="%s">%s</option>', $width, $height, $socialmediaplatform, $quality, $label);
+                                }
+                                echo '</optgroup>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
+            </div>
+        </div>
+        
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
@@ -357,43 +395,6 @@ if (!isAllowed(false)) {
                         <i class="fa fa-broom ml-1 text-primary cursor-pointer addtext-change-color ml-1" title="Farbe wechseln"></i>
                     </div>
                 </div>    
-            </div>
-        </div>
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> 
-            Größe
-            <small class="ml-2">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-             </small>
-            </h3>
-        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
-            <div class="d-flex w-100 justify-content-between align-items-center">
-                <div class="form-inline">
-                    <div class="form-row sizecontainer">
-                        <input type="number" class="form-control size" name="width" id="width" step="10">
-                        <span class="mt-2 small">x</span>
-                        <input type="number" class="form-control size" name="height" id="height" step="10">
-                        <span class="mt-2 mr-2 small">Px</span>
-
-                        <select class="form-control" id="sizepresets">
-                            <option class="">Vorgabe</option>
-                            <?php
-                            $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
-                            foreach ($sizes as $name => $group) {
-                                printf('<optgroup label="%s">', $name);
-                                foreach ($group as $label => $size) {
-                                    list($width, $height, $quality) = preg_split("/[^0-9]/", trim($size));
-                                    $socialmediaplatform = preg_replace('/ /', '-', "$name-$label");
-                                    printf('<option value="%d:%d" data-socialmediaplatform="%s" data-quality="%s">%s</option>', $width, $height, $socialmediaplatform, $quality, $label);
-                                }
-                                echo '</optgroup>';
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
             </div>
         </div>
 
