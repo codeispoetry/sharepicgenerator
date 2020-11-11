@@ -30,12 +30,12 @@ $(document).ready(() => {
 
   $(".galleryPicture[data-url!='pictures/img/frankfurt/090_Gruene-Icon_11-Trauer.png']").click(() => {
     config.logoBlack = false;
+    logo.draw();
   });
   $(".galleryPicture[data-url='pictures/img/frankfurt/090_Gruene-Icon_11-Trauer.png']").click(() => {
     config.logoBlack = true;
+    logo.draw();
   });
-
-  logo.draw();
 });
 
 // eslint-disable-next-line no-unused-vars
