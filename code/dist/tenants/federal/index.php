@@ -130,13 +130,13 @@ nextActionDay();
             <div class="col-12 p-0">
                 <div id="canvas-area">
                     <div id="canvas">
-                        <div id="grid-horizontal-center" class="gridline horizontal d-none"></div>
-                        <div id="grid-horizontal-upper" class="gridline horizontal d-none"></div>
-                        <div id="grid-horizontal-lower" class="gridline horizontal d-none"></div>
-                        <div id="grid-vertical-center" class="gridline vertical d-none"></div>
-                        <div id="grid-vertical-left" class="gridline vertical d-none"></div>
-                        <div id="grid-vertical-right" class="gridline vertical d-none"></div>
-                        <div id="grid-round" class="gridline d-none"></div>
+                        <div id="grid-horizontal-center" class="gridline horizontal"></div>
+                        <div id="grid-horizontal-upper" class="gridline horizontal"></div>
+                        <div id="grid-horizontal-lower" class="gridline horizontal"></div>
+                        <div id="grid-vertical-center" class="gridline vertical"></div>
+                        <div id="grid-vertical-left" class="gridline vertical"></div>
+                        <div id="grid-vertical-right" class="gridline vertical"></div>
+                        <div id="grid-round" class="gridline"></div>
                     </div>
                     <div class="text-center mt-5">
                         <div>
