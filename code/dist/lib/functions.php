@@ -21,8 +21,75 @@ define("ACCESSTOKEN", "$accesstoken");
 EOF;
 
     file_put_contents(sprintf('%s/accesstoken.php', $userDir), $content);
+
+    saveLastLogin($user);
+
     return $accesstoken;
 }
+
+function saveLastLogin($user)
+{
+    $db = new SQLite3(getBasePath('log/logs/user.db'));
+    if (isAdmin()) {
+        $db->exec('CREATE TABLE IF NOT EXISTS user(
+            user TEXT PRIMARY KEY,
+            last_login DATETIME)');
+    }
+
+    if (getLastLogin() === false) {
+        $sql = 'INSERT INTO user (user,last_login) values (:user,datetime())';
+    } else {
+        $sql = 'UPDATE user SET last_login=datetime() WHERE user=:user';
+    }
+
+    $smt = $db->prepare($sql);
+    $smt->bindValue(':user', $user, SQLITE3_TEXT);
+    $smt->execute();
+}
+
+function getLastLogin($user = false)
+{
+    if (!$user) {
+        $user = getUser();
+    }
+    $db = new SQLite3(getBasePath('log/logs/user.db'));
+    $smt = $db->prepare(
+        'SELECT last_login, cast(julianday("now") - julianday(last_login) as int) as days FROM user WHERE user=:user'
+    );
+    $smt->bindValue(':user', $user, SQLITE3_TEXT);
+    
+    $result = $smt->execute();
+ 
+    $array = $result->fetchArray();
+
+    if (empty($array)) {
+        return false;
+    }
+
+    $timestamp = strToTime($array['last_login']);
+   
+    switch ($array['days']) {
+        case 0:
+            $day = 'heute';
+            break;
+        case 1:
+            $day = 'gestern';
+            break;
+        case 2:
+            $day = 'vorgestern';
+            break;
+        default:
+            if ($array['days'] <7) {
+                $day = strftime('letzten %A', $timestamp);
+            }else{
+                $day = strftime('am %e. %B', $timestamp);
+            }
+            break;
+    }
+    
+    return $day . ' ' .strftime('um %R Uhr', $timestamp);
+}
+
 
 function isAllowed($with_csrf = false)
 {
