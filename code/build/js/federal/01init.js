@@ -8,6 +8,8 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
+var initialized = false;
+
 $(document).ready(() => {
   $('#textsize').val(502);
   $('#textX').val(41);
@@ -33,10 +35,16 @@ $(document).ready(() => {
 
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {
+  if (initialized) {
+    return false;
+  }
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
   $('#textY').val(320);
   $('#textsize').val(402);
+  initialized = true;
+
+  return true;
 }
 
 // eslint-disable-next-line no-unused-vars
