@@ -539,13 +539,6 @@ if (!isAllowed(false)) {
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
-        <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
-            <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
-            <a class="text-white overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
-            <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
-                <i class="far fa-hand-point-right"></i> Aktionstage
-            </a>
-        </div>
         <div class="text-center text-white mt-3">
             <i class="fas fa-spa text-highlight"></i> Programmiert von
             <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">Tom Rose</a>.
