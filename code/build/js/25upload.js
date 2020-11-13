@@ -145,7 +145,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   client.upload.onprogress = function onProgress(e) {
     const p = Math.round((100 / e.total) * e.loaded);
 
-    if (p < 90) {
+    if (p < 95) {
       $('#uploadpercentage').html(p);
     } else {
       $('#uploadstatus').html('Dein Bild wird verarbeitet...');
