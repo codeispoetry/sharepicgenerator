@@ -36,7 +36,7 @@ function saveLastLogin($user)
             last_login DATETIME)');
     }
 
-    if (getLastLogin() === false) {
+    if (getLastLogin($user) === false) {
         $sql = 'INSERT INTO user (user,last_login) values (:user,datetime())';
     } else {
         $sql = 'UPDATE user SET last_login=datetime() WHERE user=:user';
