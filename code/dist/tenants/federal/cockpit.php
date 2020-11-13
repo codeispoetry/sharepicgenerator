@@ -21,7 +21,7 @@ if (!isAllowed(false)) {
     <div class="mb-5">
 
         <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
-        <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
+        <div class="picture collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
