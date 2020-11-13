@@ -32,6 +32,11 @@ $('.upload-file').change(function changeFile() {
 
   client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
+
+    if (obj.originalWidth > 4000 || obj.originalHeight > 4000) {
+      $('.upload-too-big').toast('show');
+    }
+
     $(`#${id}`).prop('disabled', false);
     $('#waiting').hide();
     $('#canvas-area').slideDown();
@@ -212,10 +217,7 @@ function afterUpload(data) {
   }
 
   if (data.faces > 0) {
-    $('#warning').html('Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.').show(1000).delay(6000)
-      .hide(1000);
-  } else {
-    $('#warning').hide();
+    $('.face-alert').toast('show');
   }
 
   config.backgroundSource = 'upload';
