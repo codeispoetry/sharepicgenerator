@@ -95,7 +95,7 @@ if (!isAllowed(false)) {
             </div>
             <div class="align-items-lg-center show-copyright d-none">
                 <div class="d-flex align-items-center">
-                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
+                    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="upperLeft">
 
                     <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
                     <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
@@ -145,30 +145,27 @@ if (!isAllowed(false)) {
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
                 <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
+                    <input type="radio" class="form-check-input layout" name="layout" value="hessenfullwidth" checked>Volle Breite
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
+                    <input type="radio" class="form-check-input layout" name="layout" value="hessenhalfwidth">Halbe Breite
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="invers">Invers
-                 </label>
-                 <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
+                    <input type="radio" class="form-check-input layout" name="layout" value="nolines">Ohne Untergrund
                  </label>
             </div>
 
             <div class="list-group-item-content">
                 <div class="">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
-                           class="form-control showonly lines nolines">
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
+                           class="form-control showonly lines nolines d-none">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
-#mitdir.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier ist
+[Hessen].</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="d-none form-control showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -286,7 +283,7 @@ if (!isAllowed(false)) {
                 <?php } ?>
             </div>
          </div>
-         <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
         <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
@@ -354,7 +351,7 @@ if (!isAllowed(false)) {
                 Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
             </div>
         </div>
-         <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
+         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
         <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
@@ -375,7 +372,7 @@ if (!isAllowed(false)) {
                 </div>    
             </div>
         </div>
-        <h3 class="collapsed" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
+        <h3 class="collapsed d-none" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
         <div class="addtext list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
@@ -470,7 +467,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".tables"><i class="fas fa-table"></i> 
+        <h3 class="collapsed d-none" data-toggle="collapse" data-target=".tables"><i class="fas fa-table"></i> 
                 Tabellen
          </h3>
         <div class="tables collapse list-group-item list-group-item-action flex-column align-items-start">
@@ -484,7 +481,7 @@ if (!isAllowed(false)) {
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
+            <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
 
                 <span class="badge btn-light ml-2">
