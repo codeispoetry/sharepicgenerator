@@ -5,10 +5,11 @@ function showLayout() {
 
   $(`.${config.layout}`).show();
 
-  quote.draw();
+  //quote.draw();
   text.draw();
   nolines.draw();
-  invers.draw();
+  //invers.draw();
+  hessenfullwidth.draw();
 }
 
 $('.layout').click(showLayout);
