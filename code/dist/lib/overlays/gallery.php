@@ -14,13 +14,13 @@
             <div class="row pb-5 mb-3">
                 <div class="col-12 font-weight-bold">Meine Vorlagen</div>
                 <?php
-                    showImages('gallery/img/shpic*', 'ownFiles');
+                    //showImages('gallery/img/shpic*', 'ownFiles');
                 ?>
             </div>
             <div class="row pb-5 mb-3">
                 <div class="col-12 font-weight-bold">Von anderen</div>
                 <?php
-                    showImages('gallery/img/shpic*', 'foreignFiles');
+                   //showImages('gallery/img/shpic*', 'foreignFiles');
                 ?>
             </div>
         </div>
