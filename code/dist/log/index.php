@@ -101,29 +101,6 @@ require_once(getBasePath('lib/log_functions.php'));
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="far fa-smile-wink"></i> Gesichter</dt>
-                <dd>
-                    <ul>
-                        <?php showFaces(); ?>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
-                <dt><i class="far fa-image"></i> Pixabay</dt>
-                <dd>
-                    <ul>
-                        Letzen 7 Tage:
-                        <?php  showPixabaySearchesLastDays(7) ?>
-                        Allzeit:
-                        <?php showPixabaySearchesAllTime(); ?>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
                 <dt><i class="far fa-images"></i> Bildquellen</dt>
                 <dd>
                     <ul>
@@ -150,12 +127,6 @@ require_once(getBasePath('lib/log_functions.php'));
                         <?php showSocialMedia(); ?>
                     </ul>
                 </dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
-                <dt><i class="fas fa-fan"></i> Logos</dt>
-                <dd><ul><?php echo showLogos(); ?></ul></dd>
             </dl>
         </div>
         <div class="col-6 col-md-6 col-lg-3">

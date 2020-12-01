@@ -79,18 +79,19 @@ function echoResults($sql)
     }
 }
 
-function getMedianSQLQuery($column, $percent = 50, $table = 'downloads')
+function getMedianSQLQuery($column, $percent = 50, $table = 'downloads', $last = 7)
 {
     return sprintf(
         'SELECT %1$s AS result
         FROM %2$s
-        WHERE %1$s > 0
+        WHERE %1$s > 0 AND cast(julianday("now") - julianday(timestamp) as int) < %4$s
         ORDER BY %1$s
         LIMIT 1
         OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0) * %3$f)',
         $column,
         $table,
-        $percent / 100
+        $percent / 100,
+        $last
     );
 }
 
@@ -187,7 +188,7 @@ function getMedianCreatingTime($percent = 50)
 
 function getAvgCreatingTime()
 {
-    return round(singleResult("select avg(createTime) as result from downloads where createTime>0"));
+    return round(singleResult('select avg(createTime) as result from downloads where createTime>0 AND cast(julianday("now") - julianday(timestamp) as int) < 7'));
 }
 
 function getMedianUploadTime($percent = 50)
@@ -197,7 +198,7 @@ function getMedianUploadTime($percent = 50)
 
 function getAvgUploadTime()
 {
-    return round(singleResult("select avg(uploadTime) as result from downloads WHERE uploadTime>0"));
+    return round(singleResult('select avg(uploadTime) as result from downloads WHERE uploadTime>0 AND cast(julianday("now") - julianday(timestamp) as int) < 7'));
 }
 
 function showTelegramPics()
