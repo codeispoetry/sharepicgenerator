@@ -92,6 +92,9 @@ if (!isAllowed(false)) {
                 <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
                     zentrieren
                 </small>
+                <small class="text-primary cursor-pointer novideo ml-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+                    spiegeln
+                </small>
             </div>
             <div class="align-items-lg-center show-copyright d-none">
                 <div class="d-flex align-items-center">
