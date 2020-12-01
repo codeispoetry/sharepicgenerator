@@ -54,6 +54,13 @@ const hessenfullwidth = {
     let color;
     const ts = [];
 
+    const longestLineCount = Math.max(...(lines.map((el) => el.length)));
+
+    let leftSideX = draw.width() * 0.02;
+    if (longestLineCount < 20) {
+      leftSideX = draw.width() / 2;
+    }
+
     lines.forEach((value, index) => {
       let style = 1;
 
@@ -78,7 +85,7 @@ const hessenfullwidth = {
         }
       });
 
-      t.move(10, y);
+      t.move(leftSideX + 10, y);
 
       y += (t.rbox().h) + hessenfullwidth.linemargin;
 
@@ -95,12 +102,13 @@ const hessenfullwidth = {
     gradient.from(1.1, 0).to(0.9, 1).radius(1.1);
 
     const fondsHeight = y + hessenfullwidth.lineheight * 3.5;
+
     const fonds = draw.polygon(`
-        0, ${hessenfullwidth.lineheight * -0.4}
+        ${leftSideX}, ${hessenfullwidth.lineheight * -0.4}
         ${draw.width() * 0.9}, ${hessenfullwidth.lineheight * -0.4} 
         ${draw.width() * 0.96}, ${draw.width() * -0.065}
         ${draw.width() * 0.96}, ${fondsHeight}
-        0, ${fondsHeight}
+        ${leftSideX}, ${fondsHeight}
         `).fill(gradient).back();
 
     text.svg.add(fonds);
@@ -113,14 +121,14 @@ const hessenfullwidth = {
     const smalllogo = draw.image('/assets/logos/sonnenblume.svg', () => {
       smalllogo.size(40);
     });
-    smalllogo.move(10, fondsHeight - 50);
+    smalllogo.move(leftSideX + 10, fondsHeight - 50);
     text.svg.add(smalllogo);
     $('#logoselect').val('void');
     logo.load();
 
     const claim = draw.text('Hier kommt\nderClaim')
-      .font({ family: 'Arvo', size: 12})
-      .fill('white').move(60, fondsHeight - 48);
+      .font({ family: 'Arvo', size: 12 })
+      .fill('white').move(leftSideX + 60, fondsHeight - 48);
     text.svg.add(claim);
 
     ts.forEach((t) => {
@@ -130,7 +138,7 @@ const hessenfullwidth = {
     eraser.front();
     showActionDayHint();
 
-    text.svg.move(draw.width() * 0.02, draw.height() - text.svg.height() - draw.width() * 0.02);
+    text.svg.move(leftSideX, draw.height() - text.svg.height() - draw.width() * 0.02);
   },
 
 };
