@@ -163,3 +163,7 @@ $('#darklightlayer').dblclick(function dblClickLayer() {
 $('#greenlayer').bind('input propertychange', () => {
   background.addGreenLayer();
 });
+
+$('#backgroundflip').click(() => {
+  background.svg.scale(-1, 1);
+});
