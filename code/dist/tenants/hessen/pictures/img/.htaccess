@@ -1,0 +1,3 @@
+#RewriteEngine on
+#RewriteCond %{HTTP_REFERER} !^https?://(www.)?sharepicgenerator.de [NC]
+#RewriteRule .*\.(zip|png|pdf|jpe?g|mp4)$ - [F]
