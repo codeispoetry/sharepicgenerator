@@ -138,6 +138,12 @@ function isAdmin()
     return in_array(getUser(), $admins);
 }
 
+function isEditorOf($tenant)
+{
+    $editors = explode(",", configValue($tenant, "editors"));
+    return in_array(getUser(), $editors);
+}
+
 function getUser()
 {
     if (!isset($_SESSION['user'])) {
@@ -433,7 +439,7 @@ function logPicture($filename, $format)
         return;
     }
 
-    $afterFileBase =  getBasePath('tmp/log_' . getUser() . '_'. time());
+    $afterFileBase =  getBasePath('tmp/log_' . $_SESSION['tenant'] .'_' . getUser() . '_'. time());
     
     $command = sprintf(
         "convert -resize 800x800 -background white -flatten -quality 75  %s %s",
@@ -441,10 +447,6 @@ function logPicture($filename, $format)
         $afterFileBase . '.jpg'
     );
     exec($command);
-
-    //$tags = join('|', get_category($afterFileBase . '.jpg'));
-   
-    //rename($afterFileBase . '.jpg', $afterFileBase . '_' . $tags .'_.jpg');
 }
 
 function debug($msg)

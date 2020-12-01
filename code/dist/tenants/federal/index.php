@@ -118,9 +118,21 @@ nextActionDay();
             <li class="nav-item">
                 <a href="/imprint.php" class="nav-link"> Impressum</a>
             </li>
+            <?php if (isEditorOf($tenant)) { ?>
+                <li class="nav-item">
+                    <a href="log/" class="nav-link"> Logfiles <small>(nur für Editoren)</small></a>
+                </li>
+            <?php } ?>
         </ul>
         <span class="navbar-text">
-            Eingeloggt als <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>"><?php echo getUser(); ?></em>
+            Eingeloggt als 
+            <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
+                <?php echo getUser(); ?>
+                <?php if (isEditorOf($tenant)) {
+                    echo '(Editor)';
+                }
+                ?>
+            </em>
             <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
         </span>
     </div>
