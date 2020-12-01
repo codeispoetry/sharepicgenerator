@@ -87,15 +87,16 @@ function getMedianSQLQuery($column, $percent = 50, $table = 'downloads', $last =
     return sprintf(
         'SELECT %1$s AS result
         FROM %2$s
-        WHERE %1$s > 0 AND cast(julianday("now") - julianday(timestamp) as int) < %4$s
+        WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s
         ORDER BY %1$s
         LIMIT 1
-        OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0) * %3$f)',
+        OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s) * %3$f)',
         $column,
         $table,
         $percent / 100,
         $last
     );
+    die();
 }
 
 function getUsers()
