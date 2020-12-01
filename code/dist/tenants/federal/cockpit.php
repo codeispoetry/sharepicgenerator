@@ -482,7 +482,7 @@ if (!isAllowed(false)) {
 
 
         <?php if(configValue("Features","showGallery")){ 
-            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
+            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');
         ?>
             <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
