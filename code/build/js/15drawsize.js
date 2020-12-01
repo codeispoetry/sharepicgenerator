@@ -54,6 +54,12 @@ function setDrawsize() {
     // eslint-disable-next-line no-undef
     reDraw(true);
   }
+
+  if (draw.height() === draw.width()) {
+    $('#grid-round').removeClass('rectangle');
+  } else {
+    $('#grid-round').addClass('rectangle');
+  }
 }
 
 function resetDrawsize() {

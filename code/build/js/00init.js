@@ -23,6 +23,10 @@ $(document).ready(() => {
   });
 
   $('input,textarea').change(() => { $('#qrcode').hide(); });
+
+  $('.cockpit h3').click((e) => {
+    $('.collapse').collapse('hide');
+  });
 });
 
 function message(text = false) {
