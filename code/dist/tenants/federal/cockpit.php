@@ -21,7 +21,7 @@ if (!isAllowed(false)) {
     <div class="mb-5">
 
         <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
-        <div class="picture show list-group-item list-group-item-action flex-column align-items-start">
+        <div class="picture collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1">
                 <a href="#" class="text-primary cursor-pointer uploadfileclicker">
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
@@ -484,7 +484,7 @@ if (!isAllowed(false)) {
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
+            <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
 
                 <span class="badge btn-light ml-2">
@@ -538,13 +538,6 @@ if (!isAllowed(false)) {
                 <button type="button" class="btn btn-info btn-sm runcode"><i class="fas fa-code"></i> Code ausführen</button>
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
-        </div>
-        <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
-            <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
-            <a class="text-white overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
-            <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
-                <i class="far fa-hand-point-right"></i> Aktionstage
-            </a>
         </div>
         <div class="text-center text-white mt-3">
             <i class="fas fa-spa text-highlight"></i> Programmiert von

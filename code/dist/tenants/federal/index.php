@@ -98,6 +98,9 @@ nextActionDay();
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>
+                    <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
+                        <i class="fas fa-tape"></i> Designrichtlinien
+                    </a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -117,7 +120,7 @@ nextActionDay();
             </li>
         </ul>
         <span class="navbar-text">
-            Eingeloggt als <em><?php echo getUser(); ?></em>
+            Eingeloggt als <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>"><?php echo getUser(); ?></em>
             <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
         </span>
     </div>

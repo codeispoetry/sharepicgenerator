@@ -222,7 +222,7 @@ function prepareFileAndSendInfo($filename, $filename_small)
     exec($command);
 
     $command = sprintf(
-        "convert -resize 800x450 %s %s",
+        "convert %s[800x800] -resize 800x450 %s",
         $filename,
         $filename_small
     );
