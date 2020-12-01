@@ -145,10 +145,7 @@ if (!isAllowed(false)) {
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
                 <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="hessenfullwidth" checked>Volle Breite
-                 </label>
-                 <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="hessenhalfwidth">Halbe Breite
+                    <input type="radio" class="form-check-input layout" name="layout" value="hessenfullwidth" checked>Hessen-Layout
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="nolines">Ohne Untergrund
