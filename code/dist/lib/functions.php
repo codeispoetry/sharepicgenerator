@@ -658,7 +658,7 @@ function showPictures($main_dir)
     $formats = "*.{jpg,JPG,jpeg,JPEG,png,PNG}";
 
     foreach ($dirs as $album) {
-        $pics = array_reverse(glob($album . '/' . $formats, GLOB_BRACE));
+        $pics = glob($album . '/' . $formats, GLOB_BRACE);
         $albumname = basename($album);
         $dirname = $album;
         $photographer = "";
