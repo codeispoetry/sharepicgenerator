@@ -72,3 +72,7 @@ function reDraw(withAddPic = false) {
     logo.draw();
   }, 200);
 }
+
+function initSharepic() {
+  // void
+}
