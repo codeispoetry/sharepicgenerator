@@ -27,13 +27,6 @@ if (!isAllowed(false)) {
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
             </div>
-            <?php if(configValue("Features","showMediaGallery")){ ?>
-                <div class="d-flex justify-content-between mb-1">
-                    <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
-                        <i class="fas fa-image"></i> Mediengalerie
-                    </a>
-                </div>
-            <?php } ?>
             <div>
                 <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
@@ -158,8 +151,8 @@ if (!isAllowed(false)) {
                            class="form-control showonly lines nolines d-none">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier ist
-[Hessen].</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier erscheint der jeweilige
+Text für das Sharepic!</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="d-none form-control showonly lines nolines quote">

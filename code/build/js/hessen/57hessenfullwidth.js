@@ -3,13 +3,13 @@ const hessenfullwidth = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
   colors: ['#ffff00', '#ffee00'],
-  lineheight: 20,
-  linemargin: -4,
+  lineheight: 22,
+  linemargin: -1,
   paddingLr: 5,
   font: {
     anchor: 'left',
     leading: '1.0em',
-    size: 20,
+    size: 32,
   },
   fontoutsidelines: {
     family: 'ArvoGruen',
@@ -38,7 +38,7 @@ const hessenfullwidth = {
 
     // let lines = '„' + $('#text').val() + '“';
 
-    let lines = $('#text').val().toUpperCase();
+    let lines = $('#text').val();
     const quotationMarks = ['„', '“'];
     let qmI = 0;
     while ((lines.match(/"/g) || []).length) {
@@ -56,9 +56,9 @@ const hessenfullwidth = {
 
     const longestLineCount = Math.max(...(lines.map((el) => el.length)));
 
-    let leftSideX = draw.width() * 0.02;
+    let leftSideX = draw.width() * 0.025;
     if (longestLineCount < 20) {
-      leftSideX = draw.width() / 2;
+      leftSideX = draw.width() * 0.3;
     }
 
     lines.forEach((value, index) => {
@@ -105,17 +105,17 @@ const hessenfullwidth = {
 
     const fonds = draw.polygon(`
         ${leftSideX}, ${hessenfullwidth.lineheight * -0.4}
-        ${draw.width() * 0.9}, ${hessenfullwidth.lineheight * -0.4} 
-        ${draw.width() * 0.96}, ${draw.width() * -0.065}
-        ${draw.width() * 0.96}, ${fondsHeight}
+        ${draw.width() * 0.825}, ${hessenfullwidth.lineheight * -0.4} 
+        ${draw.width() * 0.975}, ${draw.width() * -0.0935}
+        ${draw.width() * 0.975}, ${fondsHeight}
         ${leftSideX}, ${fondsHeight}
         `).fill(gradient).back();
 
     text.svg.add(fonds);
 
     const url = draw.text('gruene-hessen.de')
-      .font({ family: 'ArvoGruen', size: 12 })
-      .fill('white').move(draw.width() - 160, fondsHeight - 20);
+      .font({ family: 'ArvoGruen', size: 14 })
+      .fill('white').move(draw.width() - 165, fondsHeight - 40);
     text.svg.add(url);
 
     const smalllogo = draw.image('/assets/logos/sonnenblume.svg', () => {
@@ -126,9 +126,9 @@ const hessenfullwidth = {
     $('#logoselect').val('void');
     logo.load();
 
-    const claim = draw.text('Hier kommt\nderClaim')
-      .font({ family: 'Arvo', size: 12 })
-      .fill('white').move(leftSideX + 60, fondsHeight - 48);
+    const claim = draw.text('ZUKUNFT MACHEN\nWIR ZUSAMMEN')
+      .font({ family: 'Arvo', size: 10 })
+      .fill('white').move(leftSideX + 60, fondsHeight - 44);
     text.svg.add(claim);
 
     ts.forEach((t) => {
