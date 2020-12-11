@@ -529,6 +529,17 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
+        <h3 class="collapsed" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
+        <div class="quality collapse list-group-item list-group-item-action flex-column align-items-start">
+            Eine hohe Bildqualität bedeutet auch eine größere Datei.
+            <div class="slider">
+                <small>niedrig</small>
+                <input type="range" class="custom-range" name="quality" id="quality" min="0"
+                    max="100" value="80">
+                <small>hoch</small>
+            </div>
+        </div>
+
         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
