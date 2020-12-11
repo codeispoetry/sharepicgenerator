@@ -104,6 +104,18 @@ function getUsers()
     return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads;');
 }
 
+function getUsersLastDays($days = 7)
+{
+    return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads 
+      WHERE julianday("now") - julianday(timestamp) < ' . $days . ';');
+}
+
+function getUsersActivity($percent = 50)
+{
+    return singleResult('select count(*) as result from downloads GROUP BY user ORDER BY result LIMIT 1 
+    OFFSET ROUND((SELECT COUNT(DISTINCT user) from downloads) * ' . $percent/100 . ');');
+}
+
 function getDownloads()
 {
     return singleResult('SELECT COUNT(*) AS result FROM downloads;');
@@ -111,7 +123,7 @@ function getDownloads()
 
 function getDailyDownloads()
 {
-    return singleResult("select avg(perDay) as result from (select count(*) as perDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
+    return singleResult("select cast(avg(perDay) as int) as result from (select count(*) as perDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
 }
 
 function getPixabay()

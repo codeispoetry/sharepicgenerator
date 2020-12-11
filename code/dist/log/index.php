@@ -45,9 +45,17 @@ require_once(getBasePath('lib/log_functions.php'));
                     ?>
                     gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
                         <br>
+                    letzten 7 Tage: <?php echo number_format(getUsersLastDays(7), 0, ',', '.'); ?>
+                        <br>
+                    Aktivität (Median, 50%): <?php echo number_format(getUsersActivity(), 0, ',', '.'); ?>
+                        <br>
+                    Aktivität (25%): <?php echo number_format(getUsersActivity(25), 0, ',', '.'); ?>
+                        <br>
+                    Aktivität (75%): <?php echo number_format(getUsersActivity(75), 0, ',', '.'); ?>
+                        <br>
                     Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
                         <br>
-                    täglich: <?php printf("%d", getDailyUsers()); ?>
+                    täglich: <?php number_format(getDailyUsers(), 0, ',', '.'); ?>
                         <br>
                     mit eigenem Logo: <?php echo getUserWithCustomLogo(); ?>
                         <br>
@@ -58,33 +66,27 @@ require_once(getBasePath('lib/log_functions.php'));
             <dl>
                 <dt><i class="fas fa-download"></i> Downloads</dt>
                 <dd>
-                    gesamt: <?php echo getDownloads(); ?>
+                    gesamt: <?php echo number_format(getDownloads(), 0, ',', '.'); ?>
                     <br>
-                    täglich: <?php echo getDailyDownloads(); ?>
+                    täglich: <?php echo number_format(getDailyDownloads(), 0, ',', '.'); ?>
                     <br>
-                    mit Pixabay: <?php echo getPixabay(); ?>
-                        (<?php printf('%2d', 100*getPixabay()/$totalDownloads); ?>%)
+                    mit Pixabay: <?php printf('%2d', 100*getPixabay()/$totalDownloads); ?>%
                     <br>
-                    für Social Media: <?php echo number_format(getSocialMedia(), 0, ',', '.'); ?>
-                        (<?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%)
+                    für Social Media: <?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%
                     <br>
-                    mit Zusatzbild: <?php echo number_format(getAddPic(), 0, ',', '.'); ?>
-                        (<?php printf('%2d', 100*getAddPic()/$totalDownloads); ?>%)
+                    mit Zusatzbild: <?php printf('%2d', 100*getAddPic()/$totalDownloads); ?>%
                         <br>
-                    mit Störer: <?php echo number_format(getWithEyecatcher(), 0, ',', '.'); ?>
-                        (<?php printf('%2d', 100*getWithEyecatcher()/$totalDownloads); ?>%)
+                    mit Störer: <?php printf('%2d', 100*getWithEyecatcher()/$totalDownloads); ?>%
                     <br>
-                    mit Sternchentext: <?php echo number_format(getAddText(), 0, ',', '.'); ?>
-                        (<?php printf('%2d', 100*getAddText()/$totalDownloads); ?>%)
+                    mit Sternchentext: <?php printf('%2d', 100*getAddText()/$totalDownloads); ?>%
                     <br>
-                    mit 3-D-Effekt: <?php echo number_format(getEraser(), 0, ',', '.'); ?>
-                        (<?php printf('%2d', 100*getEraser()/$totalDownloads); ?>%)
+                    mit 3-D-Effekt: <?php printf('%.1f', 100*getEraser()/$totalDownloads); ?>%
                 </dd>
             </dl>
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="far fa-time"></i> Zeiten</dt>
+                <dt><i class="far fa-time"></i> Zeiten der letzten 7 Tage</dt>
                 <dd>
                     Median Createtime: <?php echo round(getMedianCreatingTime()/1000, 1); ?>s<br>
                     80% Createtime: <?php echo round(getMedianCreatingTime(80)/1000, 1); ?>s<br>
