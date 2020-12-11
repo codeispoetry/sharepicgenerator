@@ -70,6 +70,7 @@ class sharepicgenerator(unittest.TestCase):
         moveAddPic.drag_and_drop_by_offset(addPicElement,90,320).perform()
 
         # Change text
+        driver.find_element_by_xpath("//*[@data-target='.text']").click()
         driver.find_element_by_id("text").send_keys(Keys.CONTROL, "a")
         driver.find_element_by_id("text").send_keys("Automatischer\n[Akzeptanztest]")
         #driver.find_element_by_id("textsamesize").click()
