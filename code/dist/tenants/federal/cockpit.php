@@ -534,8 +534,8 @@ if (!isAllowed(false)) {
             Eine hohe Bildqualität bedeutet auch eine größere Datei.
             <div class="slider">
                 <small>niedrig</small>
-                <input type="range" class="custom-range" name="quality" id="quality" min="0"
-                    max="100" value="80">
+                <input type="range" class="custom-range" name="quality" id="quality" min="1"
+                    max="99" value="80">
                 <small>hoch</small>
             </div>
         </div>
