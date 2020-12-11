@@ -94,7 +94,6 @@ nextActionDay();
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
-                    <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>

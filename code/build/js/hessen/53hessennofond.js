@@ -38,7 +38,7 @@ const nolines = {
 
     // let lines = '„' + $('#text').val() + '“';
 
-    let lines = $('#text').val().toUpperCase();
+    let lines = $('#text').val();
     const quotationMarks = ['„', '“'];
     let qmI = 0;
     while ((lines.match(/"/g) || []).length) {
@@ -147,8 +147,12 @@ const nolines = {
         .back();
     }
 
-    $('#logoselect').val('sonnenblume');
+    $('#logoselect').val('hessen');
     logo.load();
+
+    nolines.url = draw.text('gruene-hessen.de')
+      .font({ family: 'ArvoGruen', size: 14 })
+      .fill('white').move(draw.width() - 165, draw.height() - 40);
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();

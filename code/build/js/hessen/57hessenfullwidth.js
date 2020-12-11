@@ -28,6 +28,9 @@ const hessenfullwidth = {
     text.svg.remove();
     invers.svg.remove();
     invers.backgroundClone.remove();
+    if (typeof nolines.url !== 'undefined') {
+      nolines.url.remove();
+    }
     if ($('#text').val() === '') return;
 
     text.svg = draw.group().attr('id', 'svg-text');
