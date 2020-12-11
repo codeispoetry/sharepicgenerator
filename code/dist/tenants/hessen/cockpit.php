@@ -138,7 +138,7 @@ if (!isAllowed(false)) {
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex justify-content-between form-check form-check-inline">
                 <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="hessenfullwidth" checked>Hessen-Layout
+                    <input type="radio" class="form-check-input layout" name="layout" value="hessenfullwidth" checked>Mit Untergrund
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="nolines">Ohne Untergrund
@@ -161,7 +161,7 @@ Text für das Sharepic!</textarea>
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote" style="display:none">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
                     </div>
@@ -183,7 +183,7 @@ Text für das Sharepic!</textarea>
                     </div> 
                     </div>
 
-                <div class="preferences-text">
+                <div class="preferences-text d-none">
                     <div class="d-flex justify-content-between">
                         <div class="">
                             <label class="showonly lines">
@@ -202,7 +202,7 @@ Text für das Sharepic!</textarea>
                     </div>
                 </div>
             </div>
-            <div class="preferences-text showonly lines">
+            <div class="preferences-text showonly lines d-none">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
@@ -278,26 +278,8 @@ Text für das Sharepic!</textarea>
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
-                        <option value="sonnenblume">Sonnenblume</option>
-                        <option value="sonnenblume-weiss">weiße Sonnenblume</option>
-                        <option value="sonnenblume-big">Sonnenblume links unten</option>
+                        <option value="hessen">Sonnenblume</option>
                     </optgroup>
-                    <optgroup label="Logo mit Schriftzug">
-                        <option value="logo-weiss">weiß, mit Schriftzug</option>
-                        <option value="logo-gruen">grün, mit Schriftzug</option>
-                    </optgroup>
-
-                    <?php
-                    if ($landesverband == 3) {
-                        ?>
-                    <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
-                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
-                    </optgroup>
-                    <?php
-                    }
-                    ?>
-                    
                     <?php
                     if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
                         ?>
@@ -467,47 +449,6 @@ Text für das Sharepic!</textarea>
             <a href="/markdown" class="btn btn-info btn-sm" target="_blank">Tabelle erstellen</a>
         </div>
 
-
-        <?php if(configValue("Features","showGallery")){ 
-            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
-        ?>
-            <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
-                Vorlagen
-
-                <span class="badge btn-light ml-2">
-                    <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
-                    /
-                    <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
-                </span>
-                </h3>
-            <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
-                <div>
-                    <a href="#" class="overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen ansehen
-                    <br>
-                    Du hast
-                    <?php
-                        switch($ownGalleryImages)
-                        {
-                            case 0:
-                                echo "noch keine eigene";
-                            break;
-                            case 1:
-                                echo "eine eigene";
-                            break;
-                            default:
-                                echo $ownGalleryImages . ' eigene';
-                        }
-                    ?>
-                    Vorlage veröffentlicht.
-                    </a>
-                </div>
-                <div id="gallery-note" class="text-danger"></div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Vorlage veröffentlichen</button>
-                </div>
-            </div>
-        <?php } ?>
-
         <h3 class="collapsed" data-toggle="collapse" data-target=".screen"><i class="fas fa-adjust"></i> Screen</h3>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 align-items-center">
@@ -528,7 +469,6 @@ Text für das Sharepic!</textarea>
         </div>
         <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
             <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
-            <a class="text-white overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
             <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
                 <i class="far fa-hand-point-right"></i> Aktionstage
             </a>

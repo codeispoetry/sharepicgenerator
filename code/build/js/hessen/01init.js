@@ -8,12 +8,11 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-var initialized = false;
+let initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(502);
-  $('#textX').val(41);
-  $('#textY').val(372);
+
   config.layout = 'hessenfullwidth';
 
   const queryString = window.location.search;
@@ -21,16 +20,13 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  $('#logosize').val(17);
-  logo.resize($('#logosize').val());
-
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');
 
-  $('#addtextX').val(50);
-  $('#addtextY').val(draw.height() - 50);
+  //showLayout();
 
-  showLayout();
+  $('#textX').val(41);
+  $('#textY').val(372);
 });
 
 // eslint-disable-next-line no-unused-vars

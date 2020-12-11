@@ -5,10 +5,8 @@ function showLayout() {
 
   $(`.${config.layout}`).show();
 
-  quote.draw();
   text.draw();
   nolines.draw();
-  invers.draw();
 }
 
 $('.layout').click(showLayout);
