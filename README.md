@@ -83,6 +83,8 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 # Create a new tenant
 1. Copy dir code/dist/tenants/federal and rename it
 2. Edit $tenant in index.php several times. Use Ctrl-F
+2. Edit $tenant in log/index.php
+2. create sections in config.ini for new tenanant
 3. Copy code/build/js/federal 
 4. Copy code/webpack.tenats/federal.js and edit two times 'federal'
 5. edit .htaccess

@@ -92,6 +92,9 @@ if (!isAllowed(false)) {
                 <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
                     zentrieren
                 </small>
+                <small class="text-primary cursor-pointer novideo ml-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+                    spiegeln
+                </small>
             </div>
             <div class="align-items-lg-center show-copyright d-none">
                 <div class="d-flex align-items-center">
@@ -482,7 +485,7 @@ if (!isAllowed(false)) {
 
 
         <?php if(configValue("Features","showGallery")){ 
-            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
+            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');
         ?>
             <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen

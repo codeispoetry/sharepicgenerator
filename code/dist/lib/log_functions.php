@@ -12,23 +12,26 @@ function show_videos($dir)
     echo '</ol>';
 }
 
-function show_images($dir)
+function show_images($dir, $showCaption = false)
 {
     $files = array_reverse(glob($dir), GLOB_NOSORT);
 
     array_multisort(array_map('filemtime', $files), SORT_NUMERIC, SORT_DESC, $files);
 
     foreach ($files as $file) {
-        list($id, $user, $time, $tags ) = explode('_', $file);
+        list($foo, $tenant, $user, $id ) = explode('_', $file);
+        $caption = '';
+        if ($showCaption) {
+            $caption = $user;
+        }
         printf(
             '<div class="col-6 col-md-3 col-lg-2">
                 <figure>
                     <a href="%1$s"><img src="%1$s" class="img-fluid"/></a>
-                    <figcaption>%2$s, %3$s</figcaption>
+                    <figcaption>%2$s</figcaption>
             </div>',
             $file,
-            $user,
-            str_replace('|', ' ', $tags)
+            $caption
         );
     }
 }
@@ -46,7 +49,7 @@ function deleteFilesInPathOlderThanHours($hours, $path)
         }
     }
 
-    printf('%d Dateien gelöscht ', $counter);
+    //printf('%d Dateien gelöscht ', $counter);
 }
 
 function showCustomLogos()
@@ -84,15 +87,16 @@ function getMedianSQLQuery($column, $percent = 50, $table = 'downloads', $last =
     return sprintf(
         'SELECT %1$s AS result
         FROM %2$s
-        WHERE %1$s > 0 AND cast(julianday("now") - julianday(timestamp) as int) < %4$s
+        WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s
         ORDER BY %1$s
         LIMIT 1
-        OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0) * %3$f)',
+        OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s) * %3$f)',
         $column,
         $table,
         $percent / 100,
         $last
     );
+    die();
 }
 
 function getUsers()
