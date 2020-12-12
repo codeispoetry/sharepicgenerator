@@ -74,7 +74,7 @@ nextActionDay();
         config.uploadTime=-1;
         config.createTime=-1;
         config.pixabaySearchStrings='';
-
+        config.format='png';    
     </script>
 </head>
 <body>
