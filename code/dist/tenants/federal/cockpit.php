@@ -484,39 +484,11 @@ if (!isAllowed(false)) {
         </div>
 
 
-        <?php if(configValue("Features","showGallery")){ 
-            list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');
-        ?>
-            <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
+        <?php if(configValue($tenant,'showGallery') AND isEditor()){ ?>
+            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
-
-                <span class="badge btn-light ml-2">
-                    <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
-                    /
-                    <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
-                </span>
-                </h3>
+            </h3>
             <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
-                <div>
-                    <a href="#" class="overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen ansehen
-                    <br>
-                    Du hast
-                    <?php
-                        switch($ownGalleryImages)
-                        {
-                            case 0:
-                                echo "noch keine eigene";
-                            break;
-                            case 1:
-                                echo "eine eigene";
-                            break;
-                            default:
-                                echo $ownGalleryImages . ' eigene';
-                        }
-                    ?>
-                    Vorlage veröffentlicht.
-                    </a>
-                </div>
                 <div id="gallery-note" class="text-danger"></div>
                 <div class="d-flex justify-content-between align-items-center">
                     <button type="button" class="btn btn-sm btn-info saveInGallery" id='saveInGallery'><i class="fas fa-save"></i> als Vorlage veröffentlichen</button>

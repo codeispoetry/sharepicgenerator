@@ -6,8 +6,9 @@ require_once(getBasePath('lib/log_functions.php'));
 
 session_start();
 readConfig();
+$tenant = 'federal';
 
-if (!isEditorOf("federal")) {
+if (!isEditor()) {
     die("No access!");
 }
 

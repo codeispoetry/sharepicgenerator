@@ -51,28 +51,13 @@ function saveWorkInGallery($zipfile, $tenant, $filename)
     copy($zipfile, $targetFile);
 }
 
-function showImages($dir_glob, $whoseFiles = 'foreignFiles')
+function showImages($dir_glob)
 {
     $dirs = array_reverse(glob($dir_glob, GLOB_ONLYDIR));
     $i=0;
     foreach ($dirs as $shpic) {
-        if ($whoseFiles == 'ownFiles') {
-            if (getUser()!=getUserOfGalleryFile($shpic)) {
-                continue;
-            }
-        }
-        if ($whoseFiles == 'foreignFiles') {
-            if (getUser()==getUserOfGalleryFile($shpic)) {
-                continue;
-            }
-        }
-
         showImage($shpic);
         $i++;
-    }
-
-    if ($i==0) {
-        echo '<div class="col-12">Du hast noch keine eigene Vorlage veröffentlicht.</div>';
     }
 }
 
