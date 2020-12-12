@@ -473,17 +473,6 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".tables"><i class="fas fa-table"></i> 
-                Tabellen
-         </h3>
-        <div class="tables collapse list-group-item list-group-item-action flex-column align-items-start">
-            Mit dem Tabellengenerator kanst Du eine Tabelle erstellen, z.B. über ein
-            Abstimmungsverhalten. Diese Tabelle kannst du anschließend hier hochladen.
-            <a href="/documentation/markdown/">Mehr erfahren.</a>
-            <a href="/markdown" class="btn btn-info btn-sm" target="_blank">Tabelle erstellen</a>
-        </div>
-
-
         <?php if(configValue($tenant,'showGallery') AND isEditor()){ ?>
             <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
