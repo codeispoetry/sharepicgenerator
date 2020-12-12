@@ -69,7 +69,7 @@ nextActionDay();
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "frankfurt"); ?>
         <?php printf('config.pixabaySearchIn="images";'); ?>
-
+        config.format='png';    
     </script>
 </head>
 <body>
