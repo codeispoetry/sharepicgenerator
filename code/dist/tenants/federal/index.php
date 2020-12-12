@@ -145,8 +145,12 @@ nextActionDay();
 </header>
 <div class="container-fluid h-100">
     <div class="row h-100 flex-row-reverse">
-
-        <div class="col-12 col-lg-9 pt-4 canvas-wrapper p-0">
+        <div class="col-12 col-lg-9 canvas-wrapper p-0">
+            <div class="col-12">
+                <span class="small mr-2">Hilflinien:</span>
+                <input id="gridlines" type="checkbox" checked 
+                    data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
+            </div>
             <div class="col-12 p-0">
                 <div id="canvas-area">
                     <div id="canvas">
