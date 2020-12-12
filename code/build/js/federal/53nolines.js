@@ -13,7 +13,7 @@ const nolines = {
   },
   fontoutsidelines: {
     family: 'ArvoGruen',
-    size: 6,
+    size: 8,
     anchor: 'left',
     leading: '1.0em',
   },
@@ -89,7 +89,7 @@ const nolines = {
     // add lower line
     let lineafter;
     if ($('#textafter').val().length > 0) {
-      lineafter = draw.rect(10, 8)
+      lineafter = draw.rect(10, 10)
         .fill('#E6007E').dy(text.svg.height());
       text.svg.add(lineafter);
     }
