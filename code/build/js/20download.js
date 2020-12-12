@@ -109,6 +109,7 @@ $('#download,.download').click(function onDownloadClick() {
       const qrcode = `/tmp/qrcode_${obj.basename}.png`;
       $('#qrcode').show();
       $('#qrcode-img').html(`<img src="${qrcode}">`);
+      $('#qrcode-createtime').html(config.createTime / 1000);
 
       window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
     },
