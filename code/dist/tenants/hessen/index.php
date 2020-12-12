@@ -153,6 +153,7 @@ nextActionDay();
                             Scanne dazu diesen Code:<br>
                             <div id="qrcode-img">
                             </div>
+                            <em class="small">Das Sharepic wurde in <span id="qrcode-createtime"></span>s erzeugt.</em>
                         </div>
                     </div>
                 </div>
