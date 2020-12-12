@@ -138,8 +138,10 @@ function isAdmin()
     return in_array(getUser(), $admins);
 }
 
-function isEditorOf($tenant)
+function isEditor()
 {
+    global $tenant;
+
     $editors = explode(",", configValue($tenant, "editors"));
     return in_array(getUser(), $editors);
 }

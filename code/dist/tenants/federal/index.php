@@ -94,7 +94,9 @@ nextActionDay();
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
-                    <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
+                    <?php if (configValue($tenant, 'showGallery')) { ?>
+                        <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
+                    <?php } ?>
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>
@@ -118,7 +120,7 @@ nextActionDay();
             <li class="nav-item">
                 <a href="/imprint.php" class="nav-link"> Impressum</a>
             </li>
-            <?php if (isEditorOf($tenant)) { ?>
+            <?php if (isEditor()) { ?>
                 <li class="nav-item">
                     <a href="log/" class="nav-link"> Logfiles <small>(nur für Editoren)</small></a>
                 </li>
@@ -128,7 +130,7 @@ nextActionDay();
             Eingeloggt als 
             <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
                 <?php echo getUser(); ?>
-                <?php if (isEditorOf($tenant)) {
+                <?php if (isEditor()) {
                     echo '(Editor)';
                 }
                 ?>
