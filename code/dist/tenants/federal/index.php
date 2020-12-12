@@ -100,6 +100,9 @@ nextActionDay();
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>
+                    <a href="/markdown" class="dropdown-item" target="_blank">
+                        <i class="fas fa-table"></i> Tabelle erstellen
+                    </a>                   
                     <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
                         <i class="fas fa-tape"></i> Designrichtlinien
                     </a>
