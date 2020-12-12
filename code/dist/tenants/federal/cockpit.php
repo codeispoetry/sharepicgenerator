@@ -239,7 +239,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Zusatzbilder</h3>
+        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundilder</h3>
         <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
@@ -417,6 +417,25 @@ if (!isAllowed(false)) {
             <img src="/assets/3d-effekt.jpg" class="img-fluid">
         </div>
 
+        <h3 class="collapsed" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
+        <div class="quality collapse list-group-item list-group-item-action flex-column align-items-start">
+            Eine hohe Bildqualität bedeutet auch eine größere Datei.
+            <div class="d-flex form-check form-check-inline">
+                <label class="">
+                    <input type="radio" class="form-check-input fileformat" name="fileformat" value="png" checked>png
+                 </label>
+                 <label class="ml-5">
+                    <input type="radio" class="form-check-input fileformat" name="fileformat" value="jpg">jpg
+                 </label>
+            </div>
+            <div class="slider">
+                <small>niedrig</small>
+                <input type="range" class="custom-range" name="quality" id="quality" min="1"
+                    max="99" value="80" disabled>
+                <small>hoch</small>
+            </div>
+        </div>
+
 
         <h3 class="collapsed debug" data-toggle="collapse" data-target=".cloud">Wolke</h3>
         <div class="cloud collapse list-group-item list-group-item-action flex-column align-items-start ">
@@ -484,25 +503,6 @@ if (!isAllowed(false)) {
                 </div>
             </div>
         <?php } ?>
-
-        <h3 class="collapsed" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
-        <div class="quality collapse list-group-item list-group-item-action flex-column align-items-start">
-            Eine hohe Bildqualität bedeutet auch eine größere Datei.
-            <div class="d-flex form-check form-check-inline">
-                <label class="">
-                    <input type="radio" class="form-check-input fileformat" name="fileformat" value="png" checked>png
-                 </label>
-                 <label class="ml-5">
-                    <input type="radio" class="form-check-input fileformat" name="fileformat" value="jpg">jpg
-                 </label>
-            </div>
-            <div class="slider">
-                <small>niedrig</small>
-                <input type="range" class="custom-range" name="quality" id="quality" min="1"
-                    max="99" value="80" disabled>
-                <small>hoch</small>
-            </div>
-        </div>
 
         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
