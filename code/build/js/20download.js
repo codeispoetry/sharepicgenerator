@@ -19,7 +19,7 @@ $('#download,.download').click(function onDownloadClick() {
 
   const startCreatingTime = Date.now();
 
-  let format = 'jpg';
+  let format = 'png';
 
   if (config.video === true) {
     format = 'mp4';
