@@ -532,7 +532,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
+        <h3 class="collapsed d-none" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
         <div class="quality collapse list-group-item list-group-item-action flex-column align-items-start">
             Eine hohe Bildqualität bedeutet auch eine größere Datei.
             <div class="slider">
