@@ -146,9 +146,13 @@ nextActionDay();
 <div class="container-fluid h-100">
     <div class="row h-100 flex-row-reverse">
         <div class="col-12 col-lg-9 canvas-wrapper p-0">
-            <div class="col-12">
+            <div class="d-none d-md-block text-right col-12">
                 <span class="small mr-2">Hilflinien:</span>
                 <input id="gridlines" type="checkbox" checked 
+                    data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
+                
+                <span class="small ml-4 mr-2">Erweiterte Ansicht:</span>
+                <input id="expertmode" type="checkbox" 
                     data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
             <div class="col-12 p-0">

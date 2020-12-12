@@ -239,8 +239,8 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundilder</h3>
-        <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundilder</h3>
+        <div class="addpictures expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
                 for ($i = 1; $i <=2; $i++) {
@@ -289,8 +289,8 @@ if (!isAllowed(false)) {
                 <?php } ?>
             </div>
          </div>
-         <h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">
+         <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+        <div class="logo expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
@@ -378,8 +378,8 @@ if (!isAllowed(false)) {
                 </div>    
             </div>
         </div>
-        <h3 class="collapsed" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
-        <div class="addtext list-group-item list-group-item-action flex-column align-items-start collapse">
+        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
+        <div class="addtext expertmode list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
                     <textarea name="addtext" id="addtext" placeholder="Sternchentext" value="" class="form-control"></textarea>
@@ -401,10 +401,10 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed showonly nolines quote lines" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
+        <h3 class="collapsed expertmode showonly nolines quote lines" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
             3-D-Effekt
          </h3>
-        <div class="eraser collapse list-group-item list-group-item-action flex-column align-items-start">
+        <div class="eraser expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
            Um eine 3-D-Anmtung zu bekommen, kannst Du Text wegradieren. Dadurch entseht der Eindruck, der 
            Text stünde hinter einem Objekt.
            
@@ -417,8 +417,8 @@ if (!isAllowed(false)) {
             <img src="/assets/3d-effekt.jpg" class="img-fluid">
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
-        <div class="quality collapse list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
+        <div class="quality expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             Eine hohe Bildqualität bedeutet auch eine größere Datei.
             <div class="d-flex form-check form-check-inline">
                 <label class="">
@@ -481,8 +481,8 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
-        <div class="finish collapse list-group-item list-group-item-action flex-column align-items-start">
+        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".finish"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
+        <div class="finish expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 Mit der Arbeitsdatei kannst Du Dein Sharepic später weiter bearbeiten.
             </div>
