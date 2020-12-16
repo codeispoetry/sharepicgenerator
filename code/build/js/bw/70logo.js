@@ -64,6 +64,11 @@ const logo = {
       widthFraction: 0.2,
       position: 'topright',
     },
+    faecherlinks: {
+      file: '/assets/bw/faecher-links.png',
+      widthFraction: 1,
+      position: 'faecherlinks',
+    },
   },
 
   load() {
@@ -112,6 +117,11 @@ const logo = {
       case 'bottomleftbig':
         x = 0;
         y = draw.height() - logo.svg.height();
+        break;
+      case 'faecherlinks':
+        x = 0;
+        y = 0;
+        logo.svg.size(null, draw.height());
         break;
       default:
         x = draw.width() - width - 10;
