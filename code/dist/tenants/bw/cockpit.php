@@ -167,11 +167,11 @@ if (!isAllowed(false)) {
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
-#mitdir.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Wachsen wir
+über uns hinaus.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -289,46 +289,17 @@ if (!isAllowed(false)) {
                 <?php } ?>
             </div>
          </div>
-         <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
+         <h3 class="collapsed KILLexpertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+        <div class="logo KILLexpertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
-                <select class="form-control" name="logoselect" id="logoselect">
+                <select class="form-control" name="logoselect" id="logoselect">  
+                    <optgroup label="BW">
+                        <option value="faecherlinks">Fächer links</option>
+                    </optgroup>
                     <optgroup label="Sonnenblume">
                         <option value="sonnenblume">Sonnenblume</option>
                         <option value="sonnenblume-weiss">weiße Sonnenblume</option>
                         <option value="sonnenblume-big">Sonnenblume links unten</option>
-                    </optgroup>
-                    <optgroup label="Logo mit Schriftzug">
-                        <option value="logo-weiss">weiß, mit Schriftzug</option>
-                        <option value="logo-gruen">grün, mit Schriftzug</option>
-                    </optgroup>
-
-                    <?php
-                    if ($landesverband == 3) {
-                        ?>
-                    <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
-                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
-                    </optgroup>
-                    <?php
-                    }
-                    ?>
-                    
-                    <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
-                        ?>
-                        <optgroup label="Eigenes Logo">
-                            <option value="custom" selected>eigenes Logo</option>
-                            <option value="deletecustomlogo">eigenes Logo löschen</option>
-                        </optgroup>
-                    <?php
-                    }
-                    ?>
-                   
-                    <optgroup label="Speziallogos">
-                        <option value="frauenrechte">Frauenrechte</option>
-                        <option value="regenbogen">Regenbogen</option>
-                        <option value="europa">Europa</option>
                     </optgroup>
                     <optgroup label="Kein Logo">
                         <option value="void">kein Logo</option>

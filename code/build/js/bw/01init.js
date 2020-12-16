@@ -12,8 +12,8 @@ var initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(502);
-  $('#textX').val(141);
-  $('#textY').val(372);
+  $('#textX').val(161);
+  $('#textY').val(265);
   config.layout = 'nolines';
 
   const queryString = window.location.search;
@@ -30,7 +30,7 @@ $(document).ready(() => {
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
-  showLayout();
+  //showLayout();
 });
 
 // eslint-disable-next-line no-unused-vars
