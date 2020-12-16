@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 const hessenfullwidth = {
   svg: draw.text(''),
+  smalllogo: draw.text(''),
+
   grayBackground: draw.circle(0),
   colors: ['#ffff00', '#ffee00'],
   lineheight: 22,
@@ -26,6 +28,7 @@ const hessenfullwidth = {
     config.noBackgroundDragAndDrop = false;
 
     text.svg.remove();
+    hessenfullwidth.smalllogo.remove();
     invers.svg.remove();
     invers.backgroundClone.remove();
     if (typeof nolines.url !== 'undefined') {
@@ -123,9 +126,11 @@ const hessenfullwidth = {
 
     const smalllogo = draw.image('/assets/logos/sonnenblume.svg', () => {
       smalllogo.size(40);
+      smalllogo.move(leftSideX + 10, fondsHeight - 50);
+      text.svg.add(smalllogo);
+      text.svg.move(leftSideX, draw.height() - text.svg.height() - draw.width() * 0.02);
     });
-    smalllogo.move(leftSideX + 10, fondsHeight - 50);
-    text.svg.add(smalllogo);
+
     $('#logoselect').val('void');
     logo.load();
 
@@ -140,8 +145,6 @@ const hessenfullwidth = {
 
     eraser.front();
     showActionDayHint();
-
-    text.svg.move(leftSideX, draw.height() - text.svg.height() - draw.width() * 0.02);
   },
 
 };
