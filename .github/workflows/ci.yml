@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6]
-        php: ['7.4']
+        php-version: ['7.4']
 
     steps:
       - uses: actions/checkout@v2
@@ -52,6 +52,8 @@ jobs:
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
       - name: install composer
+        with:
+          php-version: ${{ matrix.php-version }}
         run: |
           composer install
       - name: run deployer for develop
