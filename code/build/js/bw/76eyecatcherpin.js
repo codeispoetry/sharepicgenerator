@@ -9,6 +9,13 @@ const pinfont = {
   weight: 300,
 };
 
+const pinurlfont = {
+  family: 'Arvo',
+  size: 13,
+  anchor: 'left',
+  weight: 300,
+};
+
 const pin = {
   isLoaded: false,
 
@@ -60,14 +67,18 @@ const pin = {
     pintext.move(28 + (countLines * 10), 9);
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
 
+    const pinurl = draw.text($('#pinurl').val()).font(pinurlfont).fill('#ffffff');
+    pinurl.move(28 + (countLines * 10), pinheight + 8);
+
     // and in reverse order
     pin.svg.add(pinbackground);
     pin.svg.add(pintext);
+    pin.svg.add(pinurl);
 
     pin.svg.move(draw.width() - pin.svg.width(), $('#pinY').val());
     const eyecatchersize = $('#eyecatchersize').val() / 100;
     pin.svg.scale(eyecatchersize, eyecatchersize, draw.width(), $('#pinY').val());
-  
+
     pin.svg.front();
   },
 
@@ -76,4 +87,4 @@ const pin = {
   },
 };
 
-$('#pintext, #eyecatchersize').bind('input propertychange', pin.draw);
+$('#pintext, #pinurl, #eyecatchersize').bind('input propertychange', pin.draw);

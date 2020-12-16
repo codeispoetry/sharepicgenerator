@@ -12,7 +12,7 @@ var initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(502);
-  $('#textX').val(41);
+  $('#textX').val(141);
   $('#textY').val(372);
   config.layout = 'nolines';
 

@@ -361,7 +361,10 @@ if (!isAllowed(false)) {
         <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
+                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control height1line"></textarea>
+                </div>
+                <div class="d-flex align-items-lg-center">
+                    <textarea name="pinurl" id="pinurl" placeholder="URL" value="" class="form-control height1line"></textarea>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="slider">
