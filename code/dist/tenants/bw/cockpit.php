@@ -27,13 +27,6 @@ if (!isAllowed(false)) {
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
             </div>
-            <?php if(configValue("Features","showMediaGallery")){ ?>
-                <div class="d-flex justify-content-between mb-1">
-                    <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
-                        <i class="fas fa-image"></i> Mediengalerie
-                    </a>
-                </div>
-            <?php } ?>
             <div>
                 <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
@@ -218,7 +211,7 @@ if (!isAllowed(false)) {
                     </div>
                 </div>
             </div>
-            <div class="preferences-text showonly lines">
+            <div class="preferences-text showonly lines d-none">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
