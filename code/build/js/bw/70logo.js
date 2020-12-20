@@ -64,10 +64,20 @@ const logo = {
       widthFraction: 0.2,
       position: 'topright',
     },
-    faecherlinks: {
-      file: '/assets/bw/faecher-links.png',
+    fanleft: {
+      file: '/assets/bw/faecher.png',
       widthFraction: 1,
-      position: 'faecherlinks',
+      position: 'fanleft',
+    },
+    fancenter: {
+      file: '/assets/bw/faecher.png',
+      widthFraction: 1,
+      position: 'fancenter',
+    },
+    fanright: {
+      file: '/assets/bw/faecher.png',
+      widthFraction: 1,
+      position: 'fanright',
     },
   },
 
@@ -118,16 +128,25 @@ const logo = {
         x = 0;
         y = draw.height() - logo.svg.height();
         break;
-      case 'faecherlinks':
+      case 'fanleft':
         x = 0;
         y = 0;
         logo.svg.size(null, draw.height());
+        break;
+      case 'fancenter':
+        logo.svg.size(null, draw.height());
+        x = (draw.width() - logo.svg.width()) / 2;
+        y = 0;
+        break;
+      case 'fanright':
+        logo.svg.size(null, draw.height());
+        x = draw.width() - logo.svg.width();
+        y = 0;
         break;
       default:
         x = draw.width() - width - 10;
         y = 10;
     }
-
     logo.svg.move(x, y);
 
     return true;
