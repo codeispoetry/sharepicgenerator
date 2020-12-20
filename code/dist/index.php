@@ -89,9 +89,14 @@ header .container {
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
           </a>
 
-          <a href="tenants/frankfurt/" class="mt-5 btn btn-info btn-sm d-none">
-            <img src="tenants/frankfurt/skyline-white.svg" style="height:1rem"> Frankfurt
-          </a>
+          <div class="d-flex mt-4">
+            <a href="tenants/bw/" class="btn btn-info btn-sm">
+              <img src="assets/bw/one_lion_white.svg" style="height:1rem"> Baden-Württemberg
+            </a>
+            <a href="tenants/frankfurt/" class="ml-1 btn btn-info btn-sm">
+              <img src="tenants/frankfurt/skyline-white.svg" style="height:1rem"> Frankfurt
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -126,9 +131,6 @@ header .container {
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
           <li>eigenes Logo wird dauerhaft gespeichert</li>
           <li>Schwarz-weiß-Filter für Hintergrundbild</li>
-          <li>Bedienbar über einen Telegram-Bot</li>
-          <li>Dark Mode für Wirkung auf dunklen Untergründen</li>
-          <li>API, z.B. für Massenabfertigung</li>
           <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
           <li><em>und vieles mehr</em></li>
         </ul>
