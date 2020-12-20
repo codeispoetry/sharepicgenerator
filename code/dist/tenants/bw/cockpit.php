@@ -146,7 +146,7 @@ if (!isAllowed(false)) {
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between form-check form-check-inline">
+            <div class="d-none justify-content-between form-check form-check-inline">
                 <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
                  </label>
@@ -201,7 +201,7 @@ if (!isAllowed(false)) {
 
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
-                        <div class="">
+                        <div class="d-none">
                             <label class="showonly lines">
                                 <input type="checkbox" name="textsamesize" id="textsamesize">
                                 Zeilen gleich lang
@@ -294,12 +294,13 @@ if (!isAllowed(false)) {
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">  
                     <optgroup label="BW">
-                        <option value="faecherlinks">Fächer links</option>
+                        <option value="fanleft">Fächer links</option>
+                        <option value="fancenter">Fächer mitte</option>
+                        <option value="fanright">Fächer rechts</option>
                     </optgroup>
                     <optgroup label="Sonnenblume">
                         <option value="sonnenblume">Sonnenblume</option>
                         <option value="sonnenblume-weiss">weiße Sonnenblume</option>
-                        <option value="sonnenblume-big">Sonnenblume links unten</option>
                     </optgroup>
                     <optgroup label="Kein Logo">
                         <option value="void">kein Logo</option>
@@ -308,12 +309,8 @@ if (!isAllowed(false)) {
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
 
             </div>
-            <div class="">
-                <input type="text" placeholder="Text im blauen Balken: KV oder OV" name="logochapter" id="logochapter" value="<?php echo getUserPref('logochapter');?>"
-                        class="form-control form-control-sm">
-            </div>
             <div class="d-flex justify-content-between">
-                <div class="slider">
+                <div class="slider d-none">
                     <small>klein</small>
                         <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
@@ -323,9 +320,6 @@ if (!isAllowed(false)) {
                         <i class="fas fa-layer-group text-primary"></i>
                     </span> 
                 </div>
-            </div>
-            <div class="">
-                Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
             </div>
         </div>
          <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
