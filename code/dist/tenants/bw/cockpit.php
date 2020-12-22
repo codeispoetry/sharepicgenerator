@@ -321,7 +321,7 @@ if (!isAllowed(false)) {
                 <div class="d-flex align-items-lg-center">
                     <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control height1line"></textarea>
                 </div>
-                <div class="d-flex align-items-lg-center">
+                <div class="d-none align-items-lg-center">
                     <textarea name="pinurl" id="pinurl" placeholder="URL" value="" class="form-control height1line"></textarea>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -332,6 +332,8 @@ if (!isAllowed(false)) {
                         <small>groß</small>
                     </div>
                     <div>
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer pin-change-color ml-1" title="Hintergrundfarbe wechseln"></i>
+
                         <span class="to-front" data-target="pin" title="Störer nach vorne">
                             <i class="fas fa-layer-group text-primary"></i>
                         </span> 
@@ -513,6 +515,8 @@ if (!isAllowed(false)) {
         <input type="hidden" name="addPic2y" id="addPic2y">
         <input type="hidden" name="textColor" id="textColor" value="0">
         <input type="hidden" name="eraser" id="eraser">
+        <input type="hidden" name="pinColor" id="pinColor" value="0">
+
 
 
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,.heic,video/mp4">
