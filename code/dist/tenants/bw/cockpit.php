@@ -164,15 +164,15 @@ if (!isAllowed(false)) {
 über uns hinaus.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
+                    <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote"></textarea>
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird hervorgehoben</small>
                         <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
-                            mittig ausrichten</small>
+                            in Bildmitte</small>
                     </div>
                 </div>
 
@@ -184,7 +184,14 @@ if (!isAllowed(false)) {
                             <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
-                        <div>
+                        <div> 
+                            <span class="textanchor" data-payload="left" title="Text linksbündig">
+                                <i class="fa fa-align-left text-primary"></i>
+                            </span>
+                            <span class="textanchor" data-payload="middle" title="Text zentrieren">
+                                <i class="fa fa-align-center text-primary"></i>
+                            </span>
+                           
                             <span class="to-front" data-target="text" title="Text nach vorne">
                                 <i class="fas fa-layer-group text-primary"></i>
                             </span> 
@@ -516,6 +523,8 @@ if (!isAllowed(false)) {
         <input type="hidden" name="textColor" id="textColor" value="0">
         <input type="hidden" name="eraser" id="eraser">
         <input type="hidden" name="pinColor" id="pinColor" value="0">
+        <input type="hidden" name="textanchor" id="textanchor" value="middle">
+
 
 
 

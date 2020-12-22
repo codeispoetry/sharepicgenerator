@@ -69,7 +69,7 @@ const nolines = {
           }
 
           add.tspan(values[i]).fill(color).font(
-            Object.assign(nolines.font, { family: fontfamily }),
+            Object.assign(nolines.font, { family: fontfamily, anchor: $('#textanchor').val() }),
           );
 
           add.attr('xml:space', 'preserve');
@@ -93,7 +93,9 @@ const nolines = {
       const textafter = draw.text((add) => {
         for (let i = 0; i < textafterParts.length; i++) {
           style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
+          add.tspan(textafterParts[i]).fill('#ffffff').font(
+            Object.assign(nolines.fontoutsidelines, {anchor: $('#textanchor').val() }),
+          );
           add.attr('xml:space', 'preserve');
           add.attr('style', 'white-space:pre');
         }
@@ -139,3 +141,8 @@ const nolines = {
 };
 
 $('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);
+
+$('.textanchor').click(function setTextanchor() {
+  $('#textanchor').val($(this).data('payload'));
+  nolines.draw();
+});
