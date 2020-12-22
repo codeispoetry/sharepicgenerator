@@ -166,6 +166,10 @@ if (!isAllowed(false)) {
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote"></textarea>
                 </div>
+                <div class="d-flex align-items-lg-center">
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-primarycolor ml-1" title="Hauptfarbe wechseln"></i>
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-secondarycolor ml-1" title="Akzentfarbe wechseln"></i>
+                </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
@@ -524,6 +528,9 @@ if (!isAllowed(false)) {
         <input type="hidden" name="eraser" id="eraser">
         <input type="hidden" name="pinColor" id="pinColor" value="0">
         <input type="hidden" name="textanchor" id="textanchor" value="middle">
+        <input type="hidden" name="textprimarycolor" id="textPrimaryColor" value="0">
+        <input type="hidden" name="textsecondarycolor" id="textSecondaryColor" value="0">
+
 
 
 
