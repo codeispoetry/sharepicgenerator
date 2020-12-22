@@ -118,7 +118,8 @@ const logo = {
     logo.svg.size(width, null);
     let x;
     let y;
-
+    $('#fanposition').prop('disabled', true);
+    $('#fanposition').val(0);
     switch (logo.logoinfo.position) {
       case 'bottomleft':
         x = 10;
@@ -132,16 +133,19 @@ const logo = {
         x = 0;
         y = 0;
         logo.svg.size(null, draw.height());
+        $('#fanposition').prop('disabled', false);
         break;
       case 'fancenter':
         logo.svg.size(null, draw.height());
         x = (draw.width() - logo.svg.width()) / 2;
         y = 0;
+        $('#fanposition').prop('disabled', false);
         break;
       case 'fanright':
         logo.svg.size(null, draw.height());
         x = draw.width() - logo.svg.width();
         y = 0;
+        $('#fanposition').prop('disabled', false);
         break;
       default:
         x = draw.width() - width - 10;
@@ -198,3 +202,11 @@ $('#logosize').bind('input propertychange', () => {
 });
 
 $('#logochapter').bind('input propertychange', () => logo.load());
+
+$('#fanposition').bind('input propertychange', setFanPosition);
+
+function setFanPosition() {
+  // eslint-disable-next-line no-mixed-operators
+  const x = draw.width() * $('#fanposition').val() / 100;
+  logo.svg.x(x);
+}
