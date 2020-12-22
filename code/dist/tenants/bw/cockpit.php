@@ -319,7 +319,13 @@ if (!isAllowed(false)) {
                         <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
                 </div>
-                <div>
+                <div class="slider fanonly">
+                    <small>Fächer:&nbsp;links</small>
+                        <input type="range" class="custom-range" name="fanposition" id="fanposition" min="-100" max="100" value="0">
+                    <small>rechts</small>
+                </div>
+
+                <div class="d-none">
                     <span class="to-front" data-target="logo" title="Logo nach vorne">
                         <i class="fas fa-layer-group text-primary"></i>
                     </span> 
