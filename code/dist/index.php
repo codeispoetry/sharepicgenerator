@@ -144,7 +144,7 @@ header .container {
     <div class="col-12 col-lg-6">
     <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> 
     | <a href="/imprint.php">Impressum</a>
-    | <form method="post" class="test-access" action="tenants/federal/">
+    | <form method="post" class="test-access" action="tenants/bw/">
             <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
         </form>
     </div>
