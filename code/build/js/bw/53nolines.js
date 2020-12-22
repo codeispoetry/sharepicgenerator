@@ -96,7 +96,12 @@ const nolines = {
       const textafter = draw.text((add) => {
         for (let i = 0; i < textafterParts.length; i++) {
           style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(
+          color = textSecondaryColors[$('#textSecondaryColor').val()];
+          if (style === 0) {
+            color = textPrimaryColors[$('#textPrimaryColor').val()];
+          }
+
+          add.tspan(textafterParts[i]).fill(color).font(
             Object.assign(nolines.fontoutsidelines, { anchor: $('#textanchor').val() }),
           );
           add.attr('xml:space', 'preserve');
@@ -107,18 +112,6 @@ const nolines = {
 
       text.svg.add(textafter);
     }
-
-    // text above the line
-    const textbeforeParts = $('#textbefore').val().split(/\[|\]/);
-    const textbefore = draw.text((add) => {
-      for (let i = 0; i < textbeforeParts.length; i++) {
-        add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textbefore.dx(2).dy(text.svg.y() - 0.7);
-    text.svg.add(textbefore);
 
     eraser.front();
     showActionDayHint();
