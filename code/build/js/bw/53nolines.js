@@ -91,26 +91,29 @@ const nolines = {
 
     // text below the line
     if ($('#textafter').val()) {
-      const textafterParts = $('#textafter').val().split(/\[|\]/);
-      let style = 1;
-      const textafter = draw.text((add) => {
-        for (let i = 0; i < textafterParts.length; i++) {
-          style = (style === 0) ? 1 : 0;
-          color = textSecondaryColors[$('#textSecondaryColor').val()];
-          if (style === 0) {
-            color = textPrimaryColors[$('#textPrimaryColor').val()];
+      lines = $('#textafter').val().replace(/\n$/, '').split(/\n/);
+      lines.forEach((value, index) => {
+        const textafterParts = value.split(/\[|\]/);
+        let style = 1;
+        const textafter = draw.text((add) => {
+          for (let i = 0; i < textafterParts.length; i++) {
+            style = (style === 0) ? 1 : 0;
+            color = textSecondaryColors[$('#textSecondaryColor').val()];
+            if (style === 0) {
+              color = textPrimaryColors[$('#textPrimaryColor').val()];
+            }
+
+            add.tspan(textafterParts[i]).fill(color).font(
+              Object.assign(nolines.fontoutsidelines, { anchor: $('#textanchor').val() }),
+            );
+            add.attr('xml:space', 'preserve');
+            add.attr('style', 'white-space:pre');
           }
+        });
+        textafter.dy(text.svg.height() + 6);
 
-          add.tspan(textafterParts[i]).fill(color).font(
-            Object.assign(nolines.fontoutsidelines, { anchor: $('#textanchor').val() }),
-          );
-          add.attr('xml:space', 'preserve');
-          add.attr('style', 'white-space:pre');
-        }
+        text.svg.add(textafter);
       });
-      textafter.dy(text.svg.height() + 6);
-
-      text.svg.add(textafter);
     }
 
     eraser.front();
