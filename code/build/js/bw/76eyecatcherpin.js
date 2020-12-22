@@ -1,3 +1,5 @@
+const pinColors = ['#009571', '#46962b', '#E6007E', '#FEEE00'];
+
 $('#pinsize').bind('input propertychange', () => {
   pin.draw();
 });
@@ -56,13 +58,14 @@ const pin = {
     const pinwidth = pintext.rbox().w + 40 + (countLines * 20);
     const pinheight = pintext.rbox().h + 20;
 
+    const bgColor = pinColors[parseInt($('#pinColor').val(), 10)];
     const pinbackground = draw.polygon([
       [0, 0],
       [pinwidth, 0],
       [pinwidth, pinheight],
       [0, pinheight],
       [pinheight / 2, pinheight / 2],
-    ]).fill('#009571');
+    ]).fill(bgColor);
 
     pintext.move(28 + (countLines * 10), 9);
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
@@ -88,3 +91,14 @@ const pin = {
 };
 
 $('#pintext, #pinurl, #eyecatchersize').bind('input propertychange', pin.draw);
+$('.pin-change-color').bind('click', pinChangeColor);
+
+// eslint-disable-next-line no-unused-vars
+function pinChangeColor() {
+  let pinColorIndex = parseInt($('#pinColor').val(), 10);
+  pinColorIndex += 1;
+  pinColorIndex %= pinColors.length;
+
+  $('#pinColor').val(pinColorIndex);
+  pin.draw();
+}
