@@ -94,9 +94,6 @@ nextActionDay();
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
-                    <?php if (configValue($tenant, 'showGallery')) { ?>
-                        <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
-                    <?php } ?>
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>
@@ -120,6 +117,11 @@ nextActionDay();
                     <i class="fab fa-github"></i> Quellcode</a>
                 </div>
             </li>
+            <?php if (configValue($tenant, 'showGallery')) { ?>
+                <li class="nav-item">
+                <a href="#" class="overlay-opener nav-link" data-target="gallery">Vorlagen</a>
+                </li>
+            <?php } ?>
             <li class="nav-item">
                 <a href="/imprint.php" class="nav-link"> Impressum</a>
             </li>
