@@ -23,6 +23,9 @@ function performImageDBSearch() {
     case 'pexels-images':
       getPexelsImages($('#imagedb-direct-search-q').val());
       break;
+    case 'unsplash-images':
+      getUnsplashImages($('#imagedb-direct-search-q').val());
+      break;
     default:
       getPixabayImages($('#imagedb-direct-search-q').val());
   }
