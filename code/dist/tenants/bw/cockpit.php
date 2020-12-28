@@ -27,13 +27,6 @@ if (!isAllowed(false)) {
                     <i class="fa fa-upload"></i> Bild oder Video hochladen
                 </a> 
             </div>
-            <?php if(configValue("Features","showMediaGallery")){ ?>
-                <div class="d-flex justify-content-between mb-1">
-                    <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">
-                        <i class="fas fa-image"></i> Mediengalerie
-                    </a>
-                </div>
-            <?php } ?>
             <div>
                 <div class="input-group pixabay-select-type">
                     <div class="input-group-prepend">
@@ -101,8 +94,7 @@ if (!isAllowed(false)) {
                     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
                     <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-                    <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
-
+                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
                 </div>
             </div>
         </div>   
@@ -147,7 +139,7 @@ if (!isAllowed(false)) {
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between form-check form-check-inline">
+            <div class="d-none justify-content-between form-check form-check-inline">
                 <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
                  </label>
@@ -162,25 +154,42 @@ if (!isAllowed(false)) {
                  </label>
             </div>
 
+            <div class="ml-1"> 
+                <span class="textanchor" data-payload="left" title="Text linksbündig">
+                    <i class="fa fa-align-left text-primary"></i>
+                </span>
+                <span class="textanchor" data-payload="middle" title="Text zentrieren">
+                    <i class="fa fa-align-center text-primary"></i>
+                </span>
+                
+                <span class="to-front" data-target="text" title="Text nach vorne">
+                    <i class="fas fa-layer-group text-primary"></i>
+                </span> 
+
+                <span class="colorpicker" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textprimarycolor" title="Hauptfarbe wechseln"></span> 
+                <span class="colorpicker" data-colors="#FEEE00,#009571,#46962b,#E6007E" data-action="nolines.draw()  " data-field="#textsecondarycolor" title="Akzentfarbe wechseln"></span> 
+
+            </div>
+
             <div class="list-group-item-content">
-                <div class="">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
+                <div class="d-none">
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
-#mitdir.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Wachsen wir
+über uns hinaus.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                    <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote"></textarea>
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird hervorgehoben</small>
                         <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
-                            mittig ausrichten</small>
+                            in Bildmitte</small>
                     </div>
                 </div>
 
@@ -192,17 +201,12 @@ if (!isAllowed(false)) {
                             <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
-                        <div>
-                            <span class="to-front" data-target="text" title="Text nach vorne">
-                                <i class="fas fa-layer-group text-primary"></i>
-                            </span> 
-                        </div>
                     </div> 
                     </div>
 
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
-                        <div class="">
+                        <div class="d-none">
                             <label class="showonly lines">
                                 <input type="checkbox" name="textsamesize" id="textsamesize">
                                 Zeilen gleich lang
@@ -219,7 +223,7 @@ if (!isAllowed(false)) {
                     </div>
                 </div>
             </div>
-            <div class="preferences-text showonly lines">
+            <div class="preferences-text showonly lines d-none">
                 <div class="d-flex justify-content-between mt-3">
                     <span class="text-primary cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
@@ -290,46 +294,18 @@ if (!isAllowed(false)) {
                 <?php } ?>
             </div>
          </div>
-         <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
+         <h3 class="collapsed KILLexpertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+        <div class="logo KILLexpertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
-                <select class="form-control" name="logoselect" id="logoselect">
+                <select class="form-control" name="logoselect" id="logoselect">  
+                    <optgroup label="BW">
+                        <option value="fanleft">Fächer links</option>
+                        <option value="fancenter">Fächer mitte</option>
+                        <option value="fanright">Fächer rechts</option>
+                    </optgroup>
                     <optgroup label="Sonnenblume">
                         <option value="sonnenblume">Sonnenblume</option>
                         <option value="sonnenblume-weiss">weiße Sonnenblume</option>
-                        <option value="sonnenblume-big">Sonnenblume links unten</option>
-                    </optgroup>
-                    <optgroup label="Logo mit Schriftzug">
-                        <option value="logo-weiss">weiß, mit Schriftzug</option>
-                        <option value="logo-gruen">grün, mit Schriftzug</option>
-                    </optgroup>
-
-                    <?php
-                    if ($landesverband == 3) {
-                        ?>
-                    <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
-                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
-                    </optgroup>
-                    <?php
-                    }
-                    ?>
-                    
-                    <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
-                        ?>
-                        <optgroup label="Eigenes Logo">
-                            <option value="custom" selected>eigenes Logo</option>
-                            <option value="deletecustomlogo">eigenes Logo löschen</option>
-                        </optgroup>
-                    <?php
-                    }
-                    ?>
-                   
-                    <optgroup label="Speziallogos">
-                        <option value="frauenrechte">Frauenrechte</option>
-                        <option value="regenbogen">Regenbogen</option>
-                        <option value="europa">Europa</option>
                     </optgroup>
                     <optgroup label="Kein Logo">
                         <option value="void">kein Logo</option>
@@ -338,31 +314,33 @@ if (!isAllowed(false)) {
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
 
             </div>
-            <div class="">
-                <input type="text" placeholder="Text im blauen Balken: KV oder OV" name="logochapter" id="logochapter" value="<?php echo getUserPref('logochapter');?>"
-                        class="form-control form-control-sm">
-            </div>
             <div class="d-flex justify-content-between">
-                <div class="slider">
+                <div class="slider d-none">
                     <small>klein</small>
                         <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
                 </div>
-                <div>
+                <div class="slider fanonly">
+                    <small>Fächer:&nbsp;links</small>
+                        <input type="range" class="custom-range" name="fanposition" id="fanposition" min="-100" max="100" value="0">
+                    <small>rechts</small>
+                </div>
+
+                <div class="d-none">
                     <span class="to-front" data-target="logo" title="Logo nach vorne">
                         <i class="fas fa-layer-group text-primary"></i>
                     </span> 
                 </div>
-            </div>
-            <div class="">
-                Erstelle Dein OV-Logo mit dem <a href="https://logo.sharepicgenerator.de" target="_blank">Logogenerator</a>.
             </div>
         </div>
          <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
         <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
             <div class="mb-1 list-group-item-content">
                 <div class="d-flex align-items-lg-center">
-                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control"></textarea>
+                    <textarea name="pintext" id="pintext" placeholder="Störertext. Maximal 2 Zeilen." value="" class="form-control height1line"></textarea>
+                </div>
+                <div class="d-none align-items-lg-center">
+                    <textarea name="pinurl" id="pinurl" placeholder="URL" value="" class="form-control height1line"></textarea>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="slider">
@@ -372,6 +350,8 @@ if (!isAllowed(false)) {
                         <small>groß</small>
                     </div>
                     <div>
+                        <i class="fa fa-broom ml-1 text-primary cursor-pointer pin-change-color ml-1" title="Hintergrundfarbe wechseln"></i>
+
                         <span class="to-front" data-target="pin" title="Störer nach vorne">
                             <i class="fas fa-layer-group text-primary"></i>
                         </span> 
@@ -551,9 +531,14 @@ if (!isAllowed(false)) {
         <input type="hidden" name="addPic1y" id="addPic1y">
         <input type="hidden" name="addPic2x" id="addPic2x">
         <input type="hidden" name="addPic2y" id="addPic2y">
-        <input type="hidden" name="textColor" id="textColor" value="0">
+
         <input type="hidden" name="eraser" id="eraser">
-        <input type="hidden" name="copyrightcolor" id="copyrightcolor" value="white">
+        <input type="hidden" name="pinColor" id="pinColor" value="white">
+        <input type="hidden" name="textanchor" id="textanchor" value="middle">
+        <input type="hidden" name="textprimarycolor" id="textprimarycolor" value="white">
+        <input type="hidden" name="textsecondarycolor" id="textsecondarycolor" value="white">
+
+
 
 
 

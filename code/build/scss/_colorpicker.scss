@@ -1,0 +1,42 @@
+.colorpicker{
+    color: $primary;
+    position: relative;
+
+    &:hover{
+        .palette-container{
+            z-index: 2000;    
+            width: auto;        
+            transition: width 0.2s;
+        }
+    }
+
+    .palette-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        overflow: hidden;
+    }
+
+    .palette{
+        border: none;
+        border-radius: 50px;
+        background: white;
+        display: flex;
+        padding: 3px 6px;
+        border: 1px solid gray;
+    }
+
+    .dot{
+        border-radius: 100px;
+        width: 15px;
+        height: 15px;
+        display: block;
+        margin-right: 8px;
+        cursor: pointer;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}

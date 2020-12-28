@@ -11,7 +11,7 @@ readConfig();
 
 $landesverband = 0;
 $user = "generic";
-$tenant = "federal";
+$tenant = "bw";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
@@ -67,7 +67,7 @@ nextActionDay();
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
-        <?php printf('config.tenant="%s";', "federal"); ?>
+        <?php printf('config.tenant="%s";', "bw"); ?>
         config.pixabaySearchIn="images";
         config.backgroundSource="standard";
         config.faces=-1;
@@ -85,7 +85,7 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de</a>
+        <a class="navbar-brand arvo" href="/tenants/bw">Sharepicgenerator.de</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
@@ -94,9 +94,6 @@ nextActionDay();
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
-                    <?php if (configValue($tenant, 'showGallery')) { ?>
-                        <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
-                    <?php } ?>
                     <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                         <i class="far fa-hand-point-right"></i> Aktionstage
                     </a>
@@ -120,16 +117,11 @@ nextActionDay();
                     <i class="fab fa-github"></i> Quellcode</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Regionale Angebote
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/frankfurt" class="dropdown-item">
-                    Frankfurt</a>
-                </div>
-            </li>
+            <?php if (configValue($tenant, 'showGallery')) { ?>
+                <li class="nav-item">
+                <a href="#" class="overlay-opener nav-link" data-target="gallery">Vorlagen</a>
+                </li>
+            <?php } ?>
             <li class="nav-item">
                 <a href="/imprint.php" class="nav-link"> Impressum</a>
             </li>
@@ -234,7 +226,7 @@ nextActionDay();
 <script src="/vendor/svg.draggable.min.js"></script>
 <script src="/vendor/svg.filter.min.js"></script>
 <script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
-<script src="/assets/js/federal.min.js?v=<?php echo @filemtime('../../assets/js/federal.min.js'); ?>"></script>
+<script src="/assets/js/bw.min.js?v=<?php echo @filemtime('../../assets/js/bw.min.js'); ?>"></script>
 
 
 
@@ -248,7 +240,7 @@ if (isset($_GET['useSavework'])) {
 }
 
 if (isset($_GET['usePicture'])) {
-    printf('uploadFileByUrl(`../tenants/federal/%s`, () => {})', $_GET['usePicture']);
+    printf('uploadFileByUrl(`../tenants/bw/%s`, () => {})', $_GET['usePicture']);
 }
 ?>
 </script>
