@@ -121,9 +121,6 @@ nextActionDay();
                 </div>
             </li>
             <?php require_once('../menu.php'); ?>
-            <li class="nav-item">
-                <a href="/imprint.php" class="nav-link"> Impressum</a>
-            </li>
             <?php if (isEditor()) { ?>
                 <li class="nav-item">
                     <a href="log/" class="nav-link font-italic"> Logfiles</a>
