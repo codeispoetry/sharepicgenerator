@@ -45,17 +45,17 @@ require_once(getBasePath('lib/log_functions.php'));
                     ?>
                     gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
                         <br>
-                    letzten 7 Tage: <?php echo number_format(getUsersLastDays(7), 0, ',', '.'); ?>
+                    letzten 30 Tage: <?php echo number_format(getUsersLastDays(30), 0, ',', '.'); ?>
                         <br>
-                    Aktivität (Median, 50%): <?php echo number_format(getUsersActivity(), 0, ',', '.'); ?>
+                    Aktivität (Median): <?php echo number_format(getUsersActivity(), 0, ',', '.'); ?>
                         <br>
-                    Aktivität (25%): <?php echo number_format(getUsersActivity(25), 0, ',', '.'); ?>
+                    User mit einem Login in letzten 30 Tagen: <?php echo number_format(getLoginCountsPerUserLastDays('=', 1, 30), 0, ',', '.'); ?>
                         <br>
-                    Aktivität (75%): <?php echo number_format(getUsersActivity(75), 0, ',', '.'); ?>
+                    User mit mehr als 4 Logins in letzten 30 Tagen: <?php echo number_format(getLoginCountsPerUserLastDays('>=', 4, 30), 0, ',', '.'); ?>
                         <br>
                     Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
                         <br>
-                    täglich: <?php number_format(getDailyUsers(), 0, ',', '.'); ?>
+                    täglich: <?php echo number_format(getDailyUsers(), 0, ',', '.'); ?>
                         <br>
                     mit eigenem Logo: <?php echo getUserWithCustomLogo(); ?>
                         <br>
