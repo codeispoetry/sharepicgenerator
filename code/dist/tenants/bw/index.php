@@ -127,7 +127,7 @@ nextActionDay();
             </li>
             <?php if (isEditor()) { ?>
                 <li class="nav-item">
-                    <a href="log/" class="nav-link"> Logfiles <small>(nur für Editoren)</small></a>
+                    <a href="log/" class="nav-link font-italic"> Logfiles</a>
                 </li>
             <?php } ?>
         </ul>
