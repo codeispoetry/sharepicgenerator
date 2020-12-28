@@ -68,7 +68,7 @@ nextActionDay();
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "federal"); ?>
-        config.pixabaySearchIn="images";
+        config.imageDBSearchIn="images";
         config.backgroundSource="standard";
         config.faces=-1;
         config.uploadTime=-1;
@@ -185,10 +185,10 @@ nextActionDay();
             </div>
 
             <?php
-            require_once(getBasePath('/lib/overlays/pixabay.php'));
             require_once(getBasePath('/lib/overlays/waiting.php'));
             require_once(getBasePath('/lib/overlays/actiondays.php'));
             require_once(getBasePath('/lib/overlays/icons.php'));
+            require_once(getBasePath('/lib/overlays/imagedb.php'));
             if (configValue($tenant, 'showGallery')) {
                 require_once(getBasePath('/lib/overlays/gallery.php'));
             }

@@ -68,7 +68,7 @@ nextActionDay();
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "frankfurt"); ?>
-        <?php printf('config.pixabaySearchIn="images";'); ?>
+        <?php printf('config.imageDBSearchIn="images";'); ?>
         config.format='png';    
     </script>
 </head>
@@ -147,12 +147,12 @@ nextActionDay();
             </div>
 
             <?php
-                require_once(getBasePath('/lib/overlays/pixabay.php'));
                 require_once(getBasePath('/lib/overlays/waiting.php'));
                 require_once(getBasePath('/lib/overlays/actiondays.php'));
                 require_once(getBasePath('/lib/overlays/icons.php'));
                 require_once(getBasePath('/lib/overlays/gallery.php'));
                 require_once(getBasePath('/lib/overlays/pictures.php'));
+                require_once(getBasePath('/lib/overlays/imagedb.php'));
             ?>
 
             <div class="col-12 mt-3 mb-3">

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // eslint-disable-next-line no-unused-vars
 const bgpic = {
   width: 800,
@@ -55,7 +56,6 @@ function reDraw(withAddPic = false) {
   }, 10);
 
   window.setTimeout(() => {
-    copyright.draw();
     icon.load();
   }, 20);
 
