@@ -122,9 +122,7 @@ nextActionDay();
                 <a href="#" class="overlay-opener nav-link" data-target="gallery">Vorlagen</a>
                 </li>
             <?php } ?>
-            <li class="nav-item">
-                <a href="/imprint.php" class="nav-link"> Impressum</a>
-            </li>
+            <?php require_once('../menu.php'); ?>
             <?php if (isEditor()) { ?>
                 <li class="nav-item">
                     <a href="log/" class="nav-link font-italic"> Logfiles</a>
