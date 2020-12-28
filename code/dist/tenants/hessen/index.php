@@ -116,9 +116,7 @@ nextActionDay();
                     <i class="fab fa-github"></i> Quellcode</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a href="/imprint.php" class="nav-link"> Impressum</a>
-            </li>
+            <?php require_once('../menu.php'); ?>
         </ul>
         <span class="navbar-text">
             Eingeloggt als <em><?php echo getUser(); ?></em>
