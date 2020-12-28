@@ -81,6 +81,10 @@ function getPixabayImages(q) {
         $('#imagedb-search .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user}" class="img-fluid">`);
       });
       addClickActions('pixabay');
+
+      if (!data.hits.length) {
+        noPicturesFound();
+      }
     },
     error(data, textStatus, jqXHR) {
       console.log(data, jqXHR);

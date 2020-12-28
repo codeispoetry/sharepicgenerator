@@ -15,9 +15,20 @@ function getPexelsImages(q) {
     success(data) {
       const info = JSON.parse(data);
       $('#imagedb-search .results').html('');
+
+      if (info.success === 'false') {
+        $('#imagedb-search .results').html('Es ist ein API-Fehler aufgetreten.');
+        return false;
+      }
+
       info.photos.forEach((photo) => {
         $('#imagedb-search .results').append(`<img src="${photo.src.tiny}" data-url="${photo.src.large}" data-user="${photo.photographer}" class="img-fluid">`);
       });
+
+      if (!info.photos.length) {
+        noPicturesFound();
+      }
+
       addClickActions('pexels');
     },
     error(data, textStatus, jqXHR) {

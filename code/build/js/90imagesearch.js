@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 $('.imagedb-search-in').click(function imageDBSearchIn() {
   $('.imagedb-selected-type').removeClass(`fa-images`);
@@ -37,9 +38,6 @@ function performImageDBSearch() {
       q: $('#imagedb-direct-search-q').val(),
       carrier: config.imageDBSearchIn,
     },
-    success(response) {
-      console.log(response);
-    },
     error(response) {
       console.log(response);
     },
@@ -71,4 +69,9 @@ function addClickActions(carrier) {
       $('#waiting').hide();
     });
   });
+}
+
+function noPicturesFound() {
+  const q = $('#imagedb-direct-search-q').val();
+  $('#imagedb-search .results').html(`Es wurden keine Bilder für ${q} gefunden.`);
 }

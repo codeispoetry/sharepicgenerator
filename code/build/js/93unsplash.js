@@ -13,11 +13,21 @@ function getUnsplashImages(q) {
       q,
     },
     success(data) {
-      const info = JSON.parse(data);
       $('#imagedb-search .results').html('');
+      const info = JSON.parse(data);
+      if (info.success === 'false') {
+        $('#imagedb-search .results').html('Es ist ein API-Fehler aufgetreten.');
+        return false;
+      }
+
       info.results.forEach((photo) => {
         $('#imagedb-search .results').append(`<img src="${photo.urls.thumb}" data-url="${photo.urls.regular}" data-user="${photo.user.name}" class="img-fluid">`);
       });
+
+      if (!info.results.length) {
+        noPicturesFound();
+      }
+
       addClickActions('unsplash');
     },
     error(data, textStatus, jqXHR) {
