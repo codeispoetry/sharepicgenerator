@@ -24,4 +24,9 @@ $cmd = sprintf('curl -H "Authorization: Client-ID %s"   "https://api.unsplash.co
 
 exec($cmd, $output);
 
+$data = json_decode($output[0]);
+if (isset($data->errors)) {
+    returnJsonErrorAndDie('api error');
+}
+
 echo $output[0];

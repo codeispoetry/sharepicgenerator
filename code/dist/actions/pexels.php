@@ -23,5 +23,7 @@ $perPage = 80;
 $cmd = sprintf('curl -H "Authorization: %s"   "https://api.pexels.com/v1/search?query=%s&per_page=%s"', $apikey, $q, $perPage);
 
 exec($cmd, $output);
-
+if (isset($output[1])) {
+    returnJsonErrorAndDie('api error');
+}
 echo $output[0];
