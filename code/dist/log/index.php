@@ -49,9 +49,9 @@ require_once(getBasePath('lib/log_functions.php'));
                         <br>
                     Aktivität (Median): <?php echo number_format(getUsersActivity(), 0, ',', '.'); ?>
                         <br>
-                    User mit einem Login in letzten 30 Tagen: <?php echo number_format(getLoginCountsPerUserLastDays('=', 1, 30), 0, ',', '.'); ?>
+                    User (1 Login, 30 Tage): <?php echo number_format(getLoginCountsPerUserLastDays('=', 1, 30), 0, ',', '.'); ?>
                         <br>
-                    User mit mehr als 4 Logins in letzten 30 Tagen: <?php echo number_format(getLoginCountsPerUserLastDays('>=', 4, 30), 0, ',', '.'); ?>
+                    User(>=4 Logins, 30 Tage): <?php echo number_format(getLoginCountsPerUserLastDays('>=', 4, 30), 0, ',', '.'); ?>
                         <br>
                     Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
                         <br>
