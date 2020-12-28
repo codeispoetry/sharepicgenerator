@@ -36,6 +36,8 @@ if (!isAllowed(false)) {
                         <div class="dropdown-menu">
                             <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="pixabay-images"><i class="fas fa-images"></i> Pixabay</span>
                             <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="pexels-images"><i class="fas fa-images"></i> Pexels</span>
+                            <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="unsplash-images"><i class="fas fa-images"></i> Unsplash</span>
+
                             <span class="dropdown-item imagedb-search-in" data-icon="video" data-files="pixabay-video"><i class="fas fa-video"></i> Videos</span>
                         </div>
                     </div>
@@ -95,7 +97,7 @@ if (!isAllowed(false)) {
                     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
                     <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer copyright-change-color ml-1" title="Farbe wechseln"></i>
+                    <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
                 </div>
             </div>
         </div>   
@@ -538,6 +540,7 @@ if (!isAllowed(false)) {
         <input type="hidden" name="textanchor" id="textanchor" value="middle">
         <input type="hidden" name="textprimarycolor" id="textprimarycolor" value="white">
         <input type="hidden" name="textsecondarycolor" id="textsecondarycolor" value="white">
+        <input type="hidden" name="copyrightcolor" id="copyrightcolor" value="white">
 
 
 
