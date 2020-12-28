@@ -154,6 +154,23 @@ if (!isAllowed(false)) {
                  </label>
             </div>
 
+            <div class="ml-1"> 
+                <span class="textanchor" data-payload="left" title="Text linksbündig">
+                    <i class="fa fa-align-left text-primary"></i>
+                </span>
+                <span class="textanchor" data-payload="middle" title="Text zentrieren">
+                    <i class="fa fa-align-center text-primary"></i>
+                </span>
+                
+                <span class="to-front" data-target="text" title="Text nach vorne">
+                    <i class="fas fa-layer-group text-primary"></i>
+                </span> 
+
+                <span class="colorpicker" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textprimarycolor" title="Hauptfarbe wechseln"></span> 
+                <span class="colorpicker" data-colors="#FEEE00,#009571,#46962b,#E6007E" data-action="nolines.draw()  " data-field="#textsecondarycolor" title="Akzentfarbe wechseln"></span> 
+
+            </div>
+
             <div class="list-group-item-content">
                 <div class="d-none">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value=""
@@ -165,10 +182,6 @@ if (!isAllowed(false)) {
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote"></textarea>
-                </div>
-                <div class="d-flex align-items-lg-center mt-1">
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-primarycolor ml-1" title="Hauptfarbe wechseln"></i>
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-secondarycolor ml-1" title="Akzentfarbe wechseln"></i>
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -187,18 +200,6 @@ if (!isAllowed(false)) {
                             <small>klein</small>
                             <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
-                        </div>
-                        <div> 
-                            <span class="textanchor" data-payload="left" title="Text linksbündig">
-                                <i class="fa fa-align-left text-primary"></i>
-                            </span>
-                            <span class="textanchor" data-payload="middle" title="Text zentrieren">
-                                <i class="fa fa-align-center text-primary"></i>
-                            </span>
-                           
-                            <span class="to-front" data-target="text" title="Text nach vorne">
-                                <i class="fas fa-layer-group text-primary"></i>
-                            </span> 
                         </div>
                     </div> 
                     </div>
@@ -530,12 +531,12 @@ if (!isAllowed(false)) {
         <input type="hidden" name="addPic1y" id="addPic1y">
         <input type="hidden" name="addPic2x" id="addPic2x">
         <input type="hidden" name="addPic2y" id="addPic2y">
-        <input type="hidden" name="textColor" id="textColor" value="0">
+
         <input type="hidden" name="eraser" id="eraser">
-        <input type="hidden" name="pinColor" id="pinColor" value="0">
+        <input type="hidden" name="pinColor" id="pinColor" value="white">
         <input type="hidden" name="textanchor" id="textanchor" value="middle">
-        <input type="hidden" name="textprimarycolor" id="textPrimaryColor" value="0">
-        <input type="hidden" name="textsecondarycolor" id="textSecondaryColor" value="0">
+        <input type="hidden" name="textprimarycolor" id="textprimarycolor" value="white">
+        <input type="hidden" name="textsecondarycolor" id="textsecondarycolor" value="white">
 
 
 

@@ -1,6 +1,3 @@
-const textPrimaryColors = ['#ffffff', '#000000', '#009571', '#46962b', '#E6007E', '#FEEE00'];
-const textSecondaryColors = ['#FEEE00', '#009571', '#46962b', '#E6007E'];
-
 /* eslint-disable no-undef */
 const nolines = {
   svg: draw.text(''),
@@ -66,9 +63,9 @@ const nolines = {
         for (let i = 0; i < values.length; i++) {
           style = (style === 0) ? 1 : 0;
 
-          color = textSecondaryColors[$('#textSecondaryColor').val()];
+          color = $('#textsecondarycolor').val();
           if (style === 0) {
-            color = textPrimaryColors[$('#textPrimaryColor').val()];
+            color = $('#textprimarycolor').val();
           }
 
           add.tspan(values[i]).fill(color).font(
@@ -98,9 +95,9 @@ const nolines = {
         const textafter = draw.text((add) => {
           for (let i = 0; i < textafterParts.length; i++) {
             style = (style === 0) ? 1 : 0;
-            color = textSecondaryColors[$('#textSecondaryColor').val()];
+            color = $('#textsecondarycolor').val();
             if (style === 0) {
-              color = textPrimaryColors[$('#textPrimaryColor').val()];
+              color = $('#textprimarycolor').val();
             }
 
             add.tspan(textafterParts[i]).fill(color).font(
@@ -145,27 +142,3 @@ $('.textanchor').click(function setTextanchor() {
   $('#textanchor').val($(this).data('payload'));
   nolines.draw();
 });
-
-$('.text-change-primarycolor').bind('click', textChangePrimarycolor);
-// eslint-disable-next-line no-unused-vars
-function textChangePrimarycolor() {
-  let textPrimaryColorIndex = parseInt($('#textPrimaryColor').val(), 10);
-  console.log(textPrimaryColorIndex);
-  textPrimaryColorIndex += 1;
-  textPrimaryColorIndex %= textPrimaryColors.length;
-
-  $('#textPrimaryColor').val(textPrimaryColorIndex);
-  nolines.draw();
-}
-
-$('.text-change-secondarycolor').bind('click', textChangeSecondarycolor);
-// eslint-disable-next-line no-unused-vars
-function textChangeSecondarycolor() {
-  let textSecondaryColorIndex = parseInt($('#textSecondaryColor').val(), 10);
-
-  textSecondaryColorIndex += 1;
-  textSecondaryColorIndex %= textSecondaryColors.length;
-
-  $('#textSecondaryColor').val(textSecondaryColorIndex);
-  nolines.draw();
-}
