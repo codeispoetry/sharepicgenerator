@@ -88,6 +88,7 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 3. Copy code/build/js/federal 
 4. Copy code/webpack.tenats/federal.js and edit two times 'federal'
 5. edit .htaccess
+5. add gallery and pictures to shared_dirs in deploy.php
 5. make compile
 
 # Enable logging

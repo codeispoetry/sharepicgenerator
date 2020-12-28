@@ -8,8 +8,8 @@ const tenant = new ConcatPlugin({
   name: 'result',
   outputPath: './js/',
   injectType: 'none',
-  fileName: 'federal.min.js',
-  filesToConcat: ['./build/js/federal/*.js'],
+  fileName: 'bw.min.js',
+  filesToConcat: ['./build/js/bw/*.js'],
   attributes: {
     async: true,
   }
