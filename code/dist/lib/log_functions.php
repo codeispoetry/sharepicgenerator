@@ -116,6 +116,12 @@ function getUsersActivity($percent = 50)
     OFFSET ROUND((SELECT COUNT(DISTINCT user) from downloads) * ' . $percent/100 . ');');
 }
 
+function getLoginCountsPerUserLastDays($operator = '=', $threshold = 1, $days = 30)
+{
+    return singleResult('select count(*) as result from (
+        select count(distinct timestamp) as result from downloads where julianday("now") - julianday(timestamp) <= ' . $days .' GROUP BY user HAVING result ' . $operator . $threshold . ')');
+}
+
 function getDownloads()
 {
     return singleResult('SELECT COUNT(*) AS result FROM downloads;');
