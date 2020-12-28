@@ -1,19 +1,6 @@
 const copyrights = { };
-let copyrightColorIndex = 0;
 
 $('#copyright').bind('input propertychange', () => {
-  copyright.draw();
-});
-
-$('.copyright-change-color').click(() => {
-  let copyrightColors;
-  if (typeof textColors !== 'undefined') {
-    copyrightColors = textColors;
-  } else {
-    copyrightColors = ['white', 'black'];
-  }
-  copyrightColorIndex += 1;
-  copyrightColorIndex %= copyrightColors.length;
   copyright.draw();
 });
 
@@ -48,16 +35,9 @@ const copyright = {
   draw() {
     copyright.svg.remove();
 
-    let copyrightColors;
-    if (typeof textColors !== 'undefined') {
-      copyrightColors = textColors;
-    } else {
-      copyrightColors = ['white', 'black'];
-    }
-
     copyright.svg = draw.text($('#copyright').val())
       .font(copyrightfont)
-      .fill(copyrightColors[copyrightColorIndex]);
+      .fill($('#copyrightcolor').val());
 
     let y;
 
