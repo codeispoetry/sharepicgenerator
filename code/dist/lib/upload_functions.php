@@ -184,7 +184,7 @@ function editVideoAndSendInfo($videofile, $thumbnail)
 function handleUploadByUrl()
 {
     $url = $_POST['url2copy'];
-    $extension = pathinfo($url, PATHINFO_EXTENSION);
+    $extension = pathinfo(parse_url($_POST['url2copy'], PHP_URL_PATH), PATHINFO_EXTENSION);
 
     // handle video upload
     if (substr($extension, 0, 3) == 'mp4') {

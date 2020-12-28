@@ -65,11 +65,6 @@ function reDraw(withAddPic = false) {
   }, 10);
 
   window.setTimeout(() => {
-    copyright.draw();
-    icon.load();
-  }, 20);
-
-  window.setTimeout(() => {
     logo.load();
     text.draw();
     addtext.draw();

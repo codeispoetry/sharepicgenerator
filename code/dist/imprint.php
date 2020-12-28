@@ -95,6 +95,9 @@
                     Bilder und Videos stammen von Pixabay, hier findest Du die 
                     <a href="https://pixabay.com/de/service/privacy/" target="_blank">Datenschutzerklärung von Pixabay</a>.
                     <br>
+                    oder von Pexels 
+                    <a href="https://www.pexels.com/de-de/privacy-policy/" target="_blank">Datenschutzerklärung von Pexels</a>.
+                    <br>
                     Icons stammen von TheNounProject, hier findest Du die 
                     <a href="https://thenounproject.com/legal/#!privacy-policy" target="_blank">Datenschutzerklärung von TheNounProject</a>.
                 </p>

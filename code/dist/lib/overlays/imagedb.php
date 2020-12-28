@@ -1,12 +1,12 @@
 <div class="col-12">
-    <div id="pixabay-search" class="overlay" style="display:none;">
-        <a href="#" class="close closer text-danger" data-target="#pixabay-search">
+    <div id="imagedb-search" class="overlay" style="display:none;">
+        <a href="#" class="close closer text-danger" data-target="#imagedb-search">
             <i class="fas fa-times"></i>
         </a>
-        <div class="pixabay-hint">
-            <a href="https://pixabay.com/" target="_blank" id="pixabay-link">
+        <div class="imagedb-hint">
+            <a href="#" target="_blank" id="imagedb-link">
                 Die Bilder stammen von
-                <img src="/assets/img/pixabay.svg" alt="Pixabay">
+                <span id="imagedb-carrier"></span>
             </a>
             <p>
                 Du darfst sie kostenlos und ohne Quellenangabe nutzen. Allerdings keine Bilder, auf denen einzelne 

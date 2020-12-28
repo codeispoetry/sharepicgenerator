@@ -1,23 +1,17 @@
-const copyrights = { };
-
 $('#copyright').bind('input propertychange', () => {
   copyright.draw();
 });
 
 // eslint-disable-next-line no-unused-vars
-function setCopyright(message, mode) {
+function setCopyright(message, carrier) {
   if (message === undefined) {
     return false;
   }
 
-  if (mode === 'pixabay') {
-    copyrights[mode] = `Foto: ${message}@pixabay.com`;
-  } else {
-    copyrights[mode] = `Icon: ${message}`;
-  }
+  const attribution = `Foto: ${message} / ${carrier}`;
 
   show('show-copyright');
-  $('#copyright').val(Object.values(copyrights).join(', '));
+  $('#copyright').val(attribution);
   copyright.draw();
   return true;
 }

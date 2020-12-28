@@ -35,20 +35,21 @@ if (!isAllowed(false)) {
                 </div>
             <?php } ?>
             <div>
-                <div class="input-group pixabay-select-type">
+                <div class="input-group -select-type">
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-images pixabay-selected-type"></i>
+                            <i class="fas fa-images imagedb-selected-type"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <span class="dropdown-item pixabay-search-in" data-files="images"><i class="fas fa-images"></i> Bilder</span>
-                            <span class="dropdown-item pixabay-search-in" data-files="video"><i class="fas fa-video"></i> Videos</span>
+                            <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="pixabay-images"><i class="fas fa-images"></i> Pixabay</span>
+                            <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="pexels-images"><i class="fas fa-images"></i> Pexels</span>
+                            <span class="dropdown-item imagedb-search-in" data-icon="video" data-files="pixabay-video"><i class="fas fa-video"></i> Videos</span>
                         </div>
                     </div>
 
-                    <input type="text" class="form-control" id="pixabay-direct-search-q" placeholder="Suchbegriff">
+                    <input type="text" class="form-control" id="imagedb-direct-search-q" placeholder="Suchbegriff">
                     <div class="input-group-append">
-                        <button type="button" class="input-group-text btn-primary pixabay-direct-search">suchen</button>
+                        <button type="button" class="input-group-text btn-primary imagedb-direct-search">suchen</button>
                     </div>
                 </div>
             </div>
