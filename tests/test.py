@@ -60,7 +60,7 @@ class sharepicgenerator(unittest.TestCase):
         # Upload picture
         driver.find_element_by_id("uploadfile").send_keys(os.getcwd()+"/assets/background.jpg")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-        time.sleep( 3 )
+        time.sleep( 6 )
 
         # Upload additional picture
         driver.find_element_by_xpath("//*[@data-target='.addpictures']").click()
