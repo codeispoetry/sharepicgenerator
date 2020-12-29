@@ -86,58 +86,7 @@ nextActionDay();
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hilfe
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-question-circle"></i> Anleitung</a>
-                    <?php if (configValue($tenant, 'showGallery')) { ?>
-                        <a href="#" class="overlay-opener dropdown-item" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
-                    <?php } ?>
-                    <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
-                        <i class="far fa-hand-point-right"></i> Aktionstage
-                    </a>
-                    <a href="/markdown" class="dropdown-item" target="_blank">
-                        <i class="fas fa-table"></i> Tabelle erstellen
-                    </a>                   
-                    <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
-                        <i class="fas fa-tape"></i> Designrichtlinien
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Über
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="https://chatbegruenung.de/channel/sharepicgenerator" class="dropdown-item" target="_blank">
-                    <i class="fas fa-comment-dots"></i> Feedback</a>
-                <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
-                    <i class="fab fa-github"></i> Quellcode</a>
-                </div>
-            </li>
-            <?php require_once('../menu.php'); ?>
-            <?php if (isEditor()) { ?>
-                <li class="nav-item">
-                    <a href="log/" class="nav-link font-italic"> Logfiles</a>
-                </li>
-            <?php } ?>
-        </ul>
-        <span class="navbar-text">
-            Eingeloggt als 
-            <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
-                <?php echo getUser(); ?>
-                <?php if (isEditor()) {
-                    echo '(Editor)';
-                }
-                ?>
-            </em>
-            <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
-        </span>
+        <?php require_once('../menu.php'); ?>
     </div>
     </nav>
 </header>
@@ -181,6 +130,8 @@ nextActionDay();
                 require_once(getBasePath('/lib/overlays/gallery.php'));
             }
             require_once(getBasePath('/lib/overlays/pictures.php'));
+            require_once(getBasePath('/lib/overlays/preferences.php'));
+
             ?>
 
             <div class="col-12 mt-3 mb-3">
