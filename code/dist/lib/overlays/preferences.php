@@ -48,8 +48,8 @@
         <div class="row mt-3">
             <div class="col-12">
                 <h3>Allgemein</h3>
-                Der Sharepicgenerator merkt sich von allein, ob Du Hilfslinien eingeschaltet hast, die erweiterten 
-                Funktion anzeigen möchtest und ob Du eine KV oder OV für das Logo nutzt.
+                Der Sharepicgenerator merkt sich von allein, ob Du Hilfslinien eingeschaltet hast und die erweiterten 
+                Funktion anzeigen möchtest oder nicht.
             </div>
         </div> 
     </div>
