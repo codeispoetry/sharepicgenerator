@@ -72,9 +72,7 @@ $('.upload-file').change(function changeFile() {
         afterUpload(obj);
         break;
       case 'uploadlogo':
-        $('#logoselect').append(new Option('Eigenes Logo', 'custom'));
-        $('#logoselect').val('custom');
-        logo.load();
+        alert('Um das neue Logo nutzen zu können, lade bitte den Sharepicgenerator neu (F5).');
         break;
       case 'uploadicon':
         $('#iconfile').val(obj.iconfile);

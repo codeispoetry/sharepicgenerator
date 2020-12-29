@@ -471,19 +471,20 @@ function debugPic($filename, $format)
     debug($debugTxt);
 }
 
-function deleteUserLogo($user)
+function deleteUserLogo($file)
 {
-    $userDir = getBasePath('persistent/user/' . $user);
+    $userDir = getBasePath('persistent/user/' . getUser());
 
     if (!file_exists($userDir)) {
         returnJsonErrorAndDie('not allowed');
     }
 
-    $logos = glob(sprintf('%s/logo.*', $userDir));
+    $file = $userDir . '/' . basename($file);
 
-    array_walk($logos, function (&$file) {
-        unlink($file);
-    });
+    if (!file_exists($file)) {
+        returnJsonErrorAndDie('logo not found');
+    }
+    unlink($file);
 
     returnJsonSuccessAndDie();
 }
