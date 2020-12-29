@@ -29,7 +29,7 @@ function getPexelsImages(q) {
         noPicturesFound();
       }
 
-      addClickActions('pexels');
+      addClickActions('pexels-images');
     },
     error(data, textStatus, jqXHR) {
       console.log(data, jqXHR);

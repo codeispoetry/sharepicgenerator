@@ -12,12 +12,15 @@ $('.imagedb-search-in').click(function imageDBSearchIn() {
   }
 });
 
-$('.imagedb-direct-search').click(performImageDBSearch);
+$('.imagedb-direct-search').click(() => performImageDBSearch());
 
-function performImageDBSearch() {
+function performImageDBSearch(carrier = false) {
   $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
+  if (carrier) {
+    config.imageDBSearchIn = carrier;
+  }
 
-  switch (config.imageDBSearchIn){
+  switch (config.imageDBSearchIn) {
     case 'pixabay-video':
       getPixabayVideos($('#imagedb-direct-search-q').val());
       break;
@@ -55,7 +58,7 @@ function addClickActions(carrier) {
     const attribution = $(this).data('user');
     $('#imagedb-search').hide();
     uploadFileByUrl($(this).data('url'), () => {
-      setCopyright(attribution, carrier);
+      setCopyright(attribution, carrier.replace(/-.*/, ''));
 
       if (typeof reDraw === 'function') {
         // eslint-disable-next-line no-undef
@@ -69,9 +72,18 @@ function addClickActions(carrier) {
       $('#waiting').hide();
     });
   });
+
+  $('[data-carrier]', '.imagedb-hint').addClass('text-primary');
+  $(`[data-carrier=${carrier}]`, '.imagedb-hint').removeClass('text-primary');
 }
 
 function noPicturesFound() {
   const q = $('#imagedb-direct-search-q').val();
   $('#imagedb-search .results').html(`Es wurden keine Bilder für ${q} gefunden.`);
 }
+
+$(document).ready(() => {
+  $('.imagedb-search').click(function imageDBSearch() {
+    performImageDBSearch($(this).data('carrier'));
+  });
+});
