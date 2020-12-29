@@ -51,6 +51,9 @@ function savePic($user, $data)
     return true;
 }
 
+/**
+ * @deprecated deprecated
+ */
 function saveUserPreferences()
 {
     $data = $_POST['sharepic'];
@@ -62,7 +65,9 @@ function saveUserPreferences()
     file_put_contents(getUserDir() . '/preferences.json', json_encode($prefs));
 }
 
-
+/**
+ * @deprecated deprecated
+ */
 function readUserPreferences()
 {
     $prefsFile = getUserDir() . '/preferences.json';
@@ -76,6 +81,9 @@ function readUserPreferences()
     return $prefs;
 }
 
+/**
+ * @deprecated deprecated
+ */
 function getUserPref($var)
 {
     $prefs = readUserPreferences();
@@ -84,4 +92,26 @@ function getUserPref($var)
     }
 
     return $prefs[$var];
+}
+
+function getUserPrefs()
+{
+
+    $db = new SQLite3(getBasePath('log/logs/user.db'));
+
+    $smt = $db->prepare(
+        'SELECT prefs FROM user WHERE user=:user'
+    );
+    $smt->bindValue(':prefs', $_POST['prefs'], SQLITE3_TEXT);
+    $smt->bindValue(':user', getUser(), SQLITE3_TEXT);
+
+    $result = $smt->execute();
+ 
+    $array = $result->fetchArray();
+
+    if (empty($array)) {
+        return false;
+    }
+
+    return $array['prefs'];
 }
