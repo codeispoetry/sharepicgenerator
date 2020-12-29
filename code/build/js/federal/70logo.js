@@ -157,6 +157,10 @@ $('#logoselect').on('change', function changeLogo() {
     return;
   }
 
+  config.user.prefs.lastLogo = $(this).val();
+  console.log(config.user.prefs.lastLogo)
+  setUserPrefs();
+
   logo.load();
 });
 
@@ -180,5 +184,10 @@ $('#logochapter').focusout(function () {
 $(document).ready(() => {
   if (config.user.prefs.logoChapter) {
     $('#logochapter').val(config.user.prefs.logoChapter);
+  }
+
+  if (config.user.prefs.lastLogo) {
+    $('#logoselect').val(config.user.prefs.lastLogo);
+    logo.load();
   }
 });
