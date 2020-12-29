@@ -132,6 +132,8 @@ nextActionDay();
             require_once(getBasePath('/lib/overlays/pictures.php'));
             require_once(getBasePath('/lib/overlays/imagedb.php'));
             require_once(getBasePath('/lib/overlays/preferences.php'));
+            require_once(getBasePath('/lib/overlays/faq.php'));
+
 
 
             ?>
