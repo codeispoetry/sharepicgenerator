@@ -22,28 +22,23 @@ $saveingallery = $_POST['saveingallery'];
 $values = array();
 parse_str($data, $values);
 $backgroundfile = $values[ 'fullBackgroundName' ];
-if ($values[ 'addpicfile1' ]) {
-    $addpic1 = getBasePath('tmp/'. basename($values[ 'addpicfile1' ]));
+for ($i = 1; $i <=5; $i++) {
+    if ($values[ 'addpicfile' . $i ]) {
+        ${"addpic" . $i}  = getBasePath('tmp/'. basename($values[ 'addpicfile' . $i ]));
+        $values[ 'addpicfile' . $i ] = 'addpic' . $i .'.jpg';
+    }
 }
-if ($values[ 'addpicfile2' ]) {
-    $addpic2 = getBasePath('tmp/'. basename($values[ 'addpicfile2' ]));
-}
+
 $ext = pathinfo($backgroundfile, PATHINFO_EXTENSION);
 $newBackgroundName = 'background.' . $ext;
 
 $values[ 'savedBackground' ] = $newBackgroundName;
-if ($addpic1 != '') {
-    $values[ 'addpicfile1' ] = 'addpic1.jpg';
-}
-if ($addpic2 != '') {
-    $values[ 'addpicfile2' ] = 'addpic2.jpg';
-}
 unset($values[ 'backgroundURL' ]);
 
 file_put_contents($datafile, json_encode($values));
 
 // zip
-$assets = "$backgroundfile $addpic1 $addpic2";
+$assets = "$backgroundfile $addpic1 $addpic2 $addpic3 $addpic4 $addpic5";
 $command = sprintf('zip -j %s %s %s 2>&1', $zipfile, $datafile, $assets);
 exec($command, $output);
 $debug = $command;
@@ -55,14 +50,11 @@ exec($command, $output);
 $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename($backgroundfile), $newBackgroundName, $zipfile);
 exec($command, $output);
 
-if ($addpic1 != '') {
-    $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename($addpic1), 'addpic1.jpg', $zipfile);
-    exec($command, $output);
-}
-
-if ($addpic2 != '') {
-    $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename($addpic2), 'addpic2.jpg', $zipfile);
-    exec($command, $output);
+for ($i = 1; $i <=5; $i++) {
+    if (${"addpic" . $i} != '') {
+        $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename(${"addpic" . $i}), 'addpic' . $i .'.jpg', $zipfile);
+        exec($command, $output);
+    }
 }
 
 if ($saveingallery == 'true') {

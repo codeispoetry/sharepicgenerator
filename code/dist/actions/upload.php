@@ -39,6 +39,9 @@ switch ($id) {
         break;
     case "uploadaddpic1":
     case "uploadaddpic2":
+    case "uploadaddpic3":
+    case "uploadaddpic4":
+    case "uploadaddpic5":
         handleAddPicUpload($extension);
         break;
     case "uploadwork":

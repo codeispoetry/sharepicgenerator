@@ -246,19 +246,19 @@ if (!isAllowed(false)) {
         <div class="addpictures expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
-                for ($i = 1; $i <=2; $i++) {
+                for ($i = 1; $i <=5; $i++) {
                     $divclass='mb-1 list-group-item-content';
                     if ($i > 1) {
                         $divclass .= ' show-add-pic-upload d-none';
                     }
                 ?>
-                    <div class="<?= $divclass; ?>">
+                    <div class="<?= $divclass; ?> show-add-pic-<?= $i; ?>">
                         <div class="d-flex w-100 justify-content-between">
                          <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
                             <i class="fa fa-upload"></i> <?= $i; ?>. Bild hochladen
                         </span>
 
-                        <div class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>">
+                        <div class="text-primary cursor-pointer d-none">
                             <?php if ($i == 2) { ?>
                                 <span class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
                                     <i class="fas fa-align-justify" title="angleichen"></i>
@@ -549,28 +549,26 @@ if (!isAllowed(false)) {
         <input type="hidden" name="backgroundY" id="backgroundY">
         <input type="hidden" name="backgroundURL" id="backgroundURL">
         <input type="hidden" name="iconfile" id="iconfile">
-        <input type="hidden" name="addpicfile1" id="addpicfile1">
-        <input type="hidden" name="addpicfile2" id="addpicfile2">
+
+        
         <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
         <input type="hidden" name="addtextX" id="addtextX">
         <input type="hidden" name="addtextY" id="addtextY">
-        <input type="hidden" name="addPic1x" id="addPic1x">
-        <input type="hidden" name="addPic1y" id="addPic1y">
-        <input type="hidden" name="addPic2x" id="addPic2x">
-        <input type="hidden" name="addPic2y" id="addPic2y">
+        <?php for($i=1; $i <= 5; $i++) { ?>
+            <input type="hidden" name="addpicfile<?php echo $i;?>" id="addpicfile<?php echo $i;?>">
+            <input type="hidden" name="addPic<?php echo $i;?>x" id="addPic<?php echo $i;?>x">
+            <input type="hidden" name="addPic<?php echo $i;?>y" id="addPic<?php echo $i;?>y">
+            <input type="file" class="custom-file-input upload-file" id="uploadaddpic<?php echo $i;?>" accept="image/*">
+        <?php } ?>
         <input type="hidden" name="textColor" id="textColor" value="0">
         <input type="hidden" name="eraser" id="eraser">
         <input type="hidden" name="copyrightcolor" id="copyrightcolor" value="white">
 
-
-
         <input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,.heic,video/mp4">
         <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
-        <input type="file" class="custom-file-input upload-file" id="uploadaddpic1" accept="image/*">
-        <input type="file" class="custom-file-input upload-file" id="uploadaddpic2" accept="image/*">
         <input type="file" class="custom-file-input upload-file" id="uploadwork" accept="application/zip">
     </div>
 </form>

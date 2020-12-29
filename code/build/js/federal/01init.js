@@ -58,6 +58,9 @@ function reDraw(withAddPic = false) {
   if (withAddPic === true) {
     addPic1.draw();
     addPic2.draw();
+    addPic3.draw();
+    addPic4.draw();
+    addPic5.draw();
   }
 
   window.setTimeout(() => {

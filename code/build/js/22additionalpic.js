@@ -77,6 +77,15 @@ function addpicAlign() {
 const addPic2 = { ...addPic1 };
 addPic2.i = 2;
 
+const addPic3 = { ...addPic1 };
+addPic3.i = 3;
+
+const addPic4 = { ...addPic1 };
+addPic4.i = 4;
+
+const addPic5 = { ...addPic1 };
+addPic5.i = 5;
+
 $('#addPicSize1').bind('input propertychange', () => { addPic1.resize(); });
 $('#addpicrounded1').bind('change', () => { addPic1.draw(); });
 $('#addpicroundedbordered1').bind('change', () => { addPic1.draw(); });
@@ -86,3 +95,18 @@ $('#addPicSize2').bind('input propertychange', () => { addPic2.resize(); });
 $('#addpicrounded2').bind('change', () => { addPic2.draw(); });
 $('#addpicroundedbordered2').bind('change', () => { addPic2.draw(); });
 $('#addpicdelete2').bind('click', () => { addPic2.delete(); });
+
+$('#addPicSize3').bind('input propertychange', () => { addPic3.resize(); });
+$('#addpicrounded3').bind('change', () => { addPic3.draw(); });
+$('#addpicroundedbordered3').bind('change', () => { addPic3.draw(); });
+$('#addpicdelete3').bind('click', () => { addPic3.delete(); });
+
+$('#addPicSize4').bind('input propertychange', () => { addPic4.resize(); });
+$('#addpicrounded4').bind('change', () => { addPic4.draw(); });
+$('#addpicroundedbordered4').bind('change', () => { addPic4.draw(); });
+$('#addpicdelete4').bind('click', () => { addPic4.delete(); });
+
+$('#addPicSize5').bind('input propertychange', () => { addPic5.resize(); });
+$('#addpicrounded5').bind('change', () => { addPic5.draw(); });
+$('#addpicroundedbordered5').bind('change', () => { addPic5.draw(); });
+$('#addpicdelete5').bind('click', () => { addPic5.delete(); });
