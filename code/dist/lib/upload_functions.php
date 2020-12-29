@@ -122,19 +122,23 @@ function handleLogoUpload($extension)
 
     $userDir = getUserDir();
 
-    $filename = $userDir . '/logo.' . $extension;
+    $filename = $userDir . '/' . uniqid('logo_') . '.' . $extension;
     move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     if ($extension != 'png') {
         $command = sprintf(
-            "convert -resize 500x500 -background none %s %s/logo.png",
+            "convert -resize 500x500 -background none %s %s/%s.png",
             $filename,
-            $userDir
+            $userDir,
+            pathinfo($filename, PATHINFO_FILENAME)
         );
         exec($command);
+        unlink($filename);
     }
 
     $return['okay'] = true;
+    $return['file'] = $filename;
+
     echo json_encode($return);
     die();
 }

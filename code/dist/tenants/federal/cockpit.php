@@ -318,14 +318,20 @@ if (!isAllowed(false)) {
                     ?>
                     
                     <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
+                        $logos = glob(getBasePath('persistent/user/' . $user . '/logo_*'));
+                        if (!empty($logos)) {
+                    ?>
+                        <optgroup label="Eigene Logos">
+                        <?php
+                            $i = 1;
+                            foreach($logos as $logo) {
+                                printf('<option value="custom" data-file="%s">Logo #%s</option>', $logo, $i);
+                                $i++;
+                            }
                         ?>
-                        <optgroup label="Eigenes Logo">
-                            <option value="custom" selected>eigenes Logo</option>
-                            <option value="deletecustomlogo">eigenes Logo löschen</option>
                         </optgroup>
                     <?php
-                    }
+                        }
                     ?>
                    
                     <optgroup label="Speziallogos">
@@ -338,6 +344,7 @@ if (!isAllowed(false)) {
                     </optgroup>
                 </select>
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
+                 <i class="fa fa-trash text-primary cursor-pointer overlay-opener nav-lin ml-2" data-target="preferences" title="Logos löschen"></i>
 
             </div>
             <div class="">

@@ -18,7 +18,7 @@ if (!isAllowed(true)) {
 
 switch ($_POST['action']) {
     case 'logo':
-        deleteUserLogo(getUser());
+        deleteUserLogo($_POST['file']);
         break;
     case 'workfile':
         deleteWorkfile($_POST['workfileiId']);

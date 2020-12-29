@@ -61,7 +61,6 @@ const logo = {
       position: 'topright',
     },
     custom: {
-      file: `/persistent/user/${config.user}/logo.png`,
       widthFraction: 0.2,
       position: 'topright',
     },
@@ -136,29 +135,12 @@ const logo = {
 logo.load();
 
 $('#logoselect').on('change', function changeLogo() {
-  if ($(this).val() === 'deletecustomlogo') {
-    // eslint-disable-next-line no-restricted-globals
-    if (!confirm('Eigenes Logo wirklich dauerhaft löschen?')) {
-      return;
-    }
-
-    $('#logoselect').val($('#logoselect option:first').val());
-
-    $.post('/actions/delete.php', { action: 'logo', csrf: config.csrf })
-      .done((response) => {
-        const data = JSON.parse(response);
-        if (data.error) {
-          return false;
-        }
-        return true;
-      });
-
+  if ($(this).val() === 'custom') {
+    logo.config.custom.file = $('#logoselect option:selected').data('file');
     logo.load();
-    return;
   }
 
   config.user.prefs.lastLogo = $(this).val();
-  console.log(config.user.prefs.lastLogo)
   setUserPrefs();
 
   logo.load();
@@ -187,7 +169,38 @@ $(document).ready(() => {
   }
 
   if (config.user.prefs.lastLogo) {
+    if (config.user.prefs.lastLogo === 'custom' && $('#logoselect option[value=custom]').length === 0) {
+      config.user.prefs.lastLogo = $('#logoselect option:first').val();
+    } else {
+      logo.config.custom.file = $('#logoselect option[value=custom]').data('file');
+    }
+
     $('#logoselect').val(config.user.prefs.lastLogo);
+
     logo.load();
   }
+
+  $('.delete-logo').click(function deleteLogo() {
+    // eslint-disable-next-line no-restricted-globals
+    if (!confirm('Logo wirklich löschen?')) {
+      return false;
+    }
+    const file = $(this).data('file');
+
+    $.post('/actions/delete.php', { action: 'logo', csrf: config.csrf, file })
+      .done((response) => {
+        const data = JSON.parse(response);
+
+        if (data.error) {
+          alert(data.error.code);
+          return false;
+        }
+        return true;
+      });
+
+    $('#logoselect').val($('#logoselect option:first').val());
+    $(this).parents('.samplesharepic').fadeOut().hide();
+
+    return true;
+  });
 });
