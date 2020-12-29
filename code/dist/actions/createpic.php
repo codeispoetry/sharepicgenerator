@@ -66,7 +66,6 @@ if (isset($_POST['addtogallery']) and $_POST['addtogallery'] == "true") {
     saveInGallery($filename, $format, sanitizeUserinput($_POST['tenant']));
 }
 
-saveUserPreferences();
 logDownload();
 
 $return = [];
