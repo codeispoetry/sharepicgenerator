@@ -14,14 +14,6 @@ body{
 
 
 #waiting {
-  font-size: 70px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  p{
-    font-size: 30px;
-  }
   &.active {
    display: flex;
   }
