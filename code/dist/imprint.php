@@ -33,7 +33,7 @@
     <div class="row mt-5">
       <div class="col-md-8 offset-md-2 ">
           <h4>Dies ist ein Angebot von:</h4>
-            <p class="pl-3">
+            <p class="">
                 Thomas Rose<br>
                 Frauenkirchstraße 20<br>
                 72800 Eningen unter Achalm<br>
@@ -42,10 +42,10 @@
             </p>
       </div>
 
-      <div class="col-md-8 offset-md-2 mt-5">
+      <div class="col-md-8 offset-md-2 mt-2">
           <h4>Datenschutz</h4>
 
-            <div class="pl-3">
+            <div class="">
                 <h5>Erfassung allgemeiner Informationen beim Besuch unserer Website</h5>
                 <p>
                 Wenn Sie auf unsere Website zugreifen, d.h., wenn Sie sich nicht registrieren oder anderweitig Informationen übermitteln, werden automatisch Informationen allgemeiner Natur erfasst. Diese Informationen (Server-Logfiles) beinhalten etwa die Art des Webbrowsers, das verwendete Betriebssystem, den Domainnamen Ihres Internet-Service-Providers, Ihre IP-Adresse und ähnliches.
@@ -100,6 +100,14 @@
                     <a href="https://unsplash.com/privacy" target="_blank">Datenschutzerklärung von Unsplash</a>.
                     oder von TheNounProject, hier findest Du die 
                     <a href="https://thenounproject.com/legal/#!privacy-policy" target="_blank">Datenschutzerklärung von TheNounProject</a>.
+                </p>
+
+                <h5 class="mt-3">Recht auf Vergessen</h5>
+                <p>
+                    Du hast das Recht, dass alle Daten, die der Sharepicgenerator über Dich und von Dir speichert, gelöscht werden.
+                    Zu diesen Daten gehören hochgeladene Logos, für einige Tage eine Miniaturversion erzeugter Sharepics und evtl. 
+                    Logbucheinträge. Um diese Daten löschen zu lassen, schreibe bitte eine E-Mail 
+                    an <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">mail@tom-rose.de</a>.
                 </p>
                 <p class="mt-5"></p>        
             </div>
