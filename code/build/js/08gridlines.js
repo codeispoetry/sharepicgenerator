@@ -1,7 +1,4 @@
-$('#gridlines').bind('change', () => {
-  $('.gridline').toggleClass('d-none');
-});
-
+/* eslint-disable no-undef */
 // eslint-disable-next-line no-unused-vars
 function showMosaicLines() {
   for (let i = 1; i <= 2; i++) {
@@ -14,3 +11,19 @@ function showMosaicLines() {
 function deleteMosaicLines() {
   $('.mosaicline').remove();
 }
+
+$(document).ready(() => {
+  if (config.user.prefs.showGridlines) {
+    $('#gridlines').bootstrapToggle('on');
+    $('.gridline').removeClass('d-none');
+  } else {
+    $('#gridlines').bootstrapToggle('off');
+    $('.gridline').addClass('d-none');
+  }
+
+  $('#gridlines').bind('change', () => {
+    $('.gridline').toggleClass('d-none');
+    config.user.prefs.showGridlines = !$('.gridline').hasClass('d-none');
+    setUserPrefs();
+  });
+});

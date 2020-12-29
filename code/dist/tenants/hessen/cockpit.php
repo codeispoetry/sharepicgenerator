@@ -456,7 +456,7 @@ Text für das Sharepic!</textarea>
         <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 align-items-center">
                 <span class="ml-5 mr-2">Hilflinien:</span>
-               <input id="gridlines" type="checkbox" checked data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
+               <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
             </div>
         </div>
 

@@ -63,7 +63,7 @@ nextActionDay();
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
     <script>
-        <?php echo 'var config = {};'; ?>
+        var config = {};
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.user="%s";', $user); ?>
@@ -74,7 +74,9 @@ nextActionDay();
         config.uploadTime=-1;
         config.createTime=-1;
         config.pixabaySearchStrings='';
-        config.format='png';    
+        config.format='png';
+        config.user = {};
+        config.user.prefs = {};
     </script>
 </head>
 <body>
@@ -190,6 +192,7 @@ if (isset($_GET['usePicture'])) {
     printf('uploadFileByUrl(`../tenants/federal/%s`, () => {})', $_GET['usePicture']);
 }
 ?>
+    config.user.prefs = jQuery.parseJSON('<?php print_r(getUserPrefs()); ?>');
 </script>
 
 </body>

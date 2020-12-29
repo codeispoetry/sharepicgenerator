@@ -33,7 +33,8 @@ function saveLastLogin($user)
     if (isAdmin()) {
         $db->exec('CREATE TABLE IF NOT EXISTS user(
             user TEXT PRIMARY KEY,
-            last_login DATETIME)');
+            last_login DATETIME,
+            prefs TEXT)');
     }
 
     if (getLastLogin($user) === false) {
