@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <?php
-            $logos = glob(getBasePath('persistent/user/' . $user . '/logo_*'));
+            $logos = glob(getBasePath('persistent/user/' . $user . '/logo*'));
    
             if (!empty($logos)) {
                 $i = 1;

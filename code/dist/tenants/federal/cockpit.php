@@ -318,7 +318,7 @@ if (!isAllowed(false)) {
                     ?>
                     
                     <?php
-                        $logos = glob(getBasePath('persistent/user/' . $user . '/logo_*'));
+                        $logos = glob(getBasePath('persistent/user/' . $user . '/logo*'));
                         if (!empty($logos)) {
                     ?>
                         <optgroup label="Eigene Logos">
