@@ -124,16 +124,21 @@ header .container {
           <li>für Bilder und Videos</li>
           <li>Templates für alle gängigen Social-Media-Plattformen</li>
           <li>eigenes Bild hochladbar</li>
-          <li>mobil voll nutzbar</li>
+          <li>mobil nutzbar</li>
           <li>herunterladbare Zwischenspeicherung von bearbeiteten Sharepics</li>
           <li>mandantenfähig</li>
-          <li>Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a></li>
+          <li>
+              Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a>,
+              <a href="https://pexels.com/de-de" target="_blank">Pexels</a> und 
+              <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+          </li>
           <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
-          <li>eigenes Logo wird dauerhaft gespeichert</li>
-          <li>Schwarz-weiß-Filter für Hintergrundbild</li>
+          <li>eigene Logos werden dauerhaft gespeichert</li>
+          <li>Schwarz-weiß- und andere Filter für Hintergrundbild</li>
           <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
           <li><em>und vieles mehr</em></li>
         </ul>
+        <p class="mt-5"></p>
       </div>
     </div>
   </div>
