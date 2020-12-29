@@ -19,7 +19,7 @@ function loadFormData(formdata) {
 
   $(`input.layout[value=${formdata.layout}]`).prop('checked', true);
 
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 5; i++) {
     if ($(`#addpicfile${i}`).val()) {
       show(`show-add-pic-${i}`);
     }
@@ -52,6 +52,7 @@ function savework() {
     data: { csrf: config.csrf, data },
     success(saveWorkData) {
       const obj = JSON.parse(saveWorkData);
+      console.log(saveWorkData);
       const downloadname = getDownloadName();
       window.location.href = `/actions/downloadwork.php?basename=${obj.basename}&downloadname=${downloadname}`;
     },
@@ -63,6 +64,10 @@ function loadSavework(obj) {
   const json = JSON.parse(obj.data);
   if (json.addpicfile1 !== '') { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; }
   if (json.addpicfile2 !== '') { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; }
+  if (json.addpicfile3 !== '') { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; }
+  if (json.addpicfile4 !== '') { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; }
+  if (json.addpicfile5 !== '') { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; }
+
   uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
     loadFormData(json);
   });

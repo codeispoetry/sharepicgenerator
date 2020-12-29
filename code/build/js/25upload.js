@@ -94,11 +94,36 @@ $('.upload-file').change(function changeFile() {
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic2.draw();
         break;
+      case 'uploadaddpic3':
+        $('#addpicfile3').val(obj.addpicfile);
+        show('show-add-pic-3');
+        show('show-copyright');
+        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
+        addPic3.draw();
+        break;
+      case 'uploadaddpic4':
+        $('#addpicfile4').val(obj.addpicfile);
+        show('show-add-pic-4');
+        show('show-copyright');
+        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
+        addPic4.draw();
+        break;
+      case 'uploadaddpic5':
+        $('#addpicfile5').val(obj.addpicfile);
+        show('show-add-pic-5');
+        show('show-copyright');
+        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
+        addPic5.draw();
+        break;
       case 'uploadwork':
         {
           const json = JSON.parse(obj.data);
           if (json.addpicfile1 !== '') { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; }
           if (json.addpicfile2 !== '') { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; }
+          if (json.addpicfile3 !== '') { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; }
+          if (json.addpicfile4 !== '') { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; }
+          if (json.addpicfile5 !== '') { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; }
+
           uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
             loadFormData(json);
           });
@@ -238,9 +263,8 @@ $('.uploadworkclicker').click(() => {
   $('#uploadwork').click();
 });
 
-$('.addpicclicker1').click(() => {
-  $('#uploadaddpic1').click();
-});
-$('.addpicclicker2').click(() => {
-  $('#uploadaddpic2').click();
-});
+for (let i = 1; i <= 5; i++) {
+  $(`.addpicclicker${i}`).click(() => {
+    $(`#uploadaddpic${i}`).click();
+  });
+}
