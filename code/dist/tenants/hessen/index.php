@@ -66,7 +66,6 @@ nextActionDay();
         <?php echo 'var config = {};'; ?>
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
-        <?php printf('config.user="%s";', $user); ?>
         <?php printf('config.tenant="%s";', "hessen"); ?>
         config.imageDBSearchIn="images";
         config.backgroundSource="standard";
@@ -75,7 +74,8 @@ nextActionDay();
         config.createTime=-1;
         config.pixabaySearchStrings='';
         config.format='png';    
-
+        config.user = {};  
+        config.user.prefs = {};
 
     </script>
 </head>
@@ -191,6 +191,8 @@ if (isset($_GET['usePicture'])) {
     printf('uploadFileByUrl(`../tenants/hessen/%s`, () => {})', $_GET['usePicture']);
 }
 ?>
+    config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');
+
 </script>
 
 </body>

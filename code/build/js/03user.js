@@ -4,7 +4,6 @@ function setUserPrefs() {
     url: '/actions/user.php',
     data: {
       prefs: JSON.stringify(config.user.prefs),
-      user: config.user,
       csrf: config.csrf,
     },
     success(response) {
