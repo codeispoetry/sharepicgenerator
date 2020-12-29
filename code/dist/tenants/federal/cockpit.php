@@ -242,7 +242,7 @@ if (!isAllowed(false)) {
             </div>
         </div>
 
-        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundilder</h3>
+        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundbilder</h3>
         <div class="addpictures expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
