@@ -138,12 +138,7 @@ $('.upload-file').change(function changeFile() {
   client.upload.onprogress = function onProgress(e) {
     const p = Math.round((100 / e.total) * e.loaded);
 
-    if (p < 95) {
-      $('#uploadpercentage').html(p);
-    } else {
-      $('#uploadstatus').html('Dein Bild wird verarbeitet...');
-      $('#beinguploaded').hide();
-    }
+    showStatus(p);
   };
 
   client.onabort = function onAbort() {
@@ -173,12 +168,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   client.upload.onprogress = function onProgress(e) {
     const p = Math.round((100 / e.total) * e.loaded);
 
-    if (p < 95) {
-      $('#uploadpercentage').html(p);
-    } else {
-      $('#uploadstatus').html('Dein Bild wird verarbeitet...');
-      $('#beinguploaded').hide();
-    }
+    showStatus(p);
   };
 
   client.onload = function onLoad(e) {
@@ -210,6 +200,22 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
 
   client.open('POST', '/actions/upload.php');
   client.send(formData);
+}
+
+function showStatus(p) {
+  if (p < 95) {
+    $('#uploadbar').show();
+    $('#uploadstatus').show();
+    $('#beinguploaded').html('Deine Datei wird hochgeladen.');
+    $('#uploadpercentage').html(p);
+    $('#uploadbar div').width(`${p}%`);
+    $('#waiting .loader').hide();
+  } else {
+    $('#uploadstatus').hide();
+    $('#beinguploaded').html('Deine Datei wird verarbeitet.');
+    $('#uploadbar').hide();
+    $('#waiting .loader').show();
+  }
 }
 
 function afterUpload(data) {
