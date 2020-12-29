@@ -28,7 +28,7 @@ function getUnsplashImages(q) {
         noPicturesFound();
       }
 
-      addClickActions('unsplash');
+      addClickActions('unsplash-images');
     },
     error(data, textStatus, jqXHR) {
       console.log(data, jqXHR);

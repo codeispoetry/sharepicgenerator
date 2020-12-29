@@ -80,7 +80,7 @@ function getPixabayImages(q) {
       data.hits.forEach((image) => {
         $('#imagedb-search .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user}" class="img-fluid">`);
       });
-      addClickActions('pixabay');
+      addClickActions('pixabay-images');
 
       if (!data.hits.length) {
         noPicturesFound();
