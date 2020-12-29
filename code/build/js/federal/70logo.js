@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const logofont = {
   family: 'FuturaCondensedExtraBold',
   size: 78,
@@ -169,3 +170,15 @@ $('#logosize').bind('input propertychange', () => {
 });
 
 $('#logochapter').bind('input propertychange', () => logo.load());
+
+// eslint-disable-next-line func-names
+$('#logochapter').focusout(function () {
+  config.user.prefs.logoChapter = $(this).val();
+  setUserPrefs();
+});
+
+$(document).ready(() => {
+  if (config.user.prefs.logoChapter) {
+    $('#logochapter').val(config.user.prefs.logoChapter);
+  }
+});
