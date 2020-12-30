@@ -44,6 +44,7 @@ $svg = preg_replace('/xlink:href="..\/..\/tmp\//', 'xlink:href="' . getBasePath(
 $svg = preg_replace('/xlink:href="\/tmp\//', 'xlink:href="' . getBasePath('tmp') . '/', $svg);
 $svg = preg_replace('/xlink:href="\/assets\//', 'xlink:href="' . getBasePath('assets') . '/', $svg);
 $svg = preg_replace('/xlink:href="\/persistent\//', 'xlink:href="' . getBasePath('persistent') . '/', $svg);
+$svg = preg_replace('/xlink:href="..\/..\/persistent\//', 'xlink:href="' . getBasePath('persistent') . '/', $svg);
 $svg = preg_replace('/xlink:href="..\/..\/tenants\//', 'xlink:href="' . getBasePath('tenants') . '/', $svg);
 
 
