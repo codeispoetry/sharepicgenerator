@@ -93,6 +93,9 @@ header .container {
             <a href="tenants/bw/" class="btn btn-info btn-sm d-none">
               <img src="assets/bw/one_lion_white.svg" style="height:1rem"> Baden-Württemberg
             </a>
+            <a href="tenants/hessen/" class="btn btn-info btn-sm">
+              <img src="assets/hessen/lion.svg" style="height:1rem"> Hessen
+            </a>
             <a href="tenants/frankfurt/" class="ml-1 btn btn-info btn-sm">
               <img src="tenants/frankfurt/skyline-white.svg" style="height:1rem"> Frankfurt
             </a>

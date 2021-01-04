@@ -48,6 +48,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a href="/federal" class="dropdown-item">Deutschland</a>
+            <a href="/hessen" class="dropdown-item">Hessen</a>
             <a href="/frankfurt" class="dropdown-item">Frankfurt</a>
         </div>
     </li>
