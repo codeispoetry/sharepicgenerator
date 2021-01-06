@@ -119,7 +119,7 @@ const hessenfullwidth = {
 
     text.svg.add(fonds);
 
-    const url = draw.text('gruene-hessen.de')
+    const url = draw.text($('#url').val())
       .font({ family: 'ArvoGruen', size: 14 })
       .fill('white').move(draw.width() - 165, fondsHeight - 40);
     text.svg.add(url);
@@ -149,4 +149,4 @@ const hessenfullwidth = {
 
 };
 
-$('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', hessenfullwidth.draw);
+$('#text, #textafter, #textbefore, #textsize, #graybehindtext, #url').bind('input propertychange', hessenfullwidth.draw);

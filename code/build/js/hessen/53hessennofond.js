@@ -150,7 +150,7 @@ const nolines = {
     $('#logoselect').val('hessen');
     logo.load();
 
-    nolines.url = draw.text('gruene-hessen.de')
+    nolines.url = draw.text($('#url').val())
       .font({ family: 'ArvoGruen', size: 14 })
       .fill('white').move(draw.width() - 165, draw.height() - 40);
 
@@ -160,4 +160,4 @@ const nolines = {
 
 };
 
-$('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);
+$('#text, #textafter, #textbefore, #textsize, #graybehindtext, #url').bind('input propertychange', nolines.draw);
