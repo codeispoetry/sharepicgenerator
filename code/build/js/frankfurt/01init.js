@@ -66,6 +66,7 @@ function reDraw(withAddPic = false) {
     nolines.draw();
     invers.draw();
     eraser.draw();
+    rePositionIcon();
   }, 100);
 
   window.setTimeout(() => {
