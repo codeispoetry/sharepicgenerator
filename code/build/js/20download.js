@@ -42,7 +42,6 @@ $('#download,.download').click(function onDownloadClick() {
       quality: config.quality,
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
-      csrf: config.csrf,
       videofile: config.videofile,
 
     },
