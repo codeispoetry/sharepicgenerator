@@ -7,7 +7,7 @@ useDeLocale();
 
 session_start();
 
-if (!isAllowed(true)) {
+if (!isAllowed()) {
     die();
 }
 
