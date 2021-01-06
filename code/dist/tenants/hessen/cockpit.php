@@ -226,10 +226,10 @@ Text für das Sharepic!</textarea>
             </div>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> 
+        <h3 class="collapsed" data-toggle="collapse" data-target=".url"><i class="fas fa-expand-arrows-alt"></i> 
             Internetadresse
         </h3>
-        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+        <div class="url collapse list-group-item list-group-item-action flex-column align-items-start novideo">
             <div class="d-flex w-100">
                <input name="url" id="url" placeholder="URL" value="gruene-hessen.de" class="form-control">
             </div>

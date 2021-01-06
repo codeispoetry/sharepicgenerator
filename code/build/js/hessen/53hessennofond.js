@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const nolines = {
   svg: draw.text(''),
+  url: draw.circle(0),
   grayBackground: draw.circle(0),
   colors: ['#ffffff', '#ffee00'],
   lineheight: 20,
@@ -150,9 +151,13 @@ const nolines = {
     $('#logoselect').val('hessen');
     logo.load();
 
+    nolines.url.remove();
     nolines.url = draw.text($('#url').val())
       .font({ family: 'ArvoGruen', size: 14 })
-      .fill('white').move(draw.width() - 165, draw.height() - 40);
+      .fill('white').move(0, draw.height() - 40);
+
+    const bbox = nolines.url.bbox();
+    nolines.url.x(draw.width() - bbox.width - 35);
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
