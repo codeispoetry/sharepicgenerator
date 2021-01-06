@@ -163,7 +163,7 @@ Text für das Sharepic!</textarea>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
+                        <small class="">Text in eckigen Klammern [ ] wird gelb</small>
                         <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote" style="display:none">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
@@ -171,7 +171,7 @@ Text für das Sharepic!</textarea>
                 </div>
 
 
-                <div class="mb-1 mt-2">
+                <div class="mb-1 mt-2 showonly nolines" style="display:none">
                     <div class="d-flex justify-content-between">
                         <div class="slider">
                             <small>klein</small>
