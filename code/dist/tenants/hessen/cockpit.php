@@ -99,7 +99,7 @@ if (!isAllowed(false)) {
             </div>
         </div>   
         
-        <h3 class="collapsed" data-toggle="collapse" data-target=".layout"><i class="fas fa-expand-arrows-alt"></i> 
+        <h3 class="collapsed" data-toggle="collapse" data-target=".picturesize"><i class="fas fa-expand-arrows-alt"></i> 
             Größe
             <small class="ml-2">
                 <i class="fab fa-instagram"></i>
@@ -107,7 +107,7 @@ if (!isAllowed(false)) {
                 <i class="fab fa-twitter"></i>
              </small>
             </h3>
-        <div class="layout collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+        <div class="picturesize collapse list-group-item list-group-item-action flex-column align-items-start novideo">
             <div class="d-flex w-100 justify-content-between align-items-center">
                 <div class="form-inline">
                     <div class="form-row sizecontainer">
