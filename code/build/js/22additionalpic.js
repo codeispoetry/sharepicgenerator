@@ -57,6 +57,9 @@ const addPic1 = {
     this.svg.remove();
     this.svg = draw.circle(0);
     hide(`show-add-pic-${this.i}`);
+    $(`#addPic${this.i}x`).val('');
+    $(`#addPic${this.i}y`).val('');
+    $(`#addPicSize${this.i}`).val('');
   },
 
   resize() {
