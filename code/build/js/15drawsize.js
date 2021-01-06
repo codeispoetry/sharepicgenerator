@@ -90,10 +90,11 @@ function calculateSizes() {
 
   $('#backgroundsize').attr('min', draw.width());
   $('#backgroundsize').attr('max', draw.width() * 5);
-  $('#backgroundsize').val(draw.width());
+  $('#backgroundsize').val(draw.width() + 2); // this is for bugfixing, see 2 lines below
 
   $('#backgroundX').val(0);
-  $('#backgroundY').val(0);
+  // the -1 is for bugfixing, otherwise inkscape produces a blank row sometimes
+  $('#backgroundY').val(-1);
 
   reset();
 }
