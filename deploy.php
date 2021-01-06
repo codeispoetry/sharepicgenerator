@@ -23,6 +23,8 @@ set('shared_dirs', [
     'tenants/frankfurt/pictures/img',
     'tenants/bw/pictures/img',
     'tenants/bw/gallery/img',
+    'tenants/rlp/pictures/img',
+    'tenants/rlp/gallery/img',
     'log/logs',
 ]);
 

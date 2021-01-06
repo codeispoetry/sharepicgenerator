@@ -84,7 +84,7 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 1. Copy dir code/dist/tenants/federal and rename it
 2. Edit $tenant in index.php several times. Use Ctrl-F
 2. Edit $tenant in log/index.php
-2. create sections in config.ini for new tenanant
+2. create section in config.ini for new tenanant
 3. Copy code/build/js/federal 
 4. Copy code/webpack.tenats/federal.js and edit two times 'federal'
 5. edit .htaccess
@@ -92,5 +92,5 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 5. make compile
 
 # Enable logging
-To create or update the downlaods-table for logging, log in as Admin-User and download
-a sharepic with all the featurs or the new feature respectivly.
+To create or update the downloads-table for logging, log in as Admin-User and download
+a sharepic with all the features or the new feature respectivly.
