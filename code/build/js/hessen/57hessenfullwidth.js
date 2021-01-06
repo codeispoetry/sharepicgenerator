@@ -2,7 +2,6 @@
 const hessenfullwidth = {
   svg: draw.text(''),
   smalllogo: draw.text(''),
-
   grayBackground: draw.circle(0),
   colors: ['#ffff00', '#ffee00'],
   lineheight: 22,
@@ -121,7 +120,11 @@ const hessenfullwidth = {
 
     const url = draw.text($('#url').val())
       .font({ family: 'ArvoGruen', size: 14 })
-      .fill('white').move(draw.width() - 165, fondsHeight - 40);
+      .fill('white').move(0, fondsHeight - 40);
+
+    const bbox = url.bbox();
+    url.x(draw.width() - bbox.width - 35);
+
     text.svg.add(url);
 
     const smalllogo = draw.image('/assets/logos/sonnenblume.svg', () => {
