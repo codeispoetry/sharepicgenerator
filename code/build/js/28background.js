@@ -109,7 +109,8 @@ const background = {
   },
 
   hasRoundingError() {
-    return (draw.height() - background.svg.height() > 0);
+    // -1 is for bug inkscape, see 15drawsize.js, standard y-position $('#backgroundY').val(-1);
+    return (draw.height() - background.svg.height() > -1);
   },
 
   uncoveredAreaWarning() {
