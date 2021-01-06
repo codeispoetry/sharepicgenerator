@@ -10,7 +10,6 @@ const hessenfullwidth = {
   font: {
     anchor: 'left',
     leading: '1.0em',
-    size: 32,
   },
   fontoutsidelines: {
     family: 'ArvoGruen',
@@ -22,6 +21,11 @@ const hessenfullwidth = {
   draw() {
     if (config.layout !== 'hessenfullwidth') {
       return;
+    }
+
+    let isPortrait = false;
+    if ($('#sizepresets').val() === '1080:1920') { // InstaStory
+      isPortrait = true;
     }
 
     config.noBackgroundDragAndDrop = false;
@@ -81,8 +85,10 @@ const hessenfullwidth = {
             color = textColors[$('#textColor').val()];
           }
 
+          const size = (isPortrait) ? 14 : 32;
+
           add.tspan(values[i]).fill(color).font(
-            Object.assign(hessenfullwidth.font, { family: fontfamily }),
+            Object.assign(hessenfullwidth.font, { family: fontfamily, size }),
           );
 
           add.attr('xml:space', 'preserve');
@@ -118,14 +124,16 @@ const hessenfullwidth = {
 
     text.svg.add(fonds);
 
-    const url = draw.text($('#url').val())
-      .font({ family: 'ArvoGruen', size: 14 })
-      .fill('white').move(0, fondsHeight - 40);
+    if (!isPortrait) {
+      const url = draw.text($('#url').val())
+        .font({ family: 'ArvoGruen', size: 14 })
+        .fill('white').move(0, fondsHeight - 40);
 
-    const bbox = url.bbox();
-    url.x(draw.width() - bbox.width - 35);
+      const bbox = url.bbox();
+      url.x(draw.width() - bbox.width - 35);
 
-    text.svg.add(url);
+      text.svg.add(url);
+    }
 
     const smalllogo = draw.image('/assets/logos/sonnenblume.svg', () => {
       smalllogo.size(40);

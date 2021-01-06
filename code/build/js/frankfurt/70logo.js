@@ -24,7 +24,7 @@ const logo = {
       logo.logoFile.size(size)
         .move(size * 0.5, draw.height() - draw.height() * logo.heightFraction - size * 0.73);
 
-      if ($('#sizepresets').val() === '1080:1920') {
+      if ($('#sizepresets').val() === '1080:1920') { // Insta Story
         logo.logoFile.x(20);
       }
     });
