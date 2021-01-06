@@ -16,10 +16,19 @@ function setIcon(file) {
   $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
 
   if ($('#addPic99x').val() === '') {
-    $('#addPic99x').val(463);
-    $('#addPic99y').val(160);
-    $('#addPicSize99').val(36);
+    const widthPercent = 36;
+    const widthAbsolute = (draw.width() * widthPercent) * 0.01;
+
+    $('#addPic99x').val(draw.width() - widthAbsolute);
+    $('#addPic99y').val(draw.height() - widthAbsolute);
+    $('#addPicSize99').val(widthPercent);
   }
 
   addPic99.draw();
+}
+
+function rePositionIcon() {
+  const file = $('#addpicfile99').val();
+  $('#addPic99x').val('');
+  setIcon(file);
 }
