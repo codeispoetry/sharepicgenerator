@@ -23,6 +23,10 @@ const logo = {
     logo.logoFile = draw.image('/assets/logos/sonnenblume.svg', () => {
       logo.logoFile.size(size)
         .move(size * 0.5, draw.height() - draw.height() * logo.heightFraction - size * 0.73);
+
+      if ($('#sizepresets').val() === '1080:1920') {
+        logo.logoFile.x(20);
+      }
     });
   },
 
