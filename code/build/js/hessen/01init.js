@@ -69,4 +69,8 @@ function reDraw(withAddPic = false) {
     hessenfullwidth.draw();
     eraser.draw();
   }, 100);
+
+  window.setTimeout(() => {
+    hessenfullwidth.draw();
+  }, 500);
 }
