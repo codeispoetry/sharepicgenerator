@@ -1,5 +1,5 @@
-<h3 class="collapsed expertmode" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
-<div class="addtext expertmode list-group-item list-group-item-action flex-column align-items-start collapse">
+<h3 class="collapsed d-none" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
+<div class="addtext d-none list-group-item list-group-item-action flex-column align-items-start collapse">
     <div class="mb-1 list-group-item-content">
         <div class="d-flex align-items-lg-center">
             <textarea name="addtext" id="addtext" placeholder="Sternchentext" value="" class="form-control"></textarea>
