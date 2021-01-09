@@ -314,36 +314,7 @@ Rheinland-Pfalz</textarea>
                     <optgroup label="Logo mit Schriftzug">
                         <option value="logo-weiss">weiß, mit Schriftzug</option>
                         <option value="logo-gruen">grün, mit Schriftzug</option>
-                    </optgroup>
-
-                    <?php
-                    if ($landesverband == 3) {
-                        ?>
-                    <optgroup label="Berlin">
-                        <option value="logo-berlin-gruen">Berliner Logo in grün</option>
-                        <option value="logo-berlin-weiss" selected>Berliner Logo in weiß</option>
-                    </optgroup>
-                    <?php
-                    }
-                    ?>
-                    
-                    <?php
-                        $logos = glob(getBasePath('persistent/user/' . $user . '/logo*'));
-                        if (!empty($logos)) {
-                    ?>
-                        <optgroup label="Eigene Logos">
-                        <?php
-                            $i = 1;
-                            foreach($logos as $logo) {
-                                printf('<option value="custom" data-file="%s">Logo #%s</option>', $logo, $i);
-                                $i++;
-                            }
-                        ?>
-                        </optgroup>
-                    <?php
-                        }
-                    ?>
-                   
+                    </optgroup>                  
                     <optgroup label="Speziallogos">
                         <option value="frauenrechte">Frauenrechte</option>
                         <option value="regenbogen">Regenbogen</option>
