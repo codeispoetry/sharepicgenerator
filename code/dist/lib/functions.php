@@ -610,7 +610,7 @@ function tenantsSwitch($as)
     }
         
     // redirect, if s.o. is freshly logged in and wants to to go federal
-    if($tenant and $_SERVER['REQUEST_URI'] != '/tenants/federal/' and $_SERVER['REQUEST_URI'] != $tenant) {
+    if($tenant and $_SERVER['REQUEST_URI'] == '/tenants/federal/' and $_SERVER['REQUEST_URI'] != $tenant) {
         header('Location: ' . $tenant, true, 302);
         die();
     }
