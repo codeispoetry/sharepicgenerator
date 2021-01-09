@@ -115,3 +115,7 @@
   color:white;
   background: $purple !important;
 }
+
+input[type='file']{
+  display: none;
+}
