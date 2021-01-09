@@ -65,7 +65,8 @@ const pin = {
       [pinwidth, pinheight],
       [0, pinheight],
       [pinheight / 2, pinheight / 2],
-    ]).fill(bgColor);
+    ]);
+    pinbackground.fill(bgColor);
 
     pintext.move(28 + (countLines * 10), 9);
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
@@ -73,7 +74,7 @@ const pin = {
     const pinurl = draw.text($('#pinurl').val()).font(pinurlfont).fill('#ffffff');
     pinurl.move(28 + (countLines * 10), pinheight + 8);
 
-    // and in reverse order
+    // add in reverse order
     pin.svg.add(pinbackground);
     pin.svg.add(pintext);
     pin.svg.add(pinurl);
