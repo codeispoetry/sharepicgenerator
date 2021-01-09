@@ -291,18 +291,7 @@ der Text</textarea>
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
                         <option value="hessen">Sonnenblume</option>
-                    </optgroup>
-                    <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
-                        ?>
-                        <optgroup label="Eigenes Logo">
-                            <option value="custom" selected>eigenes Logo</option>
-                            <option value="deletecustomlogo">eigenes Logo löschen</option>
-                        </optgroup>
-                    <?php
-                    }
-                    ?>
-                   
+                    </optgroup>                  
                     <optgroup label="Speziallogos">
                         <option value="frauenrechte">Frauenrechte</option>
                         <option value="regenbogen">Regenbogen</option>
