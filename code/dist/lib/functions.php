@@ -591,13 +591,24 @@ function tenantsSwitch($as)
     $attributes = $as->getAttributes();
     $landesverband = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
 
-    // if ($landesverband == 1 and isset($_SERVER['HTTP_REFERER'])) {
-    //     if ('saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
-    //         // freshly logged in
-    //         header('Location: /tenants/bw', true, 302);
-    //         die();
-    //     }
-    // }
+    // freshly logged in
+    if (isset($_SERVER['HTTP_REFERER']) AND 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
+        switch ($landesverband){
+            case 1:
+                $tenant = '/tenants/bw/';
+                break;
+            default:
+                $tenant = false;
+        }
+            
+    }
+        
+    // redirect, if s.o. is freshly logged in and wants to to go federal
+    if($tenant and $_SERVER['REQUEST_URI'] != '/tenants/federal/' and $_SERVER['REQUEST_URI'] != $tenant) {
+        header('Location: ' . $tenant, true, 302);
+        die();
+    }
+        
 }
 
 function readConfig()
