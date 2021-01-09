@@ -597,6 +597,12 @@ function tenantsSwitch($as)
             case 1:
                 $tenant = '/tenants/bw/';
                 break;
+            case 7:
+                $tenant = '/tenants/hessen/';
+                break;
+            case 11:
+                $tenant = '/tenants/rlp/';
+                break;
             default:
                 $tenant = false;
         }
