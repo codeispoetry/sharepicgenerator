@@ -154,8 +154,8 @@ if (!isAllowed(false)) {
                            class="form-control showonly lines nolines d-none">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier erscheint der jeweilige
-Text für das Sharepic!</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier erscheint
+der Text</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="d-none form-control showonly lines nolines quote">
@@ -291,18 +291,7 @@ Text für das Sharepic!</textarea>
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
                         <option value="hessen">Sonnenblume</option>
-                    </optgroup>
-                    <?php
-                    if (file_exists(getBasePath('/persistent/user/' . $user . '/logo.png'))) {
-                        ?>
-                        <optgroup label="Eigenes Logo">
-                            <option value="custom" selected>eigenes Logo</option>
-                            <option value="deletecustomlogo">eigenes Logo löschen</option>
-                        </optgroup>
-                    <?php
-                    }
-                    ?>
-                   
+                    </optgroup>                  
                     <optgroup label="Speziallogos">
                         <option value="frauenrechte">Frauenrechte</option>
                         <option value="regenbogen">Regenbogen</option>

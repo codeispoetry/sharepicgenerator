@@ -24,7 +24,7 @@ const hessenfullwidth = {
     }
 
     let isPortrait = false;
-    if ($('#sizepresets').val() === '1080:1920') { // InstaStory
+    if (draw.height() > draw.width()) {
       isPortrait = true;
     }
 
