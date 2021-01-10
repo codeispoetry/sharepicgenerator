@@ -22,7 +22,8 @@
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier ist
-Rheinland-Pfalz</textarea>
+das Land
+!Rheinland-Pfalz</textarea>
                 </div>
                 <div class="d-none align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
