@@ -71,6 +71,11 @@ header .container {
 }
     </style>
 </head>
+<?php
+  require_once('base.php');
+  require_once('lib/functions.php');
+
+?>
 <body>
 <div class="container-fluid">
 
@@ -90,18 +95,17 @@ header .container {
           </a>
 
           <div class="d-flex mt-4">
-            <a href="tenants/bw/" class="btn btn-info btn-sm">
-              <img src="assets/bw/one_lion_white.svg" style="height:1rem"> Baden-Württemberg
-            </a>
-            <a href="tenants/hessen/" class="ml-1 btn btn-info btn-sm">
-              <img src="assets/hessen/lion.svg" style="height:1rem"> Hessen
-            </a>
-            <a href="tenants/rlp/" class="ml-1 btn btn-info btn-sm">
-              <img src="assets/rlp/lion.svg" style="height:1rem"> Rheinland-Pfalz
-            </a>
-            <a href="tenants/frankfurt/" class="ml-1 btn btn-info btn-sm">
-              <img src="tenants/frankfurt/skyline-white.svg" style="height:1rem"> Frankfurt
-            </a>
+          <?php
+            readConfig();
+            $tenants = configValue('Main','linkedTenants');
+            foreach ($tenants as $key => $value ){
+              printf('<a href="%1$s" class="btn btn-info btn-sm mr-1">
+                  <img src="assets/%1$s/logo.svg" style="height:1rem">%2$s</a>',
+                  $key,
+                  $value
+              );
+            }
+          ?>
           </div>
         </div>
       </div>
