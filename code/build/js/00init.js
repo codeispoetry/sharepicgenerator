@@ -14,7 +14,6 @@ $(document).ready(() => {
     $('head meta[name="viewport"]').attr('content', `width=800, initial-scale=${fraction}`);
   }
 
-  pin.draw();
   window.setTimeout(text.draw, 10);
   afterUpload(bgpic);
 
