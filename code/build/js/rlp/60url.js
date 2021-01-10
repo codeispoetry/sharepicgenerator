@@ -5,7 +5,7 @@ const url = {
     url.svg.remove();
     url.svg = draw.text($('#url').val())
       .font({ family: 'ArvoGruen', size: 14 })
-      .fill('white').move(20, draw.height() - 30);
+      .fill('white').move(30, draw.height() - 30);
   },
 };
 
