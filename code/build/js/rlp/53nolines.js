@@ -9,7 +9,7 @@ const nolines = {
   font: {
     anchor: 'left',
     leading: '1.0em',
-    size: 20,
+    family: 'FuturaCondensedExtraBold',
   },
   fontoutsidelines: {
     family: 'FuturaCondensedExtraBold',
@@ -47,7 +47,6 @@ const nolines = {
     }
 
     lines = lines.replace(/\n$/, '').split(/\n/);
-    const fontfamily = 'FuturaCondensedExtraBold';
 
     const lineBeginsY = [];
     const linesRendered = [];
@@ -59,6 +58,14 @@ const nolines = {
       // the main text
       const values = value.split(/\[|\]/);
 
+      let fontsize = 20;
+      let bgheight = 24;
+      if (value.startsWith('!')) {
+        fontsize = 30;
+        bgheight = 38;
+        values[0] = values[0].substring(1);
+      }
+
       const t = draw.text((add) => {
         for (let i = 0; i < values.length; i++) {
           style = (style === 0) ? 1 : 0;
@@ -67,9 +74,10 @@ const nolines = {
           if (style === 0) {
             color = textColors[$('#textColor').val()];
           }
+          //color = '#ffffff'; // always white!
 
           add.tspan(values[i]).fill(color).font(
-            Object.assign(nolines.font, { family: fontfamily }),
+            Object.assign(nolines.font, { size: fontsize }),
           );
 
           add.attr('xml:space', 'preserve');
@@ -89,9 +97,9 @@ const nolines = {
       const greenfond = draw.polygon(`
         ${x}, 0
         ${right + 3}, 0
-        ${right}, 24,
-        ${x - 3}, 24`)
-        .fill('#46962B').y(y + 1);
+        ${right}, ${bgheight},
+        ${x - 3}, ${bgheight}`)
+        .fill('#46962B').y(y + 1); 
       text.svg.add(greenfond);
 
       y += (t.rbox().h) + nolines.linemargin;
