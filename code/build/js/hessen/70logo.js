@@ -8,7 +8,7 @@ const logo = {
   isLoaded: false,
   config: {
     hessen: {
-      file: '/assets/logos/hessen-zukunft-machen.svg',
+      file: '/assets/logos/hessen/hessen-zukunft-machen.svg',
       widthFraction: 0.45,
       position: 'topright',
     },
