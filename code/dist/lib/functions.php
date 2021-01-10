@@ -619,7 +619,6 @@ function tenantsSwitch($as)
 
 function readConfig()
 {
-    $retval = "";
     $config_file = getBasePath('/ini/config.ini');
 
     if (file_exists($config_file)) {
