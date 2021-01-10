@@ -1,20 +1,6 @@
 <?php
 // phpcs:ignoreFile -- mainly html, ignore it
 
-require_once('base.php');
-require_once(getBasePath('lib/functions.php'));
-require_once(getBasePath('lib/gallery_functions.php'));
-
-useDeLocale();
-
-session_start();
-readConfig();
-
-if (!isAllowed(false)) {
-    header("Location: ". configValue("Main", "logoutTarget"));
-    die();
-}
-
 ?>
 
 <form id="pic">

@@ -107,7 +107,7 @@ function isAllowed($with_csrf = false)
     }
 
     if (checkPermission($user, $accesstoken) == false) {
-        logFailure('permissions denied');
+        logFailure('permission denied with ' . $user . ':' .$accesstoken);
         return false;
     }
 
@@ -126,10 +126,12 @@ function checkPermission($user, $accesstoken)
     $userDir = getBasePath('persistent/user/' . $user);
 
     if (!file_exists($userDir)) {
+        logFailure('no userDir for ' . $user);
         return false;
     }
 
     require_once(sprintf('%s/accesstoken.php', $userDir));
+    logFailure('accesstoken for ' . $user . ' is ' . $accesstoken . ' and should be ' . ACCESSTOKEN);
     return $accesstoken == ACCESSTOKEN;
 }
 
@@ -254,6 +256,9 @@ function isLocal()
 function isLocalUser()
 {
     $GLOBALS['user'] = "localuser";
+    if(isAllowed()){
+        return true;
+    }
 
     if (!isset($_POST['pass'])) {
         return false;
@@ -323,6 +328,13 @@ function isDaysBefore($dayMonth, $days = 14)
     return ($interval->days < $days and $interval->invert == 1);
 }
 
+function doLogout() {
+    session_destroy( );
+    header("Location: /");
+    die();
+
+}
+
 function handleSamlAuth($doLogout = false)
 {
     $samlfile = '/var/simplesaml/lib/_autoload.php';
@@ -337,6 +349,7 @@ function handleSamlAuth($doLogout = false)
 
         if ($doLogout == true) {
             header("Location: ".$as->getLogoutURL($logoutTarget));
+            die();
         }
 
         $samlattributes = $as->getAttributes();

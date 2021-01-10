@@ -17,7 +17,13 @@ $hasAccess = isLocal() ?: isLocalUser();
 
 $doLogout = false;
 if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
-    $doLogout = true;
+    if ($hasAccess) {
+        doLogout();
+    } else {
+        $doLogout = true;
+        handleSamlAuth($doLogout);
+    }
+    die();
 }
 
 if (!$hasAccess) {
