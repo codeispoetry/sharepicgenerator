@@ -161,6 +161,7 @@ const nolines = {
 
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
+    checkForOtherTenant();
   },
 
 };

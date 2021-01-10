@@ -156,6 +156,7 @@ const hessenfullwidth = {
 
     eraser.front();
     showActionDayHint();
+    checkForOtherTenant();
   },
 
 };

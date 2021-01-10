@@ -85,7 +85,7 @@ nextActionDay();
 
     </script>
 </head>
-<body>
+<body class="h-100">
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
@@ -98,7 +98,7 @@ nextActionDay();
     </div>
     </nav>
 </header>
-<div class="container-fluid h-100">
+<div class="container-fluid">
     <div class="row h-100 flex-row-reverse">
 
         <div class="col-12 col-lg-9 pt-4 canvas-wrapper p-0">
