@@ -61,8 +61,8 @@ const nolines = {
       let fontsize = 20;
       let bgheight = 24;
       if (value.startsWith('!')) {
-        fontsize = 30;
-        bgheight = 38;
+        fontsize = 25;
+        bgheight = 29;
         values[0] = values[0].substring(1);
       }
 
