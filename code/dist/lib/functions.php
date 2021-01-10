@@ -594,13 +594,13 @@ function tenantsSwitch($as)
     // freshly logged in
     if (isset($_SERVER['HTTP_REFERER']) AND 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
         switch ($landesverband){
-            case 1:
+            case 199:
                 $tenant = '/tenants/bw/';
                 break;
             case 7:
                 $tenant = '/tenants/hessen/';
                 break;
-            case 11:
+            case 11099:
                 $tenant = '/tenants/rlp/';
                 break;
             default:
