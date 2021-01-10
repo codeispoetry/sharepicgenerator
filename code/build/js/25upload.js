@@ -233,8 +233,6 @@ function afterUpload(data) {
 
   $('#fullBackgroundName').val(data.fullBackgroundName);
 
-  setDrawsize();
-
   // unselect presets
   $('#sizepresets').val($('#sizepresets option:first').val());
 
