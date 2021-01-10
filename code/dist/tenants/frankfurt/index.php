@@ -82,8 +82,7 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/tenants/frankfurt">
-            <img src="skyline.svg"> Sharepicgenerator.de/frankfurt</a>
+        <a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
        
            
         <?php require_once('../menu.php'); ?>
