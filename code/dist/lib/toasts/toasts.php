@@ -1,24 +1,7 @@
 <div aria-live="polite" aria-atomic="true" class="toast-container">
-  <div>
+  <div style="">
 
- <?php
- /*
-    <div class="toast border-info" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info text-white">
-
-        <strong class="mr-auto">Vorlagen</strong>
-        <small class="small text-white">just now</small>
-        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="toast-body">
-        See? Just like this.
-      </div>
-    </div>
-*/
-    ?>
-    <div class="toast border-info" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast toast-templates" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-info text-white">
 
         <strong class="mr-auto">Vorlagen</strong>
@@ -61,6 +44,21 @@
       </div>
       <div class="toast-body">
         Das Bild zeigt ein Gesicht. Du brauchst die Erlaubnis der abgebildeten Person, um das Foto zu verwenden.
+      </div>
+    </div>
+
+    <div class="toast other-tenant" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-info text-white">
+
+        <strong class="mr-auto">Regionales Layout</strong>
+        <small class="small text-white"></small>
+        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        <a href="" id="other-tenant-url">Es gibt ein regionales Layout für <span id="other-tenant-name"></span>.<br>
+        Klicke hier, um es zu nutzen.</a>
       </div>
     </div>
 
