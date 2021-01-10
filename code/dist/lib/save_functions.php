@@ -66,8 +66,8 @@ function getUserPrefs()
  
     $array = $result->fetchArray();
 
-    if (empty($array)) {
-        return false;
+    if (empty($array) || empty($array['prefs'])) {
+        return '{}';
     }
 
     return $array['prefs'];

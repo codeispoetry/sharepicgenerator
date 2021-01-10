@@ -69,3 +69,6 @@ log-get:
 
 log-read:
 	docker-compose exec webserver sqlite3 dist/log/logs/log.db
+
+users:
+	docker-compose exec webserver sqlite3 dist/log/logs/log.db
