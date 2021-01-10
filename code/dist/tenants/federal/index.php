@@ -17,7 +17,13 @@ $hasAccess = isLocal() ?: isLocalUser();
 
 $doLogout = false;
 if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
-    $doLogout = true;
+    if ($hasAccess) {
+        doLogout();
+    } else {
+        $doLogout = true;
+        handleSamlAuth($doLogout);
+    }
+    die();
 }
 
 if (!$hasAccess) {
@@ -86,7 +92,7 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/tenants/federal">Sharepicgenerator.de</a>
+        <a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
         <?php require_once('../menu.php'); ?>
     </div>
     </nav>
