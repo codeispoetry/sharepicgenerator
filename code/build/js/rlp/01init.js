@@ -28,6 +28,10 @@ $(document).ready(() => {
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
+  window.setTimeout(() => {
+    setDrawsize();
+  }, 200);
+
   showLayout();
 });
 
