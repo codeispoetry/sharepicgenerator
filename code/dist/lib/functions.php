@@ -255,8 +255,10 @@ function isLocal()
 
 function isLocalUser()
 {
-    $GLOBALS['user'] = "localuser";
-    if(isAllowed()){
+    $localuser = 'localuser';
+    
+    $GLOBALS['user'] = $localuser;
+    if(getUser() === $localuser and isAllowed()){
         return true;
     }
 
