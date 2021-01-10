@@ -17,6 +17,12 @@ grün
                 <span class="to-front" data-target="pin" title="Störer nach vorne">
                     <i class="fas fa-layer-group text-primary"></i>
                 </span> 
+                <span class="pintoleft" title="Störer nach links">
+                    <i class="fas fa-align-left text-primary"></i>
+                </span> 
+                <span class="pintoright" title="Störer nach rights">
+                    <i class="fas fa-align-right text-primary"></i>
+                </span> 
             </div>
         </div>    
     </div>
@@ -24,3 +30,4 @@ grün
 
 <input type="hidden" name="pinX" id="pinX">
 <input type="hidden" name="pinY" id="pinY">
+<input type="hidden" name="pinPosition" id="pinPosition" value="right">
