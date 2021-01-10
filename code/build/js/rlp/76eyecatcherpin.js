@@ -15,13 +15,32 @@ const pin = {
   draw() {
     if (!pin.isLoaded) return false;
     pin.svg.size(draw.width() * $('#eyecatchersize').val() * 0.01, null);
-    pin.svg.move(draw.width() - pin.svg.width() - 20, 20);
+
+    if ($('#pinPosition').val() === 'left') {
+      pin.svg.move(20, 20);
+    } else {
+      pin.svg.move(draw.width() - pin.svg.width() - 20, 20);
+    }
+
     return true;
   },
 
   bounce() {
     // void
   },
+
+  toleft() {
+    $('#pinPosition').val('left');
+    pin.draw();
+  },
+
+  toright() {
+    $('#pinPosition').val('right');
+    pin.draw();
+  },
 };
 
 $('#pintext, #eyecatchersize').bind('input propertychange', pin.draw);
+
+$('.pintoleft').bind('click', pin.toleft);
+$('.pintoright').bind('click', pin.toright);
