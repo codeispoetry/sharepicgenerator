@@ -12,9 +12,6 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-  $('#textsize').val(502);
-  $('#textX').val(41);
-  $('#textY').val(372);
   config.layout = 'nolines';
 
   const queryString = window.location.search;
@@ -30,6 +27,10 @@ $(document).ready(() => {
 
   window.setTimeout(() => {
     setDrawsize();
+    $('#textsize').val(342);
+    $('#textX').val(41);
+    $('#textY').val(272);
+    text.draw();
   }, 200);
 
   showLayout();
