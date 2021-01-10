@@ -22,9 +22,6 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  $('#logosize').val(17);
-  logo.resize($('#logosize').val());
-
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');
 
