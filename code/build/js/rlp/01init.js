@@ -61,11 +61,8 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    pin.draw();
-  }, 10);
-
-  window.setTimeout(() => {
     copyright.draw();
+    pin.load();
     icon.load();
   }, 20);
 

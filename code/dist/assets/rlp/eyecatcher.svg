@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2545"
+   height="1108"
+   viewBox="0 0 2545.0001 1108"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="eyecatcher.svg">
+  <defs
+     id="defs4">
+    <style
+       id="style4140"
+       type="text/css"><![CDATA[
+    .fil0 {fill:#47B5E7;fill-rule:nonzero}
+    .fil2 {fill:#FEFEFE;fill-rule:nonzero}
+    .fil1 {fill:#FFF225;fill-rule:nonzero}
+   ]]></style>
+    <style
+       id="style4229"
+       type="text/css"><![CDATA[
+    .fil0 {fill:#FFF225;fill-rule:nonzero}
+   ]]></style>
+    <style
+       id="style4249"
+       type="text/css"><![CDATA[
+    .fil0 {fill:#47B5E7;fill-rule:nonzero}
+    .fil2 {fill:#FEFEFE;fill-rule:nonzero}
+    .fil1 {fill:#FFF225;fill-rule:nonzero}
+   ]]></style>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.27685547"
+     inkscape:cx="1570.4807"
+     inkscape:cy="139.85009"
+     inkscape:document-units="px"
+     inkscape:current-layer="g936"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="1752"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,55.63782)">
+    <g
+       style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       id="g4306"
+       transform="matrix(0.12701101,0,0,0.1270111,-26.037257,866.67196)">
+      <g
+         id="g898"
+         transform="translate(-3589.0665,166.45493)">
+        <g
+           id="g936"
+           transform="matrix(1.6763602,-0.16465546,0.16465546,1.6763602,-11478.786,8432.63)"
+           inkscape:export-xdpi="48.372929"
+           inkscape:export-ydpi="48.372929">
+          <rect
+             y="-5254.9053"
+             x="9836.5439"
+             height="1941.9648"
+             width="5060.0513"
+             id="rect929"
+             style="fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:37.86222839;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <rect
+             y="-7330.585"
+             x="9852.3682"
+             height="1914.6127"
+             width="11241.52"
+             id="rect927"
+             style="fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:37.86222839;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <text
+             id="text923"
+             y="-5687.5435"
+             x="10029.406"
+             style="font-style:normal;font-weight:normal;font-size:1613.93078613px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:40.34827042"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Condensed Extra Bold';-inkscape-font-specification:'Futura Condensed Extra Bold, ';fill:#ffffff;stroke-width:40.34827042"
+               y="-5687.5435"
+               x="10029.406"
+               id="tspan921"
+               sodipodi:role="line">ZWEITSTIMME</tspan><tspan
+               id="tspan925"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Condensed Extra Bold';-inkscape-font-specification:'Futura Condensed Extra Bold, ';fill:#ffffff;stroke-width:40.34827042"
+               y="-3597.1248"
+               x="10029.406"
+               sodipodi:role="line">GRÜN</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
