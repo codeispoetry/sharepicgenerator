@@ -13,6 +13,7 @@
         require_once(getBasePath('tenants/cockpit/logo-none.php'));
         require_once(getBasePath('tenants/cockpit/rlp/eyecatcher.php'));
         require_once(getBasePath('tenants/cockpit/url.php'));
+        require_once(getBasePath('tenants/cockpit/gradient.php'));
         require_once(getBasePath('tenants/cockpit/addtext-none.php'));
         require_once(getBasePath('tenants/cockpit/eraser.php'));
         require_once(getBasePath('tenants/cockpit/quality.php'));
