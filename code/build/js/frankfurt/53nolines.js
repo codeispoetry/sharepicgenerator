@@ -2,10 +2,6 @@ const nolines = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
   colors: ['white', 'black', '#46962b', '#E6007E', '#FEEE00'],
-  textColorIndex: 2,
-  textbeforeColorIndex: 1,
-  textafterColorIndex: 3,
-  texthighlightColorIndex: 4,
   lineheight: 20,
   linemargin: -4,
   paddingLr: 5,
@@ -66,10 +62,10 @@ const nolines = {
         for (let i = 0; i < values.length; i++) {
           style = (style === 0) ? 1 : 0;
 
-          color = nolines.colors[nolines.textColorIndex];
+          color = $('#textcolor').val();
           if (style === 1) {
             // eslint-disable-next-line prefer-destructuring
-            color = nolines.colors[nolines.texthighlightColorIndex];
+            color = $('#texthighlightcolor').val();
           }
 
           add.tspan(values[i]).fill(color).font(
@@ -98,7 +94,7 @@ const nolines = {
         for (let i = 0; i < textafterParts.length; i++) {
           style = (style === 0) ? 1 : 0;
           add.tspan(textafterParts[i])
-            .fill(nolines.colors[nolines.textafterColorIndex]).font(nolines.fontoutsidelines);
+            .fill($('#textaftercolor').val()).font(nolines.fontoutsidelines);
           add.attr('xml:space', 'preserve');
           add.attr('style', 'white-space:pre');
         }
@@ -112,7 +108,7 @@ const nolines = {
     const textbefore = draw.text((add) => {
       for (let i = 0; i < textbeforeParts.length; i++) {
         add.tspan(textbeforeParts[i])
-          .fill(nolines.colors[nolines.textbeforeColorIndex]).font(nolines.fontoutsidelines);
+          .fill($('#textbeforecolor').val()).font(nolines.fontoutsidelines);
         add.attr('xml:space', 'preserve');
         add.attr('style', 'white-space:pre');
       }
@@ -145,26 +141,3 @@ const nolines = {
 
 $('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);
 
-$('.text-change-color').click(() => {
-  nolines.textColorIndex += 1;
-  nolines.textColorIndex %= nolines.colors.length;
-  nolines.draw();
-});
-
-$('.textbefore-change-color').click(() => {
-  nolines.textbeforeColorIndex += 1;
-  nolines.textbeforeColorIndex %= nolines.colors.length;
-  nolines.draw();
-});
-
-$('.textafter-change-color').click(() => {
-  nolines.textafterColorIndex += 1;
-  nolines.textafterColorIndex %= nolines.colors.length;
-  nolines.draw();
-});
-
-$('.texthighlight-change-color').click(() => {
-  nolines.texthighlightColorIndex += 1;
-  nolines.texthighlightColorIndex %= nolines.colors.length;
-  nolines.draw();
-});
