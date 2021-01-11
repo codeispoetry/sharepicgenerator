@@ -1,6 +1,6 @@
 const pin = {
   isLoaded: false,
-  file: '/assets/rlp/eyecatcher.svg',
+  file: '/assets/rlp/eyecatcher.png',
 
   svg: draw.circle(0),
 
