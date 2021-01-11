@@ -77,10 +77,14 @@
                                 Grün hinter Text
                             </label>
                         </div>
-                        <label class="showonly lines nolines quote">
-                            <input type="checkbox" name="graybehindtext" id="graybehindtext">
-                            Grau hinter Text
-                        </label>
+                        <div>
+                            <label class="showonly lines nolines quote">
+                                <input type="checkbox" name="graybehindtext" id="graybehindtext">
+                                Farbe hinter Text
+                            </label>
+                            <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
+                            <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
+                        </div>
                     </div>
                 </div>
             </div>

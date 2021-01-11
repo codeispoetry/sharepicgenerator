@@ -123,8 +123,8 @@ const nolines = {
     text.grayBackground.remove();
     if ($('#graybehindtext').prop('checked')) {
       const grayGradient = draw.gradient('radial', (add) => {
-        add.stop({ offset: 0, color: '#000', opacity: 0.9 });
-        add.stop({ offset: 0.9, color: '#000', opacity: 0.0 });
+        add.stop({ offset: 0, color: $('#colorbehindtext').val(), opacity: 0.9 });
+        add.stop({ offset: 0.9, color: $('#colorbehindtext').val(), opacity: 0.0 });
       });
       grayGradient.from(0.5, 0.5).to(0.5, 0.5).radius(0.5);
 
