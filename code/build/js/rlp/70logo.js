@@ -9,7 +9,7 @@ const logo = {
   isLoaded: false,
   config: {
     sonnenblume: {
-      file: '/assets/logos/rlp/logo.svg',
+      file: '/assets/rlp/logo.png',
       widthFraction: 0.3,
       position: 'bottomright',
     },
