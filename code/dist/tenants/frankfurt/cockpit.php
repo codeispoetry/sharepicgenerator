@@ -185,18 +185,24 @@
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
                            class="form-control showonly lines nolines">
-                           <i class="fa fa-broom ml-1 text-primary cursor-pointer textbefore-change-color ml-1" title="Farbe wechseln"></i>
+                          <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textbeforecolor" title="Farbe wechseln"></span> 
+                        <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="black">
+                        <input type="hidden" name="textcolor" id="textcolor" value="#46962b">
+                        <input type="hidden" name="texthighlightcolor" id="texthightlightcolor" value="#FEEE00">
+                        <input type="hidden" name="textaftercolor" id="textaftercolor" value="#E6007E">
+
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Frankfurt</textarea>
                     <div class="d-flex flex-column">
-                        <i class="fa fa-broom ml-1 text-primary cursor-pointer text-change-color ml-1 mb-2" title="Farbe wechseln"></i>
-                        <i class="fa fa-broom ml-1 text-primary cursor-pointer texthighlight-change-color ml-1" title="Farbe für [] wechseln"></i>
+                        <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
+                        <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#texthighlightcolor" title="Farbe wechseln"></span> 
+
                     </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Frankfurt neu denken." class="form-control showonly lines nolines quote">
-                    <i class="fa fa-broom ml-1 text-primary cursor-pointer textafter-change-color ml-1" title="Farbe wechseln"></i>
+                    <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textaftercolor" title="Farbe wechseln"></span> 
                 </div>
 
                 <div class="mb-1 mt-2">
