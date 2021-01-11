@@ -69,6 +69,7 @@ function reDraw(withAddPic = false) {
     copyright.draw();
     pin.load();
     icon.load();
+    gradient.draw();
   }, 20);
 
   window.setTimeout(() => {
