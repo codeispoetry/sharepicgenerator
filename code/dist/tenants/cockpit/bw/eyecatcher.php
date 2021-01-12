@@ -15,7 +15,8 @@
                         <small>groß</small>
                     </div>
                     <div>
-                        <i class="fa fa-broom ml-1 text-primary cursor-pointer pin-change-color ml-1" title="Hintergrundfarbe wechseln"></i>
+                        <span class="colorpicker ml-1" data-colors="#000000,#009571,#46962b,#E6007E" data-action="pin.draw()" data-field="#pinColor" title="Farbe wechseln"></span> 
+                        <input type="hidden" name="pinColor" id="pinColor" value="#E6007E">
 
                         <span class="to-front" data-target="pin" title="Störer nach vorne">
                             <i class="fas fa-layer-group text-primary"></i>
@@ -25,5 +26,4 @@
             </div>
         </div>
         <input type="hidden" name="pinX" id="pinX">
-<input type="hidden" name="pinY" id="pinY">
-<input type="hidden" name="pinColor" id="pinColor" value="2">
+        <input type="hidden" name="pinY" id="pinY">
