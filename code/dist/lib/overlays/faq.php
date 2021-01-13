@@ -24,6 +24,10 @@
                     Bei <em>Hauptbild</em> gibt es eine Suchmaske. Aktuell werden drei verschiedene Bilddatenbanken durchsucht. 
                     Deren Bilder darfst Du kostenlos nutzen.
                 </p>
+                <h5>Ich kann im Bundeslayout das Logo nicht mehr austauschen und keine Zusatzbilder mehr laden</h5>
+                <p>
+                    Klicke links unten auf <em>Mehr Funktionen</em>, dann stehen Dir diese Funktionen wieder zur Verfügung.
+                </p>
             </div>
         </div> 
     </div>
