@@ -67,7 +67,7 @@ const logo = {
       position: 'topright',
     },
     fanleft: {
-      file: '/assets/bw/faecher.png',
+      file: '/assets/bw/faecher-links.png',
       widthFraction: 1,
       position: 'fanleft',
     },
@@ -77,7 +77,7 @@ const logo = {
       position: 'fancenter',
     },
     fanright: {
-      file: '/assets/bw/faecher.png',
+      file: '/assets/bw/faecher-rechts.png',
       widthFraction: 1,
       position: 'fanright',
     },
@@ -86,15 +86,6 @@ const logo = {
       widthFraction: 1,
       position: 'fancenter',
     },
-  },
-
-  loadfans() {
-    this.fanleft = draw.image('/assets/bw/faecher-left.png', () => {
-      logo.fanleft.size(draw.width(), null).x(draw.width());
-    });
-    this.fanright = draw.image('/assets/bw/faecher-right.png', () => {
-      logo.fanright.size(draw.width(), null).x(draw.width());
-    });
   },
 
   load() {
@@ -166,6 +157,7 @@ const logo = {
     }
     logo.svg.move(x, y);
 
+    text.svg.front();
     pin.svg.front();
 
     return true;
@@ -217,26 +209,3 @@ $('#logosize').bind('input propertychange', () => {
 });
 
 $('#logochapter').bind('input propertychange', () => logo.load());
-
-$('#fanposition').bind('input propertychange', setFanPosition);
-
-function setFanPosition() {
-  // eslint-disable-next-line no-mixed-operators
-  const x = draw.width() * $('#fanposition').val() / 100;
-
-  if ($('#fanposition').val() < -20) {
-    logo.fanleft.x(x);
-    logo.svg.x(draw.width());
-    logo.fanright.x(draw.width());
-  }
-  if ($('#fanposition').val() >= -20 && $('#fanposition').val() <= 20) {
-    logo.fanleft.x(draw.width());
-    logo.svg.x(x);
-    logo.fanright.x(draw.width());
-  }
-  if ($('#fanposition').val() > 20) {
-    logo.fanleft.x(draw.width());
-    logo.svg.x(draw.width());
-    logo.fanright.x(x);
-  }
-}
