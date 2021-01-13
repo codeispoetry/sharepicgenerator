@@ -23,7 +23,6 @@ $(document).ready(() => {
 
   $('#logosize').val(17);
   logo.resize($('#logosize').val());
-  setFanPosition();
 
   $('.toast').toast({ delay: 10000 });
   $('.toast-actionday').toast('show');
@@ -31,7 +30,6 @@ $(document).ready(() => {
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
-  logo.loadfans();
   //showLayout();
 });
 
