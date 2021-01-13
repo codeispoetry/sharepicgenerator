@@ -31,6 +31,7 @@ $(document).ready(() => {
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
+  logo.loadfans();
   //showLayout();
 });
 
