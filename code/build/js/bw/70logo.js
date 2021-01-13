@@ -6,6 +6,8 @@ const logofont = {
 
 const logo = {
   isLoaded: false,
+  fanleft: draw.circle(0),
+  fanright: draw.circle(0),
   config: {
     sonnenblume: {
       file: '/assets/logos/sonnenblume.svg',
@@ -79,6 +81,20 @@ const logo = {
       widthFraction: 1,
       position: 'fanright',
     },
+    fan: {
+      file: '/assets/bw/faecher.png',
+      widthFraction: 1,
+      position: 'fancenter',
+    },
+  },
+
+  loadfans() {
+    this.fanleft = draw.image('/assets/bw/faecher-left.png', () => {
+      logo.fanleft.size(draw.width(), null).x(draw.width());
+    });
+    this.fanright = draw.image('/assets/bw/faecher-right.png', () => {
+      logo.fanright.size(draw.width(), null).x(draw.width());
+    });
   },
 
   load() {
@@ -99,12 +115,6 @@ const logo = {
       logo.isLoaded = true;
       logo.svg.add(logofile);
 
-      // add text to logo
-      if (this.logoinfo.showChapter && $('#logochapter').val()) {
-        const chapter = draw.text($('#logochapter').val().toUpperCase()).font(logofont).fill('#ffffff').move(23, 1495);
-        logo.svg.add(chapter);
-      }
-
       setTimeout(logo.draw, 100); // with no timeout, error at hard reload of page
     });
     return true;
@@ -120,6 +130,9 @@ const logo = {
     let y;
     $('#fanposition').prop('disabled', true);
     $('#fanposition').val(0);
+    logo.fanleft.x(draw.width());
+    logo.fanright.x(draw.width());
+
     switch (logo.logoinfo.position) {
       case 'bottomleft':
         x = 10;
@@ -210,5 +223,20 @@ $('#fanposition').bind('input propertychange', setFanPosition);
 function setFanPosition() {
   // eslint-disable-next-line no-mixed-operators
   const x = draw.width() * $('#fanposition').val() / 100;
-  logo.svg.x(x);
+
+  if ($('#fanposition').val() < -20) {
+    logo.fanleft.x(x);
+    logo.svg.x(draw.width());
+    logo.fanright.x(draw.width());
+  }
+  if ($('#fanposition').val() >= -20 && $('#fanposition').val() <= 20) {
+    logo.fanleft.x(draw.width());
+    logo.svg.x(x);
+    logo.fanright.x(draw.width());
+  }
+  if ($('#fanposition').val() > 20) {
+    logo.fanleft.x(draw.width());
+    logo.svg.x(draw.width());
+    logo.fanright.x(x);
+  }
 }
