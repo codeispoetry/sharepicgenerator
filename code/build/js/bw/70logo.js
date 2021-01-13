@@ -153,6 +153,8 @@ const logo = {
     }
     logo.svg.move(x, y);
 
+    pin.svg.front();
+
     return true;
   },
 
