@@ -46,7 +46,7 @@ if (!isEditor()) {
 
     <div class="row">
         <?php
-            show_images(getBasePath("/tmp/log_federal*\.jpg"));
+            show_images(getBasePath("/tmp/log_{$tenant}*\.jpg"));
         ?>
     </div>
 </div>
