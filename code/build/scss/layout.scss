@@ -10,6 +10,8 @@ body{
 
 .overlay {
   background: white;
+  position: relative;
+  z-index: 1000;
 }
 
 
