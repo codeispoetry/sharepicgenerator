@@ -615,13 +615,12 @@ function tenantsSwitch($as)
             case 7:
                 $tenant = '/tenants/hessen/';
                 break;
-            case 11099:
+            case 11:
                 $tenant = '/tenants/rlp/';
                 break;
             default:
                 $tenant = false;
         }
-            
     }
         
     // redirect, if s.o. is freshly logged in and wants to to go federal
