@@ -501,7 +501,7 @@
         <?php if(configValue("Features","showGallery")){ 
             list($allGalleryImages, $ownGalleryImages) = countGalleryImages('gallery/img/shpic*');    
         ?>
-            <h3 class="collapsed" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
+            <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
 
                 <span class="badge btn-light ml-2">
@@ -510,7 +510,7 @@
                     <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
                 </span>
                 </h3>
-            <div class="gallery collapse list-group-item list-group-item-action flex-column align-items-start">
+            <div class="gallery d-none collapse list-group-item list-group-item-action flex-column align-items-start">
                 <div>
                     <a href="#" class="overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen ansehen
                     <br>
@@ -558,7 +558,6 @@
         </div>
         <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
             <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
-            <a class="text-white overlay-opener" data-target="gallery"><i class="fas fa-store"></i> Vorlagen</a>
             <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
                 <i class="far fa-hand-point-right"></i> Aktionstage
             </a>
