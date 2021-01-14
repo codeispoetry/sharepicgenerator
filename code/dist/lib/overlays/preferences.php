@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h3>Eigene Logos</h3>
+                <h3>Eigene Logos <small>(nur für das Design des Bundesverbandes)</small></h3>
                 <span class="text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen">
                     <i class="fa fa-upload"></i>
                     Neues Logo hochladen</span>
