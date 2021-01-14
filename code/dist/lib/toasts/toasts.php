@@ -1,7 +1,7 @@
 <div aria-live="polite" aria-atomic="true" class="toast-container">
   <div style="">
 
-    <div class="toast toast-templates" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast toast-templates border-info" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-info text-white">
 
         <strong class="mr-auto">Vorlagen</strong>
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="toast upload-too-big" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast upload-too-big border-info" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-info text-white">
 
         <strong class="mr-auto">Bild sehr groß</strong>
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="toast face-alert" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast face-alert border-info" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-info text-white">
 
         <strong class="mr-auto">Gesicht</strong>
@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div class="toast other-tenant" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast other-tenant border-info" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-info text-white">
 
         <strong class="mr-auto">Regionales Layout</strong>
