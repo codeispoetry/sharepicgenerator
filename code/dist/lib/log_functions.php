@@ -77,7 +77,7 @@ function echoResults($sql)
         printf(
             '<li>%s: %s</li>',
             ($row['name']) ?: 'ohne',
-            $row['count']
+            number_format($row['count'], 0, ',', '.')
         );
     }
 }
