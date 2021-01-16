@@ -819,3 +819,13 @@ function get_category($file_path)
 
     return $return;
 }
+
+function getSaying($field = 'main'){
+    static $rand;
+    $sayings = parse_ini_file(getBasePath('ini/sayings.ini'), true);
+    if(!$rand) {
+        $rand = array_rand($sayings, 1);
+    }
+    
+    return $sayings[$rand][$field];
+}
