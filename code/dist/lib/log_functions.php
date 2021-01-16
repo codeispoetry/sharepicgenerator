@@ -294,3 +294,8 @@ function getUserWithCustomLogo()
     exec('find ../persistent/user/ -name logo.png | wc -l', $output);
     return $output[0];
 }
+
+function getQRCodeCount()
+{
+    return singleResult("select count(*) as result from qrcode;");
+}
