@@ -200,6 +200,11 @@ function logDownload()
     $data = array_merge(json_decode($config, true), $data);
     unset($data['pixabay']);
     unset($data['csrf']);
+
+    // rewrite username to user
+    $data['user'] = $data['username'];
+    unset($data['username']);
+
     if ($data['eraser']) {
         $data['eraser'] = 'true';
     };
