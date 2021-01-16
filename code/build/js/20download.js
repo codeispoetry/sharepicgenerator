@@ -106,7 +106,10 @@ $('#download,.download').click(function onDownloadClick() {
 
       const qrcode = `/tmp/qrcode_${obj.basename}.png`;
       $('#qrcode').show();
-      $('#qrcode-img').html(`<img src="${qrcode}">`);
+      window.setTimeout(
+        () => { $('#qrcode-img').html(`<img src="${qrcode}">`); },
+        500,
+      ); // timeout needed for firefox. Otherwise img "could not be loaded"
       $('#qrcode-createtime').html(config.createTime / 1000);
 
       window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
