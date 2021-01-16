@@ -26,6 +26,9 @@ $(document).ready(() => {
   $('.cockpit h3').click((e) => {
     $('.collapse').collapse('hide');
   });
+
+  config.useragent = navigator.userAgent;
+  config.browser = getBrowser();
 });
 
 function message(text = false) {

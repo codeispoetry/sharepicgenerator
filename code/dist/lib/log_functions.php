@@ -275,6 +275,15 @@ function showTenantsDownloadsLastDays( $days = 7)
     return echoResults("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant;");
 }
 
+function showBrowsers()
+{
+    return echoResults("select browser As name,count(*) as count from downloads GROUP BY browser;");
+}
+
+function getUserAgentCount(){
+    return singleResult('select count(distinct useragent) as result from downloads;');
+}
+
 function getDailyUsers()
 {
     return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
