@@ -127,6 +127,20 @@ function getDownloads()
     return singleResult('SELECT COUNT(*) AS result FROM downloads;');
 }
 
+function getUniqueDownloads()
+{
+    global $db;
+    $results = $db->query('SELECT COUNT(DISTINCT backgroundURL) AS result FROM downloads');
+    $row = $results->fetchArray();
+    $customBackgroundURL =  $row['result'];
+
+    $results = $db->query('select count(distinct text) AS result from downloads where backgroundURL like "/assets/%";');
+    $row = $results->fetchArray();
+    $textOnly =  $row['result'];
+
+    return $customBackgroundURL + $textOnly;
+}
+
 function getDailyDownloads()
 {
     return singleResult("select cast(avg(perDay) as int) as result from (select count(*) as perDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
@@ -246,9 +260,19 @@ function showProvinces()
   
 }
 
-function showTenants()
+function showTenantsDownloads()
 {
     return echoResults("select tenant As name,count(*) as count from downloads GROUP BY tenant;");
+}
+
+function showTenantsUniqueUsers()
+{
+    return echoResults("select tenant As name,count(distinct user) as count from downloads GROUP BY tenant;");
+}
+
+function showTenantsDownloadsLastDays( $days = 7)
+{
+    return echoResults("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant;");
 }
 
 function getDailyUsers()
