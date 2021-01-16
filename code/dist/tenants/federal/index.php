@@ -201,6 +201,10 @@ if (isset($_GET['usePicture'])) {
 ?>
     config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');
     config.username = '<?php echo getUser(); ?>';
+
+    window.setTimeout(
+        () => { $('input[value=<?php echo getSaying('layout'); ?>').click(); },
+    150);
 </script>
 
 </body>
