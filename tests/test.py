@@ -63,6 +63,7 @@ class sharepicgenerator(unittest.TestCase):
         time.sleep( 20 )
 
         # Upload additional picture
+        self.driver.save_screenshot("artifacts/before-add-picture-line66.png")
         driver.find_element_by_xpath("//*[@data-target='.addpictures']").click()
         driver.find_element_by_id("uploadaddpic1").send_keys(os.getcwd()+"/assets/addpic.jpg")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
