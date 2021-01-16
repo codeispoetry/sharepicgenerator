@@ -134,6 +134,16 @@ require_once(getBasePath('lib/log_functions.php'));
                 <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
             </dl>
         </div>
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="fas fa-browser"></i> Browser</dt>
+                <dd><ul><?php echo showBrowsers(); ?></ul></dd>
+
+                <dt><i class="fas fa-browser"></i> Different User Agents</dt>
+                <dd><ul><?php echo getUserAgentCount(); ?></ul></dd>
+
+            </dl>
+        </div>
      
     </div>
 </div>
