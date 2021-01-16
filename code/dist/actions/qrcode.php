@@ -1,8 +1,9 @@
 <?php
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
-$file = sprintf('%s/%s.jpg', getBasePath('tmp'), sanitizeUserinput($_GET['f']));
+$file = sprintf('%s/%s', getBasePath('tmp'), sanitizeUserinput($_GET['f']));
 
+$db = new SQLite3(getBasePath('log/logs/log.db'));
 if (isAdmin()) {
     $db->exec('CREATE TABLE IF NOT EXISTS qrcode(
             id INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -14,10 +15,9 @@ $smt = $db->prepare('INSERT INTO qrcode (url) values (:file)');
 $smt->bindValue(':url', $file, SQLITE3_TEXT);
 $smt->execute();
 
-
-header('Content-Type: image/jpg');
+header('Content-Type: image/png');
 header("Content-Length: ".filesize($file));
-header('Content-Disposition: attachment; filename="sharepic.jpg"');
+header('Content-Disposition: attachment; filename="sharepic.png"');
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");

@@ -75,7 +75,7 @@ exec(sprintf(
     'qrencode -s 4 -o %s https://%s%s 2>&1',
     getBasePath('tmp/qrcode_' . basename($filename, '.svg') . '.png'),
     $_SERVER['HTTP_HOST'],
-    '/actions/qrcode.php?f=' . basename($filename, '.svg')
+    '/actions/qrcode.php?f=' . basename($filename, '.svg') . '.png'
 ));
 
 
