@@ -67,7 +67,7 @@ eslint:
 log-get:
 	rsync sharepic:/var/www/sharepicgenerator.de/shared/log/logs/log.db code/dist/log/logs/log.db
 
-log-read:
+log-shell:
 	docker-compose exec webserver sqlite3 dist/log/logs/log.db
 
 users:
