@@ -7,6 +7,8 @@ function showLayout() {
 
   text.draw();
   nolines.draw();
+  quote.draw();
+  invers.draw();
 }
 
 $('.layout').click(showLayout);
