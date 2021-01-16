@@ -202,7 +202,7 @@ if (isset($_GET['usePicture'])) {
 }
 ?>
     config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');
-
+    config.username = '<?php echo getUser(); ?>';
 </script>
 
 </body>
