@@ -126,13 +126,11 @@ require_once(getBasePath('lib/log_functions.php'));
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-sitemap"></i> Mandanten</dt>
-                Downloads
-                <dd><ul><?php echo showTenantsDownloads(); ?></ul></dd>
-                
+               
                 Uniqe Users
                 <dd><ul><?php echo showTenantsUniqueUsers(); ?></ul></dd>
 
-                Uniqe Users last 7 days
+                Downloads last 7 days
                 <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
             </dl>
         </div>
