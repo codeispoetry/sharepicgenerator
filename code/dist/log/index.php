@@ -115,16 +115,6 @@ require_once(getBasePath('lib/log_functions.php'));
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fas fa-ruler-combined"></i> Layouts (nur federal)</dt>
-                <dd>
-                    <ul>
-                        <?php showLayouts(); ?>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
                 <dt><i class="fas fa-bullhorn"></i> Social Media</dt>
                 <dd>
                     <ul>
