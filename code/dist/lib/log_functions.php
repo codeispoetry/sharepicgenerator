@@ -36,20 +36,10 @@ function show_images($dir, $showCaption = false)
     }
 }
 
-function deleteFilesInPathOlderThanHours($hours, $path)
+function deleteFilesInPathOlderThanDays($path, $days)
 {
-    $files = glob($path);
-    $now = time();
-    $counter = 0;
-
-    foreach ($files as $file) {
-        if (is_file($file) and $now - filemtime($file) >= 60 * 60 * $hours) {
-            $counter++;
-            unlink($file);
-        }
-    }
-
-    //printf('%d Dateien gelöscht ', $counter);
+    $cmd = sprintf('find %s -mtime +%d -exec rm -r {} \;', $path, $days);
+    exec($cmd, $output);  
 }
 
 function showCustomLogos()

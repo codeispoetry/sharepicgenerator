@@ -74,6 +74,8 @@ header .container {
 <?php
   require_once('base.php');
   require_once('lib/functions.php');
+  require_once('lib/log_functions.php');
+
 
 ?>
 <body>
@@ -173,6 +175,8 @@ header .container {
 </div>
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 
-
+<?php
+  deleteFilesInPathOlderThanDays(getBasePath('tmp/*'), 7);
+?>
 </body>
 </html>
