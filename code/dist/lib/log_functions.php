@@ -36,9 +36,9 @@ function show_images($dir, $showCaption = false)
     }
 }
 
-function deleteFilesInPathOlderThanDays($path, $days)
+function deleteFilesInPathOlderThanDays($path, $exclude, $days)
 {
-    $cmd = sprintf('find %s -mtime +%d -exec rm -r {} \;', $path, $days);
+    $cmd = sprintf('find %s ! -name "%s" -mtime +%d -exec rm -r {} \;', $path, $exclude, $days);
     exec($cmd, $output);  
 }
 
