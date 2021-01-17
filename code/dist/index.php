@@ -173,7 +173,7 @@ header .container {
 </footer>
 
 </div>
-<script src="./vendor/jquery-3.4.1.min.js"></script>
+<script src="./thirdparty/jquery-3.4.1.min.js"></script>
 
 <?php
   // delete tmp-files
@@ -183,6 +183,7 @@ header .container {
   // delete videos more often
   deleteFilesInPathOlderThanDays(getBasePath('tmp/*.mp4'), null,  1);
 
+  require_once('lib/mail_functions.php');
 ?>
 </body>
 </html>

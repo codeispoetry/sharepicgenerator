@@ -43,7 +43,6 @@ $('#download,.download').click(function onDownloadClick() {
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
       videofile: config.videofile,
-
     },
     success(createPicData) {
       const obj = JSON.parse(createPicData);

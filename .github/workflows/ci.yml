@@ -48,6 +48,10 @@ jobs:
         run: |
           cd code
           npm run build:production
+      - name: run install composer in code/dist
+        run: |
+          cd code/dist
+          composer install
       - name: provide deploy_key
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
@@ -55,7 +59,7 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
-      - name: install composer
+      - name: install composer for deployment
         run: |
           composer install
       - name: run deployer for develop
