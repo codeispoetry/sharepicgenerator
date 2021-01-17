@@ -9,7 +9,7 @@ code/dist/assets/js/*
 code/dist/**/*.css
 !code/dist/markdown/*.css
 code/dist/built.js
-!code/dist/vendor/*
+!code/dist/thirdparty/*
 code/dist/**/*.css.map
 code/dist/debug/*
 
