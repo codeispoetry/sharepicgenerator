@@ -299,3 +299,9 @@ function getQRCodeCount()
 {
     return singleResult("select count(*) as result from qrcode;");
 }
+
+function getSaveWorkCount()
+{
+    return singleResult("select count(*) as result from downloads where useSaveWork = 1;");
+}
+
