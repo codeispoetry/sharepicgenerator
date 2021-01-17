@@ -15,6 +15,8 @@ $(document).ready(() => {
   $('#textsize').val(502);
   $('#textX').val(41);
   $('#textY').val(372);
+  config.layout = 'nolines';
+
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const clickId = urlParams.get('clickId');
