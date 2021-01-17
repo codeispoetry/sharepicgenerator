@@ -35,13 +35,6 @@ if (!isEditor()) {
         <div class="col-12 text-center">
             <h1>Zuletzt erzeugte Sharepics</h1>
         </div>
-
-        <div class="col-12 text-center">
-            <?php
-                $hours = 24 * 7;
-                deleteFilesInPathOlderThanHours($hours, getBasePath('/tmp/*'));
-            ?>
-        </div>
     </div>
 
     <div class="row">

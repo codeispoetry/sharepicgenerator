@@ -29,6 +29,7 @@ $(document).ready(() => {
 
   config.useragent = navigator.userAgent;
   config.browser = getBrowser();
+  config.useSaveWork = false;
 });
 
 function message(text = false) {

@@ -57,7 +57,7 @@ require_once(getBasePath('lib/log_functions.php'));
                 <dd>
                     gesamt: <?php echo number_format(getDownloads(), 0, ',', '.'); ?>
                     <br>
-                    unique sharepics: <?php echo number_format(getUniqueDownloads(), 0, ',', '.'); ?>
+                    unique sharepics: <?php echo 100 * round(getUniqueDownloads() / getDownloads(), 2); ?>%
                     <br>
                     täglich: <?php echo number_format(getDailyDownloads(), 0, ',', '.'); ?>
                     <br>
@@ -128,12 +128,27 @@ require_once(getBasePath('lib/log_functions.php'));
                 <dt><i class="fab fa-chrome"></i> Browser</dt>
                 <dd><ul><?php echo showBrowsers(); ?></ul></dd>
 
-                <dt> Different User Agents</dt>
+                Different User Agents
                 <dd><?php echo getUserAgentCount(); ?></dd>
             </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-qrcode"></i> QR-Code</dt>
                 <dd>QR-Code-Nutzungen: <?php echo getQRCodeCount(); ?></dd>
+            </dl>
+            <dl>
+                <dt><i class="fas fa-save"></i> Arbeitsdateien</dt>
+                <dd>Arbeitsdatei-Nutzungen: <?php echo getSaveWorkCount(); ?></dd>
+            </dl>
+            <dl>
+                <dt><i class="fas fa-images"></i> Bildbeareitungen</dt>
+                <dd>
+                    Schwarz-weiß: <?php echo 100 * round( getImageBlackWhite(), 2); ?>%
+                    <br>Unscharf: <?php echo 100 * round( getImageBlur(), 2); ?>%
+                    <br>Hell/Dunkel: <?php echo 100 * round( getImageDarkLight(), 2); ?>%
+                    <br>Grün: <?php echo 100 * round(getImageGreen(), 2); ?>%
+                </dd>
             </dl>
         </div>
      
