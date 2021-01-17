@@ -25,6 +25,10 @@ require_once(getBasePath('lib/log_functions.php'));
         <div class="col-12 text-center mb-3">
             <a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
         </div>
+        <div class="col-12">
+            <h4>Systemgesundheit</h4>
+            Freier Festplattenplatz: <?php echo getFreeSpace(); ?>
+        </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-users"></i> User</dt>
