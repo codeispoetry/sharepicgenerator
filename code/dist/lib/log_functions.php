@@ -69,15 +69,26 @@ function singleResult($sql)
     return $row['result'];
 }
 
-function echoResults($sql)
+function echoResults($sql, $inPercent = false)
 {
     global $db;
     $results = $db->query($sql);
     while ($row = $results->fetchArray()) {
+        
+
+        if( $inPercent ){
+            $fraction = $row['count'] / getDownloads();
+            $decimal_places = ($fraction > 0.01) ? 2 : 4;
+            $value = 100 * round($fraction, $decimal_places);
+        } else {
+            $value = $row['count'];
+        }
+
         printf(
-            '<li>%s: %s</li>',
+            '<li>%s: %s%s</li>',
             ($row['name']) ?: 'ohne',
-            number_format($row['count'], 0, ',', '.')
+            $value,
+            ($inPercent) ? '%' : ''
         );
     }
 }
@@ -124,6 +135,11 @@ function getLoginCountsPerUserLastDays($operator = '=', $threshold = 1, $days = 
 
 function getDownloads()
 {
+    static $total;
+    if($total){
+        return $total;
+    }
+
     return singleResult('SELECT COUNT(*) AS result FROM downloads;');
 }
 
@@ -173,7 +189,7 @@ function getAddPic()
 
 function showSocialMedia()
 {
-    return echoResults("select SUBSTR(socialmediaplatform,0,INSTR(socialmediaplatform,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;");
+    return echoResults("select SUBSTR(socialmediaplatform,0,INSTR(socialmediaplatform,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;", true);
 }
 
 function showFaces()
@@ -193,7 +209,7 @@ function showLayouts()
 
 function showBackgroundSources()
 {
-    return echoResults("select backgroundsource As name,count(*) as count from downloads GROUP BY backgroundsource ORDER BY count DESC;");
+    return echoResults("select backgroundsource As name,count(*) as count from downloads GROUP BY backgroundsource ORDER BY count DESC;", true);
 }
 
 function showPixabaySearchesAllTime()
@@ -304,4 +320,25 @@ function getSaveWorkCount()
 {
     return singleResult("select count(*) as result from downloads where useSaveWork = 1;");
 }
+
+function getImageBlackWhite()
+{
+    return singleResult("select count(*) as result from downloads where graybackground != 1") / getDownloads();
+}
+
+function getImageBlur()
+{
+    return singleResult("select count(*) as result from downloads where blurbackground != 0") / getDownloads();
+}
+
+function getImageDarkLight()
+{
+    return singleResult("select count(*) as result from downloads where darklightlayer != 0") / getDownloads();
+}
+
+function getImageGreen()
+{
+    return singleResult("select count(*) as result from downloads where greenlayer != 0") / getDownloads();
+}
+
 
