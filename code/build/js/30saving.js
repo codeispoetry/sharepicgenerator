@@ -39,6 +39,8 @@ function loadFormData(formdata) {
     $('#logosize').val(formdata.logosize);
     logo.resize($('#logosize').val());
   }, 100);
+
+  config.useSaveWork = true;
 }
 
 // eslint-disable-next-line no-unused-vars

@@ -26,16 +26,8 @@ require_once(getBasePath('lib/log_functions.php'));
     <div class="row mt-3">
         <div class="col-12 text-center">
             <a href="#logos" class="btn btn-info btn-md">Logos</a>
-            <a href="?deleteall=true" class="btn btn-danger btn-md ml-2">alle löschen</a>
             <a href="index.php" class="btn btn-primary btn-md ml-2">Statistik</a>
             <a href="/tenants/federal" class="btn btn-secondary btn-md ml-2">Generator</a>
-        </div>
-
-        <div class="col-12 text-center">
-            <?php
-                $hours = (isset($_GET['deleteall'])) ? 1 : 24;
-                deleteFilesInPathOlderThanHours($hours, '../tmp/*');
-            ?>
         </div>
 
         <div class="col-12 text-center">
