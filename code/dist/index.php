@@ -180,6 +180,9 @@ header .container {
   deleteFilesInPathOlderThanDays(getBasePath('tmp/*'), 'log*', 2);
   // but keep log-files longer
   deleteFilesInPathOlderThanDays(getBasePath('tmp/log*'), null,  7);
+  // delete videos more often
+  deleteFilesInPathOlderThanDays(getBasePath('tmp/*.mp4'), null,  1);
+
 ?>
 </body>
 </html>
