@@ -15,17 +15,6 @@ require_once(getBasePath('lib/log_functions.php'));
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-    <style>
-        .graphCanvas{
-            display: flex;
-            align-items: baseline;
-        }
-        .graph{
-            background: #46962b;
-            width: 10px;
-            margin-right: 1px;
-        }
-    </style>
 </head>
 <body>
 <div class="container-fluid">
