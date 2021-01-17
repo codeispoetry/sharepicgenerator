@@ -51,7 +51,7 @@ nextActionDay();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator/Frankfurt</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap4-toggle.min.css">
+    <link rel="stylesheet" type="text/css" href="/thirdparty/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
@@ -161,16 +161,16 @@ nextActionDay();
 
 
 
-<script src="/vendor/jquery-3.4.1.min.js"></script>
-<script src="/vendor/popper.min.js"></script>
-<script src="/vendor/bootstrap.min.js"></script>
-<script src="/vendor/bootstrap4-toggle.min.js"></script>
+<script src="/thirdparty/jquery-3.4.1.min.js"></script>
+<script src="/thirdparty/popper.min.js"></script>
+<script src="/thirdparty/bootstrap.min.js"></script>
+<script src="/thirdparty/bootstrap4-toggle.min.js"></script>
 
 
 
-<script src="/vendor/svg.min.js"></script>
-<script src="/vendor/svg.draggable.min.js"></script>
-<script src="/vendor/svg.filter.min.js"></script>
+<script src="/thirdparty/svg.min.js"></script>
+<script src="/thirdparty/svg.draggable.min.js"></script>
+<script src="/thirdparty/svg.filter.min.js"></script>
 <script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
 <script src="/assets/js/frankfurt.min.js?v=<?php echo @filemtime('../../assets/js/frankfurt.min.js'); ?>"></script>
 

@@ -35,6 +35,7 @@ code/tests/livetest/*.jpg
 
 code/dist/ini/passwords.php
 code/dist/log/.htusers
+code/dist/vendor
 
 
 *main.min.js

@@ -7,7 +7,7 @@
     <title>Markdown 2 Image</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="./styles.css">
-    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap4-toggle.min.css">
+    <link rel="stylesheet" type="text/css" href="/thirdparty/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
@@ -91,11 +91,11 @@
     </div>
 </footer>
 
-<script src="/vendor/jquery-3.4.1.min.js"></script>
-<script src="/vendor/bootstrap.min.js"></script>
-<script src="/vendor/bootstrap4-toggle.min.js"></script>
-<script src="./vendor/markdown-it.min.js"></script>
-<script src="./vendor/markdown-it-emoji.min.js"></script>
+<script src="/thirdparty/jquery-3.4.1.min.js"></script>
+<script src="/thirdparty/bootstrap.min.js"></script>
+<script src="/thirdparty/bootstrap4-toggle.min.js"></script>
+<script src="./thirdparty/markdown-it.min.js"></script>
+<script src="./thirdparty/markdown-it-emoji.min.js"></script>
 <script>
     $( document ).ready(function() {
         let md = window.markdownit().use(window.markdownitEmoji);;
