@@ -126,11 +126,11 @@ function getLoginCountsPerUserLastDays($operator = '=', $threshold = 1, $days = 
 function getDownloads()
 {
     static $total;
-    if($total){
-        return $total;
+    if(!$total){
+        $total = singleResult('SELECT COUNT(*) AS result FROM downloads;');
     }
 
-    return singleResult('SELECT COUNT(*) AS result FROM downloads;');
+    return $total;
 }
 
 function getUniqueDownloads()
@@ -331,4 +331,10 @@ function getImageGreen()
     return singleResult("select count(*) as result from downloads where greenlayer != 0") / getDownloads();
 }
 
+function getFreeSpace()
+{
+    $cmd = "df -h / | tail -n +2 |  awk '{ print $4 }'";
+    exec($cmd, $output);
 
+    return $output[0];
+}
