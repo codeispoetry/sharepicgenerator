@@ -176,7 +176,10 @@ header .container {
 <script src="./vendor/jquery-3.4.1.min.js"></script>
 
 <?php
-  deleteFilesInPathOlderThanDays(getBasePath('tmp/*'), 7);
+  // delete tmp-files
+  deleteFilesInPathOlderThanDays(getBasePath('tmp/*'), 'log*', 2);
+  // but keep log-files longer
+  deleteFilesInPathOlderThanDays(getBasePath('tmp/log*'), null,  7);
 ?>
 </body>
 </html>
