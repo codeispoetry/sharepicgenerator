@@ -187,15 +187,14 @@
                            class="form-control showonly lines nolines">
                           <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textbeforecolor" title="Farbe wechseln"></span> 
                         <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="black">
-                        <input type="hidden" name="textcolor" id="textcolor" value="#46962b">
-                        <input type="hidden" name="texthighlightcolor" id="texthightlightcolor" value="#FEEE00">
+                        <input type="hidden" name="texthighlightcolor" id="texthighlightcolor" value="#FEEE00">
                         <input type="hidden" name="textaftercolor" id="textaftercolor" value="#E6007E">
 
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Frankfurt</textarea>
                     <div class="d-flex flex-column">
-                        <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
+                        <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textColor" title="Farbe wechseln"></span> 
                         <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#texthighlightcolor" title="Farbe wechseln"></span> 
 
                     </div>
@@ -569,7 +568,7 @@
         <input type="hidden" name="addPic2y" id="addPic2y">
         <input type="hidden" name="addPic99x" id="addPic99x">
         <input type="hidden" name="addPic99y" id="addPic99y">
-        <input type="hidden" name="textColor" id="textColor" value="0">
+        <input type="hidden" name="textColor" id="textColor" value="#46962b">
         <input type="hidden" name="eraser" id="eraser">
         <input type="hidden" name="copyrightcolor" id="copyrightcolor" value="white">
 
