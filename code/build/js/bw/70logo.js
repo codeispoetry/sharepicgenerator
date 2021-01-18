@@ -4,6 +4,8 @@ const logofont = {
   anchor: 'left',
 };
 
+let alertShown = false;
+
 const logo = {
   isLoaded: false,
   fanleft: draw.circle(0),
@@ -135,20 +137,20 @@ const logo = {
         break;
       case 'fanleft':
         x = 0;
-        y = 0;
-        logo.svg.size(null, draw.height());
+        y = draw.height() - logo.svg.height();
+        logo.svg.size(draw.width());
         $('#fanposition').prop('disabled', false);
         break;
       case 'fancenter':
-        logo.svg.size(null, draw.height());
+        logo.svg.size(draw.width());
         x = (draw.width() - logo.svg.width()) / 2;
-        y = 0;
+        y = draw.height() - logo.svg.height();
         $('#fanposition').prop('disabled', false);
         break;
       case 'fanright':
-        logo.svg.size(null, draw.height());
+        logo.svg.size(draw.width());
         x = draw.width() - logo.svg.width();
-        y = 0;
+        y = draw.height() - logo.svg.height();
         $('#fanposition').prop('disabled', false);
         break;
       default:
@@ -159,6 +161,13 @@ const logo = {
 
     text.svg.front();
     pin.svg.front();
+
+    $('#svg-logo').bind('mouseup', () => {
+      if (!alertShown) {
+        alert('Das Fächerlogo liegt über dem Hintergrund. Bitte fasse das Hintergrundbild weiter oben an, um es zu verschieben');
+        alertShown = true;
+      }
+    });
 
     return true;
   },
