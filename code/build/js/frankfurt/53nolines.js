@@ -62,12 +62,11 @@ const nolines = {
         for (let i = 0; i < values.length; i++) {
           style = (style === 0) ? 1 : 0;
 
-          color = $('#textcolor').val();
+          color = $('#textColor').val();
           if (style === 1) {
             // eslint-disable-next-line prefer-destructuring
             color = $('#texthighlightcolor').val();
           }
-
           add.tspan(values[i]).fill(color).font(
             Object.assign(nolines.font, { family: fontfamily }),
           );

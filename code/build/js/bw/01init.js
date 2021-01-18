@@ -24,9 +24,6 @@ $(document).ready(() => {
   $('#logosize').val(17);
   logo.resize($('#logosize').val());
 
-  $('.toast').toast({ delay: 10000 });
-  $('.toast-actionday').toast('show');
-
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 

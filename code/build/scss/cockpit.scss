@@ -64,6 +64,16 @@
     &.collapsed{
       border-color: white;
     }
+
+  }
+
+  .collapse{
+    background-color: #ccc;
+    transition: background-color 2s;
+  }
+
+  .highlighted{
+    background-color: $primary;
   }
 
   .collapsing {
