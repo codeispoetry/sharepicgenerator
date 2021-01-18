@@ -96,12 +96,12 @@ header .container {
             <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
           </a>
 
-          <div class="d-flex mt-4">
+          <div class="mt-4 tenants-switch">
           <?php
             readConfig();
             $tenants = configValue('Main','linkedTenants');
             foreach ($tenants as $key => $value ){
-              printf('<a href="%1$s" class="btn btn-info btn-sm mr-1">
+              printf('<a href="%1$s" class="btn btn-info btn-sm mr-1 mb-1">
                   <img src="assets/%1$s/logo.svg" style="height:1rem">%2$s</a>',
                   $key,
                   $value
