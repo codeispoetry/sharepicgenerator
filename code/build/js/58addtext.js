@@ -1,7 +1,5 @@
 const addtext = {
   svg: draw.text(''),
-  colors: ['white', 'black', '#46962b', '#E6007E', '#FEEE00'],
-  colorIndex: 0,
   lineheight: 20,
   linemargin: -4,
   paddingLr: 5,
@@ -27,7 +25,7 @@ const addtext = {
     const fontSize = parseInt($('#addtextsize').val(), 10);
     const addtextContent = draw.text($('#addtext').val())
       .font(Object.assign(addtext.font, { size: fontSize }))
-      .fill(addtext.colors[addtext.colorIndex]);
+      .fill($('#addtextColor').val());
     addtext.svg.add(addtextContent);
 
     eraser.front();
@@ -37,11 +35,5 @@ const addtext = {
   },
 
 };
-
-$('.addtext-change-color').click(() => {
-  addtext.colorIndex += 1;
-  addtext.colorIndex %= addtext.colors.length;
-  addtext.draw();
-});
 
 $('#addtext, #addtextsize').bind('input propertychange', addtext.draw);
