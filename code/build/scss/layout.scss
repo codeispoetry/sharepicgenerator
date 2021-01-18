@@ -163,3 +163,10 @@ textarea.height1line{
     }
   }
 }
+
+.tenants-switch{
+  flex-wrap: wrap;
+  & > *{
+    flex: 0 1 auto;
+  }
+}
