@@ -2,13 +2,22 @@
         <div class="logo KILLexpertmode collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">             
+                    <optgroup label="Fächer">
                         <option value="fancenter">Fächer mittig</option>
                         <option value="fanleft">Fächer links</option>
                         <option value="fanright">Fächer rechts</option>
+                        </optgroup>
+                    <optgroup label="Fächer mit Claim">
+                        <option value="fanleftclaim">Fächer mit Claim links</option>
+                        <option value="fanrightclaim">Fächer mit Claim rechts</option>
+                    </optgroup>
+                    <optgroup label="Sonnenblume">
                         <option value="sonnenblume">Sonnenblume</option>
                         <option value="sonnenblume-weiss">weiße Sonnenblume</option>
+                    </optgroup>
+                    <optgroup label="Kein Logo">
                         <option value="void">kein Logo</option>
-
+                    </optgroup>
                 </select>
             </div>
             <div class="d-flex justify-content-between">

@@ -88,6 +88,16 @@ const logo = {
       widthFraction: 1,
       position: 'fancenter',
     },
+    fanrightclaim: {
+      file: '/assets/bw/faecher-rechts-claim.png',
+      widthFraction: 1,
+      position: 'fanright',
+    },
+    fanleftclaim: {
+      file: '/assets/bw/faecher-links-claim.png',
+      widthFraction: 1,
+      position: 'fanleft',
+    },
   },
 
   load() {
