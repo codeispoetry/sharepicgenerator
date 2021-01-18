@@ -20,8 +20,7 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  $('.toast').toast({ delay: 10000 });
-  $('.toast-actionday').toast('show');
+ 
 
   //showLayout();
 

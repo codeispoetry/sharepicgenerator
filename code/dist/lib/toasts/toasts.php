@@ -62,6 +62,20 @@
       </div>
     </div>
 
+    <div class="toast toast-tipoftheday border-primary" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-primary text-white">
+
+        <strong class="mr-auto">Neu im Sharepicgenerator</strong>
+        <small class="small text-white"></small>
+        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body tipoftheday cursor-pointer" data-target=".mail">
+        Du kannst ein Sharepic direkt aus dem Sharepicgenerator an jemanden mailen.
+      </div>
+    </div>
+
 
     <?php
         echo $toasts;

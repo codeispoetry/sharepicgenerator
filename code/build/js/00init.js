@@ -30,6 +30,10 @@ $(document).ready(() => {
   config.useragent = navigator.userAgent;
   config.browser = getBrowser();
   config.useSaveWork = false;
+
+  $('.toast').toast({ delay: 10000 });
+  $('.toast-actionday').toast('show');
+  $('.toast-tipoftheday').toast('show');
 });
 
 function message(text = false) {
