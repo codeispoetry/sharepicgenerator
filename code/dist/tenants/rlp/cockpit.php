@@ -19,6 +19,7 @@
         require_once(getBasePath('tenants/cockpit/quality.php'));
         require_once(getBasePath('tenants/cockpit/workfile.php'));
         require_once(getBasePath('tenants/cockpit/gallery.php'));
+        require_once(getBasePath('tenants/cockpit/mail.php'));
         require_once(getBasePath('tenants/cockpit/footer.php'));
     ?>
     </div>
