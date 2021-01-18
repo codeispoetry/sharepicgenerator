@@ -150,18 +150,15 @@ const logo = {
       case 'fanleft':
         x = 0;
         y = draw.height() - logo.svg.height();
-        logo.svg.size(draw.width());
         $('#fanposition').prop('disabled', false);
         break;
       case 'fancenter':
-        logo.svg.size(draw.width());
-        x = (draw.width() - logo.svg.width()) / 2;
+        x = 0;
         y = draw.height() - logo.svg.height();
         $('#fanposition').prop('disabled', false);
         break;
       case 'fanright':
-        logo.svg.size(draw.width());
-        x = draw.width() - logo.svg.width();
+        x = 0;
         y = draw.height() - logo.svg.height();
         $('#fanposition').prop('disabled', false);
         break;
