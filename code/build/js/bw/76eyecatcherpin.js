@@ -3,7 +3,7 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'Arvo',
+  family: 'ArvoGruen',
   size: 15,
   anchor: 'left',
   weight: 300,
