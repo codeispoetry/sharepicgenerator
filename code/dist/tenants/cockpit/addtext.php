@@ -15,7 +15,8 @@
                 <span class="to-front" data-target="addtext" title="Sternchentext nach vorne">
                     <i class="fas fa-layer-group text-primary"></i>
                 </span> 
-                <i class="fa fa-broom ml-1 text-primary cursor-pointer addtext-change-color ml-1" title="Farbe wechseln"></i>
+                <input type="hidden" name="addtextColor" id="addtextColor" value="#000000">
+                <span class="colorpicker ml-1" data-colors="#FFFFFF,#000000,#009571,#46962b,#E6007E,#FFEE00" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 
             </div>
         </div>    
     </div>
