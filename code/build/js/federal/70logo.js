@@ -98,6 +98,8 @@ const logo = {
   draw() {
     if (!logo.isLoaded) return false;
 
+    if (logo.svg.width() === 0) return false;
+
     // let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
     const width = draw.width() * logo.logoinfo.widthFraction;
     logo.svg.size(width, null);
