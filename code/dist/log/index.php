@@ -142,6 +142,10 @@ require_once(getBasePath('lib/log_functions.php'));
                 <dd>QR-Code-Nutzungen: <?php echo getQRCodeCount(); ?></dd>
             </dl>
             <dl>
+                <dt><i class="fas fa-envelope"></i> E-Mail</dt>
+                <dd>E-Mail-Versand: <?php echo getEmailsCount(); ?></dd>
+            </dl>
+            <dl>
                 <dt><i class="fas fa-save"></i> Arbeitsdateien</dt>
                 <dd>Arbeitsdatei-Nutzungen: <?php echo getSaveWorkCount(); ?></dd>
             </dl>

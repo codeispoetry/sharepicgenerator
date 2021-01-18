@@ -311,6 +311,11 @@ function getSaveWorkCount()
     return singleResult("select count(*) as result from downloads where useSaveWork = 1;");
 }
 
+function getEmailsCount()
+{
+    return singleResult("select count(*) as result from mail;");
+}
+
 function getImageBlackWhite()
 {
     return singleResult("select count(*) as result from downloads where graybackground != 1") / getDownloads();
