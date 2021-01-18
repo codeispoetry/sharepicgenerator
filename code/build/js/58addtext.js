@@ -15,7 +15,6 @@ const addtext = {
   draw() {
     config.noBackgroundDragAndDrop = false;
 
-    if ($('#addtext').val() === '') return;
     addtext.svg.remove();
 
     addtext.svg = draw.group().attr('id', 'svg-addtext').addClass('draggable').draggable();
