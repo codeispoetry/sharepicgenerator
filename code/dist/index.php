@@ -180,9 +180,9 @@ header .container {
   deleteFilesInPathOlderThanDays(getBasePath('tmp/*'), 'log*', 2);
   // but keep log-files longer
   deleteFilesInPathOlderThanDays(getBasePath('tmp/log*'), null,  7);
-  // delete videos more often
+  // delete videos and zips more often
   deleteFilesInPathOlderThanDays(getBasePath('tmp/*.mp4'), null,  1);
-
+  deleteFilesInPathOlderThanDays(getBasePath('tmp/*.zip'), null,  1);
   require_once('lib/mail_functions.php');
 ?>
 </body>
