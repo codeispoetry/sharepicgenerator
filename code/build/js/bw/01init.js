@@ -70,6 +70,11 @@ function reDraw(withAddPic = false) {
     eraser.draw();
   }, 100);
 
+  window.setTimeout(() => {
+    text.draw();
+    $('.aligncenter').click();
+  }, 700);
+
   if ($('#backgroundFlipped').val() === 'true') {
     $('#backgroundflip').click();
   }
