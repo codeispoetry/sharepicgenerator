@@ -66,7 +66,7 @@ const pin = {
     ]);
     pinbackground.fill(bgColor);
 
-    pintext.move(28 + (countLines * 10), 9);
+    pintext.move(18 + (countLines * 10), 9);
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
 
     const pinurl = draw.text($('#pinurl').val()).font(pinurlfont).fill('#ffffff');
