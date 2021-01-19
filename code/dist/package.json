@@ -1,0 +1,23 @@
+{
+  "name": "sharepicgenerator-dist",
+  "version": "1.0.0",
+  "description": "npm dependecies for distribution",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@svgdotjs/svg.draggable.js": "^3.0.2",
+    "@svgdotjs/svg.filter.js": "^3.0.7",
+    "@svgdotjs/svg.js": "^3.0.16",
+    "bootstrap": "^4.6.0",
+    "bootstrap-toggle": "^2.2.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}

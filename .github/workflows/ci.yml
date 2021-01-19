@@ -40,7 +40,11 @@ jobs:
         run: |
           echo $GITHUB_SHA > code/dist/version.txt
           TZ='Europe/Berlin' date >> code/dist/version.txt
-      - name: Install webpack dependencies
+      - name: Install npm package for dist
+        run: |
+          cd code/dist
+          npm install
+      - name: Install npm packages for development
         run: |
           cd code
           npm install
