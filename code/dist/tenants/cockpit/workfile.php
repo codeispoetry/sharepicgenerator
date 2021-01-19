@@ -6,7 +6,7 @@
             </div>
             <div>
                 <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
-                <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> hochladen</button>
+                <button type="button" class="btn btn-info btn-sm uploadworkclicker" id="uploadworkclicker"><i class="fas fa-upload"></i> zip-Datei hochladen</button>
             </div>
         </div>
         <input type="file" class="custom-file-input upload-file" id="uploadwork" accept="application/zip">

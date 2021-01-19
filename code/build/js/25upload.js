@@ -42,7 +42,7 @@ $('.upload-file').change(function changeFile() {
     $('#canvas-area').slideDown();
 
     if (obj.error) {
-      alert('Es ist ein Fehler beim Upload aufgetreten. Bitte versuche, ein jpg-Bild hochzuladen.');
+      alert('Es ist ein Fehler beim Upload aufgetreten.');
       console.log(obj.error);
       return false;
     }
