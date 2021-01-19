@@ -22,7 +22,10 @@
                             <i class="fas fa-layer-group text-primary"></i>
                         </span> 
                     </div>
-                </div>    
+                </div>   
+                <div class="small font-italic">
+                    Nur am rechten Bildrand möglich. Gerade, nicht gedreht.
+                </div> 
             </div>
         </div>
         <input type="hidden" name="pinX" id="pinX">
