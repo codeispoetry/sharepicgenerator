@@ -104,7 +104,7 @@ class sharepicgenerator(unittest.TestCase):
 
         # Download Sharepic
         driver.find_element_by_id("download").click()
-        time.sleep( 5 )
+        time.sleep( 15 )
 
     def tearDown(self):
         jsErrors = 0
