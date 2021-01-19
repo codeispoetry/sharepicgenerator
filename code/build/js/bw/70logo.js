@@ -182,12 +182,6 @@ const logo = {
   },
 
   resize(percent) {
-    let newPercent = parseInt(percent, 10);
-    newPercent = Math.min(100, newPercent);
-    newPercent = Math.max(1, newPercent);
-
-    logo.logoinfo.widthFraction = newPercent / 100;
-    logo.draw();
   },
 };
 logo.load();
