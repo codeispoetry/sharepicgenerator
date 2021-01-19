@@ -62,7 +62,7 @@ const pin = {
       [pinwidth, 0],
       [pinwidth, pinheight],
       [0, pinheight],
-      [pinheight / 2, pinheight / 2],
+      [pinheight * 0.5 * 0.41, pinheight * 0.5],
     ]);
     pinbackground.fill(bgColor);
 
