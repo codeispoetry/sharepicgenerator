@@ -72,4 +72,8 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     hessenfullwidth.draw();
   }, 500);
+
+  if ($('#backgroundFlipped').val() === 'true') {
+    $('#backgroundflip').click();
+  }
 }

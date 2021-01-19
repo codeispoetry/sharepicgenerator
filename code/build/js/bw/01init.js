@@ -69,4 +69,8 @@ function reDraw(withAddPic = false) {
     invers.draw();
     eraser.draw();
   }, 100);
+
+  if ($('#backgroundFlipped').val() === 'true') {
+    $('#backgroundflip').click();
+  }
 }

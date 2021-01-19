@@ -81,4 +81,8 @@ function reDraw(withAddPic = false) {
     eraser.draw();
     url.draw();
   }, 100);
+
+  if ($('#backgroundFlipped').val() === 'true') {
+    $('#backgroundflip').click();
+  }
 }
