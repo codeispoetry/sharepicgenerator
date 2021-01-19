@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="toast toast-tipoftheday border-primary" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast toast-tipoftheday border-primary" data-id="tipmail" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-primary text-white">
 
         <strong class="mr-auto">Neu im Sharepicgenerator</strong>
