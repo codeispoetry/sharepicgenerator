@@ -8,6 +8,10 @@ $('#addpicdelete99').bind('click', () => { addPic99.delete(); });
 
 // eslint-disable-next-line no-unused-vars
 function setIcon(file) {
+  if (file === '') {
+    console.log8("HI");
+    return;
+  }
   // eslint-disable-next-line no-param-reassign
   file = `../../tenants/frankfurt/${file}`;
   $('#addpicfile99').val(file);
