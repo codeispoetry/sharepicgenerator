@@ -173,7 +173,6 @@ header .container {
 </footer>
 
 </div>
-<script src="./thirdparty/jquery-3.4.1.min.js"></script>
 
 <?php
   // delete tmp-files
