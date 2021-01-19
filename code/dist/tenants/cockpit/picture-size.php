@@ -16,7 +16,6 @@
                 <span class="mt-2 mr-2 small">Px</span>
 
                 <select class="form-control" id="sizepresets">
-                    <option class="">Vorgabe</option>
                     <?php
                     $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
                     foreach ($sizes as $name => $group) {
