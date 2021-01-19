@@ -64,11 +64,11 @@ function savework() {
 // eslint-disable-next-line no-unused-vars
 function loadSavework(obj) {
   const json = JSON.parse(obj.data);
-  if (json.addpicfile1 !== '') { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; }
-  if (json.addpicfile2 !== '') { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; }
-  if (json.addpicfile3 !== '') { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; }
-  if (json.addpicfile4 !== '') { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; }
-  if (json.addpicfile5 !== '') { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; }
+  if (json.addpicfile1) { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; }
+  if (json.addpicfile2) { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; }
+  if (json.addpicfile3) { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; }
+  if (json.addpicfile4) { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; }
+  if (json.addpicfile5) { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; }
 
   uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
     loadFormData(json);
