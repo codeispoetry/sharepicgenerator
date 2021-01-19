@@ -462,10 +462,10 @@ function logPicture($filename, $format)
         return;
     }
 
-    $afterFileBase =  getBasePath('tmp/log_' . $_SESSION['tenant'] .'_' . getUser() . '_'. time());
+    $afterFileBase =  getBasePath('tmp/log_' . $_SESSION['tenant'] .'_' . getUser() . '_'. filename());
     
     $command = sprintf(
-        "convert -resize 800x800 -background white -flatten -quality 75  %s %s",
+        "convert -resize 800x800 -background white -flatten -quality 60  %s %s",
         getBasePath('tmp/' . $filename . '.png'),
         $afterFileBase . '.jpg'
     );
