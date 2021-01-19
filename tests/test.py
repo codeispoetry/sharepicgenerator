@@ -55,7 +55,7 @@ class sharepicgenerator(unittest.TestCase):
         driver.find_element_by_id("test-access-password").send_keys(auth['password'] + u'\ue007')
 
         # enter expert mode
-        driver.execute_script("$('#expertmode').bootstrapToggle('on');")
+        driver.execute_script(" $('.expertmode').removeClass('d-none');")
 
         # Upload picture
         driver.find_element_by_id("uploadfile").send_keys(os.getcwd()+"/assets/background.jpg")
