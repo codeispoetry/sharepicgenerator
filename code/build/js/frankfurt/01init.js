@@ -71,6 +71,10 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     logo.draw();
   }, 200);
+
+  if ($('#backgroundFlipped').val() === 'true') {
+    $('#backgroundflip').click();
+  }
 }
 
 function initSharepic() {

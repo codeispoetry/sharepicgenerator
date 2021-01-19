@@ -166,5 +166,6 @@ $('#greenlayer').bind('input propertychange', () => {
 });
 
 $('#backgroundflip').click(() => {
+  $('#backgroundFlipped').val(($('#backgroundFlipped').val() === 'false') ? 'true' : 'false');
   background.svg.scale(-1, 1);
 });
