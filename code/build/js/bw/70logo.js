@@ -69,32 +69,32 @@ const logo = {
       position: 'topright',
     },
     fanleft: {
-      file: '/assets/bw/faecher-links.png',
+      file: '/assets/bw/faecher-links1.png',
       widthFraction: 1,
       position: 'fanleft',
     },
     fancenter: {
-      file: '/assets/bw/faecher.png',
+      file: '/assets/bw/faecher1.png',
       widthFraction: 1,
       position: 'fancenter',
     },
     fanright: {
-      file: '/assets/bw/faecher-rechts.png',
+      file: '/assets/bw/faecher-rechts1.png',
       widthFraction: 1,
       position: 'fanright',
     },
     fan: {
-      file: '/assets/bw/faecher.png',
+      file: '/assets/bw/faecher1.png',
       widthFraction: 1,
       position: 'fancenter',
     },
     fanrightclaim: {
-      file: '/assets/bw/faecher-rechts-claim.png',
+      file: '/assets/bw/faecher-rechts-claim1.png',
       widthFraction: 1,
       position: 'fanright',
     },
     fanleftclaim: {
-      file: '/assets/bw/faecher-links-claim.png',
+      file: '/assets/bw/faecher-links-claim1.png',
       widthFraction: 1,
       position: 'fanleft',
     },
@@ -179,7 +179,7 @@ const logo = {
     return true;
   },
 
-  resize(percent) {  
+  resize(percent) {
   },
 };
 logo.load();
