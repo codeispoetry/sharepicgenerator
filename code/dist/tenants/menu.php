@@ -61,6 +61,9 @@
         </div>
     </li>
     <li class="nav-item">
+        <a href="/tenants/federal" class="nav-link"> Standardlayout</a>
+    </li>
+    <li class="nav-item">
         <a href="/imprint.php" class="nav-link"> Impressum</a>
     </li>
     <?php if (isEditor()) { ?>
