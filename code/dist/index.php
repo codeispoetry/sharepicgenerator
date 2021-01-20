@@ -177,13 +177,15 @@ header .container {
 
 <?php
   // delete tmp-files
-  deleteFilesInPathOlderThanDays(getBasePath('tmp/*'), 'log*', 2);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/*'), 'log*', 2 * 24);
   // but keep log-files longer
-  deleteFilesInPathOlderThanDays(getBasePath('tmp/log*'), null,  7);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/log*'), null,  7 * 24);
   // delete videos and zips more often
-  deleteFilesInPathOlderThanDays(getBasePath('tmp/*.mp4'), null,  1);
-  deleteFilesInPathOlderThanDays(getBasePath('tmp/*.zip'), null,  1);
-  require_once('lib/mail_functions.php');
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/*.mp4'), null,  6);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/*.zip'), null,  24);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/qrcode_*'), null,  2);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/work*'), null,  24);
+
 ?>
 </body>
 </html>
