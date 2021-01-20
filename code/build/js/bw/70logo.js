@@ -113,10 +113,8 @@ const logo = {
 
     $('#logosize').val(this.logoinfo.widthFraction * 100);
 
-    this.svg = draw.group().attr('id', 'svg-logo');
-    const logofile = draw.image(this.logoinfo.file, () => {
+    logo.svg = draw.image(this.logoinfo.file, () => {
       logo.isLoaded = true;
-      logo.svg.add(logofile);
 
       setTimeout(logo.draw, 100); // with no timeout, error at hard reload of page
     });
@@ -182,6 +180,7 @@ const logo = {
   },
 
   resize(percent) {
+    console.log(percent);
   },
 };
 logo.load();
