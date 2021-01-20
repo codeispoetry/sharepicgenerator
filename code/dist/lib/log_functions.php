@@ -36,9 +36,10 @@ function show_images($dir, $showCaption = false)
     }
 }
 
-function deleteFilesInPathOlderThanDays($path, $exclude, $days)
+function deleteFilesInPathOlderThanHours($path, $exclude, $hours)
 {
-    $cmd = sprintf('find %s ! -name "%s" -mtime +%d -exec rm -r {} \;', $path, $exclude, $days);
+    $cmd = sprintf('find %s ! -name "%s" -mmin +%d -exec rm -r {} \;', $path, $exclude, $hours * 60);
+    echo $cmd."\n";
     exec($cmd, $output);  
 }
 

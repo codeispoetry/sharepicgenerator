@@ -4,7 +4,8 @@ const nolines = {
   grayBackground: draw.circle(0),
   colors: ['#ffffff', '#ffee00'],
   lineheight: 20,
-  linemargin: -4,
+  linemargin: -2,
+  linemarginoutside: 8,
   paddingLr: 5,
   font: {
     anchor: 'middle',
@@ -107,7 +108,7 @@ const nolines = {
             add.attr('style', 'white-space:pre');
           }
         });
-        textafter.dy(text.svg.height() + 6);
+        textafter.dy(text.svg.height() + nolines.linemarginoutside);
 
         text.svg.add(textafter);
       });
