@@ -72,7 +72,7 @@ function echoResults($sql, $inPercent = false)
             $decimal_places = ($fraction > 0.01) ? 2 : 4;
             $value = 100 * round($fraction, $decimal_places);
         } else {
-            $value = $row['count'];
+            $value = number_format($row['count'], 0, ',', '.');
         }
 
         printf(
