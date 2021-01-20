@@ -28,7 +28,7 @@
                 </span> 
 
                 <span class="colorpicker" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textprimarycolor" title="Hauptfarbe wechseln"></span> 
-                <span class="colorpicker" data-colors="#FEEE00,#009571,#46962b,#E6007E" data-action="nolines.draw()  " data-field="#textsecondarycolor" title="Akzentfarbe wechseln"></span> 
+                <span class="colorpicker" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()  " data-field="#textsecondarycolor" title="Akzentfarbe wechseln"></span> 
 
             </div>
 

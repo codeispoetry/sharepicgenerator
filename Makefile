@@ -72,3 +72,6 @@ log-shell:
 
 users:
 	docker-compose exec webserver sqlite3 dist/log/logs/user.db
+
+bw-templates-get:
+	rsync -av sharepic:/var/www/sharepicgenerator.de/shared/tenants/bw/gallery/img/ code/dist/tenants/bw/gallery/img
