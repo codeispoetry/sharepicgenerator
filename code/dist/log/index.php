@@ -27,6 +27,7 @@ require_once(getBasePath('lib/log_functions.php'));
         </div>
         <div class="col-12">
             <h4>Systemgesundheit</h4>
+            Uhrzeit: <?php echo strftime('%A, %k:%M Uhr'); ?><br>
             Freier Festplattenplatz: <?php echo getFreeSpace(); ?>
         </div>
         <div class="col-6 col-md-6 col-lg-3">
