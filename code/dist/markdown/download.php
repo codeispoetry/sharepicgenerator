@@ -8,7 +8,6 @@ $downloadname = $_GET['downloadname'] ?: 'sharepic';
 $contentType = 'image/png';
 $format = 'png';
 
-
 header('Content-Type: ' . $contentType);
 header("Content-Length: ".filesize('tmp/' . $filename . '.' . $format));
 header('Content-Disposition: attachment; filename="' . $downloadname . '.' . $format . '"');

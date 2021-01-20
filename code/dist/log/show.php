@@ -25,9 +25,7 @@ require_once(getBasePath('lib/log_functions.php'));
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col-12 text-center">
-            <a href="#logos" class="btn btn-info btn-md">Logos</a>
             <a href="index.php" class="btn btn-primary btn-md ml-2">Statistik</a>
-            <a href="/tenants/federal" class="btn btn-secondary btn-md ml-2">Generator</a>
         </div>
 
         <div class="col-12 text-center">
