@@ -179,8 +179,7 @@ const logo = {
     return true;
   },
 
-  resize(percent) {
-    console.log(percent);
+  resize(percent) {  
   },
 };
 logo.load();
