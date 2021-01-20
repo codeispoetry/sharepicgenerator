@@ -19,15 +19,15 @@
 
             <div class="list-group-item-content">
                 <div class="">
-                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
+                    <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Finally"
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Es beginnt
-#mitdir.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Und
+tschüss.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Werde kreativ!" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
