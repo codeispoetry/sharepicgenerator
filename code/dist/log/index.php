@@ -128,6 +128,9 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
 
                 Downloads last 7 days
                 <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
+
+                Downloads all time
+                <dd><ul><?php echo showTenantsDownloadsLastDays(5000); ?></ul></dd>
             </dl>
         </div>
         <div class="col-6 col-md-6 col-lg-3">
