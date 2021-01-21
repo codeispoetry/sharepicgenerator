@@ -415,15 +415,8 @@ der Text</textarea>
             <a href="/markdown" class="btn btn-info btn-sm" target="_blank">Tabelle erstellen</a>
         </div>
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".screen"><i class="fas fa-adjust"></i> Screen</h3>
-        <div class="screen collapse list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 align-items-center">
-                <span class="ml-5 mr-2">Hilflinien:</span>
-               <input id="gridlines" type="checkbox" data-width="40" data-size="xs" data-toggle="toggle" data-on="an" data-off="aus">
-            </div>
-        </div>
-
         <?php require_once(getBasePath('tenants/cockpit/mail.php')); ?>
+        <?php require_once(getBasePath('tenants/cockpit/gridlines.php')); ?>
 
         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">

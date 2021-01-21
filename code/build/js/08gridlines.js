@@ -14,10 +14,10 @@ function deleteMosaicLines() {
 
 $(document).ready(() => {
   if (config.user.prefs.showGridlines) {
-    $('#gridlines').bootstrapToggle('on');
+    $('#gridlines').prop('checked', true);
     $('.gridline').removeClass('d-none');
   } else {
-    $('#gridlines').bootstrapToggle('off');
+    $('#gridlines').prop('checked', false);
     $('.gridline').addClass('d-none');
   }
 
