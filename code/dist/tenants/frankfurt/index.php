@@ -51,7 +51,7 @@ nextActionDay();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator/Frankfurt</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-icon-72x72.png">
@@ -117,10 +117,11 @@ nextActionDay();
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
                         </div>
+                        <div class="mt-3 small">
+                            <a href="/tenants/federal" target="_blank"><i class="far fa-arrow-alt-circle-right"></i> zum Bundeslayout</a>
+                        </div>
                     </div>
-                    <div class="mt-3 small">
-                        <a href="/tenants/federal" target="_blank"><i class="far fa-arrow-alt-circle-right"></i> zum Bundeslayout</a>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -167,7 +168,7 @@ nextActionDay();
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/node_modules/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+<script src="/node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.js/dist/svg.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.draggable.js/dist/svg.draggable.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
