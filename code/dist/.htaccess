@@ -27,8 +27,8 @@ Options -Indexes
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
-php_value upload_max_filesize 110M
-php_value post_max_size 112M
+php_value upload_max_filesize 30M
+php_value post_max_size 30M
 
 ## Cache Expiration ##
 <IfModule mod_expires.c>
