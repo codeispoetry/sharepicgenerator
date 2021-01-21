@@ -3,7 +3,7 @@ require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/log_functions.php'));
 
-useDeLocale();
+setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
 ?>
 
 <!DOCTYPE html>
