@@ -34,6 +34,10 @@ test-live:
 test-develop:
 	cd tests && URL=https://develop.sharepicgenerator.de LOCAL=true python3 test.py
 
+test-tenant:
+	@read -p "which tenant (e.g. bw,rlp,hessen,frankfurt): " tenant; \
+	cd tests && URL=http://webserver TENANT=$$tenant LOCAL=true python3 tenant.py
+
 doc:
 	docker-compose exec mkdocs mkdocs build
 

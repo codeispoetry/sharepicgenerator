@@ -40,11 +40,6 @@ class sharepicgenerator(unittest.TestCase):
         else:
             url = "http://webserver"
 
-        # See settings
-        driver.get("chrome://settings/?search=downloads")
-        time.sleep( 3 )
-        driver.save_screenshot("artifacts/settings.png")
-
         # Startpage
         driver.get( url )
         self.assertIn("Sharepicgenerator", driver.title)
@@ -54,58 +49,14 @@ class sharepicgenerator(unittest.TestCase):
             auth = json.load(auth_json)
         driver.find_element_by_id("test-access-password").send_keys(auth['password'] + u'\ue007')
 
-        # enter expert mode
-        driver.execute_script(" $('.expertmode').removeClass('d-none');")
-
-        # Upload picture
-        driver.find_element_by_id("uploadfile").send_keys(os.getcwd()+"/assets/background.jpg")
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-        time.sleep( 5 )
-
-        return
-        # Upload additional picture
-        driver.find_element_by_xpath("//*[@data-target='.addpictures']").click()
-        driver.find_element_by_id("uploadaddpic1").send_keys(os.getcwd()+"/assets/addpic.jpg")
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-        time.sleep( 3 )
-        driver.find_element_by_xpath("//*[@for='addpicrounded1'][2]").click()
-        moveAddPic = ActionChains(driver)
-        addPicElement = driver.find_element_by_id("addpic1")
-        moveAddPic.drag_and_drop_by_offset(addPicElement,90,320).perform()
-
-        # Change text
-        driver.find_element_by_xpath("//*[@data-target='.text']").click()
+        # Test tenants
+        driver.get( url + '/tenants/' + os.environ['TENANT']);
+        time.sleep( 2 )
         driver.find_element_by_id("text").send_keys(Keys.CONTROL, "a")
         driver.find_element_by_id("text").send_keys("Automatischer\n[Akzeptanztest]")
-        #driver.find_element_by_id("textsamesize").click()
-        textSizeElement =  driver.find_element_by_id("textsize")
-        move = ActionChains(driver)
-        move.click_and_hold(textSizeElement).move_by_offset(50, 0).release().perform()
-
-        # Add icon
-        driver.find_element_by_id("uploadicon").send_keys(os.getcwd()+"/assets/icon.svg")
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "download")))
-
-        # Move text
-        moveText = ActionChains(driver)
-        textElement = driver.find_element_by_id("svg-text")
-        moveText.drag_and_drop_by_offset(textElement,20,30).perform()
-
-        # Change logo
-        driver.find_element_by_xpath("//*[@data-target='.logo']").click()
-        logoSelect = Select(driver.find_element_by_id('logoselect'))
-        logoSelect.select_by_value('sonnenblume-weiss')
-
-        # Eyecatcher
-        driver.find_element_by_xpath("//*[@data-target='.eyecatcher']").click()
-        driver.find_element_by_id("pintext").send_keys("bestanden")
-
-        # Download Sharepic
+        self.driver.save_screenshot("artifacts/tenant.png")
         driver.find_element_by_id("download").click()
-        time.sleep( 15 )
-
-        # Test tenants
-
+        time.sleep( 3 )
 
     def tearDown(self):
         jsErrors = 0
