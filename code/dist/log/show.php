@@ -27,9 +27,10 @@ require_once(getBasePath('lib/log_functions.php'));
         <div class="col-12 text-center">
             <a href="index.php" class="btn btn-primary btn-md ml-2">Statistik</a>
         </div>
-
         <div class="col-12 text-center">
-            <a name="videos"><h2>Videos</h2></a>
+            Uhrzeit: <?php echo strftime('%A, %k:%M Uhr'); ?><br>
+        </div>
+        <div class="col-12 text-center">
             <?php
                 show_videos("../tmp/shpic*\.mp4");
             ?>
@@ -37,9 +38,6 @@ require_once(getBasePath('lib/log_functions.php'));
     </div>
 
     <div class="row">
-        <div class="col-12 text-center">
-            <h2>Bilder</h2>
-        </div>
         <?php
             show_images("../tmp/log*\.jpg");
         ?>
@@ -47,10 +45,10 @@ require_once(getBasePath('lib/log_functions.php'));
 
     <div class="row">
         <div class="col-12 text-center">
-            <scroll-page id="logos"><h2>Custom Logos</h2></scroll-page>
+            <!-- <scroll-page id="logos"><h2>Custom Logos</h2></scroll-page> -->
         </div>
         <?php
-            showCustomLogos();
+            //showCustomLogos();
         ?>
     </div>
 
