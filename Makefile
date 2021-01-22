@@ -38,6 +38,12 @@ test-tenant:
 	@read -p "which tenant (e.g. bw,rlp,hessen,frankfurt): " tenant; \
 	cd tests && URL=http://webserver TENANT=$$tenant LOCAL=true python3 tenant.py
 
+test-tenants:
+	cd tests && URL=http://webserver TENANT=bw LOCAL=true python3 tenant.py && \
+	URL=http://webserver TENANT=hessen LOCAL=true python3 tenant.py && \
+	URL=http://webserver TENANT=rlp LOCAL=true python3 tenant.py && \
+	URL=http://webserver TENANT=frankfurt LOCAL=true python3 tenant.py
+
 doc:
 	docker-compose exec mkdocs mkdocs build
 
