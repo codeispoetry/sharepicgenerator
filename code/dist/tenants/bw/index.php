@@ -177,7 +177,7 @@ nextActionDay();
 
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.js/dist/svg.min.js"></script>

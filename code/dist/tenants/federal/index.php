@@ -172,13 +172,12 @@ nextActionDay();
 
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.js/dist/svg.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.draggable.js/dist/svg.draggable.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
-
 
 <script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
 <script src="/assets/js/federal.min.js?v=<?php echo @filemtime('../../assets/js/federal.min.js'); ?>"></script>
