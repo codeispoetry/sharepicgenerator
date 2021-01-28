@@ -66,6 +66,12 @@ const addPic1 = {
     const percentage = (draw.width() * parseInt($(`#addPicSize${this.i}`).val(), 10)) / 100;
     this.svg.size(percentage);
   },
+
+  clippingSetPosition() {
+    this.pic.x($(`#addPicClipHorizontal${this.i}`).val());
+    this.pic.size($(`#addPicClipWidth${this.i}`).val());
+  },
+
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -93,6 +99,7 @@ $('#addPicSize1').bind('input propertychange', () => { addPic1.resize(); });
 $('#addpicrounded1').bind('change', () => { addPic1.draw(); });
 $('#addpicroundedbordered1').bind('change', () => { addPic1.draw(); });
 $('#addpicdelete1').bind('click', () => { addPic1.delete(); });
+$('#addPicClipHorizontal1, #addPicClipWidth1').bind('input propertychange', () => { addPic1.clippingSetPosition(); });
 
 $('#addPicSize2').bind('input propertychange', () => { addPic2.resize(); });
 $('#addpicrounded2').bind('change', () => { addPic2.draw(); });
