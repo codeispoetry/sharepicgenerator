@@ -3,7 +3,6 @@ $('.upload-file').change(function changeFile() {
   const file = document.getElementById(id).files[0];
   const size = document.getElementById(id).files[0].size / 1024 / 1024;
 
-  console.log("size", size);
   const maxFileSize = 20; // in MB, note this in .htaccess as well
   const isBackgroundUpload = ($(this).attr('id') === 'uploadfile');
   if (size > maxFileSize) {
