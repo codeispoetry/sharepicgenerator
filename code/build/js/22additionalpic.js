@@ -56,7 +56,7 @@ const addPic1 = {
   delete() {
     this.svg.remove();
     this.svg = draw.circle(0);
-    hide(`show-add-pic-${this.i}`);
+    hide(`add-pic-tools-${this.i}`);
     $(`#addPic${this.i}x`).val('');
     $(`#addPic${this.i}y`).val('');
     $(`#addPicSize${this.i}`).val('');
@@ -72,9 +72,15 @@ const addPic1 = {
 function addpicAlign() {
   const y = addPic1.svg.y();
   const size = (addPic1.pic.height() / addPic2.pic.height()) * $('#addPicSize1').val();
-  $('#addPic2y').val(y);
-  $('#addPicSize2').val(size);
+
+  for (let i = 2; i <= 5; i++) {
+    $(`#addPic${i}y`).val(y);
+    $(`#addPicSize${i}`).val(size);
+  }
   addPic2.draw();
+  addPic3.draw();
+  addPic4.draw();
+  addPic5.draw();
 }
 
 const addPic2 = { ...addPic1 };

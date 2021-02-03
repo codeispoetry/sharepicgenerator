@@ -86,6 +86,7 @@ $('.upload-file').change(function changeFile() {
         show('show-add-pic-1');
         show('show-copyright');
         show('show-add-pic-upload');
+        show('add-pic-tools-1');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic1.draw();
         break;
@@ -93,6 +94,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile2').val(obj.addpicfile);
         show('show-add-pic-2');
         show('show-copyright');
+        show('add-pic-tools-2');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic2.draw();
         break;
@@ -100,6 +102,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile3').val(obj.addpicfile);
         show('show-add-pic-3');
         show('show-copyright');
+        show('add-pic-tools-3');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic3.draw();
         break;
@@ -107,6 +110,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile4').val(obj.addpicfile);
         show('show-add-pic-4');
         show('show-copyright');
+        show('add-pic-tools-4');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic4.draw();
         break;
@@ -114,6 +118,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile5').val(obj.addpicfile);
         show('show-add-pic-5');
         show('show-copyright');
+        show('add-pic-tools-5');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic5.draw();
         break;
