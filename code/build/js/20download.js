@@ -40,6 +40,7 @@ $('#download,.download').click(function onDownloadClick() {
       format,
       width: $('#width').val(),
       quality: config.quality,
+      ismosaic: config.isMosaic,
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
       videofile: config.videofile,
