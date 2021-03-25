@@ -28,7 +28,24 @@ $(document).ready(() => {
   $('#addtextY').val(draw.height() - 50);
 
   showLayout();
+
+  disableFeature('[data-target=".eyecatcher"]');
+  disableFeature('[data-target=".addtext"]');
+  disableFeature('[data-target=".eraser"]');
+  disableFeature('[data-target=".workfile"]');
+  disableFeature('[data-target=".mail"]');
+  disableFeature('[data-target=".addpictures"]');
+  disableFeature('[data-target=".quality"]');
+
+
+
 });
+
+function disableFeature(feature) {
+  $(feature).attr('data-target', '').addClass('disabled').on('click', () => {
+    alert('Diese Funktion gibt es nur im Premium-Account.');
+  });
+}
 
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {

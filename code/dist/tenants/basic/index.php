@@ -10,25 +10,11 @@ session_start();
 readConfig();
 
 $landesverband = 0;
-$user = "generic";
+$user = "basic";
 $tenant = "basic";
 
-$hasAccess = isLocal() ?: isLocalUser();
+$hasAccess = true;
 
-$doLogout = false;
-if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
-    if ($hasAccess) {
-        doLogout();
-    } else {
-        $doLogout = true;
-        handleSamlAuth($doLogout);
-    }
-    die();
-}
-
-if (!$hasAccess) {
-    $user = handleSamlAuth($doLogout);
-}
 
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
@@ -40,8 +26,6 @@ $_SESSION['tenant'] = $tenant;
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;
 
-require_once(getBasePath("lib/actionday.php"));
-nextActionDay();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -93,7 +77,7 @@ nextActionDay();
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
-        <?php require_once('../menu.php'); ?>
+        <?php require_once('menu.php'); ?>
     </div>
     </nav>
 </header>
@@ -130,7 +114,6 @@ nextActionDay();
 
             <?php
             require_once(getBasePath('/lib/overlays/waiting.php'));
-            require_once(getBasePath('/lib/overlays/actiondays.php'));
             require_once(getBasePath('/lib/overlays/icons.php'));
             require_once(getBasePath('/lib/overlays/imagedb.php'));
             if (configValue($tenant, 'showGallery')) {
@@ -138,7 +121,7 @@ nextActionDay();
             }
             require_once(getBasePath('/lib/overlays/pictures.php'));
             require_once(getBasePath('/lib/overlays/preferences.php'));
-            require_once(getBasePath('/lib/overlays/faq.php'));
+            require_once('overlays/faq.php');
 
 
             ?>
@@ -146,15 +129,6 @@ nextActionDay();
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
                 <div id="warning" class="text-danger text-center p-4" style="display:none">Gesicht</div>
-                <div id="actiondayshint" class="text-center p-4" style="display:none">
-                    Du scheinst für einen Aktionstag ein Sharepic zu erstellen.<br>
-                    Falls dieser Aktionstag noch nicht in der
-                    <a href="#" class="overlay-opener" data-target="actiondays"> Liste der Aktionstage</a>
-                    ( <?php echo getNextActionDays(3); ?>, <a href="#" class="overlay-opener" data-target="actiondays">...</a>)
-                    enthalten ist,<br>
-                    <a href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank"> schlage ihn vor</a>,
-                    damit auch andere daran denken. #Danke.
-                </div>
             </div>
 
             </div>
