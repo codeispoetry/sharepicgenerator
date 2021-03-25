@@ -41,4 +41,3 @@ const addtext = {
 };
 
 $('#addtext, #addtextsize').bind('input propertychange', addtext.draw);
-console.log("HI");
