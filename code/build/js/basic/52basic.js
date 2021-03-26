@@ -95,43 +95,9 @@ const basic = {
     }
 
     // text below the line
-    if ($('#textafter').val()) {
-      const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
-      let style = 1;
-      const textafter = draw.text((add) => {
-        for (let i = 0; i < textafterParts.length; i++) {
-          style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(basic.fontoutsidelines);
-          add.attr('xml:space', 'preserve');
-          add.attr('style', 'white-space:pre');
-        }
-      });
-      textafter.dx(2).dy(text.svg.height() - 2);
-
-      // make background the same width as the text
-      let paddingRight = 2;
-      if (getBrowser() === 'Firefox') {
-        paddingRight = 4;
-      }
-      lineafter.width(textafter.bbox().width + paddingRight);
-
-      text.svg.add(textafter);
-    }
-
     // text above the line
-    const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
-    const textbefore = draw.text((add) => {
-      for (let i = 0; i < textbeforeParts.length; i++) {
-        add.tspan(textbeforeParts[i]).fill('#FEEE00').font(basic.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textbefore.dx(2).dy(text.svg.y() - 0.7);
-    text.svg.add(textbefore);
-
     eraser.front();
-    showActionDayHint();
+
 
     // gray layer behind text
     text.grayBackground.remove();
