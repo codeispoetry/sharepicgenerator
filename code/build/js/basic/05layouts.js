@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 function showLayout() {
   config.layout = $('input[name=layout]:checked', '#pic').val();
 
@@ -5,10 +7,12 @@ function showLayout() {
 
   $(`.${config.layout}`).show();
 
+  basic.draw();
   text.draw();
   nolines.draw();
   quote.draw();
   invers.draw();
+ 
 }
 
 $('.layout').click(showLayout);
