@@ -35,6 +35,24 @@ const logo = {
     return true;
   },
 
+  loadTmp(file) {
+    if (logo.svg) logo.svg.remove();
+    logo.isLoaded = false;
+
+    this.logoinfo = {
+      widthFraction: 0.2,
+    };
+
+    this.svg = draw.group().attr('id', 'svg-logo');
+    const logofile = draw.image(file, () => {
+      logo.isLoaded = true;
+      logo.svg.add(logofile);
+
+      setTimeout(logo.draw, 100); // with no timeout, error at hard reload of page
+    });
+    return true;
+  },
+
   draw() {
     if (!logo.isLoaded) return false;
 
@@ -82,6 +100,9 @@ const logo = {
   },
 
   resize(percent) {
+    if (!logo.isLoaded) {
+      return;
+    }
     let newPercent = parseInt(percent, 10);
     newPercent = Math.min(100, newPercent);
     newPercent = Math.max(1, newPercent);
@@ -104,11 +125,9 @@ $('#logoselect').on('change', function changeLogo() {
   logo.load();
 });
 
-
 $('#logosize').bind('input propertychange', () => {
   logo.resize($('#logosize').val());
 });
-
 
 $(document).ready(() => {
   if (config.user.prefs.lastLogo) {
