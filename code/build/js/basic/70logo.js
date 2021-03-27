@@ -1,63 +1,9 @@
-/* eslint-disable no-undef */
-const logofont = {
-  family: 'FuturaCondensedExtraBold',
-  size: 78,
-  anchor: 'left',
-};
-
 const logo = {
   isLoaded: false,
   config: {
     sonnenblume: {
       file: '/assets/logos/sonnenblume.svg',
       widthFraction: 0.1,
-      position: 'topright',
-    },
-    'sonnenblume-weiss': {
-      file: '/assets/logos/sonnenblume-weiss.svg',
-      widthFraction: 0.1,
-      position: 'topright',
-    },
-    frauenrechte: {
-      file: '/assets/logos/frauenrechte.svg',
-      widthFraction: 0.1,
-      position: 'topright',
-    },
-    europa: {
-      file: '/assets/logos/europa.svg',
-      widthFraction: 0.15,
-      position: 'topright',
-    },
-    regenbogen: {
-      file: '/assets/logos/regenbogen.png',
-      widthFraction: 0.1,
-      position: 'topright',
-    },
-    'logo-weiss': {
-      file: '/assets/logos/logo-weiss.svg',
-      widthFraction: 0.2,
-      position: 'topright',
-      showChapter: true,
-    },
-    'logo-gruen': {
-      file: '/assets/logos/logo-gruen.svg',
-      widthFraction: 0.20,
-      position: 'topright',
-      showChapter: true,
-    },
-    'sonnenblume-big': {
-      file: '/assets/logos/sonnenblume-viertel.svg',
-      widthFraction: 0.28,
-      position: 'bottomleftbig',
-    },
-    'logo-berlin-weiss': {
-      file: '/assets/logos/berlin-weiss.svg',
-      widthFraction: 0.2,
-      position: 'topright',
-    },
-    'logo-berlin-gruen': {
-      file: '/assets/logos/berlin-gruen.svg',
-      widthFraction: 0.2,
       position: 'topright',
     },
     custom: {
@@ -84,12 +30,6 @@ const logo = {
       logo.isLoaded = true;
       logo.svg.add(logofile);
 
-      // add text to logo
-      if (this.logoinfo.showChapter && $('#logochapter').val()) {
-        const chapter = draw.text($('#logochapter').val().toUpperCase()).font(logofont).fill('#ffffff').move(23, 1495);
-        logo.svg.add(chapter);
-      }
-
       setTimeout(logo.draw, 100); // with no timeout, error at hard reload of page
     });
     return true;
@@ -106,14 +46,30 @@ const logo = {
     let x;
     let y;
 
-    switch (logo.logoinfo.position) {
+    switch ($('#logoposition').val()) {
+      case 'topleft':
+        x = 10;
+        y = 10;
+        break;
+      case 'topcenter':
+        x = (draw.width() - logo.svg.width()) / 2;
+        y = 10;
+        break;
+      case 'topright':
+        x = (draw.width() - logo.svg.width()) - 10;
+        y = 10;
+        break;
       case 'bottomleft':
         x = 10;
-        y = draw.height() - logo.svg.height() - 10 - 20;
+        y = draw.height() - logo.svg.height() - 10;
         break;
-      case 'bottomleftbig':
-        x = 0;
-        y = draw.height() - logo.svg.height();
+      case 'bottomcenter':
+        x = (draw.width() - logo.svg.width()) / 2;
+        y = draw.height() - logo.svg.height() - 10;
+        break;
+      case 'bottomright':
+        x = (draw.width() - logo.svg.width()) - 10;
+        y = draw.height() - logo.svg.height() - 10;
         break;
       default:
         x = draw.width() - width - 10;
@@ -148,28 +104,13 @@ $('#logoselect').on('change', function changeLogo() {
   logo.load();
 });
 
-$('.uselogo').on('click', function clickUseLogo() {
-  $('#logoselect').val($(this).data('logo'));
-  logo.load();
-});
 
 $('#logosize').bind('input propertychange', () => {
   logo.resize($('#logosize').val());
 });
 
-$('#logochapter').bind('input propertychange', () => logo.load());
-
-// eslint-disable-next-line func-names
-$('#logochapter').focusout(function () {
-  config.user.prefs.logoChapter = $(this).val();
-  setUserPrefs();
-});
 
 $(document).ready(() => {
-  if (config.user.prefs.logoChapter) {
-    $('#logochapter').val(config.user.prefs.logoChapter);
-  }
-
   if (config.user.prefs.lastLogo) {
     if (config.user.prefs.lastLogo === 'custom' && $('#logoselect option[value=custom]').length === 0) {
       config.user.prefs.lastLogo = $('#logoselect option:first').val();
@@ -206,3 +147,5 @@ $(document).ready(() => {
     return true;
   });
 });
+
+$('#logoposition').bind('input propertychange', logo.draw);

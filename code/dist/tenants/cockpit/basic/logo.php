@@ -29,8 +29,23 @@
                 </select>
                  <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
                  <i class="fa fa-trash text-primary cursor-pointer overlay-opener nav-lin ml-2" data-target="preferences" title="Logos löschen"></i>
-
             </div>
+
+            <div class="mb-1 d-flex align-items-lg-center">
+                <select class="form-control" name="logoposition" id="logoposition">
+                    <optgroup label="oben">
+                        <option value="topleft">links</option>
+                        <option value="topcenter">mitte</option>
+                        <option value="topright">rechts</option>
+                    </optgroup>
+                    <optgroup label="unten">
+                        <option value="bottomleft">links</option>
+                        <option value="bottomcenter">mitte</option>
+                        <option value="bottomright">rechts</option>
+                    </optgroup>
+                </select>
+            </div>
+
             <div class="d-flex justify-content-between">
                 <div class="slider">
                     <small>klein</small>
