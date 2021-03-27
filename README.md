@@ -57,6 +57,12 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 ### vendor
 SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 
+# Add new font
+- ttf-file should go to fonts-folder
+- create woff2 with ``woff2_compress <font.ttf>`` and move it to assets/fonts
+- add font-face in fonts.scss
+- upload font to server
+
 # Setup picture gallery
 1. The structure in tenants/federal/pictures/img needs to be 
 
