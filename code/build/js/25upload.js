@@ -78,6 +78,15 @@ $('.upload-file').change(function changeFile() {
       case 'uploadtmplogo':
         logo.loadTmp(`/tmp/${obj.file}`);
         break;
+      case 'uploadfont':
+        console.log(obj);
+        $('head').append(`<style>@font-face { font-family: "${obj.name}"; src: url("/tmp/${obj.url}") format("woff2"); }</style>`);
+
+        $('#textfont').append(new Option(obj.name, obj.name));
+        $('#textfont').val(obj.name);
+        basic.draw();
+
+        break;
       case 'uploadicon':
         $('#iconfile').val(obj.iconfile);
         icon.load();
@@ -271,6 +280,10 @@ $('.uploadlogoclicker').click(() => {
 
 $('.uploadtmplogoclicker').click(() => {
   $('#uploadtmplogo').click();
+});
+
+$('.uploadfontclicker').click(() => {
+  $('#uploadfont').click();
 });
 
 $('.uploadiconclicker').click(() => {
