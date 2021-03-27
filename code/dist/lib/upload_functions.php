@@ -146,6 +146,22 @@ function handleLogoUpload($extension)
     die();
 }
 
+function handleTmpLogoUpload($extension)
+{
+    if (!isAllowed()) {
+        returnJsonErrorAndDie('not allowed');
+    }
+
+    $filename = getBasePath('tmp/' . uniqid('logo_')) . '.' . $extension;
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
+
+    $return['okay'] = true;
+    $return['file'] = basename($filename);
+
+    echo json_encode($return);
+    die();
+}
+
 function isFileAllowed($extension, $allowed)
 {
     return in_array(strtolower($extension), $allowed);

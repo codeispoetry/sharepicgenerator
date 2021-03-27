@@ -31,6 +31,9 @@ switch ($id) {
     case "uploadlogo":
         handleLogoUpload($extension);
         break;
+    case "uploadtmplogo":
+        handleTmpLogoUpload($extension);
+        break;
     case "uploadicon":
         handleIconUpload($extension);
         break;
