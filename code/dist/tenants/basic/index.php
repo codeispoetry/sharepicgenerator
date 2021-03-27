@@ -67,6 +67,26 @@ $_SESSION['csrf'] = $csrf;
         config.user = {};
         config.user.prefs = {};
     </script>
+
+    <style>
+        <?php
+            $fontOptionsInCockpit = '';
+            foreach (glob("../../assets/custom-fonts/*.woff2") as $font) {
+                printf('@font-face {
+                    font-family: "%1$s";
+                    src: url("/assets/custom-fonts/%2$s") format("woff2");
+                }
+                ',
+                basename($font, '.woff2'),
+                basename($font)
+                );
+
+                $fontOptionsInCockpit .= sprintf('<option value="%1$s">%1$s</option>', basename($font, '.woff2'));
+
+
+            }
+        ?>
+    </style>
 </head>
 <body class="h-100">
 <header>
