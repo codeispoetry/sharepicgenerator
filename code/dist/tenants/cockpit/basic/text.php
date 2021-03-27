@@ -10,8 +10,6 @@
 
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="textfont" id="textfont">
-                    <option value="ArvoGruen">ArvoGruen</option>
-                    <option value="PTSans">PTSans</option>
                     <?php echo $fontOptionsInCockpit; ?>
                 </select>
             </div>
