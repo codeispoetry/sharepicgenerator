@@ -2,6 +2,7 @@
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
+        
             <div class="d-flex justify-content-between form-check form-check-inline">
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="basic" checked>Standard
@@ -20,6 +21,8 @@
                 <i class="fas fa-align-left text-primary click-setter" data-action="basic.draw()" data-field="#textanchor" data-value="left" title="Text linksbündig"></i>
                 <i class="fas fa-align-center text-primary click-setter" data-action="basic.draw()" data-field="#textanchor" data-value="middle" title="Text mittig"></i>
                 <input type="hidden" name="textanchor" id="textanchor" value="left">
+
+                <i class="fa fa-upload text-primary cursor-pointer uploadfontclicker ml-2" title="Schrift hochladen"></i>
  
                 <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
                 <input type="hidden" name="textcolor" id="textcolor" value="#000">
@@ -63,3 +66,4 @@
         <input type="hidden" name="textY" id="textY">
         <input type="hidden" name="textColor" id="textColor" value="1">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
+        <input type="file" class="custom-file-input upload-file" id="uploadfont">
