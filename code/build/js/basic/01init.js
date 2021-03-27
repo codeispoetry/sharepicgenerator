@@ -12,9 +12,9 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-  $('#textsize').val(502);
+  $('#textsize').val(99);
   $('#textX').val(41);
-  $('#textY').val(372);
+  $('#textY').val(272);
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -36,9 +36,6 @@ $(document).ready(() => {
   disableFeature('[data-target=".mail"]');
   disableFeature('[data-target=".addpictures"]');
   disableFeature('[data-target=".quality"]');
-
-
-
 });
 
 function disableFeature(feature) {
@@ -55,7 +52,7 @@ function initSharepic() {
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
   $('#textY').val(320);
-  $('#textsize').val(402);
+  $('#textsize').val(99);
   initialized = true;
 
   return true;

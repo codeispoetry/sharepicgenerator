@@ -8,6 +8,24 @@
                  </label>
             </div>
 
+            <div class="mb-1 d-flex align-items-lg-center">
+                <select class="form-control" name="textfont" id="textfont">
+                    <option value="ArvoGruen">ArvoGruen</option>
+                    <option value="PTSans">PTSans</option>
+                </select>
+            </div>
+
+
+            <div>
+
+                <i class="fas fa-align-left text-primary click-setter" data-action="basic.draw()" data-field="#textanchor" data-value="left" title="Text linksbündig"></i>
+                <i class="fas fa-align-center text-primary click-setter" data-action="basic.draw()" data-field="#textanchor" data-value="middle" title="Text mittig"></i>
+                <input type="hidden" name="textanchor" id="textanchor" value="left">
+ 
+                <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
+                <input type="hidden" name="textcolor" id="textcolor" value="#000">
+            </div>
+
             <div class="list-group-item-content">
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
