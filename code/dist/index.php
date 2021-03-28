@@ -22,53 +22,40 @@
     <link rel="manifest" href="/assets/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+
     <style>
+    body {
+      background-image: linear-gradient(180deg, #eee, #fff 100px, #fff);
+    }
 
-header {
-  position: relative;
-  background-color: white;
-  height: 75vh;
-  min-height: 25rem;
-  width: 100%;
-  overflow: hidden;
-}
+    .container {
+      max-width: 960px;
+    }
 
-header video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: 0;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  filter: grayscale(50%);
-}
+    .pricing-header {
+      max-width: 700px;
+    }
 
-header .container {
-  position: relative;
-  z-index: 2;
-}
+    .link-secondary{
+      color: #6c757d;
+    }
+    .link-secondary:hover{
+      color: #46962b;
+    }
 
-.text-shadow{
-  text-shadow: black 1px 1px 12px;
-}
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-@media (pointer: coarse) and (hover: none) {
-  header {
-    background: #46962b;
-    height: auto;
-    padding: 5em 0;
-    width: 100%;
-  }
-  header video {
-    display: none;
-  }
-}
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
     </style>
 </head>
 <?php
@@ -79,100 +66,100 @@ header .container {
 
 ?>
 <body>
-<div class="container-fluid">
+<div class="container py-3">
+  <header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <img class="mr-2" src="assets/img/logo.svg" alt="" width="40" height="40">
+      <span class="fs-4">Sharepicgenerator.de</span>
+    </a>
+  </header>
 
-<div class="row">
-<header>
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="assets/background.mp4" type="video/mp4">
-  </video>
-  <div class="container h-100">
-    <div class="d-flex h-100 text-center align-items-center">
-      <div class="w-100 text-white">
-        <h1 class="display-4 text-shadow">Sharepic&shy;generator</h1>
-        <p class="lead mb-0 text-shadow">Erstelle Deine eigenen Sharepics für Social Media und Co.<br>im Design von Bündnis 90/Die Grünen</p>
-        <div class="mt-3 d-flex flex-column align-items-center">
-          <a href="tenants/federal/" class="mt-5 btn btn-secondary btn-lg">
-            <i class="fas fa-pen mr-2 small"></i>Sharepic erstellen
-          </a>
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Sharepicgenerator</h1>
+    <p class="fs-5 text-muted">Erstelle Bilder mit Text für Social Media und Co. </p>
+  </div>
 
-          <div class="mt-4 tenants-switch">
-          <?php
-            readConfig();
-            $tenants = configValue('Main','linkedTenants');
-            foreach ($tenants as $key => $value ){
-              printf('<a href="%1$s" class="btn btn-info btn-sm mr-1 mb-1">
-                  <img src="assets/%1$s/logo.svg" style="height:1rem">%2$s</a>',
-                  $key,
-                  $value
-              );
-            }
-          ?>
+  <main>
+    <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Basic</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Logo hochladen</li>
+              <li>Schrift hochladen</li>
+              <li>Hintergrundbild aussuchen</li>
+              <li>Text eingeben</li>
+              <li>herunterladen</li>
+            </ul>
+            <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">Sharepic erstellen</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">
+              Bündnis 90/ Die Grünen
+              <img src="/assets/logos/sonnenblume.svg" style="height: 1em;margin-left: 2em" >
+            </h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>original Design von Bündnis 90/ Die Grünen</li>
+              <li>Mustervorlagen</li>
+              <li>Videofunktion</li>
+              <li>Arbeitsdateien</li>
+              <li>
+                <a href="/tenants/bw">Baden-Württemberg</a> |
+                <a href="/tenants/frankfurt">Frankfurt</a> |
+                <a href="/tenants/hessen">Hessen</a> 
+              </li>
+            </ul>
+            <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-primary">einloggen</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
-</div>
 
-<section class="row my-5">
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-md-8 offset-md-2 ">
-        <h2>Beispiele</h2>
-        <div class="row">
-          <div class="col-6"><img src="assets/example1.jpg" class="img-fluid"></div>
-          <div class="col-6"><img src="assets/example2.jpg" class="img-fluid"></div>
-        </div>
+  </main>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top position-relative">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="assets/img/logo.svg" alt="" width="24" height="19">
+        <small class="d-block mb-3 text-muted">by Tom Rose</small>
       </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-md-8 offset-md-2 ">
-        <h2>Featureliste</h2>
-        <ul>
-          <li>Anpassbare Ausgabegröße</li>
-          <li>Bildausschnitt frei wählbar</li>
-          <li>für Bilder und Videos</li>
-          <li>Templates für alle gängigen Social-Media-Plattformen</li>
-          <li>eigenes Bild hochladbar</li>
-          <li>mobil nutzbar</li>
-          <li>herunterladbare Zwischenspeicherung von bearbeiteten Sharepics</li>
-          <li>mandantenfähig</li>
-          <li>
-              Bilder von <a href="https://pixabay.com/de" target="_blank">Pixabay</a>,
-              <a href="https://pexels.com/de-de" target="_blank">Pexels</a> und 
-              <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-          </li>
-          <li>Icons von <a href="https://thenounproject.com/" target="_blank">TheNounProject</a></li>
-          <li>eigene Logos werden dauerhaft gespeichert</li>
-          <li>Schwarz-weiß- und andere Filter für Hintergrundbild</li>
-          <li><a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Open Source</a></li>
-          <li><em>und vieles mehr</em></li>
+      <div class="col-6 col-md">
+        <h5>Über</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/imprint.php">Impressum</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
         </ul>
-        <p class="mt-5"></p>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Hilfen</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/documentation">Handbuch</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator/issues">Fehler melden</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1">Anpassbare Ausgabegröße</li>
+          <li class="mb-1">Bildausschnitt frei wählbar</li>
+          <li class="mb-1">für Bilder und Videos</li>
+          <li class="mb-1">eigenes Logo</li>
+          <li class="mb-1">eigene Schriftart</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
-
-
-<footer class="row bg-primary p-2 text-white">
-    <div class="col-12 col-lg-6">
-    <a href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode auf github.com</a> 
-    | <a href="/imprint.php">Impressum</a>
-    | <form method="post" class="test-access" action="tenants/federal/">
-        <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
-      </form>
-    </div>
-
-    <div class="col-12 col-lg-6 text-lg-right">
-        Programmiert mit <i class="fas fa-heart text-highlight"></i> von 
-        <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">Tom Rose</a>.
-    </div>
-</footer>
-
+  </footer>
 </div>
+
 
 <?php
   // delete tmp-files
@@ -184,6 +171,7 @@ header .container {
   deleteFilesInPathOlderThanHours(getBasePath('tmp/*.zip'), null,  6);
   deleteFilesInPathOlderThanHours(getBasePath('tmp/qrcode_*'), null,  2);
   deleteFilesInPathOlderThanHours(getBasePath('tmp/work*'), null,  6);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/fonts/*'), null,  6);
 
 ?>
 </body>
