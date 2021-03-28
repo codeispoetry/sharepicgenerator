@@ -5,5 +5,5 @@
     <label class="">
         <input id="gridlines" type="checkbox" class="mr-1">
         Hilfslinien anzeigen
-    </div>
+    </label>
 </div>

@@ -14,10 +14,11 @@
                             <i class="fa fa-upload"></i> <?= $i; ?>. Bild hochladen
                         </span>
 
-                        <div class="text-primary cursor-pointer d-none">
-                            <?php if ($i == 2) { ?>
-                                <span class="text-primary cursor-pointer d-none show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
-                                    <i class="fas fa-align-justify" title="angleichen"></i>
+
+                        <div class="add-pic-tools-<?= $i; ?> text-primary cursor-pointer d-none">
+                            <?php if ($i >= 2) { ?>
+                                <span class="text-primary cursor-pointer show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
+                                    <i class="fas fa-align-justify" title="an Bild 1 angleichen"></i>
                                 </span>
                             <?php } ?>
                             
@@ -30,7 +31,7 @@
                             </span>
                             </div>
                         </div>
-                        <div class="mb-1 mt-2 d-none show-add-pic-<?= $i; ?>">
+                        <div class="mb-1 mt-2 d-none add-pic-tools-<?= $i; ?>">
                             <div class="d-flex align-items-center">
                                <div class="slider">
                                     <small>klein</small>

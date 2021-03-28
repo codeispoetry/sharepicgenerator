@@ -15,7 +15,7 @@ $id = $_POST['id'];
 
 $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 
-if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','heic','gif','svg','webp','mp4','zip'))) {
+if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','heic','gif','svg','webp','mp4','zip','ttf','otf'))) {
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
@@ -30,6 +30,12 @@ switch ($id) {
 
     case "uploadlogo":
         handleLogoUpload($extension);
+        break;
+    case "uploadtmplogo":
+        handleTmpLogoUpload($extension);
+        break;
+    case "uploadfont":
+        handleFontUpload($extension);
         break;
     case "uploadicon":
         handleIconUpload($extension);

@@ -25,6 +25,8 @@ set('shared_dirs', [
     'tenants/bw/gallery/img',
     'tenants/rlp/pictures/img',
     'tenants/rlp/gallery/img',
+    'tenants/basic/pictures/img',
+    'tenants/basic/gallery/img',
     'log/logs',
 ]);
 

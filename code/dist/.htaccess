@@ -12,6 +12,7 @@ Options -Indexes
     Redirect 301 /hessen /tenants/hessen
     Redirect 301 /bw /tenants/bw
     Redirect 301 /rlp /tenants/rlp
+    Redirect 301 /basic /tenants/basic
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
 
