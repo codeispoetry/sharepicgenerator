@@ -26,6 +26,10 @@ const addtext = {
     const addtextContent = draw.text($('#addtext').val())
       .font(Object.assign(addtext.font, { size: fontSize }))
       .fill($('#addtextColor').val());
+
+    addtextContent.attr('xml:space', 'preserve');
+    addtextContent.attr('style', 'white-space:pre');
+
     addtext.svg.add(addtextContent);
 
     eraser.front();

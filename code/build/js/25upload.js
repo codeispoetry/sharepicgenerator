@@ -75,6 +75,18 @@ $('.upload-file').change(function changeFile() {
       case 'uploadlogo':
         alert('Um das neue Logo nutzen zu können, lade bitte den Sharepicgenerator neu (F5).');
         break;
+      case 'uploadtmplogo':
+        logo.loadTmp(`/tmp/${obj.file}`);
+        break;
+      case 'uploadfont':
+        console.log(obj);
+        $('head').append(`<style>@font-face { font-family: "${obj.name}"; src: url("/tmp/fonts/${obj.url}") format("woff2"); }</style>`);
+
+        $('#textfont').append(new Option(obj.name, obj.name));
+        $('#textfont').val(obj.name);
+        basic.draw();
+
+        break;
       case 'uploadicon':
         $('#iconfile').val(obj.iconfile);
         icon.load();
@@ -85,6 +97,7 @@ $('.upload-file').change(function changeFile() {
         show('show-add-pic-1');
         show('show-copyright');
         show('show-add-pic-upload');
+        show('add-pic-tools-1');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic1.draw();
         break;
@@ -92,6 +105,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile2').val(obj.addpicfile);
         show('show-add-pic-2');
         show('show-copyright');
+        show('add-pic-tools-2');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic2.draw();
         break;
@@ -99,6 +113,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile3').val(obj.addpicfile);
         show('show-add-pic-3');
         show('show-copyright');
+        show('add-pic-tools-3');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic3.draw();
         break;
@@ -106,6 +121,7 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile4').val(obj.addpicfile);
         show('show-add-pic-4');
         show('show-copyright');
+        show('add-pic-tools-4');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic4.draw();
         break;
@@ -113,17 +129,18 @@ $('.upload-file').change(function changeFile() {
         $('#addpicfile5').val(obj.addpicfile);
         show('show-add-pic-5');
         show('show-copyright');
+        show('add-pic-tools-5');
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic5.draw();
         break;
       case 'uploadwork':
         {
           const json = JSON.parse(obj.data);
-          if (json.addpicfile1) { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; }
-          if (json.addpicfile2) { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; }
-          if (json.addpicfile3) { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; }
-          if (json.addpicfile4) { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; }
-          if (json.addpicfile5) { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; }
+          if (json.addpicfile1) { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; show('add-pic-tools-1'); }
+          if (json.addpicfile2) { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; show('add-pic-tools-2'); }
+          if (json.addpicfile3) { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; show('add-pic-tools-3'); }
+          if (json.addpicfile4) { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; show('add-pic-tools-4'); }
+          if (json.addpicfile5) { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; show('add-pic-tools-5'); }
 
           uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
             loadFormData(json);
@@ -259,6 +276,14 @@ $('.uploadfileclicker').click(() => {
 
 $('.uploadlogoclicker').click(() => {
   $('#uploadlogo').click();
+});
+
+$('.uploadtmplogoclicker').click(() => {
+  $('#uploadtmplogo').click();
+});
+
+$('.uploadfontclicker').click(() => {
+  $('#uploadfont').click();
 });
 
 $('.uploadiconclicker').click(() => {

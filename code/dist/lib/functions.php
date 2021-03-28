@@ -419,14 +419,15 @@ function convert($filename, $width, $format, $quality = 75)
             getBasePath('tmp/' . basename($filename, 'svg') . $format)
         );
         exec($command);
-
+    }
+    if ($format == 'png') {
         if ($_POST['ismosaic'] == "true") {
             $dir = getBasePath('tmp/' . basename($filename, '.svg'));
 
             $command = sprintf('mkdir %s', $dir);
             exec($command);
 
-            copy('mosaik_readme.txt', sprintf('%s/z_anleitung.txt', $dir));
+            copy('../mosaik_readme.txt', sprintf('%s/z_anleitung.txt', $dir));
 
             $command = sprintf(
                 'convert %s -crop 3x3@ +repage +adjoin -scene 1 %s/bild_%%d.jpg',
