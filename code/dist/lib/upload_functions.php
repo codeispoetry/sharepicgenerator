@@ -168,23 +168,18 @@ function handleFontUpload($extension)
         returnJsonErrorAndDie('not allowed');
     }
 
-    $filename = getBasePath('tmp/' . uniqid('font_')) . '.' . $extension;
+    $filename = getBasePath('tmp/fonts/' . uniqid('font_')) . '.' . $extension;
     move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     $cmd = sprintf('woff2_compress %s', $filename);
     exec($cmd, $output1);
 
-    $cmd = sprintf('mv %1$s /usr/share/fonts/truetype/custom/%2$s', $filename, basename($filename));
-    exec($cmd, $output2);
+    //$cmd = sprintf('mv %1$s /usr/share/fonts/truetype/custom/%2$s', $filename, basename($filename));
+    //exec($cmd, $output2);
 
     $return['okay'] = true;
     $return['name'] = pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
     $return['url'] =  pathinfo($filename, PATHINFO_FILENAME) . '.woff2';
-    $return['ouput'] = join(",",$output2);
-
-
-
-
 
     echo json_encode($return);
     die();

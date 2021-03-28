@@ -83,14 +83,13 @@ $_SESSION['csrf'] = $csrf;
 
                 $fontOptionsInCockpit .= sprintf('<option value="%1$s">%1$s</option>', basename($font, '.woff2'));
 
-
             }
         ?>
     </style>
 </head>
 <body class="h-100">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

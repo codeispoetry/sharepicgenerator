@@ -5,7 +5,7 @@ const bgpic = {
   height: 450,
   originalWidth: 1920,
   originalHeight: 1080,
-  filename: '/assets/bg_small.jpg',
+  filename: '/assets/bg_small_basic.jpg',
   fullBackgroundName: '../assets/bg.jpg',
 };
 
