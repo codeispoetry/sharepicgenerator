@@ -24,9 +24,6 @@ $(document).ready(() => {
   $('#logosize').val(17);
   logo.resize($('#logosize').val());
 
-  $('#addtextX').val(50);
-  $('#addtextY').val(draw.height() - 50);
-
   showLayout();
 
   disableFeature('[data-target=".eyecatcher"]');
