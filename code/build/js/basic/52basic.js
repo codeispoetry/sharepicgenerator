@@ -38,4 +38,4 @@ const basic = {
 
 };
 
-$('#text, #textsize, #textfont, #textanchor').bind('input propertychange', basic.draw);
+$('#text, #textsize, #textfont, #textanchor, #textcolor').bind('input propertychange', basic.draw);
