@@ -11,8 +11,16 @@ session_start();
 readConfig();
 
 $landesverband = 0;
-$user = wp_get_current_user(); 
-$user = 'wp_' . $user->data->user_login;
+
+if(isset($_GET['guest'])){
+    $user = "guest";
+}else{
+    wp_login();
+    $wpuser = wp_get_current_user(); 
+    $user = 'wp_' . $wpuser->data->user_login;
+}
+
+
 $tenant = "basic";
 
 $hasAccess = true;
