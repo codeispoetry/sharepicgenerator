@@ -1,6 +1,7 @@
 <?php
 require_once('base.php');
 require_once(getBasePath("lib/functions.php"));
+require_once(getBasePath("lib/login_functions.php"));
 require_once(getBasePath("lib/save_functions.php"));
 require_once(getBasePath("lib/gallery_functions.php"));
 
@@ -10,11 +11,11 @@ session_start();
 readConfig();
 
 $landesverband = 0;
-$user = "basic";
+$user = wp_get_current_user(); 
+$user = 'wp_' . $user->data->user_login;
 $tenant = "basic";
 
 $hasAccess = true;
-
 
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
