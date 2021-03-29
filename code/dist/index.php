@@ -80,11 +80,11 @@
   </div>
 
   <main>
-    <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Basic</h4>
+            <h4 class="my-0 fw-normal">Ohne Anmeldung</h4>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
@@ -94,7 +94,26 @@
               <li>Text eingeben</li>
               <li>herunterladen</li>
             </ul>
-            <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">Sharepic erstellen</a>
+            <a href="/tenants/basic/?guest=1" class="w-100 btn btn-lg btn-dark">Sharepic erstellen</a>
+            &nbsp;
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Mit Anmeldung</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Logo speichern</li>
+              <li>Schrift speichern</li>
+              <li>Hintergrundbild aussuchen</li>
+              <li>Text eingeben</li>
+              <li>herunterladen</li>
+            </ul>
+            <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">anmelden</a>
+            <a href="/wordpress/wp-login.php?action=register" class="">registrieren</a>
           </div>
         </div>
       </div>
@@ -102,23 +121,23 @@
         <div class="card mb-4 rounded-3 shadow-sm border-primary">
           <div class="card-header py-3 text-white bg-primary border-primary">
             <h4 class="my-0 fw-normal">
-              Bündnis 90/ Die Grünen
-              <img src="/assets/logos/sonnenblume.svg" style="height: 1em;margin-left: 2em" >
+                B'90/Grüne
+              <img src="/assets/logos/sonnenblume.svg" style="height: 1em;margin-left: 10px" >
             </h4>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
-              <li>original Design von Bündnis 90/ Die Grünen</li>
+              <li>original grünes Design</li>
               <li>Mustervorlagen</li>
               <li>Videofunktion</li>
               <li>Arbeitsdateien</li>
               <li>
                 <a href="/tenants/bw">Baden-Württemberg</a> |
-                <a href="/tenants/frankfurt">Frankfurt</a> |
-                <a href="/tenants/hessen">Hessen</a> 
+                <a href="/tenants/frankfurt">Frankfurt</a>
               </li>
             </ul>
             <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-primary">einloggen</a>
+            &nbsp;
           </div>
         </div>
       </div>
