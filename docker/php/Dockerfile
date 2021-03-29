@@ -9,6 +9,8 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev sqlite3
 RUN pecl install oauth 
 RUN docker-php-ext-enable oauth
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
 
 RUN a2enmod rewrite
 

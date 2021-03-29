@@ -49,3 +49,5 @@ code/dist/vendor
 
 docker-compose.yml
 passwords.php
+
+code/dist/wordpress

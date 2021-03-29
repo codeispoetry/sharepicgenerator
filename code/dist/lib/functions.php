@@ -762,65 +762,6 @@ EOL;
     }
 }
 
-
-function get_category($file_path)
-{
-    readConfig();
-    $api_credentials = array(
-    'key' => configValue('Imagga', 'key'),
-    'secret' => configValue('Imagga', 'secret')
-    );
-
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, "https://api.imagga.com/v2/uploads");
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-    curl_setopt($ch, CURLOPT_USERPWD, $api_credentials['key'].':'.$api_credentials['secret']);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    $fields = [
-        'image' => new \CurlFile($file_path, 'image/jpeg', 'image.jpg')
-    ];
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    $json_response = json_decode($response);
-    
-    if ($json_response->status->type !== 'success') {
-        return false;
-    }
-
-    $image_upload_id = $json_response->result->upload_id;
-
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, 'https://api.imagga.com/v2/categories/personal_photos?language=de&image_upload_id='.$image_upload_id);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_USERPWD, $api_credentials['key'].':'.$api_credentials['secret']);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    $json_response = json_decode($response);
-  
-    if ($json_response->status->type !== 'success') {
-        return false;
-    }
-
-    $return = [];
-    foreach ($json_response->result->categories as $category) {
-        $return[] = preg_replace('/\//', '-', $category->name->de);
-    }
-
-    return $return;
-}
-
 function getSaying($field = 'main'){
     static $rand;
     $sayings = parse_ini_file(getBasePath('ini/sayings.ini'), true);

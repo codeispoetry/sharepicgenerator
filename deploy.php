@@ -17,6 +17,7 @@ set('shared_files', [
 set('shared_dirs', [
     'tmp',
     'persistent/user',
+    'wordpress',
     'tenants/federal/gallery/img',
     'tenants/frankfurt/gallery/img',
     'tenants/federal/pictures/img',
