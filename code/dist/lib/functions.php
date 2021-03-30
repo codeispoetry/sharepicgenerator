@@ -771,3 +771,17 @@ function getSaying($field = 'main'){
 
     return $sayings[$rand][$field];
 }
+
+
+function getFontFamily($file){
+
+    if(is_file($file)){
+        return false;
+    }
+
+    $cmd = sprintf("fc-list : family file | grep %s | sed 's/.*: //g'", $file);
+    exec($cmd, $output);
+
+    return $output[0];
+
+}

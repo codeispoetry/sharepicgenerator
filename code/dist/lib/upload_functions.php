@@ -168,7 +168,14 @@ function handleFontUpload($extension)
         returnJsonErrorAndDie('not allowed');
     }
 
-    $filename = getBasePath('tmp/fonts/' . uniqid('font_')) . '.' . $extension;
+  
+    if( getUser() === 'guest' ){
+        $dir = 'tmp/fonts/';
+    }else{
+        $dir = 'persistent/fonts/' . getUser() . '_';
+    }
+
+    $filename = getBasePath( $dir . uniqid('font_')) . '.' . $extension;
     move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     $cmd = sprintf('woff2_compress %s', $filename);
@@ -179,7 +186,7 @@ function handleFontUpload($extension)
 
     $return['okay'] = true;
     $return['name'] = pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
-    $return['url'] =  pathinfo($filename, PATHINFO_FILENAME) . '.woff2';
+    $return['url'] =  preg_replace("/^\.\./","",$filename);
 
     echo json_encode($return);
     die();
