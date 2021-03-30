@@ -80,7 +80,7 @@ $('.upload-file').change(function changeFile() {
         break;
       case 'uploadfont':
         console.log(obj);
-        $('head').append(`<style>@font-face { font-family: "${obj.name}"; src: url("/tmp/fonts/${obj.url}") format("woff2"); }</style>`);
+        $('head').append(`<style>@font-face { font-family: "${obj.name}"; src: url("${obj.url}") format("woff2"); }</style>`);
 
         $('#textfont').append(new Option(obj.name, obj.name));
         $('#textfont').val(obj.name);
