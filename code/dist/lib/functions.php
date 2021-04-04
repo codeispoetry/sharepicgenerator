@@ -786,3 +786,7 @@ function getFontFamily($file){
     return $output[0];
 
 }
+
+function isGuest(){
+    return getUser() == 'guest';
+}

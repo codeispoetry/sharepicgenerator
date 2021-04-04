@@ -16,10 +16,11 @@
     </li>
 </ul>
 
+<?php if(!isGuest()){ ?>
 <span class="navbar-text">
     Eingeloggt als 
     <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
-        <?php echo getUser(); ?>
+        <?php echo substr(getUser(), 3); ?>
         <?php if (isEditor()) {
             echo '(Editor)';
         }
@@ -27,3 +28,4 @@
     </em>
     <a href="<?php echo get_logout_link(); ?>" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
 </span>
+<?php } ?>

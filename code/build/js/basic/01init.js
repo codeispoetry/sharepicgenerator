@@ -37,7 +37,7 @@ $(document).ready(() => {
 
 function disableFeature(feature) {
   $(feature).attr('data-target', '').addClass('disabled').on('click', () => {
-    alert('Diese Funktion gibt es nur im Premium-Account.');
+    alert('Um diese Funktion nutzen zu können, melden Sie sich bitte an');
   });
 }
 
