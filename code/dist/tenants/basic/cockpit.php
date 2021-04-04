@@ -17,7 +17,7 @@
 
         require_once(getBasePath('tenants/cockpit/addpictures.php'));
         require_once(getBasePath('tenants/cockpit/basic/eyecatcher.php'));
-        require_once(getBasePath('tenants/cockpit/addtext.php'));
+        require_once(getBasePath('tenants/cockpit/basic/addtext.php'));
         require_once(getBasePath('tenants/cockpit/eraser.php'));
         require_once(getBasePath('tenants/cockpit/quality.php'));
         // require_once(getBasePath('tenants/cockpit/workfile.php'));
