@@ -5,7 +5,12 @@
 <form id="pic">
     <div class="mb-5">
     <?php
-        require_once(getBasePath('tenants/cockpit/basic/logo.php'));
+        if( isGuest() ){
+            require_once(getBasePath('tenants/cockpit/basic/logo-guest.php'));
+        }else{
+            require_once(getBasePath('tenants/cockpit/basic/logo.php'));
+        }
+
         require_once(getBasePath('tenants/cockpit/picture.php'));
         require_once(getBasePath('tenants/cockpit/picture-size.php'));
         require_once(getBasePath('tenants/cockpit/basic/text.php'));

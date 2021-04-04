@@ -75,7 +75,7 @@
   </header>
 
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal">Sharepicgenerator</h1>
+    <h1 class="display-4 fw-normal">Sharepic&shy;generator</h1>
     <p class="fs-5 text-muted">Erstelle Bilder mit Text für Social Media und Co. </p>
   </div>
 

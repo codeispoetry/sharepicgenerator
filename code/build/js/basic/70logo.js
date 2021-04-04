@@ -95,6 +95,8 @@ const logo = {
     }
 
     logo.svg.move(x, y);
+    config.user.prefs.logoPosition = $('#logoposition').val();
+    setUserPrefs();
 
     return true;
   },
@@ -120,6 +122,7 @@ $('#logoselect').on('change', function changeLogo() {
   }
 
   config.user.prefs.lastLogo = $(this).val();
+
   setUserPrefs();
 
   logo.load();
@@ -138,6 +141,10 @@ $(document).ready(() => {
     }
 
     $('#logoselect').val(config.user.prefs.lastLogo);
+
+    if (config.user.prefs.logoPosition) {
+      $('#logoposition').val(config.user.prefs.logoPosition);
+    }
 
     logo.load();
   }
