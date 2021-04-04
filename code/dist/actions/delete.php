@@ -23,6 +23,9 @@ switch ($_POST['action']) {
     case 'workfile':
         deleteWorkfile($_POST['workfileiId']);
         break;
+    case 'font':
+        deleteFont($_POST['file']);
+        break;
     default:
         returnJsonErrorAndDie('unknown action');
 }

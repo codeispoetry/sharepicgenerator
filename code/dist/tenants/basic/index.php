@@ -80,7 +80,7 @@ $_SESSION['csrf'] = $csrf;
     <style>
         <?php
             $fontOptionsInCockpit = '';
-            foreach (glob("{../../assets/custom-fonts/*.woff2,../../persistent/fonts/*.woff2}", GLOB_BRACE) as $font) {
+            foreach (glob("{../../persistent/fonts/" . getUser() . "*.woff2,../../assets/custom-fonts/*.woff2}", GLOB_BRACE) as $font) {
                 
                 $font_file = basename($font, '.woff2');
                 $font_family =  getFontFamily($font_file);
@@ -153,7 +153,7 @@ $_SESSION['csrf'] = $csrf;
                 require_once(getBasePath('/lib/overlays/gallery.php'));
             }
             require_once(getBasePath('/lib/overlays/pictures.php'));
-            require_once(getBasePath('/lib/overlays/preferences.php'));
+            require_once('preferences.php');
             require_once('overlays/faq.php');
 
 

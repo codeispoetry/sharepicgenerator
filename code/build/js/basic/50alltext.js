@@ -35,3 +35,28 @@ function showActionDayHint() {
   $('#actiondayshint').show();
   return true;
 }
+
+
+$('.delete-font').click(function deleteLogo() {
+  // eslint-disable-next-line no-restricted-globals
+  if (!confirm('Schrift wirklich löschen?')) {
+    return false;
+  }
+  const file = $(this).data('file');
+
+  $.post('/actions/delete.php', { action: 'font', csrf: config.csrf, file })
+    .done((response) => {
+      const data = JSON.parse(response);
+
+      if (data.error) {
+        alert(data.error.code);
+        return false;
+      }
+
+      alert('Die Schrift wurde gelöscht.');
+      $(this).parent().hide();
+      return true;
+    });
+
+  return true;
+});

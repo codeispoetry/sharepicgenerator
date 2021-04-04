@@ -12,6 +12,9 @@
         </div>
     </li>
     <li class="nav-item">
+        <a href="#" class="overlay-opener nav-link" data-target="preferences">Einstellungen</a>
+    </li>
+    <li class="nav-item">
         <a href="/imprint.php" class="nav-link"> Impressum</a>
     </li>
 </ul>
