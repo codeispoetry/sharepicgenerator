@@ -510,6 +510,16 @@ function deleteUserLogo($file)
     returnJsonSuccessAndDie();
 }
 
+function deleteFont($file)
+{
+    foreach(array('woff2','ttf') AS $extension){
+        $userFile = getBasePath('persistent/fonts/') . $file . '.' . $extension;
+        unlink($userFile);
+    }
+
+    returnJsonSuccessAndDie();
+}
+
 function xml2json($xml)
 {
     $xml = preg_replace('/d\:/', '', $xml);

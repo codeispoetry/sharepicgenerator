@@ -26,13 +26,15 @@ $(document).ready(() => {
 
   showLayout();
 
-  disableFeature('[data-target=".eyecatcher"]');
-  disableFeature('[data-target=".addtext"]');
-  disableFeature('[data-target=".eraser"]');
-  disableFeature('[data-target=".workfile"]');
-  disableFeature('[data-target=".mail"]');
-  disableFeature('[data-target=".addpictures"]');
-  disableFeature('[data-target=".quality"]');
+  if (isGuest()) {
+    disableFeature('[data-target=".eyecatcher"]');
+    disableFeature('[data-target=".addtext"]');
+    disableFeature('[data-target=".eraser"]');
+    disableFeature('[data-target=".workfile"]');
+    disableFeature('[data-target=".mail"]');
+    disableFeature('[data-target=".addpictures"]');
+    disableFeature('[data-target=".quality"]');
+  }
 });
 
 function disableFeature(feature) {

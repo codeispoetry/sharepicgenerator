@@ -13,3 +13,7 @@ function setUserPrefs() {
     },
   });
 }
+
+function isGuest(){
+  return config.username == 'guest';
+}
