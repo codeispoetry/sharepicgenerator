@@ -113,7 +113,7 @@
               <li>Zusatzbilder nutzen</li>
             </ul>
             <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">anmelden</a>
-            <a href="/wordpress/wp-login.php?action=register" class="">registrieren</a>
+            <a href="/wordpress/wp-login.php?action=register" class="text-info">registrieren</a>
           </div>
         </div>
       </div>
@@ -153,7 +153,8 @@
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="/imprint.php">Impressum</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="MAILTO:tom.rose@sharepicgenerator.de">tom.rose@sharepicgenerator.de</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/organizations.php">Für Organisationen</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="MAILTO:tom.rose@sharepicgenerator.de">Kontakt</a></li>
         </ul>
       </div>
       <div class="col-6 col-md text-center">
@@ -163,7 +164,7 @@
           <li class="mb-1">Bildausschnitt frei wählbar</li>
           <li class="mb-1">für Bilder und Videos</li>
           <li class="mb-1">eigenes Logo</li>
-          <li class="mb-1">eigene Schriftart</li>
+          <li class="mb-1">eigene Schriftarten</li>
         </ul>
       </div>
       <div class="col-6 col-md text-right">

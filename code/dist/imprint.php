@@ -26,12 +26,9 @@
 <body>
 <div class="container-fluid mb-5">
     <div class="row mt-5">
-      <div class="col-md-8 text-center">
-        <h1 class="text-md-right">Impressum</h2>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-md-8 offset-md-2 ">
+      <div class="col-md-6 offset-md-3 ">
+        <h1 class="text-center">Impressum</h2>
+     
           <h4>Dies ist ein Angebot von:</h4>
             <p class="">
                 Thomas Rose<br>
@@ -40,9 +37,7 @@
                 <br>
                 E-Mail: <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator">mail@tom-rose.de</a>
             </p>
-      </div>
-
-      <div class="col-md-8 offset-md-2 mt-2">
+     
           <h4>Datenschutz</h4>
 
             <div class="">
