@@ -24,7 +24,7 @@
             <select class="form-control" name="eyecatcherfont" id="eyecatcherfont">
                 <?php echo $fontOptionsInCockpit; ?>
             </select>
-            <i class="fa fa-upload text-primary cursor-pointer ml-2" title="Schrift hochladen"></i>
+            <i class="fa fa-upload text-primary cursor-pointer ml-2 uploadfontclicker" title="Schrift hochladen"></i>
         </div>
     </div>
 </div>

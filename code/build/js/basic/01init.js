@@ -84,7 +84,7 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     logo.load();
     text.draw();
-    addtext.draw();
+    addtextbasic.draw();
     quote.draw();
     nolines.draw();
     invers.draw();

@@ -28,7 +28,6 @@ const pin = {
 
     // text
     const family = $('#eyecatcherfont').val();
-    console.log(family);
     const pintext = draw.text($('#pintext').val()).font(Object.assign(pin.font, { family })).fill('#ffffff');
 
     // background

@@ -48,6 +48,9 @@
         <div class="row mt-3">
             <div class="col-12">
                 <h3>Schriften</h3>
+                <label class="uploadfontclicker">Schrift hochladen:
+                    <i class="fa fa-upload text-primary cursor-pointer ml-2" title="Schrift hochladen"></i>
+                </label>
                 <?php
                 foreach (glob("{../../persistent/fonts/" . getUser() . "*.woff2}", GLOB_BRACE) as $font) {
                     $font_file = basename($font, '.woff2');
