@@ -609,6 +609,7 @@ EOF;
 
 function tenantsSwitch($as)
 {
+    return;
     $attributes = $as->getAttributes();
     $landesverband = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
 
