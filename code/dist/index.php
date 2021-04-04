@@ -108,9 +108,9 @@
             <ul class="list-unstyled mt-3 mb-4">
               <li>Logo speichern</li>
               <li>Schrift speichern</li>
-              <li>Hintergrundbild aussuchen</li>
-              <li>Text eingeben</li>
-              <li>herunterladen</li>
+              <li>Störer bestimmen</li>
+              <li>Sternchentext formatieren</li>
+              <li>Zusatzbilder nutzen</li>
             </ul>
             <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">anmelden</a>
             <a href="/wordpress/wp-login.php?action=register" class="">registrieren</a>
@@ -148,25 +148,15 @@
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top position-relative">
     <div class="row">
-      <div class="col-12 col-md">
-        <img class="mb-2" src="assets/img/logo.svg" alt="" width="24" height="19">
-        <small class="d-block mb-3 text-muted">by Tom Rose</small>
-      </div>
       <div class="col-6 col-md">
         <h5>Über</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="/imprint.php">Impressum</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="MAILTO:tom.rose@sharepicgenerator.de">tom.rose@sharepicgenerator.de</a></li>
         </ul>
       </div>
-      <div class="col-6 col-md">
-        <h5>Hilfen</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/documentation">Handbuch</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator/issues">Fehler melden</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
+      <div class="col-6 col-md text-center">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1">Anpassbare Ausgabegröße</li>
@@ -174,6 +164,13 @@
           <li class="mb-1">für Bilder und Videos</li>
           <li class="mb-1">eigenes Logo</li>
           <li class="mb-1">eigene Schriftart</li>
+        </ul>
+      </div>
+      <div class="col-6 col-md text-right">
+        <h5>Hilfen</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/documentation">Handbuch</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator/issues">Fehler melden</a></li>
         </ul>
       </div>
     </div>

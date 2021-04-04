@@ -19,8 +19,10 @@
     </li>
 </ul>
 
-<?php if(!isGuest()){ ?>
 <span class="navbar-text">
+<?php if(isGuest()){ ?>
+    <a href="index.php" class="text-white"><i class="fas fa-sign-in-alt"></i> einloggen / registrieren</a>
+<?php }else{ ?>
     Eingeloggt als 
     <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
         <?php echo substr(getUser(), 3); ?>
@@ -30,5 +32,5 @@
         ?>
     </em>
     <a href="<?php echo get_logout_link(); ?>" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
-</span>
 <?php } ?>
+</span>
