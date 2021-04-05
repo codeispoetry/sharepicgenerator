@@ -195,3 +195,11 @@ a.close-target{
     text-decoration: none;
   }
 }
+
+.card{
+  &:hover{
+    margin-top: -5px;
+    border-color: #999999;
+  }
+  transition: all .2s ease-out 0s;
+}

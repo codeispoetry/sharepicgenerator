@@ -87,7 +87,7 @@
             <h4 class="my-0 fw-normal">Ohne Anmeldung</h4>
           </div>
           <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
+            <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
               <li>Logo hochladen</li>
               <li>Schrift hochladen</li>
               <li>Hintergrundbild aussuchen</li>
@@ -105,7 +105,7 @@
             <h4 class="my-0 fw-normal">Mit Anmeldung</h4>
           </div>
           <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
+            <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
               <li>Logo speichern</li>
               <li>Schrift speichern</li>
               <li>Störer bestimmen</li>
@@ -125,8 +125,8 @@
               <img src="/assets/logos/sonnenblume.svg" style="height: 1em;margin-left: 10px" >
             </h4>
           </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
+          <div class="card-body" style="background-color: #f3f8f1">
+            <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
               <li>original grünes Design</li>
               <li>Mustervorlagen</li>
               <li>Videofunktion</li>
@@ -153,11 +153,11 @@
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="/imprint.php">Impressum</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/organizations.php">Für Organisationen</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none d-none" href="/organizations.php">Für Organisationen</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="MAILTO:tom.rose@sharepicgenerator.de">Kontakt</a></li>
         </ul>
       </div>
-      <div class="col-6 col-md text-center">
+      <div class="col-6 col-md text-md-center">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1">Anpassbare Ausgabegröße</li>
@@ -167,7 +167,7 @@
           <li class="mb-1">eigene Schriftarten</li>
         </ul>
       </div>
-      <div class="col-6 col-md text-right">
+      <div class="col-6 col-md text-md-right">
         <h5>Hilfen</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="/documentation">Handbuch</a></li>
