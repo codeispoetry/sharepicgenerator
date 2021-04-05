@@ -38,7 +38,7 @@
             <p>
                Organisationen haben die Möglichkeit, ihr eigenes Corporate Design
                als Vorlage für Sharepics zu nutzen. Nutzer*innen können dann z.B. 
-               das Logo nicht verändern und nur aus einer vorgefertigten Farbpalette
+               das passende Logo nutzen und aus einer vorgefertigten Farbpalette
                wählen. Auch die Schriftart ist dann fest vorgegeben.
             </p>
             <p>
