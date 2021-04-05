@@ -172,6 +172,11 @@
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="/documentation">Handbuch</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator/issues">Fehler melden</a></li>
+          <li>
+          <form method="post" class="test-access" action="tenants/federal/">
+            <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
+          </form>
+          </li>
         </ul>
       </div>
     </div>

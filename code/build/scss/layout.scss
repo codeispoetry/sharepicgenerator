@@ -139,11 +139,12 @@ textarea.height1line{
     line-height: 1;
     border-radius: .3rem;
     border: 0;
-    background: #82b76e;
-    color: $white;
+    border: 1px solid #c5c5c5;
+    color: #c5c5c5;
+    width: 8em;
 
     &::placeholder{
-      color: $white;
+      color: #c5c5c5;
     }
   }
 }

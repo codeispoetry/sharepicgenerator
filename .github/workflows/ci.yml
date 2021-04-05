@@ -113,10 +113,7 @@ jobs:
         run: |
           cd tests
           URL=https://develop.sharepicgenerator.de python test.py
-          URL=https://develop.sharepicgenerator.de TENANT=bw python tenant.py
-          URL=https://develop.sharepicgenerator.de TENANT=rlp python tenant.py
-          URL=https://develop.sharepicgenerator.de TENANT=hessen python tenant.py
-          URL=https://develop.sharepicgenerator.de TENANT=frankfurt python tenant.py
+          # URL=https://develop.sharepicgenerator.de TENANT=bw python tenant.py
 
       - name: Run test against live
         if: github.ref == 'refs/heads/main'
