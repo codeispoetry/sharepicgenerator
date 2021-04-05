@@ -28,7 +28,24 @@ $(document).ready(() => {
   $('#addtextY').val(draw.height() - 50);
 
   showLayout();
+  showAdvertising('sunflower');
+
+  $('.close-target').click(function doCloseTarget() {
+    $($(this).data('target')).slideUp();
+  });
 });
+
+function showAdvertising(ad) {
+  $('.advertising').hide();
+
+  if (config.user.prefs.advertising_seen === ad) {
+    return;
+  }
+
+  $('.advertising').delay(1000).slideDown('slow');
+  config.user.prefs.advertising_seen = ad;
+  setUserPrefs();
+}
 
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {

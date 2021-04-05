@@ -8,7 +8,6 @@ function closeOverlay() {
   $('#canvas-area').show();
 }
 
-
 $('.closer').click(function doCloser() {
   // $($(this).data('target')).hide();
   $('.overlay').hide();
