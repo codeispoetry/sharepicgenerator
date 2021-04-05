@@ -63,6 +63,10 @@
     <li class="nav-item">
         <a href="/imprint.php" class="nav-link"> Impressum</a>
     </li>
+    <li class="nav-item">
+        <a href="https://sunflower-theme.de" target="_blank" class="nav-link font-italic">  
+        <i class="fab fa-wordpress-simple"></i> WordPress-Theme Sunflower</a>
+    </li>
     <?php if (isEditor()) { ?>
         <li class="nav-item">
             <a href="log/" class="nav-link font-italic"> Logfiles</a>
