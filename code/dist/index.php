@@ -100,24 +100,6 @@
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Mit Anmeldung</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
-              <li>Logo speichern</li>
-              <li>Schrift speichern</li>
-              <li>Störer bestimmen</li>
-              <li>Sternchentext formatieren</li>
-              <li>Zusatzbilder nutzen</li>
-            </ul>
-            <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">anmelden</a>
-            <a href="/wordpress/wp-login.php?action=register" class="text-info">registrieren</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm border-primary">
           <div class="card-header py-3 text-white bg-primary border-primary">
             <h4 class="my-0 fw-normal">
@@ -142,6 +124,25 @@
           </div>
         </div>
       </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Freies Design</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
+              <li>Logo speichern</li>
+              <li>Schrift speichern</li>
+              <li>Störer bestimmen</li>
+              <li>Sternchentext formatieren</li>
+              <li>Zusatzbilder nutzen</li>
+            </ul>
+            <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">frei anmelden</a>
+            <a href="/wordpress/wp-login.php?action=register" class="text-info">frei registrieren</a>
+            | <a href="/tenants/federal">B' 90 / Die Grünen</a>
+          </div>
+        </div>
+      </div>
     </div>
 
   </main>
@@ -155,6 +156,8 @@
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none d-none" href="/organizations.php">Für Organisationen</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="MAILTO:tom.rose@sharepicgenerator.de">Kontakt</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="/imprint.php">Datenschutz</a></li>
+
         </ul>
       </div>
       <div class="col-6 col-md text-md-center">
