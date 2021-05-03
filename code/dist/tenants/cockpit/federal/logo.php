@@ -44,6 +44,8 @@
                         <option value="frauenrechte">Frauenrechte</option>
                         <option value="regenbogen">Regenbogen</option>
                         <option value="europa">Europa</option>
+                        <option value="gruene-alte">Grüne Alte</option>
+
                     </optgroup>
                     <optgroup label="Kein Logo">
                         <option value="void">kein Logo</option>
