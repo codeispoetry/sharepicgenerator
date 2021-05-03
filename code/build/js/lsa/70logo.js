@@ -67,7 +67,7 @@ const logo = {
   },
 
   load() {
-    const whichLogo = $('#logoselect').val();
+    const whichLogo = 'sonnenblume';
     if (logo.svg) logo.svg.remove();
     logo.isLoaded = false;
 
