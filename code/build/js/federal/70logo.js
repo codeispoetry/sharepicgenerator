@@ -33,6 +33,11 @@ const logo = {
       widthFraction: 0.1,
       position: 'topright',
     },
+    'gruene-alte': {
+      file: '/assets/logos/gruene-alte.png',
+      widthFraction: 0.2,
+      position: 'topright',
+    },
     'logo-weiss': {
       file: '/assets/logos/logo-weiss.svg',
       widthFraction: 0.2,
