@@ -114,8 +114,10 @@
               <li>Videofunktion</li>
               <li>Arbeitsdateien</li>
               <li>
-                <a href="/tenants/bw">Baden-Württemberg</a> |
-                <a href="/tenants/frankfurt">Frankfurt</a>
+                <a href="/tenants/bw">Ba-Wü</a> |
+                <a href="/tenants/frankfurt">FFM</a> | 
+                <a href="/tenants/lsa">Sachen-Anhalt</a>
+
               </li>
             </ul>
             <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-primary">einloggen</a>
