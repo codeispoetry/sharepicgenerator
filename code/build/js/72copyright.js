@@ -33,17 +33,33 @@ const copyright = {
       .font(copyrightfont)
       .fill($('#copyrightcolor').val());
 
-    let y;
+    let x = 10;
+    let y = draw.height() - 12;
+    let rotation = -90;
 
     switch ($('#copyrightPosition').val()) {
       case 'upperLeft':
+        x = 10;
         y = copyright.svg.length() + 12;
+        rotation = -90;
+        break;
+      case 'bottomLeftHorizontal':
+        x = 6;
+        y = draw.height() - 12;
+        rotation = 0;
+        break;
+      case 'bottomRightHorizontal':
+        x = draw.width() - copyright.svg.length() - 6;
+        y = draw.height() - 12;
+        rotation = 0;
         break;
       default:
+        x = 10;
         y = draw.height() - 12;
+        rotation = -90;
     }
 
-    copyright.svg.move(10, y)
-      .rotate(-90, copyright.svg.x(), copyright.svg.y());
+    copyright.svg.move(x, y)
+      .rotate(rotation, copyright.svg.x(), copyright.svg.y());
   },
 };

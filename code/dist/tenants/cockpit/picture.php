@@ -78,7 +78,6 @@
     </div>
     <div class="align-items-lg-center show-copyright d-none">
         <div class="d-flex align-items-center">
-            <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
             <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
             <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
