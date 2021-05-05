@@ -20,6 +20,7 @@
         require_once(getBasePath('tenants/cockpit/gridlines.php'));
         require_once(getBasePath('tenants/cockpit/footer.php'));
     ?>
+    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRightHorizontal">
 
     </div>
 </form>

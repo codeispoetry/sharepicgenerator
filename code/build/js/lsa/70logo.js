@@ -11,7 +11,7 @@ const logo = {
     sonnenblume: {
       file: '/assets/logos/sonnenblume.svg',
       widthFraction: 0.13,
-      position: 'bottomright',
+      position: 'topright',
     },
     'sonnenblume-weiss': {
       file: '/assets/logos/sonnenblume-weiss.svg',
