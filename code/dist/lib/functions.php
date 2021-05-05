@@ -619,21 +619,14 @@ EOF;
 
 function tenantsSwitch($as)
 {
-    return;
     $attributes = $as->getAttributes();
     $landesverband = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
 
     // freshly logged in
     if (isset($_SERVER['HTTP_REFERER']) AND 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
         switch ($landesverband){
-            case 1:
-                $tenant = '/tenants/bw/';
-                break;
-            case 7:
-                $tenant = '/tenants/hessen/';
-                break;
-            case 11:
-                $tenant = '/tenants/rlp/';
+            case 13:
+                $tenant = '/tenants/lsa/';
                 break;
             default:
                 $tenant = false;
