@@ -14,6 +14,8 @@ Options -Indexes
     Redirect 301 /rlp /tenants/rlp
     Redirect 301 /basic /tenants/basic
     Redirect 301 /lsa /tenants/lsa
+    Redirect 301 /einigungshilfe /tenants/einigungshilfe
+
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
 
