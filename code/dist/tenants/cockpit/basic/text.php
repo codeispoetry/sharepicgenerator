@@ -26,7 +26,7 @@
                 <i class="fas fa-align-center text-primary click-setter" data-action="basic.draw()" data-field="#textanchor" data-value="middle" title="Text mittig"></i>
                 <input type="hidden" name="textanchor" id="textanchor" value="left">
  
-                <input type="color" name="textcolor" id="textcolor" value="#000">
+                <input type="color" name="textcolor" id="textcolor" value="#0000000">
             </div>
 
             <div class="list-group-item-content">
