@@ -51,6 +51,11 @@ const background = {
     });
   },
 
+  drawColor() {
+    this.svg.remove();
+    this.svg = draw.rect(draw.width(), draw.height()).fill($('#backgroundcolor').val()).back();
+  },
+
   addGreenLayer() {
     this.greenlayer.remove();
 
@@ -168,4 +173,8 @@ $('#greenlayer').bind('input propertychange', () => {
 $('#backgroundflip').click(() => {
   $('#backgroundFlipped').val(($('#backgroundFlipped').val() === 'false') ? 'true' : 'false');
   background.svg.scale(-1, 1);
+});
+
+$('#backgroundcolor').bind('input propertychange', () => {
+  background.drawColor();
 });
