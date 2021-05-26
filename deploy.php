@@ -30,6 +30,8 @@ set('shared_dirs', [
     'tenants/basic/gallery/img',
     'tenants/lsa/gallery/img',
     'tenants/lsa/gallery/img',
+    'tenants/einigungshilfe/pictures/img',
+    'tenants/einigungshilfe/gallery/img',
     'log/logs',
 ]);
 
