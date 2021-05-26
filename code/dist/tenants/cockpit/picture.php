@@ -1,9 +1,10 @@
 <h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
 <div class="picture collapse show list-group-item list-group-item-action flex-column align-items-start">
-    <div class="mb-1">
+    <div class="mb-1 d-flex justify-content-between">
         <a href="#" class="text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
+        <input type="color" name="backgroundcolor" id="backgroundcolor" value="#000000" title=" Hintergrundfarbe ändern">
     </div>
     <?php if(configValue("Features","showMediaGallery")){ ?>
         <div class="d-flex justify-content-between mb-1">
