@@ -78,7 +78,7 @@ function setDimensions(width, height) {
 
 function calculateSizes() {
   // here are also the default sizes after init
-  $('#textsize').attr('min', draw.width() * 0.1);
+  $('#textsize').attr('min', draw.width() * 0.03);
   $('#textsize').attr('max', draw.width());
   $('#textsize').val(draw.width() * 0.5);
 
