@@ -93,7 +93,7 @@ function reDraw(withAddPic = false) {
     nolines.draw();
     invers.draw();
     eraser.draw();
-    url.draw();
+    topleft.draw();
   }, 100);
 
   window.setTimeout(() => {
