@@ -9,11 +9,11 @@ const nolines = {
   font: {
     anchor: 'left',
     leading: '1.0em',
-    size: 20,
+    size: 80,
   },
   fontoutsidelines: {
     family: 'BereitBold',
-    size: 8,
+    size: 50,
     anchor: 'left',
     leading: '1.0em',
   },
@@ -89,7 +89,7 @@ const nolines = {
     // add lower line
     let lineafter;
     if ($('#textafter').val().length > 0) {
-      lineafter = draw.rect(10, 10)
+      lineafter = draw.rect(10, 55)
         .fill('#fee100').dy(text.svg.height());
       text.svg.add(lineafter);
     }
@@ -106,12 +106,12 @@ const nolines = {
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.dx(2).dy(text.svg.height() - 2);
+      textafter.dx(4).dy(text.svg.height() - 5);
 
       // make background the same width as the text
-      let paddingRight = 2;
+      let paddingRight = 10;
       if (getBrowser() === 'Firefox') {
-        paddingRight = 4;
+        paddingRight = 10;
       }
       lineafter.width(textafter.bbox().width + paddingRight);
 
@@ -133,7 +133,7 @@ const nolines = {
     eraser.front();
     showActionDayHint();
 
-    text.svg.size(parseInt($('#textsize').val(), 10));
+    //text.svg.size(parseInt($('#textsize').val(), 10));
 
     // gray layer behind text
     text.grayBackground.remove();
