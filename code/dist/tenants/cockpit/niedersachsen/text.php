@@ -26,7 +26,7 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="aber hallo<?php echo getSaying('lower'); ?>" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="<?php echo getSaying('lower'); ?>" class="form-control showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
