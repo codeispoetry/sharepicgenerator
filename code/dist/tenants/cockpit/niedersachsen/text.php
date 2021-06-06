@@ -23,7 +23,7 @@
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier ist Platz für bis
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control" data-maxlines="2" data-ensurelinecount="2">Hier ist Platz für bis
 zu 50 Zeichen Headlinetext.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
