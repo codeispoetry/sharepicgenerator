@@ -91,14 +91,18 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 
 # Create a new tenant
 1. Copy dir code/dist/tenants/federal and rename it
+3. Copy code/build/js/federal 
+4. Copy code/webpack.tenats/federal.js 
+
+5. Edit in code/webpack.tenants/..js two times 'federal'
 2. Edit $tenant in index.php several times. Use Ctrl-F
 2. Edit $tenant in log/index.php
 2. create section in config.ini for new tenanant
-3. Copy code/build/js/federal 
-4. Copy code/webpack.tenats/federal.js and edit two times 'federal'
 5. edit .htaccess
 5. add gallery and pictures to shared_dirs in deploy.php
 5. make compile
+
+5. update config.ini on server
 
 # Enable logging
 To create or update the downloads-table for logging, log in as Admin-User and download
