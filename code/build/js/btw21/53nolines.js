@@ -12,8 +12,8 @@ const nolines = {
     size: 20,
   },
   fontoutsidelines: {
-    family: 'ArvoGruen',
-    size: 8,
+    family: 'BereitBold',
+    size: 6,
     anchor: 'left',
     leading: '1.0em',
   },
@@ -38,7 +38,7 @@ const nolines = {
 
     // let lines = '„' + $('#text').val() + '“';
 
-    let lines = $('#text').val().toUpperCase();
+    let lines = $('#text').val();
     const quotationMarks = ['„', '“'];
     let qmI = 0;
     while ((lines.match(/"/g) || []).length) {
@@ -47,7 +47,7 @@ const nolines = {
     }
 
     lines = lines.replace(/\n$/, '').split(/\n/);
-    const fontfamily = 'ArvoGruen';
+    const fontfamily = 'BereitBold';
 
     const lineBeginsY = [];
     const linesRendered = [];
@@ -86,14 +86,6 @@ const nolines = {
       text.svg.add(t);
     });
 
-    // add lower line
-    let lineafter;
-    if ($('#textafter').val().length > 0) {
-      lineafter = draw.rect(10, 10)
-        .fill('#E6007E').dy(text.svg.height());
-      text.svg.add(lineafter);
-    }
-
     // text below the line
     if ($('#textafter').val()) {
       const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
@@ -106,29 +98,10 @@ const nolines = {
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.dx(2).dy(text.svg.height() - 2);
-
-      // make background the same width as the text
-      let paddingRight = 2;
-      if (getBrowser() === 'Firefox') {
-        paddingRight = 4;
-      }
-      lineafter.width(textafter.bbox().width + paddingRight);
+      textafter.x(0).dy(text.svg.height() + 6);
 
       text.svg.add(textafter);
     }
-
-    // text above the line
-    const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
-    const textbefore = draw.text((add) => {
-      for (let i = 0; i < textbeforeParts.length; i++) {
-        add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textbefore.dx(2).dy(text.svg.y() - 0.7);
-    text.svg.add(textbefore);
 
     eraser.front();
     showActionDayHint();
