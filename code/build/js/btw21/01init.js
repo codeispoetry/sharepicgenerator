@@ -93,6 +93,7 @@ function reDraw(withAddPic = false) {
     nolines.draw();
     invers.draw();
     eraser.draw();
+    background.drawColor();
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

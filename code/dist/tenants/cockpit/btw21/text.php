@@ -2,7 +2,7 @@
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between form-check form-check-inline">
+            <div class="d-none justify-content-between form-check form-check-inline">
                 <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
                  </label>
@@ -20,25 +20,22 @@
                 </div>
 
                 <div class="mb-1 mt-2">
-                    <div class="d-flex justify-content-between mt-3">
-                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
-                            <i class="fa fa-align-center"></i>
-                            mittig ausrichten</small>
-                    </div>
-                </div>
-
-
-                <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between">
                         <div class="slider">
                             <small>klein</small>
                             <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
-                        <div>
-                            <span class="to-front" data-target="text" title="Text nach vorne">
-                                <i class="fas fa-layer-group text-primary"></i>
-                            </span> 
+                        <div class="d-flex">
+                            <div class="mr-3">
+                                <span class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                                    <i class="fa fa-align-center" title="Text in Bildmitte"></i></span>
+                            </div> 
+                            <div>
+                                <span class="to-front" data-target="text" title="Text nach vorne">
+                                    <i class="fas fa-layer-group text-primary"></i>
+                                </span> 
+                            </div>
                         </div>
                     </div> 
                     </div>
@@ -46,9 +43,9 @@
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
                         <div class="">
-                            <label class="showonly lines">
-                                <input type="checkbox" name="textsamesize" id="textsamesize">
-                                Zeilen gleich lang
+                            <label class="">
+                                <input type="checkbox" name="showclaim" id="showclaim" checked>
+                                Zeige Claim
                             </label>
                             <label class="showonly lines">
                                 <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
