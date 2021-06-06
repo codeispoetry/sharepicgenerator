@@ -94,6 +94,7 @@ function reDraw(withAddPic = false) {
     invers.draw();
     eraser.draw();
     topleft.draw();
+    nolines.drawClaim();
   }, 100);
 
   window.setTimeout(() => {

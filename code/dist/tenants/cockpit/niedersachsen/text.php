@@ -23,10 +23,11 @@
                            class="form-control showonly lines nolines">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier ist Platz für bis
+zu 50 Zeichen Headlinetext.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="<?php echo getSaying('lower'); ?>" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Veränderung beginnt hier" class="form-control d-none showonly lines nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
