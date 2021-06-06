@@ -44,8 +44,15 @@ const nolines = {
     // gray layer behind text
     text.grayBackground.remove();
 
-    text.grayBackground = draw.rect(draw.width(), text.svg.height() + 120)
-      .y(draw.height() - text.svg.height() - 85)
+    let textHeight = text.svg.height();
+    const countLines = ($('#text').val().match(/\n/g) || []).length; // start with 0
+    const lines = $('#text').val().split(/\n/);
+    if (countLines === 0 || lines[1] === '') {
+      textHeight *= 2;
+    }
+
+    text.grayBackground = draw.rect(draw.width(), textHeight + 120)
+      .y(draw.height() - textHeight - 85)
       .fill('#a0c865')
       .back();
     background.svg.back();
@@ -53,7 +60,7 @@ const nolines = {
     logo.svg.size(draw.width() * 0.26);
     logo.svg.move(draw.width() * 0.705, text.grayBackground.y() - (logo.svg.height() * 0.84));
 
-    text.svg.move(20, draw.height() - text.svg.height() - 75);
+    text.svg.move(20, draw.height() - textHeight - 75);
 
     checkForOtherTenant();
   },
