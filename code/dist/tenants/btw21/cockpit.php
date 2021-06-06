@@ -5,7 +5,7 @@
 <form id="pic">
     <div class="mb-5">
     <?php
-        require_once(getBasePath('tenants/cockpit/picture.php'));
+        require_once(getBasePath('tenants/cockpit/btw21/picture.php'));
         require_once(getBasePath('tenants/cockpit/picture-size.php'));
         require_once(getBasePath('tenants/cockpit/btw21/text.php'));
         require_once(getBasePath('tenants/cockpit/addpictures.php'));

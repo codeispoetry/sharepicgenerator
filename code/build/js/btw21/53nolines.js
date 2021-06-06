@@ -2,7 +2,7 @@
 const nolines = {
   svg: draw.text(''),
   grayBackground: draw.circle(0),
-  colors: ['#ffffff', '#ffee00'],
+  colors: ['#ffffff', '#ffffff'],
   lineheight: 20,
   linemargin: -4,
   paddingLr: 5,
@@ -87,8 +87,23 @@ const nolines = {
     });
 
     // text below the line
-    if ($('#textafter').val()) {
-      const textafterParts = $('#textafter').val().toUpperCase().split(/\[|\]/);
+
+    if ($('#showclaim').prop('checked')) {
+      const w = 50;
+      const h = 9;
+      const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
+      const claimText = draw.text('Bereit, weil ihr es seid.')
+        .fill('#145f32')
+        .font(nolines.fontoutsidelines)
+        .move(1, 1);
+      const claim = draw.group();
+      claim.add(claimFond);
+      claim.add(claimText);
+      claim.y(text.svg.height());
+
+      text.svg.add(claim);
+    } else if ($('#textafter').val()) {
+      const textafterParts = $('#textafter').val().split(/\[|\]/);
       let style = 1;
       const textafter = draw.text((add) => {
         for (let i = 0; i < textafterParts.length; i++) {
@@ -127,4 +142,4 @@ const nolines = {
 
 };
 
-$('#text, #textafter, #textbefore, #textsize, #graybehindtext').bind('input propertychange', nolines.draw);
+$('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', nolines.draw);
