@@ -34,6 +34,9 @@ set('shared_dirs', [
     'tenants/einigungshilfe/gallery/img',
     'tenants/niedersachsen/pictures/img',
     'tenants/niedersachsen/gallery/img',
+    'tenants/btw21/gallery/img',
+    'tenants/btw21/pictures/img',
+
     'log/logs',
 ]);
 
