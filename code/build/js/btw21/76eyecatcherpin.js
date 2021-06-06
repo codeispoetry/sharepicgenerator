@@ -31,11 +31,11 @@ const pin = {
     const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
 
     // background
-    const radius = 1.5 * Math.max(pintext.rbox().w, pintext.rbox().h);
-    const pinbackground = draw.circle(radius)
+    const diameter = 1.35 * Math.max(pintext.rbox().w, pintext.rbox().h);
+    const pinbackground = draw.circle(diameter)
       .fill('#f06464');
 
-    pintext.move(pintext.rbox().w * 0.25, pintext.rbox().h * 0.25);
+    pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
 
@@ -45,8 +45,9 @@ const pin = {
 
     pin.svg.rotate(-9, draw.width(), pin.svg.y());
 
-    //  pin.svg.move($('#pinX').val(), $('#pinY').val());
+    pin.svg.move($('#pinX').val(), $('#pinY').val());
     pin.svg.front();
+    pin.resize();
   },
 
   resize() {
