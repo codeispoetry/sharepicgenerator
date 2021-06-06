@@ -9,7 +9,7 @@
         require_once(getBasePath('tenants/cockpit/picture-size.php'));
         require_once(getBasePath('tenants/cockpit/federal/text.php'));
         require_once(getBasePath('tenants/cockpit/addpictures.php'));
-        require_once(getBasePath('tenants/cockpit/federal/logo.php'));
+        require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
         require_once(getBasePath('tenants/cockpit/federal/eyecatcher.php'));
         require_once(getBasePath('tenants/cockpit/addtext.php'));
         require_once(getBasePath('tenants/cockpit/eraser.php'));
