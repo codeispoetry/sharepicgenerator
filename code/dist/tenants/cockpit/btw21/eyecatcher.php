@@ -2,9 +2,7 @@
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapseKILL">
     <div class="mb-1 list-group-item-content">
         <div class="d-flex align-items-lg-center">
-            <textarea name="pintext" id="pintext" placeholder="" class="form-control" data-maxlines="3">Aber hallo
-servus und
-Grüß Gott</textarea>
+            <textarea name="pintext" id="pintext" placeholder="" class="form-control" data-maxlines="3"></textarea>
         </div>
         <div class="d-flex justify-content-between">
             <div class="slider">

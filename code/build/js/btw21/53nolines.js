@@ -92,7 +92,7 @@ const nolines = {
       const w = 50;
       const h = 9;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimText = draw.text('Bereit, weil ihr es seid.')
+      const claimText = draw.text('Bereit, weil Ihr es seid.')
         .fill('#145f32')
         .font(nolines.fontoutsidelines)
         .move(1, 1);
