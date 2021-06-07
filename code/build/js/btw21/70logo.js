@@ -56,8 +56,8 @@ const logo = {
     newPercent = Math.min(100, newPercent);
     newPercent = Math.max(1, newPercent);
 
-    logo.logoinfo.widthFraction = newPercent / 100;
-    logo.draw();
+    width = draw.width() * newPercent * 0.01;
+    logo.svg.size(width, null);
   },
 };
 logo.load();
