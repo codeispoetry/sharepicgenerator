@@ -268,6 +268,8 @@ function afterUpload(data) {
   }
 
   config.backgroundSource = 'upload';
+  window.setTimeout(() => background.colorlayer.back(), 200);
+  console.log("adsfa")
 }
 
 $('.uploadfileclicker').click(() => {

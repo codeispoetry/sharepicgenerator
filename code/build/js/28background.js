@@ -2,6 +2,7 @@ const background = {
   svg: draw.circle(0),
   darklightlayer: draw.circle(0),
   greenlayer: draw.circle(0),
+  colorlayer: draw.circle(0),
 
   isLoaded: false,
 
@@ -48,11 +49,15 @@ const background = {
 
       // eslint-disable-next-line no-undef
       initSharepic();
+
+      background.colorlayer.remove();
+      background.colorlayer = draw.rect(draw.width(), draw.height()).fill('#A0C864').show();
     });
   },
 
   drawColor() {
     this.svg.remove();
+    background.colorlayer.hide();
     this.svg = draw.rect(draw.width(), draw.height()).fill($('#backgroundcolor').val()).back();
   },
 
