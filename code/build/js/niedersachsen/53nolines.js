@@ -66,6 +66,7 @@ const nolines = {
       .fill('#a0c865')
       .back();
     background.svg.back();
+    background.colorlayer.back();
 
     logo.svg.size(draw.width() * 0.26);
     logo.svg.move(draw.width() * 0.705, text.grayBackground.y() - (logo.svg.height() * 0.84));
