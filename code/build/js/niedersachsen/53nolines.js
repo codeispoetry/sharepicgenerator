@@ -28,6 +28,9 @@ const nolines = {
     text.svg.remove();
     invers.svg.remove();
     invers.backgroundClone.remove();
+
+    $('#text').val($('#text').val().replace(/^\n/, ''));
+
     if ($('#text').val() === '') return;
 
     text.svg = draw.group().attr('id', 'svg-text');
