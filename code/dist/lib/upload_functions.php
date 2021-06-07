@@ -314,7 +314,7 @@ function multiplyImage( $file )
     }
 
     $cmd = sprintf('convert %1$s -colorspace gray -brightness-contrast 20x20 %1$s_g.png &&
-                    composite -compose Multiply -gravity center ../assets/pistazie4multiply.png %1$s_g.png %1$s &&
+                    /etc/alternatives/composite -compose Multiply -gravity center ../assets/pistazie4multiply.png %1$s_g.png %1$s &&
                     rm %1$s_g.png 2>&1',
         escapeshellarg($file));
     
