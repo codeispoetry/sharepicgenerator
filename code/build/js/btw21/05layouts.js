@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 function showLayout() {
   config.layout = $('input[name=layout]:checked', '#pic').val();
 
@@ -7,12 +8,14 @@ function showLayout() {
 
   text.draw();
   nolines.draw();
+  area.draw();
   quote.draw();
   invers.draw();
 }
 
 $('.layout').click(showLayout);
 
+// eslint-disable-next-line no-unused-vars
 function textDragging() {
   if (!config.noTextDradAndDrop) {
     text.svg.addClass('draggable').draggable();

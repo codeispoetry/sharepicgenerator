@@ -93,6 +93,7 @@ function reDraw(withAddPic = false) {
     addtext.draw();
     quote.draw();
     nolines.draw();
+    area.draw();
     invers.draw();
     eraser.draw();
   }, 100);

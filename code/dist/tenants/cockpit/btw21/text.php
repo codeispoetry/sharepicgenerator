@@ -2,12 +2,12 @@
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-none justify-content-between form-check form-check-inline">
-                <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
+            <div class="d-flex justify-content-between form-check form-check-inline">
+                 <label class="">
+                    <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Standard
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
+                    <input type="radio" class="form-check-input layout" name="layout" value="area" >Mit Fläche
                  </label>
             </div>
 
@@ -16,7 +16,7 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines area nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -43,7 +43,7 @@
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
                         <div class="">
-                            <label class="">
+                            <label class="showonly nolines">
                                 <input type="checkbox" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
@@ -57,9 +57,12 @@
                                 <input type="checkbox" name="graybehindtext" id="graybehindtext">
                                 Farbe hinter Text
                             </label>
+                        </div>
+                        <div class="showonly nolines">
                             <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
                             <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
                         </div>
+                       
                     </div>
                 </div>
             </div>

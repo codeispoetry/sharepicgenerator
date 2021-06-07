@@ -6,13 +6,11 @@ function showLayout() {
   $('.showonly').hide();
 
   $(`.${config.layout}`).show();
-
   basic.draw();
   text.draw();
   nolines.draw();
   quote.draw();
   invers.draw();
- 
 }
 
 $('.layout').click(showLayout);

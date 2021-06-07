@@ -46,12 +46,22 @@ const logo = {
     const width = draw.width() * logo.logoinfo.widthFraction;
     logo.svg.addClass('draggable').draggable();
     logo.svg.size(width, null);
-    logo.svg.move(draw.width() * 0.6, draw.height() * 0.3);
+
+    logo.svg.move(parseInt($('#logoX').val(), 10), parseInt($('#logoY').val(), 10));
+
+    logo.svg.on('dragend.namespace', function dragEnd() {
+      $('#logoX').val(Math.round(this.x()));
+      $('#logoY').val(Math.round(this.y()));
+    });
 
     return true;
   },
 
   resize(percent) {
+    if (config.layout === 'area') {
+      return;
+    }
+
     let newPercent = parseInt(percent, 10);
     newPercent = Math.min(100, newPercent);
     newPercent = Math.max(1, newPercent);
