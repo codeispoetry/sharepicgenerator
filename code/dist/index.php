@@ -100,8 +100,8 @@
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-white bg-primary border-primary">
+        <div class="card mb-4 rounded-3 shadow-sm border-pistazie">
+          <div class="card-header py-3 text-white bg-pistazie border-pistazie">
             <h4 class="my-0 fw-normal">
                 B'90/Grüne
               <img src="/assets/logos/sonnenblume.svg" style="height: 1em;margin-left: 10px" >
@@ -121,7 +121,7 @@
                 <a href="/tenants/frankfurt" class="small">Frankfurt</a>
               </li>
             </ul>
-            <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-primary">einloggen</a>
+            <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-pistazie">einloggen</a>
             <a href="https://www.gruene.de/mitglied-werden" target="_blank" class="">Mitglied werden</a>
 
           </div>
