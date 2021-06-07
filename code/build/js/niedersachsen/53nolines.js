@@ -11,8 +11,9 @@ const nolines = {
     family: 'BereitBold',
     anchor: 'left',
     leading: '1.2em',
-    size: 55,
   },
+  sizeIfTwoLines: 55,
+  sizeIfOneLine: 110,
 
   drawClaim() {
     nolines.claim.front().size(280).move(20, draw.height() - 60);
@@ -29,15 +30,22 @@ const nolines = {
     invers.svg.remove();
     invers.backgroundClone.remove();
 
+    const countLines = ($('#text').val().match(/\n/g) || []).length; // start with 0
+
     $('#text').val($('#text').val().replace(/^\n/, ''));
 
     if ($('#text').val() === '') return;
 
     text.svg = draw.group().attr('id', 'svg-text');
 
+    let size = nolines.sizeIfOneLine;
+    if (countLines === 1) {
+      size = nolines.sizeIfTwoLines;
+    }
+
     const innertext = draw.text($('#text').val())
       .fill('#ffffff')
-      .font(Object.assign(nolines.font));
+      .font(Object.assign(nolines.font, { size }));
 
     text.svg.add(innertext);
 
@@ -48,9 +56,8 @@ const nolines = {
     text.grayBackground.remove();
 
     let textHeight = text.svg.height();
-    const countLines = ($('#text').val().match(/\n/g) || []).length; // start with 0
     const lines = $('#text').val().split(/\n/);
-    if (countLines === 0 || lines[1] === '') {
+    if (countLines === 1 && lines[1] === '') {
       textHeight *= 2;
     }
 
