@@ -25,8 +25,6 @@ const logo = {
 
     this.logoinfo = this.config[whichLogo];
 
-    $('#logosize').val(this.logoinfo.widthFraction * 100);
-
     this.svg = draw.group().attr('id', 'svg-logo');
     const logofile = draw.image(this.logoinfo.file, () => {
       logo.isLoaded = true;
@@ -53,6 +51,8 @@ const logo = {
       $('#logoX').val(Math.round(this.x()));
       $('#logoY').val(Math.round(this.y()));
     });
+
+    logo.resize($('#logosize').val());
 
     return true;
   },

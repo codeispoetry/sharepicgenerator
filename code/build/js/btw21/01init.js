@@ -21,7 +21,6 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  $('#logosize').val(17);
   logo.resize($('#logosize').val());
 
   $('#addtextX').val(50);
