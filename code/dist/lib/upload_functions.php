@@ -42,6 +42,8 @@ function handleBackgroundUpload($extension)
 
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
+    multiplyImage( $filename );
+
     // convert webp to jpg, as inkscape cannot handle webp
     if (in_array(strToLower($extension), ['webp','heic'])) {
         $filename = convertExoticExtensions($filebasename, $extension);
@@ -301,4 +303,20 @@ function countFaces($filename)
     $command = sprintf("facedetect %s", $filename);
     exec($command, $output);
     return count($output);
+}
+
+function multiplyImage( $file )
+{
+    // Check transparency
+    $cmd = sprintf('convert %s -format "%%[opaque]" info:', escapeshellarg($file));
+    if(shell_exec($cmd) !== 'false'){   
+        return;
+    }
+
+    $cmd = sprintf('convert %1$s -colorspace gray -brightness-contrast 20x20 %1$s_g.png &&
+                    composite -compose Multiply -gravity center ../assets/pistazie4multiply.png %1$s_g.png %1$s &&
+                    rm %1$s_g.png 2>&1',
+        escapeshellarg($file));
+    
+    shell_exec( $cmd);
 }
