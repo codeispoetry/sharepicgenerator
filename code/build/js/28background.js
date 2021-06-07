@@ -51,7 +51,7 @@ const background = {
       initSharepic();
 
       background.colorlayer.remove();
-      background.colorlayer = draw.rect(draw.width(), draw.height()).fill('#A0C864').show();
+      background.colorlayer = draw.rect(draw.width(), draw.height()).fill('#A0C864').back().show();
     });
   },
 
