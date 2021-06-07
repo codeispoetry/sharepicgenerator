@@ -119,7 +119,7 @@ nextActionDay();
                             </button>
                         </div>
                         <div class="mt-3 small">
-                            <a href="/tenants/federal" target="_blank"><i class="far fa-arrow-alt-circle-right"></i> zum Bundeslayout</a>
+                            <a href="/tenants/btw21" target="_blank"><i class="far fa-arrow-alt-circle-right"></i> zum Bundeslayout</a>
                         </div>
                         <div id="qrcode" class="qrcode mt-5" style="display:none">
                             Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
