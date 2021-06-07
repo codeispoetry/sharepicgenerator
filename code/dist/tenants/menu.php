@@ -51,7 +51,7 @@
             Regionale Angebote
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="/federal" class="dropdown-item">Deutschland</a>
+            <a href="/btw21" class="dropdown-item">Bundestagswahl</a>
             <div class="dropdown-divider"></div>
             <?php
             $tenants = configValue('Main','linkedTenants');
