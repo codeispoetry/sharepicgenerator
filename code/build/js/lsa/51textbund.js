@@ -190,6 +190,7 @@ const text = {
     text.grayBackground.x(text.svg.x()).y(text.svg.y()).size(parseInt($('#textsize').val(), 10));
     text.grayBackground.transform({ scale: 2.5 });
     background.svg.back();
+    background.colorlayer.back();
   },
 
   bounce() {
