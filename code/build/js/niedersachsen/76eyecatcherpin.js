@@ -3,10 +3,9 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'Arvo',
+  family: 'BereitBold',
   size: 15,
-  anchor: 'left',
-  weight: 300,
+  anchor: 'middle',
 };
 
 const pin = {
@@ -17,31 +16,13 @@ const pin = {
   draw() {
     $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
-    const countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
-
-    if (countLines > 1) {
-      $('#pintext').val($('#pintext').val().replace(/\n.*$/, ''));
-    }
-
     pin.svg.remove();
     pin.svg = draw.group();
     if ($('#pintext').val() === '') return;
 
     pin.svg.addClass('draggable').draggable();
 
-    pin.svg.on('dragstart.namespace', () => {
-      pin.svg.rotate(9, draw.width(), pin.svg.y());
-    });
-    pin.svg.on('dragmove.namespace', (e) => {
-      const { handler, box } = e.detail;
-      e.preventDefault();
-
-      const { y } = box;
-
-      handler.move(draw.width() - pin.svg.width(), y);
-    });
     pin.svg.on('dragend.namespace', () => {
-      pin.svg.rotate(-9, draw.width(), pin.svg.y());
       $('#pinX').val(Math.round(pin.svg.x()));
       $('#pinY').val(Math.round(pin.svg.y()));
     });
@@ -50,30 +31,28 @@ const pin = {
     const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
 
     // background
-    const pinwidth = pintext.rbox().w + 40 + (countLines * 20);
-    const pinheight = pintext.rbox().h + 20;
+    const diameter = 1.35 * Math.max(pintext.rbox().w, pintext.rbox().h);
+    const pinbackground = draw.circle(diameter)
+      .fill('#f06464');
 
-    const pinbackground = draw.polygon([
-      [0, 0],
-      [pinwidth, 0],
-      [pinwidth, pinheight],
-      [0, pinheight],
-      [pinheight / 2, pinheight / 2],
-    ]).fill('#e6007e');
+    pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
-    pintext.move(28 + (countLines * 10), 9);
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
 
     // and in reverse order
     pin.svg.add(pinbackground);
     pin.svg.add(pintext);
 
-    pin.svg.move(draw.width() - pin.svg.width(), $('#pinY').val());
-    const eyecatchersize = $('#eyecatchersize').val() / 100;
-    pin.svg.scale(eyecatchersize, eyecatchersize, draw.width(), $('#pinY').val());
     pin.svg.rotate(-9, draw.width(), pin.svg.y());
 
+    pin.svg.move($('#pinX').val(), $('#pinY').val());
     pin.svg.front();
+    pin.resize();
+  },
+
+  resize() {
+    const eyecatchersize = $('#eyecatchersize').val();
+    pin.svg.size(eyecatchersize);
   },
 
   bounce() {
@@ -81,4 +60,5 @@ const pin = {
   },
 };
 
-$('#pintext, #eyecatchersize').bind('input propertychange', pin.draw);
+$('#pintext').bind('input propertychange', pin.draw);
+$('#eyecatchersize').bind('input propertychange', pin.resize);

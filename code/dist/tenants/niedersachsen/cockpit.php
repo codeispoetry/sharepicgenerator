@@ -11,8 +11,8 @@
         require_once(getBasePath('tenants/cockpit/niedersachsen/texttopleft.php'));
         require_once(getBasePath('tenants/cockpit/addpictures.php'));
         require_once(getBasePath('tenants/cockpit/logo-none.php'));
-        require_once(getBasePath('tenants/cockpit/eyecatcher-none.php'));
-        require_once(getBasePath('tenants/cockpit/addtext.php'));
+        require_once(getBasePath('tenants/cockpit/btw21/eyecatcher.php'));
+        require_once(getBasePath('tenants/cockpit/addtext-none.php'));
         require_once(getBasePath('tenants/cockpit/eraser.php'));
         require_once(getBasePath('tenants/cockpit/quality.php'));
         require_once(getBasePath('tenants/cockpit/workfile.php'));
