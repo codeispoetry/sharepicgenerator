@@ -31,6 +31,7 @@ const nolines = {
     invers.backgroundClone.remove();
 
     const countLines = ($('#text').val().match(/\n/g) || []).length; // start with 0
+    const lines = $('#text').val().split(/\n/);
 
     $('#text').val($('#text').val().replace(/^\n/, ''));
 
@@ -39,7 +40,7 @@ const nolines = {
     text.svg = draw.group().attr('id', 'svg-text');
 
     let size = nolines.sizeIfOneLine;
-    if (countLines === 1) {
+    if (countLines === 1 && lines[1] !== '') {
       size = nolines.sizeIfTwoLines;
     }
 
@@ -56,9 +57,8 @@ const nolines = {
     text.grayBackground.remove();
 
     let textHeight = text.svg.height();
-    const lines = $('#text').val().split(/\n/);
-    if (countLines === 1 && lines[1] === '') {
-      textHeight *= 2;
+    if (countLines === 1 && lines[1] !== '') {
+      //textHeight *= 2;
     }
 
     text.grayBackground = draw.rect(draw.width(), textHeight + 120)
