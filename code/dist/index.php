@@ -109,8 +109,7 @@
           </div>
           <div class="card-body" style="background-color: #f3f8f1">
             <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
-              <li>original grünes Design</li>
-              <li>Mustervorlagen</li>
+              <li>grünes Design</li>
               <li>Videofunktion</li>
               <li>Arbeitsdateien</li>
               <li> 
@@ -130,7 +129,7 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Freies Design</h4>
+            <h4 class="my-0 fw-normal">Eigenes Design</h4>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
