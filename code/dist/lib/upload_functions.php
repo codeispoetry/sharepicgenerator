@@ -309,7 +309,7 @@ function multiplyImage( $file )
 {
     // Check transparency
     $cmd = sprintf('convert %s -format "%%[opaque]" info:', escapeshellarg($file));
-    if(shell_exec($cmd) !== 'false'){   
+    if(strToLower(shell_exec($cmd)) !== 'false'){   
         return;
     }
 
