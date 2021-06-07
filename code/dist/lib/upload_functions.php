@@ -42,7 +42,7 @@ function handleBackgroundUpload($extension)
 
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
-    multiplyImage( $filename );
+    multiplyImage( $filename, $_FILES['file']['name'] );
 
     // convert webp to jpg, as inkscape cannot handle webp
     if (in_array(strToLower($extension), ['webp','heic'])) {
@@ -265,6 +265,8 @@ function handleUploadByUrl()
         die();
     }
 
+    multiplyImage($filename, $url);
+
     prepareFileAndSendInfo($filename, $filename_small);
 }
 
@@ -305,11 +307,12 @@ function countFaces($filename)
     return count($output);
 }
 
-function multiplyImage( $file )
+function multiplyImage( $file, $orignalName)
 {
     // Check transparency
     $cmd = sprintf('convert %s -format "%%[opaque]" info:', escapeshellarg($file));
-    if(strToLower(shell_exec($cmd)) !== 'false'){   
+    $has_transparency = (strToLower(shell_exec($cmd)) === 'false');
+    if( !$has_transparency && !strpos($orignalName, 'freigestellt')){   
         return;
     }
 
