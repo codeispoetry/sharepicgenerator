@@ -18,6 +18,10 @@
             <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
                 <i class="fas fa-tape"></i> Designrichtlinien
             </a>
+            <a href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Bundestagswahl%202021/Design&fileid=31662066" class="dropdown-item" target="_blank">
+                <i class="fas fa-poll"></i> Design zur Bundestagswahl
+            </a>
+
         </div>
     </li>
     <li class="nav-item">
@@ -63,6 +67,10 @@
     <li class="nav-item">
         <a href="/imprint.php" class="nav-link"> Impressum</a>
     </li>
+   
+</ul>
+
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     <li class="nav-item">
         <a href="https://sunflower-theme.de" target="_blank" class="nav-link font-italic">  
         <i class="fab fa-wordpress-simple"></i> WordPress-Theme Sunflower</a>
