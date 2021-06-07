@@ -66,7 +66,12 @@ const background = {
 
     const value = $('#greenlayer').val() / 100;
 
-    this.greenlayer = draw.rect(draw.width(), draw.height()).fill('#46962b').opacity(value);
+    let color = $('#layerColor').val();
+    if (!color) {
+      color = '#46962b';
+    }
+
+    this.greenlayer = draw.rect(draw.width(), draw.height()).fill(color).opacity(value);
 
     this.greenlayer.attr('style', ' pointer-events: none;');
 

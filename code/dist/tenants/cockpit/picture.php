@@ -67,7 +67,7 @@
             <small>unverändert</small>
             <input type="range" class="custom-range" name="greenlayer" id="greenlayer" min="0"
                 max="100" value="0" step="5">
-            <small>grün</small>
+            <small>abgeschwächt</small>
         </div>
 
         <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
