@@ -78,6 +78,7 @@ const background = {
     this.darklightlayer.back();
     this.greenlayer.back();
     this.svg.back();
+    this.colorlayer.back();
   },
 
   addDarkLightLayer() {
@@ -94,6 +95,7 @@ const background = {
     this.darklightlayer.back();
     this.greenlayer.back();
     this.svg.back();
+    this.colorlayer.back();
   },
 
   addFilter() {
