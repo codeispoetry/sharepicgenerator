@@ -80,11 +80,11 @@
   </div>
 
   <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center ">
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card mb-4 rounded-3 shadow-sm small">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Ohne Anmeldung</h4>
+            <h5 class="my-0 fw-normal">Ohne Anmeldung</h5>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
@@ -94,7 +94,7 @@
               <li>Text eingeben</li>
               <li>herunterladen</li>
             </ul>
-            <a href="/tenants/basic/?guest=1" class="w-100 btn btn-lg btn-dark">Sharepic erstellen</a>
+            <a href="/tenants/basic/?guest=1" class="w-100 btn btn-sm btn-dark">Sharepic erstellen</a>
             &nbsp;
           </div>
         </div>
@@ -109,9 +109,8 @@
           </div>
           <div class="card-body" style="background-color: #f3f8f1">
             <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
-              <li>grünes Design</li>
-              <li>Videofunktion</li>
-              <li>Arbeitsdateien</li>
+              <li class="mb-5">im grünen Design</li>
+    
               <li> 
                 <a href="/tenants/niedersachsen">Niedersachsen</a>
                 <br>
@@ -128,9 +127,9 @@
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card mb-4 rounded-3 shadow-sm small">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Eigenes Design</h4>
+            <h5 class="my-0 fw-normal">Eigenes Design</h5>
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4 d-none d-md-block">
@@ -140,9 +139,9 @@
               <li>Sternchentext formatieren</li>
               <li>Zusatzbilder nutzen</li>
             </ul>
-            <a href="/tenants/basic" class="w-100 btn btn-lg btn-info">frei anmelden</a>
+            <a href="/tenants/basic" class="w-100 btn btn-sm btn-info">frei anmelden</a>
             <a href="/wordpress/wp-login.php?action=register" class="text-info">frei registrieren</a>
-            | <a href="/tenants/federal">B' 90 / Die Grünen</a>
+            | <a href="/tenants/btw21">B' 90 / Die Grünen</a>
           </div>
         </div>
       </div>
