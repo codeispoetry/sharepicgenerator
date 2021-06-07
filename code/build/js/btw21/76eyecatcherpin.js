@@ -12,9 +12,10 @@ const pin = {
   isLoaded: false,
 
   svg: draw.text(''),
+  template: draw.circle(0),
 
   draw() {
-    $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
+    //$('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
     pin.svg.remove();
     pin.svg = draw.group();
@@ -46,13 +47,41 @@ const pin = {
     pin.svg.rotate(-9, draw.width(), pin.svg.y());
 
     pin.svg.move($('#pinX').val(), $('#pinY').val());
-    pin.svg.front();
+    pin.svg.front().show();
+    pin.template.hide();
+    $('#eyecatchertemplate').val('custom');
     pin.resize();
   },
 
   resize() {
     const eyecatchersize = $('#eyecatchersize').val();
     pin.svg.size(eyecatchersize);
+    pin.template.size(eyecatchersize);
+  },
+
+  drawTemplate() {
+    if (!$('#eyecatchertemplate').val()) {
+      return;
+    }
+
+    if ($('#eyecatchertemplate').val() === 'custom') {
+      pin.draw();
+      return;
+    }
+
+    pin.template.remove();
+    pin.template = draw.image(`/assets/btw21/${$('#eyecatchertemplate').val()}`, () =>{
+      pin.template.size($('#eyecatchersize').val())
+        .move($('#pinX').val(), $('#pinY').val())
+        .draggable();
+
+      pin.template.on('dragend.namespace', () => {
+        $('#pinX').val(Math.round(pin.template.x()));
+        $('#pinY').val(Math.round(pin.template.y()));
+      });
+    });
+
+    pin.svg.hide();
   },
 
   bounce() {
@@ -62,3 +91,5 @@ const pin = {
 
 $('#pintext').bind('input propertychange', pin.draw);
 $('#eyecatchersize').bind('input propertychange', pin.resize);
+
+$('#eyecatchertemplate').on('change', pin.drawTemplate);
