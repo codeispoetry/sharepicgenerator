@@ -32,6 +32,9 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
             Uhrzeit: <?php echo strftime('%A, %k:%M Uhr'); ?><br>
             Freier Festplattenplatz: <?php echo getFreeSpace(); ?>
         </div>
+        <div class="col-12 pb-5">
+            <?php showLogGraph();?>
+        </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-users"></i> User</dt>

@@ -343,3 +343,44 @@ function getFreeSpace()
 
     return $output[0];
 }
+
+function showLogGraph()
+{
+    global $db;
+    // by week
+    $sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
+    // by month
+    $sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
+    $results = $db->query($sql);
+
+    $style = <<<STYLE
+        <style>
+            .bar{
+                width: 100%;
+                background:red;
+                align-self:flex-end;
+                justify-content:space-between;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                display: flex;
+                justify-content: center;
+            }
+            .spacer-left{
+                margin-left: 10px;
+            }
+        </style>
+STYLE;
+    echo $style;
+    echo '<div style="display:flex;">';
+
+    $oldMonth = 0;
+    while ($row = $results->fetchArray()) {
+       printf('<div class="bar %1$s" style="height:%2$dpx" title="%4$s: %3$s">%4$s: %3$s</div>', 
+        ($oldMonth != $row['month']) ? 'spacer-left' : '', 
+        $row['count'] / 200, 
+        number_format($row['count'], 0, ',', '.'), 
+        $row['period']);
+       $oldMonth = $row['month'];
+    }
+    echo "</div>";
+}
