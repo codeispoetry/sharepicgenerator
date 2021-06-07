@@ -113,11 +113,12 @@
               <li>Videofunktion</li>
               <li>Arbeitsdateien</li>
               <li> 
-                <a href="/tenants/lsa">Sachen-Anhalt</a> |
-                <a href="/tenants/niedersachsen">Niedersachsen</a> |
+                <a href="/tenants/niedersachsen">Niedersachsen</a>
                 <br>
-                <a href="/tenants/bw">Ba-Wü</a> |
-                <a href="/tenants/frankfurt">FFM</a>
+                <a href="/tenants/federal" class="small">Arvo</a> |
+                <a href="/tenants/bw" class="small">Ba-Wü</a> |
+                <a href="/tenants/lsa" class="small">Sachen-Anhalt</a> |
+                <a href="/tenants/frankfurt" class="small">Frankfurt</a>
               </li>
             </ul>
             <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-primary">einloggen</a>
