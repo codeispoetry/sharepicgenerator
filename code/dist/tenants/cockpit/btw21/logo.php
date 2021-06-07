@@ -14,3 +14,5 @@
             </div>
            
         </div>
+        <input type="hiddedn" name="logoX" id="logoX" value="180">
+        <input type="hiddden" name="logoY" id="logoY" value="120">
