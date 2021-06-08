@@ -1,14 +1,14 @@
 <h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
-<div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapseKILL">
+<div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
     <div class="mb-1 list-group-item-content">
         <div class="">
             <select class="form-control" id="eyecatchertemplate">
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbt eingeben</option>
                 <optgroup label="Vorlagen">
-                    <option value="datum.png">12.9 und 26.9</option>
-                    <option value="alle-stimmen.png">Alle Stimmen Grün</option>
-                    <option value="breifwahl.png">Briefwahl jetzt!</option>
+                    <option value="niedersachsen/datum.png">12.9 und 26.9</option>
+                    <option value="niedersachsen/alle-stimmen.png">Alle Stimmen Grün</option>
+                    <option value="niedersachsen/briefwahl.png">Briefwahl jetzt!</option>
                 </optgroup>
             </select>
             oder

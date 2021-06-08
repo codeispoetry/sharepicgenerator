@@ -6,6 +6,7 @@ const pinfont = {
   family: 'BereitBold',
   size: 15,
   anchor: 'middle',
+  leading: '1em',
 };
 
 const pin = {
@@ -32,7 +33,7 @@ const pin = {
     const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
 
     // background
-    const diameter = 1.35 * Math.max(pintext.rbox().w, pintext.rbox().h);
+    const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
     const pinbackground = draw.circle(diameter)
       .fill('#f06464');
 
@@ -44,13 +45,13 @@ const pin = {
     pin.svg.add(pinbackground);
     pin.svg.add(pintext);
 
-    pin.svg.rotate(-9, draw.width(), pin.svg.y());
-
     pin.svg.move($('#pinX').val(), $('#pinY').val());
     pin.svg.front().show();
     pin.template.hide();
     $('#eyecatchertemplate').val('custom');
     pin.resize();
+
+    pin.svg.rotate(-9);
   },
 
   resize() {
@@ -70,7 +71,7 @@ const pin = {
     }
 
     pin.template.remove();
-    pin.template = draw.image(`/assets/niedersachsen/${$('#eyecatchertemplate').val()}`, () =>{
+    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () =>{
       pin.template.size($('#eyecatchersize').val())
         .move($('#pinX').val(), $('#pinY').val())
         .draggable();
