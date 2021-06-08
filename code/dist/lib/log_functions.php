@@ -261,7 +261,7 @@ function showProvinces()
 
     $provinces = array('offbyone','Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen',
                         'Mecklenburg-Vorpommern','Niedersachsen','Nordrhein-Westfalen','Rheinland-Pfalz','Saarland',
-                    'Sachsen','Sachen-Anhalt','Schleswig-Holstein','Thürigen');
+                    'Sachsen','Sachsen-Anhalt','Schleswig-Holstein','Thürigen');
 
   
 }
