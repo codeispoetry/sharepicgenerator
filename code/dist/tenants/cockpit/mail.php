@@ -5,9 +5,7 @@
     <div class="d-flex w-100">
         <div class="input-group">
             <input type="email" name="recipient" id="recipient" placeholder="E-Mail an" value="" class="form-control">
-            <div class="input-group-append">
-                <input type="button" class="input-group-text btn-sm btn-info" id="send_email" value="senden">
-            </div>
+            <input type="button" class="btn btn-info" id="send_email" value="senden">
         </div>
     </div>
 </div>

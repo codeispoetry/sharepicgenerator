@@ -4,7 +4,7 @@
         <div class="">
             <div class="slider">
                 <small>niedrig</small>
-                <input type="range" class="custom-range" name="gradientheight" id="gradientheight" min="0"
+                <input type="range" class="form-range" name="gradientheight" id="gradientheight" min="0"
                     max="100" value="40">
                 <small>hoch</small>
             </div>

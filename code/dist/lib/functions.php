@@ -716,8 +716,8 @@ function showPictures($main_dir)
         $meta_file = $album . '/meta.ini';
         if (file_exists($meta_file)) {
             $meta = parse_ini_file($meta_file);
-            $photographer = "<tr><td class='pr-3'>Fotograf</td><td class='llphotographer'>". $meta['Photographer'] ."</td></tr>";
-            $tags = "<tr><td class='pr-3'>Tags</td><td class='lltags'>". $meta['Tags'] ."</td></tr>";
+            $photographer = "<tr><td class='pe-3'>Fotograf</td><td class='llphotographer'>". $meta['Photographer'] ."</td></tr>";
+            $tags = "<tr><td class='pe-3'>Tags</td><td class='lltags'>". $meta['Tags'] ."</td></tr>";
         }
 
         foreach ($pics as $pic) {
@@ -742,20 +742,20 @@ function showPictures($main_dir)
                   <figcaption class="d-none">
                       <table class="small">
                           <tr>
-                              <td class="pr-3">Name</td>
+                              <td class="pe-3">Name</td>
                               <td class="llname">$name</td>
                           </tr>
                           $photographer
                           <tr>
-                              <td class="pr-3">Album</td>
+                              <td class="pe-3">Album</td>
                               <td class="llalbum">$albumname</td>
                           </tr>
                           <tr>
-                              <td class="pr-3 llsize">Dateigröße</td>
+                              <td class="pe-3 llsize">Dateigröße</td>
                               <td>$fsize</td>
                           </tr>
                           <tr>
-                              <td class="pr-3 llformat">Format / Größe</td>
+                              <td class="pe-3 llformat">Format / Größe</td>
                               <td>$ext / $img_size</td>
                           </tr>
                           $tags

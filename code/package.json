@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.1",
     "install": "^0.13.0"
   },
   "husky": {
