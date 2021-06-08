@@ -2,7 +2,7 @@
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
     <div class="mb-1 list-group-item-content">
         <div class="">
-            <select class="form-control" id="eyecatchertemplate">
+            <select class="form-select" id="eyecatchertemplate">
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbt eingeben</option>
                 <optgroup label="Vorlagen">
@@ -20,7 +20,7 @@
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                     max="300" value="100">
                 <small>groß</small>
             </div>

@@ -10,12 +10,12 @@
                 <div class="d-flex justify-content-between">
                     <div class="slider">
                         <small>klein</small>
-                        <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                        <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                             max="300" value="100" disabled>
                         <small>groß</small>
                     </div>
                     <div>
-                        <span class="colorpicker ml-1" data-colors="#000000,#009571,#46962b,#E6007E" data-action="pin.draw()" data-field="#pinColor" title="Farbe wechseln"></span> 
+                        <span class="colorpicker ms-1" data-colors="#000000,#009571,#46962b,#E6007E" data-action="pin.draw()" data-field="#pinColor" title="Farbe wechseln"></span> 
                         <input type="hidden" name="pinColor" id="pinColor" value="#E6007E">
 
                         <span class="to-front" data-target="pin" title="Störer nach vorne">

@@ -91,5 +91,5 @@
         }
         ?>
     </em>
-    <a href="?logout=true" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
+    <a href="?logout=true" class="ms-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
 </span>

@@ -1,5 +1,9 @@
 .cockpit{
   background: $lightgray;
+
+  a{
+    text-decoration: none;
+  }
 }
 
 .list-group-item{
@@ -16,6 +20,7 @@
 
   input {
     margin: 0 1em;
+    width: 100%;
   }
 }
 
@@ -83,7 +88,7 @@
   }
 
   .collapsing {
-    transition: 100ms;
+    transition: ease-in 200ms;
   }
 
   * {
@@ -103,7 +108,7 @@
 
       &:after {
         font-family: "Font Awesome\ 5 Free";
-        content: "\f0d7";
+        content: "\f078";
         font-size: 120%;
         font-weight: 900;
         position: absolute;

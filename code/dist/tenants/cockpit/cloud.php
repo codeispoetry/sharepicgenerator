@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div id="cloudmessage" style="display:none">
-                <p class="bg-info p-1 pl-3 text-white">Verbinde mich mit Wolke ...</p>
+                <p class="bg-info p-1 ps-3 text-white">Verbinde mich mit Wolke ...</p>
             </div>
             <div id="cloudnotoken" class="" style="display:none">
                  <div>

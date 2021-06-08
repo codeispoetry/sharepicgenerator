@@ -23,12 +23,12 @@
                     <div class="d-flex justify-content-between">
                         <div class="slider">
                             <small>klein</small>
-                            <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
+                            <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
                         <div class="d-flex">
-                            <div class="mr-3">
-                                <span class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                            <div class="me-3">
+                                <span class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
                                     <i class="fa fa-align-center" title="Text in Bildmitte"></i></span>
                             </div> 
                             <div>
@@ -44,22 +44,22 @@
                     <div class="d-flex justify-content-between">
                         <div class="">
                             <label class="showonly nolines">
-                                <input type="checkbox" name="showclaim" id="showclaim">
+                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
                             <label class="showonly lines">
-                                <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
+                                <input type="checkbox" class="form-check-input" name="greenbehindtext" id="greenbehindtext">
                                 Grün hinter Text
                             </label>
                         </div>
                         <div>
                             <label class="showonly lines nolines quote">
-                                <input type="checkbox" name="graybehindtext" id="graybehindtext">
+                                <input type="checkbox" class="form-check-input" name="graybehindtext" id="graybehindtext">
                                 Farbe hinter Text
                             </label>
                         </div>
                         <div class="showonly nolines">
-                            <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
+                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
                             <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
                         </div>
                        
