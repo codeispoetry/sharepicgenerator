@@ -114,13 +114,12 @@
               <li> 
                 <a href="/tenants/niedersachsen">Niedersachsen</a>
                 <br>
-                <a href="/tenants/federal" class="small">Arvo</a> |
                 <a href="/tenants/bw" class="small">Ba-Wü</a> |
-                <a href="/tenants/lsa" class="small">Sachen-Anhalt</a> |
+                <a href="/tenants/lsa" class="small">Saschen-Anhalt</a> |
                 <a href="/tenants/frankfurt" class="small">Frankfurt</a>
               </li>
             </ul>
-            <a href="tenants/btw21" type="button" class="w-100 btn btn-lg btn-pistazie">einloggen</a>
+            <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-pistazie">einloggen</a>
             <a href="https://www.gruene.de/mitglied-werden" target="_blank" class="">Mitglied werden</a>
 
           </div>
@@ -141,7 +140,7 @@
             </ul>
             <a href="/tenants/basic" class="w-100 btn btn-sm btn-info">frei anmelden</a>
             <a href="/wordpress/wp-login.php?action=register" class="text-info">frei registrieren</a>
-            | <a href="/tenants/btw21">B' 90 / Die Grünen</a>
+            | <a href="/tenants/federal">B' 90 / Die Grünen</a>
           </div>
         </div>
       </div>
