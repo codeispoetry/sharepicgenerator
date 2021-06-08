@@ -17,6 +17,13 @@ if(isset($_GET['guest'])){
 }else{
     wp_login();
     $wpuser = wp_get_current_user(); 
+
+    $roles = array_map('strtolower', $wpuser->roles);
+
+    if( !in_array('einigungshilfe', $roles ) && !in_array('administrator', $roles )){
+        die("No Access");
+    }
+
     $user = 'wp_' . $wpuser->data->user_login;
 }
 
