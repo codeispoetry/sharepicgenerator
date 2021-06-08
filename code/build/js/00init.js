@@ -126,7 +126,7 @@ $('.to-front').click(function tofront() {
   }
 
   if (target === 'logo') {
-    indirectEval(target).load();
+    indirectEval(target).svg.front();
   } else {
     indirectEval(target).draw();
   }
