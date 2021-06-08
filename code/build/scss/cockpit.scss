@@ -1,6 +1,4 @@
 .cockpit{
-  background: $lightgray;
-
   a{
     text-decoration: none;
   }
@@ -58,10 +56,9 @@
     margin: 0;
     transition: 10ms;
 
-    background: rgb(159,159,159);
-    background: linear-gradient(0deg, rgba(159,159,159,1) 0%, rgba(180,180,180,1) 100%);
+    background: #dddddd;
 
-    color: white;
+    color: #1c1c1c;
     i{
       margin-right: 1em;
     }
@@ -79,8 +76,7 @@
   }
 
   .collapse{
-    background-color: #ccc;
-    transition: background-color 2s;
+    background-color: #eeeeee;
   }
 
   .highlighted{
@@ -88,7 +84,7 @@
   }
 
   .collapsing {
-    transition: ease-in 200ms;
+    transition: 200ms;
   }
 
   * {
