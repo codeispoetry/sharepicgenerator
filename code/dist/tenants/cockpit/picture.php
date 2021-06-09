@@ -3,8 +3,11 @@
     <div class="mb-1 d-flex justify-content-between">
         <a href="#" class="text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
-        </a> 
-        <input type="color" name="backgroundcolor" id="backgroundcolor" value="#000000" title=" Hintergrundfarbe ändern">
+        </a>
+        <?php
+            if( !$defaultColor) $defaultColor = '#000000';
+        ?>
+        <input type="color" name="backgroundcolor" id="backgroundcolor" value="<?php echo $defaultColor;?>" title=" Hintergrundfarbe ändern">
     </div>
     <?php if(configValue("Features","showMediaGallery")){ ?>
         <div class="d-flex justify-content-between mb-1">

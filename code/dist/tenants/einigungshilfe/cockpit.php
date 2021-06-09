@@ -1,5 +1,7 @@
 <?php
 // phpcs:ignoreFile -- mainly html, ignore it
+
+$defaultColor = '#5488C7';
 ?>
 
 <form id="pic">
