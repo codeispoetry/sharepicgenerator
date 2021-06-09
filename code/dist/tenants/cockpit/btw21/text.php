@@ -14,6 +14,11 @@
             </div>
 
             <div class="list-group-item-content">
+                <div class="d-flex justify-content-end">
+                    <i class="fa fa-align-left text-align me-2" data-align="left" title="linksbündig"></i>
+                    <i class="fa fa-align-center text-align me-2" data-align="middle" title="zentrieren"></i>
+                    <i class="fa fa-align-right text-align" data-align="end" title="rechtsbündig"></i>
+                </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
