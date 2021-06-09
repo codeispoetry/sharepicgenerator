@@ -1,5 +1,5 @@
 <div class="d-flex">
-    <a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
+   
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
@@ -39,6 +39,8 @@
                 <i class="fas fa-comment-dots"></i> Feedback</a>
             <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
                 <i class="fab fa-github"></i> Quellcode</a>
+            <a href="https://sunflower-theme.de" target="_blank" class="dropdown-item">  
+             <i class="fab fa-wordpress-simple"></i> Sunflower</a>
             </div>
         </li>
         <?php if (configValue($tenant, 'showGallery')) { ?>
@@ -67,26 +69,18 @@
             </div>
         </li>
         <li class="nav-item">
-            <a href="/imprint.php" class="nav-link"> Impressum</a>
+            <a href="/imprint.php" class="nav-link"> Impressum & Datenschutz</a>
         </li>
     
     </ul>
 </div>
 
-<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item">
-        <a href="https://sunflower-theme.de" target="_blank" class="nav-link font-italic">  
-        <i class="fab fa-wordpress-simple"></i> WordPress-Theme Sunflower</a>
-    </li>
-    <?php if (isEditor()) { ?>
-        <li class="nav-item">
-            <a href="log/" class="nav-link font-italic"> Logfiles</a>
-        </li>
-    <?php } ?>
-</ul>
+<a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
 
-<span class="navbar-text">
-    Eingeloggt als 
+<div class="navbar-text d-flex">
+    <?php if (isEditor()) { ?> 
+            <a href="log/" class="pe-1 me-1 text-decoration-none">Logfiles</a>
+    <?php } ?>
     <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
         <?php echo getUser(); ?>
         <?php if (isEditor()) {
@@ -95,4 +89,4 @@
         ?>
     </em>
     <a href="?logout=true" class="ms-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
-</span>
+</div>
