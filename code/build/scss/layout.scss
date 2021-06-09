@@ -12,6 +12,7 @@ body{
   background: white;
   position: relative;
   z-index: 1000;
+  padding: 30px;
 }
 
 
@@ -113,6 +114,12 @@ textarea.height1line{
 
 .close{
   opacity: 1;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
 }
 
 .uselogo{
@@ -206,4 +213,8 @@ a.close-target{
 .btn-pistazie,
 .btn-secondary{
   color: white;
+}
+
+.dropdown-menu{
+  z-index: 3000;
 }
