@@ -1,5 +1,5 @@
-<h3 class="collapsed expertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo expertmode collapse list-group-item list-group-item-action flex-column align-items-start">           
+<h3 class="collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+        <div class="logo collapse list-group-item list-group-item-action flex-column align-items-start">           
             <div class="d-flex justify-content-between">
                 <div class="slider">
                     <small>klein</small>
