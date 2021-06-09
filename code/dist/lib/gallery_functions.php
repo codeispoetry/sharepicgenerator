@@ -84,7 +84,7 @@ function showImage($shpic)
     if (file_exists($saveFile)) {
         $useLink = sprintf(
             '<tr> 
-                <td class="pr-3"></td>
+                <td class="pe-3"></td>
                 <td><a href="index.php?useSavework=%s">
                     <i class="fas fa-wrench"></i> weiterarbeiten
                 </a></td>
@@ -95,7 +95,7 @@ function showImage($shpic)
 
     $deleteLink = '';
     if ($user == $_SESSION['user'] || isAdmin()) {
-        $deleteLink = "<tr><td class=\"pr-3\"></td><td><a data-id=\""
+        $deleteLink = "<tr><td class=\"pe-3\"></td><td><a data-id=\""
         .$id .
         "\" class=\"deleteWorkfile text-danger cursor-pointer\"><i class='fas fa-trash'></i> löschen</a></td></tr>";
     }
@@ -108,11 +108,11 @@ function showImage($shpic)
             <figcaption class="d-flex justify-content-around align-items-center">
                 <table class="small m-2">
                     <tr>
-                        <td class="pr-3 ">Id</td>
+                        <td class="pe-3 ">Id</td>
                         <td>$id</td>
                     </tr>
                     <tr>
-                        <td class="pr-3 ">Nutzer*in</td>
+                        <td class="pe-3 ">Nutzer*in</td>
                         <td>$user</td>
                     </tr>
                     $deleteLink

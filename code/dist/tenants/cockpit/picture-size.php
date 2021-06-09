@@ -1,6 +1,6 @@
 <h3 class="collapsed" data-toggle="collapse" data-target=".picturesize"><i class="fas fa-expand-arrows-alt"></i> 
     Größe
-    <small class="ml-2">
+    <small class="ms-2">
         <i class="fab fa-instagram"></i>
         <i class="fab fa-facebook"></i>
         <i class="fab fa-twitter"></i>
@@ -9,13 +9,13 @@
 <div class="picturesize collapse list-group-item list-group-item-action flex-column align-items-start novideo">
     <div class="d-flex w-100 justify-content-between align-items-center">
         <div class="form-inline">
-            <div class="form-row sizecontainer">
+            <div class="d-flex sizecontainer">
                 <input type="number" class="form-control size" name="width" id="width" step="10">
                 <span class="mt-2 small">x</span>
                 <input type="number" class="form-control size" name="height" id="height" step="10">
-                <span class="mt-2 mr-2 small">Px</span>
+                <span class="mt-2 me-2 small">Px</span>
 
-                <select class="form-control" id="sizepresets">
+                <select class="form-select" id="sizepresets">
                     <?php
                     $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
                     foreach ($sizes as $name => $group) {

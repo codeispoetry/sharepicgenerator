@@ -6,7 +6,7 @@
 
         <strong class="mr-auto">Vorlagen</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -23,7 +23,7 @@
 
         <strong class="mr-auto">Bild sehr groß</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -38,7 +38,7 @@
 
         <strong class="mr-auto">Gesicht</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -52,7 +52,7 @@
 
         <strong class="mr-auto">Regionales Layout</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -67,7 +67,7 @@
 
         <strong class="mr-auto">Neu im Sharepicgenerator</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

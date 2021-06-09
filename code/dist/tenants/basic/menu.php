@@ -31,6 +31,6 @@
         }
         ?>
     </em>
-    <a href="<?php echo get_logout_link(); ?>" class="ml-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
+    <a href="<?php echo get_logout_link(); ?>" class="ms-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
 <?php } ?>
 </span>

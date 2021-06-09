@@ -9,7 +9,7 @@
                  </label>
 
                 <label class="uploadfontclicker">Schrift hochladen:
-                    <i class="fa fa-upload text-primary cursor-pointer ml-2" title="Schrift hochladen"></i>
+                    <i class="fa fa-upload text-primary cursor-pointer ms-2" title="Schrift hochladen"></i>
                 </label>
             </div>
 
@@ -37,7 +37,7 @@ kreativ</textarea>
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird hervorgehoben</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                        <small class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
                     </div>
@@ -48,7 +48,7 @@ kreativ</textarea>
                     <div class="d-flex justify-content-between">
                         <div class="slider">
                             <small>klein</small>
-                            <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
+                            <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
                         <div>
