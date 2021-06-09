@@ -1,13 +1,15 @@
 
 
-        <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
-        <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between form-check form-check-inline">
-                 <label class="">
+        <h3 class="collapsed" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text & Layout</h3>
+        <div class="text collapse list-group-item list-group-item-action flex-column align-items-start">
+            
+            <div class="d-flex">
+                <label class="me-3">Layout:</label>
+                 <label class="me-3">
                     <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Standard
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout" name="layout" value="area" >Mit Fläche
+                    <input type="radio" class="form-check-input layout" name="layout" value="area" >Grüne Fläche
                  </label>
             </div>
 

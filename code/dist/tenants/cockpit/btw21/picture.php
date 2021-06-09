@@ -1,11 +1,11 @@
-<h3 class="" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Hauptbild</h3>
-<div class="picture collapse show list-group-item list-group-item-action flex-column align-items-start">
+<h3 class="collapsed" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Bild</h3>
+<div class="picture collapse list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 d-flex justify-content-between">
         <a href="#" class="text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
-        <span class="colorpicker ms-1" data-colors="#000000,#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Farbe wechseln"></span> 
+        <span class="colorpicker ms-1" data-colors="#000000,#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
     <?php if(configValue("Features","showMediaGallery")){ ?>
         <div class="d-flex justify-content-between mb-1">
