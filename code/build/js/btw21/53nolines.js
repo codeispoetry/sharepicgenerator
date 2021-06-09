@@ -25,6 +25,10 @@ const nolines = {
       return;
     }
 
+    if ($(this).attr('id') === 'textafter') {
+      $('#showclaim').prop('checked', false);
+    }
+
     config.noBackgroundDragAndDrop = false;
 
     text.svg.remove();
