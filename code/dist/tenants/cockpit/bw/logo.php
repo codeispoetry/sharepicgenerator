@@ -20,7 +20,7 @@
             <div class="d-flex justify-content-between">
                 <div class="slider d-none">
                     <small>klein</small>
-                        <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
+                        <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
                 </div>
             

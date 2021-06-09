@@ -112,11 +112,10 @@ $_SESSION['csrf'] = $csrf;
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
-        data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
+    <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
         <?php require_once('menu.php'); ?>
     </div>
     </nav>

@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                     max="300" value="100" disabled>
                 <small>groß</small>
             </div>

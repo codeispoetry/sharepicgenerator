@@ -32,7 +32,7 @@
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird gelb</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                        <small class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="slider">
                             <small>klein</small>
-                            <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
+                            <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
                         <div>
@@ -71,7 +71,7 @@
                                 <input type="checkbox" name="graybehindtext" id="graybehindtext">
                                 Farbe hinter Text
                             </label>
-                            <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
+                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
                             <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
                         </div>
                     </div>

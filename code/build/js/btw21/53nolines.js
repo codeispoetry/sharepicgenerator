@@ -6,8 +6,10 @@ const nolines = {
   lineheight: 20,
   linemargin: -4,
   paddingLr: 5,
+  align: 'left',
   font: {
     anchor: 'left',
+    family: 'BereitBold',
     leading: '1.0em',
     size: 20,
   },
@@ -21,6 +23,10 @@ const nolines = {
   draw() {
     if (config.layout !== 'nolines') {
       return;
+    }
+
+    if ($(this).attr('id') === 'textafter') {
+      $('#showclaim').prop('checked', false);
     }
 
     config.noBackgroundDragAndDrop = false;
@@ -50,7 +56,6 @@ const nolines = {
     }
 
     lines = lines.replace(/\n$/, '').split(/\n/);
-    const fontfamily = 'BereitBold';
 
     const lineBeginsY = [];
     const linesRendered = [];
@@ -71,8 +76,9 @@ const nolines = {
             color = textColors[$('#textColor').val()];
           }
 
+          const anchor = nolines.align;
           add.tspan(values[i]).fill(color).font(
-            Object.assign(nolines.font, { family: fontfamily }),
+            Object.assign(nolines.font, { anchor }),
           );
 
           add.attr('xml:space', 'preserve');
@@ -104,6 +110,16 @@ const nolines = {
       claim.add(claimText);
       claim.y(text.svg.height());
 
+      switch (nolines.align) {
+        case 'middle':
+          claim.x(-claim.width() / 2);
+          break;
+        case 'end':
+          claim.x(-claim.width());
+          break;
+        default:
+      }
+
       text.svg.add(claim);
     } else if ($('#textafter').val()) {
       const textafterParts = $('#textafter').val().split(/\[|\]/);
@@ -116,7 +132,16 @@ const nolines = {
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.x(0).dy(text.svg.height() + 6);
+      textafter.dy(text.svg.height() + 6);
+      switch (nolines.align) {
+        case 'middle':
+          textafter.x(-textafter.bbox().w / 2);
+          break;
+        case 'end':
+          textafter.x(-textafter.bbox().w);
+          break;
+        default:
+      }
 
       text.svg.add(textafter);
     }
@@ -143,6 +168,12 @@ const nolines = {
     logo.svg.show();
   },
 
+  setAlign() {
+    nolines.align = $(this).data('align');
+    nolines.draw();
+  },
+
 };
 
 $('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', nolines.draw);
+$('.text-align').click(nolines.setAlign);

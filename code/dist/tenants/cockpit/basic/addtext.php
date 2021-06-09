@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="custom-range" name="addtextbasicsize" id="addtextbasicsize" min="0"
+                <input type="range" class="form-range" name="addtextbasicsize" id="addtextbasicsize" min="0"
                     max="50" value="20">
                 <small>groß</small>
             </div>
@@ -25,7 +25,7 @@
             <select class="form-control" name="addtextbasicfont" id="addtextbasicfont">
                 <?php echo $fontOptionsInCockpit; ?>
             </select>
-            <i class="fa fa-upload text-primary cursor-pointer ml-2 uploadfontclicker" title="Schrift hochladen"></i>
+            <i class="fa fa-upload text-primary cursor-pointer ms-2 uploadfontclicker" title="Schrift hochladen"></i>
         </div> 
     </div>
 </div>
