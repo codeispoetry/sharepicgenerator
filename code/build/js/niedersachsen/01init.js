@@ -21,9 +21,6 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  $('#logosize').val(17);
-  logo.resize($('#logosize').val());
-
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
@@ -95,11 +92,8 @@ function reDraw(withAddPic = false) {
     eraser.draw();
     topleft.draw();
     nolines.drawClaim();
+    area.draw();
   }, 100);
-
-  window.setTimeout(() => {
-    nolines.draw();
-  }, 250);
 
   if ($('#backgroundFlipped').val() === 'true') {
     $('#backgroundflip').click();

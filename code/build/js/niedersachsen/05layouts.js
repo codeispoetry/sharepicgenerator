@@ -1,6 +1,5 @@
 function showLayout() {
   config.layout = $('input[name=layout]:checked', '#pic').val();
-
   $('.showonly').hide();
 
   $(`.${config.layout}`).show();
@@ -11,7 +10,7 @@ function showLayout() {
   invers.draw();
 }
 
-$('.layout').click(showLayout);
+$('.layout').click(config.layout);
 
 function textDragging() {
   if (!config.noTextDradAndDrop) {
