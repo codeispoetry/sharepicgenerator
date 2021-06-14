@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <h3>Logos </h3>
-                <span class="text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen">
+                <span class="text-primary cursor-pointer uploadlogoclicker ms-2" title="Eigenes Logo hochladen">
                     <i class="fa fa-upload"></i>
                     Neues Logo hochladen</span>
             </div>
@@ -29,7 +29,7 @@
                             <table class="small m-2">
                                 <tbody>
                                     <tr>
-                                        <td class="pr-3"></td>
+                                        <td class="pe-3"></td>
                                         <td><a data-file="<?php echo basename($logo);?>" class="delete-logo text-danger cursor-pointer">
                                         <i class="fas fa-trash"></i> löschen</a></td>
                                     </tr>
@@ -49,7 +49,7 @@
             <div class="col-12">
                 <h3>Schriften</h3>
                 <label class="uploadfontclicker">Schrift hochladen:
-                    <i class="fa fa-upload text-primary cursor-pointer ml-2" title="Schrift hochladen"></i>
+                    <i class="fa fa-upload text-primary cursor-pointer ms-2" title="Schrift hochladen"></i>
                 </label>
                 <?php
                 foreach (glob("{../../persistent/fonts/" . getUser() . "*.woff2}", GLOB_BRACE) as $font) {

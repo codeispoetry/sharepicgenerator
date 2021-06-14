@@ -9,6 +9,9 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
+const claimtext = "Bereit, weil ihr es seid.";
+const claimWidth = 50;
+
 var initialized = false;
 
 $(document).ready(() => {

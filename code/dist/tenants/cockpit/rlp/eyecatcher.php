@@ -9,7 +9,7 @@ grün
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="20"
+                <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="20"
                     max="90" value="40">
                 <small>groß</small>
             </div>

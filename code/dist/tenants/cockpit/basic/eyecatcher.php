@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                     max="300" value="100" disabled>
                 <small>groß</small>
             </div>
@@ -24,7 +24,7 @@
             <select class="form-control" name="eyecatcherfont" id="eyecatcherfont">
                 <?php echo $fontOptionsInCockpit; ?>
             </select>
-            <i class="fa fa-upload text-primary cursor-pointer ml-2 uploadfontclicker" title="Schrift hochladen"></i>
+            <i class="fa fa-upload text-primary cursor-pointer ms-2 uploadfontclicker" title="Schrift hochladen"></i>
         </div>
     </div>
 </div>

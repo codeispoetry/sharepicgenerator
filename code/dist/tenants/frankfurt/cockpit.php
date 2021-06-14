@@ -37,35 +37,35 @@
             <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
                 <div class="slider novideo">
                     <small>klein</small>
-                    <input type="range" class="custom-range" name="backgroundsize" id="backgroundsize" min="1"
+                    <input type="range" class="form-range" name="backgroundsize" id="backgroundsize" min="1"
                            max="1500" value="1200">
                     <small>groß</small>
                 </div>
 
                 <div class="slider novideo">
                     <small>schwarzweiß</small>
-                    <input type="range" class="custom-range" name="graybackground" id="graybackground" min="0"
+                    <input type="range" class="form-range" name="graybackground" id="graybackground" min="0"
                         max="1" value="1" step="0.05">
                     <small>farbig</small>
                 </div>
 
                 <div class="slider novideo">
                     <small>scharf</small>
-                    <input type="range" class="custom-range" name="blurbackground" id="blurbackground" min="0"
+                    <input type="range" class="form-range" name="blurbackground" id="blurbackground" min="0"
                         max="10" value="0" step="0.5">
                     <small>unscharf</small>
                 </div>
 
                 <div class="slider novideo">
                     <small>hell</small>
-                    <input type="range" class="custom-range" name="darklightlayer" id="darklightlayer" min="-60"
+                    <input type="range" class="form-range" name="darklightlayer" id="darklightlayer" min="-60"
                         max="60" value="0" step="5">
                     <small>dunkel</small>
                 </div>
 
                 <div class="slider novideo">
                     <small>unverändert</small>
-                    <input type="range" class="custom-range" name="greenlayer" id="greenlayer" min="0"
+                    <input type="range" class="form-range" name="greenlayer" id="greenlayer" min="0"
                         max="100" value="0" step="5">
                     <small>grün</small>
                 </div>
@@ -79,14 +79,14 @@
                     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomLeft">
 
                     <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-                    <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
+                    <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
                 </div>
             </div>
         </div>  
 
         <h3 class="collapsed" data-toggle="collapse" data-target=".picturesize"><i class="fas fa-expand-arrows-alt"></i> 
             Größe
-            <small class="ml-2">
+            <small class="ms-2">
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-facebook"></i>
                 <i class="fab fa-twitter"></i>
@@ -99,7 +99,7 @@
                         <input type="number" class="form-control size" name="width" id="width" step="10">
                         <span class="mt-2 small">x</span>
                         <input type="number" class="form-control size" name="height" id="height" step="10">
-                        <span class="mt-2 mr-2 small">Px</span>
+                        <span class="mt-2 me-2 small">Px</span>
 
                         <select class="form-control" id="sizepresets">
                             <option class="">Vorgabe</option>
@@ -149,10 +149,10 @@
                             <div class="d-flex align-items-center">
                                <div class="slider">
                                     <small>klein</small>
-                                    <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
+                                    <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
                                     <small>groß</small>
                                 </div>
-                                <div class="ml-3 d-none">
+                                <div class="ms-3 d-none">
                                     <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
@@ -185,7 +185,7 @@
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="Sharepicgenerator.de"
                            class="form-control showonly lines nolines">
-                          <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textbeforecolor" title="Farbe wechseln"></span> 
+                          <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textbeforecolor" title="Farbe wechseln"></span> 
                         <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="black">
                         <input type="hidden" name="texthighlightcolor" id="texthighlightcolor" value="#FEEE00">
                         <input type="hidden" name="textaftercolor" id="textaftercolor" value="#E6007E">
@@ -194,20 +194,20 @@
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Frankfurt</textarea>
                     <div class="d-flex flex-column">
-                        <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textColor" title="Farbe wechseln"></span> 
-                        <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#texthighlightcolor" title="Farbe wechseln"></span> 
+                        <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textColor" title="Farbe wechseln"></span> 
+                        <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#texthighlightcolor" title="Farbe wechseln"></span> 
 
                     </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Frankfurt neu denken." class="form-control showonly lines nolines quote">
-                    <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textaftercolor" title="Farbe wechseln"></span> 
+                    <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textaftercolor" title="Farbe wechseln"></span> 
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small class="showonly lines nolines quote">Haupttext in eckigen Klammern [ ] bekommt Zweitfarbe</small>
-                        <small class="cursor-pointer ml-3 text-primary aligncenter showonly lines nolines quote">
+                        <small class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
                     </div>
@@ -218,7 +218,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="slider">
                             <small>klein</small>
-                            <input type="range" class="custom-range" name="textsize" id="textsize" min="1" max="100">
+                            <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
                         <div>
@@ -246,7 +246,7 @@
                                 <input type="checkbox" name="graybehindtext" id="graybehindtext">
                                 Farbe hinter Text
                             </label>
-                            <span class="colorpicker ml-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
+                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
                             <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
                         </div>
                     </div>
@@ -309,10 +309,10 @@
                             <div class="d-flex align-items-center">
                                <div class="slider">
                                     <small>klein</small>
-                                    <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
+                                    <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
                                     <small>groß</small>
                                 </div>
-                                <div class="ml-3">
+                                <div class="ms-3">
                                     <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
@@ -347,7 +347,7 @@
                         <option value="void">kein Logo</option>
                     </optgroup>
                 </select>
-                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
+                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ms-2" title="Eigenes Logo hochladen"></i>
 
             </div>
             <div class="">
@@ -357,7 +357,7 @@
             <div class="d-flex justify-content-between">
                 <div class="slider">
                     <small>klein</small>
-                        <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
+                        <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
                 </div>
                 <div>
@@ -379,7 +379,7 @@
                 <div class="d-flex justify-content-between">
                     <div class="slider">
                         <small>klein</small>
-                        <input type="range" class="custom-range" name="eyecatchersize" id="eyecatchersize" min="50"
+                        <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                             max="300" value="100" disabled>
                         <small>groß</small>
                     </div>
@@ -427,7 +427,7 @@
                 </a>
             </div>
             <div id="cloudmessage" style="display:none">
-                <p class="bg-info p-1 pl-3 text-white">Verbinde mich mit Wolke ...</p>
+                <p class="bg-info p-1 ps-3 text-white">Verbinde mich mit Wolke ...</p>
             </div>
             <div id="cloudnotoken" class="" style="display:none">
                  <div>
@@ -482,7 +482,7 @@
             <h3 class="collapsed d-none" data-toggle="collapse" data-target=".gallery"><i class="fas fa-store"></i> 
                 Vorlagen
 
-                <span class="badge btn-light ml-2">
+                <span class="badge btn-light ms-2">
                     <span id="ownGalleryImages"><?php echo $ownGalleryImages;?></span>
                     /
                     <span id="allGalleryImages"><?php echo $allGalleryImages;?></span>
@@ -530,7 +530,7 @@
                 <a href="/documentation/code" target="_blank"><i class="fas fa-book"></i> Anleitung</i></a>
             </div>
         </div>
-        <div class="d-flex justify-content-between pl-5 pr-5 pt-4">
+        <div class="d-flex justify-content-between ps-5 pe-5 pt-4">
             <a href="/documentation" target="_blank" class="text-white"><i class="fas fa-question-circle"></i> Anleitung</a>
             <a href="#" class="overlay-opener text-white" data-target="actiondays" id="actiondaysopener">
                 <i class="far fa-hand-point-right"></i> Aktionstage

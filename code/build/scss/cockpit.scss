@@ -1,5 +1,7 @@
 .cockpit{
-  background: $lightgray;
+  a{
+    text-decoration: none;
+  }
 }
 
 .list-group-item{
@@ -16,6 +18,7 @@
 
   input {
     margin: 0 1em;
+    width: 100%;
   }
 }
 
@@ -53,10 +56,9 @@
     margin: 0;
     transition: 10ms;
 
-    background: rgb(159,159,159);
-    background: linear-gradient(0deg, rgba(159,159,159,1) 0%, rgba(180,180,180,1) 100%);
+    background: #dddddd;
 
-    color: white;
+    color: #1c1c1c;
     i{
       margin-right: 1em;
     }
@@ -73,9 +75,13 @@
 
   }
 
+  h4{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 0.8em;
+  }
+
   .collapse{
-    background-color: #ccc;
-    transition: background-color 2s;
+    background-color: #eeeeee;
   }
 
   .highlighted{
@@ -83,7 +89,7 @@
   }
 
   .collapsing {
-    transition: 100ms;
+    transition: 200ms;
   }
 
   * {
@@ -103,7 +109,7 @@
 
       &:after {
         font-family: "Font Awesome\ 5 Free";
-        content: "\f0d7";
+        content: "\f078";
         font-size: 120%;
         font-weight: 900;
         position: absolute;

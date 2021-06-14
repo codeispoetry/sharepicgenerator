@@ -68,7 +68,7 @@ function nextActionDay()
             <small class="small text-white">
                 <a href=#" class="overlay-opener text-white" data-target="actiondays">Alle Aktionstage</a> 
             </small>
-            <button type="button" class="ml-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+            <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
