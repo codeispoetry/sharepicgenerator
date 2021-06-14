@@ -9,6 +9,9 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
+const claimText = "Veränderung beginnt hier.";
+const claimWidth = 55;
+
 var initialized = false;
 
 $(document).ready(() => {
@@ -93,6 +96,7 @@ function reDraw(withAddPic = false) {
     topleft.draw();
     nolines.drawClaim();
     area.draw();
+    
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

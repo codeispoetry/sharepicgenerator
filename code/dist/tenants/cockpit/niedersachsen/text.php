@@ -20,7 +20,7 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
                 <div class="d-none align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines area nolines quote">
+                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Veränderung beginnt hier" class="form-control showonly lines area nolines quote">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -48,7 +48,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="">
                             <label class="showonly nolines">
-                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
+                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim" checked>
                                 Zeige Claim
                             </label>
                             <label class="showonly lines">

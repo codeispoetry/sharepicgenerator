@@ -33,7 +33,9 @@ const nolines = {
 
     text.svg.remove();
     area.svg.remove();
-    area.logo.remove();
+    if (area.logo) {
+      area.logo.hide();
+    }
     area.greenBackground.remove();
     invers.svg.remove();
     invers.backgroundClone.remove();
