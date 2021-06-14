@@ -3,7 +3,7 @@
         <h3 class="collapsed" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text & Layout</h3>
         <div class="text collapse list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-flex">
+            <div class="d-none">
                 <label class="me-3">Layout:</label>
                  <label class="">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="area" checked>Grüne Fläche
