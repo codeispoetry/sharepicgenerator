@@ -65,6 +65,7 @@ nextActionDay();
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="preload" href="/assets/fonts/BereitBold-Oblique.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="manifest" href="/assets/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
