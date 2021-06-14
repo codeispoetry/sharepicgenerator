@@ -50,7 +50,7 @@
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
                         <div class="">
-                            <label class="showonly nolines">
+                            <label class="">
                                 <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>

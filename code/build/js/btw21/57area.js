@@ -2,7 +2,7 @@
 const area = {
   svg: draw.text(''),
   greenBackground: draw.circle(0),
-  logo: draw.circle(0),
+  logo: false,
   colors: ['#ffffff', '#ffffff'],
   lineheight: 20,
   linemargin: -4,
@@ -88,19 +88,52 @@ const area = {
       text.svg.add(t);
     });
 
-    // text below the line
-    if ($('#textafter').val()) {
+    // text or claim below the line
+    if ($('#showclaim').prop('checked')) { 
+      const w = claimWidth;
+      const h = 9;
+      const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
+      const claimTextLine = draw.text(claimText)
+        .fill('#145f32')
+        .font(area.fontoutsidelines)
+        .move(1, 1);
+      const claim = draw.group();
+      claim.add(claimFond);
+      claim.add(claimTextLine);
+      claim.y(text.svg.height());
+
+      switch (area.align) {
+        case 'middle':
+          claim.x(-claim.width() / 2);
+          break;
+        case 'end':
+          claim.x(-claim.width());
+          break;
+        default:
+      }
+
+      text.svg.add(claim);
+    } else if ($('#textafter').val()) {
       const textafterParts = $('#textafter').val().split(/\[|\]/);
       let style = 1;
       const textafter = draw.text((add) => {
         for (let i = 0; i < textafterParts.length; i++) {
           style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(area.fontoutsidelines);
+          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
           add.attr('xml:space', 'preserve');
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.x(0).dy(text.svg.height() + 6);
+      textafter.dy(text.svg.height() + 6);
+      switch (nolines.align) {
+        case 'middle':
+          textafter.x(-textafter.bbox().w / 2);
+          break;
+        case 'end':
+          textafter.x(-textafter.bbox().w);
+          break;
+        default:
+      }
 
       text.svg.add(textafter);
     }
@@ -134,9 +167,10 @@ const area = {
   },
 
   logoResize() {
-    area.logo.size(area.greenBackground.height() * 0.5)
+    area.logo.size(area.greenBackground.height() * 0.5, area.greenBackground.height() * 0.5)
       .move(draw.width() - (1.5 * area.logo.width()),
         area.areaUpper - area.areaMargin - area.logo.height() * 0.6)
+      .show()
       .front();
   },
 };
