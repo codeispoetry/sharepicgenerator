@@ -6,6 +6,8 @@ const area = {
   colors: ['#ffffff', '#ffffff'],
   lineheight: 20,
   linemargin: -4,
+  areaMargin: 0,
+  areaUpper: 0,
   paddingLr: 5,
   font: {
     anchor: 'left',
@@ -18,6 +20,7 @@ const area = {
     anchor: 'left',
     leading: '1.0em',
   },
+  logoDrawn: false,
 
   draw() {
     if (config.layout !== 'area') {
@@ -107,25 +110,35 @@ const area = {
 
     text.svg.size(parseInt($('#textsize').val(), 10));
 
-    const areaMargin = 30;
-    const areaUpper = draw.height() - text.svg.height() - areaMargin;
-    text.svg.move(20, areaUpper);
+    area.areaMargin = 30;
+    area.areaUpper = draw.height() - text.svg.height() - area.areaMargin;
+    text.svg.move(20, area.areaUpper);
 
     // green layer behind text
     area.greenBackground.remove();
-    area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * areaMargin))
-      .y(areaUpper - areaMargin)
+    area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * area.areaMargin))
+      .y(area.areaUpper - area.areaMargin)
       .fill('#A0C864');
     text.svg.front();
 
     logo.svg.hide();
-    area.logo.remove();
-    area.logo = draw.image(logo.logoinfo.file, () => {
-      area.logo.size(draw.width() * 0.2)
-        .move(draw.width() * 0.7, areaUpper - areaMargin - area.logo.height() * 0.6);
-    });
+
+    if (area.logoDrawn) {
+      area.logoResize();
+    } else {
+      area.logo = draw.image(logo.logoinfo.file, () => {
+        area.logoResize();
+        area.logoDrawn = true;
+      });
+    }
   },
 
+  logoResize() {
+    area.logo.size(area.greenBackground.height() * 0.5)
+      .move(draw.width() - (1.5 * area.logo.width()),
+        area.areaUpper - area.areaMargin - area.logo.height() * 0.6)
+      .front();
+  },
 };
 
 $('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);
