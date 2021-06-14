@@ -24,6 +24,7 @@ $('#download,.download').click(function onDownloadClick() {
   if (config.video === true) {
     format = 'mp4';
     background.svg.hide();
+    background.colorlayer.hide();
   }
 
   const data = draw.svg();
