@@ -2,10 +2,12 @@
 const area = {
   svg: draw.text(''),
   greenBackground: draw.circle(0),
-  logo: draw.circle(0),
+  logo: false,
   colors: ['#ffffff', '#ffffff'],
   lineheight: 20,
   linemargin: -4,
+  areaMargin: 0,
+  areaUpper: 0,
   paddingLr: 5,
   font: {
     anchor: 'left',
@@ -18,6 +20,7 @@ const area = {
     anchor: 'left',
     leading: '1.0em',
   },
+  logoDrawn: false,
 
   draw() {
     if (config.layout !== 'area') {
@@ -85,19 +88,52 @@ const area = {
       text.svg.add(t);
     });
 
-    // text below the line
-    if ($('#textafter').val()) {
+    // text or claim below the line
+    if ($('#showclaim').prop('checked')) { 
+      const w = claimWidth;
+      const h = 9;
+      const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
+      const claimTextLine = draw.text(claimText)
+        .fill('#145f32')
+        .font(area.fontoutsidelines)
+        .move(1, 1);
+      const claim = draw.group();
+      claim.add(claimFond);
+      claim.add(claimTextLine);
+      claim.y(text.svg.height());
+
+      switch (area.align) {
+        case 'middle':
+          claim.x(-claim.width() / 2);
+          break;
+        case 'end':
+          claim.x(-claim.width());
+          break;
+        default:
+      }
+
+      text.svg.add(claim);
+    } else if ($('#textafter').val()) {
       const textafterParts = $('#textafter').val().split(/\[|\]/);
       let style = 1;
       const textafter = draw.text((add) => {
         for (let i = 0; i < textafterParts.length; i++) {
           style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(area.fontoutsidelines);
+          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
           add.attr('xml:space', 'preserve');
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.x(0).dy(text.svg.height() + 6);
+      textafter.dy(text.svg.height() + 6);
+      switch (nolines.align) {
+        case 'middle':
+          textafter.x(-textafter.bbox().w / 2);
+          break;
+        case 'end':
+          textafter.x(-textafter.bbox().w);
+          break;
+        default:
+      }
 
       text.svg.add(textafter);
     }
@@ -107,25 +143,36 @@ const area = {
 
     text.svg.size(parseInt($('#textsize').val(), 10));
 
-    const areaMargin = 30;
-    const areaUpper = draw.height() - text.svg.height() - areaMargin;
-    text.svg.move(20, areaUpper);
+    area.areaMargin = 30;
+    area.areaUpper = draw.height() - text.svg.height() - area.areaMargin;
+    text.svg.move(20, area.areaUpper);
 
     // green layer behind text
     area.greenBackground.remove();
-    area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * areaMargin))
-      .y(areaUpper - areaMargin)
+    area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * area.areaMargin))
+      .y(area.areaUpper - area.areaMargin)
       .fill('#A0C864');
     text.svg.front();
 
     logo.svg.hide();
-    area.logo.remove();
-    area.logo = draw.image(logo.logoinfo.file, () => {
-      area.logo.size(draw.width() * 0.2)
-        .move(draw.width() * 0.7, areaUpper - areaMargin - area.logo.height() * 0.6);
-    });
+
+    if (area.logoDrawn) {
+      area.logoResize();
+    } else {
+      area.logo = draw.image(logo.logoinfo.file, () => {
+        area.logoResize();
+        area.logoDrawn = true;
+      });
+    }
   },
 
+  logoResize() {
+    area.logo.size(area.greenBackground.height() * 0.5, area.greenBackground.height() * 0.5)
+      .move(draw.width() - (1.5 * area.logo.width()),
+        area.areaUpper - area.areaMargin - area.logo.height() * 0.6)
+      .show()
+      .front();
+  },
 };
 
 $('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);

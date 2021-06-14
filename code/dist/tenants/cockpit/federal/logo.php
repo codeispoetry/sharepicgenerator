@@ -1,5 +1,5 @@
-<h3 class="collapsed expertmode" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
+<h3 class="collapsed " data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+        <div class="logo  collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="mb-1 d-flex align-items-lg-center">
                 <select class="form-control" name="logoselect" id="logoselect">
                     <optgroup label="Sonnenblume">
@@ -51,8 +51,8 @@
                         <option value="void">kein Logo</option>
                     </optgroup>
                 </select>
-                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ml-2" title="Eigenes Logo hochladen"></i>
-                 <i class="fa fa-trash text-primary cursor-pointer overlay-opener nav-lin ml-2" data-target="preferences" title="Logos löschen"></i>
+                 <i class="fa fa-upload text-primary cursor-pointer uploadlogoclicker ms-2" title="Eigenes Logo hochladen"></i>
+                 <i class="fa fa-trash text-primary cursor-pointer overlay-opener nav-lin ms-2" data-target="preferences" title="Logos löschen"></i>
 
             </div>
             <div class="">
@@ -62,7 +62,7 @@
             <div class="d-flex justify-content-between">
                 <div class="slider">
                     <small>klein</small>
-                        <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
+                        <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
                 </div>
                 <div>

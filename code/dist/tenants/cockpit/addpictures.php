@@ -35,10 +35,10 @@
                             <div class="d-flex align-items-center">
                                <div class="slider">
                                     <small>klein</small>
-                                    <input type="range" class="custom-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
+                                    <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
                                     <small>groß</small>
                                 </div>
-                                <div class="ml-3">
+                                <div class="ms-3">
                                     <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
@@ -46,12 +46,12 @@
                             <div>
                                 <div class="slider">
                                     <small>nach&nbsp;links</small>
-                                    <input type="range" class="custom-range" name="addPicClipHorizontal<?= $i; ?>" id="addPicClipHorizontal<?= $i; ?>" min="-800" max="800" value="15">
+                                    <input type="range" class="form-range" name="addPicClipHorizontal<?= $i; ?>" id="addPicClipHorizontal<?= $i; ?>" min="-800" max="800" value="15">
                                     <small>nach&nbsp;rechts</small>
                                 </div>
                                 <div class="slider">
                                     <small>kleiner</small>
-                                    <input type="range" class="custom-range" name="addPicClipWidth<?= $i; ?>" id="addPicClipWidth<?= $i; ?>" min="0" max="3000" value="15">
+                                    <input type="range" class="form-range" name="addPicClipWidth<?= $i; ?>" id="addPicClipWidth<?= $i; ?>" min="0" max="3000" value="15">
                                     <small>größer</small>
                                 </div>
                             </div>

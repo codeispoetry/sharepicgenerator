@@ -3,7 +3,7 @@
 </h3>
 <div class="cockpitgridlines expertmode collapse list-group-item list-group-item-action flex-column align-items-start novideo">
     <label class="">
-        <input id="gridlines" type="checkbox" class="mr-1">
+        <input id="gridlines" type="checkbox" class="me-1 form-check-input">
         Hilfslinien anzeigen
     </label>
 </div>

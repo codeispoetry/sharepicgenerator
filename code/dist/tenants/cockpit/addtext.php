@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="custom-range" name="addtextsize" id="addtextsize" min="0"
+                <input type="range" class="form-range" name="addtextsize" id="addtextsize" min="0"
                     max="50" value="20">
                 <small>groß</small>
             </div>
@@ -16,7 +16,7 @@
                     <i class="fas fa-layer-group text-primary"></i>
                 </span> 
                 <input type="hidden" name="addtextColor" id="addtextColor" value="#000000">
-                <span class="colorpicker ml-1" data-colors="#FFFFFF,#000000,#009571,#46962b,#E6007E,#FFEE00" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 
+                <span class="colorpicker ms-1" data-colors="#FFFFFF,#000000,#009571,#46962b,#E6007E,#FFEE00" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 
             </div>
         </div>    
     </div>

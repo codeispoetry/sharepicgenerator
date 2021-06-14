@@ -35,10 +35,28 @@ $grid-breakpoints: (
   xl: 1200px
 );
 
+
+$success: #3e8d63;
+$info: $blue;
+$warning: #945707;
+$danger: #d62518;
+$light: #f8f9fa;
+$dark: #343a40;
+
 $theme-colors: (
   "pistazie": $pistazie,
   "moos": $moos,
   "lachs": $lachs,
-  "sonnenblume": $sonnenblume
+  "sonnenblume": $sonnenblume,
+  "primary": $primary,
+  "secondary": $secondary,
+  "info": $info,
+  "success": $success,
+  "danger": $danger,
+  "warning": $warning,
+  "dark": $dark,
+  "light": $light
 );
 
+$form-range-track-bg: $light;
+$transition-collapse:  height .35s ease;

@@ -10,7 +10,7 @@
                     </optgroup>
                 </select>
                 Logo hochladen: 
-                 <i class="fa fa-upload text-primary cursor-pointer uploadtmplogoclicker ml-2" title="Logo hochladen"></i>
+                 <i class="fa fa-upload text-primary cursor-pointer uploadtmplogoclicker ms-2" title="Logo hochladen"></i>
             </div>
 
             <div class="mb-1 d-flex align-items-lg-center">
@@ -31,7 +31,7 @@
             <div class="d-flex justify-content-between">
                 <div class="slider">
                     <small>klein</small>
-                        <input type="range" class="custom-range" name="logosize" id="logosize" min="1" max="100" value="10">
+                        <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="10">
                     <small>groß</small>
                 </div>
                 <div>
