@@ -43,6 +43,11 @@ const copyright = {
         y = copyright.svg.length() + 12;
         rotation = -90;
         break;
+      case 'bottomRight':
+        x = draw.width() - 20;
+        y = draw.height() - 12;
+        rotation = -90;
+        break;
       case 'bottomLeftHorizontal':
         x = 6;
         y = draw.height() - 12;

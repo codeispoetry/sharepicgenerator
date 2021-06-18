@@ -42,7 +42,9 @@ function handleBackgroundUpload($extension)
 
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
-    multiplyImage( $filename, $_FILES['file']['name'] );
+    if( isset($_POST['tenant']) && $_POST['tenant'] === 'btw21'){   
+        multiplyImage( $filename, $_FILES['file']['name'] );
+    }
 
     // convert webp to jpg, as inkscape cannot handle webp
     if (in_array(strToLower($extension), ['webp','heic'])) {

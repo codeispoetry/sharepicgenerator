@@ -6,15 +6,16 @@
             <div class="d-flex">
                 <label class="me-3">Layout:</label>
                  <label class="me-3">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="nolines" checked>Standard
+                    <input type="radio" class="form-check-input layout me-1" name="layout" value="nolines" >Schwebend
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" >Grüne Fläche
+                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" checked>Grüne Fläche
                  </label>
             </div>
 
             <div class="list-group-item-content">
                 <div class="d-flex justify-content-end">
+                    <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
                     <i class="fa fa-align-left text-align me-2" data-align="left" title="linksbündig"></i>
                     <i class="fa fa-align-center text-align me-2" data-align="middle" title="zentrieren"></i>
                     <i class="fa fa-align-right text-align" data-align="end" title="rechtsbündig"></i>
@@ -51,7 +52,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="">
                             <label class="">
-                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
+                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim" checked>
                                 Zeige Claim
                             </label>
                             <label class="showonly lines">

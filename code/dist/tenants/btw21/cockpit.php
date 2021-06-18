@@ -24,5 +24,7 @@
         require_once(getBasePath('tenants/cockpit/footer.php'));
     ?>
 
+    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
+
     </div>
 </form>
