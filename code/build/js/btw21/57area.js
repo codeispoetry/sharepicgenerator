@@ -55,7 +55,7 @@ const area = {
       const w = claimWidth;
       const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimTextLine = draw.text('Bereit, weil Ihr es seid.')
+      const claimTextLine = draw.text(claimText)
         .fill('#145f32')
         .font(area.fontoutsidelines)
         .move(1, 0);
@@ -115,6 +115,8 @@ const area = {
       .y(area.areaUpper - area.areaMargin)
       .fill('#A0C864');
     text.svg.front();
+
+    copyright.svg.front();
 
     logo.svg.hide();
 

@@ -7,6 +7,9 @@
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
         <span class="colorpicker ms-1" data-colors="#000000,#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
+    <small class="d-block" style="line-height:1em;">
+        Freigestellte Bilder (png mit Transparenz), werden automatisch grün eingefärbt. Um das zu verhindern, lade solche Bilder als jpg hoch.
+    </small>
     <?php if(configValue("Features","showMediaGallery")){ ?>
         <div class="d-flex justify-content-between mb-1">
             <a href="#"  class="overlay-opener" data-target="pictureoverlay" title="Bild aus der internen Mediengalerie auswählen" class="">

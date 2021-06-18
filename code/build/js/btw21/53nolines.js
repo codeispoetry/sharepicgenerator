@@ -62,10 +62,10 @@ const nolines = {
     // text below the line
 
     if ($('#showclaim').prop('checked')) {
-      const w = 50;
+      const w = claimWidth;
       const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimText = draw.text('Bereit, weil Ihr es seid.')
+      const claimText = draw.text(claimtext)
         .fill('#145f32')
         .font(nolines.fontoutsidelines)
         .move(1, 0);

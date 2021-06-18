@@ -6,7 +6,7 @@ const nolines = {
   lineheight: 20,
   linemargin: -4,
   paddingLr: 5,
-  claim: draw.image('/assets/nds_claim.png'),
+  claim: draw.circle(0),
   font: {
     family: 'BereitBold',
     anchor: 'left',
