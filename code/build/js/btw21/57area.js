@@ -55,7 +55,7 @@ const area = {
       const w = claimWidth;
       const h = 9;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimTextLine = draw.text(claimText)
+      const claimTextLine = draw.text('Bereit, weil Ihr es seid.')
         .fill('#145f32')
         .font(area.fontoutsidelines)
         .move(1, 1);
