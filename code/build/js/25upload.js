@@ -26,6 +26,7 @@ $('.upload-file').change(function changeFile() {
   formData.append('file', file);
   formData.append('id', id);
   formData.append('csrf', config.csrf);
+  formData.append('tenant', config.tenant);
 
   client.onerror = function onError(e) {
     console.log('onError', e);
