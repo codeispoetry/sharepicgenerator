@@ -35,3 +35,12 @@ function showActionDayHint() {
   $('#actiondayshint').show();
   return true;
 }
+
+// eslint-disable-next-line no-unused-vars
+function setLineHeight() {
+  if (/Ä|Ö|Ü|g|j|p|q|y/.test($('#text').val())) {
+    nolines.font.leading = '1.17em';
+  }else{
+    nolines.font.leading = '1.05em';
+  }
+}

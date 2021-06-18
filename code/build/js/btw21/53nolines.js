@@ -29,6 +29,8 @@ const nolines = {
       $('#showclaim').prop('checked', false);
     }
 
+    setLineHeight();
+
     config.noBackgroundDragAndDrop = false;
 
     text.svg.remove();
