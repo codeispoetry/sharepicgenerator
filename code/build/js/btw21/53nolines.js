@@ -17,7 +17,7 @@ const nolines = {
     family: 'BereitBold',
     size: 6,
     anchor: 'left',
-    leading: '1.0em',
+    leading: '1.05em',
   },
 
   draw() {
@@ -63,12 +63,12 @@ const nolines = {
 
     if ($('#showclaim').prop('checked')) {
       const w = 50;
-      const h = 9;
+      const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
       const claimText = draw.text('Bereit, weil Ihr es seid.')
         .fill('#145f32')
         .font(nolines.fontoutsidelines)
-        .move(1, 1);
+        .move(1, 0);
       const claim = draw.group();
       claim.add(claimFond);
       claim.add(claimText);

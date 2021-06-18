@@ -18,7 +18,7 @@ const area = {
     family: 'BereitBold',
     size: 6,
     anchor: 'left',
-    leading: '1.0em',
+    leading: '1.05em',
   },
   logoDrawn: false,
 
@@ -53,12 +53,12 @@ const area = {
     // text or claim below the line
     if ($('#showclaim').prop('checked')) { 
       const w = claimWidth;
-      const h = 9;
+      const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
       const claimTextLine = draw.text('Bereit, weil Ihr es seid.')
         .fill('#145f32')
         .font(area.fontoutsidelines)
-        .move(1, 1);
+        .move(1, 0);
       const claim = draw.group();
       claim.add(claimFond);
       claim.add(claimTextLine);
