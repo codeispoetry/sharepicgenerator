@@ -107,13 +107,13 @@ const area = {
 
     area.areaMargin = 30;
     area.areaUpper = draw.height() - text.svg.height() - area.areaMargin;
-    text.svg.move(area.areaMargin, area.areaUpper);
+    text.svg.move(1.1 * area.areaMargin, area.areaUpper);
 
     // green layer behind text
     area.greenBackground.remove();
     area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * area.areaMargin))
       .y(area.areaUpper - area.areaMargin)
-    .fill('#A0C864');
+      .fill('#A0C864');
     text.svg.front();
 
     logo.svg.hide();
