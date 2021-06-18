@@ -11,14 +11,14 @@ const area = {
   paddingLr: 5,
   font: {
     anchor: 'left',
-    leading: '1.0em',
+    leading: '1.05em',
     size: 20,
   },
   fontoutsidelines: {
     family: 'BereitBold',
     size: 6,
     anchor: 'left',
-    leading: '1.0em',
+    leading: '1.05em',
   },
   logoDrawn: false,
 
@@ -26,6 +26,8 @@ const area = {
     if (config.layout !== 'area') {
       return;
     }
+
+    setLineHeight();
 
     config.noBackgroundDragAndDrop = false;
 
@@ -36,67 +38,27 @@ const area = {
 
     text.svg = draw.group().attr('id', 'svg-text');
 
-    let y = 0;
+    const anchor = nolines.align;
 
-    // let lines = '„' + $('#text').val() + '“';
+    const t = draw.text($('#text').val())
+      .font(
+        Object.assign(nolines.font, { anchor }),
+      )
+      .fill('#FFFFFF')
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
 
-    let lines = $('#text').val();
-    const quotationMarks = ['„', '“'];
-    let qmI = 0;
-    while ((lines.match(/"/g) || []).length) {
-      lines = lines.replace(/"/, quotationMarks[qmI]);
-      qmI = (qmI + 1) % 2;
-    }
-
-    lines = lines.replace(/\n$/, '').split(/\n/);
-    const fontfamily = 'BereitBold';
-
-    const lineBeginsY = [];
-    const linesRendered = [];
-    let color;
-
-    lines.forEach((value, index) => {
-      let style = 1;
-
-      // the main text
-      const values = value.split(/\[|\]/);
-
-      const t = draw.text((add) => {
-        for (let i = 0; i < values.length; i++) {
-          style = (style === 0) ? 1 : 0;
-
-          color = area.colors[style];
-          if (style === 0) {
-            color = textColors[$('#textColor').val()];
-          }
-
-          add.tspan(values[i]).fill(color).font(
-            Object.assign(area.font, { family: fontfamily }),
-          );
-
-          add.attr('xml:space', 'preserve');
-          add.attr('style', 'white-space:pre');
-        }
-      });
-
-      t.y(y);
-
-      y += (t.rbox().h) + area.linemargin;
-
-      lineBeginsY[index] = y;
-      linesRendered[index] = t;
-      text.svg.add(t);
-    });
+    text.svg.add(t);
 
     // text or claim below the line
     if ($('#showclaim').prop('checked')) { 
       const w = claimWidth;
-      const h = 9;
+      const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
       const claimTextLine = draw.text(claimText)
         .fill('#145f32')
         .font(area.fontoutsidelines)
-        .move(1, 1);
+        .move(1, 0);
       const claim = draw.group();
       claim.add(claimFond);
       claim.add(claimTextLine);
@@ -145,7 +107,7 @@ const area = {
 
     area.areaMargin = 30;
     area.areaUpper = draw.height() - text.svg.height() - area.areaMargin;
-    text.svg.move(20, area.areaUpper);
+    text.svg.move(1.1 * area.areaMargin, area.areaUpper);
 
     // green layer behind text
     area.greenBackground.remove();
@@ -153,6 +115,8 @@ const area = {
       .y(area.areaUpper - area.areaMargin)
       .fill('#A0C864');
     text.svg.front();
+
+    copyright.svg.front();
 
     logo.svg.hide();
 

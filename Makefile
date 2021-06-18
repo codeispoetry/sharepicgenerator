@@ -4,6 +4,9 @@ up:
 stop:
 	docker-compose stop
 
+restart-node:
+	docker-compose restart node
+
 build:
 	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/ code/dist/tenants/federal/gallery/img/
 

@@ -10,14 +10,14 @@ const nolines = {
   font: {
     anchor: 'left',
     family: 'BereitBold',
-    leading: '1.0em',
+    leading: '1.05em',
     size: 20,
   },
   fontoutsidelines: {
     family: 'BereitBold',
     size: 6,
     anchor: 'left',
-    leading: '1.0em',
+    leading: '1.05em',
   },
 
   draw() {
@@ -28,6 +28,8 @@ const nolines = {
     if ($(this).attr('id') === 'textafter') {
       $('#showclaim').prop('checked', false);
     }
+
+    setLineHeight();
 
     config.noBackgroundDragAndDrop = false;
 
@@ -45,68 +47,28 @@ const nolines = {
 
     textDragging();
 
-    let y = 0;
+    const anchor = nolines.align;
 
-    // let lines = '„' + $('#text').val() + '“';
+    const t = draw.text($('#text').val())
+      .font(
+        Object.assign(nolines.font, { anchor }),
+      )
+      .fill('#FFFFFF')
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
 
-    let lines = $('#text').val();
-    const quotationMarks = ['„', '“'];
-    let qmI = 0;
-    while ((lines.match(/"/g) || []).length) {
-      lines = lines.replace(/"/, quotationMarks[qmI]);
-      qmI = (qmI + 1) % 2;
-    }
-
-    lines = lines.replace(/\n$/, '').split(/\n/);
-
-    const lineBeginsY = [];
-    const linesRendered = [];
-    let color;
-
-    lines.forEach((value, index) => {
-      let style = 1;
-
-      // the main text
-      const values = value.split(/\[|\]/);
-
-      const t = draw.text((add) => {
-        for (let i = 0; i < values.length; i++) {
-          style = (style === 0) ? 1 : 0;
-
-          color = nolines.colors[style];
-          if (style === 0) {
-            color = textColors[$('#textColor').val()];
-          }
-
-          const anchor = nolines.align;
-          add.tspan(values[i]).fill(color).font(
-            Object.assign(nolines.font, { anchor }),
-          );
-
-          add.attr('xml:space', 'preserve');
-          add.attr('style', 'white-space:pre');
-        }
-      });
-
-      t.y(y);
-
-      y += (t.rbox().h) + nolines.linemargin;
-
-      lineBeginsY[index] = y;
-      linesRendered[index] = t;
-      text.svg.add(t);
-    });
+    text.svg.add(t);
 
     // text below the line
 
     if ($('#showclaim').prop('checked')) {
-      const w = 50;
-      const h = 9;
+      const w = claimWidth;
+      const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimText = draw.text('Bereit, weil Ihr es seid.')
+      const claimText = draw.text(claimtext)
         .fill('#145f32')
         .font(nolines.fontoutsidelines)
-        .move(1, 1);
+        .move(1, 0);
       const claim = draw.group();
       claim.add(claimFond);
       claim.add(claimText);
