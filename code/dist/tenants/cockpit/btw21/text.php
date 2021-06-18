@@ -6,10 +6,10 @@
             <div class="d-flex">
                 <label class="me-3">Layout:</label>
                  <label class="me-3">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="nolines" checked>Standard
+                    <input type="radio" class="form-check-input layout me-1" name="layout" value="nolines" >Schwebend
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" >Grüne Fläche
+                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" checked>Grüne Fläche
                  </label>
             </div>
 
