@@ -52,7 +52,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="">
                             <label class="">
-                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim" checked>
+                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
                             <label class="showonly lines">

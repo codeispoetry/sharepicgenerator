@@ -65,13 +65,13 @@ const nolines = {
       const w = claimWidth;
       const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimText = draw.text(claimtext)
+      const claimtextline = draw.text(claimText)
         .fill('#145f32')
         .font(nolines.fontoutsidelines)
         .move(1, 0);
       const claim = draw.group();
       claim.add(claimFond);
-      claim.add(claimText);
+      claim.add(claimtextline );
       claim.y(text.svg.height());
 
       switch (nolines.align) {
