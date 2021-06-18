@@ -9,7 +9,6 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-const claimText = "Bereit, weil ihr es seid.";
 const claimWidth = 50;
 
 var initialized = false;
