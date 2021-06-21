@@ -21,8 +21,6 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  logo.resize($('#logosize').val());
-
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
@@ -54,7 +52,6 @@ function initSharepic() {
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
   $('#textY').val(320);
-  $('#textsize').val(402);
   initialized = true;
 
   background.drawColor();
@@ -65,6 +62,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
+  area.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -86,10 +84,8 @@ function reDraw(withAddPic = false) {
   }, 20);
 
   window.setTimeout(() => {
-    logo.load();
     addtext.draw();
 
-    area.draw();
     eraser.draw();
   }, 100);
 

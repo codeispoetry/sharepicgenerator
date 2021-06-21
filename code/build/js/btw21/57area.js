@@ -1,112 +1,122 @@
 /* eslint-disable no-undef */
 const area = {
   svg: draw.text(''),
-  greenBackground: draw.circle(0),
-  logo: false,
-  colors: ['#ffffff', '#ffffff'],
-  lineheight: 20,
-  linemargin: -4,
-  areaMargin: 0,
-  areaUpper: 0,
-  paddingLr: 5,
+  fond: draw.circle(0),
+  fondPadding: 30,
   font: {
+    family: 'BereitBold',
     anchor: 'left',
     leading: '1.05em',
     size: 20,
   },
-  fontoutsidelines: {
+  fontAfter: {
     family: 'BereitBold',
-    size: 6,
     anchor: 'left',
     leading: '1.05em',
+    size: 10,
   },
-  logoDrawn: false,
 
   draw() {
-    if (config.layout !== 'area') {
+    if (config.layout !== 'area'
+       || $('#text').val() === '') {
       return;
     }
 
+    area.svg.remove();
+    area.svg = draw.group();
+
     setLineHeight();
 
-    config.noBackgroundDragAndDrop = false;
-
-    if ($('#text').val() === '') return;
-
-    const anchor = nolines.align;
-
     const t = draw.text($('#text').val())
-      .font(
-        Object.assign(nolines.font, { anchor }),
-      )
+      .font(area.font)
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
     // text or claim below the line
     if ($('#showclaim').prop('checked')) {
-      const w = claimWidth;
-      const h = 7;
-      const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimTextLine = draw.text(claimText)
-        .fill('#145f32')
-        .font(area.fontoutsidelines)
-        .move(1, 0);
-      const claim = draw.group();
-      claim.add(claimFond);
-      claim.add(claimTextLine);
-
-      switch (area.align) {
-        case 'middle':
-          claim.x(-claim.width() / 2);
-          break;
-        case 'end':
-          claim.x(-claim.width());
-          break;
-        default:
-      }
+      area.drawClaim(t);
     } else if ($('#textafter').val()) {
-      const textafterParts = $('#textafter').val().split(/\[|\]/);
-      let style = 1;
-      const textafter = draw.text((add) => {
-        for (let i = 0; i < textafterParts.length; i++) {
-          style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
-          add.attr('xml:space', 'preserve');
-          add.attr('style', 'white-space:pre');
-        }
-      });
-      switch (nolines.align) {
-        case 'middle':
-          textafter.x(-textafter.bbox().w / 2);
-          break;
-        case 'end':
-          textafter.x(-textafter.bbox().w);
-          break;
-        default:
-      }
+      area.svg.add(area.drawTextAfter(t));
     }
+
+    area.svg.add(t);
+
+    area.svg
+      .size($('#textsize').val())
+      .move(area.fondPadding, draw.height() - area.getLowerFondCorrection() - area.fondPadding);
 
     eraser.front();
 
-    area.areaMargin = 30;
-    area.areaUpper = 20;
-
-    copyright.svg.front();
-
-    logo.svg.hide();
-
-    if (area.logoDrawn) {
-      area.logoResize();
-    } else {
-      area.logo = draw.image(logo.logoinfo.file, () => {
-        area.logoResize();
-        area.logoDrawn = true;
-      });
-    }
+    area.drawFond();
+    area.svg.front();
+    area.drawLogo();
   },
 
-  logoResize() {
+  drawClaim(t) {
+    return claim.svg
+      .clone()
+      .addTo(area.svg)
+      .front()
+      .show()
+      .size(80)
+      .move(-3, 5 + t.bbox().height);
+  },
+
+  drawTextAfter(t) {
+    claim.svg.hide();
+    return draw.text($('#textafter').val())
+      .font(area.fontAfter)
+      .fill('#FFFFFF')
+      .move(0, t.bbox().height)
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+  },
+
+  getLowerFondCorrection() {
+    let height = area.svg.height();
+
+    if ($('#showclaim').prop('checked') === true) {
+      return height;
+    }
+
+    text = $('#text').val();
+    heihgtCorrection = 0.09;
+    if ($('#textafter').val() && $('#showclaim').prop('checked') === false) {
+      text = $('#textafter').val();
+      heihgtCorrection = 0.03;
+    }
+
+    if (!lastLineHasDescender(text)) {
+      height -= height * heihgtCorrection;
+    }
+
+    return height;
+  },
+
+  getUpperFondCorrection() {
+    let height = area.svg.height();
+
+    if (firstLineHasAscender($('#text').val())) {
+      height = 0;
+    } else {
+      height *= 0.09;
+    }
+
+    return height;
+  },
+
+  drawFond() {
+    area.fond.remove();
+    const h = area.getLowerFondCorrection() - area.getUpperFondCorrection()
+        + (2 * area.fondPadding);
+    area.fond = draw.rect(draw.width(), h)
+      .move(0, draw.height() - h)
+      .fill('red');
+  },
+
+  drawLogo() {
+    return;
     area.logo.size(area.greenBackground.height() * 0.5, area.greenBackground.height() * 0.5)
       .move(draw.width() - (1.5 * area.logo.width()),
         area.areaUpper - area.areaMargin - area.logo.height() * 0.6)
@@ -115,4 +125,4 @@ const area = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);
+$('#text, #textafter, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);
