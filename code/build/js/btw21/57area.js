@@ -22,7 +22,9 @@ const area = {
       return;
     }
 
-    floating.hide();
+    if (typeof floating === 'object' && floating !== null) {
+      floating.hide();
+    }
 
     area.svg.remove();
     area.svg = draw.group();
@@ -61,7 +63,7 @@ const area = {
       .addTo(area.svg)
       .front()
       .show()
-      .size(80)
+      .size(90)
       .move(-3, 5 + t.bbox().height);
   },
 
@@ -70,7 +72,7 @@ const area = {
     return draw.text($('#textafter').val())
       .font(area.fontAfter)
       .fill('#FFFFFF')
-      .move(0, t.bbox().height)
+      .move(0, 8 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
   },
@@ -114,14 +116,14 @@ const area = {
         + (2 * area.fondPadding);
     area.fond = draw.rect(draw.width(), h)
       .move(0, draw.height() - h)
-      .fill('red');
+      .fill('#a0c864');
   },
 
   drawLogo() {
     const size = area.fond.height() * 0.7;
     logo.svg
       .size(size, size)
-      .move(draw.width() - (size * 1.5), draw.height() - area.fond.height() - (size * 0.7))
+      .move(draw.width() - (size * 1.2), draw.height() - area.fond.height() - (size * 0.7))
       .removeClass('draggable')
       .draggable(false)
       .front();

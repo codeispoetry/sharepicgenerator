@@ -80,7 +80,7 @@ const floating = {
       .addTo(floating.svg)
       .front()
       .show()
-      .size(80)
+      .size(90)
       .move(x, 5 + t.bbox().height);
   },
 
@@ -90,7 +90,7 @@ const floating = {
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, t.bbox().height)
+      .move(0, 8 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
