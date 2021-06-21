@@ -22,6 +22,8 @@ const area = {
       return;
     }
 
+    floating.hide();
+
     area.svg.remove();
     area.svg = draw.group();
 
@@ -120,8 +122,16 @@ const area = {
     logo.svg
       .size(size, size)
       .move(draw.width() - (size * 1.5), draw.height() - area.fond.height() - (size * 0.7))
+      .removeClass('draggable')
+      .draggable(false)
       .front();
   },
+
+  hide() {
+    area.svg.hide();
+    area.fond.hide();
+  },
+
 };
 
 $('#text, #textafter, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);

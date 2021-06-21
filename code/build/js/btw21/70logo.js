@@ -5,25 +5,17 @@ const logo = {
   }),
 
   draw() {
-    if (!logo.loaded) return false;
+    logo.svg
+      .move($('#logoX').val(), $('#logoY').val())
+      .addClass('draggable')
+      .draggable();
 
-    if (logo.svg.width() === 0) return false;
-
-    // let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
-    const width = draw.width() * logo.logoinfo.widthFraction;
-    logo.svg.addClass('draggable').draggable();
-    logo.svg.size(width, null);
-
-    logo.svg.move(parseInt($('#logoX').val(), 10), parseInt($('#logoY').val(), 10));
+    logo.resize($('#logosize').val());
 
     logo.svg.on('dragend.namespace', function dragEnd() {
       $('#logoX').val(Math.round(this.x()));
       $('#logoY').val(Math.round(this.y()));
     });
-
-    logo.resize($('#logosize').val());
-
-    return true;
   },
 
   resize(percent) {
