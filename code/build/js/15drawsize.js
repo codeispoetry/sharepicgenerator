@@ -47,7 +47,10 @@ function setDrawsize() {
 
   calculateSizes();
 
-  text.svg.move(0, 0);
+  if (typeof text.svg === 'object' && text.svg !== null) {
+    text.svg.move(0, 0);
+  }
+
   pin.bounce();
 
   if (typeof reDraw === 'function') {

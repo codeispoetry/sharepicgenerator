@@ -6,11 +6,7 @@ function showLayout() {
 
   $(`.${config.layout}`).show();
 
-  text.draw();
-  nolines.draw();
   area.draw();
-  quote.draw();
-  invers.draw();
 }
 
 $('.layout').click(showLayout);

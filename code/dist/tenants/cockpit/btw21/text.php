@@ -67,7 +67,7 @@
                             </label>
                         </div>
                         <div class="showonly nolines">
-                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
+                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="floating.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
                             <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
                         </div>
                        
