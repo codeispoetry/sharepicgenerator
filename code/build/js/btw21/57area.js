@@ -116,11 +116,10 @@ const area = {
   },
 
   drawLogo() {
-    return;
-    area.logo.size(area.greenBackground.height() * 0.5, area.greenBackground.height() * 0.5)
-      .move(draw.width() - (1.5 * area.logo.width()),
-        area.areaUpper - area.areaMargin - area.logo.height() * 0.6)
-      .show()
+    const size = area.fond.height() * 0.7;
+    logo.svg
+      .size(size, size)
+      .move(draw.width() - (size * 1.5), draw.height() - area.fond.height() - (size * 0.7))
       .front();
   },
 };

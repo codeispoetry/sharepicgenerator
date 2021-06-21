@@ -2,7 +2,6 @@ const logo = {
   loaded: false,
   svg: draw.image('/assets/logos/sonnenblume21.svg', () => {
     logo.loaded = true;
-    console.log("loaded")
   }),
 
   draw() {
@@ -10,7 +9,6 @@ const logo = {
 
     if (logo.svg.width() === 0) return false;
 
-    console.log("hi")
     // let width = Math.max(50, draw.width() * logo.logoinfo.widthFraction);
     const width = draw.width() * logo.logoinfo.widthFraction;
     logo.svg.addClass('draggable').draggable();
@@ -45,3 +43,4 @@ const logo = {
 $('#logosize').bind('input propertychange', () => {
   logo.resize($('#logosize').val());
 });
+ 
