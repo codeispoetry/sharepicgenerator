@@ -59,7 +59,6 @@ $('.toggle-line-height').click(() =>{
   }
 
   area.draw();
-  nolines.draw();
 });
 
 const claim = {
