@@ -31,12 +31,7 @@ const area = {
 
     config.noBackgroundDragAndDrop = false;
 
-    text.svg.remove();
-    invers.svg.remove();
-    invers.backgroundClone.remove();
     if ($('#text').val() === '') return;
-
-    text.svg = draw.group().attr('id', 'svg-text');
 
     const anchor = nolines.align;
 
@@ -48,10 +43,8 @@ const area = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    text.svg.add(t);
-
     // text or claim below the line
-    if ($('#showclaim').prop('checked')) { 
+    if ($('#showclaim').prop('checked')) {
       const w = claimWidth;
       const h = 7;
       const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
@@ -62,7 +55,6 @@ const area = {
       const claim = draw.group();
       claim.add(claimFond);
       claim.add(claimTextLine);
-      claim.y(text.svg.height());
 
       switch (area.align) {
         case 'middle':
@@ -73,8 +65,6 @@ const area = {
           break;
         default:
       }
-
-      text.svg.add(claim);
     } else if ($('#textafter').val()) {
       const textafterParts = $('#textafter').val().split(/\[|\]/);
       let style = 1;
@@ -86,7 +76,6 @@ const area = {
           add.attr('style', 'white-space:pre');
         }
       });
-      textafter.dy(text.svg.height() + 6);
       switch (nolines.align) {
         case 'middle':
           textafter.x(-textafter.bbox().w / 2);
@@ -96,25 +85,12 @@ const area = {
           break;
         default:
       }
-
-      text.svg.add(textafter);
     }
 
     eraser.front();
-    showActionDayHint();
-
-    text.svg.size(parseInt($('#textsize').val(), 10));
 
     area.areaMargin = 30;
-    area.areaUpper = draw.height() - text.svg.height() - area.areaMargin;
-    text.svg.move(1.1 * area.areaMargin, area.areaUpper);
-
-    // green layer behind text
-    area.greenBackground.remove();
-    area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * area.areaMargin))
-      .y(area.areaUpper - area.areaMargin)
-      .fill('#A0C864');
-    text.svg.front();
+    area.areaUpper = 20;
 
     copyright.svg.front();
 

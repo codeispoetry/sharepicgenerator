@@ -9,9 +9,6 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-const claimText = "Bereit, weil Ihr es seid.";
-const claimWidth = 50;
-
 var initialized = false;
 
 $(document).ready(() => {
@@ -86,17 +83,13 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
-    icon.load();
   }, 20);
 
   window.setTimeout(() => {
     logo.load();
-    text.draw();
     addtext.draw();
-    quote.draw();
-    nolines.draw();
+
     area.draw();
-    invers.draw();
     eraser.draw();
   }, 100);
 

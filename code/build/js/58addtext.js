@@ -33,7 +33,6 @@ const addtext = {
     addtext.svg.add(addtextContent);
 
     eraser.front();
-    showActionDayHint();
 
     addtext.svg.move(parseInt($('#addtextX').val(), 10), parseInt($('#addtextY').val(), 10));
   },
