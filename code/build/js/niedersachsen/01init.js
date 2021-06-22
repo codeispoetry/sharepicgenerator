@@ -9,9 +9,6 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-const claimText = "Veränderung beginnt hier.";
-const claimWidth = 55;
-
 var initialized = false;
 
 $(document).ready(() => {
@@ -33,6 +30,8 @@ $(document).ready(() => {
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
+
+  area.draw();
 });
 
 function showAdvertising(ad) {
@@ -82,21 +81,14 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
-    icon.load();
   }, 20);
 
   window.setTimeout(() => {
-    logo.load();
-    text.draw();
     addtext.draw();
-    quote.draw();
-    nolines.draw();
-    invers.draw();
     eraser.draw();
     topleft.draw();
     nolines.drawClaim();
     area.draw();
-    
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

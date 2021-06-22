@@ -9,9 +9,6 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-const claimText = "Bereit, weil Ihr es seid.";
-const claimWidth = 50;
-
 var initialized = false;
 
 $(document).ready(() => {
@@ -23,8 +20,6 @@ $(document).ready(() => {
   const urlParams = new URLSearchParams(queryString);
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
-
-  logo.resize($('#logosize').val());
 
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
@@ -57,7 +52,6 @@ function initSharepic() {
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
   $('#textY').val(320);
-  $('#textsize').val(402);
   initialized = true;
 
   background.drawColor();
@@ -68,6 +62,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
+  area.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -86,17 +81,11 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
-    icon.load();
   }, 20);
 
   window.setTimeout(() => {
-    logo.load();
-    text.draw();
     addtext.draw();
-    quote.draw();
-    nolines.draw();
-    area.draw();
-    invers.draw();
+
     eraser.draw();
   }, 100);
 
