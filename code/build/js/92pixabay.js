@@ -66,8 +66,7 @@ function getPixabayImages(q) {
   $('#imagedb-search').show();
   $('#canvas-area').slideUp();
 
-  const url = `https://pixabay.com/api/?key=${config.pixabay.apikey}&q=${encodeURIComponent(q)}&image_type=photo&page=${page}&per_page=100`;
-
+  const url = `https://pixabay.com/api/?key=${config.pixabay.apikey}&q=${encodeURIComponent(q)}&image_type=photo&page=${page}&per_page=100&lang=de`;
   $('#imagedb-search .results').html('Suche Bilder bei Pixabay ... ');
 
   $('#imagedb-link').attr('href', `https://pixabay.com/images/search/${encodeURIComponent(q)}`);
