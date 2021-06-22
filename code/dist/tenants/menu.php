@@ -75,7 +75,7 @@
     </ul>
 </div>
 
-<a class="navbar-brand arvo" href="/">Sharepicgenerator.de</a>
+<a class="navbar-brand bereitbold" href="/">Sharepicgenerator.de</a>
 
 <div class="navbar-text d-flex">
     <?php if (isEditor()) { ?> 
