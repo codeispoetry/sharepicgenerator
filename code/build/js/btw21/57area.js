@@ -1,142 +1,139 @@
 /* eslint-disable no-undef */
 const area = {
   svg: draw.text(''),
-  greenBackground: draw.circle(0),
-  logo: false,
-  colors: ['#ffffff', '#ffffff'],
-  lineheight: 20,
-  linemargin: -4,
-  areaMargin: 0,
-  areaUpper: 0,
-  paddingLr: 5,
+  fond: draw.circle(0),
+  fondPadding: 30,
   font: {
+    family: 'BereitBold',
     anchor: 'left',
     leading: '1.05em',
     size: 20,
   },
-  fontoutsidelines: {
+  fontAfter: {
     family: 'BereitBold',
-    size: 6,
     anchor: 'left',
     leading: '1.05em',
+    size: 10,
   },
-  logoDrawn: false,
 
   draw() {
-    if (config.layout !== 'area') {
+    if (config.layout !== 'area'
+       || $('#text').val() === '') {
       return;
     }
 
+    if (typeof floating === 'object' && floating !== null) {
+      floating.hide();
+    }
+
+    area.svg.remove();
+    area.svg = draw.group();
+
     setLineHeight();
 
-    config.noBackgroundDragAndDrop = false;
-
-    text.svg.remove();
-    invers.svg.remove();
-    invers.backgroundClone.remove();
-    if ($('#text').val() === '') return;
-
-    text.svg = draw.group().attr('id', 'svg-text');
-
-    const anchor = nolines.align;
-
     const t = draw.text($('#text').val())
-      .font(
-        Object.assign(nolines.font, { anchor }),
-      )
+      .font(area.font)
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    text.svg.add(t);
-
     // text or claim below the line
-    if ($('#showclaim').prop('checked')) { 
-      const w = claimWidth;
-      const h = 7;
-      const claimFond = draw.polyline(`0,0 ${w},0 ${w},${h}, 0,${h}`).fill('#ffe100').skew([-9, 0]);
-      const claimTextLine = draw.text(claimText)
-        .fill('#145f32')
-        .font(area.fontoutsidelines)
-        .move(1, 0);
-      const claim = draw.group();
-      claim.add(claimFond);
-      claim.add(claimTextLine);
-      claim.y(text.svg.height());
-
-      switch (area.align) {
-        case 'middle':
-          claim.x(-claim.width() / 2);
-          break;
-        case 'end':
-          claim.x(-claim.width());
-          break;
-        default:
-      }
-
-      text.svg.add(claim);
+    if ($('#showclaim').prop('checked')) {
+      area.drawClaim(t);
     } else if ($('#textafter').val()) {
-      const textafterParts = $('#textafter').val().split(/\[|\]/);
-      let style = 1;
-      const textafter = draw.text((add) => {
-        for (let i = 0; i < textafterParts.length; i++) {
-          style = (style === 0) ? 1 : 0;
-          add.tspan(textafterParts[i]).fill('#ffffff').font(nolines.fontoutsidelines);
-          add.attr('xml:space', 'preserve');
-          add.attr('style', 'white-space:pre');
-        }
-      });
-      textafter.dy(text.svg.height() + 6);
-      switch (nolines.align) {
-        case 'middle':
-          textafter.x(-textafter.bbox().w / 2);
-          break;
-        case 'end':
-          textafter.x(-textafter.bbox().w);
-          break;
-        default:
-      }
-
-      text.svg.add(textafter);
+      area.svg.add(area.drawTextAfter(t));
     }
+
+    area.svg.add(t);
+
+    area.svg
+      .size($('#textsize').val())
+      .move(area.fondPadding, draw.height() - area.getLowerFondCorrection() - area.fondPadding);
 
     eraser.front();
-    showActionDayHint();
 
-    text.svg.size(parseInt($('#textsize').val(), 10));
-
-    area.areaMargin = 30;
-    area.areaUpper = draw.height() - text.svg.height() - area.areaMargin;
-    text.svg.move(1.1 * area.areaMargin, area.areaUpper);
-
-    // green layer behind text
-    area.greenBackground.remove();
-    area.greenBackground = draw.rect(draw.width(), text.svg.height() + (2 * area.areaMargin))
-      .y(area.areaUpper - area.areaMargin)
-      .fill('#A0C864');
-    text.svg.front();
-
-    copyright.svg.front();
-
-    logo.svg.hide();
-
-    if (area.logoDrawn) {
-      area.logoResize();
-    } else {
-      area.logo = draw.image(logo.logoinfo.file, () => {
-        area.logoResize();
-        area.logoDrawn = true;
-      });
-    }
+    area.drawFond();
+    area.svg.front();
+    area.drawLogo();
   },
 
-  logoResize() {
-    area.logo.size(area.greenBackground.height() * 0.5, area.greenBackground.height() * 0.5)
-      .move(draw.width() - (1.5 * area.logo.width()),
-        area.areaUpper - area.areaMargin - area.logo.height() * 0.6)
+  drawClaim(t) {
+    return claim.svg
+      .clone()
+      .addTo(area.svg)
+      .front()
       .show()
+      .size(90)
+      .move(-3, 5 + t.bbox().height);
+  },
+
+  drawTextAfter(t) {
+    claim.svg.hide();
+    return draw.text($('#textafter').val())
+      .font(area.fontAfter)
+      .fill('#FFFFFF')
+      .move(0, 8 + t.bbox().height)
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+  },
+
+  getLowerFondCorrection() {
+    let height = area.svg.height();
+
+    if ($('#showclaim').prop('checked') === true) {
+      return height;
+    }
+
+    text = $('#text').val();
+    heihgtCorrection = 0.09;
+    if ($('#textafter').val() && $('#showclaim').prop('checked') === false) {
+      text = $('#textafter').val();
+      heihgtCorrection = 0.03;
+    }
+
+    if (!lastLineHasDescender(text)) {
+      height -= height * heihgtCorrection;
+    }
+
+    return height;
+  },
+
+  getUpperFondCorrection() {
+    let height = area.svg.height();
+
+    if (firstLineHasAscender($('#text').val())) {
+      height = 0;
+    } else {
+      height *= 0.09;
+    }
+
+    return height;
+  },
+
+  drawFond() {
+    area.fond.remove();
+    const h = area.getLowerFondCorrection() - area.getUpperFondCorrection()
+        + (2 * area.fondPadding);
+    area.fond = draw.rect(draw.width(), h)
+      .move(0, draw.height() - h)
+      .fill('#a0c864');
+  },
+
+  drawLogo() {
+    const size = area.fond.height() * 0.7;
+    logo.svg
+      .size(size, size)
+      .move(draw.width() - (size * 1.2), draw.height() - area.fond.height() - (size * 0.7))
+      .removeClass('draggable')
+      .draggable(false)
       .front();
   },
+
+  hide() {
+    area.svg.hide();
+    area.fond.hide();
+  },
+
 };
 
-$('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);
+$('#text, #textafter, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);
