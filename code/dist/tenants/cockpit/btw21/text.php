@@ -36,8 +36,8 @@
                         </div>
                         <div class="d-flex">
                             <div class="me-3">
-                                <span class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
-                                    <i class="fa fa-align-center" title="Text in Bildmitte"></i></span>
+                                <span class="cursor-pointer ms-3 text-primary align-center-text showonly floating">
+                                    <i class="fab fa-centercode" title="Text in Bildmitte"></i></span>
                             </div> 
                             <div>
                                 <span class="to-front" data-target="text" title="Text nach vorne">
@@ -55,13 +55,13 @@
                                 <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
-                            <label class="showonly lines">
+                            <label class="showonly nolines">
                                 <input type="checkbox" class="form-check-input" name="greenbehindtext" id="greenbehindtext">
                                 Grün hinter Text
                             </label>
                         </div>
                         <div>
-                            <label class="showonly lines nolines quote">
+                            <label class="showonly floating nolines quote">
                                 <input type="checkbox" class="form-check-input" name="graybehindtext" id="graybehindtext">
                                 Farbe hinter Text
                             </label>

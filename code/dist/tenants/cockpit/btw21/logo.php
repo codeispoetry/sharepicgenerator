@@ -7,6 +7,9 @@
             <small>groß</small>
         </div>
         <div>
+            <span class="cursor-pointer ms-3 text-primary align-center-logo">
+                <i class="fab fa-centercode" title="Logo in Bildmitte"></i>
+            </span>
             <span class="to-front" data-target="logo" title="Logo nach vorne">
                 <i class="fas fa-layer-group text-primary"></i>
             </span> 
