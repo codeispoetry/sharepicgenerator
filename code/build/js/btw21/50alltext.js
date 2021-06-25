@@ -23,13 +23,16 @@ function lastLineHasDescender(text) {
 
 $('.toggle-line-height').click(() =>{
   config.lineHeightToggledManually = true;
-  if (area.font.leading == '1.05em') {
-    area.font.leading = '1.17em';
-  } else {
-    area.font.leading = '1.05em';
+
+  if (config.layout === 'area') {
+    area.font.leading = (area.font.leading === '1.05em') ? '1.17em' : '1.05em';
+    area.draw();
   }
 
-  area.draw();
+  if (config.layout === 'floating') {
+    floating.font.leading = (floating.font.leading === '1.05em') ? '1.17em' : '1.05em';
+    floating.draw();
+  }
 });
 
 const claim = {
