@@ -46,11 +46,11 @@ const floating = {
       floating.svg.add(floating.drawTextAfter(t));
     }
 
+    floating.svg.add(t);
+
     if ($('#showclaim').prop('checked')) {
       floating.drawClaim(t);
     }
-
-    floating.svg.add(t);
 
     floating.svg
       .size($('#textsize').val())

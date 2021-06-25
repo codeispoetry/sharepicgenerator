@@ -41,11 +41,11 @@ const area = {
       area.svg.add(area.drawTextAfter(t));
     }
 
+    area.svg.add(t);
+
     if ($('#showclaim').prop('checked')) {
       area.drawClaim(t);
     }
-
-    area.svg.add(t);
 
     area.svg
       .size($('#textsize').val())
