@@ -25,6 +25,8 @@
                 <small>groß</small>
             </div>
             <div>
+                <span class="cursor-pointer ms-3 text-primary align-center-eyecatcher">
+                   <i class="fab fa-centercode" title="Störer in Bildmitte"></i></span>
                 <span class="to-front" data-target="pin" title="Störer nach vorne">
                     <i class="fas fa-layer-group text-primary"></i>
                 </span> 
