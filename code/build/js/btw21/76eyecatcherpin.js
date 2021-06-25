@@ -94,3 +94,9 @@ $('#pintext').bind('input propertychange', pin.draw);
 $('#eyecatchersize').bind('input propertychange', pin.resize);
 
 $('#eyecatchertemplate').on('change', pin.drawTemplate);
+
+$('.align-center-eyecatcher').click(() => {
+  $('#pinX').val((draw.width() - pin.svg.width()) / 2);
+  $('#pinY').val((draw.height() - pin.svg.height()) / 2);
+  pin.draw();
+});
