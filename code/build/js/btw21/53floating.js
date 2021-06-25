@@ -42,11 +42,12 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    // text or claim below the line
+    if ($('#textafter').val()) {
+      floating.svg.add(floating.drawTextAfter(t));
+    }
+
     if ($('#showclaim').prop('checked')) {
       floating.drawClaim(t);
-    } else if ($('#textafter').val()) {
-      floating.svg.add(floating.drawTextAfter(t));
     }
 
     floating.svg.add(t);
@@ -81,7 +82,7 @@ const floating = {
       .front()
       .show()
       .size(90)
-      .move(x, 5 + t.bbox().height);
+      .move(-3, 5 + floating.svg.height());
   },
 
   drawTextAfter(t) {

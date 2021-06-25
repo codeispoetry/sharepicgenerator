@@ -38,7 +38,3 @@ const claim = {
     claim.svg.hide();
   }),
 };
-
-$('#textafter').bind('input propertychange', () => {
-  $('#showclaim').prop('checked', false);
-});

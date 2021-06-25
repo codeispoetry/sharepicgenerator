@@ -37,11 +37,12 @@ const area = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    // text or claim below the line
+    if ($('#textafter').val()) {
+      area.svg.add(area.drawTextAfter(t));
+    }
+
     if ($('#showclaim').prop('checked')) {
       area.drawClaim(t);
-    } else if ($('#textafter').val()) {
-      area.svg.add(area.drawTextAfter(t));
     }
 
     area.svg.add(t);
@@ -64,7 +65,7 @@ const area = {
       .front()
       .show()
       .size(90)
-      .move(-3, 5 + t.bbox().height);
+      .move(-3, 5 + area.svg.height());
   },
 
   drawTextAfter(t) {
