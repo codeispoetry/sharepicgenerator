@@ -114,9 +114,10 @@
               <li> 
                 <a href="/tenants/niedersachsen">Niedersachsen</a>
                 <br>
-                <a href="/tenants/bw" class="small">Ba-Wü</a> |
-                <a href="/tenants/lsa" class="small">Saschen-Anhalt</a> |
-                <a href="/tenants/frankfurt" class="small">Frankfurt</a>
+                <small>
+                  <a href="/tenants/bw" class="small">Ba-Wü</a> |
+                  <a href="/tenants/frankfurt" class="small">Frankfurt</a>
+                </small>
               </li>
             </ul>
             <a href="tenants/federal" type="button" class="w-100 btn btn-lg btn-pistazie">einloggen</a>
