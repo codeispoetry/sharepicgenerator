@@ -67,10 +67,10 @@ const floating = {
     let x;
     switch (floating.align) {
       case 'middle':
-        x = -40;
+        x = -45;
         break;
       case 'end':
-        x = -80;
+        x = -90;
         break;
       default:
         x = -3;
@@ -82,7 +82,7 @@ const floating = {
       .front()
       .show()
       .size(90)
-      .move(-3, 5 + floating.svg.height());
+      .move(x, 5 + floating.svg.height());
   },
 
   drawTextAfter(t) {
