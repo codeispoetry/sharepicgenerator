@@ -120,3 +120,9 @@ const floating = {
 
 $('#text, #textafter, #textsize, #graybehindtext, #showclaim').bind('input propertychange',  floating.draw);
 $('.text-align').click(floating.setAlign);
+
+$('.align-center-text').click(() => {
+  $('#textX').val((draw.width() - floating.svg.width()) / 2);
+  $('#textY').val((draw.height() - floating.svg.height()) / 2);
+  floating.draw();
+});
