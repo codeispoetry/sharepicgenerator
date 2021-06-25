@@ -114,7 +114,7 @@ nextActionDay();
                     </div>
                     <div class="text-center mt-5">
                         <div>
-                            <button class="btn btn-secondary btn-lg download" id="download">
+                            <button class="btn btn-secondary btn-lg download bereitbold" id="download">
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
                         </div>
