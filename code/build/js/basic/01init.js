@@ -35,6 +35,8 @@ $(document).ready(() => {
     disableFeature('[data-target=".addpictures"]');
     disableFeature('[data-target=".quality"]');
   }
+
+  $('.expertmode').toggleClass('d-none');
 });
 
 function disableFeature(feature) {
