@@ -62,13 +62,13 @@ function nextActionDay()
 
         $GLOBALS['toasts'] .= <<<EOL
         <div class="toast toast-actionday border-info" data-id="$name" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-info text-white">
+        <div class="toast-header p-0 bg-info text-white justify-content-around">
         
             <strong class="mr-auto">Sharepic-Idee</strong>
             <small class="small text-white">
                 <a href=#" class="overlay-opener text-white" data-target="actiondays">Alle Aktionstage</a> 
             </small>
-            <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+            <button type="button" class="btn ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
