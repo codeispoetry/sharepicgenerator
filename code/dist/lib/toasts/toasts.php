@@ -2,11 +2,11 @@
   <div style="">
 
     <div class="toast toast-templates border-info" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info text-white">
+      <div class="toast-header justify-content-around  bg-info text-white">
 
         <strong class="mr-auto">Vorlagen</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1  btn close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -19,11 +19,11 @@
     </div>
 
     <div class="toast upload-too-big border-info" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info text-white">
+      <div class="toast-header justify-content-around  bg-info text-white">
 
         <strong class="mr-auto">Bild sehr groß</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1  btn close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -34,11 +34,11 @@
     </div>
 
     <div class="toast face-alert border-info" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info text-white">
+      <div class="toast-header justify-content-around  bg-info text-white">
 
         <strong class="mr-auto">Gesicht</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1  btn close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -48,11 +48,11 @@
     </div>
 
     <div class="toast other-tenant border-info" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info text-white">
+      <div class="toast-header justify-content-around  bg-info text-white">
 
         <strong class="mr-auto">Regionales Layout</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1  btn close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -63,11 +63,11 @@
     </div>
 
     <div class="toast toast-tipoftheday border-primary" data-id="tipmail" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-primary text-white">
+      <div class="toast-header justify-content-around  bg-primary text-white">
 
         <strong class="mr-auto">Neu im Sharepicgenerator</strong>
         <small class="small text-white"></small>
-        <button type="button" class="ms-2 mb-1 close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
+        <button type="button" class="ms-2 mb-1  btn close text-danger text-shadow-none" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
