@@ -2,7 +2,7 @@
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
     <div class="mb-1 list-group-item-content">
         <div class="">
-            <select class="form-select" id="eyecatchertemplate">
+            <select class="form-select" name="eyecatchertemplate" id="eyecatchertemplate">
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbt eingeben</option>
                 <optgroup label="Vorlagen">
