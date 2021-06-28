@@ -86,7 +86,7 @@ nextActionDay();
 </head>
 <body class="h-100">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-pistazie">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
