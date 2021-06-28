@@ -77,6 +77,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     pin.draw();
+    pin.drawTemplate();
   }, 10);
 
   window.setTimeout(() => {
