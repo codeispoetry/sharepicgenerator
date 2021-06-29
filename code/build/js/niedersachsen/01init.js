@@ -30,8 +30,6 @@ $(document).ready(() => {
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
-
-  area.draw();
 });
 
 function showAdvertising(ad) {
@@ -54,8 +52,9 @@ function initSharepic() {
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
   $('#textY').val(320);
-  $('#textsize').val(402);
   initialized = true;
+
+  background.drawColor();
 
   return true;
 }
@@ -63,6 +62,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
+  area.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -77,18 +77,18 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     pin.draw();
+    pin.drawTemplate();
   }, 10);
 
   window.setTimeout(() => {
     copyright.draw();
+    topleft.draw();
   }, 20);
 
   window.setTimeout(() => {
     addtext.draw();
+
     eraser.draw();
-    topleft.draw();
-    nolines.drawClaim();
-    area.draw();
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

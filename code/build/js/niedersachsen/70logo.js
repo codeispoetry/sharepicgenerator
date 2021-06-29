@@ -35,4 +35,9 @@ const logo = {
 $('#logosize').bind('input propertychange', () => {
   logo.resize($('#logosize').val());
 });
- 
+
+$('.align-center-logo').click(() => {
+  $('#logoX').val((draw.width() - logo.svg.width()) / 2);
+  $('#logoY').val((draw.height() - logo.svg.height()) / 2);
+  logo.draw();
+});
