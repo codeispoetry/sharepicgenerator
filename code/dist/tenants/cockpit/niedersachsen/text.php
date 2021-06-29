@@ -3,25 +3,28 @@
         <h3 class="collapsed" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text & Layout</h3>
         <div class="text collapse list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-none">
+            <div class="d-flex">
                 <label class="me-3">Layout:</label>
+                 <label class="me-3">
+                    <input type="radio" class="form-check-input layout me-1" name="layout" value="floating" >Schwebend
+                 </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="area" checked>Grüne Fläche
                  </label>
             </div>
 
             <div class="list-group-item-content">
-                <div class="d-none justify-content-end">
+                <div class="d-flex justify-content-end">
                     <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
-                    <i class="fa fa-align-left text-align me-2" data-align="left" title="linksbündig"></i>
-                    <i class="fa fa-align-center text-align me-2" data-align="middle" title="zentrieren"></i>
-                    <i class="fa fa-align-right text-align" data-align="end" title="rechtsbündig"></i>
+                    <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
+                    <i class="fa fa-align-center text-align me-2 showonly floating" data-align="middle" title="zentrieren"></i>
+                    <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
-                <div class="d-none align-items-lg-center">
-                    <input type="text" placeholder="Text unter der Linie" name="textafter" id="textafter" value="Veränderung beginnt hier" class="form-control showonly lines area nolines quote">
+                <div class="d-flex align-items-lg-center">
+                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="" class="form-control showonly area floating">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -33,8 +36,8 @@
                         </div>
                         <div class="d-flex">
                             <div class="me-3">
-                                <span class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
-                                    <i class="fa fa-align-center" title="Text in Bildmitte"></i></span>
+                                <span class="cursor-pointer ms-3 text-primary align-center-text showonly floating">
+                                    <i class="fab fa-centercode" title="Text in Bildmitte"></i></span>
                             </div> 
                             <div>
                                 <span class="to-front" data-target="text" title="Text nach vorne">
@@ -48,23 +51,23 @@
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
                         <div class="">
-                            <label class="showonly nolines">
+                            <label class="d-none">
                                 <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim" checked>
                                 Zeige Claim
                             </label>
-                            <label class="showonly lines">
+                            <label class="showonly nolines">
                                 <input type="checkbox" class="form-check-input" name="greenbehindtext" id="greenbehindtext">
                                 Grün hinter Text
                             </label>
                         </div>
-                        <div>
-                            <label class="showonly lines nolines quote">
+                        <div class="d-none">
+                            <label class="showonly floating nolines quote">
                                 <input type="checkbox" class="form-check-input" name="graybehindtext" id="graybehindtext">
                                 Farbe hinter Text
                             </label>
                         </div>
                         <div class="showonly nolines">
-                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
+                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="floating.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
                             <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
                         </div>
                        
