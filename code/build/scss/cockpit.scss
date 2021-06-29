@@ -2,6 +2,35 @@
   a{
     text-decoration: none;
   }
+
+  &-vertical#pic{
+      h3{
+        background: none;
+        border: 0;
+        border-bottom: 1px solid black;
+        margin-top: 2em;
+
+        &:nth-child(1){
+          margin-top: 0;
+        }
+      }
+
+
+      .list-group-item{
+        background: none;
+      }
+
+      .tab-pane{
+        background: none;
+        padding: 10px;
+      }
+
+      button.nav-link{
+        display:flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+  }
 }
 
 .list-group-item{

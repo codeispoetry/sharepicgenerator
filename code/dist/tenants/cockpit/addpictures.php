@@ -1,5 +1,5 @@
-<h3 class="collapsed expertmode" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundbilder</h3>
-        <div class="addpictures expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
+<h3><i class="fas fa-images"></i> Vordergrundbilder</h3>
+        <div class="addpictures list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
                 for ($i = 1; $i <=5; $i++) {

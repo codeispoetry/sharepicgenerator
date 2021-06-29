@@ -1,7 +1,7 @@
 
 
-        <h3 class="collapsed" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text & Layout</h3>
-        <div class="text collapse list-group-item list-group-item-action flex-column align-items-start">
+        <h3><i class="fas fa-text-width"></i> Text & Layout</h3>
+        <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
             <div class="d-flex">
                 <label class="me-3">Layout:</label>

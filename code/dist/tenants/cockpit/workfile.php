@@ -1,6 +1,6 @@
 
-        <h3 class="collapsed expertmode" data-toggle="collapse" data-target=".workfile"><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
-        <div class="workfile expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
+        <h3><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
+        <div class="workfile list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 Mit der Arbeitsdatei kannst Du Dein Sharepic später weiter bearbeiten.
             </div>

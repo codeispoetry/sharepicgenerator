@@ -1,5 +1,5 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".picture"><i class="fas fa-image"></i> Bild</h3>
-<div class="picture collapse list-group-item list-group-item-action flex-column align-items-start">
+<h3><i class="fas fa-image"></i> Bild</h3>
+<div class="picture  list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 d-flex justify-content-between">
         <a href="#" class="text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen

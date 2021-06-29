@@ -24,7 +24,7 @@ foreach ($actiondaysIni as $actionDayId => $actionDayInfo) {
                 </div>
             </div>
             <div class="row mt-1">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs" id="actiondays" role="tablist">
 
                     <?php
                     for ($month = 1; $month <=12; $month++) {
