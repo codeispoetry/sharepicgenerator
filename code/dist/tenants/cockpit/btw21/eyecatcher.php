@@ -6,8 +6,6 @@
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbt eingeben</option>
                 <optgroup label="Vorlagen">
-                    <option value="btw21/alle-stimmen.svg">Alle Stimmen Grün</option>
-                    <option value="btw21/beide-stimmen.svg">Beide Stimmen Grün!</option>
                     <option value="btw21/zweitstimme.svg">Zweitstimme Grün!</option>
                     <option value="btw21/briefwahl.svg">Briefwahl jetzt!</option>
                 </optgroup>
