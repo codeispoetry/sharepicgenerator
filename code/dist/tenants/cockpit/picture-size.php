@@ -1,4 +1,4 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".picturesize"><i class="fas fa-expand-arrows-alt"></i> 
+<h3><i class="fas fa-expand-arrows-alt"></i> 
     Größe
     <small class="ms-2">
         <i class="fab fa-instagram"></i>
@@ -6,7 +6,7 @@
         <i class="fab fa-twitter"></i>
         </small>
     </h3>
-<div class="picturesize collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+<div class="picturesize list-group-item list-group-item-action flex-column align-items-start novideo">
     <div class="d-flex w-100 justify-content-between align-items-center">
         <div class="form-inline">
             <div class="d-flex sizecontainer">
@@ -31,6 +31,6 @@
                 </select>
             </div>
         </div>
-        <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
     </div>
+    <small class="text-primary cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
 </div>

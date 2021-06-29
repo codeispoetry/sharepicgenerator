@@ -1,5 +1,5 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".eyecatcher"><i class="far fa-eye"></i> Störer</h3>
-<div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start collapse">
+<h3><i class="far fa-eye"></i> Störer</h3>
+<div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
         <div class="">
             <select class="form-select" name="eyecatchertemplate" id="eyecatchertemplate">

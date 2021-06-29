@@ -1,5 +1,5 @@
-<h3 class="collapsed expertmode" data-toggle="collapse" data-target=".quality"><i class="fa fa-signal"></i> Bildqualität</h3>
-        <div class="quality expertmode collapse list-group-item list-group-item-action flex-column align-items-start">
+<h3><i class="fa fa-signal"></i> Bildqualität</h3>
+        <div class="quality list-group-item list-group-item-action flex-column align-items-start">
             Eine hohe Bildqualität bedeutet auch eine größere Datei.
             <div class="d-flex form-check form-check-inline">
                 <label class="">

@@ -10,7 +10,7 @@ $white: #FFFFFF;
 $gray: #333;
 $darkgray: #222;
 $lightgray: #999999;
-$verylightgray: #cccccc;
+$verylightgray: #dddddd;
 
 $pistazie: #a0c864;
 $sonnenblume: #ffe100;
@@ -42,6 +42,7 @@ $warning: #945707;
 $danger: #d62518;
 $light: #f8f9fa;
 $dark: #343a40;
+$cockpitbg: #eeeeee;
 
 $theme-colors: (
   "pistazie": $pistazie,
@@ -55,8 +56,13 @@ $theme-colors: (
   "danger": $danger,
   "warning": $warning,
   "dark": $dark,
-  "light": $light
+  "light": $light,
+  "cockpitbg": $cockpitbg
 );
 
 $form-range-track-bg: $light;
 $transition-collapse:  height .35s ease;
+
+$nav-pills-border-radius: 0;
+$nav-pills-link-active-color: $black;
+$nav-pills-link-active-bg:  $cockpitbg;
