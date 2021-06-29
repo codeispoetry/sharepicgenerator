@@ -91,3 +91,6 @@ users:
 
 bw-templates-get:
 	rsync -av sharepic:/var/www/sharepicgenerator.de/shared/tenants/bw/gallery/img/ code/dist/tenants/bw/gallery/img
+
+watch:
+	docker-compose exec node npm run watch
