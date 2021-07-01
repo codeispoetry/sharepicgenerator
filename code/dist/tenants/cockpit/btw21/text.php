@@ -1,6 +1,6 @@
 
 
-        <h3><i class="fas fa-text-width"></i> Text & Layout</h3>
+        <h3><i class="fas fa-text-width"></i> Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
             <div class="d-flex">
