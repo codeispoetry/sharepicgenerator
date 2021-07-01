@@ -28,7 +28,7 @@ const floating = {
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
 
-    floating.svg.on('dragend.namespace', function dragEnd() {
+    floating.svg.on('dragend.namespace', function floatingDragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
     });
@@ -55,8 +55,6 @@ const floating = {
     floating.svg
       .size($('#textsize').val())
       .move($('#textX').val(), $('#textY').val());
-
-    logo.draw();
 
     eraser.front();
 
