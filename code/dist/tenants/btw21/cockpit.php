@@ -49,7 +49,7 @@
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('tenants/cockpit/gridlines.php'));
+         require_once(getBasePath('tenants/cockpit/preferences.php'));
     ?>
     </div>
   </div>
