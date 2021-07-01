@@ -8,6 +8,7 @@ function showLayout() {
 
   area.draw();
   floating.draw();
+  logo.draw();
 }
 
 $('.layout').click(showLayout);
