@@ -22,8 +22,8 @@ const area = {
       return;
     }
 
-    if (typeof floating === 'object' && floating !== null) {
-      floating.hide();
+    if (typeof berlintext === 'object' && berlintext !== null) {
+      berlintext.hide();
     }
 
     area.svg.remove();

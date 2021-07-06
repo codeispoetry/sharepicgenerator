@@ -1,6 +1,6 @@
 const logo = {
   loaded: false,
-  svg: draw.image('/assets/logos/sonnenblume21.svg', () => {
+  svg: draw.image('/assets/berlin/logo.svg', () => {
     logo.loaded = true;
   }),
 
@@ -20,16 +20,12 @@ const logo = {
   },
 
   resize(percent) {
-    if (config.layout === 'area') {
-      return;
-    }
-
     let newPercent = parseInt(percent, 10);
     newPercent = Math.min(100, newPercent);
     newPercent = Math.max(1, newPercent);
 
     const width = draw.width() * newPercent * 0.01;
-    logo.svg.size(width, null);
+    logo.svg.size(width, width);
   },
 };
 

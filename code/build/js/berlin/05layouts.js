@@ -7,7 +7,7 @@ function showLayout() {
   $(`.${config.layout}`).show();
 
   area.draw();
-  floating.draw();
+  berlintext.draw();
   logo.draw();
 }
 
