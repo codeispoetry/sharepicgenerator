@@ -13,10 +13,7 @@
                 </a>
                 <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                     <i class="far fa-hand-point-right"></i> Aktionstage
-                </a>
-                <a href="/markdown" class="dropdown-item" target="_blank">
-                    <i class="fas fa-table"></i> Tabelle erstellen
-                </a>                   
+                </a>              
                 <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
                     <i class="fas fa-tape"></i> Designrichtlinien
                 </a>
@@ -25,9 +22,6 @@
                 </a>
 
             </div>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="overlay-opener nav-link" data-target="preferences">Einstellungen</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
@@ -39,8 +33,6 @@
                 <i class="fas fa-comment-dots"></i> Feedback</a>
             <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
                 <i class="fab fa-github"></i> Quellcode</a>
-            <a href="https://sunflower-theme.de" target="_blank" class="dropdown-item">  
-             <i class="fab fa-wordpress-simple"></i> Sunflower</a>
             </div>
         </li>
         <?php if (configValue($tenant, 'showGallery')) { ?>
