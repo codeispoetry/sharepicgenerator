@@ -36,6 +36,8 @@ set('shared_dirs', [
     'tenants/niedersachsen/gallery/img',
     'tenants/btw21/gallery/img',
     'tenants/btw21/pictures/img',
+    'tenants/berlin/gallery/img',
+    'tenants/berlin/pictures/img',
 
     'log/logs',
 ]);
