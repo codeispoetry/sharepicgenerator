@@ -57,10 +57,7 @@
 
 
 
-    <div class="mb-5">
-
-
     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
 
-    </div>
+
 </form>
