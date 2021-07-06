@@ -33,7 +33,14 @@ const topleft = {
 
       topleft.svg.add(line);
     });
+
+    if ($('#topleft-shadow').prop('checked')) {
+      topleft.svg.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(5);
+        add.blend(add.$source, blur);
+      });
+    }
   },
 };
 
-$('#topleft').bind('input propertychange', topleft.draw);
+$('#topleft, #topleft-shadow').bind('input propertychange', topleft.draw);
