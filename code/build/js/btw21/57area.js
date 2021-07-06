@@ -55,7 +55,7 @@ const area = {
 
     area.drawFond();
     area.svg.front();
-    area.drawLogo();
+    window.setTimeout(area.drawLogo, 500);
   },
 
   drawClaim(t) {
