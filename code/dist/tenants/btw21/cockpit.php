@@ -36,7 +36,7 @@
         <?php
             require_once(getBasePath('tenants/cockpit/addpictures.php'));
             require_once(getBasePath('tenants/cockpit/addtext.php'));
-            require_once(getBasePath('tenants/cockpit/eraser.php'));
+            require_once(getBasePath('tenants/cockpit/markdown.php'));
 
         ?>
     </div>
@@ -57,10 +57,7 @@
 
 
 
-    <div class="mb-5">
-
-
     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
 
-    </div>
+
 </form>

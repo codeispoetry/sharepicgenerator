@@ -9,9 +9,14 @@
         border: 0;
         border-bottom: 1px solid black;
         margin-top: 2em;
+        padding-left: 0;
 
         &:nth-child(1){
           margin-top: 0;
+        }
+
+        i.fa, i.fas, i.far, i.fab{
+          display: none;
         }
       }
 
