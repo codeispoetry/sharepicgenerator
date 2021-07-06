@@ -796,3 +796,7 @@ function getFontFamily($file){
 function isGuest(){
     return getUser() == 'guest';
 }
+
+function latestVersion($file){
+    printf('%s?v=%s', $file, filemtime(getBasePath($file)));
+}
