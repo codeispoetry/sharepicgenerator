@@ -18,6 +18,8 @@ Options -Indexes
     Redirect 301 /niedersachsen /tenants/niedersachsen
     Redirect 301 /nds /tenants/niedersachsen
     Redirect 301 /btw21 /tenants/btw21
+    Redirect 301 /berlin /tenants/berlin
+
 
 
 
