@@ -391,7 +391,7 @@
                 </div>    
             </div>
         </div>
-        <?php require_once(getBasePath('tenants/cockpit/addtext.php')); ?>
+        <?php require_once(getBasePath('tenants/cockpit/collapse-legacy/addtext.php')); ?>
 
         <h3 class="collapsed showonly nolines quote lines" data-toggle="collapse" data-target=".eraser"><i class="fas fa-eraser"></i> 
             3-D-Effekt
@@ -516,10 +516,6 @@
             </div>
         <?php } ?>
 
-        <?php require_once(getBasePath('tenants/cockpit/mail.php')); ?>
-        <?php require_once(getBasePath('tenants/cockpit/gridlines.php')); ?>
-
-
         <h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
@@ -536,10 +532,7 @@
                 <i class="far fa-hand-point-right"></i> Aktionstage
             </a>
         </div>
-        <div class="text-center text-white mt-3">
-            <i class="fas fa-spa text-highlight"></i> Programmiert von
-            <a href="MAILTO:mail@tom-rose.de?subject=Sharepicgenerator" class="text-white">Tom Rose</a>.
-        </div>
+        
     </div>
     <div class="d-none">
         <input type="hidden" name="pinX" id="pinX">
