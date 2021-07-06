@@ -56,6 +56,13 @@ const floating = {
       .size($('#textsize').val())
       .move($('#textX').val(), $('#textY').val());
 
+    if ($('#floating-shadow').prop('checked')) {
+      floating.svg.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(5);
+        add.blend(add.$source, blur);
+      });
+    }
+
     eraser.front();
 
     floating.svg.front();
@@ -116,7 +123,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textsize, #graybehindtext, #showclaim').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textsize, #showclaim, #floating-shadow').bind('input propertychange',  floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
