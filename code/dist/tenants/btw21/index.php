@@ -50,7 +50,7 @@ nextActionDay();
     <meta name="theme-color" content="#46962b">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sharepicgenerator</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?php latestVersion('/assets/css/styles.css');?>">
     <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
@@ -180,8 +180,8 @@ nextActionDay();
 <script src="/node_modules/@svgdotjs/svg.draggable.js/dist/svg.draggable.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
-<script src="/assets/js/main.min.js?v=<?php echo @filemtime('../../assets/js/main.min.js'); ?>"></script>
-<script src="/assets/js/btw21.min.js?v=<?php echo @filemtime('../../assets/js/btw21.min.js'); ?>"></script>
+<script src="<?php latestVersion('/assets/js/main.min.js');?>"></script>
+<script src="<?php latestVersion('/assets/js/btw21.min.js');?>"></script>
 
 
 
