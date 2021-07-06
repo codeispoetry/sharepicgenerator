@@ -25,7 +25,7 @@ $(document).ready(() => {
   $('#addtextY').val(draw.height() - 50);
 
   showLayout();
-  showAdvertising('sunflower');
+  showAdvertising('webinar');
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
@@ -33,6 +33,7 @@ $(document).ready(() => {
 });
 
 function showAdvertising(ad) {
+  return;
   $('.advertising').hide();
 
   if (config.user.prefs.advertising_seen === ad) {

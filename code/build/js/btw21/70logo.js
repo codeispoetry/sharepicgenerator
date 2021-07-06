@@ -12,9 +12,10 @@ const logo = {
 
     logo.resize($('#logosize').val());
 
-    logo.svg.on('dragend.namespace', function dragEnd() {
+    logo.svg.on('dragend.namespace', function logoDragEnd() {
       $('#logoX').val(Math.round(this.x()));
       $('#logoY').val(Math.round(this.y()));
+      logo.svg.draggable(false);
     });
   },
 
