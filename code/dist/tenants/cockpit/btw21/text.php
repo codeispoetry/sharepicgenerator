@@ -15,6 +15,10 @@
 
             <div class="list-group-item-content">
                 <div class="d-flex justify-content-end">
+                    <label class="d-flex">
+                        <i class="fas fa-cube me-2 toggle-text-shadow showonly floating" title="Text mit Schatten hinterlegen"></i>  
+                        <input type="checkbox" id="floating-shadow" name="floating-shadow" class="d-none">
+                    </label>
                     <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
                     <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
                     <i class="fa fa-align-center text-align me-2 showonly floating" data-align="middle" title="zentrieren"></i>
