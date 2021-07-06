@@ -63,7 +63,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
-  area.draw();
+  berlintext.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
