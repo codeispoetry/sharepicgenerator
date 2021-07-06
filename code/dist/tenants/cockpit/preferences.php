@@ -7,6 +7,10 @@
         Hilfslinien anzeigen
     </label>
 
+    <?php if('federal' == $tenant){; ?>
+        <a href="#" class="mt-3 overlay-opener btn btn-sm btn-secondary" data-target="preferences">Logos bearbeiten</a>
+    <?php } ?>
+
     <label class="d-none">
         <input id="darkmode" type="checkbox" class="me-1 form-check-input">
         Dark-Mode
