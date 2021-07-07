@@ -21,15 +21,16 @@ readConfig();
 
 </head>
 <?php
-    $img = 'bettina.png';
+    $img = $_GET['img'];
     list($w, $h ) = getimagesize($img);
 ?>
 <body class="h-100">
 
 <a href="https://github.com/svgdotjs/svg.filter.js?files=1" target="_blank">Mögliche SVG-Filter</a>
+<a href="http://andresgalante.com/RGBAtoFeColorMatrix/">create matrix</a>
 <div class="d-flex">
     <img src="<?php echo $img;?>" style="width: <?php echo $w;?>px; height: <?php echo $h;?>px">
-    <div id="canvas">
+    <div id="canvas" style="margin-left:1px;border:0;box-shadow:none" >
     </div>
 </div>
 
@@ -37,11 +38,7 @@ readConfig();
     
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.js/dist/svg.min.js"></script>
-<script src="/node_modules/@svgdotjs/svg.draggable.js/dist/svg.draggable.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
 
@@ -50,17 +47,39 @@ const draw = SVG().addTo('#canvas');
 draw.size(<?php echo "$w,$h";?>)
 
 const pistazie = draw.image('pistazie.png', () => {
-    pistazie.size(<?php echo "$w,$h";?>);
+    pistazie.size(<?php echo "$w,$h";?>).hide();
 });
 
 const image = draw.image('<?php echo $img;?>', () => {
-    image.size(<?php echo "$w,$h";?>);
-   doFilter();
+   image.size(<?php echo "$w,$h";?>);
+   doSepia();
 });
 
-function doFilter(){
-   
+function doMultiply(){
+    image.filterWith(function(add) {
+        add.colorMatrix('saturate', 0).blend(pistazie,'multiply');
+    });
 }
+
+function doSepia(){
+    image.filterWith(function(add) {
+        const contrast = 330;
+        add
+            .colorMatrix('saturate', 0)
+            .componentTransfer({
+                type: 'linear',
+                slope: contrast,
+                intercept: -(0.5 * contrast) + 0.5
+            })
+            .colorMatrix('matrix', [ 
+                0.359, 0, 0, 0, 0
+                , 0, 0.585, 0, 0, 0
+                , 0, 0, 0.129, 0, 0
+                , 0, 0, 0, 1, 0
+            ]);
+    });
+}
+
     
 </script>
 
