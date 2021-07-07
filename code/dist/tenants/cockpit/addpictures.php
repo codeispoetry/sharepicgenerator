@@ -38,12 +38,14 @@
                                     <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
                                     <small>groß</small>
                                 </div>
+                            </div>
+                            <div>
                                 <div class="ms-3">
                                     <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
                                     <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
                             </div>
-                            <div>
+                            <div class="d-none">
                                 <div class="slider">
                                     <small>nach&nbsp;links</small>
                                     <input type="range" class="form-range" name="addPicClipHorizontal<?= $i; ?>" id="addPicClipHorizontal<?= $i; ?>" min="-800" max="800" value="15">
