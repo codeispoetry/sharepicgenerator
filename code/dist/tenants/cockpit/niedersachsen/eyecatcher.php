@@ -4,7 +4,7 @@
         <div class="">
             <select class="form-control" id="eyecatchertemplate">
                 <option value="">Vorlage wählen</option>
-                <option value="custom">Text selbt eingeben</option>
+                <option value="custom">Text selbst eingeben</option>
                 <optgroup label="Vorlagen">
                     <option value="niedersachsen/datum.png">12.9 und 26.9</option>
                     <option value="niedersachsen/alle-stimmen.png">Alle Stimmen Grün</option>

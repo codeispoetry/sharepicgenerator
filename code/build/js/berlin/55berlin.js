@@ -52,7 +52,7 @@ const berlintext = {
         .back();
 
       line.x(indentation * 5)
-        .y(index * 27);
+        .y(index * 28); // Zeilenhöhe
 
       berlintext.svg.add(line);
     });
