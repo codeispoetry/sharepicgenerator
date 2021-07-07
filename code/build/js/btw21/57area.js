@@ -64,7 +64,6 @@ const area = {
       .addTo(area.svg)
       .front()
       .show()
-      .size(90)
       .move(-3, 5 + area.svg.height());
   },
 

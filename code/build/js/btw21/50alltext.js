@@ -38,6 +38,6 @@ $('.toggle-line-height').click(() =>{
 const claim = {
   svg: draw.image('/assets/btw21/claim.svg', () => {
     claim.loaded = true;
-    claim.svg.size(90).hide();
+    claim.svg.size(90, 13.5).hide();
   }),
 };
