@@ -52,32 +52,37 @@ const pistazie = draw.image('pistazie.png', () => {
 
 const image = draw.image('<?php echo $img;?>', () => {
    image.size(<?php echo "$w,$h";?>);
-   doSepia();
+   greenify();
 });
 
 function doMultiply(){
     image.filterWith(function(add) {
-        add.colorMatrix('saturate', 0).blend(pistazie,'multiply');
+        add.blend(pistazie,'multiply');
     });
 }
 
-function doSepia(){
+function greenify(){
     image.filterWith(function(add) {
-        const contrast = 330;
         add
             .colorMatrix('saturate', 0)
             .componentTransfer({
-                type: 'linear',
-                slope: contrast,
-                intercept: -(0.5 * contrast) + 0.5
+                type: 'linear', // will be set later
+                slope: 0,
+                intercept: 0
             })
             .colorMatrix('matrix', [ 
-                0.359, 0, 0, 0, 0
+                 0.359, 0, 0, 0, 0
                 , 0, 0.585, 0, 0, 0
                 , 0, 0, 0.129, 0, 0
                 , 0, 0, 0, 1, 0
             ]);
     });
+    
+    // because add.componentTransfer does not set tags in SVG
+     $('feComponentTransfer *')
+        .attr("type", "linear")
+        .attr("slope", 3) // brightness
+        .attr("intercept", 0.05); // contrast
 }
 
     
