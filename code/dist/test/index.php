@@ -20,11 +20,15 @@ readConfig();
     <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
 
 </head>
+<?php
+    $img = 'bettina.png';
+    list($w, $h ) = getimagesize($img);
+?>
 <body class="h-100">
 
 <a href="https://github.com/svgdotjs/svg.filter.js?files=1" target="_blank">Mögliche SVG-Filter</a>
 <div class="d-flex">
-    <img src="bild.jpg" style="width: 500px; height: 357">
+    <img src="<?php echo $img;?>" style="width: <?php echo $w;?>px; height: <?php echo $h;?>px">
     <div id="canvas">
     </div>
 </div>
@@ -41,17 +45,23 @@ readConfig();
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
 
-
 <script>
 const draw = SVG().addTo('#canvas');
-draw.size(500,357)
-    const image = draw.image('bild.jpg', () => {
-        image.size(500, null);
-        image.filterWith(function(add) {
-            add.colorMatrix('saturate', 0);
-            add.colorMatrix('hueRotate', 78);
-        })
-    });
+draw.size(<?php echo "$w,$h";?>)
+
+const pistazie = draw.image('pistazie.png', () => {
+    pistazie.size(<?php echo "$w,$h";?>);
+});
+
+const image = draw.image('<?php echo $img;?>', () => {
+    image.size(<?php echo "$w,$h";?>);
+   doFilter();
+});
+
+function doFilter(){
+   
+}
+    
 </script>
 
 </body>
