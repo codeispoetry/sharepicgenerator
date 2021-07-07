@@ -49,7 +49,7 @@ const floating = {
     floating.svg.add(t);
 
     if ($('#showclaim').prop('checked')) {
-      floating.drawClaim(t);
+      floating.drawClaim();
     }
 
     floating.svg
@@ -68,7 +68,7 @@ const floating = {
     floating.svg.front();
   },
 
-  drawClaim(t) {
+  drawClaim() {
     let x;
     switch (floating.align) {
       case 'middle':
