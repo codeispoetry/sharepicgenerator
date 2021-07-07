@@ -59,21 +59,8 @@
                                 <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
-                            <label class="showonly nolines">
-                                <input type="checkbox" class="form-check-input" name="greenbehindtext" id="greenbehindtext">
-                                Grün hinter Text
-                            </label>
                         </div>
-                        <div>
-                            <label class="showonly floating nolines quote">
-                                <input type="checkbox" class="form-check-input" name="graybehindtext" id="graybehindtext">
-                                Farbe hinter Text
-                            </label>
-                        </div>
-                        <div class="showonly nolines">
-                            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="floating.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
-                            <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
-                        </div>
+            
                        
                     </div>
                 </div>
