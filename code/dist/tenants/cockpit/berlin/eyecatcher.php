@@ -6,8 +6,8 @@
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbst eingeben</option>
                 <optgroup label="Vorlagen">
-                    <option value="btw21/zweitstimme.svg">Zweitstimme Grün!</option>
-                    <option value="btw21/briefwahl.svg">Briefwahl jetzt!</option>
+                    <option value="berlin/5stimmen.svg">5 Stimmen Grün!</option>
+                    <option value="berlin/briefwahl.svg">Briefwahl jetzt!</option>
                 </optgroup>
             </select>
             oder
