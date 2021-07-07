@@ -311,6 +311,7 @@ function countFaces($filename)
 
 function multiplyImage( $file, $orignalName)
 {
+    return;
     // Check transparency
     $cmd = sprintf('convert %s -format "%%[opaque]" info:', escapeshellarg($file));
     $has_transparency = (strToLower(shell_exec($cmd)) === 'false');
