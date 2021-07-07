@@ -44,9 +44,6 @@ const background = {
         }
       });
 
-      background.addGreenLayer();
-      background.addDarkLightLayer();
-
       // eslint-disable-next-line no-undef
       initSharepic();
 
@@ -59,43 +56,6 @@ const background = {
     this.svg.remove();
     background.colorlayer.hide();
     this.svg = draw.rect(draw.width(), draw.height()).fill($('#backgroundcolor').val()).back();
-  },
-
-  addGreenLayer() {
-    this.greenlayer.remove();
-
-    const value = $('#greenlayer').val() / 100;
-
-    let color = $('#layerColor').val();
-    if (!color) {
-      color = '#46962b';
-    }
-
-    this.greenlayer = draw.rect(draw.width(), draw.height()).fill(color).opacity(value);
-
-    this.greenlayer.attr('style', ' pointer-events: none;');
-
-    this.darklightlayer.back();
-    this.greenlayer.back();
-    this.svg.back();
-    this.colorlayer.back();
-  },
-
-  addDarkLightLayer() {
-    this.darklightlayer.remove();
-
-    let value = $('#darklightlayer').val() / 100;
-
-    const color = (value > 0) ? 'black' : 'white';
-    value = Math.abs(value);
-
-    this.darklightlayer = draw.rect(draw.width(), draw.height()).fill(color).opacity(value);
-    this.darklightlayer.attr('style', ' pointer-events: none;');
-
-    this.darklightlayer.back();
-    this.greenlayer.back();
-    this.svg.back();
-    this.colorlayer.back();
   },
 
   addFilter() {
@@ -157,6 +117,29 @@ const background = {
   },
 };
 
+function greenify() {
+  background.svg.filterWith((add) => {
+    add.colorMatrix('saturate', 0)
+      .componentTransfer({
+        type: 'linear', // will be set later
+        slope: 0,
+        intercept: 0,
+      })
+      .colorMatrix('matrix', [
+        0.359, 0, 0, 0, 0,
+        0, 0.585, 0, 0, 0,
+        0, 0, 0.129, 0, 0,
+        0, 0, 0, 1, 0,
+      ]);
+  });
+
+  // because add.componentTransfer does not set tags in SVG
+  $('feComponentTransfer *')
+    .attr('type', 'linear')
+    .attr('slope', 2.5) // brightness
+    .attr('intercept', 0.05); // contrast
+}
+
 $('#backgroundreset').click(() => {
   background.reset();
 });
@@ -169,22 +152,13 @@ $('#graybackground, #blurbackground').bind('input propertychange', () => {
   background.addFilter();
 });
 
-$('#darklightlayer').bind('input propertychange', () => {
-  background.addDarkLightLayer();
-});
-
-$('#darklightlayer').dblclick(function dblClickLayer() {
-  $(this).val(0);
-  background.addDarkLightLayer();
-});
-
-$('#greenlayer').bind('input propertychange', () => {
-  background.addGreenLayer();
-});
-
 $('#backgroundflip').click(() => {
   $('#backgroundFlipped').val(($('#backgroundFlipped').val() === 'false') ? 'true' : 'false');
   background.svg.scale(-1, 1);
+});
+
+$('#backgroundgreenify').click(() => {
+  greenify();
 });
 
 $('#backgroundcolor').bind('input propertychange', () => {

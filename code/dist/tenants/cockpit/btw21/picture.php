@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<h3><i class="fas fa-image"></i> Einstellungen</h3>
+<h3><i class="fas fa-image"></i> Bildeinstellungen</h3>
 <div class="picture  list-group-item list-group-item-action flex-column align-items-start">
 
     <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
@@ -53,32 +53,17 @@
             <small>farbig</small>
         </div>
 
-        <div class="slider novideo">
-            <small>scharf</small>
-            <input type="range" class="form-range" name="blurbackground" id="blurbackground" min="0"
-                max="10" value="0" step="0.5">
-            <small>unscharf</small>
+        <div>
+            <small class="text-primary cursor-pointer novideo " id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+                spiegeln
+            </small>
+            <small class="text-primary cursor-pointer novideo ms-5" id="backgroundgreenify"><i class="fas fa-paint-roller"></i></i>
+                grün färben
+            </small>
         </div>
 
-        <div class="slider novideo">
-            <small>hell</small>
-            <input type="range" class="form-range" name="darklightlayer" id="darklightlayer" min="-60"
-                max="60" value="0" step="5">
-            <small>dunkel</small>
-        </div>
-
-        <div class="slider novideo">
-            <small>unverändert</small>
-            <input type="range" class="form-range" name="greenlayer" id="greenlayer" min="0"
-                max="100" value="0" step="5">
-            <small>grün</small>
-        </div>
-
-        <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-align-center"></i>
-            zentrieren
-        </small>
-        <small class="text-primary cursor-pointer novideo ms-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
-            spiegeln
+        <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
+            zurücksetzen
         </small>
     </div>
     <div class="align-items-lg-center show-copyright d-none">
