@@ -65,6 +65,10 @@
                                 <input type="checkbox" name="greenbehindtext" id="greenbehindtext">
                                 Grün hinter Text
                             </label>
+                            <label class="showonly nolines">
+                                <input type="checkbox" name="graybehindtext" id="graybehindtext">
+                                Dunkel hinter Text
+                            </label>
                         </div>
                     </div>
                 </div>
