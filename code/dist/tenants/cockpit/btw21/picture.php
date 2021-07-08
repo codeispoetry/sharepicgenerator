@@ -45,23 +45,21 @@
 
         <div class="slider novideo">
             <small>schwarzweiß</small>
-            <input type="range" class="form-range" name="graybackground" id="graybackground" min="0"
+            <input type="range" class="form-range" name="saturate" id="saturate" min="0"
                 max="1" value="1" step="0.05">
             <small>farbig</small>
         </div>
-
+ 
         <div>
-            <small class="text-primary cursor-pointer novideo " id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+            <small class="text-primary cursor-pointer novideo me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
                 spiegeln
             </small>
-            <small class="text-primary cursor-pointer novideo ms-5" id="backgroundgreenify"><i class="fas fa-paint-roller"></i></i>
-                grün färben
+            <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
+                zurücksetzen
             </small>
         </div>
 
-        <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
-            zurücksetzen
-        </small>
+        
     </div>
     <div class="align-items-lg-center show-copyright d-none">
         <div class="d-flex align-items-center">
@@ -71,7 +69,32 @@
 
         </div>
     </div>
+
 </div>   
+
+<h3><i class="fas fa-image"></i> Grünfärbung</h3>
+<div class="list-group-item">
+        <small class="btn btn-sm btn-pistazie novideo backgroundgreenify"><i class="fas fa-paint-roller"></i>
+            Bild grün einfärben
+        </small>
+        <div class="slider novideo">
+            <small>Helligkeit</small>
+            <input type="range" class="form-range" name="brightness" id="brightness" min="0.5"
+                max="10" value="2.5" step="0.5">
+        </div>
+
+        <div class="slider novideo">
+            <small>Kontrast</small>
+            <input type="range" class="form-range" name="contrast" id="contrast" min="0"
+                max="0.8" value="0.05" step="0.005">
+        </div>
+        <small class="text-primary cursor-pointer novideo backgroundgreenify">
+            <i class="fas fa-undo"></i> Grünfärbung zurücksetzen
+        </small>
+
+</div>
+
+
 <input type="hidden" name="backgroundX" id="backgroundX">
 <input type="hidden" name="backgroundY" id="backgroundY">
 <input type="hidden" name="backgroundURL" id="backgroundURL">
