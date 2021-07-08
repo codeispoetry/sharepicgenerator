@@ -31,10 +31,22 @@
       }
 
       button.nav-link{
+
         display:flex;
         flex-direction: column;
         align-items: stretch;
+
         padding: 25px 5px;
+
+        small{
+          display: none;
+        }
+
+        @include media-breakpoint-up(lg) {
+          small{
+            display: block;
+          }
+        }
       }
   }
 }
