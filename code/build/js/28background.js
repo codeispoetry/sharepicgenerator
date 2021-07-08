@@ -60,8 +60,7 @@ const background = {
 
   addFilter() {
     this.svg.filterWith((add) => {
-      add.colorMatrix('saturate', $('#graybackground').val())
-        .gaussianBlur($('#blurbackground').val());
+      add.colorMatrix('saturate', $('#saturate').val());
     });
   },
 
@@ -117,7 +116,7 @@ const background = {
   },
 };
 
-function greenify() {
+function greenify(brightness = 2.5, contrast = 0.05) {
   background.svg.filterWith((add) => {
     add.colorMatrix('saturate', 0)
       .componentTransfer({
@@ -136,8 +135,8 @@ function greenify() {
   // because add.componentTransfer does not set tags in SVG
   $('feComponentTransfer *')
     .attr('type', 'linear')
-    .attr('slope', 2.5) // brightness
-    .attr('intercept', 0.05); // contrast
+    .attr('slope', brightness)
+    .attr('intercept', contrast);
 }
 
 $('#backgroundreset').click(() => {
@@ -148,7 +147,7 @@ $('#backgroundsize').bind('input propertychange', () => {
   background.resize();
 });
 
-$('#graybackground, #blurbackground').bind('input propertychange', () => {
+$('#saturate').bind('input propertychange', () => {
   background.addFilter();
 });
 
@@ -157,8 +156,11 @@ $('#backgroundflip').click(() => {
   background.svg.scale(-1, 1);
 });
 
-$('#backgroundgreenify').click(() => {
+$('.backgroundgreenify').click(() => {
   greenify();
+});
+$('#brightness, #contrast').bind('input propertychange', () => {
+  greenify($('#brightness').val(), $('#contrast').val());
 });
 
 $('#backgroundcolor').bind('input propertychange', () => {
