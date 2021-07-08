@@ -1,7 +1,7 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".url"><i class="fas fa-expand-arrows-alt"></i> 
+<h3><i class="fas fa-expand-arrows-alt"></i> 
     Name / KV
 </h3>
-<div class="url collapse list-group-item list-group-item-action flex-column align-items-start novideo">
+<div class="url list-group-item list-group-item-action flex-column align-items-start novideo">
     <div class="d-flex justify-content-end">
         <label>
             <i class="fas fa-cube" title="Text mit Schatten hinterlegen"></i>
