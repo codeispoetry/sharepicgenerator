@@ -31,7 +31,7 @@
         require_once(getBasePath('tenants/cockpit/niedersachsen/text.php'));
         require_once(getBasePath('tenants/cockpit/niedersachsen/texttopleft.php'));
         
-        require_once(getBasePath('tenants/cockpit/logo-none.php'));
+        require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
         require_once(getBasePath('tenants/cockpit/niedersachsen/eyecatcher.php'));
      
     ?>

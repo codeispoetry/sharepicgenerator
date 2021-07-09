@@ -8,15 +8,12 @@ const logo = {
     console.log("draw logo")
     logo.svg
       .move($('#logoX').val(), $('#logoY').val())
-      .addClass('draggable')
-      .draggable();
-
+      .addClass('draggable');
     logo.resize($('#logosize').val());
 
     logo.svg.on('dragend.namespace', function logoDragEnd() {
       $('#logoX').val(Math.round(this.x()));
       $('#logoY').val(Math.round(this.y()));
-      logo.svg.draggable(false);
     });
   },
 

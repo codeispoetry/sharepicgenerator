@@ -28,6 +28,7 @@ const area = {
 
     area.svg.remove();
     area.svg = draw.group();
+    logo.svg.draggable(false);
 
     setLineHeight();
 
