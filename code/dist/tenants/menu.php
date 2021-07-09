@@ -69,7 +69,7 @@
     </ul>
 </div>
 
-<a class="navbar-brand bereitbold" href="/">Sharepicgenerator.de</a>
+<a class="navbar-brand bereitbold" href="/">Sharepicgenerator.de/<?php echo $tenant; ?></a>
 
 <div class="navbar-text d-flex">
     <?php if (isEditor()) { ?> 
