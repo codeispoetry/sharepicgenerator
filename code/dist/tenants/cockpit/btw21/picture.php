@@ -74,9 +74,9 @@
 
 <h3><i class="fas fa-image"></i> Grünfärbung</h3>
 <div class="list-group-item">
-        <small class="btn btn-sm btn-pistazie novideo backgroundgreenify"><i class="fas fa-paint-roller"></i>
-            Bild grün einfärben
-        </small>
+        Bild grün einfärben
+        <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-toggle="toggle" data-on="ja" data-off="nein">
+
         <div class="slider novideo">
             <small>Helligkeit</small>
             <input type="range" class="form-range" name="brightness" id="brightness" min="0.5"
@@ -88,8 +88,8 @@
             <input type="range" class="form-range" name="contrast" id="contrast" min="0"
                 max="0.8" value="0.05" step="0.005">
         </div>
-        <small class="text-primary cursor-pointer novideo backgroundgreenify">
-            <i class="fas fa-undo"></i> Grünfärbung zurücksetzen
+        <small class="text-primary cursor-pointer novideo greenifyreset">
+            <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
         </small>
 
 </div>
