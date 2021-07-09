@@ -48,7 +48,7 @@ const background = {
       initSharepic();
 
       background.colorlayer.remove();
-      background.colorlayer = draw.rect(draw.width(), draw.height()).fill('#A0C864').back().show();
+      background.colorlayer = draw.rect(draw.width(), draw.height()).fill('#000000').back().show();
     });
   },
 
@@ -59,16 +59,29 @@ const background = {
   },
 
   addFilter() {
-    this.svg.filterWith((add) => {
-      add.colorMatrix('saturate', $('#saturate').val());
+    background.svg.filterWith((add) => {
+      add.colorMatrix('saturate', $('#saturate').val())
+        .componentTransfer({
+          type: 'linear', // will be set later
+          slope: 0,
+          intercept: 0,
+        });
     });
+
+    // because add.componentTransfer does not set tags in SVG
+    $('feComponentTransfer *')
+      .attr('type', 'linear')
+      .attr('slope', $('#brightness').val())
+      .attr('intercept', 0);
   },
 
   reset() {
     $('#backgroundX').val(0);
     $('#backgroundY').val(0);
     $('#saturate').val(1);
-    $('#greenify').prop('checked', false);
+    $('#brightness').val(1);
+
+    $('#greenify').prop('checked', false).change();
 
     $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     this.draw();
@@ -150,7 +163,8 @@ $('#backgroundsize').bind('input propertychange', () => {
   background.resize();
 });
 
-$('#saturate').bind('input propertychange', () => {
+$('#saturate, #brightness').bind('input propertychange', () => {
+  $('#greenify').prop('checked', false).change();
   background.addFilter();
 });
 
@@ -165,17 +179,18 @@ $('#backgroundcolor').bind('input propertychange', () => {
 
 $('#greenify').bind('change', () => {
   if ($('#greenify').prop('checked')) {
-    greenify();
+    greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
   } else {
     background.svg.unfilter();
+    background.addFilter();
   }
 });
-$('#brightness, #contrast').bind('input propertychange', () => {
-  greenify($('#brightness').val(), $('#contrast').val());
+$('#greenifybrightness, #greenifycontrast').bind('input propertychange', () => {
+  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
 });
 
 $('.greenifyreset').click(() => {
-  $('#brightness').val(2.5);
-  $('#contrast').val(0.05);
-  greenify($('#brightness').val(), $('#contrast').val());
+  $('#greenifybrightness').val(2.5);
+  $('#greenifycontrast').val(0.05);
+  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
 });
