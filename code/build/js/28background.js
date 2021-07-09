@@ -67,6 +67,9 @@ const background = {
   reset() {
     $('#backgroundX').val(0);
     $('#backgroundY').val(0);
+    $('#saturate').val(1);
+    $('#greenify').prop('checked', false);
+
     $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     this.draw();
     background.uncoveredAreaWarning();
@@ -156,13 +159,23 @@ $('#backgroundflip').click(() => {
   background.svg.scale(-1, 1);
 });
 
-$('.backgroundgreenify').click(() => {
-  greenify();
+$('#backgroundcolor').bind('input propertychange', () => {
+  background.drawColor();
+});
+
+$('#greenify').bind('change', () => {
+  if ($('#greenify').prop('checked')) {
+    greenify();
+  } else {
+    background.svg.unfilter();
+  }
 });
 $('#brightness, #contrast').bind('input propertychange', () => {
   greenify($('#brightness').val(), $('#contrast').val());
 });
 
-$('#backgroundcolor').bind('input propertychange', () => {
-  background.drawColor();
+$('.greenifyreset').click(() => {
+  $('#brightness').val(2.5);
+  $('#contrast').val(0.05);
+  greenify($('#brightness').val(), $('#contrast').val());
 });
