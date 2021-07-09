@@ -102,71 +102,75 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                 </dd>
             </dl>
         </div>
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-6 col-md-6 col-lg-3 d-none">
             <dl>
                 <dt><i class="far fa-images"></i> Bildquellen</dt>
                 <dd>
                     <ul>
-                        <?php showBackgroundSources(); ?>
+                        <?php //showBackgroundSources(); ?>
                     </ul>
                 </dd>
             </dl>
         </div>
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-6 col-md-6 col-lg-3 d-none">
             <dl>
                 <dt><i class="fas fa-bullhorn"></i> Social Media</dt>
                 <dd>
                     <ul>
-                        <?php showSocialMedia(); ?>
+                        <?php // showSocialMedia(); ?>
                     </ul>
                 </dd>
             </dl>
         </div>
+
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fas fa-sitemap"></i> Mandanten</dt>
+                <dt><i class="fas fa-sitemap"></i> Uniqe Users</dt>
                
-                Uniqe Users
+                
                 <dd><ul><?php echo showTenantsUniqueUsers(); ?></ul></dd>
 
-                Downloads last 7 days
-                <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
+            </dl>
+        </div>
 
-                Downloads all time
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="fas fa-sitemap"></i> Downloads all time</dt>
                 <dd><ul><?php echo showTenantsDownloadsLastDays(5000); ?></ul></dd>
             </dl>
         </div>
+
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fab fa-chrome"></i> Browser</dt>
-                <dd><ul><?php echo showBrowsers(); ?></ul></dd>
+                <dt><i class="fas fa-sitemap"></i> Downloads last 7 days</dt>
 
-                Different User Agents
-                <dd><?php echo getUserAgentCount(); ?></dd>
+                <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
+
             </dl>
         </div>
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-6 col-md-6 col-lg-3 d-none">
+            <dl>
+                <dt><i class="fab fa-chrome"></i> Browser</dt>
+                <dd><ul><?php //echo showBrowsers(); ?></ul></dd>
+
+                Different User Agents
+                <dd><?php //echo getUserAgentCount(); ?></dd>
+            </dl>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 d-none">
             <dl>
                 <dt><i class="fas fa-qrcode"></i> QR-Code</dt>
-                <dd>QR-Code-Nutzungen: <?php echo getQRCodeCount(); ?></dd>
+                <dd>QR-Code-Nutzungen: <?php //echo getQRCodeCount(); ?></dd>
             </dl>
             <dl>
                 <dt><i class="fas fa-envelope"></i> E-Mail</dt>
-                <dd>E-Mail-Versand: <?php echo getEmailsCount(); ?></dd>
+                <dd>E-Mail-Versand: <?php //echo getEmailsCount(); ?></dd>
             </dl>
             <dl>
                 <dt><i class="fas fa-save"></i> Arbeitsdateien</dt>
-                <dd>Arbeitsdatei-Nutzungen: <?php echo getSaveWorkCount(); ?></dd>
+                <dd>Arbeitsdatei-Nutzungen: <?php // echo getSaveWorkCount(); ?></dd>
             </dl>
-            <dl>
-                <dt><i class="fas fa-images"></i> Bildbeareitungen</dt>
-                <dd>
-                    Schwarz-weiß: <?php echo 100 * round( getImageBlackWhite(), 2); ?>%
-                    <br>Unscharf: <?php echo 100 * round( getImageBlur(), 2); ?>%
-                    <br>Hell/Dunkel: <?php echo 100 * round( getImageDarkLight(), 2); ?>%
-                    <br>Grün: <?php echo 100 * round(getImageGreen(), 2); ?>%
-                </dd>
-            </dl>
+        
         </div>
      
     </div>
