@@ -177,6 +177,13 @@ function getAddPic()
     return singleResult("select count(*) as result from downloads WHERE addpicfile1 !='' OR addpicfile2 != '';");
 }
 
+function getGreenifyRelative()
+{
+    $greenified = singleResult("select count(*) as result from downloads WHERE greenified = 1");
+    $total = $greenified + singleResult("select count(*) as result from downloads WHERE greenified = 0");
+    return $greenified / $total;
+}
+
 function showSocialMedia()
 {
     return echoResults("select SUBSTR(socialmediaplatform,0,INSTR(socialmediaplatform,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;", true);
