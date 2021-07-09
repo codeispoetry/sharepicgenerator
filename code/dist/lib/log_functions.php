@@ -123,6 +123,11 @@ function getLoginCountsPerUserLastDays($operator = '=', $threshold = 1, $days = 
         select count(distinct timestamp) as result from downloads where julianday("now") - julianday(timestamp) <= ' . $days .' GROUP BY user HAVING result ' . $operator . $threshold . ')');
 }
 
+function getDownloadsLastDay($days = 0)
+{
+    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE date(timestamp) = date('now', '-{$days} days');");
+}
+
 function getDownloads()
 {
     static $total;
@@ -357,7 +362,7 @@ function showLogGraph()
     // by week
     $sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
     // by month
-    $sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
+    //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
     $results = $db->query($sql);
 
     $style = <<<STYLE

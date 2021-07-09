@@ -44,6 +44,12 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     ?>
                     gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
                         <br>
+                    heute: <?php echo number_format(getDownloadsLastDay(0), 0, ',', '.'); ?>
+                        <br>
+                    gestern: <?php echo number_format(getDownloadsLastDay(1), 0, ',', '.'); ?>
+                        <br>
+                     vorgestern: <?php echo number_format(getDownloadsLastDay(2), 0, ',', '.'); ?>
+                        <br>
                     letzten 30 Tage: <?php echo number_format(getUsersLastDays(30), 0, ',', '.'); ?>
                         <br>
                     Aktivität (Median): <?php echo number_format(getUsersActivity(), 0, ',', '.'); ?>
