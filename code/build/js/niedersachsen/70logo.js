@@ -37,7 +37,10 @@ $('#logosize').bind('input propertychange', () => {
 });
 
 $('.align-center-logo').click(() => {
-  $('#logoX').val((draw.width() - logo.svg.width()) / 2);
-  $('#logoY').val((draw.height() - logo.svg.height()) / 2);
-  logo.draw();
+  const x = (draw.width() - logo.svg.width()) / 2;
+  const y = (draw.height() - logo.svg.height()) / 2;
+
+  $('#logoX').val(x);
+  $('#logoY').val(x);
+  logo.svg.move(x, y);
 });
