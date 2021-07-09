@@ -71,7 +71,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     <br>
                     täglich: <?php echo number_format(getDailyDownloads(), 0, ',', '.'); ?>
                     <br>
-                    mit Pixabay: <?php printf('%2d', 100*getPixabay()/$totalDownloads); ?>%
+                    grünifiziert: <?php printf('%2d', 100*getGreenifyRelative()); ?>%
                     <br>
                     für Social Media: <?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%
                     <br>
