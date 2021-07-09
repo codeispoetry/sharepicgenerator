@@ -227,7 +227,6 @@ function logDownload()
 
         // add missing columns
         $newColumns = array_diff(array_keys($data), $columns);
-  
         foreach ($newColumns as $newColumn) {
             $type = 'TEXT';
             if (in_array($newColumn, ['uploadTime','createTime'])) {
