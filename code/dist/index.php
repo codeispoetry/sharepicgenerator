@@ -114,7 +114,7 @@
               <li> 
                 <a href="/btw21">Bundestagswahl</a><br>
                 <a href="/tenants/niedersachsen">Niedersachsen</a> |
-                <a href="/tenants/berlin" class="d-none">Berlin</a> |
+                <a href="/tenants/berlin">Berlin</a> |
 
                 <a href="/tenants/federal">Bundeslayout</a>
                 
