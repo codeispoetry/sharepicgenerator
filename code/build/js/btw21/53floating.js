@@ -24,7 +24,6 @@ const floating = {
     }
 
     area.hide();
-    logo.svg.draggable();
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
