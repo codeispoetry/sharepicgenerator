@@ -5,7 +5,6 @@ const logo = {
   }),
 
   draw() {
-    console.log("draw logo")
     logo.svg
       .move($('#logoX').val(), $('#logoY').val())
       .addClass('draggable');

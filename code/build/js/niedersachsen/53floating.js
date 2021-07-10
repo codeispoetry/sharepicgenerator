@@ -27,7 +27,6 @@ const floating = {
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
-    logo.svg.draggable();
 
     floating.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
