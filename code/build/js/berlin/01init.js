@@ -87,7 +87,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     addtext.draw();
-
+    logo.draw();
     eraser.draw();
   }, 100);
 
