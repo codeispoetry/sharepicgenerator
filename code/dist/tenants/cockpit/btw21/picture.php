@@ -51,6 +51,13 @@
         </div>
 
         <div class="slider novideo">
+            <small>scharf</small>
+            <input type="range" class="form-range" name="blur" id="blur" min="0"
+                max="8" value="0" step="0.25">
+            <small>unscharf</small>
+        </div>
+
+        <div class="slider novideo">
             <small>dunkel   </small>
             <input type="range" class="form-range" name="brightness" id="brightness" min="0.4"
                 max="1.6" value="1" step="0.1">

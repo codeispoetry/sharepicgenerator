@@ -61,6 +61,7 @@ const background = {
   addFilter() {
     background.svg.filterWith((add) => {
       add.colorMatrix('saturate', $('#saturate').val())
+        .gaussianBlur($('#blur').val())
         .componentTransfer({
           type: 'linear', // will be set later
           slope: 0,
@@ -80,6 +81,7 @@ const background = {
     $('#backgroundY').val(0);
     $('#saturate').val(1);
     $('#brightness').val(1);
+    $('#blur').val(0);
 
     $('#greenify').prop('checked', false).change();
 
@@ -163,7 +165,7 @@ $('#backgroundsize').bind('input propertychange', () => {
   background.resize();
 });
 
-$('#saturate, #brightness').bind('input propertychange', () => {
+$('#saturate, #brightness, #blur').bind('input propertychange', () => {
   $('#greenify').prop('checked', false).change();
   background.addFilter();
 });
