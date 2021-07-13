@@ -52,7 +52,7 @@ const background = {
   drawColor() {
     this.svg.remove();
     background.colorlayer.hide();
-    this.svg = draw.rect(draw.width(), draw.height()).fill($('#backgroundcolor').val()).back();
+    this.svg = draw.rect(5000, 5000).fill($('#backgroundcolor').val()).back();
   },
 
   addFilter() {
