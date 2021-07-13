@@ -46,9 +46,6 @@ const background = {
 
       // eslint-disable-next-line no-undef
       initSharepic();
-
-      background.colorlayer.remove();
-      background.colorlayer = draw.rect(draw.width(), draw.height()).fill('#000000').back().show();
     });
   },
 
