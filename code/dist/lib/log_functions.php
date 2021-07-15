@@ -359,26 +359,38 @@ function getFreeSpace()
 function showLogGraph()
 {
     global $db;
+    // by day
+    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS bar, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY period ORDER BY period;";
     // by week
-    $sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
+    //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS bar FROM downloads GROUP BY period ORDER BY period;";
     // by month
-    //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS month FROM downloads GROUP BY period ORDER BY period;";
+    //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS bar FROM downloads GROUP BY period ORDER BY period;";
     $results = $db->query($sql);
 
     $style = <<<STYLE
         <style>
             .bar{
                 width: 100%;
-                background:red;
+                background: #f06464;
                 align-self:flex-end;
-                justify-content:space-between;
-                border-top-left-radius: 30px;
-                border-top-right-radius: 30px;
+                justify-content:flex-start;
+                flex-direction: column;
+                align-items: center;
                 display: flex;
-                justify-content: center;
+                margin-left: 1px;
+                max-width: 50px;
             }
+
+            .bar small{
+                font-size: 70%;
+            }
+
+            .weekend{
+                background: #ffc2c2;
+            }
+
             .spacer-left{
-                margin-left: 10px;
+                margin-left: 20px;
             }
         </style>
 STYLE;
@@ -387,12 +399,13 @@ STYLE;
 
     $oldMonth = 0;
     while ($row = $results->fetchArray()) {
-       printf('<div class="bar %1$s" style="height:%2$dpx" title="%4$s: %3$s">%4$s: %3$s</div>', 
-        ($oldMonth != $row['month']) ? 'spacer-left' : '', 
-        $row['count'] / 200, 
+       printf('<div class="bar %5$s %1$s" style="height:%2$dpx" title="%4$s: %3$s">%3$s <small>%4$s</small></div>', 
+        ($row['weekday'] == 1) ? 'spacer-left' : '', 
+        $row['count'] / 10, 
         number_format($row['count'], 0, ',', '.'), 
-        $row['period']);
-       $oldMonth = $row['month'];
+        $row['period'],
+        ($row['weekday'] == 0 || $row['weekday'] == 6) ? 'weekend' : 'weekday'
+        );
     }
     echo "</div>";
 }
