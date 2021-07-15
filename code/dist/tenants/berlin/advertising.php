@@ -1,4 +1,6 @@
 <div class="advertising p-3">
+    <?php
+    /*
     <a href="#" class="close close-target text-danger" data-target=".advertising">
         <i class="fas fa-times"></i>
     </a>
@@ -9,5 +11,7 @@
        Montag, 12. Juli, 19 Uhr. Melde Dich gleich an.
         </div> 
     </a>
+    */
+    ?>
 </div>
 <div class="mb-4"></div>
