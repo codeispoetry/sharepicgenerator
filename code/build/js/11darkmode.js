@@ -3,7 +3,6 @@ $(document).ready(() => {
     $('#darkmode').prop('checked', true);
   } else {
     $('#darkmode').prop('checked', false);
-    $('.gridline').addClass('d-none');
   }
 
   $('#darkmode').bind('change', () => {
