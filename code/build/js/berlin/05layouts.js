@@ -11,8 +11,8 @@ function showLayout() {
       area.draw();
       logo.svg.draggable(false);
       break;
-    case 'floating':
-      floating.draw();
+    case 'berlintext':
+      berlintext.draw();
       logo.draw();
       logo.svg.draggable(true);
       break;
