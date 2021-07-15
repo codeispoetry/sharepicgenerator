@@ -360,7 +360,7 @@ function showLogGraph()
 {
     global $db;
     // by day
-    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS bar, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY period ORDER BY period;";
+    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS bar, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
     // by week
     //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS bar FROM downloads GROUP BY period ORDER BY period;";
     // by month
