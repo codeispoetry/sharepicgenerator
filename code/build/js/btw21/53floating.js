@@ -10,6 +10,12 @@ const floating = {
     leading: '1.05em',
     size: 20,
   },
+  fontBefore: {
+    family: 'BereitBold',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 10,
+  },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
@@ -43,6 +49,10 @@ const floating = {
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textbefore').val()) {
+      floating.svg.add(floating.drawTextBefore(t));
+    }
 
     if ($('#textafter').val()) {
       floating.svg.add(floating.drawTextAfter(t));
@@ -92,6 +102,28 @@ const floating = {
       .move(x, 5 + floating.svg.height());
   },
 
+  drawTextBefore(t) {
+    const textbefore = draw.text($('#textbefore').val())
+      .font(floating.fontBefore)
+      .fill('#FFE100')
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+
+    textbefore.move(0, -textbefore.bbox().h);
+
+    switch (floating.align) {
+      case 'middle':
+        textbefore.x(-textbefore.bbox().w / 2);
+        break;
+      case 'end':
+        textbefore.x(-textbefore.bbox().w);
+        break;
+      default:
+    }
+
+    return textbefore;
+  },
+
   drawTextAfter(t) {
     claim.svg.hide();
 
@@ -125,7 +157,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
