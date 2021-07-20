@@ -45,7 +45,7 @@ const area = {
       .attr('style', 'white-space:pre');
 
     if ($('#textbefore').val()) {
-      area.svg.add(area.drawTextBefore(t));
+      area.svg.add(area.drawTextBefore());
     }
 
     if ($('#textafter').val()) {
@@ -55,7 +55,7 @@ const area = {
     area.svg.add(t);
 
     if ($('#showclaim').prop('checked')) {
-      area.drawClaim(t);
+      area.drawClaim();
     }
 
     area.svg
@@ -69,16 +69,16 @@ const area = {
     window.setTimeout(area.drawLogo, 500);
   },
 
-  drawClaim(t) {
+  drawClaim() {
     return claim.svg
       .clone()
       .addTo(area.svg)
       .front()
       .show()
-      .move(-3, 5 + area.svg.height());
+      .move(-3, 5 + area.svg.height() + area.svg.y());
   },
 
-  drawTextBefore(t) {
+  drawTextBefore() {
     const textbefore = draw.text($('#textbefore').val())
       .font(area.fontBefore)
       .fill('#FFE100')

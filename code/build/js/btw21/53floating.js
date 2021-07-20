@@ -51,7 +51,7 @@ const floating = {
       .attr('style', 'white-space:pre');
 
     if ($('#textbefore').val()) {
-      floating.svg.add(floating.drawTextBefore(t));
+      floating.svg.add(floating.drawTextBefore());
     }
 
     if ($('#textafter').val()) {
@@ -99,10 +99,10 @@ const floating = {
       .front()
       .show()
       .size(90)
-      .move(x, 5 + floating.svg.height());
+      .move(x, 5 + floating.svg.height() + floating.svg.y());
   },
 
-  drawTextBefore(t) {
+  drawTextBefore() {
     const textbefore = draw.text($('#textbefore').val())
       .font(floating.fontBefore)
       .fill('#FFE100')
