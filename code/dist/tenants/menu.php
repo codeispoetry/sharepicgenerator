@@ -33,6 +33,12 @@
                 <i class="fas fa-comment-dots"></i> Feedback</a>
             <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
                 <i class="fab fa-github"></i> Quellcode</a>
+                
+            <div class="dropdown-item">Version:
+                <?php
+                 system("pwd -P | cut -d '/' -f 6");
+                ?>
+            </div>
             </div>
         </li>
         <?php if (configValue($tenant, 'showGallery')) { ?>
