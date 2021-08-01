@@ -8,7 +8,7 @@
                         $divclass .= ' show-add-pic-upload d-none';
                     }
                 ?>
-                    <div class="<?= $divclass; ?> show-add-pic-<?= $i; ?>">
+                    <div class="<?= $divclass; ?> show-add-pic-all show-add-pic-<?= $i; ?>">
                         <div class="d-flex w-100 justify-content-between">
                          <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
                             <i class="fa fa-upload"></i> <?= $i; ?>. Bild hochladen
@@ -17,6 +17,13 @@
 
                         <div class="add-pic-tools-<?= $i; ?> text-primary d-none">
                             <?php if ($i >= 2) { ?>
+
+                                <span id="addpic-same-x-<?= $i; ?>">
+                                    <i class="fas fa-caret-left" title="Gleiche x-Position wie Bild 1"></i>
+                                 </span>
+                                 <span id="addpic-same-y-<?= $i; ?>">
+                                    <i class="fas fa-caret-up" title="Gleiche y-Position wie Bild 1"></i>
+                                 </span>
                                 <span class="text-primary cursor-pointer addpic-same-height-<?= $i; ?>">
                                     <i class="fas fa-arrows-alt-v" title="gleiche Höhe wie Bild 1"></i>
                                 </span>
@@ -27,7 +34,7 @@
                             
                             <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
                                 <i class="fas fa-layer-group text-primary"></i>
-                            </span> 
+                            </span>                          
                         
                             <span id="addpicdelete<?= $i; ?>">
                                 <i class="fas fa-trash" title="löschen"></i>
@@ -48,18 +55,7 @@
                                     <input type="checkbox" name="addpicroundedborder<?= $i; ?>" class="retoggle" id="addpicroundedborder<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
                             </div>
-                            <div class="d-none">
-                                <div class="slider">
-                                    <small>nach&nbsp;links</small>
-                                    <input type="range" class="form-range" name="addPicClipHorizontal<?= $i; ?>" id="addPicClipHorizontal<?= $i; ?>" min="-800" max="800" value="15">
-                                    <small>nach&nbsp;rechts</small>
-                                </div>
-                                <div class="slider">
-                                    <small>kleiner</small>
-                                    <input type="range" class="form-range" name="addPicClipWidth<?= $i; ?>" id="addPicClipWidth<?= $i; ?>" min="0" max="3000" value="15">
-                                    <small>größer</small>
-                                </div>
-                            </div>
+    
                         </div>
                     </div>
 
