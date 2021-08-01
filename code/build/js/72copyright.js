@@ -67,4 +67,8 @@ const copyright = {
     copyright.svg.move(x, y)
       .rotate(rotation, copyright.svg.x(), copyright.svg.y());
   },
+
+  front() {
+    copyright.svg.front();
+  },
 };
