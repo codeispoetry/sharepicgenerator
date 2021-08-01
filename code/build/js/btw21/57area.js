@@ -66,6 +66,8 @@ const area = {
 
     area.drawFond();
     area.svg.front();
+    copyright.front();
+    pin.front();
     window.setTimeout(area.drawLogo, 500);
   },
 
