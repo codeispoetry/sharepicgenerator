@@ -15,10 +15,13 @@
                         </span>
 
 
-                        <div class="add-pic-tools-<?= $i; ?> text-primary cursor-pointer d-none">
+                        <div class="add-pic-tools-<?= $i; ?> text-primary d-none">
                             <?php if ($i >= 2) { ?>
-                                <span class="text-primary cursor-pointer show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
-                                    <i class="fas fa-align-justify" title="an Bild 1 angleichen"></i>
+                                <span class="text-primary cursor-pointer addpic-same-height-<?= $i; ?>">
+                                    <i class="fas fa-arrows-alt-v" title="gleiche Höhe wie Bild 1"></i>
+                                </span>
+                                <span class="text-primary cursor-pointer addpic-same-width-<?= $i; ?>">
+                                    <i class="fas fa-arrows-alt-h" title="gleiche Breite wie Bild 1"></i>
                                 </span>
                             <?php } ?>
                             
@@ -35,14 +38,14 @@
                             <div class="d-flex align-items-center">
                                <div class="slider">
                                     <small>klein</small>
-                                    <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="100" value="15">
+                                    <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="800" value="90">
                                     <small>groß</small>
                                 </div>
                             </div>
                             <div>
                                 <div class="ms-3">
                                     <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
-                                    <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
+                                    <input type="checkbox" name="addpicroundedborder<?= $i; ?>" class="retoggle" id="addpicroundedborder<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
                             </div>
                             <div class="d-none">
