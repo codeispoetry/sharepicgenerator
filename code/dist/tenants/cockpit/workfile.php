@@ -2,8 +2,7 @@
         <h3><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="workfile list-group-item list-group-item-action flex-column align-items-start">
             <em class="small">
-                Wegen anhaltender technischer Problem steht diese Funktion nicht mehr zur Verfügung.
-                Ich bitte um Entschuldigung.
+                Diese Funktion steht leider nicht mehr zur Verfügung.
             </em>
             <div class="d-none">
                 <div>
