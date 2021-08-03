@@ -1,12 +1,14 @@
 
         <h3><i class="fas fa-wrench"></i> Arbeitsdatei</h3>
         <div class="workfile list-group-item list-group-item-action flex-column align-items-start">
-            <em class="small">
-                Diese Funktion steht leider nicht mehr zur Verfügung.
-            </em>
-            <div class="d-none">
-                <div>
+
+            <div class="">
+                <div class="small">
                     Mit der Arbeitsdatei kannst Du Dein Sharepic später weiter bearbeiten.
+                    <div class="text-danger">
+                        Diese Funktion ist experimentell und funktioniert an manchen Stellen nicht.
+                        Bitte benutze sie deshalb mit Bedacht.
+                    </div>
                 </div>
                 <div>
                     <button type="button" class="btn btn-info btn-sm" id="savework" data-click="savework"><i class="fas fa-download"></i> herunterladen</button>
