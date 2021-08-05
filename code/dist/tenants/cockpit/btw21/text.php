@@ -25,7 +25,7 @@
                     <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="#Hallo" class="form-control showonly area floating">
+                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control showonly area floating">
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
