@@ -8,6 +8,14 @@ const bgpic = {
   filename: '/assets/bg_small_basic.jpg',
   fullBackgroundName: '../assets/bg.jpg',
 };
+// Generator http://andresgalante.com/RGBAtoFeColorMatrix/
+var greenifyMatrix = [
+  0.33, 0, 0, 0, 0,
+  0, 0.53, 0, 0, 0,
+  0, 0, 0.78, 0, 0,
+  0, 0, 0, 1, 0,
+];
+
 
 var initialized = false;
 
