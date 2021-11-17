@@ -18,11 +18,13 @@ var greenifyMatrix = [
 
 
 var initialized = false;
-
+function debug(){
+  console.log(basic.svg.y(), $('#textY').val());
+}
 $(document).ready(() => {
   $('#textsize').val(99);
-  $('#textX').val(41);
-  $('#textY').val(272);
+  $('#textX').val(20);
+  $('#textY').val(372);
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -45,6 +47,7 @@ $(document).ready(() => {
   }
 
   $('.expertmode').toggleClass('d-none');
+  debug();
 });
 
 function disableFeature(feature) {
