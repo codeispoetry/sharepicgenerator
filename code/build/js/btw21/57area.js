@@ -9,6 +9,12 @@ const area = {
     leading: '1.05em',
     size: 20,
   },
+  fontBefore: {
+    family: 'BereitBold',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 10,
+  },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
@@ -38,6 +44,10 @@ const area = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
+    if ($('#textbefore').val()) {
+      area.svg.add(area.drawTextBefore());
+    }
+
     if ($('#textafter').val()) {
       area.svg.add(area.drawTextAfter(t));
     }
@@ -45,7 +55,7 @@ const area = {
     area.svg.add(t);
 
     if ($('#showclaim').prop('checked')) {
-      area.drawClaim(t);
+      area.drawClaim();
     }
 
     area.svg
@@ -56,16 +66,40 @@ const area = {
 
     area.drawFond();
     area.svg.front();
+    copyright.front();
+    pin.front();
     window.setTimeout(area.drawLogo, 500);
   },
 
-  drawClaim(t) {
+  drawClaim() {
     return claim.svg
       .clone()
       .addTo(area.svg)
       .front()
       .show()
-      .move(-3, 5 + area.svg.height());
+      .move(-3, 5 + area.svg.height() + area.svg.y());
+  },
+
+  drawTextBefore() {
+    const textbefore = draw.text($('#textbefore').val())
+      .font(area.fontBefore)
+      .fill('#FFE100')
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+
+    textbefore.move(0, -textbefore.bbox().h);
+
+    switch (area.align) {
+      case 'middle':
+        textbefore.x(-textbefore.bbox().w / 2);
+        break;
+      case 'end':
+        textbefore.x(-textbefore.bbox().w);
+        break;
+      default:
+    }
+
+    return textbefore;
   },
 
   drawTextAfter(t) {
@@ -137,4 +171,4 @@ const area = {
 
 };
 
-$('#text, #textafter, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);
+$('#text, #textafter, #textbefore, #textsize, #graybehindtext, #showclaim').bind('input propertychange', area.draw);

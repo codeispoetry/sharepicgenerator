@@ -21,6 +21,8 @@ $('#download,.download').click(function onDownloadClick() {
 
   let { format } = config;
 
+  config.greenified = ($('#greenify').prop('checked')) ? 1 : 0;
+
   if (config.video === true) {
     format = 'mp4';
     background.svg.hide();

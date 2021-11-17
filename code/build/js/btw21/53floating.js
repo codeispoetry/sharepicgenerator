@@ -10,6 +10,12 @@ const floating = {
     leading: '1.05em',
     size: 20,
   },
+  fontBefore: {
+    family: 'BereitBold',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 10,
+  },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
@@ -24,7 +30,6 @@ const floating = {
     }
 
     area.hide();
-    logo.svg.draggable();
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
@@ -34,6 +39,8 @@ const floating = {
       $('#textY').val(Math.round(this.y()));
     });
 
+    floating.svg.on('dragmove.namespace', highlightGridLine);
+
     setLineHeight();
     const anchor = floating.align;
 
@@ -42,6 +49,10 @@ const floating = {
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textbefore').val()) {
+      floating.svg.add(floating.drawTextBefore());
+    }
 
     if ($('#textafter').val()) {
       floating.svg.add(floating.drawTextAfter(t));
@@ -57,9 +68,9 @@ const floating = {
       .size($('#textsize').val())
       .move($('#textX').val(), $('#textY').val());
 
-    if ($('#floating-shadow').prop('checked')) {
+    if ($('#floatingshadow').prop('checked')) {
       floating.svg.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(5);
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(2);
         add.blend(add.$source, blur);
       });
     }
@@ -88,7 +99,29 @@ const floating = {
       .front()
       .show()
       .size(90)
-      .move(x, 5 + floating.svg.height());
+      .move(x, 5 + floating.svg.height() + floating.svg.y());
+  },
+
+  drawTextBefore() {
+    const textbefore = draw.text($('#textbefore').val())
+      .font(floating.fontBefore)
+      .fill('#FFE100')
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+
+    textbefore.move(0, -textbefore.bbox().h);
+
+    switch (floating.align) {
+      case 'middle':
+        textbefore.x(-textbefore.bbox().w / 2);
+        break;
+      case 'end':
+        textbefore.x(-textbefore.bbox().w);
+        break;
+      default:
+    }
+
+    return textbefore;
   },
 
   drawTextAfter(t) {
@@ -124,7 +157,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textsize, #showclaim, #floating-shadow').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {

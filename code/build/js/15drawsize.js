@@ -63,6 +63,8 @@ function setDrawsize() {
   } else {
     $('#grid-round').addClass('rectangle');
   }
+
+  //background.drawColor();
 }
 
 function resetDrawsize() {

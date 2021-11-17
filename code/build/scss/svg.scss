@@ -65,3 +65,12 @@
   user-select: none;
   cursor: inherit;
 }
+
+#highlight-rect{
+  width: 100px;
+  height: 100px;
+  border: 2px dotted red;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
