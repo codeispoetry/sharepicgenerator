@@ -31,13 +31,13 @@ $defaultColor = '#5488C7';
         <?php 
             require_once(getBasePath('tenants/cockpit/einigungshilfe/text.php'));
             require_once(getBasePath('tenants/cockpit/basic/logo.php'));
-            require_once(getBasePath('tenants/cockpit/basic/eyecatcher.php'));
+            require_once(getBasePath('tenants/cockpit/einigungshilfe/eyecatcher.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
             require_once(getBasePath('tenants/cockpit/addpictures.php'));
-            require_once(getBasePath('tenants/cockpit/basic/addtext.php'));
+            require_once(getBasePath('tenants/cockpit/einigungshilfe/addtext.php'));
             require_once(getBasePath('tenants/cockpit/markdown.php'));
             require_once(getBasePath('tenants/cockpit/eraser-none.php'));
 
