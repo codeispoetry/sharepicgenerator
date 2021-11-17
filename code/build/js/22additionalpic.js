@@ -18,39 +18,48 @@ const addPic1 = {
     });
 
     this.circleMask = draw.circle(0).fill({ color: '#fff' });
-    this.circleBorder = draw.circle(0).attr({ fill: 'transparent', stroke: '#fff' });
 
     this.pic = draw.image($(`#addpicfile${this.i}`).val(), () => {
-      let radius = this.pic.height();
-      if (this.pic.height() > this.pic.width()) {
-        radius = this.pic.width();
-      }
+      this.circleMask.size(0);
 
-      if ($(`#addpicrounded${this.i}`).prop('checked')) {
-        this.circleMask.move(this.pic.width() / 2, this.pic.height() / 2)
-          .radius(radius / 2 - 3).back();
-        this.pic.maskWith(this.circleMask);
-
-        if ($(`#addpicroundedbordered${this.i}`).prop('checked')) {
-          this.circleBorder.move(radius / 2, radius / 2)
-            .radius(radius / 2 - 3);
-          this.circleBorder.attr({ 'stroke-width': radius / 15 });
-          this.svg.add(this.circleBorder);
-        }
-      } else {
-        this.circleMask.size(0);
-      }
       this.svg.add(this.pic);
       this.svg.move($(`#addPic${this.i}x`).val(), $(`#addPic${this.i}y`).val());
 
       this.resize();
-      this.svg.move($(`#addPic${this.i}x`).val(), $(`#addPic${this.i}y`).val());
       this.setMask();
     });
   },
 
   setMask() {
+    if (!$(`#addpicrounded${this.i}`).prop('checked')) {
+      this.pic.unmask();
+      return;
+    }
+
+    const radius = Math.min(this.pic.width(), this.pic.height()) / 2;
+    const picCenter = { x: this.pic.width() / 2, y: this.pic.height() / 2 };
+
+    this.circleMask.move(picCenter.x, picCenter.y).radius(radius - 3).back();
+    this.pic.maskWith(this.circleMask);
+
     this.circleMask.move(this.pic.x(), this.pic.y());
+  },
+
+  setRoundBorder() {
+    if (!$(`#addpicroundedborder${this.i}`).prop('checked')) {
+      this.circleBorder.remove();
+      return;
+    }
+
+    const diameter = Math.min(this.svg.width(), this.svg.height());
+
+    this.circleBorder = draw.circle(diameter)
+      .fill({ opacity: 0 })
+      .stroke({ width: this.svg.width() / 45, color: '#fff' })
+      .move(this.svg.x(), this.svg.y())
+      .front();
+
+    this.svg.add(this.circleBorder);
   },
 
   delete() {
@@ -63,30 +72,46 @@ const addPic1 = {
   },
 
   resize() {
-    const percentage = (draw.width() * parseInt($(`#addPicSize${this.i}`).val(), 10)) / 100;
-    this.svg.size(percentage);
+    this.svg.size(parseInt($(`#addPicSize${this.i}`).val(), 10), null);
   },
 
-  clippingSetPosition() {
-    this.pic.x($(`#addPicClipHorizontal${this.i}`).val());
-    this.pic.size($(`#addPicClipWidth${this.i}`).val());
+  sameWidth() {
+    this.svg.size(addPic1.svg.width(), null);
+    $(`#addPicSize${this.i}`).val(this.svg.width());
+  },
+
+  sameHeight() {
+    this.svg.size(null, addPic1.svg.height());
+    $(`#addPicSize${this.i}`).val(this.svg.width());
+  },
+
+  sameY() {
+    const y = addPic1.svg.y();
+    this.svg.y(y);
+    $(`#addPic${this.i}y`).val(y);
+    this.setMask();
+  },
+
+  sameX() {
+    const x = addPic1.svg.x();
+    this.svg.x(x);
+    $(`#addPic${this.i}x`).val(x);
+    this.setMask();
+  },
+
+  setHighlight() {
+    $('#highlight-rect')
+      .removeClass('d-none')
+      .css('top', `${this.svg.y()}px`)
+      .css('left', `${this.svg.x()}px`)
+      .css('width', `${this.svg.width()}px`)
+      .css('height', `${this.svg.height()}px`);
   },
 
 };
 
-// eslint-disable-next-line no-unused-vars
-function addpicAlign() {
-  const y = addPic1.svg.y();
-  const size = (addPic1.pic.height() / addPic2.pic.height()) * $('#addPicSize1').val();
-
-  for (let i = 2; i <= 5; i++) {
-    $(`#addPic${i}y`).val(y);
-    $(`#addPicSize${i}`).val(size);
-  }
-  addPic2.draw();
-  addPic3.draw();
-  addPic4.draw();
-  addPic5.draw();
+function unsetAddPicHighlight() {
+  $('#highlight-rect').addClass('d-none');
 }
 
 const addPic2 = { ...addPic1 };
@@ -102,27 +127,50 @@ const addPic5 = { ...addPic1 };
 addPic5.i = 5;
 
 $('#addPicSize1').bind('input propertychange', () => { addPic1.resize(); });
-$('#addpicrounded1').bind('change', () => { addPic1.draw(); });
-$('#addpicroundedbordered1').bind('change', () => { addPic1.draw(); });
+$('#addpicrounded1').bind('change', () => { addPic1.setMask(); });
+$('#addpicroundedborder1').bind('change', () => { addPic1.setRoundBorder(); });
 $('#addpicdelete1').bind('click', () => { addPic1.delete(); });
-$('#addPicClipHorizontal1, #addPicClipWidth1').bind('input propertychange', () => { addPic1.clippingSetPosition(); });
+$('.show-add-pic-1').mouseover(() => { addPic1.setHighlight(); });
 
 $('#addPicSize2').bind('input propertychange', () => { addPic2.resize(); });
 $('#addpicrounded2').bind('change', () => { addPic2.draw(); });
-$('#addpicroundedbordered2').bind('change', () => { addPic2.draw(); });
+$('#addpicroundedborder2').bind('change', () => { addPic2.setRoundBorder(); });
 $('#addpicdelete2').bind('click', () => { addPic2.delete(); });
+$('.addpic-same-width-2').bind('click', () => { addPic2.sameWidth(); });
+$('.addpic-same-height-2').bind('click', () => { addPic2.sameHeight(); });
+$('#addpic-same-x-2').bind('click', () => { addPic2.sameX(); });
+$('#addpic-same-y-2').bind('click', () => { addPic2.sameY(); });
+
+$('.show-add-pic-2').mouseover(() => { addPic2.setHighlight(); });
 
 $('#addPicSize3').bind('input propertychange', () => { addPic3.resize(); });
 $('#addpicrounded3').bind('change', () => { addPic3.draw(); });
-$('#addpicroundedbordered3').bind('change', () => { addPic3.draw(); });
+$('#addpicroundedborder3').bind('change', () => { addPic3.setRoundBorder(); });
 $('#addpicdelete3').bind('click', () => { addPic3.delete(); });
+$('.addpic-same-width-3').bind('click', () => { addPic3.sameWidth(); });
+$('.addpic-same-height-3').bind('click', () => { addPic3.sameHeight(); });
+$('#addpic-same-x-3').bind('click', () => { addPic3.sameX(); });
+$('#addpic-same-y-3').bind('click', () => { addPic3.sameY(); });
+$('.show-add-pic-3').mouseover(() => { addPic3.setHighlight(); });
 
 $('#addPicSize4').bind('input propertychange', () => { addPic4.resize(); });
 $('#addpicrounded4').bind('change', () => { addPic4.draw(); });
-$('#addpicroundedbordered4').bind('change', () => { addPic4.draw(); });
+$('#addpicroundedborder4').bind('change', () => { addPic4.setRoundBorder(); });
 $('#addpicdelete4').bind('click', () => { addPic4.delete(); });
+$('.addpic-same-width-4').bind('click', () => { addPic4.sameWidth(); });
+$('.addpic-same-height-4').bind('click', () => { addPic4.sameHeight(); });
+$('#addpic-same-x-4').bind('click', () => { addPic4.sameX(); });
+$('#addpic-same-y-4').bind('click', () => { addPic4.sameY(); });
+$('.show-add-pic-4').mouseover(() => { addPic4.setHighlight(); });
 
 $('#addPicSize5').bind('input propertychange', () => { addPic5.resize(); });
 $('#addpicrounded5').bind('change', () => { addPic5.draw(); });
-$('#addpicroundedbordered5').bind('change', () => { addPic5.draw(); });
+$('#addpicroundedborder5').bind('change', () => { addPic5.setRoundBorder(); });
 $('#addpicdelete5').bind('click', () => { addPic5.delete(); });
+$('.addpic-same-width-5').bind('click', () => { addPic5.sameWidth(); });
+$('.addpic-same-height-5').bind('click', () => { addPic5.sameHeight(); });
+$('.show-add-pic-5').mouseover(() => { addPic5.setHighlight(); });
+$('#addpic-same-x-5').bind('click', () => { addPic5.sameX(); });
+$('#addpic-same-y-5').bind('click', () => { addPic5.sameY(); });
+
+$('.show-add-pic-all').mouseout(() => { unsetAddPicHighlight(); });

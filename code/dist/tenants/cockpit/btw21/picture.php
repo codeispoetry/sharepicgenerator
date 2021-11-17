@@ -49,6 +49,20 @@
                 max="1" value="1" step="0.05">
             <small>farbig</small>
         </div>
+
+        <div class="slider novideo">
+            <small>scharf</small>
+            <input type="range" class="form-range" name="blur" id="blur" min="0"
+                max="8" value="0" step="0.25">
+            <small>unscharf</small>
+        </div>
+
+        <div class="slider novideo">
+            <small>dunkel   </small>
+            <input type="range" class="form-range" name="brightness" id="brightness" min="0.4"
+                max="1.6" value="1" step="0.1">
+            <small>hell</small>
+        </div>
  
         <div>
             <small class="text-primary cursor-pointer novideo me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
@@ -73,19 +87,19 @@
 </div>   
 
 <h3><i class="fas fa-image"></i> Grünfärbung</h3>
-<div class="list-group-item">
+<div class="list-group-item novideo">
         Bild grün einfärben
         <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-toggle="toggle" data-on="ja" data-off="nein">
 
         <div class="slider novideo">
             <small>Helligkeit</small>
-            <input type="range" class="form-range" name="brightness" id="brightness" min="0.5"
+            <input type="range" class="form-range" name="greenifybrightness" id="greenifybrightness" min="0.5"
                 max="10" value="2.5" step="0.5">
         </div>
 
         <div class="slider novideo">
             <small>Kontrast</small>
-            <input type="range" class="form-range" name="contrast" id="contrast" min="0"
+            <input type="range" class="form-range" name="greenifycontrast" id="greenifycontrast" min="0"
                 max="0.8" value="0.05" step="0.005">
         </div>
         <small class="text-primary cursor-pointer novideo greenifyreset">

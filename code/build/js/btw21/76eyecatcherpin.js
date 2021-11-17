@@ -88,6 +88,19 @@ const pin = {
   bounce() {
 
   },
+
+  front() {
+    if (!$('#eyecatchertemplate').val()) {
+      return;
+    }
+
+    if ($('#eyecatchertemplate').val() === 'custom') {
+      pin.svg.front();
+      return;
+    }
+
+    pin.template.front();
+  },
 };
 
 $('#pintext').bind('input propertychange', pin.draw);

@@ -17,12 +17,15 @@
                 <div class="d-flex justify-content-end">
                     <label class="d-flex">
                         <i class="fas fa-cube me-2 toggle-text-shadow showonly floating" title="Text mit Schatten hinterlegen"></i>  
-                        <input type="checkbox" id="floating-shadow" name="floating-shadow" class="d-none">
+                        <input type="checkbox" id="floatingshadow" name="floatingshadow" class="d-none">
                     </label>
                     <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
                     <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
                     <i class="fa fa-align-center text-align me-2 showonly floating" data-align="middle" title="zentrieren"></i>
                     <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>
+                </div>
+                <div class="d-flex align-items-lg-center">
+                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="#Hallo" class="form-control showonly area floating">
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>

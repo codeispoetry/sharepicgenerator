@@ -67,15 +67,15 @@ const logo = {
     switch ($('#logoposition').val()) {
       case 'topleft':
         x = 10;
-        y = 10;
+        y = 30;
         break;
       case 'topcenter':
         x = (draw.width() - logo.svg.width()) / 2;
-        y = 10;
+        y = 30;
         break;
       case 'topright':
         x = (draw.width() - logo.svg.width()) - 10;
-        y = 10;
+        y = 30;
         break;
       case 'bottomleft':
         x = 10;

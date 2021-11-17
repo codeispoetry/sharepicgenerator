@@ -111,6 +111,7 @@ nextActionDay();
                         <div id="grid-vertical-left" class="gridline vertical"></div>
                         <div id="grid-vertical-right" class="gridline vertical"></div>
                         <div id="grid-round" class="gridline"></div>
+                        <div id="highlight-rect" class="d-none"></div>
                     </div>
                     <div class="text-center mt-5">
                         <div>

@@ -33,7 +33,6 @@ $(document).ready(() => {
 });
 
 function showAdvertising(ad) {
-  return;
   $('.advertising').hide();
 
   if (config.user.prefs.advertising_seen === ad) {
@@ -87,7 +86,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     addtext.draw();
-
+    logo.draw();
     eraser.draw();
   }, 100);
 
