@@ -28,7 +28,7 @@
 
                 <input type="hidden" name="textanchor" id="textanchor" value="left">
                 <input type="color" name="textcolor" id="textcolor" value="#ffffff">
-                <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#2d81c9" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
+                <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#5488C7,#CDDCF4,#285F96,#FFB100" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span>
             </div>
 
             <div class="list-group-item-content">

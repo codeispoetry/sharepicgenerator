@@ -28,7 +28,7 @@ const pin = {
 
     // text
     const family = $('#eyecatcherfont').val();
-    const pintext = draw.text($('#pintext').val()).font(Object.assign(pin.font, { family })).fill('#285F96');
+    const pintext = draw.text($('#pintext').val()).font(Object.assign(pin.font, { family })).fill(($('#eyecatcherfontcolor').val()));
 
     // background
     const pinwidth = pintext.rbox().w;
