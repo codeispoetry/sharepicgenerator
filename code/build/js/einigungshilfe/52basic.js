@@ -18,6 +18,7 @@ const basic = {
     basic.svg.on('dragend.namespace', function dragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
+      basic.bounce();
     });
 
     const size = parseInt($('#textsize').val(), 10);
@@ -42,7 +43,16 @@ const basic = {
         add.blend(add.$source, blur);
       });
     }
+
+    basic.bounce();
   },
+
+  bounce(){
+    basic.svg.x(Math.max(20,basic.svg.x()));
+
+    let bounceY = draw.height() - basic.svg.height() - 20;
+    basic.svg.y(Math.min(bounceY, basic.svg.y()));
+  }
 
 };
 
