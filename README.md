@@ -18,9 +18,11 @@ Sharepicgenerator with Docker and Webpack.
  6. Bring up the project with
  ``docker-compose up -d``
 
- 7. Create empty log.db-file or rsync it from live
+ 7. create and edit ini/config.ini
 
- 8. Install WordPress via browser#
+ 8. Create empty log.db-file or rsync it from live
+
+ 9. Install WordPress via browser#
     1. enter `define('COOKIEPATH','/')` and db-credentials in wp-config.php
 
 
