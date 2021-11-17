@@ -33,8 +33,7 @@
 
             <div class="list-group-item-content">
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Werde
-kreativ</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Einigungshilfe</textarea>
                 </div>
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
