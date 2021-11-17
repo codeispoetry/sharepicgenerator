@@ -15,7 +15,7 @@ Sharepicgenerator with Docker and Webpack.
  1. Bring up the project with
  ``docker-compose up -d``
   
- 1. Run ```make compile``` to compile css an js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
+ 1. Run ```make compile``` to compile css and js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
 
 There is also a Makefile. You can use ``make up`` and ``make install``.
 
