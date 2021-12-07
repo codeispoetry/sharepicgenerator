@@ -195,3 +195,9 @@ input{
     width: 20px;
   }
 }
+
+.form{
+  &-range{
+    min-width: 100px;
+  }
+}

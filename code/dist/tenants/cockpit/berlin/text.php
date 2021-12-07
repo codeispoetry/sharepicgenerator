@@ -20,13 +20,13 @@
                 </div>
 
                 <div class="mb-1 mt-2">
-                    <div class="d-flex justify-content-between">
+                    <div class="justify-content-between">
                         <div class="slider">
                             <small>klein</small>
                             <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-end">
                             <div class="me-3">
                                 <span class="cursor-pointer ms-3 text-primary align-center-text">
                                     <i class="fab fa-centercode" title="Text in Bildmitte"></i></span>
