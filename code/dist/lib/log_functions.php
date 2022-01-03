@@ -362,7 +362,7 @@ function showLogGraph()
     // by day
     $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS bar, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
     // by week
-    //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS bar FROM downloads GROUP BY period ORDER BY period;";
+    $sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads GROUP BY period ORDER BY period;";
     // by month
     //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS bar FROM downloads GROUP BY period ORDER BY period;";
     $results = $db->query($sql);
@@ -401,10 +401,11 @@ STYLE;
     while ($row = $results->fetchArray()) {
        printf('<div class="bar %5$s %1$s" style="height:%2$dpx" title="%4$s: %3$s">%3$s <small>%4$s</small></div>', 
         ($row['weekday'] == 1) ? 'spacer-left' : '', 
-        $row['count'] / 10, 
+        $row['count'] / 50,
         number_format($row['count'], 0, ',', '.'), 
-        $row['period'],
-        ($row['weekday'] == 0 || $row['weekday'] == 6) ? 'weekend' : 'weekday'
+        $row['description'],
+        //($row['weekday'] == 0 || $row['weekday'] == 6) ? 'weekend' : 'weekday'
+       $row['description']
         );
     }
     echo "</div>";
