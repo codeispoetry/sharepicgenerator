@@ -62,7 +62,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
-  area.draw();
+  floating.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -82,6 +82,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
+    logo.reposition('leftupper');
   }, 20);
 
   window.setTimeout(() => {

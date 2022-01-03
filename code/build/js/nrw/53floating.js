@@ -44,7 +44,7 @@ const floating = {
     setLineHeight();
     const anchor = floating.align;
 
-    const t = draw.text($('#text').val())
+    const t = draw.text($('#text').val().toUpperCase())
       .font(Object.assign(floating.font, { anchor }))
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
