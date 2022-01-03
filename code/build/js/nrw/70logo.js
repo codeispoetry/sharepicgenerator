@@ -27,11 +27,39 @@ const logo = {
 
     const width = draw.width() * newPercent * 0.01;
     logo.svg.size(width, null);
+    this.reposition($('#logoposition').val());
+  },
+
+  reposition(pos) {
+    const left = -logo.svg.width() / 2;
+    const right = draw.width() - (logo.svg.width() / 2);
+    const upper = 10;
+    const bottom = draw.height() - logo.svg.height() - 10;
+    switch (pos) {
+      case 'leftupper':
+        logo.svg.move(left, upper);
+        break;
+      case 'leftbottom':
+        logo.svg.move(left, bottom);
+        break;
+      case 'rightupper':
+        logo.svg.move(right, upper);
+        break;
+      case 'rightbottom':
+        logo.svg.move(right, bottom);
+        break;
+      default:
+        logo.svg.move(100, 100);
+    }
   },
 };
 
 $('#logosize').bind('input propertychange', () => {
   logo.resize($('#logosize').val());
+});
+
+$('#logoposition').on('change', () => {
+  logo.reposition($('#logoposition').val());
 });
 
 $('.align-center-logo').click(() => {
