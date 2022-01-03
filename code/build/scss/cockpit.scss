@@ -185,7 +185,19 @@
   background: $purple !important;
 }
 
-input[type='file']{
-  display: none;
+input{
+  &[type='file']{
+    display: none;
+  }
+
+  &[type='color']{
+    height: 20px;
+    width: 20px;
+  }
 }
 
+.form{
+  &-range{
+    min-width: 100px;
+  }
+}

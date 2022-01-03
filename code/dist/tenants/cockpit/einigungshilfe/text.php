@@ -28,13 +28,12 @@
 
                 <input type="hidden" name="textanchor" id="textanchor" value="left">
                 <input type="color" name="textcolor" id="textcolor" value="#ffffff">
-                <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#2d81c9" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
+                <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#5488C7,#CDDCF4,#285F96,#FFB100" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span>
             </div>
 
             <div class="list-group-item-content">
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Werde
-kreativ</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Einigungshilfe</textarea>
                 </div>
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">

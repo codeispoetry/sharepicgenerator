@@ -23,7 +23,7 @@ $defaultColor = '#5488C7';
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once(getBasePath('tenants/cockpit/btw21/picture.php'));
+            require_once(getBasePath('tenants/cockpit/einigungshilfe/picture.php'));
             require_once(getBasePath('tenants/cockpit/picture-size.php'));
         ?>
     </div>
@@ -31,13 +31,13 @@ $defaultColor = '#5488C7';
         <?php 
             require_once(getBasePath('tenants/cockpit/einigungshilfe/text.php'));
             require_once(getBasePath('tenants/cockpit/basic/logo.php'));
-            require_once(getBasePath('tenants/cockpit/basic/eyecatcher.php'));
+            require_once(getBasePath('tenants/cockpit/einigungshilfe/eyecatcher.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
             require_once(getBasePath('tenants/cockpit/addpictures.php'));
-            require_once(getBasePath('tenants/cockpit/basic/addtext.php'));
+            require_once(getBasePath('tenants/cockpit/einigungshilfe/addtext.php'));
             require_once(getBasePath('tenants/cockpit/markdown.php'));
             require_once(getBasePath('tenants/cockpit/eraser-none.php'));
 

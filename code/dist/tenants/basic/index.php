@@ -15,7 +15,7 @@ $landesverband = 0;
 if(isset($_GET['guest'])){
     $user = "guest";
 }else{
-    wp_login();
+    wordpress_login();
     $wpuser = wp_get_current_user(); 
     $user = 'wp_' . $wpuser->data->user_login;
 }

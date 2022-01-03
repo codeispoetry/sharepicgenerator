@@ -4,18 +4,30 @@ Sharepicgenerator with Docker and Webpack.
  1. Clone this repo with
   ``git clone ...``
 
- 1. Create docker-compose.yml from docker-compose.yml.sample
+ 2. Create docker-compose.yml from docker-compose.yml.sample
  
- 1. Install npm dependencies with
+ 3. Install npm dependencies with
   ``docker-compose run node sh -c 'npm install'``
 
-1. Install composer dependencies with
+ 4. Install npm dependencies in dist within node-container
+    `cd dist && npm install``
+
+ 5. Install composer dependencies with
   ``docker-compose run webserver sh -c 'cd dist && composer install'``
 
- 1. Bring up the project with
+ 6. Bring up the project with
  ``docker-compose up -d``
+
+ 7. create and edit ini/config.ini
+
+ 8. Create empty log.db-file or rsync it from live
+
+ 9. Install WordPress via browser#
+    1. enter `define('COOKIEPATH','/')` and db-credentials in wp-config.php
+
+
   
- 1. Run ```make compile``` to compile css an js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
+ 9. Run ```make compile``` to compile css and js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
 
 There is also a Makefile. You can use ``make up`` and ``make install``.
 

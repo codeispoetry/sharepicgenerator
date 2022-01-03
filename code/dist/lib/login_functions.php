@@ -4,7 +4,8 @@
 require_once('../../wordpress/wp-load.php');
 
 
-function wp_login(){
+function wordpress_login(){
+
     if( !is_user_logged_in() ){
         $redirect = $_SERVER['REQUEST_URI'];
         header('Location: ' . wp_login_url($redirect));

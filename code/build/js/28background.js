@@ -132,6 +132,15 @@ const background = {
 };
 
 function greenify(brightness = 2.5, contrast = 0.05) {
+  if (typeof greenifyMatrix === 'undefined') {
+    greenifyMatrix = [
+      0.359, 0, 0, 0, 0,
+      0, 0.585, 0, 0, 0,
+      0, 0, 0.129, 0, 0,
+      0, 0, 0, 1, 0,
+    ];
+  }
+
   background.svg.filterWith((add) => {
     add.colorMatrix('saturate', 0)
       .componentTransfer({
@@ -139,12 +148,7 @@ function greenify(brightness = 2.5, contrast = 0.05) {
         slope: 0,
         intercept: 0,
       })
-      .colorMatrix('matrix', [
-        0.359, 0, 0, 0, 0,
-        0, 0.585, 0, 0, 0,
-        0, 0, 0.129, 0, 0,
-        0, 0, 0, 1, 0,
-      ]);
+      .colorMatrix('matrix', greenifyMatrix);
   });
 
   // because add.componentTransfer does not set tags in SVG

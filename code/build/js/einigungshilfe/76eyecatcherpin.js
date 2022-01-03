@@ -28,13 +28,13 @@ const pin = {
 
     // text
     const family = $('#eyecatcherfont').val();
-    const pintext = draw.text($('#pintext').val()).font(Object.assign(pin.font, { family })).fill('#ffffff');
+    const pintext = draw.text($('#pintext').val()).font(Object.assign(pin.font, { family })).fill(($('#eyecatcherfontcolor').val()));
 
     // background
     const pinwidth = pintext.rbox().w;
     const pinheight = pintext.rbox().h;
 
-    const diameter = 2 * Math.max(pinwidth, pinheight);
+    const diameter = 1.45 * Math.max(pinwidth, pinheight);
 
     const pinbackground = draw.circle(diameter).fill($('#eyecatcherbackgroundcolor').val());
 
