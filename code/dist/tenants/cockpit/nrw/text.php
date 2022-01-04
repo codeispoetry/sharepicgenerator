@@ -12,6 +12,12 @@
                  </label>
             </div>
 
+            <div class="d-flex">
+                <label class="me-3">
+                    <input type="checkbox" class="form-check-input me-1" id="frame" name="frame" value="1" >mit Rahmen
+                </label>
+            </div>
+
             <div class="list-group-item-content">
                 <div class="d-flex justify-content-end">
                     <label class="d-flex">

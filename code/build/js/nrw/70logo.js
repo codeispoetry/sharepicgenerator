@@ -33,8 +33,8 @@ const logo = {
   reposition(pos) {
     const left = -logo.svg.width() / 2;
     const right = draw.width() - (logo.svg.width() / 2);
-    const upper = 10;
-    const bottom = draw.height() - logo.svg.height() - 10;
+    const upper = -10;
+    const bottom = draw.height() - logo.svg.height() + 10;
     switch (pos) {
       case 'leftupper':
         logo.svg.move(left, upper);
