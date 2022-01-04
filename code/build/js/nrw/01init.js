@@ -83,7 +83,7 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     copyright.draw();
     logo.reposition('leftupper');
-    if ($('#frame').is(':checked'))   {
+    if ($('#frame').is(':checked')){
       frame.draw();
     }
   }, 20);
