@@ -135,7 +135,7 @@ const floating = {
 
     let brandDisplay = '';
     $('.textafter-icons i.active').each(function () {
-      brandDisplay += brands[$(this).data('icon')] + ' ';
+      brandDisplay += `${brands[$(this).data('icon')]} `;
     });
 
     if (brandDisplay) {
