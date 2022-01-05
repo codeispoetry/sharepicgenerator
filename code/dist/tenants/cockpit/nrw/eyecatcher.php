@@ -27,7 +27,9 @@
                    <i class="fab fa-centercode" title="Störer in Bildmitte"></i></span>
                 <span class="to-front" data-target="pin" title="Störer nach vorne">
                     <i class="fas fa-layer-group text-primary"></i>
-                </span> 
+                </span>
+                <input type="hidden" name="pincolor" id="pincolor" value="#b9ce1d">
+                <span class="colorpicker ms-1"  id="framecolorpicker" data-colors="#b9ce1d,#155929,#b73a8d,#e4c9dd,#ffee00" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
             </div>
         </div>    
     </div>

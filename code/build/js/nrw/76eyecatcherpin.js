@@ -30,12 +30,12 @@ const pin = {
     });
 
     // text
-    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
+    const pintext = draw.text($('#pintext').val().toUpperCase()).font(pinfont).fill('#ffffff');
 
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
     const pinbackground = draw.circle(diameter)
-      .fill('#f06464');
+      .fill($('#pincolor').val());
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
@@ -50,8 +50,6 @@ const pin = {
     pin.template.hide();
     $('#eyecatchertemplate').val('custom');
     pin.resize();
-
-    pin.svg.rotate(-9);
   },
 
   resize() {
