@@ -96,7 +96,7 @@ const floating = {
     const claim = draw.group();
 
     const claimBackground = draw.rect(71,13.5)
-      .fill('#b7398e')
+      .fill($('#claimcolor').val())
       .skew(-8, 0)
       .addTo(claim);
 
