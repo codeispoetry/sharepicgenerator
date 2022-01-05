@@ -37,7 +37,12 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="" class="form-control showonly area floating">
+                    <div class="d-flex textafter-icons">
+                        <i class="fab fa-twitter" data-icon="twitter"></i>
+                        <i class="fab fa-facebook" data-icon="facebook"></i>
+                        <i class="fab fa-instagram" data-icon="instagram"></i>
+                    </div>
+                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="Hallo Welt" class="form-control showonly area floating">
                 </div>
 
                 <div class="mb-1 mt-2">

@@ -201,3 +201,13 @@ input{
     min-width: 100px;
   }
 }
+
+.textafter-icons i{
+  margin-right: 6px;
+  color: #aaaaaa;
+  cursor: pointer;
+
+  &.active{
+    color: #000000;
+  }
+}
