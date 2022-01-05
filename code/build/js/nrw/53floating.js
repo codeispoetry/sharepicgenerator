@@ -54,15 +54,15 @@ const floating = {
       floating.svg.add(floating.drawTextBefore());
     }
 
+    if ($('#showclaim').prop('checked')) {
+      floating.drawClaim();
+    }
+
     if ($('#textafter').val()) {
       floating.svg.add(floating.drawTextAfter(t));
     }
 
     floating.svg.add(t);
-
-    if ($('#showclaim').prop('checked')) {
-      floating.drawClaim();
-    }
 
     floating.svg
       .size($('#textsize').val())
@@ -99,7 +99,7 @@ const floating = {
       .front()
       .show()
       .size(90)
-      .move(x, 5 + floating.svg.height() + floating.svg.y());
+      .move(x, 15 + floating.svg.height() + floating.svg.y());
   },
 
   drawTextBefore() {
@@ -127,10 +127,15 @@ const floating = {
   drawTextAfter(t) {
     claim.svg.hide();
 
-    const textafter = draw.text($('#textafter').val())
+    let y = 3;
+    if ($('#showclaim').prop('checked')) {
+      y = 22;
+    }
+
+    const textafter = draw.text($('#textafter').val().toUpperCase())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 8 + t.bbox().height)
+      .move(0, y + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
