@@ -34,7 +34,10 @@
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="d-none form-control showonly area floating">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Mit uns
+werden
+Bäume
+wahr.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <div class="d-flex textafter-icons">
@@ -42,7 +45,7 @@
                         <i class="fab fa-facebook" data-icon="facebook"></i>
                         <i class="fab fa-instagram" data-icon="instagram"></i>
                     </div>
-                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="Hallo Welt" class="form-control showonly area floating">
+                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="" class="form-control showonly area floating">
                 </div>
 
                 <div class="mb-1 mt-2">
