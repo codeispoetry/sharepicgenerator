@@ -20,7 +20,7 @@ const logo = {
     newPercent = Math.max(1, newPercent);
 
     const width = draw.width() * newPercent * 0.01;
-    logo.svg.size(width, null);
+    logo.svg.size(width, width);
     this.reposition($('#logoposition').val());
   },
 
