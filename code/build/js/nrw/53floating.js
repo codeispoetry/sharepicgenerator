@@ -125,17 +125,23 @@ const floating = {
   },
 
   drawTextAfter(t) {
-    claim.svg.hide();
+    const distanceIconsText = 5;
 
     let y = 3;
     if ($('#showclaim').prop('checked')) {
       y = 22;
     }
 
+    const icons = draw.text(`${brands.instagram} ${brands.twitter}/`)
+      .font(fontBrands)
+      .fill('#FFFFFF')
+      .move(0, y + t.bbox().height);
+    floating.svg.add(icons);
+
     const textafter = draw.text($('#textafter').val().toUpperCase())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, y + t.bbox().height)
+      .move(icons.bbox().width + distanceIconsText, y + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -145,6 +151,7 @@ const floating = {
         break;
       case 'end':
         textafter.x(-textafter.bbox().w);
+        icons.x(-textafter.bbox().w - icons.bbox().w - distanceIconsText);
         break;
       default:
     }
