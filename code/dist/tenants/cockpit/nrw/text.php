@@ -37,7 +37,7 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="" class="d-none form-control showonly area floating">
+                    <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="" class="form-control showonly area floating">
                 </div>
 
                 <div class="mb-1 mt-2">
