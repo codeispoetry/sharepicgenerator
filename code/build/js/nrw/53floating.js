@@ -125,18 +125,28 @@ const floating = {
   },
 
   drawTextAfter(t) {
-    const distanceIconsText = 5;
+    let distanceIconsText = 0;
+    let icons = draw.circle(0);
 
     let y = 3;
     if ($('#showclaim').prop('checked')) {
       y = 22;
     }
 
-    const icons = draw.text(`${brands.instagram} ${brands.twitter}/`)
-      .font(fontBrands)
-      .fill('#FFFFFF')
-      .move(0, y + t.bbox().height);
-    floating.svg.add(icons);
+    let brandDisplay = '';
+    $('.textafter-icons i.active').each(function () {
+      brandDisplay += brands[$(this).data('icon')] + ' ';
+    });
+
+    if (brandDisplay) {
+      icons = draw.text(`${brandDisplay} /`)
+        .font(fontBrands)
+        .fill('#FFFFFF')
+        .move(0, y + t.bbox().height);
+      floating.svg.add(icons);
+
+      distanceIconsText = 5;
+    }
 
     const textafter = draw.text($('#textafter').val().toUpperCase())
       .font(floating.fontAfter)
