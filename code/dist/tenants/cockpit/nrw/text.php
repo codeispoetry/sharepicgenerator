@@ -71,11 +71,16 @@ wahr.</textarea>
 
                 <div class="preferences-text">
                     <div class="d-flex justify-content-between">
-                        <div class="">
-                            <label class="">
-                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim" checked>
+                        <div class="d-flex">
+                            <label class="me-3">
+                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
+                            <div>
+                                <input type="hidden" name="claimcolor" id="claimcolor" value="#b7398e">
+                                <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#b9ce1d,#33582d,#b7398e" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
+                             </div>
+
                         </div>
             
                        
