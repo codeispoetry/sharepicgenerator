@@ -55,7 +55,7 @@ const floating = {
     }
 
     if ($('#showclaim').prop('checked')) {
-      floating.drawClaim();
+      floating.drawClaim(t);
     }
 
     if ($('#textafter').val()) {
@@ -80,26 +80,41 @@ const floating = {
     floating.svg.front();
   },
 
-  drawClaim() {
+  drawClaim(t) {
     let x;
     switch (floating.align) {
       case 'middle':
         x = -45;
         break;
       case 'end':
-        x = -90;
+        x = -51;
         break;
       default:
-        x = -3;
+        x = 0;
     }
 
-    return claim.svg
-      .clone()
-      .addTo(floating.svg)
-      .front()
-      .show()
-      .size(90)
-      .move(x, 15 + floating.svg.height() + floating.svg.y());
+    const claim = draw.group();
+
+    const claimBackground = draw.rect(71,13.5)
+      .fill('#b7398e')
+      .skew(-8, 0)
+      .addTo(claim);
+
+    const claimText = draw.text('VON HIER AN GRÜN.')
+      .font({
+        family: 'BereitBold',
+        anchor: 'left',
+        leading: '1.05em',
+        size: 10,
+      })
+      .move(3, 0)
+      .fill('#FFFFFF')
+      .addTo(claim);
+
+    claim.move(x, t.bbox().height + 1)
+      .size(50);
+
+    claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
@@ -130,7 +145,7 @@ const floating = {
 
     let y = 3;
     if ($('#showclaim').prop('checked')) {
-      y = 22;
+      y = 12;
     }
 
     let brandDisplay = '';
