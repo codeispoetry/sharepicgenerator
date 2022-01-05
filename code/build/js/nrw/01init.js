@@ -51,7 +51,9 @@ function initSharepic() {
   }
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
-  $('#textY').val(320);
+  $('#textX').val(150);
+  $('#textY').val(70);
+  floating.draw();
   initialized = true;
 
   background.drawColor();
