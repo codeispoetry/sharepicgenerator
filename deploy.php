@@ -28,8 +28,6 @@ set('shared_dirs', [
     'tenants/rlp/gallery/img',
     'tenants/basic/pictures/img',
     'tenants/basic/gallery/img',
-    'tenants/lsa/gallery/img',
-    'tenants/lsa/gallery/img',
     'tenants/einigungshilfe/pictures/img',
     'tenants/einigungshilfe/gallery/img',
     'tenants/niedersachsen/pictures/img',
