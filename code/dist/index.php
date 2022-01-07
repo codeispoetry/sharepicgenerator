@@ -112,16 +112,14 @@
               <li class="mb-5">im grünen Design</li>
     
               <li> 
-                <a href="/btw21">Bundestagswahl</a><br>
-                <a href="/tenants/niedersachsen">Niedersachsen</a> |
-                <a href="/tenants/berlin">Berlin</a> |
-
+                <a href="/btw21">Bundestagswahl</a> |
                 <a href="/tenants/federal">Bundeslayout</a>
                 
 
                 <br>
                 <small>
                   <a href="/tenants/bw" class="small">Ba-Wü</a> |
+                  <a href="/tenants/berlin">Berlin</a> |
                   <a href="/tenants/frankfurt" class="small">Frankfurt</a>
                 </small>
               </li>
