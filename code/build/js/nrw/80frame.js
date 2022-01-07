@@ -2,7 +2,7 @@ const frame = {
   svg: draw.text(''),
   draw() {
     frame.svg.remove();
-    const width = 50;
+    const width = $('#framewidth').val();
     const right = draw.width();
     const bottom = draw.height();
 
@@ -47,6 +47,10 @@ $('#frame').click(() => {
   } else {
     frame.svg.remove();
   }
+});
+
+$('#framewidth').bind('input propertychange', () => {
+  frame.draw();
 });
 
 window.setTimeout(() => {
