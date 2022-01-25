@@ -1,7 +1,7 @@
 <h3><i class="far fa-eye"></i> Störer</h3>
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
-        <div class="">
+        <div class="d-none">
             <select class="form-select" name="eyecatchertemplate" id="eyecatchertemplate">
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbst eingeben</option>
@@ -28,8 +28,8 @@
                 <span class="to-front" data-target="pin" title="Störer nach vorne">
                     <i class="fas fa-layer-group text-primary"></i>
                 </span>
-                <input type="hidden" name="pincolor" id="pincolor" value="#b9ce1d">
-                <span class="colorpicker ms-1"  id="framecolorpicker" data-colors="#b9ce1d,#155929,#b73a8d,#e4c9dd,#ffee00" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
+                <input type="hidden" name="pincolor" id="pincolor" value="#b7398e">
+                <span class="colorpicker ms-1"  id="pincolorpicker" data-colors="#b9ce1d,#33582d,#b7398e" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
             </div>
         </div>    
     </div>
