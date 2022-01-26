@@ -159,7 +159,7 @@
             <li class="mb-1 d-none"><a href="/tenants/basic" class="">frei anmelden</a></li>
           <li class="mb-1 d-none"><a href="/wordpress/wp-login.php?action=register" class="">frei registrieren</a></li>
         <li>
-            <form method="post" class="test-access" action="tenants/federal/">
+            <form method="post" class="test-access" action="tenants/btw21/">
                 <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
             </form>
         </li>
