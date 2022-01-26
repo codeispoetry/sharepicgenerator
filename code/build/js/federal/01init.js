@@ -9,7 +9,7 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-var initialized = false;
+let initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(502);
@@ -22,20 +22,17 @@ $(document).ready(() => {
   $(`#${clickId}`).click();
 
   $('#logosize').val(17);
-  logo.resize($('#logosize').val());
+  logo.resize(17);
 
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
   showLayout();
-  showAdvertising('sunflower');
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
 });
-
-
 
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {
