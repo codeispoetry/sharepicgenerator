@@ -1,9 +1,10 @@
 <div class="d-flex">
    
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Hilfe
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -13,7 +14,7 @@
                 </a>
                 <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
                     <i class="far fa-hand-point-right"></i> Aktionstage
-                </a>              
+                </a>
                 <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
                     <i class="fas fa-tape"></i> Designrichtlinien
                 </a>
@@ -23,38 +24,15 @@
 
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Über
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="https://chatbegruenung.de/channel/sharepicgenerator" class="dropdown-item" target="_blank">
-                <i class="fas fa-comment-dots"></i> Feedback</a>
-            <a href="https://github.com/codeispoetry/sharepicgenerator" class="dropdown-item" target="_blank">
-                <i class="fab fa-github"></i> Quellcode</a>
-                
-            <div class="dropdown-item">Version:
-                <?php
-                 system("pwd -P | cut -d '/' -f 6");
-                ?>
-            </div>
-            </div>
-        </li>
-        <?php if (configValue($tenant, 'showGallery')) { ?>
-            <li class="nav-item">
-            <a href="#" class="overlay-opener nav-link" data-target="gallery">Vorlagen</a>
-            </li>
-        <?php } ?>
-        
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Regionale Angebote
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/btw21" class="dropdown-item">Bundestagswahl</a>
-                <a href="/federal" class="dropdown-item">Bundeslayout</a>
+                <a href="/btw21" class="dropdown-item">Bundeslayout</a>
+                <a href="/federal" class="dropdown-item">altes Layout</a>
 
                 <div class="dropdown-divider"></div>
                 <?php
@@ -68,14 +46,11 @@
                 ?>
             </div>
         </li>
-        <li class="nav-item">
-            <a href="/imprint.php" class="nav-link"> Impressum & Datenschutz</a>
-        </li>
-    
+
     </ul>
 </div>
 
-<a class="navbar-brand bereitbold" href="/">Sharepicgenerator.de/<?php echo $tenant; ?></a>
+<h3><?php echo configValue('Main','linkedTenants')[$tenant]; ?></h3>
 
 <div class="navbar-text d-flex">
     <?php if (isEditor()) { ?> 
