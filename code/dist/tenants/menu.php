@@ -53,8 +53,8 @@
                 Regionale Angebote
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/btw21" class="dropdown-item">Bundestagswahl</a>
-                <a href="/federal" class="dropdown-item">Bundeslayout</a>
+                <a href="/btw21" class="dropdown-item">Bundeslayout</a>
+                <a href="/federal" class="dropdown-item">altes Layout</a>
 
                 <div class="dropdown-divider"></div>
                 <?php
