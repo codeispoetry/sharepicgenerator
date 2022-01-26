@@ -169,6 +169,21 @@ textarea.height1line{
       height: 2rem;
     }
   }
+
+  .dropdown-toggle{
+    &:after{
+      display: none;
+    }
+  }
+
+  .nav-item{
+      margin-right: 50px;
+  }
+
+  .nav-link, .navbar-text{
+    font-family: BereitBold;
+    font-size: 1.2em;
+  }
 }
 
 .tenants-switch{
@@ -218,3 +233,16 @@ a.close-target{
 .dropdown-menu{
   z-index: 3000;
 }
+
+
+footer {
+  h5 {
+    color: white;
+    font-size: 1.5em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+

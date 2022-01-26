@@ -32,15 +32,6 @@
       max-width: 960px;
     }
 
-    footer h5{
-        color: white;
-        font-family: BereitBold;
-        font-size: 1.5em;
-    }
-
-    footer a{
-        text-decoration: none;
-    }
     .bgimage{
         background: url(assets/startimage.jpg);
         background-size: cover;
@@ -66,7 +57,6 @@
     }
 
     #claim h1{
-        font-family: BereitBold;
         font-size: 7em;
     }
 
