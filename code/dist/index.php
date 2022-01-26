@@ -49,19 +49,18 @@
      }
 
     #loginscreen{
-        width: 400px;
+        max-width: 400px;
         border-radius: 10px;
         padding: 2em;
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
         background: rgba(255,255,255, 0.9);
     }
 
+    #loginscreen *{
+        text-decoration: none;
+        color: #333333;
+    }
+
     #claim{
-        position: absolute;
-        left: 30px;
-        bottom: 30px;
         color: white;
         font-family: BereitBold;
     }
@@ -71,30 +70,23 @@
         font-size: 7em;
     }
 
+    #sunflower {
+        width: 120px;
+        height: 120px;
+        margin-left: 2em;
+    }
+
     .subhead{
         font-size: 5em;
     }
 
       @media (max-width: 768px) {
-          .bgimage{
+          .bgimage {
               min-height: 230px;
           }
-        #loginscreen{
-            position: relative;
-            top: 10px;
-            right: unset;
-            width: 100%;
-        }
-        #claim{
-            display: none;
-        }
       }
 
-        @media (max-width: 1024px) {
-            #claim {
-                max-width: 500px;
-            }
-        }
+
     }
     </style>
 </head>
@@ -113,26 +105,33 @@
     <div class="my-auto">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
             <img class="me-2" src="assets/img/logo.svg" alt="" width="40" height="40">
-            <span class="fs-4">Sharepicgenerator.de</span>
+            <span class="fs-4">Sharepic&shy;generator.de</span>
         </a>
     </div>
-    <div class="btn-pistazie">
-        <a href="tenants/btw21" type="button" class="btn btn-md btn-pistazie p-4">
-            <i class="fas fa-sign-in-alt me-1"></i> einloggen</a>
+      <div class="d-flex align-items-center">
+        <a href="https://www.gruene.de/mitglied-werden" target="_blank" class="me-2 text-decoration-none text-black-50 small">Mitglied werden</a>
+        <div class="btn-pistazie">
+            <a href="tenants/btw21" type="button" class="btn btn-md btn-pistazie p-4">
+                 anmelden <i class="fas fa-sign-in-alt me-1"></i></a>
+        </div>
     </div>
-
 
   </header>
 
-  <div class="p-3 bgimage">
-      <div id="claim">
-          <h1 class="">Sharepic&shy;generator</h1>
-          <p class="subhead">Werde kreativ!</p>
+  <div class="p-3 bgimage d-md-flex align-items-end justify-content-between">
+      <div id="claim" class="d-none d-md-flex align-baseline">
+          <div>
+              <h1 class="">Sharepic&shy;generator</h1>
+              <p class="subhead">Werde kreativ!</p>
+          </div>
+          <img src="assets/logos/sonnenblume21.svg" id="sunflower">
       </div>
       <div id="loginscreen">
-          <h2 class="display-6 fw-normal bereitbold">Sharepic&shy;generator</h2>
-          <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
-          <a href="tenants/btw21" type="button" class="w-100 btn btn-lg btn-primary">einloggen</a>
+          <a href="tenants/btw21" class="">
+              <h2 class="display-6 fw-normal bereitbold">Sharepic&shy;generator</h2>
+              <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
+              <div class="w-100 btn btn-lg btn-pistazie text-white">anmelden</div>
+          </a>
       </div>
   </div>
 
