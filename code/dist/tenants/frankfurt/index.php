@@ -94,7 +94,7 @@ nextActionDay();
     </div>
     </nav>
 </header>
-<div class="container-fluid h-100">
+<div class="container-fluid">
     <div class="row h-100 flex-row-reverse">
 
         <div class="col-12 col-lg-9 pt-4 canvas-wrapper">
