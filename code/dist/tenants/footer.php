@@ -1,5 +1,5 @@
 
-<footer class="bg-primary p-5 position-relative">
+<footer class="bg-primary p-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-6 col-md">
