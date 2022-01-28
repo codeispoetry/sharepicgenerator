@@ -11,7 +11,7 @@ readConfig();
 
 $landesverband = 0;
 $user = "generic";
-$tenant = "berlin";
+$tenant = "nrw";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
@@ -73,7 +73,7 @@ nextActionDay();
         var config = {};
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
-        <?php printf('config.tenant="%s";', "berlin"); ?>
+        <?php printf('config.tenant="%s";', "nrw"); ?>
         config.imageDBSearchIn="images";
         config.backgroundSource="standard";
         config.faces=-1;
@@ -110,6 +110,7 @@ nextActionDay();
                         <div id="grid-vertical-left" class="gridline vertical"></div>
                         <div id="grid-vertical-right" class="gridline vertical"></div>
                         <div id="grid-round" class="gridline"></div>
+                        <div id="highlight-rect" class="d-none"></div>
                     </div>
                     <div class="text-center mt-5">
                         <div>
@@ -169,7 +170,7 @@ nextActionDay();
         require_once(getBasePath('/lib/toasts/toasts.php'));
     ?>
 </div>
-
+<?php require_once('../footer.php'); ?>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
@@ -180,7 +181,7 @@ nextActionDay();
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
 <script src="<?php latestVersion('/assets/js/main.min.js');?>"></script>
-<script src="<?php latestVersion('/assets/js/berlin.min.js');?>"></script>
+<script src="<?php latestVersion('/assets/js/nrw.min.js');?>"></script>
 
 
 
@@ -194,7 +195,7 @@ if (isset($_GET['useSavework'])) {
 }
 
 if (isset($_GET['usePicture'])) {
-    printf('uploadFileByUrl(`../tenants/berlin/%s`, () => {})', $_GET['usePicture']);
+    printf('uploadFileByUrl(`../tenants/nrw/%s`, () => {})', $_GET['usePicture']);
 }
 ?>
     config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');

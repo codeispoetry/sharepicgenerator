@@ -99,8 +99,7 @@ nextActionDay();
 <div class="container-fluid">
     <div class="row h-100 flex-row-reverse">
         <div class="col-12 col-lg-9 canvas-wrapper p-0">
-            <div class="col-12 p-0">
-                <?php require_once('advertising.php'); ?>
+            <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
                     <div id="canvas">
                         <div id="grid-horizontal-center" class="gridline horizontal"></div>
@@ -169,6 +168,9 @@ nextActionDay();
         require_once(getBasePath('/lib/toasts/toasts.php'));
     ?>
 </div>
+
+<?php require_once('../footer.php'); ?>
+
 
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>

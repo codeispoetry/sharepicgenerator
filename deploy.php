@@ -28,8 +28,6 @@ set('shared_dirs', [
     'tenants/rlp/gallery/img',
     'tenants/basic/pictures/img',
     'tenants/basic/gallery/img',
-    'tenants/lsa/gallery/img',
-    'tenants/lsa/gallery/img',
     'tenants/einigungshilfe/pictures/img',
     'tenants/einigungshilfe/gallery/img',
     'tenants/niedersachsen/pictures/img',
@@ -38,6 +36,10 @@ set('shared_dirs', [
     'tenants/btw21/pictures/img',
     'tenants/berlin/gallery/img',
     'tenants/berlin/pictures/img',
+    'tenants/nrw/gallery/img',
+    'tenants/nrw/pictures/img',
+    'tenants/sh/gallery/img',
+    'tenants/sh/pictures/img',
 
     'log/logs',
 ]);
