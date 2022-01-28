@@ -160,7 +160,7 @@ nextActionDay();
         require_once(getBasePath('/lib/toasts/toasts.php'));
     ?>
 </div>
-
+<?php require_once('../footer.php'); ?>
 
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>

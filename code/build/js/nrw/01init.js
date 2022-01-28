@@ -41,7 +41,9 @@ function initSharepic() {
   }
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
-  $('#textY').val(320);
+  $('#textX').val(150);
+  $('#textY').val(70);
+  floating.draw();
   initialized = true;
 
   background.drawColor();
@@ -52,7 +54,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
-  berlintext.draw();
+  floating.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -72,11 +74,15 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
+    logo.reposition('leftupper');
+    if ($('#frame').is(':checked')){
+      frame.draw();
+    }
   }, 20);
 
   window.setTimeout(() => {
     addtext.draw();
-    logo.draw();
+
     eraser.draw();
   }, 100);
 

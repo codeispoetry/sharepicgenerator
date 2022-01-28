@@ -6,11 +6,11 @@ ENV APACHE_DOCUMENT_ROOT=/var/www/html/dist
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev sqlite3
+RUN apt-get install -y libpcre3-dev libssl-dev librabbitmq-dev sqlite3 gettext
 RUN pecl install oauth 
 RUN docker-php-ext-enable oauth
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-
+RUN docker-php-ext-install gettext && docker-php-ext-enable gettext
 
 RUN a2enmod rewrite
 

@@ -11,7 +11,7 @@ readConfig();
 
 $landesverband = 0;
 $user = "generic";
-$tenant = "berlin";
+$tenant = "sh";
 
 $hasAccess = isLocal() ?: isLocalUser();
 
@@ -73,7 +73,7 @@ nextActionDay();
         var config = {};
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
-        <?php printf('config.tenant="%s";', "berlin"); ?>
+        <?php printf('config.tenant="%s";', "sh"); ?>
         config.imageDBSearchIn="images";
         config.backgroundSource="standard";
         config.faces=-1;
@@ -100,7 +100,8 @@ nextActionDay();
 <div class="container-fluid h-100">
     <div class="row h-100 flex-row-reverse">
         <div class="col-12 col-lg-9 canvas-wrapper p-0">
-            <div class="col-12 p-0 pt-3">
+            <div class="col-12 p-0">
+                <?php require_once('advertising.php'); ?>
                 <div id="canvas-area">
                     <div id="canvas">
                         <div id="grid-horizontal-center" class="gridline horizontal"></div>
@@ -110,6 +111,7 @@ nextActionDay();
                         <div id="grid-vertical-left" class="gridline vertical"></div>
                         <div id="grid-vertical-right" class="gridline vertical"></div>
                         <div id="grid-round" class="gridline"></div>
+                        <div id="highlight-rect" class="d-none"></div>
                     </div>
                     <div class="text-center mt-5">
                         <div>
@@ -180,7 +182,7 @@ nextActionDay();
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
 <script src="<?php latestVersion('/assets/js/main.min.js');?>"></script>
-<script src="<?php latestVersion('/assets/js/berlin.min.js');?>"></script>
+<script src="<?php latestVersion('/assets/js/sh.min.js');?>"></script>
 
 
 
@@ -194,7 +196,7 @@ if (isset($_GET['useSavework'])) {
 }
 
 if (isset($_GET['usePicture'])) {
-    printf('uploadFileByUrl(`../tenants/berlin/%s`, () => {})', $_GET['usePicture']);
+    printf('uploadFileByUrl(`../tenants/sh/%s`, () => {})', $_GET['usePicture']);
 }
 ?>
     config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');
