@@ -38,10 +38,14 @@
                 <?php
                 $tenants = configValue('Main','linkedTenants');
                 foreach ($tenants as $key => $value ){
-                printf('<a href="/%1$s" class="dropdown-item">%2$s</a>',
-                    $key,
-                    $value
-                );
+                    list($description, $start) = explode(',', $value);
+                    if($start AND strToTime($start) > time() ){
+                        continue;
+                    }
+                    printf('<a href="/%1$s" class="dropdown-item">%2$s</a>',
+                        $key,
+                        $description
+                    );
                 }
                 ?>
             </div>
@@ -50,7 +54,7 @@
     </ul>
 </div>
 
-<h3><?php echo configValue('Main','linkedTenants')[$tenant]; ?></h3>
+<h3><?php echo explode(',',configValue('Main','linkedTenants')[$tenant])[0]; ?></h3>
 
 <div class="navbar-text d-flex">
     <?php if (isEditor()) { ?> 
