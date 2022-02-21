@@ -12,16 +12,16 @@ const frame = {
       let color1;
       let color2;
       switch ($('#framecolor').val()) {
-        case '#33582d':
-          color1 = '#33582d';
+        case '#155929':
+          color1 = '#155929';
           color2 = '#516f30';
           break;
-        case '#b7398e':
-          color1 = '#b7398e';
+        case '#b7388d':
+          color1 = '#b7388d';
           color2 = '#c0569e';
           break;
         default:
-          color1 = '#b9ce1d';
+          color1 = '#b9ce1e';
           color2 = '#96b126';
       }
 

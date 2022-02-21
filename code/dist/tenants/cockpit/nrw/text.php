@@ -69,8 +69,8 @@ wahr.</textarea>
                                 Zeige Claim
                             </label>
                             <div>
-                                <input type="hidden" name="claimcolor" id="claimcolor" value="#b7398e">
-                                <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#b9ce1d,#33582d,#b7398e" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
+                                <input type="hidden" name="claimcolor" id="claimcolor" value="#B7388D">
+                                <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#B7388D,#E4C9DD,#155929,#B9CE1E" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
                              </div>
 
                         </div>

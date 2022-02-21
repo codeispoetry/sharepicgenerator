@@ -28,8 +28,8 @@
                 <span class="to-front" data-target="pin" title="Störer nach vorne">
                     <i class="fas fa-layer-group text-primary"></i>
                 </span>
-                <input type="hidden" name="pincolor" id="pincolor" value="#b7398e">
-                <span class="colorpicker ms-1"  id="pincolorpicker" data-colors="#b9ce1d,#33582d,#b7398e" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
+                <input type="hidden" name="pincolor" id="pincolor" value="#B7388D">
+                <span class="colorpicker ms-1"  id="pincolorpicker" data-colors="#B7388D,#E4C9DD,#155929,#B9CE1E" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
             </div>
         </div>    
     </div>

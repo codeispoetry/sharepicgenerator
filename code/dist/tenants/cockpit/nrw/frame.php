@@ -6,8 +6,8 @@
             <label class="me-3">
                 <input type="checkbox" class="form-check-input me-1" id="frame" name="frame" value="1" > Rahmen anzeigen
             </label>
-            <input type="hidden" name="framecolor" id="framecolor" value="#b9ce1d">
-            <span class="colorpicker ms-1"  id="framecolorpicker" data-colors="#b9ce1d,#33582d,#b7398e" data-action="frame.draw()" data-field="#framecolor" title="Farbe wechseln"></span>
+            <input type="hidden" name="framecolor" id="framecolor" value="#b7388d">
+            <span class="colorpicker ms-1"  id="framecolorpicker" data-colors="#b7388d,#155929,#b9ce1e" data-action="frame.draw()" data-field="#framecolor" title="Farbe wechseln"></span>
         </div>
 
         <div class="d-flex justify-content-between">
