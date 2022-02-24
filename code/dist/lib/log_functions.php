@@ -370,7 +370,7 @@ function showLogGraph()
     $style = <<<STYLE
         <style>
             .bar{
-                width: 100%;
+                width: 15px;
                 background: #f06464;
                 align-self:flex-end;
                 justify-content:flex-start;
@@ -399,7 +399,7 @@ STYLE;
 
     $oldMonth = 0;
     while ($row = $results->fetchArray()) {
-       printf('<div class="bar %5$s %1$s" style="height:%2$dpx" title="%4$s: %3$s">%3$s <small>%4$s</small></div>', 
+       printf('<div class="bar %5$s %1$s" style="height:%2$dpx" title="%4$s: %3$s"></div>',
         ($row['weekday'] == 1) ? 'spacer-left' : '', 
         $row['count'] / 50,
         number_format($row['count'], 0, ',', '.'), 
