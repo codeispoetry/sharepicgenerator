@@ -62,9 +62,13 @@
                                 <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
-                        </div>
-            
-                       
+                        </div>                       
+                    </div>
+                    <div class="showonly floating">  
+                         <label class="me-3">
+                            <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
+                            Schatten hinter Text
+                        </label>
                     </div>
                 </div>
             </div>

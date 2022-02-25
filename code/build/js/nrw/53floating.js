@@ -50,6 +50,13 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
+    if ($('#textShadow').prop('checked')) {
+      t.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
+
     if ($('#textbefore').val()) {
       floating.svg.add(floating.drawTextBefore());
     }
@@ -67,13 +74,6 @@ const floating = {
     floating.svg
       .size($('#textsize').val())
       .move($('#textX').val(), $('#textY').val());
-
-    if ($('#floatingshadow').prop('checked')) {
-      floating.svg.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(2);
-        add.blend(add.$source, blur);
-      });
-    }
 
     eraser.front();
 
@@ -95,7 +95,7 @@ const floating = {
 
     const claim = draw.group();
 
-    const claimBackground = draw.rect(71,13.5)
+    const claimBackground = draw.rect(71, 13.5)
       .fill($('#claimcolor').val())
       .skew(-8, 0)
       .addTo(claim);
@@ -170,6 +170,17 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
+    if ($('#textShadow').prop('checked')) {
+      icons.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+      textafter.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
+
     switch (floating.align) {
       case 'middle':
         textafter.x(-textafter.bbox().w / 2);
@@ -194,7 +205,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #textShadow').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {

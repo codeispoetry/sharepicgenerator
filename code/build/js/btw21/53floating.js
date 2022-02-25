@@ -54,6 +54,13 @@ const floating = {
       floating.svg.add(floating.drawTextBefore());
     }
 
+    if ($('#textShadow').prop('checked')) {
+      t.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
+
     if ($('#textafter').val()) {
       floating.svg.add(floating.drawTextAfter(t));
     }
@@ -67,13 +74,6 @@ const floating = {
     floating.svg
       .size($('#textsize').val())
       .move($('#textX').val(), $('#textY').val());
-
-    if ($('#floatingshadow').prop('checked')) {
-      floating.svg.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(2);
-        add.blend(add.$source, blur);
-      });
-    }
 
     eraser.front();
 
@@ -109,6 +109,13 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
+    if ($('#textShadow').prop('checked')) {
+      textbefore.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
+
     textbefore.move(0, -textbefore.bbox().h);
 
     switch (floating.align) {
@@ -134,6 +141,13 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
+    if ($('#textShadow').prop('checked')) {
+      textafter.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
+
     switch (floating.align) {
       case 'middle':
         textafter.x(-textafter.bbox().w / 2);
@@ -157,7 +171,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #textShadow').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
