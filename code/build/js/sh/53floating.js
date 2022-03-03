@@ -44,7 +44,7 @@ const floating = {
     setLineHeight();
     const anchor = floating.align;
 
-    const t = draw.text($('#text').val().toUpperCase())
+    const t = draw.text($('#text').val())
       .font(Object.assign(floating.font, { anchor }))
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
@@ -57,16 +57,16 @@ const floating = {
       });
     }
 
-    if ($('#textbefore').val()) {
-      floating.svg.add(floating.drawTextBefore());
+    if ($('#textafter').val()) {
+      if ($('#smallTextPosition').prop('checked')) {
+        floating.svg.add(floating.drawTextBefore(t));
+      } else {
+        floating.svg.add(floating.drawTextAfter(t));
+      }
     }
 
     if ($('#showclaim').prop('checked')) {
       floating.drawClaim(t);
-    }
-
-    if ($('#textafter').val()) {
-      floating.svg.add(floating.drawTextAfter(t));
     }
 
     floating.svg.add(t);
@@ -95,14 +95,14 @@ const floating = {
 
     const claim = draw.group();
 
-    const claimBackground = draw.rect(71, 13.5)
-      .fill($('#claimcolor').val())
-      .skew(-8, 0)
-      .addTo(claim);
+    // const claimBackground = draw.rect(71, 13.5)
+    //   .fill($('#claimcolor').val())
+    //   .skew(-8, 0)
+    //   .addTo(claim);
 
-    const claimText = draw.text('VON HIER AN GRÜN.')
+    const claimText = draw.text('X Wählen wir grün!')
       .font({
-        family: 'BereitBold',
+        family: 'ArvoGruen',
         anchor: 'left',
         leading: '1.05em',
         size: 10,
@@ -111,16 +111,16 @@ const floating = {
       .fill('#FFFFFF')
       .addTo(claim);
 
-    claim.move(x, t.bbox().height + 1)
-      .size(50);
+    claim.move(x, t.bbox().height + 20)
+      .size(80);
 
     claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
-    const textbefore = draw.text($('#textbefore').val())
+    const textbefore = draw.text($('#textafter').val())
       .font(floating.fontBefore)
-      .fill('#FFE100')
+      .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -145,7 +145,7 @@ const floating = {
 
     let y = 3;
     if ($('#showclaim').prop('checked')) {
-      y = 12;
+      y = 3;
     }
 
     let brandDisplay = '';
@@ -163,7 +163,7 @@ const floating = {
       distanceIconsText = 5;
     }
 
-    const textafter = draw.text($('#textafter').val().toUpperCase())
+    const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
       .move(icons.bbox().width + distanceIconsText, y + t.bbox().height)
@@ -205,7 +205,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #textShadow').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #textShadow, #smallTextPosition').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
