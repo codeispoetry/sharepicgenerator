@@ -25,6 +25,15 @@
                 </span> 
             </div>
         </div>
+
+        <div>
+            <div class="d-flex">
+                <label class="me-3">
+                    <input type="checkbox" class="form-check-input" name="showLogoBackground" id="showLogoBackground">
+                    Zeige Dreieck unter Logo (nur links oben)
+                </label>
+            </div>
+        </div>
     </div>
     
 </div>
