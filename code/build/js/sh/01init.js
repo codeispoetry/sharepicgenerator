@@ -26,28 +26,26 @@ $(document).ready(() => {
 
   showLayout();
 
-
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
 });
 
-
-
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {
   if (initialized) {
+    bgpattern.svg.remove();
     return false;
   }
+
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
   $('#textX').val(150);
   $('#textY').val(70);
   floating.draw();
+  bgpattern.draw();
+
   initialized = true;
-
-  background.drawColor();
-
   return true;
 }
 
@@ -68,23 +66,13 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    pin.draw();
-    pin.drawTemplate();
-  }, 10);
-
-  window.setTimeout(() => {
     copyright.draw();
     logo.reposition('leftcenter');
     $('#logoposition').val('leftcenter');
-
-    if ($('#frame').is(':checked')) {
-      frame.draw();
-    }
   }, 20);
 
   window.setTimeout(() => {
     addtextSH.draw();
-
     eraser.draw();
   }, 100);
 
