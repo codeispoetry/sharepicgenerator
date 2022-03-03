@@ -26,7 +26,6 @@ $(document).ready(() => {
 
   showLayout();
 
-
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
