@@ -13,7 +13,7 @@
             </div>
 
             <div class="list-group-item-content">
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end d-none">
                     <label class="d-flex">
                         <i class="fas fa-cube me-2 toggle-text-shadow showonly floating d-none" title="Text mit Schatten hinterlegen"></i>  
                         <input type="checkbox" id="floatingshadow" name="floatingshadow" class="d-none">
@@ -60,10 +60,6 @@
                                 <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
                                 Zeige Claim
                             </label>
-                            <div>
-                                <input type="hidden" name="claimcolor" id="claimcolor" value="#B7388D">
-                                <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#B7388D,#E4C9DD,#155929,#B9CE1E" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
-                             </div>
                         </div>
 					         
                     </div>	

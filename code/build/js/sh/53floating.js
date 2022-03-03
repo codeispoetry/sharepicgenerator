@@ -90,24 +90,22 @@ const floating = {
         x = -51;
         break;
       default:
-        x = 0;
+        x = 14;
     }
 
     const claim = draw.group();
 
-    // const claimBackground = draw.rect(71, 13.5)
-    //   .fill($('#claimcolor').val())
-    //   .skew(-8, 0)
-    //   .addTo(claim);
+    const claimMarker = draw.image('../../assets/sh/marked.svg', () => {
+      claimMarker.move(claim.x() - 14, claim.y()).size(8).addTo(claim);
+    });
 
-    const claimText = draw.text('X Wählen wir grün!')
+    const claimText = draw.text('Wählen wir grün!')
       .font({
         family: 'ArvoGruen',
         anchor: 'left',
         leading: '1.05em',
         size: 10,
       })
-      .move(3, 0)
       .fill('#FFFFFF')
       .addTo(claim);
 
