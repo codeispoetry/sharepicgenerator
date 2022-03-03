@@ -5,19 +5,19 @@ const floating = {
   fondPadding: 30,
   align: 'left',
   font: {
-    family: 'BereitBold',
+    family: 'AzoSansBlack',
     anchor: 'left',
     leading: '1.05em',
     size: 20,
   },
   fontBefore: {
-    family: 'BereitBold',
+    family: 'AzoSansLight',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
   },
   fontAfter: {
-    family: 'BereitBold',
+    family: 'AzoSansLight',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
