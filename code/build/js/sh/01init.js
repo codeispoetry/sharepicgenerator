@@ -26,6 +26,7 @@ $(document).ready(() => {
 
   showLayout();
 
+
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
@@ -40,7 +41,9 @@ function initSharepic() {
   }
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
-  $('#textY').val(320);
+  $('#textX').val(150);
+  $('#textY').val(70);
+  floating.draw();
   initialized = true;
 
   background.drawColor();
@@ -51,7 +54,7 @@ function initSharepic() {
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
-  area.draw();
+  floating.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -71,6 +74,12 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
+    logo.reposition('leftcenter');
+    $('#logoposition').val('leftcenter');
+
+    if ($('#frame').is(':checked')) {
+      frame.draw();
+    }
   }, 20);
 
   window.setTimeout(() => {

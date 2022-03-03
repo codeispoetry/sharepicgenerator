@@ -44,15 +44,11 @@ const floating = {
     setLineHeight();
     const anchor = floating.align;
 
-    const t = draw.text($('#text').val())
+    const t = draw.text($('#text').val().toUpperCase())
       .font(Object.assign(floating.font, { anchor }))
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
-
-    if ($('#textbefore').val()) {
-      floating.svg.add(floating.drawTextBefore());
-    }
 
     if ($('#textShadow').prop('checked')) {
       t.filterWith((add) => {
@@ -61,15 +57,19 @@ const floating = {
       });
     }
 
+    if ($('#textbefore').val()) {
+      floating.svg.add(floating.drawTextBefore());
+    }
+
+    if ($('#showclaim').prop('checked')) {
+      floating.drawClaim(t);
+    }
+
     if ($('#textafter').val()) {
       floating.svg.add(floating.drawTextAfter(t));
     }
 
     floating.svg.add(t);
-
-    if ($('#showclaim').prop('checked')) {
-      floating.drawClaim();
-    }
 
     floating.svg
       .size($('#textsize').val())
@@ -80,26 +80,41 @@ const floating = {
     floating.svg.front();
   },
 
-  drawClaim() {
+  drawClaim(t) {
     let x;
     switch (floating.align) {
       case 'middle':
         x = -45;
         break;
       case 'end':
-        x = -90;
+        x = -51;
         break;
       default:
-        x = -3;
+        x = 0;
     }
 
-    return claim.svg
-      .clone()
-      .addTo(floating.svg)
-      .front()
-      .show()
-      .size(90)
-      .move(x, 5 + floating.svg.height() + floating.svg.y());
+    const claim = draw.group();
+
+    const claimBackground = draw.rect(71, 13.5)
+      .fill($('#claimcolor').val())
+      .skew(-8, 0)
+      .addTo(claim);
+
+    const claimText = draw.text('VON HIER AN GRÜN.')
+      .font({
+        family: 'BereitBold',
+        anchor: 'left',
+        leading: '1.05em',
+        size: 10,
+      })
+      .move(3, 0)
+      .fill('#FFFFFF')
+      .addTo(claim);
+
+    claim.move(x, t.bbox().height + 1)
+      .size(50);
+
+    claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
@@ -108,13 +123,6 @@ const floating = {
       .fill('#FFE100')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
-
-    if ($('#textShadow').prop('checked')) {
-      textbefore.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
-        add.blend(add.$source, blur);
-      });
-    }
 
     textbefore.move(0, -textbefore.bbox().h);
 
@@ -132,16 +140,41 @@ const floating = {
   },
 
   drawTextAfter(t) {
-    claim.svg.hide();
+    let distanceIconsText = 0;
+    let icons = draw.circle(0);
 
-    const textafter = draw.text($('#textafter').val())
+    let y = 3;
+    if ($('#showclaim').prop('checked')) {
+      y = 12;
+    }
+
+    let brandDisplay = '';
+    $('.textafter-icons i.active').each(function () {
+      brandDisplay += `${brands[$(this).data('icon')]} `;
+    });
+
+    if (brandDisplay) {
+      icons = draw.text(`${brandDisplay} /`)
+        .font(fontBrands)
+        .fill('#FFFFFF')
+        .move(0, y + t.bbox().height);
+      floating.svg.add(icons);
+
+      distanceIconsText = 5;
+    }
+
+    const textafter = draw.text($('#textafter').val().toUpperCase())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 8 + t.bbox().height)
+      .move(icons.bbox().width + distanceIconsText, y + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
     if ($('#textShadow').prop('checked')) {
+      icons.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
       textafter.filterWith((add) => {
         const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
         add.blend(add.$source, blur);
@@ -154,6 +187,7 @@ const floating = {
         break;
       case 'end':
         textafter.x(-textafter.bbox().w);
+        icons.x(-textafter.bbox().w - icons.bbox().w - distanceIconsText);
         break;
       default:
     }
