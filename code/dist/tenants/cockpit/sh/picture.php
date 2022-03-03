@@ -86,6 +86,23 @@
 
 </div>   
 
+<h3><i class="fas fa-image"></i> Hintergrundmuster</h3>
+<div class="picture  list-group-item list-group-item-action flex-column align-items-start">
+
+    <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
+         <div class="list-group-item-content">
+            <select class="form-select" name="backgroundColorSet" id="backgroundColorSet">
+                <option value="0">blau</option>
+				 <option value="1">pink</option>
+				 <option value="2">orange</option>
+            </select>
+        </div>
+        
+    </div>
+
+
+</div>   
+
 <input type="hidden" name="backgroundX" id="backgroundX">
 <input type="hidden" name="backgroundY" id="backgroundY">
 <input type="hidden" name="backgroundURL" id="backgroundURL">

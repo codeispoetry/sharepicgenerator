@@ -69,6 +69,9 @@ function reDraw(withAddPic = false) {
     copyright.draw();
     logo.reposition('leftcenter');
     $('#logoposition').val('leftcenter');
+    if (config.filename === undefined) {
+      bgpattern.draw();
+    }
   }, 20);
 
   window.setTimeout(() => {
