@@ -83,7 +83,7 @@ function reDraw(withAddPic = false) {
   }, 20);
 
   window.setTimeout(() => {
-    addtext.draw();
+    addtextSH.draw();
 
     eraser.draw();
   }, 100);

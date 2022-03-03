@@ -2,12 +2,12 @@
 <div class="addtext list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
         <div class="d-flex align-items-lg-center">
-            <textarea name="addtext" id="addtext" placeholder="Sternchentext" value="" class="form-control"></textarea>
+            <textarea name="addtextSH" id="addtextSH" placeholder="Zusatzzeile" value="" class="form-control"></textarea>
         </div>
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
-                <input type="range" class="form-range" name="addtextsize" id="addtextsize" min="0"
+                <input type="range" class="form-range" name="addtextsizeSH" id="addtextsizeSH" min="0"
                     max="50" value="20">
                 <small>groß</small>
             </div>
