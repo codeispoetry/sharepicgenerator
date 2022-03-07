@@ -96,7 +96,7 @@ const floating = {
     const claim = draw.group();
 
     const claimMarker = draw.image('../../assets/sh/marked.svg', () => {
-      claimMarker.move(claim.x() - 14, claim.y()).size(8).addTo(claim);
+      claimMarker.move(claim.x() - 14, claim.y()).size(10).addTo(claim);
     });
 
     const claimText = draw.text('Wählen wir grün!')
@@ -110,7 +110,7 @@ const floating = {
       .addTo(claim);
 
     claim.move(x, t.bbox().height + 20)
-      .size(80);
+      .size(100);
 
     claim.addTo(floating.svg);
   },
