@@ -117,6 +117,7 @@ nextActionDay();
                             <button class="btn btn-secondary btn-lg download bereitbold" id="download">
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
+                             <?php displayDevelopHint(); ?>
                         </div>
                         <div id="qrcode" class="qrcode mt-5" style="display:none">
                             Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
