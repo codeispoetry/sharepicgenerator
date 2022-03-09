@@ -1,8 +1,8 @@
 <?php
-require_once('base.php');
-require_once(getBasePath("lib/functions.php"));
-require_once(getBasePath("lib/save_functions.php"));
-require_once(getBasePath("lib/gallery_functions.php"));
+require_once 'base.php';
+require_once getBasePath("lib/functions.php");
+require_once getBasePath("lib/save_functions.php");
+require_once getBasePath("lib/gallery_functions.php");
 
 useDeLocale();
 
@@ -40,7 +40,7 @@ $_SESSION['tenant'] = $tenant;
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;
 
-require_once(getBasePath("lib/actionday.php"));
+require_once getBasePath("lib/actionday.php");
 nextActionDay();
 ?>
 <!DOCTYPE html>
@@ -93,7 +93,7 @@ nextActionDay();
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
-        <?php require_once('../menu.php'); ?>
+        <?php require_once '../menu.php'; ?>
     </div>
     </nav>
 </header>
@@ -117,6 +117,7 @@ nextActionDay();
                             <button class="btn btn-secondary btn-lg download bereitbold" id="download">
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
+                            <?php displayDevelopHint(); ?>
                         </div>
                         <div id="qrcode" class="qrcode mt-5" style="display:none">
                             Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
@@ -130,16 +131,16 @@ nextActionDay();
             </div>
 
             <?php
-            require_once(getBasePath('/lib/overlays/waiting.php'));
-            require_once(getBasePath('/lib/overlays/actiondays.php'));
-            require_once(getBasePath('/lib/overlays/icons.php'));
-            require_once(getBasePath('/lib/overlays/imagedb.php'));
+            require_once getBasePath('/lib/overlays/waiting.php');
+            require_once getBasePath('/lib/overlays/actiondays.php');
+            require_once getBasePath('/lib/overlays/icons.php');
+            require_once getBasePath('/lib/overlays/imagedb.php');
             if (configValue($tenant, 'showGallery')) {
-                require_once(getBasePath('/lib/overlays/gallery.php'));
+                include_once getBasePath('/lib/overlays/gallery.php');
             }
-            require_once(getBasePath('/lib/overlays/pictures.php'));
-            require_once(getBasePath('/lib/overlays/preferences.php'));
-            require_once(getBasePath('/lib/overlays/faq.php'));
+            require_once getBasePath('/lib/overlays/pictures.php');
+            require_once getBasePath('/lib/overlays/preferences.php');
+            require_once getBasePath('/lib/overlays/faq.php');
 
 
             ?>
@@ -161,16 +162,16 @@ nextActionDay();
             </div>
         <div class="col-12 col-lg-3 p-0">
             <div class="cockpit h-100">
-                <?php require_once('cockpit.php'); ?>
+                <?php require_once 'cockpit.php'; ?>
             </div> 
         </div>
     </div>
 
     <?php
-        require_once(getBasePath('/lib/toasts/toasts.php'));
+        require_once getBasePath('/lib/toasts/toasts.php');
     ?>
 </div>
-<?php require_once('../footer.php'); ?>
+<?php require_once '../footer.php'; ?>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
