@@ -95,7 +95,7 @@ const floating = {
 
     const claim = draw.group();
 
-    const claimMarker = draw.image('../../assets/sh/marked.svg', () => {
+    const claimMarker = draw.image('/assets/sh/marked.svg', () => {
       claimMarker.move(claim.x() - 14, claim.y()).size(10).addTo(claim);
     });
 
