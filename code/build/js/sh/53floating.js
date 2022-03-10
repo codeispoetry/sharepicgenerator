@@ -5,19 +5,19 @@ const floating = {
   fondPadding: 30,
   align: 'left',
   font: {
-    family: 'BereitBold',
+    family: 'AzoSansBlack',
     anchor: 'left',
     leading: '1.05em',
     size: 20,
   },
   fontBefore: {
-    family: 'BereitBold',
+    family: 'AzoSansLight',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
   },
   fontAfter: {
-    family: 'BereitBold',
+    family: 'AzoSansLight',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
@@ -50,62 +50,75 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    if ($('#textbefore').val()) {
-      floating.svg.add(floating.drawTextBefore());
+    if ($('#textShadow').prop('checked')) {
+      t.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
     }
 
     if ($('#textafter').val()) {
-      floating.svg.add(floating.drawTextAfter(t));
+      if ($('#smallTextPosition').prop('checked')) {
+        floating.svg.add(floating.drawTextBefore(t));
+      } else {
+        floating.svg.add(floating.drawTextAfter(t));
+      }
+    }
+
+    if ($('#showclaim').prop('checked')) {
+      floating.drawClaim(t);
     }
 
     floating.svg.add(t);
 
-    if ($('#showclaim').prop('checked')) {
-      floating.drawClaim();
-    }
-
     floating.svg
       .size($('#textsize').val())
       .move($('#textX').val(), $('#textY').val());
-
-    if ($('#floatingshadow').prop('checked')) {
-      floating.svg.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(2);
-        add.blend(add.$source, blur);
-      });
-    }
 
     eraser.front();
 
     floating.svg.front();
   },
 
-  drawClaim() {
+  drawClaim(t) {
     let x;
     switch (floating.align) {
       case 'middle':
         x = -45;
         break;
       case 'end':
-        x = -90;
+        x = -51;
         break;
       default:
-        x = -3;
+        x = 14;
     }
 
-    return claim.svg
-      .clone()
-      .addTo(floating.svg)
-      .front()
-      .show()
-      .size(90)
-      .move(x, 5 + floating.svg.height() + floating.svg.y());
+    const claim = draw.group();
+
+    const claimMarker = draw.image('/assets/sh/marked.svg', () => {
+      claimMarker.move(claim.x() - 14, claim.y()).size(10).addTo(claim);
+    });
+
+    const claimText = draw.text('Wählen wir grün!')
+      .font({
+        family: 'ArvoGruen',
+        anchor: 'left',
+        leading: '1.05em',
+        size: 10,
+      })
+      .fill('#FFFFFF')
+      .addTo(claim);
+
+    claim.move(x, t.bbox().height + 20)
+      .size(100);
+
+    claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
-    const textbefore = draw.text($('#textbefore').val())
+    const textbefore = draw.text($('#textafter').val())
       .font(floating.fontBefore)
-      .fill('#FFE100')
+      .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -125,14 +138,46 @@ const floating = {
   },
 
   drawTextAfter(t) {
-    claim.svg.hide();
+    let distanceIconsText = 0;
+    let icons = draw.circle(0);
+
+    let y = 3;
+    if ($('#showclaim').prop('checked')) {
+      y = 3;
+    }
+
+    let brandDisplay = '';
+    $('.textafter-icons i.active').each(function () {
+      brandDisplay += `${brands[$(this).data('icon')]} `;
+    });
+
+    if (brandDisplay) {
+      icons = draw.text(`${brandDisplay} /`)
+        .font(fontBrands)
+        .fill('#FFFFFF')
+        .move(0, y + t.bbox().height);
+      floating.svg.add(icons);
+
+      distanceIconsText = 5;
+    }
 
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 8 + t.bbox().height)
+      .move(icons.bbox().width + distanceIconsText, y + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textShadow').prop('checked')) {
+      icons.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+      textafter.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
 
     switch (floating.align) {
       case 'middle':
@@ -140,6 +185,7 @@ const floating = {
         break;
       case 'end':
         textafter.x(-textafter.bbox().w);
+        icons.x(-textafter.bbox().w - icons.bbox().w - distanceIconsText);
         break;
       default:
     }
@@ -157,7 +203,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #textShadow, #smallTextPosition').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {

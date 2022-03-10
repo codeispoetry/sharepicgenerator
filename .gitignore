@@ -50,6 +50,7 @@ code/dist/vendor
 docker-compose.yml
 docker-compose-complete.yml
 docker-compose-minimal.yml
+
 passwords.php
 
 code/dist/wordpress
