@@ -119,16 +119,18 @@ const nolines = {
     }
 
     // text above the line
-    const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
-    const textbefore = draw.text((add) => {
-      for (let i = 0; i < textbeforeParts.length; i++) {
-        add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textbefore.dx(2).dy(text.svg.y() - 0.7);
-    text.svg.add(textbefore);
+    if ($('#textbefore').val() !== '') {
+      const textbeforeParts = $('#textbefore').val().toUpperCase().split(/\[|\]/);
+      const textbefore = draw.text((add) => {
+        for (let i = 0; i < textbeforeParts.length; i++) {
+          add.tspan(textbeforeParts[i]).fill('#FEEE00').font(nolines.fontoutsidelines);
+          add.attr('xml:space', 'preserve');
+          add.attr('style', 'white-space:pre');
+        }
+      });
+      textbefore.dx(2).dy(text.svg.y() - 0.7);
+      text.svg.add(textbefore);
+    }
 
     eraser.front();
     showActionDayHint();

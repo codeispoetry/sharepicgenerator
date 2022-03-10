@@ -2,17 +2,17 @@
 
         <h3 class="" data-toggle="collapse" data-target=".text"><i class="fas fa-text-width"></i> Text</h3>
         <div class="text collapse show list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex justify-content-between form-check form-check-inline">
+            <div class="d-flex flex-column justify-content-between form-check form-check-inline">
                 <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="lines">Mit Linien
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout" name="layout" value="nolines" checked>Ohne Linien
                  </label>
-                 <label class="">
+                 <label class="d-none">
                     <input type="radio" class="form-check-input layout" name="layout" value="invers">Invers
                  </label>
-                 <label class="">
+                 <label class="d-none">
                     <input type="radio" class="form-check-input layout" name="layout" value="quote">Zitat
                  </label>
             </div>
