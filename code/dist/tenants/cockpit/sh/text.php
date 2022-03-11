@@ -22,13 +22,13 @@
                     <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
                     <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>
                 </div>
-                <div class="d-flex align-items-lg-center d-none">
+                <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control showonly area floating">
                 </div>
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Schleswig-Holstein</textarea>
                 </div>
-                <div class="d-flex align-items-lg-center">
+                <div class="d-flex align-items-lg-center d-none">
                     <input type="text" placeholder="Kleinerer Text" name="textafter" id="textafter" value="" class="form-control showonly area floating">
                 </div>
 
@@ -63,12 +63,6 @@
                         </div>
 					         
                     </div>	
-					<div>  
-					 	<label class="me-3">
-                    		<input type="checkbox" class="form-check-input" name="smallTextPosition" id="smallTextPosition">
-                        	Kleiner Text darüber statt darunter
-                    	</label>
-					</div>
 					<div>  
 					 	<label class="me-3">
                     		<input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
