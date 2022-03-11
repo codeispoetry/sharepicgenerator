@@ -28,9 +28,9 @@ const logo = {
       const w = logo.svg.width();
       const h = logo.svg.height();
       logo.background.remove();
-      logo.background = draw.polygon(`0, 0 ${w * 1},0 0, ${h * 0.5}`).fill('#009737');
+      logo.background = draw.polygon(`0, 0 ${w * 2},0 0, ${h * 2.1}`).fill('#067455');
       $('#logoposition').val('leftupper');
-      logo.reposition('leftupper');
+      logo.reposition('leftupperwithfond');
       logo.svg.front();
     } else {
       logo.background.remove();
@@ -61,6 +61,9 @@ const logo = {
         break;
       case 'rightbottom':
         logo.svg.move(right, bottom);
+        break;
+      case 'leftupperwithfond':
+        logo.svg.move(logo.svg.width() * 0.2, logo.svg.height() * 0.5);
         break;
       default:
         logo.svg.move(100, 100);
