@@ -28,7 +28,7 @@ const logo = {
       const w = logo.svg.width();
       const h = logo.svg.height();
       logo.background.remove();
-      logo.background = draw.polygon(`0, 0 ${w * 2},0 0, ${h * 2.1}`).fill('#009737');
+      logo.background = draw.polygon(`0, 0 ${w * 2},0 0, ${h * 2.1}`).fill('#067455');
       $('#logoposition').val('leftupper');
       logo.reposition('leftupperwithfond');
       logo.svg.front();
