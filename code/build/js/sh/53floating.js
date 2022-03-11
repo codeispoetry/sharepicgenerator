@@ -11,7 +11,7 @@ const floating = {
     size: 20,
   },
   fontBefore: {
-    family: 'AzoSansLight',
+    family: 'ArvoGruen',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
