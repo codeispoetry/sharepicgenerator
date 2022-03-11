@@ -29,7 +29,8 @@ const bgpattern = {
     //   .fill(colorSet[color].b)
     //   .addTo(bgpattern.svg);
 
-    draw.circle(h * 0.8).dx(-h * 0.4).dy(-h * 0.4).fill(colorSet[color].b);
+    draw.circle(h * 0.8).dx(-h * 0.4).dy(-h * 0.4).fill(colorSet[color].b)
+      .addTo(bgpattern.svg);
 
     draw.rect(w, h * 0.6).dy(h * 0.4).fill(colorSet[color].c).addTo(bgpattern.svg);
     draw.polygon(`0, ${0.5 * h} ${w * 0.8},${h} 0, ${h}`).fill(colorSet[color].d).addTo(bgpattern.svg);
