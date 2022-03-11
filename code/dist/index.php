@@ -186,9 +186,7 @@
 
 <?php
   // delete tmp-files
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/*'), 'log*', 2 * 24);
-  // but keep log-files longer
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/log*'), null,  7 * 24);
+  deleteFilesInPathOlderThanHours(getBasePath('tmp/*'), null, 2 * 24);
   // delete videos and zips more often
   deleteFilesInPathOlderThanHours(getBasePath('tmp/*.mp4'), null,  6);
   deleteFilesInPathOlderThanHours(getBasePath('tmp/*.zip'), null,  6);
