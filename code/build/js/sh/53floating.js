@@ -57,12 +57,8 @@ const floating = {
       });
     }
 
-    if ($('#textafter').val()) {
-      if ($('#smallTextPosition').prop('checked')) {
-        floating.svg.add(floating.drawTextBefore(t));
-      } else {
-        floating.svg.add(floating.drawTextAfter(t));
-      }
+    if ($('#textbefore').val()) {
+      floating.svg.add(floating.drawTextBefore(t));
     }
 
     if ($('#showclaim').prop('checked')) {
@@ -109,14 +105,14 @@ const floating = {
       .fill('#FFFFFF')
       .addTo(claim);
 
-    claim.move(x, t.bbox().height + 20)
+    claim.move(x, t.bbox().height + 10)
       .size(100);
 
     claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
-    const textbefore = draw.text($('#textafter').val())
+    const textbefore = draw.text($('#textbefore').val())
       .font(floating.fontBefore)
       .fill('#FFFFFF')
       .attr('xml:space', 'preserve')
