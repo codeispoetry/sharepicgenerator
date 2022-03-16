@@ -51,6 +51,14 @@
         color: #333333;
     }
 
+    #loginscreen a.tenant{
+      text-decoration: underline;
+      color: #a0c863;
+    }
+     #loginscreen a.tenant:hover{
+      color: #4cb4e7;
+    }
+
     #claim{
         color: white;
         font-family: BereitBold;
@@ -122,6 +130,10 @@
               <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
               <div class="w-100 btn btn-lg btn-pistazie text-white">anmelden</div>
           </a>
+          <div class="mt-2">
+            <a href="/sh" class="tenant">Schleswig-Holstein</a> | 
+            <a href="/nrw" class="tenant">Nordrhein-Westfalen</a> 
+          </div>
       </div>
   </div>
 
@@ -145,13 +157,14 @@
         <h5>Sondermodelle</h5>
         <ul class="list-unstyled text-small">
             <?php
-            $tenants = configValue('Main','linkedTenants');
-            foreach ($tenants as $key => $value ){
+            $tenants = configValue('Main', 'linkedTenants');
+            foreach ($tenants as $key => $value) {
                 list($description, $start) = explode(',', $value);
-                if($start AND strToTime($start) > time() ){
-                  continue;
+                if ($start and strToTime($start) > time()) {
+                    continue;
                 }
-                printf('<li class="mb-1"><a href="/%1$s" class="">%2$s</a></li>',
+                printf(
+                    '<li class="mb-1"><a href="/%1$s" class="">%2$s</a></li>',
                     $key,
                     $description
                 );
