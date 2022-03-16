@@ -75,7 +75,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="far fa-time"></i> Zeiten der letzten 7 Tage</dt>
+                <dt><i class="far fa-clock"></i> Zeiten der letzten 7 Tage</dt>
                 <dd>
                     Median Createtime: <?php echo round(getMedianCreatingTime()/1000, 1); ?>s<br>
                     90% Createtime: <?php echo round(getMedianCreatingTime(90)/1000, 1); ?>s<br>
