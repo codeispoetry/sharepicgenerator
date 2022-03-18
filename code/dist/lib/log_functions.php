@@ -291,12 +291,12 @@ function showTenantsDownloads()
 
 function showTenantsUniqueUsers()
 {
-    return echoResults("select tenant As name,count(distinct user) as count from downloads GROUP BY tenant;");
+    return echoResults("select tenant As name,count(distinct user) as count from downloads GROUP BY tenant ORDER BY count DESC;");
 }
 
 function showTenantsDownloadsLastDays( $days = 7)
 {
-    return echoResults("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant;");
+    return echoResults("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant ORDER BY count DESC;");
 }
 
 function showBrowsers()
