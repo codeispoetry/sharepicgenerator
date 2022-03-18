@@ -59,6 +59,69 @@ function singleResult($sql)
     return $row['result'];
 }
 
+function echoResultsForChartJS($sql)
+{
+    static $i;
+    $i = (!$i) ? 1 : $i +1;
+
+    global $db;
+    $results = $db->query($sql);
+    $labels = array();
+    $values = array();
+    while ($row = $results->fetchArray()) {
+        $values[] = $row['count'];
+        $labels[] = "'".$row['name']."'";
+    }
+    $labels = join(',', $labels);
+    $values = join(',', $values);
+
+
+    echo <<<CHARTJS
+        <div><canvas id="chart{$i}" height="300"></canvas></div>
+
+        <script>
+  
+  const data{$i} = {
+    labels: [$labels],
+    datasets: [{
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)',
+        'rgb(55, 99, 132)',
+        'rgb(254, 162, 235)',
+        'rgb(55, 205, 86)',
+        'rgb(254, 62, 235)',
+        'rgb(55, 5, 86)'
+        ],
+      borderColor: 'rgb(255, 99, 132)',
+      data: [$values],
+    }]
+  };
+
+  const config{$i} = {
+    type: 'pie',
+    data: data{$i},
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{
+          legend: {
+            display: false
+            },
+        },
+    }
+  };
+
+   const myChart{$i} = new Chart(
+    document.getElementById('chart{$i}'),
+    config{$i}
+  );
+</script>
+
+CHARTJS;
+}
+
 function echoResults($sql, $inPercent = false)
 {
     global $db;
@@ -66,7 +129,7 @@ function echoResults($sql, $inPercent = false)
     while ($row = $results->fetchArray()) {
         
 
-        if($inPercent ) {
+        if ($inPercent) {
             $fraction = $row['count'] / getDownloads();
             $decimal_places = ($fraction > 0.01) ? 2 : 4;
             $value = 100 * round($fraction, $decimal_places);
@@ -294,9 +357,9 @@ function showTenantsUniqueUsers()
     return echoResults("select tenant As name,count(distinct user) as count from downloads GROUP BY tenant ORDER BY count DESC;");
 }
 
-function showTenantsDownloadsLastDays( $days = 7)
+function showTenantsDownloadsLastDays($days = 7)
 {
-    return echoResults("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant ORDER BY count DESC;");
+    return echoResultsForChartJS("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant ORDER BY count DESC;");
 }
 
 function showBrowsers()
@@ -385,7 +448,6 @@ function showLogGraph()
 
 
     echo <<<ECHO
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
         <div><canvas id="chart" height="300"></canvas></div>
 
         <script>

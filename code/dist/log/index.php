@@ -17,6 +17,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -85,7 +86,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                 </dd>
                 <dd>
                     Median Uploadtime: <?php echo round(getMedianUploadTime()/1000, 1); ?>s<br>
-                    90% Uploadtime: <?php echo round(getMedianUploadTime(00)/1000, 1); ?>s<br>
+                    90% Uploadtime: <?php echo round(getMedianUploadTime(90)/1000, 1); ?>s<br>
                 </dd>
             </dl>
         </div>
@@ -123,7 +124,10 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-sitemap"></i> Downloads all time</dt>
-                <dd><ul><?php echo showTenantsDownloadsLastDays(5000); ?></ul></dd>
+                <dd><ul><?php echo showTenantsDownloadsLastDays(5000); ?></ul>
+                
+                
+                </dd>
             </dl>
         </div>
 
