@@ -1,9 +1,3 @@
-Deny From All
-
-<FilesMatch "^(index|show)">
-Allow From All
-</FilesMatch>
-
 <If "req('Host') = 'sharepicgenerator.de'">
     AuthType Basic
     AuthName "Geschützter Bereich - Bitte geben Sie ein Passwort ein!"

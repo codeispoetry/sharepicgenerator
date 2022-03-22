@@ -131,7 +131,9 @@ function checkPermission($user, $accesstoken)
     }
 
     require_once(sprintf('%s/accesstoken.php', $userDir));
-    logFailure('accesstoken for ' . $user . ' is ' . $accesstoken . ' and should be ' . ACCESSTOKEN);
+    if ($accesstoken != ACCESSTOKEN) {
+        logFailure('accesstoken for ' . $user . ' is ' . $accesstoken . ' and should be ' . ACCESSTOKEN);
+    }
     return $accesstoken == ACCESSTOKEN;
 }
 

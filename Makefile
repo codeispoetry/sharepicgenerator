@@ -81,13 +81,13 @@ eslint:
 	cd code && npx eslint build --ext .js,.jsx,.ts,.tsx
 
 log-get:
-	rsync sharepic:/var/www/sharepicgenerator.de/shared/log/logs/log.db code/dist/log/logs/log.db
+	rsync --progress sharepic:/var/www/sharepicgenerator.de/shared/log/logs/log.db code/dist/log/logs/log.db
 
 log-shell:
 	docker-compose exec webserver sqlite3 dist/log/logs/log.db
 
 user-get:
-	rsync sharepic:/var/www/sharepicgenerator.de/shared/log/logs/user.db code/dist/log/logs/user.db
+	rsync --progress sharepic:/var/www/sharepicgenerator.de/shared/log/logs/user.db code/dist/log/logs/user.db
 
 users:
 	docker-compose exec webserver sqlite3 dist/log/logs/user.db
