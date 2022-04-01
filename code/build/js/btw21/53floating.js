@@ -109,7 +109,7 @@ const floating = {
       textColor = '#145f32';
     }
 
-    const textInClaim = $('#claimtext').val().toUpperCase();
+    const textInClaim = $('#claimtext').val();
 
     const claimText = draw.text(textInClaim)
       .font({
@@ -167,10 +167,15 @@ const floating = {
   drawTextAfter(t) {
     claim.svg.hide();
 
+    let dy = 6;
+    if ($('#claimtext').val() !== '') {
+      dy = 14;
+    }
+
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 11 + t.bbox().height)
+      .move(0, dy + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
