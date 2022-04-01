@@ -1,4 +1,4 @@
-<h3 class=" showonly floating berlintext"><i class="fas fa-fan"></i> Logo</h3>
+<h3 class="d-none showonly floating berlintext"><i class="fas fa-fan"></i> Logo</h3>
 <div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">           
     <div class="d-flex justify-content-between">
         <div class="slider">

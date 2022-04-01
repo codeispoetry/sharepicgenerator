@@ -12,7 +12,7 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-  $('#textsize').val(502);
+  $('#textsize').val(202);
   $('#textX').val(41);
   $('#textY').val(372);
 
@@ -75,7 +75,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     addtext.draw();
-
+    floating.draw();
     eraser.draw();
   }, 100);
 

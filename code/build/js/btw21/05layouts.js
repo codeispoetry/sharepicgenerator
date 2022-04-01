@@ -12,8 +12,8 @@ function showLayout() {
       logo.svg.draggable(false);
       break;
     case 'floating':
-      floating.draw();
       logo.draw();
+      floating.draw();
       logo.svg.draggable(true);
       break;
     default:
