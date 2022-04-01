@@ -15,8 +15,8 @@
         <div class="d-flex align-items-lg-center">
             <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3"></textarea>
         </div>
-        <div class="d-flex justify-content-between">
-            <div class="slider">
+        <div class="d-flex justify-content-end">
+            <div class="slider d-none">
                 <small>klein</small>
                 <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                     max="300" value="100">
