@@ -29,6 +29,15 @@
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darunter" name="textafter" id="textafter" value="" class="form-control showonly area floating">
                 </div>
+                <div class="d-flex justify-content-between">
+                    <div class="">
+                        <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control showonly area floating">
+                    </div>    
+                    <div>
+                        <input type="hidden" name="claimcolor" id="claimcolor" value="#ffe100">
+                        <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#ffe100,#FF495D" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
+                    </div>    
+                </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between">
@@ -52,14 +61,6 @@
                     </div>
 
                 <div class="preferences-text">
-                    <div class="d-flex justify-content-between">
-                        <div class="">
-                            <label class="">
-                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
-                                Zeige Claim
-                            </label>
-                        </div>                       
-                    </div>
                     <div class="showonly floating">  
                          <label class="me-3">
                             <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
