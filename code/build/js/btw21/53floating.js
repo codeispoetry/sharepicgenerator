@@ -67,9 +67,10 @@ const floating = {
 
     floating.svg.add(t);
 
-    if ($('#showclaim').prop('checked')) {
-      floating.drawClaim();
-    }
+    floating.drawClaim(t);
+    config.user.prefs.claimtext = $('#claimtext').val();
+    config.user.prefs.claimcolor = $('#claimcolor').val();
+    setUserPrefs();
 
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
 
@@ -84,26 +85,54 @@ const floating = {
     floating.svg.front();
   },
 
-  drawClaim() {
+  drawClaim(t) {
+    if ($('#claimtext').val() === '') {
+      return;
+    }
+
     let x;
     switch (floating.align) {
       case 'middle':
         x = -45;
         break;
       case 'end':
-        x = -90;
+        x = -51;
         break;
       default:
-        x = -3;
+        x = 0;
     }
 
-    return claim.svg
-      .clone()
-      .addTo(floating.svg)
-      .front()
-      .show()
-      .size(90)
-      .move(x, 5 + floating.svg.height() + floating.svg.y());
+    const claim = draw.group();
+
+    let textColor = '#FFFFFF';
+    if ($('#claimcolor').val() === '#ffe100') {
+      textColor = '#145f32';
+    }
+
+    const textInClaim = $('#claimtext').val().toUpperCase();
+
+    const claimText = draw.text(textInClaim)
+      .font({
+        family: 'BereitBold',
+        anchor: 'left',
+        leading: '1.05em',
+        size: 8,
+      })
+      .move(2, 1)
+      .fill(textColor);
+
+    // if (textInClaim.includes('Ä') || textInClaim.includes('Ö') || textInClaim.includes('Ü')) {
+
+    const claimBackground = draw.rect(claimText.bbox().w + 4, 11.5)
+      .fill($('#claimcolor').val())
+      .skew(-8, 0)
+      .addTo(claim);
+
+    claimText.addTo(claim);
+
+    claim.move(x, t.bbox().height + 1);
+
+    claim.addTo(floating.svg);;
   },
 
   drawTextBefore() {
@@ -141,7 +170,7 @@ const floating = {
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 8 + t.bbox().height)
+      .move(0, 11 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -175,7 +204,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #textShadow').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShadow').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
