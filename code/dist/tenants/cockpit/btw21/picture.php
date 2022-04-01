@@ -5,7 +5,7 @@
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
-        <span class="d-none colorpicker ms-1" data-colors="#000000,#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
+        <span class="colorpicker ms-1" data-colors="#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
  </div>
  <h3><i class="fas fa-image"></i> Bild suchen</h3>
