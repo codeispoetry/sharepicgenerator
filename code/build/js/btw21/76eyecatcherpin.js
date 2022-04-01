@@ -54,6 +54,10 @@ const pin = {
     pin.svg.rotate(-9);
   },
 
+  setSize(w) {
+    pin.svg.size(w, null);
+  },
+
   resize() {
     const eyecatchersize = $('#eyecatchersize').val();
     pin.svg.size(eyecatchersize);
