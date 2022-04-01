@@ -71,10 +71,13 @@ const floating = {
       floating.drawClaim();
     }
 
+    const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
+
     floating.svg
-      .size($('#textsize').val())
+      .scale(scaleFactor, $('#textX').val(), $('#textY').val())
       .move($('#textX').val(), $('#textY').val());
 
+    logo.setSize(17 * scaleFactor * 1.7);
     eraser.front();
 
     floating.svg.front();
