@@ -15,6 +15,12 @@ $('#sizepresets').on('change', function changeSize() {
     showMosaicLines();
   }
 
+  if (config.socialmediaplatform === 'Instagram-Bild-4x5') {
+    $('#grid-square').removeClass('d-none');
+  } else {
+    $('#grid-square').addClass('d-none');
+  }
+
   background.resize();
 });
 
