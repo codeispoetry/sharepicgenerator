@@ -208,7 +208,11 @@ $('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShado
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
-  $('#textX').val((draw.width() - floating.svg.width()) / 2);
-  $('#textY').val((draw.height() - floating.svg.height()) / 2);
+  const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
+  const textWidth = floating.svg.width() * scaleFactor;
+  const textHeight = floating.svg.height() * scaleFactor;
+
+  $('#textX').val((draw.width() - textWidth) / 2);
+  $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
 });
