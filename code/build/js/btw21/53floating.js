@@ -130,7 +130,7 @@ const floating = {
         x = 0;
     }
 
-    claim.move(x, t.bbox().height + 1);
+    claim.move(x, 8 + floating.svg.height() + 1);
 
     claim.addTo(floating.svg);
   },
@@ -167,15 +167,10 @@ const floating = {
   drawTextAfter(t) {
     claim.svg.hide();
 
-    let dy = 6;
-    if ($('#claimtext').val() !== '') {
-      dy = 14;
-    }
-
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, dy + t.bbox().height)
+      .move(0, 6 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
