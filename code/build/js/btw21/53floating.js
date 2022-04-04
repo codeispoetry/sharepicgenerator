@@ -90,18 +90,6 @@ const floating = {
       return;
     }
 
-    let x;
-    switch (floating.align) {
-      case 'middle':
-        x = -45;
-        break;
-      case 'end':
-        x = -51;
-        break;
-      default:
-        x = 0;
-    }
-
     const claim = draw.group();
 
     let textColor = '#FFFFFF';
@@ -130,9 +118,21 @@ const floating = {
 
     claimText.addTo(claim);
 
+    let x;
+    switch (floating.align) {
+      case 'middle':
+        x = -claim.width() / 2;
+        break;
+      case 'end':
+        x = -claim.width();
+        break;
+      default:
+        x = 0;
+    }
+
     claim.move(x, t.bbox().height + 1);
 
-    claim.addTo(floating.svg);;
+    claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
