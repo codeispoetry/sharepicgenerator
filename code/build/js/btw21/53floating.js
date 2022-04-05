@@ -50,10 +50,6 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    if ($('#textbefore').val()) {
-      floating.svg.add(floating.drawTextBefore());
-    }
-
     if ($('#textShadow').prop('checked')) {
       t.filterWith((add) => {
         const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
@@ -71,6 +67,10 @@ const floating = {
     config.user.prefs.claimtext = $('#claimtext').val();
     config.user.prefs.claimcolor = $('#claimcolor').val();
     setUserPrefs();
+
+    if ($('#textbefore').val()) {
+      floating.svg.add(floating.drawTextBefore());
+    }
 
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
 
