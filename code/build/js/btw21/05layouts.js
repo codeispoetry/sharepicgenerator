@@ -18,6 +18,8 @@ function showLayout() {
       break;
     default:
   }
+
+  $('.align-center-text').trigger('click');
 }
 
 $('.layout').click(showLayout);
