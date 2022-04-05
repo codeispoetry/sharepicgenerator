@@ -221,3 +221,11 @@ ul.text-symbols{
     cursor: pointer;
   }
 }
+
+#claimtext{
+  transform: skew(-9deg);
+  background: $sonnenblume;
+  color: $moos;
+  font-family: BereitBold;
+  border: 0;
+}
