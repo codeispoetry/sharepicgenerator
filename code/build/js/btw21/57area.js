@@ -44,23 +44,24 @@ const area = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    if ($('#textbefore').val()) {
-      area.svg.add(area.drawTextBefore());
-    }
-
     if ($('#textafter').val()) {
       area.svg.add(area.drawTextAfter(t));
     }
 
     area.svg.add(t);
 
-    if ($('#showclaim').prop('checked')) {
-      area.drawClaim();
+    area.drawClaim(t);
+
+    if ($('#textbefore').val()) {
+      area.svg.add(area.drawTextBefore());
     }
 
     area.svg
       .size($('#textsize').val())
-      .move(area.fondPadding, draw.height() - area.getLowerFondCorrection() - area.fondPadding);
+      .move(
+        area.fondPadding,
+        draw.height() - area.getLowerFondCorrection() - (2 * area.fondPadding)
+      );
 
     eraser.front();
 
@@ -71,13 +72,54 @@ const area = {
     window.setTimeout(area.drawLogo, 500);
   },
 
-  drawClaim() {
-    return claim.svg
-      .clone()
-      .addTo(area.svg)
-      .front()
-      .show()
-      .move(-3, 5 + area.svg.height() + area.svg.y());
+  drawClaim(t) {
+    if ($('#claimtext').val() === '') {
+      return;
+    }
+
+    const claim = draw.group();
+
+    let textColor = '#FFFFFF';
+    if ($('#claimcolor').val() === '#ffe100') {
+      textColor = '#145f32';
+    }
+
+    const textInClaim = $('#claimtext').val();
+
+    const claimText = draw.text(textInClaim)
+      .font({
+        family: 'BereitBold',
+        anchor: 'left',
+        leading: '1.05em',
+        size: 8,
+      })
+      .move(2, 1)
+      .fill(textColor);
+
+    // if (textInClaim.includes('Ä') || textInClaim.includes('Ö') || textInClaim.includes('Ü')) {
+
+    const claimBackground = draw.rect(claimText.bbox().w + 4, 11.5)
+      .fill($('#claimcolor').val())
+      .skew(-8, 0)
+      .addTo(claim);
+
+    claimText.addTo(claim);
+
+    let x;
+    switch (area.align) {
+      case 'middle':
+        x = -claim.width() / 2;
+        break;
+      case 'end':
+        x = -claim.width();
+        break;
+      default:
+        x = 0;
+    }
+
+    claim.move(x, 8 + area.svg.height() + 1);
+
+    claim.addTo(area.svg);
   },
 
   drawTextBefore() {
@@ -115,7 +157,7 @@ const area = {
   getLowerFondCorrection() {
     let height = area.svg.height();
 
-    if ($('#showclaim').prop('checked') === true) {
+    if ($('#claimtext').val() !== '') {
       return height;
     }
 
@@ -148,7 +190,7 @@ const area = {
   drawFond() {
     area.fond.remove();
     const h = area.getLowerFondCorrection() - area.getUpperFondCorrection()
-        + (2 * area.fondPadding);
+        + (3 * area.fondPadding);
     area.fond = draw.rect(draw.width(), h)
       .move(0, draw.height() - h)
       .fill('#a0c864');
