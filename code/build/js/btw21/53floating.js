@@ -16,6 +16,12 @@ const floating = {
     leading: '1.05em',
     size: 10,
   },
+  fontCiteSymbol: {
+    family: 'BereitBold',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 80,
+  },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
@@ -136,9 +142,19 @@ const floating = {
   },
 
   drawTextBefore() {
-    const textbefore = draw.text($('#textbefore').val())
-      .font(floating.fontBefore)
-      .fill('#FFE100')
+    let content = $('#textbefore').val();
+    let color = '#FFE100';
+    let font = floating.fontBefore;
+
+    if ($('#textbefore').val() === '"') {
+      content = ',,';
+      color = '#FFFFFF';
+      font = floating.fontCiteSymbol;
+    }
+
+    const textbefore = draw.text(content)
+      .font(font)
+      .fill(color)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
