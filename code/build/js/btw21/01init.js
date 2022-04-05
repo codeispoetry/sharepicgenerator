@@ -36,8 +36,6 @@ $(document).ready(() => {
   });
 });
 
-
-
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {
   if (initialized) {
@@ -45,7 +43,6 @@ function initSharepic() {
   }
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
-  $('#textY').val(320);
   initialized = true;
 
   background.drawColor();
@@ -82,6 +79,7 @@ function reDraw(withAddPic = false) {
     addtext.draw();
     floating.draw();
     eraser.draw();
+    $('.align-center-text').trigger('click');
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

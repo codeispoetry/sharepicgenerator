@@ -74,7 +74,7 @@ const floating = {
     config.user.prefs.claimcolor = $('#claimcolor').val();
     setUserPrefs();
 
-    if ($('#textbefore').val()) {
+    if ($('#textbefore').val() || $('#layout-cite').prop('checked')) {
       floating.svg.add(floating.drawTextBefore());
     }
 
@@ -146,7 +146,7 @@ const floating = {
     let color = '#FFE100';
     let font = floating.fontBefore;
 
-    if ($('#textbefore').val() === '"') {
+    if ($('#layout-cite').prop('checked')) {
       content = ',,';
       color = '#FFFFFF';
       font = floating.fontCiteSymbol;

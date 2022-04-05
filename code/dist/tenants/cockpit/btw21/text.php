@@ -3,13 +3,16 @@
         <h3><i class="fas fa-text-width"></i> Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-flex">
+            <div class="d-flex justify-content-around">
                 <label class="me-3">Layout:</label>
-                 <label class="me-3">
+                 <label class="">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="floating" checked>Schwebend
                  </label>
                  <label class="">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="area" >Fläche
+                 </label>
+                 <label class="">
+                    <input type="radio" id="layout-cite" class="form-check-input layout me-1" name="layout" value="floating">Zitat
                  </label>
             </div>
 
