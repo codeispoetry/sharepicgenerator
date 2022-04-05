@@ -216,9 +216,18 @@ ul.text-symbols{
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex;
+
   li{
-    display: inline;
-    cursor: pointer;
+    display: block;
+    cursor: pointer;  
+    min-width: 2em;
+    border-radius: 10px;
+    text-align: center;
+    &:hover{
+      background: $moos;
+      color: white;
+    }
   }
 }
 
