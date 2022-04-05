@@ -60,7 +60,7 @@ const area = {
       .size($('#textsize').val())
       .move(
         area.fondPadding,
-        draw.height() - area.getLowerFondCorrection() - (2 * area.fondPadding)
+        draw.height() - area.getLowerFondCorrection() - ((1 + area.getFactorDistanceToBottom()) * area.fondPadding)
       );
 
     eraser.front();
@@ -190,10 +190,18 @@ const area = {
   drawFond() {
     area.fond.remove();
     const h = area.getLowerFondCorrection() - area.getUpperFondCorrection()
-        + (3 * area.fondPadding);
+        + ((2 + area.getFactorDistanceToBottom()) * area.fondPadding);
     area.fond = draw.rect(draw.width(), h)
       .move(0, draw.height() - h)
       .fill('#a0c864');
+  },
+
+  getFactorDistanceToBottom() {
+    if (config.socialmediaplatform === 'Instagram-Bild-4x5') {
+      return 1;
+    }
+
+    return 0;
   },
 
   drawLogo() {

@@ -21,6 +21,9 @@ $('#sizepresets').on('change', function changeSize() {
     $('#grid-square').addClass('d-none');
   }
 
+  area.draw();
+  floating.draw();
+
   background.resize();
 });
 
