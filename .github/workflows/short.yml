@@ -6,37 +6,53 @@ on:
       - develop
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Save hello
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Save version
         run: |
-          echo "Hello" > hello.txt
+          echo $GITHUB_SHA > code/dist/version.txt
+          TZ='Europe/Berlin' date >> code/dist/version.txt
+
+      - name: Install npm packages for development
+        run: |
+          cd code
+          npm install
+      - name: Build js and scss
+        run: |
+          cd code
+          npm run build:production
+          ls -l dist/assets/css
+
+      - name: see css
+        run: |
+          ls -l code/dist/assets/css
 
       - uses: actions/cache@v3
-        id: restore-build
+        id: cache-dist
         with:
-          path: ./*
+          path: ~/code/dist
           key: ${{ github.sha }}
 
-   
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
-    
+
     steps:
+      - uses: actions/checkout@v2
+
       - uses: actions/cache@v3
-        id: restore-build
+        id: cache-dist
         with:
+          path: ~/code/dist
           key: ${{ github.sha }}
 
-      - name: See hello
+      - name: see css
         run: |
-          ls -l
-
-
-    
+          ls -l code/dist/assets/css
