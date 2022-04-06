@@ -7,7 +7,7 @@ on:
       - develop
 
 jobs:
-  build-documentation:
+  builddocumentation:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -29,7 +29,7 @@ jobs:
           cd mkdocs
           mkdocs build
 
-  compile-app:
+  compileapp:
     runs-on: ubuntu-latest
     strategy:
       matrix:
