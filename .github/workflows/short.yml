@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - developKILL
+      - develop
 
 jobs:
 
@@ -31,9 +31,6 @@ jobs:
     steps:
       - uses: actions/cache@v3
         id: restore-build
-        with:
-          path: ./*
-          key: ${{ github.sha }}
 
       - name: See hello
         run: |
