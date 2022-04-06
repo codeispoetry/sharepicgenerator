@@ -19,7 +19,7 @@ jobs:
           cache-name: cache-dist
         with:
           path: ~/code/dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ GITHUB_SHA }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${GITHUB_SHA}
 
       - name: Save hello
         run: |
@@ -37,7 +37,7 @@ jobs:
           cache-name: cache-dist
         with:
           path: ~/code/dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ GITHUB_SHA }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${GITHUB_SHA}
 
       - name: See hello
         run: |
