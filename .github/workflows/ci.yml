@@ -78,6 +78,7 @@ jobs:
       - uses: actions/cache@v3
         id: cache-dist
         with:
+          path: ./code/dist
           key: ${{ github.sha }}
 
       - name: see css
