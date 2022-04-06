@@ -19,6 +19,7 @@ jobs:
 
       - name: see version
         run: |
+          pwd
           cat code/dist/version.txt
 
       - uses: actions/cache@v3
