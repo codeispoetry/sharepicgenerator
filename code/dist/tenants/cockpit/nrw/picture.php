@@ -4,7 +4,7 @@
         <a href="#" class="btn btn-moos text-white text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
-        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
+        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#B9CE1E">
         <span class="d-none colorpicker ms-1" data-colors="#000000,#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
  </div>

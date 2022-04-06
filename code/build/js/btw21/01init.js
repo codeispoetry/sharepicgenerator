@@ -12,7 +12,7 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-  $('#textsize').val(502);
+  $('#textsize').val(202);
   $('#textX').val(41);
   $('#textY').val(372);
 
@@ -21,11 +21,15 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
+  if (config.user.prefs.claimtext) {
+    $('#claimtext').val(config.user.prefs.claimtext);
+    $('#claimcolor').val(config.user.prefs.claimcolor);
+  }
+
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
   showLayout();
-
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
@@ -76,7 +80,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     addtext.draw();
-
+    floating.draw();
     eraser.draw();
   }, 100);
 

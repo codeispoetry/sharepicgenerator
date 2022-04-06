@@ -3,41 +3,33 @@
         <h3><i class="fas fa-text-width"></i> Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-flex">
-                <label class="me-3">Layout:</label>
+            <div class="d-none">
                  <label class="me-3">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="floating" checked>Schwebend
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" >Fläche
+                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" >Grüne Fläche
                  </label>
             </div>
 
             <div class="list-group-item-content">
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end d-none">
+                    <label class="d-flex">
+                        <i class="fas fa-cube me-2 toggle-text-shadow showonly floating d-none" title="Text mit Schatten hinterlegen"></i>  
+                        <input type="checkbox" id="floatingshadow" name="floatingshadow" class="d-none">
+                    </label>
                     <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
                     <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
-                    <i class="fa fa-align-center text-align me-2 showonly floating" data-align="middle" title="zentrieren"></i>
                     <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control showonly area floating">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control"><?php echo getSaying('main'); ?></textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Schleswig-Holstein</textarea>
                 </div>
-                <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
-
-                </div>
-                <div class="d-flex justify-content-between">
-                    <div class="">
-                        <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control showonly area floating">
-                    </div>    
-                    <div>
-                        <input type="hidden" name="claimcolor" id="claimcolor" value="#ffe100">
-                        <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#ffe100,#FF495D" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
-                    </div>    
+                <div class="d-flex align-items-lg-center d-none">
+                    <input type="text" placeholder="Kleinerer Text" name="textafter" id="textafter" value="" class="form-control showonly area floating">
                 </div>
 
                 <div class="mb-1 mt-2">
@@ -62,22 +54,40 @@
                     </div>
 
                 <div class="preferences-text">
-                    <div class="showonly floating">  
-                         <label class="me-3">
-                            <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
-                            Schatten hinter Text
-                        </label>
-                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <label class="me-3">
+                                <input type="checkbox" class="form-check-input" name="showclaim" id="showclaim">
+                                Zeige Claim
+                            </label>
+                        </div>
+					         
+                    </div>	
+					<div>  
+					 	<label class="me-3">
+                    		<input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
+                        	Schatten hinter Text
+                    	</label>
+					</div>
                 </div>
+            </div>
+            <div class="preferences-text showonly lines">
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="text-primary cursor-pointer uploadiconclicker">
+                        <i class="fa fa-upload"></i> Icon hochladen
+                    </span>
 
-                 <div class="d-flex">
-                    <div class="me-2">Sonderzeichen:</div>
-                    <ul class="text-symbols">
-                        <li class="text-symbol" data-symbol="CO₂" title="mit tiefergesteller 2" role="button">CO₂</li>   
-                        <li class="text-symbol" data-symbol="•" title="Aufzählungszeichen" role="button">•</li>  
-                        <li class="text-symbol" data-symbol="„" title="Anführungszeichen unten" role="button">„</li>  
-                        <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li>                               
-                    </ul>
+                    <span class="text-primary cursor-pointer overlay-opener" data-target="iconoverlay">
+                        <i class="fas fa-search"></i> Icon suchen
+                    </span>
+                </div>
+                <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
+                    <select class="form-control" name="iconsize" id="iconsize">
+                        <option value="1">Icon: 1 Zeile hoch</option>
+                        <option value="2">Icon: 2 Zeilen hoch</option>
+                        <option value="3">Icon: 3 Zeilen hoch</option>
+                        <option value="0">Icon entfernen</option>
+                    </select>
                 </div>
             </div>
         </div>

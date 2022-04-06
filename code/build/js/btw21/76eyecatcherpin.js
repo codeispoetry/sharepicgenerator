@@ -35,7 +35,7 @@ const pin = {
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
     const pinbackground = draw.circle(diameter)
-      .fill('#f06464');
+      .fill('#FF495D');
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
@@ -52,6 +52,10 @@ const pin = {
     pin.resize();
 
     pin.svg.rotate(-9);
+  },
+
+  setSize(w) {
+    pin.svg.size(w, null);
   },
 
   resize() {

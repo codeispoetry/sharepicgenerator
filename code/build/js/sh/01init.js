@@ -26,33 +26,33 @@ $(document).ready(() => {
 
   showLayout();
 
-
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
 });
 
-
-
 // eslint-disable-next-line no-unused-vars
 function initSharepic() {
   if (initialized) {
+    bgpattern.svg.remove();
     return false;
   }
+
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
-  $('#textY').val(320);
+  $('#textX').val(150);
+  $('#textY').val(70);
+  floating.draw();
+  bgpattern.draw();
+
   initialized = true;
-
-  background.drawColor();
-
   return true;
 }
 
 // eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
-  area.draw();
+  floating.draw();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -66,17 +66,16 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    pin.draw();
-    pin.drawTemplate();
-  }, 10);
-
-  window.setTimeout(() => {
     copyright.draw();
+    logo.reposition('leftcenter');
+    $('#logoposition').val('leftcenter');
+    if (config.filename === undefined) {
+      bgpattern.draw();
+    }
   }, 20);
 
   window.setTimeout(() => {
-    addtext.draw();
-
+    addtextSH.draw();
     eraser.draw();
   }, 100);
 

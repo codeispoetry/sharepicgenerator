@@ -72,11 +72,15 @@ wahr.</textarea>
                                 <input type="hidden" name="claimcolor" id="claimcolor" value="#B7388D">
                                 <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#B7388D,#E4C9DD,#155929,#B9CE1E" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
                              </div>
-
                         </div>
-            
-                       
-                    </div>
+					         
+                    </div>	
+					<div>  
+					 	<label class="me-3">
+                    		<input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
+                        	Schatten hinter Text
+                    	</label>
+					</div>
                 </div>
             </div>
             <div class="preferences-text showonly lines">
