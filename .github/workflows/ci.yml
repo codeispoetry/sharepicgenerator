@@ -29,12 +29,6 @@ jobs:
           cd mkdocs
           mkdocs build
 
-      - uses: actions/cache@v3
-        id: cache-dist
-        with:
-          path: ./code/dist
-          key: ${{ github.sha }}
-
   build:
     runs-on: ubuntu-latest
 
