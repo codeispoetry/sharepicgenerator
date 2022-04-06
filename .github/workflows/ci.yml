@@ -3,8 +3,8 @@ name: CI
 on:
   push:
     branches:
-      - main
-      - develop
+      - mainKILL
+      - developKILL
 
 jobs:
   documentation:
@@ -36,21 +36,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node_modules
-        with:
-          path: ~/code/node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('code/package-lock.json') }}
-
       - name: Cache dist
         uses: actions/cache@v3
         env:
           cache-name: cache-dist
         with:
           path: ~/code/dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-$GITHUB_SHA
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${ GITHUB_SHA }
 
       - uses: actions/setup-node@v1
         with:
@@ -90,7 +82,7 @@ jobs:
           cache-name: cache-dist
         with:
           path: ~/code/dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-$GITHUB_SHA
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${ GITHUB_SHA }
 
       - name: Setup PHP ${{ matrix.python-version }}
         uses: shivammathur/setup-php@v2
