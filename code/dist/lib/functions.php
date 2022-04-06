@@ -187,9 +187,9 @@ function logFailure($msg)
 {
     $accesstoken = $_SESSION['accesstoken'];
     $user = $_SESSION['user'];
-    $landesverband = $_SESSION['landesverband'];
+    $chapter = $_SESSION['chapter'];
     $tenant = $_SESSION['tenant'];
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, $accesstoken, $msg, $landesverband, $tenant);
+    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, $accesstoken, $msg, $chapter, $tenant);
     file_put_contents(getBasePath('log/logs/error.log'), $line, FILE_APPEND);
 }
 
@@ -621,16 +621,22 @@ EOF;
 function tenantsSwitch($as)
 {
     $attributes = $as->getAttributes();
-    $landesverband = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
+    $chapter = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
 
     // freshly logged in
-    if (isset($_SERVER['HTTP_REFERER']) AND 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
-        switch ($landesverband){
-            case 9:
-                $tenant = '/tenants/niedersachsen/';
+    if (isset($_SERVER['HTTP_REFERER']) && 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
+        switch ($chapter) {
+            case 1:
+                $tenant = '/tenants/bw/';
                 break;
-            case 14:
-                $tenant = '/tenants/lsa/';
+            case 3:
+                $tenant = '/tenants/berlin/';
+                break;
+            case 10:
+                $tenant = '/tenants/nrw/';
+                break;
+            case 15:
+                $tenant = '/tenants/sh/';
                 break;
             default:
                 $tenant = false;
@@ -638,7 +644,7 @@ function tenantsSwitch($as)
     }
         
     // redirect, if s.o. is freshly logged in and wants to to go federal
-    if($tenant and $_SERVER['REQUEST_URI'] == '/tenants/federal/' and $_SERVER['REQUEST_URI'] != $tenant) {
+    if ($tenant && $_SERVER['REQUEST_URI'] === '/tenants/federal/' && $_SERVER['REQUEST_URI'] != $tenant) {
         header('Location: ' . $tenant, true, 302);
         die();
     }
