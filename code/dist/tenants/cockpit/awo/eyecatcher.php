@@ -1,19 +1,9 @@
 <h3><i class="far fa-eye"></i> Ihre Einrichtung</h3>
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
-        <div class="d-none">
-            <select class="form-select" name="eyecatchertemplate" id="eyecatchertemplate">
-                <option value="">Vorlage wählen</option>
-                <option value="custom">Text selbst eingeben</option>
-                <optgroup label="Vorlagen">
-                    <option value="btw21/zweitstimme.svg">Zweitstimme Grün!</option>
-                    <option value="btw21/briefwahl.svg">Briefwahl jetzt!</option>
-                </optgroup>
-            </select>
-            oder
-        </div>
+        
         <div class="d-flex align-items-lg-center">
-            <textarea name="pintext" id="pintext" placeholder="Ihr Text" class="form-control" data-maxlines="3"></textarea>
+            <textarea name="pintext" id="pintext" placeholder="Einrichtung" class="form-control" data-maxlines="3"></textarea>
         </div>
         <div class="d-flex justify-content-end">
             <div class="slider d-none">

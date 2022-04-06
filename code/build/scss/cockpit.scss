@@ -3,6 +3,15 @@
     text-decoration: none;
   }
 
+  &-row{
+    display: flex;
+    align-items: center;
+
+    div:first-child{
+      flex-basis: 20%;
+    }
+  }
+
   &-vertical#pic{
       h3{
         background: none;

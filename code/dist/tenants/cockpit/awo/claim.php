@@ -13,7 +13,18 @@
 					<option value="Wir fordern höhere Pauschalen!">Höhere Pauschalen</option>
 					<option value="Wir fordern landeseinheitliche Elternbeiträge!">Einheitliche Elternbeiträge</option>
 				</select>
+
+				<div class="cockpit-row">
+					<div class="me-4">Farbe:</div>
+					<div class="d-flex">
+						<input type="color" name="awoclaimcolor" id="awoclaimcolor" value="#000000" title="Farbe wählen">
+
+
+					</div>
+				</div>
 			</div>
-			<input type="color" name="awoclaimcolor" id="awoclaimcolor" value="#000000" title="Farbe wählen">
         </div>
  
+
+
+		
