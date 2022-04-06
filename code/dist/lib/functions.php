@@ -626,12 +626,6 @@ function tenantsSwitch($as)
     // freshly logged in
     if (isset($_SERVER['HTTP_REFERER']) && 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
         switch ($chapter) {
-            case 1:
-                $tenant = '/tenants/bw/';
-                break;
-            case 3:
-                $tenant = '/tenants/berlin/';
-                break;
             case 10:
                 $tenant = '/tenants/nrw/';
                 break;
@@ -643,8 +637,8 @@ function tenantsSwitch($as)
         }
     }
         
-    // redirect, if s.o. is freshly logged in and wants to to go federal
-    if ($tenant && $_SERVER['REQUEST_URI'] === '/tenants/federal/' && $_SERVER['REQUEST_URI'] != $tenant) {
+    // redirect, if s.o. is freshly logged in and wants to to to standard btw21
+    if ($tenant && $_SERVER['REQUEST_URI'] === '/tenants/btw21/' && $_SERVER['REQUEST_URI'] != $tenant) {
         header('Location: ' . $tenant, true, 302);
         die();
     }
