@@ -76,7 +76,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [documentation, build]
+    needs: [build]
     strategy:
       matrix:
         php-version: ['7.4']
