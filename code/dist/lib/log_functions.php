@@ -59,6 +59,69 @@ function singleResult($sql)
     return $row['result'];
 }
 
+function echoResultsForChartJS($sql)
+{
+    static $i;
+    $i = (!$i) ? 1 : $i +1;
+
+    global $db;
+    $results = $db->query($sql);
+    $labels = array();
+    $values = array();
+    while ($row = $results->fetchArray()) {
+        $values[] = $row['count'];
+        $labels[] = "'".$row['name']."'";
+    }
+    $labels = join(',', $labels);
+    $values = join(',', $values);
+
+
+    echo <<<CHARTJS
+        <div><canvas id="chart{$i}" height="300"></canvas></div>
+
+        <script>
+  
+  const data{$i} = {
+    labels: [$labels],
+    datasets: [{
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)',
+        'rgb(55, 99, 132)',
+        'rgb(254, 162, 235)',
+        'rgb(55, 205, 86)',
+        'rgb(254, 62, 235)',
+        'rgb(55, 5, 86)'
+        ],
+      borderColor: 'rgb(255, 99, 132)',
+      data: [$values],
+    }]
+  };
+
+  const config{$i} = {
+    type: 'pie',
+    data: data{$i},
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{
+          legend: {
+            display: false
+            },
+        },
+    }
+  };
+
+   const myChart{$i} = new Chart(
+    document.getElementById('chart{$i}'),
+    config{$i}
+  );
+</script>
+
+CHARTJS;
+}
+
 function echoResults($sql, $inPercent = false)
 {
     global $db;
@@ -66,7 +129,7 @@ function echoResults($sql, $inPercent = false)
     while ($row = $results->fetchArray()) {
         
 
-        if( $inPercent ){
+        if ($inPercent) {
             $fraction = $row['count'] / getDownloads();
             $decimal_places = ($fraction > 0.01) ? 2 : 4;
             $value = 100 * round($fraction, $decimal_places);
@@ -107,20 +170,26 @@ function getUsers()
 
 function getUsersLastDays($days = 7)
 {
-    return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads 
-      WHERE julianday("now") - julianday(timestamp) < ' . $days . ';');
+    return singleResult(
+        'SELECT COUNT(DISTINCT user) AS result FROM downloads 
+      WHERE julianday("now") - julianday(timestamp) < ' . $days . ';'
+    );
 }
 
 function getUsersActivity($percent = 50)
 {
-    return singleResult('select count(*) as result from downloads GROUP BY user ORDER BY result LIMIT 1 
-    OFFSET ROUND((SELECT COUNT(DISTINCT user) from downloads) * ' . $percent/100 . ');');
+    return singleResult(
+        'select count(*) as result from downloads GROUP BY user ORDER BY result LIMIT 1 
+    OFFSET ROUND((SELECT COUNT(DISTINCT user) from downloads) * ' . $percent/100 . ');'
+    );
 }
 
 function getLoginCountsPerUserLastDays($operator = '=', $threshold = 1, $days = 30)
 {
-    return singleResult('select count(*) as result from (
-        select count(distinct timestamp) as result from downloads where julianday("now") - julianday(timestamp) <= ' . $days .' GROUP BY user HAVING result ' . $operator . $threshold . ')');
+    return singleResult(
+        'select count(*) as result from (
+        select count(distinct timestamp) as result from downloads where julianday("now") - julianday(timestamp) <= ' . $days .' GROUP BY user HAVING result ' . $operator . $threshold . ')'
+    );
 }
 
 function getDownloadsLastDay($days = 0)
@@ -131,7 +200,7 @@ function getDownloadsLastDay($days = 0)
 function getDownloads()
 {
     static $total;
-    if(!$total){
+    if(!$total) {
         $total = singleResult('SELECT COUNT(*) AS result FROM downloads;');
     }
 
@@ -285,12 +354,12 @@ function showTenantsDownloads()
 
 function showTenantsUniqueUsers()
 {
-    return echoResults("select tenant As name,count(distinct user) as count from downloads GROUP BY tenant;");
+    return echoResults("select tenant As name,count(distinct user) as count from downloads GROUP BY tenant ORDER BY count DESC;");
 }
 
-function showTenantsDownloadsLastDays( $days = 7)
+function showTenantsDownloadsLastDays($days = 7)
 {
-    return echoResults("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant;");
+    return echoResultsForChartJS("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant ORDER BY count DESC;");
 }
 
 function showBrowsers()
@@ -298,7 +367,8 @@ function showBrowsers()
     return echoResults("select browser As name,count(*) as count from downloads GROUP BY browser;");
 }
 
-function getUserAgentCount(){
+function getUserAgentCount()
+{
     return singleResult('select count(distinct useragent) as result from downloads;');
 }
 
@@ -364,49 +434,53 @@ function showLogGraph()
     // by week
     $sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads GROUP BY period ORDER BY period;";
     // by month
-    //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m%Y', timestamp) AS bar FROM downloads GROUP BY period ORDER BY period;";
+    $sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m/%Y', timestamp) AS description FROM downloads GROUP BY period ORDER BY period;";
     $results = $db->query($sql);
 
-    $style = <<<STYLE
-        <style>
-            .bar{
-                width: 15px;
-                background: #f06464;
-                align-self:flex-end;
-                justify-content:flex-start;
-                flex-direction: column;
-                align-items: center;
-                display: flex;
-                margin-left: 1px;
-                max-width: 50px;
-            }
-
-            .bar small{
-                font-size: 70%;
-            }
-
-            .weekend{
-                background: #ffc2c2;
-            }
-
-            .spacer-left{
-                margin-left: 20px;
-            }
-        </style>
-STYLE;
-    echo $style;
-    echo '<div style="display:flex;">';
-
-    $oldMonth = 0;
+    $values = [];
+    $labels = [];
     while ($row = $results->fetchArray()) {
-       printf('<div class="bar %5$s %1$s" style="height:%2$dpx" title="%4$s: %3$s"></div>',
-        ($row['weekday'] == 1) ? 'spacer-left' : '', 
-        $row['count'] / 50,
-        number_format($row['count'], 0, ',', '.'), 
-        $row['description'],
-        //($row['weekday'] == 0 || $row['weekday'] == 6) ? 'weekend' : 'weekday'
-       $row['description']
-        );
+          $values[] = $row['count'];
+          $labels[] = $row['description'];
     }
-    echo "</div>";
+    $values = join(',', $values);
+    $labels = "'" . join("','", $labels) . "'";
+
+
+    echo <<<ECHO
+        <div><canvas id="chart" height="300"></canvas></div>
+
+        <script>
+  
+  const data = {
+    labels: [$labels],
+    datasets: [{
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [$values],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{
+          legend: {
+            display: false
+            },
+        },
+    }
+  };
+
+   const myChart = new Chart(
+    document.getElementById('chart'),
+    config
+  );
+</script>
+
+ECHO;
+ 
 }

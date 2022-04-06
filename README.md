@@ -74,6 +74,7 @@ SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 - create woff2 with ``woff2_compress <font.ttf>`` and move it to assets/fonts
 - add font-face in fonts.scss
 - upload font to server to /usr/share/fonts
+- edit font at https://www.glyphrstudio.com/
 
 # Setup picture gallery
 1. The structure in tenants/federal/pictures/img needs to be 

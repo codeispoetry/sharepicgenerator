@@ -4,8 +4,8 @@
         <a href="#" class="btn btn-moos text-white text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
-        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
-        <span class="colorpicker ms-1" data-colors="#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
+        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#B9CE1E">
+        <span class="d-none colorpicker ms-1" data-colors="#000000,#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
  </div>
  <h3><i class="fas fa-image"></i> Bild suchen</h3>
@@ -86,28 +86,22 @@
 
 </div>   
 
-<h3><i class="fas fa-image"></i> Grünfärbung</h3>
-<div class="list-group-item novideo">
-        Bild grün einfärben
-        <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-toggle="toggle" data-on="ja" data-off="nein">
+<h3><i class="fas fa-image"></i> Hintergrundmuster</h3>
+<div class="picture  list-group-item list-group-item-action flex-column align-items-start">
 
-        <div class="slider novideo">
-            <small>Helligkeit</small>
-            <input type="range" class="form-range" name="greenifybrightness" id="greenifybrightness" min="0.5"
-                max="10" value="2.5" step="0.5">
+    <div class="mt-2 mb-1 list-group-item-content show preferences-pic novideo">
+         <div class="list-group-item-content">
+            <select class="form-select" name="backgroundColorSet" id="backgroundColorSet">
+                <option value="0">blau</option>
+				 <option value="1">pink</option>
+				 <option value="2">orange</option>
+            </select>
         </div>
+        
+    </div>
 
-        <div class="slider novideo">
-            <small>Kontrast</small>
-            <input type="range" class="form-range" name="greenifycontrast" id="greenifycontrast" min="0"
-                max="0.8" value="0.05" step="0.005">
-        </div>
-        <small class="text-primary cursor-pointer novideo greenifyreset">
-            <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
-        </small>
 
-</div>
-
+</div>   
 
 <input type="hidden" name="backgroundX" id="backgroundX">
 <input type="hidden" name="backgroundY" id="backgroundY">

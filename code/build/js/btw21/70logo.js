@@ -16,6 +16,10 @@ const logo = {
     });
   },
 
+  setSize(w) {
+    logo.svg.size(w, null);
+  },
+
   resize(percent) {
     if (config.layout === 'area') {
       return;

@@ -119,32 +119,36 @@ const text = {
     text.svg.add(lineafter);
 
     // text above and below the line
-    const textbeforeParts = $('#textbefore').val().split(/\[|\]/);
-    let style = 1;
-    const textbefore = draw.text((add) => {
-      for (let i = 0; i < textbeforeParts.length; i++) {
-        style = (style === 0) ? 1 : 0;
-        add.tspan(textbeforeParts[i]).fill(text.colors[style]).font(text.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textbefore.dy(-7);
+    if ($('#textbefore').val() !== '') {
+      const textbeforeParts = $('#textbefore').val().split(/\[|\]/);
+      let style = 1;
+      const textbefore = draw.text((add) => {
+        for (let i = 0; i < textbeforeParts.length; i++) {
+          style = (style === 0) ? 1 : 0;
+          add.tspan(textbeforeParts[i]).fill(text.colors[style]).font(text.fontoutsidelines);
+          add.attr('xml:space', 'preserve');
+          add.attr('style', 'white-space:pre');
+        }
+      });
+      textbefore.dy(-7);
+      text.svg.add(textbefore);
+    }
 
-    const textafterParts = $('#textafter').val().split(/\[|\]/);
-    style = 1;
-    const textafter = draw.text((add) => {
-      for (let i = 0; i < textafterParts.length; i++) {
-        style = (style === 0) ? 1 : 0;
-        add.tspan(textafterParts[i]).fill(text.colors[style]).font(text.fontoutsidelines);
-        add.attr('xml:space', 'preserve');
-        add.attr('style', 'white-space:pre');
-      }
-    });
-    textafter.dy(text.svg.height() + 7);
+    if ($('#textafter').val() !== '') {
+      const textafterParts = $('#textafter').val().split(/\[|\]/);
+      let style = 1;
+      const textafter = draw.text((add) => {
+        for (let i = 0; i < textafterParts.length; i++) {
+          style = (style === 0) ? 1 : 0;
+          add.tspan(textafterParts[i]).fill(text.colors[style]).font(text.fontoutsidelines);
+          add.attr('xml:space', 'preserve');
+          add.attr('style', 'white-space:pre');
+        }
+      });
+      textafter.dy(text.svg.height() + 7);
 
-    text.svg.add(textbefore);
-    text.svg.add(textafter);
+      text.svg.add(textafter);
+    }
 
     // green background behind text
     if ($('#greenbehindtext').prop('checked')) {
@@ -179,7 +183,6 @@ const text = {
         .fill({ color: grayGradient, opacity: 0.3 })
         .back();
     }
-
     text.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10)).size(parseInt($('#textsize').val(), 10));
     text.positionGrayBackground();
     eraser.front();

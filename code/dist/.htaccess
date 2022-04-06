@@ -8,7 +8,6 @@ Options -Indexes
     RewriteEngine On
 
     Redirect 301 /federal /tenants/federal
-    Redirect 301 /frankfurt /tenants/frankfurt
     Redirect 301 /hessen /tenants/hessen
     Redirect 301 /bw /tenants/bw
     Redirect 301 /rlp /tenants/rlp
@@ -21,10 +20,6 @@ Options -Indexes
     Redirect 301 /berlin /tenants/berlin
     Redirect 301 /nrw /tenants/nrw
     Redirect 301 /sh /tenants/sh
-
-
-
-
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
 

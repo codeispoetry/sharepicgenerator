@@ -16,6 +16,12 @@ const floating = {
     leading: '1.05em',
     size: 10,
   },
+  fontCiteSymbol: {
+    family: 'BereitBold',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 80,
+  },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
@@ -50,8 +56,11 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    if ($('#textbefore').val()) {
-      floating.svg.add(floating.drawTextBefore());
+    if ($('#textShadow').prop('checked')) {
+      t.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
     }
 
     if ($('#textafter').val()) {
@@ -60,54 +69,101 @@ const floating = {
 
     floating.svg.add(t);
 
-    if ($('#showclaim').prop('checked')) {
-      floating.drawClaim();
+    floating.drawClaim(t);
+    config.user.prefs.claimtext = $('#claimtext').val();
+    config.user.prefs.claimcolor = $('#claimcolor').val();
+    setUserPrefs();
+
+    if ($('#textbefore').val()) {
+      floating.svg.add(floating.drawTextBefore());
     }
+
+    const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
 
     floating.svg
-      .size($('#textsize').val())
+      .scale(scaleFactor, $('#textX').val(), $('#textY').val())
       .move($('#textX').val(), $('#textY').val());
 
-    if ($('#floatingshadow').prop('checked')) {
-      floating.svg.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(2);
-        add.blend(add.$source, blur);
-      });
-    }
-
+    logo.setSize(17 * scaleFactor * 1.7);
+    pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     eraser.front();
 
     floating.svg.front();
   },
 
-  drawClaim() {
+  drawClaim(t) {
+    if ($('#claimtext').val() === '') {
+      return;
+    }
+
+    const claim = draw.group();
+
+    let textColor = '#FFFFFF';
+    if ($('#claimcolor').val() === '#ffe100') {
+      textColor = '#145f32';
+    }
+
+    const textInClaim = $('#claimtext').val();
+
+    const claimText = draw.text(textInClaim)
+      .font({
+        family: 'BereitBold',
+        anchor: 'left',
+        leading: '1.05em',
+        size: 8,
+      })
+      .move(2, 1)
+      .fill(textColor);
+
+    // if (textInClaim.includes('Ä') || textInClaim.includes('Ö') || textInClaim.includes('Ü')) {
+
+    const claimBackground = draw.rect(claimText.bbox().w + 4, 11.5)
+      .fill($('#claimcolor').val())
+      .skew(-8, 0)
+      .addTo(claim);
+
+    claimText.addTo(claim);
+
     let x;
     switch (floating.align) {
       case 'middle':
-        x = -45;
+        x = -claim.width() / 2;
         break;
       case 'end':
-        x = -90;
+        x = -claim.width();
         break;
       default:
-        x = -3;
+        x = 0;
     }
 
-    return claim.svg
-      .clone()
-      .addTo(floating.svg)
-      .front()
-      .show()
-      .size(90)
-      .move(x, 5 + floating.svg.height() + floating.svg.y());
+    claim.move(x, 8 + floating.svg.height() + 1);
+
+    claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
-    const textbefore = draw.text($('#textbefore').val())
-      .font(floating.fontBefore)
-      .fill('#FFE100')
+    let content = $('#textbefore').val();
+    let color = '#FFE100';
+    let font = floating.fontBefore;
+
+    if ($('#textbefore').val() === '"') {
+      content = ',,';
+      color = '#FFFFFF';
+      font = floating.fontCiteSymbol;
+    }
+
+    const textbefore = draw.text(content)
+      .font(font)
+      .fill(color)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textShadow').prop('checked')) {
+      textbefore.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
 
     textbefore.move(0, -textbefore.bbox().h);
 
@@ -130,9 +186,16 @@ const floating = {
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 8 + t.bbox().height)
+      .move(0, 6 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textShadow').prop('checked')) {
+      textafter.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
 
     switch (floating.align) {
       case 'middle':
@@ -157,11 +220,15 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #floatingshadow').bind('input propertychange',  floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShadow').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
-  $('#textX').val((draw.width() - floating.svg.width()) / 2);
-  $('#textY').val((draw.height() - floating.svg.height()) / 2);
+  const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
+  const textWidth = floating.svg.width() * scaleFactor;
+  const textHeight = floating.svg.height() * scaleFactor;
+
+  $('#textX').val((draw.width() - textWidth) / 2);
+  $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
 });

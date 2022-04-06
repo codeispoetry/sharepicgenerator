@@ -38,9 +38,10 @@
             <div class="col-6 col-md text-md-end">
                 <h5>Hilfen</h5>
                 <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="" href="/documentation">Handbuch</a></li>
-                    <li class="mb-1"><a class="" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
-                    <li class="mb-1"><a class="" href="https://github.com/codeispoetry/sharepicgenerator/issues">Fehler melden</a></li>
+                    <li class="mb-1"><a class="" href="/documentation" target="_blank">Handbuch</a></li>
+                    <li class="mb-1"><a class="" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">Styleguide</a></li>
+                    <li class="mb-1"><a class="" href="https://github.com/codeispoetry/sharepicgenerator" target="_blank">Quellcode</a></li>
+                    <li class="mb-1"><a class="" href="https://github.com/codeispoetry/sharepicgenerator/issues" target="_blank">Fehler melden</a></li>
 
                 </ul>
             </div>
