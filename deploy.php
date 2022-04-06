@@ -34,6 +34,9 @@ set('shared_dirs', [
     'tenants/nrw/pictures/img',
     'tenants/sh/gallery/img',
     'tenants/sh/pictures/img',
+    'tenants/awo/gallery/img',
+    'tenants/awo/pictures/img',
+
 
     'log/logs',
 ]);

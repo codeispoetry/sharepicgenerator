@@ -1,0 +1,17 @@
+body.awo{
+	.text-primary{
+		color: $awo !important;
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+        background: $awo;
+    }
+
+	.colorpicker{
+		color: $awo;
+	}
+
+	footer{
+		border-top: 1px solid $awo;
+	}
+}

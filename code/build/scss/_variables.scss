@@ -43,6 +43,9 @@ $danger: #d62518;
 $light: #f8f9fa;
 $dark: #343a40;
 $cockpitbg: #eeeeee;
+$awo: #e2001a;
+$awogray: #a0a0a0;
+
 
 $theme-colors: (
   "pistazie": $pistazie,
@@ -57,7 +60,9 @@ $theme-colors: (
   "warning": $warning,
   "dark": $dark,
   "light": $light,
-  "cockpitbg": $cockpitbg
+  "cockpitbg": $cockpitbg,
+  "awo": $awo,
+  "awogray": $awogray
 );
 
 $form-range-track-bg: $light;
