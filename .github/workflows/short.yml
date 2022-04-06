@@ -55,4 +55,5 @@ jobs:
 
       - name: see css
         run: |
-          ls -l code/dist/assets/css
+          cat code/dist/version.txt
+
