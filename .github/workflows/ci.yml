@@ -114,7 +114,7 @@ jobs:
           php vendor/bin/dep deploy production
 
   test:
-    if: ${{ false }}
+    #if: ${{ false }}
     runs-on: ubuntu-latest
     needs: deploy
 
