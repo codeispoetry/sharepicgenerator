@@ -15,6 +15,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v3
+        id: cache-dist
+        with:
+          path: ./code/dist
+          key: ${{ github.sha }}
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
@@ -29,25 +34,20 @@ jobs:
           cd mkdocs
           mkdocs build
 
-      - uses: actions/cache@v3
-        id: cache-dist
-        with:
-          path: ./code/dist
-          key: ${{ github.sha }}
-
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/cache@v3
         id: cache-dist
         with:
           path: ./code/dist
           key: ${{ github.sha }}
-
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
+
       - name: Save version
         run: |
           echo $GITHUB_SHA > code/dist/version.txt
@@ -76,7 +76,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
       - uses: actions/cache@v3
         id: cache-dist
         with:
