@@ -31,6 +31,7 @@ jobs:
           mkdocs build
 
   build:
+    if: ${{ false }}
     runs-on: ubuntu-latest
 
     steps:
@@ -57,6 +58,7 @@ jobs:
           npm run build:production
 
   deploy:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     needs: [documentation, build]
     strategy:
@@ -95,7 +97,6 @@ jobs:
 
   
   test:
-    if: ${{ false }}
     runs-on: ubuntu-latest
     needs: deploy
 
