@@ -7,22 +7,15 @@ on:
       - develop
 
 jobs:
-   build:
+  documentation:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ 3.6 ]
+        python-version: [3.6]
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v3
-        id: cache-dist
-        with:
-          path: ./code/dist
-          key: ${{ github.sha }}
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
+
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
@@ -36,6 +29,20 @@ jobs:
         run: |
           cd mkdocs
           mkdocs build
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v3
+        id: cache-dist
+        with:
+          path: ./code/dist
+          key: ${{ github.sha }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
 
       - name: Save version
         run: |
