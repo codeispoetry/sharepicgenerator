@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - developKILL
+      - develop
 
 jobs:
   documentation:
@@ -62,7 +62,7 @@ jobs:
       - uses: actions/cache@v3
         id: cache-dist
         with:
-          path: ~/code/dist
+          path: ./code/dist
           key: ${{ github.sha }}
 
   deploy:
@@ -78,7 +78,6 @@ jobs:
       - uses: actions/cache@v3
         id: cache-dist
         with:
-          path: ~/code/dist
           key: ${{ github.sha }}
 
       - name: see css
