@@ -24,9 +24,10 @@
                     Bei <em>Bild</em> gibt es eine Suchmaske. Aktuell werden drei verschiedene Bilddatenbanken durchsucht. 
                     Deren Bilder darfst Du kostenlos nutzen.
                 </p>
-                <h5>Wo kann ich im Bundeslayout das Logo austauschen?</h5>
+                <h5>Wo ist das alte Bundeslayout geblieben?</h5>
                 <p>
-                    Klicke links unten auf <em>Einstellungen</em>, dann auf <em>Logos bearbeiten</em>.
+                    Das alte Bundeslayout mit der Schriftart Arvo und den beiden Linien oben und unten ist veraltet und
+                    kann deshalb nicht mehr im Sharepicgenerator genutzt werden.
                 </p>
             </div>
         </div> 

@@ -12,17 +12,13 @@
                 <a href="#" class="overlay-opener dropdown-item" data-target="faq" id="faqopener">
                     <i class="fa fa-question-circle"></i> Häufige Fragen
                 </a>
-                <a href="#" class="overlay-opener dropdown-item" data-target="actiondays" id="actiondaysopener">
-                    <i class="far fa-hand-point-right"></i> Aktionstage
-                </a>
                 <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
                     <i class="fas fa-tape"></i> Designrichtlinien
                 </a>
-                <a href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Bundestagswahl%202021/Design&fileid=31662066" class="dropdown-item" target="_blank">
-                    <i class="fas fa-poll"></i> Design zur Bundestagswahl
+                <a class="dropdown-item" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">
+                    <i class="fas fa-magic"></i>  Styleguide
                 </a>
-
-            </div>
+        </div>
         </li>
 
         <li class="nav-item dropdown">
@@ -32,7 +28,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a href="/btw21" class="dropdown-item">Bundeslayout</a>
-                <a href="/federal" class="dropdown-item">altes Layout</a>
 
                 <div class="dropdown-divider"></div>
                 <?php
