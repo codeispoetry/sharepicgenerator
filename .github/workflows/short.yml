@@ -24,7 +24,7 @@ jobs:
       - uses: actions/cache@v3
         id: cache-dist
         with:
-          path: ~/code/dist
+          path: ~/*
           key: ${{ github.sha }}
 
   deploy:
@@ -35,10 +35,10 @@ jobs:
       - uses: actions/cache@v3
         id: cache-dist
         with:
-          path: ~/code/dist
+          path: ~/*
           key: ${{ github.sha }}
 
       - name: see version
         run: |
-          cat code/dist/version.txt
+          ls -l
 
