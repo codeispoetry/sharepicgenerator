@@ -62,7 +62,6 @@ jobs:
         run: |
           cd code
           npm run build:production
-          ls -l dist/assets/css
 
       - uses: actions/cache@v3
         id: cache-dist
@@ -85,6 +84,10 @@ jobs:
         with:
           path: ./code/dist
           key: ${{ github.sha }}
+
+      - name: see css
+        run: |
+          ls -l  ./code/dist/assets/css
 
       - name: Setup PHP ${{ matrix.python-version }}
         uses: shivammathur/setup-php@v2
