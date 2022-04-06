@@ -20,6 +20,8 @@ Options -Indexes
     Redirect 301 /berlin /tenants/berlin
     Redirect 301 /nrw /tenants/nrw
     Redirect 301 /sh /tenants/sh
+    Redirect 301 /awo /tenants/awo
+
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
 

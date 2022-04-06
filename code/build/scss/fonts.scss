@@ -43,6 +43,15 @@
   src: url('../fonts/AzoSansLight-Regular.woff2') format('woff2'),
 }
 
+@font-face {
+  font-family: 'Spray Letters';
+  src: url('../fonts/SprayLetters.woff2') format('woff2'),
+}
+
+.spray-letters{
+  font-family: 'Spray Letters';
+  font-weight: 500;
+} 
 
 .arvo{
   font-family: Arvo;
