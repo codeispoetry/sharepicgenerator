@@ -86,10 +86,6 @@ jobs:
           path: ./code/dist
           key: ${{ github.sha }}
 
-      - name: see css
-        run: |
-          ls -l code/dist/assets/css
-
       - name: Setup PHP ${{ matrix.python-version }}
         uses: shivammathur/setup-php@v2
         with:
