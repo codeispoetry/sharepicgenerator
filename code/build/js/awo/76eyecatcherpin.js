@@ -3,7 +3,7 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'BereitBold',
+  family: 'Paralucent Condensed',
   size: 15,
   anchor: 'middle',
   leading: '1em',
@@ -35,7 +35,7 @@ const pin = {
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
     const pinbackground = draw.circle(diameter)
-      .fill('#FF495D');
+      .fill('#e2001a');
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
@@ -51,7 +51,7 @@ const pin = {
     $('#eyecatchertemplate').val('custom');
     pin.resize();
 
-    pin.svg.rotate(-9);
+    //pin.svg.rotate(-9);
   },
 
   setSize(w) {
