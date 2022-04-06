@@ -20,19 +20,10 @@ jobs:
           echo $GITHUB_SHA > code/dist/version.txt
           TZ='Europe/Berlin' date >> code/dist/version.txt
 
-      - name: Install npm packages for development
-        run: |
-          cd code
-          npm install
-      - name: Build js and scss
-        run: |
-          cd code
-          npm run build:production
-          ls -l dist/assets/css
 
-      - name: see css
+      - name: see version
         run: |
-          ls -l code/dist/assets/css
+          cat code/dist/version.txt
 
       - uses: actions/cache@v3
         id: cache-dist
@@ -53,7 +44,7 @@ jobs:
           path: ~/code/dist
           key: ${{ github.sha }}
 
-      - name: see css
+      - name: see version
         run: |
           cat code/dist/version.txt
 
