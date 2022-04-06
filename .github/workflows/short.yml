@@ -31,6 +31,8 @@ jobs:
     steps:
       - uses: actions/cache@v3
         id: restore-build
+        with:
+          key: ${{ github.sha }}
 
       - name: See hello
         run: |
