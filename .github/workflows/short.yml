@@ -12,14 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
       - name: Save version
         run: |
           echo $GITHUB_SHA > code/dist/version.txt
           TZ='Europe/Berlin' date >> code/dist/version.txt
-
 
       - name: see version
         run: |
@@ -36,11 +32,6 @@ jobs:
     needs: [build]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-
       - uses: actions/cache@v3
         id: cache-dist
         with:
