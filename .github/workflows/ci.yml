@@ -31,7 +31,6 @@ jobs:
           mkdocs build
 
   build:
-    if: ${{ false }}
     runs-on: ubuntu-latest
 
     steps:
@@ -44,6 +43,14 @@ jobs:
         run: |
           echo $GITHUB_SHA > code/dist/version.txt
           TZ='Europe/Berlin' date >> code/dist/version.txt
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-pip
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install npm package for dist
         run: |
           cd code/dist
@@ -95,10 +102,9 @@ jobs:
         run: |
           php vendor/bin/dep deploy production
 
-  
   test:
     runs-on: ubuntu-latest
-    #needs: deploy
+    needs: deploy
 
     services:
       hub:
@@ -118,7 +124,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache node modules
+      - name: Cache pip packages
         uses: actions/cache@v3
         env:
           cache-name: cache-pip
