@@ -9,7 +9,13 @@ const floating = {
     anchor: 'left',
     leading: '1.05em',
     size: 20,
-  }, 
+  },
+  fontAfter: {
+    family: 'Paralucent Condensed',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 10,
+  },
 
   draw() {
     if (config.layout !== 'floating'
@@ -47,6 +53,10 @@ const floating = {
 
     floating.svg.add(t);
 
+    if ($('#textafter').val()) {
+      floating.svg.add(floating.drawTextAfter(t));
+    }
+
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
 
     floating.svg
@@ -54,6 +64,33 @@ const floating = {
       .move($('#textX').val(), $('#textY').val());
 
     floating.svg.front();
+
+    logo.setPosition();
+    awoclaim.draw();
+    copyright.draw();
+  },
+
+  drawTextAfter(t) {
+    claim.svg.hide();
+    const textafter = draw.group();
+
+    const text = draw.text($('#textafter').val())
+      .font(floating.fontAfter)
+      .fill('#000000')
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+
+    const bg = draw.rect(text.bbox().w + 4, text.bbox().h + 0)
+      .fill('#ffcd1c')
+      .move(-2, -0)
+      //.skew(-3, 0)
+      .addTo(textafter);
+
+    textafter.add(text);
+
+    textafter.move(floating.svg.width() - textafter.bbox().w, 6 + t.bbox().height);
+
+    return textafter;
   },
 
   hide() {

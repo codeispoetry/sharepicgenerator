@@ -1,19 +1,46 @@
 const awoclaim = {
   svg: draw.text(''),
+  background: draw.circle(0),
 
   draw() {
     awoclaim.svg.remove();
+    awoclaim.background.remove();
 
-    awoclaim.svg = draw.text($('#awoclaim').val())
-      .font({ family: 'Spray Letters', size: 20 })
-      .move(20, 20)
+    awoclaim.svg = draw.group();
+
+    const text = draw.text($('#awoclaim').val())
+      .font(
+        {
+          family: 'PTSans',
+          size: 20,
+          leading: '0.95em',
+          weight: 'normal',
+        },
+      )
       .fill($('#awoclaimcolor').val())
       .front();
 
-    awoclaim.svg.filterWith((add) => {
-      const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
-      add.blend(add.$source, blur);
-    });
+    // not in group
+    awoclaim.background = draw.rect(draw.width(), 200)
+      .fill('white')
+      .move(0, draw.height() - 110)
+      .opacity(0.7);
+
+    awoclaim.svg.add(text);
+
+    awoclaim.setPosition();
+
+    awoclaim.svg.front();
+    logo.svg.front();
+
+    // awoclaim.svg.filterWith((add) => {
+    //   const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+    //   add.blend(add.$source, blur);
+    // });
+  },
+
+  setPosition() {
+    awoclaim.svg.move(140, draw.height() - 90);
   },
 };
 
