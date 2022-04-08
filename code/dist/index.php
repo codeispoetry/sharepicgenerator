@@ -109,7 +109,7 @@
       <div class="d-flex align-items-center">
         <a href="https://www.gruene.de/mitglied-werden" target="_blank" class="me-2 text-decoration-none text-black-50 small">Mitglied werden</a>
         <div class="btn-pistazie">
-            <a href="tenants/btw21" type="button" class="btn btn-md btn-pistazie p-4">
+            <a href="btw21" type="button" class="btn btn-md btn-pistazie p-4">
                  anmelden <i class="fas fa-sign-in-alt me-1"></i></a>
         </div>
     </div>
@@ -125,7 +125,7 @@
           <img src="assets/logos/sonnenblume21.svg" id="sunflower">
       </div>
       <div id="loginscreen">
-          <a href="tenants/btw21" class="">
+          <a href="btw21" class="">
               <h2 class="display-6 fw-normal bereitbold">Sharepic&shy;generator</h2>
               <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
               <div class="w-100 btn btn-lg btn-pistazie text-white">anmelden</div>
@@ -171,12 +171,12 @@
             }
             ?>
 
-            <li class="mb-1 mt-2"><a href="/tenants/basic/?guest=1" class="">freies Sharepic erstellen</a></li>
+            <li class="mb-1 mt-2"><a href="/basic/?guest=1" class="">freies Sharepic erstellen</a></li>
 
-            <li class="mb-1 d-none"><a href="/tenants/basic" class="">frei anmelden</a></li>
+            <li class="mb-1 d-none"><a href="/basic" class="">frei anmelden</a></li>
           <li class="mb-1 d-none"><a href="/wordpress/wp-login.php?action=register" class="">frei registrieren</a></li>
         <li>
-            <form method="post" class="test-access" action="tenants/btw21/">
+            <form method="post" class="test-access" action="btw21/">
                 <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
             </form>
         </li>
