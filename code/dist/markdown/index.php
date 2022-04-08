@@ -78,7 +78,7 @@
 <footer class="row bg-primary p-2 text-white">
     <div class="col-12 col-lg-6">
         <a href="/documentation/markdown/" target="_blank"><i class="fas fa-question-circle"></i> Anleitung</a>
-        <a href="/tenants/federal/"><i class="fas fa-cog ms-3"></i> Zum Sharepicgenerator</a>
+        <a href="/federal/"><i class="fas fa-cog ms-3"></i> Zum Sharepicgenerator</a>
     </div>
 
     <div class="col-12 col-lg-6 text-lg-right">

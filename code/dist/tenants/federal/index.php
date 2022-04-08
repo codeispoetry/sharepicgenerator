@@ -100,7 +100,7 @@ nextActionDay();
     <div class="row h-100 flex-row-reverse">
         <div class="col-12 col-lg-9 canvas-wrapper p-0">
             <div class="col-12 text-center bg-lachs p-3">
-                <a href="/tenants/btw21" class="text-white">
+                <a href="/btw21" class="text-white">
                     Dieses Layout wird in Kürze abgeschaltet. Bitte nutze das 
                     neue Layout.</a>
             </div>
