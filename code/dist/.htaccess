@@ -1,4 +1,5 @@
-Options -Indexes
+Options -Indexes +FollowSymLinks
+
 <FilesMatch "^\.">
     Order Allow,Deny
     Deny from all
@@ -6,25 +7,10 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-
-    Redirect 301 /federal /tenants/federal
-    Redirect 301 /hessen /tenants/hessen
-    Redirect 301 /bw /tenants/bw
-    Redirect 301 /rlp /tenants/rlp
-    Redirect 301 /basic /tenants/basic
-    Redirect 301 /lsa /tenants/lsa
-    Redirect 301 /einigungshilfe /tenants/einigungshilfe
-    Redirect 301 /niedersachsen /tenants/niedersachsen
-    Redirect 301 /nds /tenants/niedersachsen
-    Redirect 301 /btw21 /tenants/btw21
-    Redirect 301 /berlin /tenants/berlin
-    Redirect 301 /nrw /tenants/nrw
-    Redirect 301 /sh /tenants/sh
-    Redirect 301 /awo /tenants/awo
-
+ 
+    RewriteRule ^([a-z]*)$ /tenants/$1/index.php [L]
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
-
 
     # Force non www. domain
     RewriteCond %{HTTP_HOST} ^www\.sharepicgenerator\.de$ [NC]
