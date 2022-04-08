@@ -7,17 +7,15 @@ const logo = {
   draw() {
     logo.svg
       .move($('#logoX').val(), $('#logoY').val())
-      .addClass('draggable');
     logo.resize($('#logosize').val());
-
-    logo.svg.on('dragend.namespace', function logoDragEnd() {
-      $('#logoX').val(Math.round(this.x()));
-      $('#logoY').val(Math.round(this.y()));
-    });
   },
 
   setSize(w) {
     logo.svg.size(w, w);
+  },
+
+  setPosition() {
+    logo.svg.move(10, draw.height() - logo.svg.height() - 10);
   },
 
   resize(percent) {

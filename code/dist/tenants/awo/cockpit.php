@@ -9,7 +9,7 @@
         <i class="fas fa-image"></i><small>Bild</small></button>
     <button class="text-awo nav-link active" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
         <i class="fas fa-font"></i><small>Text</small></button>
-    <button class="text-awo nav-link" id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+    <button class="d-none text-awo nav-link" id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
         <i class="fas fa-plus-circle"></i><small>Logo</small></button>
     <button class="d-none text-awo nav-link" id="v-pills-download-tab" data-toggle="pill" data-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
         <i class="fas fa-share-alt"></i><small>Download</small>
@@ -22,14 +22,14 @@
     <div class="tab-pane" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
             require_once(getBasePath('tenants/cockpit/awo/picture.php'));
-            require_once(getBasePath('tenants/cockpit/picture-size.php'));
+            require_once(getBasePath('tenants/awo/picture-size.php'));
         ?>
     </div>
     <div class="tab-pane show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once(getBasePath('tenants/cockpit/awo/text.php'));
             require_once(getBasePath('tenants/cockpit/awo/claim.php'));
-            require_once(getBasePath('tenants/cockpit/awo/eyecatcher.php'));
+            //require_once(getBasePath('tenants/cockpit/awo/eyecatcher.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">

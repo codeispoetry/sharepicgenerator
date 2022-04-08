@@ -22,11 +22,14 @@
                 <div class="">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bildung ist mehr Wert.</textarea>
                 </div>
+                <div class="d-flex align-items-lg-center">
+                    <textarea placeholder="Absender*in" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
+                </div>
                 <div class="cockpit-row ">
                     <div class="me-4">Farbe:</div>
                     <input type="color" name="textcolor" id="textcolor" value="#FFFFFF" title="Farbe wählen">
                 </div>
-                <div class="cockpit-row">
+                <div class="d-none cockpit-row">
                     <div class="me-4">Schriftart:</div>
                     <select class="form-select" name="textfont" id="textfont">
                         <option value="Paralucent Condensed">Paralucent Condensed</a>
@@ -47,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="cockpit-row">
+                <div class="d-none cockpit-row">
                     <div class="me-4">Position:</div>
                     <div class="d-flex justify-content-between">  
                         <div class="d-flex">

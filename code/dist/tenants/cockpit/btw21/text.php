@@ -31,7 +31,6 @@
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
-
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="">
