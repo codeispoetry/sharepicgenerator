@@ -70,8 +70,6 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 2. create section in config.ini for new tenanant
 5. edit .htaccess
 
-5. make compile
-
 5. update config.ini on server
 
 
