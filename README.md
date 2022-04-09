@@ -64,32 +64,6 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 - upload font to server to /usr/share/fonts
 - edit font at https://www.glyphrstudio.com/
 
-# Setup picture gallery
-1. The structure in tenants/federal/pictures/img needs to be 
-
-```
-    'albumname/1.jpeg'
-    'albumname/2.jpeg'
-    'foodir/A.JPG'
-    'foodir/B.JPG'
-
-```
-
-2. Use deployment/scripts/generate_thumbnails.sh as a cronjob in your docker to generate the thumbnails automatically if new pictures are available in tenants/federal/pictures/img
-
-```
-   ./deployment/scripts/generate_thumbnails.sh code/dist/tenants/federal/pictures/img
-
-```
-
-3. Use a meta file like 'albumname/meta.ini' or 'foodir/meta.ini' with the following content:
-```
-    Photographer = "Max Mustermann"
-    Tags = "Flowers Green"
-```
-
-4. Be happy with your small picture gallery
-
 # Create a new tenant automatically
 1. make create-tenant
 
@@ -99,21 +73,7 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 5. make compile
 
 5. update config.ini on server
-# Create a new tenant manually
-1. Copy dir code/dist/tenants/federal and rename it
-3. Copy code/build/js/federal 
-4. Copy code/webpack.tenats/federal.js 
 
-5. Edit in code/webpack.tenants/..js two times 'federal'
-2. Edit $tenant in index.php several times. Use Ctrl-F
-2. Edit $tenant in log/index.php
-
-2. create section in config.ini for new tenanant
-5. edit .htaccess
-
-5. make compile
-
-5. update config.ini on server
 
 # Enable logging
 To create or update the downloads-table for logging, log in as Admin-User and download
