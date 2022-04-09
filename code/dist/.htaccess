@@ -9,6 +9,7 @@ Options +Indexes +FollowSymLinks
     RewriteEngine On
  
     RewriteRule ^(nrw)$ /tenants/$1/index.php [L]
+    RewriteRule ^(bw)$ /tenants/$1/index.php [L]
     RewriteRule ^(sh)$ /tenants/$1/index.php [L]
     RewriteRule ^(berlin)$ /tenants/$1/index.php [L]
     RewriteRule ^(btw21)$ /tenants/$1/index.php [L]
