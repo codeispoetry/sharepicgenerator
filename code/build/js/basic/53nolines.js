@@ -130,9 +130,6 @@ const nolines = {
     textbefore.dx(2).dy(text.svg.y() - 0.7);
     text.svg.add(textbefore);
 
-    eraser.front();
-    showActionDayHint();
-
     // gray layer behind text
     text.grayBackground.remove();
     if ($('#graybehindtext').prop('checked')) {

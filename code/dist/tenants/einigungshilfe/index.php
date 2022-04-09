@@ -172,10 +172,6 @@ $_SESSION['csrf'] = $csrf;
             </div> 
         </div>
     </div>
-
-    <?php
-        require_once(getBasePath('/lib/toasts/toasts.php'));
-    ?>
 </div>
 
 <?php require_once('../footer.php'); ?>

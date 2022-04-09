@@ -25,18 +25,6 @@ function alignCenter() {
 }
 $('.aligncenter').click(alignCenter);
 
-// eslint-disable-next-line no-unused-vars
-function showActionDayHint() {
-  if (!/tag/i.test($('#text').val())) {
-    $('#actiondayshint').hide();
-    return false;
-  }
-
-  $('#actiondayshint').show();
-  return true;
-}
-
-
 $('.delete-font').click(function deleteLogo() {
   // eslint-disable-next-line no-restricted-globals
   if (!confirm('Schrift wirklich löschen?')) {

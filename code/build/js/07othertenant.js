@@ -6,6 +6,4 @@ function checkForOtherTenant() {
 
   $('#other-tenant-url').attr('href', '/frankfurt');
   $('#other-tenant-name').html('Frankfurt');
-
-  $('.other-tenant').toast('show');
 }

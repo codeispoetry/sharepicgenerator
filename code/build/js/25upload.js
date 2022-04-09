@@ -35,10 +35,6 @@ $('.upload-file').change(function changeFile() {
   client.onload = function onLoad(e) {
     const obj = JSON.parse(e.target.response);
 
-    if (obj.originalWidth > 4000 || obj.originalHeight > 4000) {
-      $('.upload-too-big').toast('show');
-    }
-
     $(`#${id}`).prop('disabled', false);
     $('#waiting').hide();
     $('#canvas-area').slideDown();
@@ -262,10 +258,6 @@ function afterUpload(data) {
     config.faces = -1;
   } else {
     config.faces = data.faces;
-  }
-
-  if (data.faces > 0) {
-    $('.face-alert').toast('show');
   }
 
   config.backgroundSource = 'upload';
