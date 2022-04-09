@@ -24,8 +24,6 @@
                 </button>
                 <div class="dropdown-menu">
                     <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="pixabay-images"><i class="fas fa-images"></i> Pixabay</span>
-                    <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="pexels-images"><i class="fas fa-images"></i> Pexels</span>
-                    <span class="dropdown-item imagedb-search-in" data-icon="images" data-files="unsplash-images"><i class="fas fa-images"></i> Unsplash</span>
                     <span class="dropdown-item imagedb-search-in" data-icon="video" data-files="pixabay-video"><i class="fas fa-video"></i> Videos</span>
                 </div>
             </div>
