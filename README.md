@@ -98,9 +98,11 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 5. Edit in code/webpack.tenants/..js two times 'federal'
 2. Edit $tenant in index.php several times. Use Ctrl-F
 2. Edit $tenant in log/index.php
+
 2. create section in config.ini for new tenanant
 5. edit .htaccess
 5. add gallery and pictures to shared_dirs in deploy.php
+
 5. make compile
 
 5. update config.ini on server
