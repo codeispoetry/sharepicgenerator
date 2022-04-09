@@ -122,7 +122,6 @@ $_SESSION['csrf'] = $csrf;
             if (configValue($tenant, 'showGallery')) {
                 require_once(getBasePath('/lib/overlays/gallery.php'));
             }
-            require_once(getBasePath('/lib/overlays/pictures.php'));
             require_once(getBasePath('/lib/overlays/preferences.php'));
             require_once(getBasePath('/lib/overlays/faq.php'));
 

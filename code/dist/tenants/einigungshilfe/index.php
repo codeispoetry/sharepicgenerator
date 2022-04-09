@@ -155,10 +155,7 @@ $_SESSION['csrf'] = $csrf;
             require_once(getBasePath('/lib/overlays/waiting.php'));
             require_once(getBasePath('/lib/overlays/icons.php'));
             require_once(getBasePath('/lib/overlays/imagedb.php'));
-            if (configValue($tenant, 'showGallery')) {
-                require_once(getBasePath('/lib/overlays/gallery.php'));
-            }
-            require_once(getBasePath('/lib/overlays/pictures.php'));
+
             require_once('preferences.php');
             require_once('overlays/faq.php');
 
