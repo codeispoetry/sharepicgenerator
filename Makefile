@@ -100,4 +100,5 @@ watch:
 
 create-tenant:
 	@read -p "new tenant name: " tenant; \
-	./scripts/create-tenant.sh $$tenant
+	./scripts/create-tenant.sh $$tenant \
+	make compile
