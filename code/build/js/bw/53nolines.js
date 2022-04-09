@@ -114,9 +114,6 @@ const nolines = {
       });
     }
 
-    eraser.front();
-    showActionDayHint();
-
     // gray layer behind text
     text.grayBackground.remove();
     if ($('#graybehindtext').prop('checked')) {

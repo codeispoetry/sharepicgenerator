@@ -61,7 +61,6 @@
       "setCopyright": true,
       "setDrawsize": true,
       "show": true,
-      "showActionDayHint": true,
       "showLayout": true,
       "uploadFileByUrl": true
     }

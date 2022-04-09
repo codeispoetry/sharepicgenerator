@@ -132,8 +132,6 @@ const nolines = {
       text.svg.add(textbefore);
     }
 
-    eraser.front();
-    showActionDayHint();
 
     // gray layer behind text
     text.grayBackground.remove();
