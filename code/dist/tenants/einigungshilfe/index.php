@@ -151,7 +151,7 @@ $_SESSION['csrf'] = $csrf;
 
             <?php
             require_once(getBasePath('/lib/overlays/waiting.php'));
-            require_once(getBasePath('/lib/overlays/icons.php'));
+           
             require_once(getBasePath('/lib/overlays/imagedb.php'));
 
             require_once('preferences.php');
