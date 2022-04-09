@@ -3,7 +3,6 @@
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/save_functions.php'));
-require_once(getBasePath('lib/gallery_functions.php'));
 useDeLocale();
 
 session_start();
