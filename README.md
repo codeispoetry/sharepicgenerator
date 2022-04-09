@@ -24,8 +24,6 @@ Sharepicgenerator with Docker and Webpack.
 
  9. Install WordPress via browser#
     1. enter `define('COOKIEPATH','/')` and db-credentials in wp-config.php
-
-
   
  9. Run ```make compile``` to compile css and js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
 
@@ -43,13 +41,6 @@ This directory is to be deployed.
 
 #### code/build
 Here reside the Javascript and SCSS-files. They are compiled by Grunt.
-
-### code/node_modules
-Are installed by nmp. Nothing to do here. Will not be commited. Use _npm install_ to create folder and its content.
-
-### docker
-The Dockerfiles are here. They are referred to from docker-compose.yml.
-
 ### fonts
 All font-files are linked into to webserver-container, so that inkscape can use them. Handle webfonts in _code/dist/fonts_ independently from that.
 
@@ -65,9 +56,6 @@ Uploaded files are here as well as the sharepic. Files are deleted regularly.
 
 ### persistent
 Templates go here. Opposite to /tmp, directory will not be emtied automatically.
-
-### vendor
-SVG.js, jQuery etc. are here. They are placed manually, not by npm.
 
 # Add new font
 - ttf-file should go to fonts-folder
