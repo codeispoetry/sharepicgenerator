@@ -43,7 +43,6 @@ $('#download,.download').click(function onDownloadClick() {
       format,
       width: $('#width').val(),
       quality: config.quality,
-      ismosaic: config.isMosaic,
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
       videofile: config.videofile,
@@ -62,10 +61,6 @@ $('#download,.download').click(function onDownloadClick() {
 
       if (config.socialmediaplatform) {
         downloadname = `${downloadname.substring(0, 14)}-${config.socialmediaplatform.toLowerCase()}`;
-      }
-
-      if (config.isMosaic) {
-        format = 'zip';
       }
 
       if (config.toCloud) {

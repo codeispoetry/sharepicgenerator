@@ -421,30 +421,6 @@ function convert($filename, $width, $format, $quality = 75)
         );
         exec($command);
     }
-    if ($format == 'png') {
-        if ($_POST['ismosaic'] == "true") {
-            $dir = getBasePath('tmp/' . basename($filename, '.svg'));
-
-            $command = sprintf('mkdir %s', $dir);
-            exec($command);
-
-            copy('../mosaik_readme.txt', sprintf('%s/z_anleitung.txt', $dir));
-
-            $command = sprintf(
-                'convert %s -crop 3x3@ +repage +adjoin -scene 1 %s/bild_%%d.jpg',
-                getBasePath('tmp/' . basename($filename, 'svg') . $format),
-                $dir
-            );
-            exec($command);
-
-            $command = sprintf("montage %s/bild*.jpg -geometry 200x200+8+8 %s/gesamt.jpg", $dir, $dir);
-            exec($command);
-
-
-            $command = sprintf('zip -j %s.zip %s/*', $dir, $dir);
-            exec($command);
-        }
-    }
 
     if ($format == 'mp4') {
         $command =sprintf(

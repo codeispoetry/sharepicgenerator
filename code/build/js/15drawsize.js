@@ -8,12 +8,6 @@ $('#sizepresets').on('change', function changeSize() {
   config.socialmediaplatform = $('#sizepresets option:selected').data('socialmediaplatform');
   config.quality = $('#sizepresets option:selected').data('quality');
 
-  config.isMosaic = (config.socialmediaplatform.search(/Mosaik/g) !== -1);
-
-  deleteMosaicLines();
-  if (config.isMosaic) {
-    showMosaicLines();
-  }
 
   if (config.socialmediaplatform === 'Instagram-Bild-4x5') {
     $('#grid-square').removeClass('d-none');
@@ -117,6 +111,3 @@ function calculateSizes() {
   reset();
 }
 
-$('.choose-mosaic').bind('click', () => {
-  $('#sizepresets').val('2400:2400').trigger('change');
-});
