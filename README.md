@@ -90,7 +90,17 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 
 4. Be happy with your small picture gallery
 
-# Create a new tenant
+# Create a new tenant automatically
+1. make create-tenant
+
+2. create section in config.ini for new tenanant
+5. edit .htaccess
+5. add gallery and pictures to shared_dirs in deploy.php
+
+5. make compile
+
+5. update config.ini on server
+# Create a new tenant manually
 1. Copy dir code/dist/tenants/federal and rename it
 3. Copy code/build/js/federal 
 4. Copy code/webpack.tenats/federal.js 
