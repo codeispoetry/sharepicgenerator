@@ -16,7 +16,6 @@ $datafile = getBasePath('tmp/' . $basename . '.json');
 $zipfile = getBasePath('tmp/' . $basename .'.zip');
 
 $data = $_POST['data'];
-$saveingallery = $_POST['saveingallery'];
 
 // extract
 $values = array();
@@ -55,13 +54,6 @@ for ($i = 1; $i <=5; $i++) {
         $command = sprintf('printf "@ %s\n@=%s\n" | zipnote -w %s 2>&1', basename(${"addpic" . $i}), 'addpic' . $i .'.jpg', $zipfile);
         exec($command, $output);
     }
-}
-
-if ($saveingallery == 'true') {
-    $filename = $_POST['filename'];
-    $tenant = $_POST['tenant'];
-    saveWorkInGallery($zipfile, $tenant, $filename);
-    $debug = $debug . " added $zipfile to $tenant / $filename";
 }
 
 $return = array(

@@ -20,9 +20,6 @@ switch ($_POST['action']) {
     case 'logo':
         deleteUserLogo($_POST['file']);
         break;
-    case 'workfile':
-        deleteWorkfile($_POST['workfileiId']);
-        break;
     case 'font':
         deleteFont($_POST['file']);
         break;
