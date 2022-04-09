@@ -97,3 +97,7 @@ bw-templates-get:
 
 watch:
 	docker-compose exec node npm run watch
+
+create-tenant:
+	@read -p "new tenant name: " tenant; \
+	./scripts/create-tenant.sh $$tenant
