@@ -97,19 +97,7 @@ const text = {
       text.svg.add(t);
     });
 
-    // Icon
-    let licon;
-    const iconHeightInLines = Math.min(lines.length, parseInt($('#iconsize').val(), 10));
-
-    if (icon.isLoaded) {
-      licon = icon.svg.clone();
-      licon.move(0, 3).size(null, lineBeginsY[iconHeightInLines - 1] - 3);
-      text.svg.add(licon);
-
-      for (let i = 0; i < iconHeightInLines; i++) {
-        linesRendered[i].dx(1.15 * licon.width());
-      }
-    }
+   
 
     // add upper and lower line
     color = 'white';

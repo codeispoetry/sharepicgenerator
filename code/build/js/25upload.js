@@ -84,11 +84,7 @@ $('.upload-file').change(function changeFile() {
         basic.draw();
 
         break;
-      case 'uploadicon':
-        $('#iconfile').val(obj.iconfile);
-        icon.load();
-        $('.iconsizeselectwrapper').removeClass('d-none');
-        break;
+  
       case 'uploadaddpic1':
         $('#addpicfile1').val(obj.addpicfile);
         show('show-add-pic-1');

@@ -89,13 +89,12 @@
                     Surfdaten an diese Server übermittelt.
                     <br>
                     Bilder und Videos stammen von Pixabay, hier findest Du die 
-                    <a href="https://pixabay.com/de/service/privacy/" target="_blank">Datenschutzerklärung von Pixabay</a>.
+                    <a href="https://pixabay.com/de/service/privacy/" target="_blank">Datenschutzerklärung von Pixabay</a>
                     , von Pexels 
-                    <a href="https://www.pexels.com/de-de/privacy-policy/" target="_blank">Datenschutzerklärung von Pexels</a>.
-                    , von Unsplash
-                    <a href="https://unsplash.com/privacy" target="_blank">Datenschutzerklärung von Unsplash</a>.
-                    oder von TheNounProject, hier findest Du die 
-                    <a href="https://thenounproject.com/legal/#!privacy-policy" target="_blank">Datenschutzerklärung von TheNounProject</a>.
+                    <a href="https://www.pexels.com/de-de/privacy-policy/" target="_blank">Datenschutzerklärung von Pexels</a>
+                    und von Unsplash
+                    <a href="https://unsplash.com/privacy" target="_blank">Datenschutzerklärung von Unsplash</a>
+
                 </p>
 
                 <h5 class="mt-3">Recht auf Vergessen</h5>
