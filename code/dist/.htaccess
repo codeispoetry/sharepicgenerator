@@ -1,4 +1,4 @@
-Options -Indexes +FollowSymLinks
+Options +Indexes +FollowSymLinks
 
 <FilesMatch "^\.">
     Order Allow,Deny
@@ -8,7 +8,10 @@ Options -Indexes +FollowSymLinks
 <IfModule mod_rewrite.c>
     RewriteEngine On
  
-    RewriteRule ^([a-z]*)$ /tenants/$1/index.php [L]
+    RewriteRule ^(nrw)$ /tenants/$1/index.php [L]
+    RewriteRule ^(sh)$ /tenants/$1/index.php [L]
+    RewriteRule ^(berlin)$ /tenants/$1/index.php [L]
+    RewriteRule ^(btw21)$ /tenants/$1/index.php [L]
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
 
