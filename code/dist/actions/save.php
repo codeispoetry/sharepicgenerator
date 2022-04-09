@@ -27,12 +27,6 @@ switch ($action) {
     case 'delete':
         deleteSavedPic($user);
         break;
-    case 'saveCloudToken':
-        saveCloudToken();
-        break;
-    case 'deleteCloudToken':
-        deleteCloudToken();
-        break;
     default:
         $return['success'] = false;
         die(json_encode($return));

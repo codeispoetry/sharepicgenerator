@@ -532,67 +532,6 @@ function xml2json($xml)
     return $return;
 }
 
-function getUserFromCloudCredentials()
-{
-    list($user, $token) = explode(':', getCloudCredentials());
-    return $user;
-}
-
-function hasCloudCredentials()
-{
-    $tokenfile = getUserDir() .'/.cloudcredentials.php';
-    return file_exists($tokenfile);
-}
-
-function getCloudCredentials()
-{
-    if (hasCloudCredentials() == false) {
-        return false;
-    }
-
-    require_once($tokenfile);
-    return USERCLOUDCREDENTIALS;
-}
-
-function deleteCloudToken()
-{
-    $cloudTokenFile = getUserDir() . '/.cloudcredentials.php';
-    unlink($cloudTokenFile);
-
-    returnJsonSuccessAndDie();
-}
-
-function saveCloudToken()
-{
-    $cloudTokenFile = getUserDir() . '/.cloudcredentials.php';
-
-    $credentials = sprintf('%s:%s', getUser(), $_POST['data']);
-    $content = <<<EOF
-<?php
-define("USERCLOUDCREDENTIALS", "$credentials");
-
-EOF;
-
-    file_put_contents($cloudTokenFile, $content);
-
-    // Create folder in cloud
-    $credentials = sprintf('-u %s', getCloudCredentials());
-    $endpoint    = sprintf(
-        "MKCOL 'https://wolke.netzbegruenung.de/remote.php/dav/files/%s/sharepicgenerator'",
-        getUserFromCloudCredentials()
-    );
-    $payload = '';
-    $command = sprintf(
-        'curl -X %s %s %s',
-        $endpoint,
-        $payload,
-        $credentials
-    );
-
-    exec($command, $debug);
-
-    returnJsonSuccessAndDie();
-}
 
 function tenantsSwitch($as)
 {
