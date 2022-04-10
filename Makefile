@@ -1,6 +1,9 @@
 up:
 	docker-compose up -d
 
+up-test:
+	docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d	
+
 stop:
 	docker-compose stop
 
