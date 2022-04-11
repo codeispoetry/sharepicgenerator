@@ -88,10 +88,10 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="far fa-images"></i> Bildquellen</dt>
+                <dt><i class="far fa-images"></i> Suchbegriffe der letzten 30 Tage</dt>
                 <dd>
                     <ul>
-                        <?php showBackgroundSources(); ?>
+                        <?php getSearchTerms(30); ?>
                     </ul>
                 </dd>
             </dl>

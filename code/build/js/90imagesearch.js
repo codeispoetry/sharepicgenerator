@@ -15,6 +15,11 @@ $('.imagedb-search-in').click(function imageDBSearchIn() {
 $('.imagedb-direct-search').click(() => performImageDBSearch());
 
 function performImageDBSearch(carrier = false) {
+  if ($('#imagedb-direct-search-q').val().length === 0) {
+    alert('Bitte gib einen Suchbegriff ein.');
+    return;
+  }
+
   $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
   if (carrier) {
     config.imageDBSearchIn = carrier;
