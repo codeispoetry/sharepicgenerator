@@ -4,3 +4,5 @@
     AuthUserFile /var/www/sharepicgenerator.de/current/log/.htusers
     Require valid-user
 </If>
+
+RewriteRule ^admin$ phpliteadmin.php [L]

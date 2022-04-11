@@ -192,17 +192,5 @@
   </footer>
 </div>
 
-
-<?php
-  // delete tmp-files
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/*'), null, 2 * 24);
-  // delete videos and zips more often
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/*.mp4'), null,  6);
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/*.zip'), null,  6);
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/qrcode_*'), null,  2);
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/work*'), null,  6);
-  deleteFilesInPathOlderThanHours(getBasePath('tmp/fonts/*'), null,  6);
-
-?>
 </body>
 </html>

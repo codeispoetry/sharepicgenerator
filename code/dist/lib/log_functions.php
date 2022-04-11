@@ -38,8 +38,8 @@ function show_images($dir, $showCaption = false)
 
 function deleteFilesInPathOlderThanHours($path, $exclude, $hours)
 {
-    $cmd = sprintf('find %s ! -name "%s" -mmin +%d -exec rm -r {} \;', $path, $exclude, $hours * 60);
-    exec($cmd, $output);  
+    $cmd = sprintf('find %s ! -name "%s" -mmin +%d -exec rm -r {} 2> /dev/null \;', $path, $exclude, $hours * 60);
+    exec($cmd, $output);
 }
 
 function showCustomLogos()
@@ -283,16 +283,6 @@ function showBackgroundSources()
     return echoResults("select backgroundsource As name,count(*) as count from downloads GROUP BY backgroundsource ORDER BY count DESC;", true);
 }
 
-function showPixabaySearchesAllTime()
-{
-    return echoResults("select query As name,count(*) as count from searches GROUP BY query ORDER BY count DESC LIMIT 7;");
-}
-
-function showPixabaySearchesLastDays($days = 7)
-{
-    return echoResults("select query As name,count(*) as count from searches WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY query ORDER BY count DESC LIMIT 7;");
-}
-
 function getSocialMedia()
 {
     return singleResult("select count(*) as result from downloads WHERE socialmediaplatform !=''");
@@ -424,6 +414,27 @@ function getFreeSpace()
     exec($cmd, $output);
 
     return $output[0];
+}
+
+function getSearchTerms($days = 7)
+{
+    $sql = sprintf(
+        "SELECT 
+            lower(query) AS name, COUNT(*) AS count
+        FROM 'searches' 
+        WHERE
+            timestamp >= date('now', '-%d day')
+        GROUP BY lower(query) 
+        HAVING 
+            count(*) > 10 
+        ORDER BY 
+            COUNT(*) 
+        DESC
+        LIMIT 
+            10",
+        $days
+    );
+    return echoResults($sql);
 }
 
 function showLogGraph()
