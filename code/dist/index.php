@@ -24,10 +24,6 @@
     <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
 
     <style>
-    body {
-
-    }
-
     .container {
       max-width: 960px;
     }
@@ -53,7 +49,7 @@
 
     #loginscreen a.tenant{
       text-decoration: underline;
-      color: #a0c863;
+      color: #145f32;
     }
      #loginscreen a.tenant:hover{
       color: #4cb4e7;
@@ -125,10 +121,10 @@
           <img src="assets/logos/sonnenblume21.svg" id="sunflower">
       </div>
       <div id="loginscreen">
-          <a href="btw21" class="">
+          <a href="/btw21" class="">
               <h2 class="display-6 fw-normal bereitbold">Sharepic&shy;generator</h2>
               <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
-              <div class="w-100 btn btn-lg btn-pistazie text-white">anmelden</div>
+              <div class="w-100 btn btn-lg btn-moos text-white">anmelden</div>
           </a>
           <div class="mt-2">
             <a href="/sh" class="tenant">Schleswig-Holstein</a> | 
