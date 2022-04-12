@@ -1,4 +1,6 @@
 <?php
+die("Nein, die()-Sperre aktiviert");
+
 require_once('base.php');
 $start = time();
 
