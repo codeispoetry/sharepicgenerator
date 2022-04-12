@@ -82,7 +82,7 @@ function getLastLogin($user = false)
         default:
             if ($array['days'] <7) {
                 $day = strftime('letzten %A', $timestamp);
-            }else{
+            } else {
                 $day = strftime('am %e. %B', $timestamp);
             }
             break;
@@ -193,24 +193,17 @@ function logFailure($msg)
     file_put_contents(getBasePath('log/logs/error.log'), $line, FILE_APPEND);
 }
 
-function logDownload()
+function logDownload($info = [])
 {
-    $sharepic = $_POST['sharepic'];
-    $config = $_POST['config'];
+    parse_str($_POST['sharepic'], $sharepic);
+
+    $valuesToLog = array_fill_keys(explode(',', 'backgroundURL,text'), false);
+
+    $data = array_intersect_key($sharepic, $valuesToLog);
+
+    $log = $_POST['log'];
   
-    parse_str($sharepic, $data);
-    $data = array_merge(json_decode($config, true), $data);
-    unset($data['pixabay']);
-    unset($data['csrf']);
-
-    // rewrite username to user
-    $data['user'] = $data['username'];
-    unset($data['username']);
-
-    if ($data['eraser']) {
-        $data['eraser'] = 'true';
-    };
-
+    $data = array_merge(json_decode($log, true), $info, $data);
 
     $db = new SQLite3(getBasePath('log/logs/log.db'));
     $columns = [];
@@ -264,7 +257,7 @@ function isLocalUser()
     $localuser = 'localuser';
     
     $GLOBALS['user'] = $localuser;
-    if(getUser() === $localuser and isAllowed()){
+    if (getUser() === $localuser and isAllowed()) {
         return true;
     }
 
@@ -336,11 +329,11 @@ function isDaysBefore($dayMonth, $days = 14)
     return ($interval->days < $days and $interval->invert == 1);
 }
 
-function doLogout() {
-    session_destroy( );
+function doLogout()
+{
+    session_destroy();
     header("Location: /");
     die();
-
 }
 
 function handleSamlAuth($doLogout = false)
@@ -489,7 +482,7 @@ function deleteUserLogo($file)
 
 function deleteFont($file)
 {
-    foreach(array('woff2','ttf') AS $extension){
+    foreach (array('woff2','ttf') as $extension) {
         $userFile = getBasePath('persistent/fonts/') . $file . '.' . $extension;
         unlink($userFile);
     }
@@ -557,7 +550,6 @@ function tenantsSwitch($as)
         header('Location: ' . $tenant, true, 302);
         die();
     }
-        
 }
 
 function readConfig()
@@ -618,10 +610,11 @@ function human_filesize($bytes, $decimals = 2)
 }
 
 
-function getSaying($field = 'main'){
+function getSaying($field = 'main')
+{
     static $rand;
     $sayings = parse_ini_file(getBasePath('ini/sayings.ini'), true);
-    if(!$rand) {
+    if (!$rand) {
         $rand = array_rand($sayings, 1);
     }
 
@@ -629,9 +622,9 @@ function getSaying($field = 'main'){
 }
 
 
-function getFontFamily($file){
-
-    if(is_file($file)){
+function getFontFamily($file)
+{
+    if (is_file($file)) {
         return false;
     }
 
@@ -639,14 +632,15 @@ function getFontFamily($file){
     exec($cmd, $output);
 
     return $output[0];
-
 }
 
-function isGuest(){
+function isGuest()
+{
     return getUser() == 'guest';
 }
 
-function latestVersion($file){
+function latestVersion($file)
+{
     printf('%s?v=%s', $file, filemtime(getBasePath($file)));
 }
 

@@ -1,4 +1,5 @@
 <?php
+$startTime = microtime(true);
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
@@ -63,8 +64,6 @@ $quality = (int) $_POST['quality'] ?: 90;
 
 convert($filename, $exportWidth, $format, $quality);
 
-logDownload();
-
 $return = [];
 
 exec(sprintf(
@@ -77,4 +76,9 @@ exec(sprintf(
 
 
 $return['basename'] = basename($filename, '.svg');
+
+$endTime = microtime(true) - $startTime;
+
+logDownload(['createTime' => round($endTime*1000)]);
+
 echo json_encode($return);

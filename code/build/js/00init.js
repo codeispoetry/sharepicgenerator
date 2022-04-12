@@ -4,6 +4,7 @@
 const draw = SVG().addTo('#canvas');
 
 const info = { foo: null };
+const log = { };
 
 $(document).ready(() => {
   $('#width').val(bgpic.originalWidth);
@@ -30,6 +31,9 @@ $(document).ready(() => {
   config.useragent = navigator.userAgent;
   config.browser = getBrowser();
   config.useSaveWork = false;
+
+  log.user = config.username;
+  log.tenant = config.tenant;
 });
 
 function message(text = false) {
@@ -119,6 +123,7 @@ function getTextInfo() {
 }
 
 $('.to-front').click(function tofront() {
+  // eslint-disable-next-line no-eval
   const indirectEval = eval;
   let target = $(this).data('target');
   if (target === 'text' && config.layout !== 'lines') {

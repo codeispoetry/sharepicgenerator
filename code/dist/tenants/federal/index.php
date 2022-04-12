@@ -73,8 +73,7 @@ $_SESSION['csrf'] = $csrf;
         config.backgroundSource="standard";
         config.faces=-1;
         config.uploadTime=-1;
-        config.createTime=-1;
-        config.pixabaySearchStrings='';
+
         config.format='png';
         config.user = {};
         config.user.prefs = {};

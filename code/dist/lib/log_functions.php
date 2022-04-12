@@ -127,8 +127,6 @@ function echoResults($sql, $inPercent = false)
     global $db;
     $results = $db->query($sql);
     while ($row = $results->fetchArray()) {
-        
-
         if ($inPercent) {
             $fraction = $row['count'] / getDownloads();
             $decimal_places = ($fraction > 0.01) ? 2 : 4;
@@ -200,7 +198,7 @@ function getDownloadsLastDay($days = 0)
 function getDownloads()
 {
     static $total;
-    if(!$total) {
+    if (!$total) {
         $total = singleResult('SELECT COUNT(*) AS result FROM downloads;');
     }
 
@@ -260,7 +258,7 @@ function getGreenifyRelative()
 
 function showSocialMedia()
 {
-    return echoResults("select SUBSTR(socialmediaplatform,0,INSTR(socialmediaplatform,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;", true);
+    return echoResults("select SUBSTR(socialmedia,0,INSTR(socialmedia,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;", true);
 }
 
 function showFaces()
@@ -285,7 +283,7 @@ function showBackgroundSources()
 
 function getSocialMedia()
 {
-    return singleResult("select count(*) as result from downloads WHERE socialmediaplatform !=''");
+    return singleResult("select count(*) as result from downloads WHERE socialmedia !=''");
 }
 
 function getTelegramUser()
@@ -333,8 +331,6 @@ function showProvinces()
     $provinces = array('offbyone','Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen',
                         'Mecklenburg-Vorpommern','Niedersachsen','Nordrhein-Westfalen','Rheinland-Pfalz','Saarland',
                     'Sachsen','Sachsen-Anhalt','Schleswig-Holstein','Thürigen');
-
-  
 }
 
 function showTenantsDownloads()
@@ -493,5 +489,4 @@ function showLogGraph()
 </script>
 
 ECHO;
- 
 }
