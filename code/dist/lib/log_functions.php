@@ -253,6 +253,11 @@ function getMedianEditTime($percent = 50)
     return singleResult(getMedianSQLQuery('editTime', $percent));
 }
 
+function getMaxEditTime()
+{
+    return round(singleResult('select max(editTime) as result from downloads where createTime>0 AND cast(julianday("now") - julianday(timestamp) as int) < 7'));
+}
+
 function getAvgCreatingTime()
 {
     return round(singleResult('select avg(createTime) as result from downloads where createTime>0 AND cast(julianday("now") - julianday(timestamp) as int) < 7'));

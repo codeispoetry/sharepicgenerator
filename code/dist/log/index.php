@@ -80,7 +80,8 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                 </dd>
                 <dd>
                     Median Edittime: <?php echo round(getMedianEditTime()/60000, 1); ?>min<br>
-                    90% Edittime: <?php echo round(getMedianEditTime(90)/60000, 1); ?>min
+                    90% Edittime: <?php echo round(getMedianEditTime(90)/60000, 1); ?>min<br>
+                    Max Edittime: <?php echo round(getMaxEditTime()/60000, 1); ?>min
                 </dd>
             </dl>
         </div>
