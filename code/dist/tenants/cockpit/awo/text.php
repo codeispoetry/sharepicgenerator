@@ -20,7 +20,7 @@
                     
                
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bildung ist mehr Wert.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hier könnte Ihr Text stehen</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Absender*in" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>

@@ -3,6 +3,10 @@ body.awo{
 		color: $awo !important;
 	}
 
+	#pic{
+		border-right: 1px solid $awo;
+	}
+
 	input[type=range]::-webkit-slider-thumb {
         background: $awo;
     }
@@ -12,8 +16,9 @@ body.awo{
 	}
 
 	header{
+		border-bottom: 1px solid $awo;
 		a{
-			color: white;
+			color: $awo;
 		}
 	}
 
