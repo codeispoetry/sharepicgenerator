@@ -8,12 +8,12 @@ Options +Indexes +FollowSymLinks
 <IfModule mod_rewrite.c>
     RewriteEngine On
  
-    RewriteRule ^(nrw)\/+$ /tenants/$1/index.php [L]
-    RewriteRule ^(bw)\/+$ /tenants/$1/index.php [L]
-    RewriteRule ^(sh)\/+$ /tenants/$1/index.php [L]
-    RewriteRule ^(berlin)\/+$ /tenants/$1/index.php [L]
-    RewriteRule ^(btw21)\/+$ /tenants/$1/index.php [L]
-    RewriteRule ^(awo)\/+$ /tenants/$1/index.php [L]
+    RewriteRule ^(nrw)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(bw)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(sh)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(berlin)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(btw21)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(awo)\/?$ /tenants/$1/index.php [L]
 
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
