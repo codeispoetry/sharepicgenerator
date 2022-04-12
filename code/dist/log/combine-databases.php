@@ -1,7 +1,8 @@
 <?php
 require_once('base.php');
-require_once(getBasePath('lib/functions.php'));
-require_once(getBasePath('lib/log_functions.php'));
+$start = time();
+
+set_time_limit(3000);
 
 setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
 
@@ -15,30 +16,31 @@ while ($row = $results->fetchArray()) {
     }
     $columns[] = $row['name'];
 }
+$stmt = $new->prepare(
+    sprintf(
+        'INSERT INTO downloads (%s) values (:%s)',
+        join(',', $columns),
+        join(',:', $columns)
+    )
+);
 
 // get Data
-//$old = new SQLite3(getBasePath('log/logs/logUNTIL-btw21.db'));
-$old = new SQLite3(getBasePath('log/logs/log-btw21until2022-04-12.db'));
+$old = new SQLite3(getBasePath('log/logs/logUNTIL-btw21.db'));
+//$old = new SQLite3(getBasePath('log/logs/log-btw21until2022-04-12.db'));
 
-$results = $old->query("SELECT * FROM downloads");
+$results = $old->query("SELECT * FROM downloads LIMIT 500000 OFFSET 0");
 while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
-    insert($new, $columns, $row);
+    insert($stmt, $columns, $row);
 }
 
+printf("Duration: %s", time() - $start);
 
-    // do logging into download
-function insert($db, $columns, $data)
+
+// do logging into download
+function insert($stmt, $columns, $data)
 {
-    $smt = $db->prepare(
-        sprintf(
-            'INSERT INTO downloads (%s) values (:%s)',
-            join(',', $columns),
-            join(',:', $columns)
-        )
-    );
-
     foreach ($data as $variable => $value) {
-        $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
+        $stmt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
     }
-    $smt->execute();
+    $stmt->execute();
 }
