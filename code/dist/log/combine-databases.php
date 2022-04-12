@@ -25,8 +25,8 @@ $stmt = $new->prepare(
 );
 
 // get Data
-$old = new SQLite3(getBasePath('log/logs/logUNTIL-btw21.db'));
-//$old = new SQLite3(getBasePath('log/logs/log-btw21until2022-04-12.db'));
+//$old = new SQLite3(getBasePath('log/logs/logUNTIL-btw21.db'));
+$old = new SQLite3(getBasePath('log/logs/log-btw21until2022-04-12.db'));
 
 $results = $old->query("SELECT * FROM downloads LIMIT 500000 OFFSET 0");
 while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
