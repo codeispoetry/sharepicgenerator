@@ -32,6 +32,7 @@ const awoclaim = {
 
     awoclaim.svg.front();
     logo.svg.front();
+    copyright.svg.front();
 
     // awoclaim.svg.filterWith((add) => {
     //   const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);

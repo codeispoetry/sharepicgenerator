@@ -60,11 +60,6 @@ function reDraw(withAddPic = false) {
   }
 
   window.setTimeout(() => {
-    pin.draw();
-    pin.drawTemplate();
-  }, 10);
-
-  window.setTimeout(() => {
     copyright.draw();
   }, 20);
 
