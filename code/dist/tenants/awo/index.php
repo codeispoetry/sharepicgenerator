@@ -55,12 +55,11 @@ $_SESSION['csrf'] = $csrf;
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.tenant="%s";', "awo"); ?>
-        config.imageDBSearchIn="images";
+
         config.backgroundSource="standard";
         config.faces=-1;
         config.uploadTime=-1;
-        config.createTime=-1;
-        config.pixabaySearchStrings='';
+
         config.format='png';
         config.user = {};
         config.user.prefs = {};

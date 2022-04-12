@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 $('.upload-file').change(function changeFile() {
   const id = $(this).attr('id');
   const file = document.getElementById(id).files[0];
@@ -84,7 +85,7 @@ $('.upload-file').change(function changeFile() {
         basic.draw();
 
         break;
-  
+
       case 'uploadaddpic1':
         $('#addpicfile1').val(obj.addpicfile);
         show('show-add-pic-1');

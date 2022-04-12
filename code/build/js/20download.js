@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 $('#download,.download').click(function onDownloadClick() {
   $(this).prop('disabled', true);
 
@@ -15,11 +16,9 @@ $('#download,.download').click(function onDownloadClick() {
 
   $('#canvas').addClass('opacity');
 
-  const startCreatingTime = Date.now();
-
   let { format } = config;
 
-  config.greenified = ($('#greenify').prop('checked')) ? 1 : 0;
+  log.socialmedia = config.socialmediaplatform;
 
   if (config.video === true) {
     format = 'mp4';
@@ -33,6 +32,8 @@ $('#download,.download').click(function onDownloadClick() {
     background.svg.show();
   }
 
+  log.uploadTime = config.uploadTime;
+
   $.ajax({
     type: 'POST',
     url: '/actions/createpic.php',
@@ -43,6 +44,7 @@ $('#download,.download').click(function onDownloadClick() {
       quality: config.quality,
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
+      log: JSON.stringify(log),
       videofile: config.videofile,
     },
     success(createPicData) {
@@ -54,7 +56,6 @@ $('#download,.download').click(function onDownloadClick() {
 
       let downloadname = getDownloadName();
 
-      config.createTime = Date.now() - startCreatingTime;
       config.uploadTime = -1;
 
       if (config.socialmediaplatform) {
