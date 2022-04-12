@@ -33,7 +33,7 @@ $('#download,.download').click(function onDownloadClick() {
   }
 
   log.uploadTime = config.uploadTime;
-  log.editTime = Date.now() - config.startEditTime;
+  log.editTime = Math.round((Date.now() - config.startEditTime) / 1000);
 
   $.ajax({
     type: 'POST',
