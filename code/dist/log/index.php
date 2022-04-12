@@ -77,12 +77,16 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
             <dl>
                 <dt><i class="far fa-clock"></i> Zeiten der letzten 7 Tage</dt>
                 <dd>
+                    Median Uploadtime: <?php echo round(getMedianUploadTime()/1000, 1); ?>s<br>
+                    90% Uploadtime: <?php echo round(getMedianUploadTime(90)/1000, 1); ?>s
+                </dd>
+                <dd>
                     Median Createtime: <?php echo round(getMedianCreatingTime()/1000, 1); ?>s<br>
                     90% Createtime: <?php echo round(getMedianCreatingTime(90)/1000, 1); ?>s
                 </dd>
                 <dd>
-                    Median Uploadtime: <?php echo round(getMedianUploadTime()/1000, 1); ?>s<br>
-                    90% Uploadtime: <?php echo round(getMedianUploadTime(90)/1000, 1); ?>s
+                    Median Edittime: <?php echo round(getMedianEditTime()/1000, 1); ?>s<br>
+                    90% Edittime: <?php echo round(getMedianEditTime(90)/1000, 1); ?>s
                 </dd>
             </dl>
         </div>
