@@ -95,7 +95,6 @@ function getLastLogin($user = false)
 function isAllowed($with_csrf = false)
 {
     if (!isset($_SESSION['accesstoken'])) {
-        logFailure('no session access token');
         return false;
     }
 
@@ -107,13 +106,11 @@ function isAllowed($with_csrf = false)
     }
 
     if (checkPermission($user, $accesstoken) == false) {
-        logFailure('permission denied with ' . $user . ':' .$accesstoken);
         return false;
     }
 
     if ($with_csrf == true) {
         if (($_POST['csrf'] == '') || ($_POST['csrf'] != $_SESSION['csrf'])) {
-            logFailure('csrf missmatch');
             return false;
         }
     }
@@ -126,14 +123,10 @@ function checkPermission($user, $accesstoken)
     $userDir = getBasePath('persistent/user/' . $user);
 
     if (!file_exists($userDir)) {
-        logFailure('no userDir for ' . $user);
         return false;
     }
 
     require_once(sprintf('%s/accesstoken.php', $userDir));
-    if ($accesstoken != ACCESSTOKEN) {
-        logFailure('accesstoken for ' . $user . ' is ' . $accesstoken . ' and should be ' . ACCESSTOKEN);
-    }
     return $accesstoken == ACCESSTOKEN;
 }
 
@@ -154,7 +147,6 @@ function isEditor()
 function getUser()
 {
     if (!isset($_SESSION['user'])) {
-        logFailure('no session user');
         return false;
     }
 
@@ -181,16 +173,6 @@ function returnJsonSuccessAndDie()
 {
     echo json_encode(array('success'=>'true'));
     die();
-}
-
-function logFailure($msg)
-{
-    $accesstoken = $_SESSION['accesstoken'];
-    $user = $_SESSION['user'];
-    $chapter = $_SESSION['chapter'];
-    $tenant = $_SESSION['tenant'];
-    $line = sprintf("%s\t%s\t%s\t%s\t%s\n", time(), $user, $accesstoken, $msg, $chapter, $tenant);
-    file_put_contents(getBasePath('log/logs/error.log'), $line, FILE_APPEND);
 }
 
 function logDownload($info = [])
@@ -445,11 +427,6 @@ function logPicture($filename, $format)
     exec($command);
 }
 
-function debug($msg)
-{
-    file_put_contents(getBasePath('log/logs/error.log'), $msg, FILE_APPEND);
-}
-
 function debugPic($filename, $format)
 {
     $get = http_build_query($_GET, '', ', ');
@@ -460,8 +437,6 @@ function debugPic($filename, $format)
     } else {
         $size = -1;
     }
-    $debugTxt = sprintf("%s\t%s\t%s\t%s\n", time(), $filename, $size, $get);
-    debug($debugTxt);
 }
 
 function deleteUserLogo($file)
