@@ -1,5 +1,5 @@
 <div class="d-flex">
-   
+   <img src="/assets/awo/logo-awo.png" style="height: 65px" class="img-fluid"/>
 </div>
 
 <h3 class="spray-letters m-0">NRW gerechter machen</h3>

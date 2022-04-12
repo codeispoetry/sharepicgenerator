@@ -67,12 +67,12 @@ $_SESSION['csrf'] = $csrf;
 </head>
 <body class="h-100 awo">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-awo">
+    <nav class="navbar navbar-expand-lg navbar-light bg-cockpitbg">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-between ms-2 me-2 text-white" id="uppernavbar">
+    <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
         <?php require_once('menu.php'); ?>
     </div>
     </nav>

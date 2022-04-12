@@ -14,7 +14,7 @@ const awoclaim = {
           family: 'PTSans',
           size: 20,
           leading: '0.95em',
-          weight: 'normal',
+          weight: 'bold',
         },
       )
       .fill($('#awoclaimcolor').val())
