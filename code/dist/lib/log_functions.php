@@ -152,13 +152,12 @@ function getMedianSQLQuery($column, $percent = 50, $table = 'downloads', $last =
         WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s
         ORDER BY %1$s
         LIMIT 1
-        OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s) * %3$f)',
+        OFFSET ROUND( (SELECT COUNT(*) FROM %2$s WHERE %1$s > 0 AND julianday("now") - julianday(timestamp) < %4$s) * %3$f) - 1',
         $column,
         $table,
         $percent / 100,
         $last
     );
-    die();
 }
 
 function getUsers()
@@ -295,6 +294,11 @@ function getTelegramUser()
 function getMedianCreatingTime($percent = 50)
 {
     return singleResult(getMedianSQLQuery('createTime', $percent));
+}
+
+function getMedianEditTime($percent = 50)
+{
+    return singleResult(getMedianSQLQuery('editTime', $percent));
 }
 
 function getAvgCreatingTime()

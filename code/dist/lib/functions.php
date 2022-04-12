@@ -197,13 +197,15 @@ function logDownload($info = [])
 {
     parse_str($_POST['sharepic'], $sharepic);
 
-    $valuesToLog = array_fill_keys(explode(',', 'backgroundURL,text'), false);
-
+    $valuesToLog = array_fill_keys(explode(',', 'backgroundURL,text,textafter,textbefore,claimtext,pintext'), false);
     $data = array_intersect_key($sharepic, $valuesToLog);
 
     $log = $_POST['log'];
   
     $data = array_merge(json_decode($log, true), $info, $data);
+
+
+    $data['backgroundURL'] = basename($data['backgroundURL']);
 
     $db = new SQLite3(getBasePath('log/logs/log.db'));
     $columns = [];
@@ -224,7 +226,7 @@ function logDownload($info = [])
         $newColumns = array_diff(array_keys($data), $columns);
         foreach ($newColumns as $newColumn) {
             $type = 'TEXT';
-            if (in_array($newColumn, ['uploadTime','createTime'])) {
+            if (in_array($newColumn, ['uploadTime','createTime','editTime'])) {
                 $type = 'INTEGER';
             }
             $db->exec("ALTER TABLE downloads ADD $newColumn $type");

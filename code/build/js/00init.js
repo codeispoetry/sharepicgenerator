@@ -31,6 +31,7 @@ $(document).ready(() => {
   config.useragent = navigator.userAgent;
   config.browser = getBrowser();
   config.useSaveWork = false;
+  config.startEditTime = Date.now();
 
   log.user = config.username;
   log.tenant = config.tenant;

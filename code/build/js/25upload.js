@@ -19,6 +19,7 @@ $('.upload-file').change(function changeFile() {
   const client = new XMLHttpRequest();
 
   const startUploadTime = Date.now();
+  config.startEditTime = Date.now();
 
   if (!file) {
     return false;
