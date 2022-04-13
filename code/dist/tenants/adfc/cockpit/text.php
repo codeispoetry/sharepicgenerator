@@ -27,7 +27,8 @@
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control showonly area floating">
                 </div>
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hallo</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Mehr Platz
+fürs Rad.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
