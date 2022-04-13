@@ -21,13 +21,13 @@
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once(getBasePath('tenants/cockpit/adfc/picture.php'));
-            require_once(getBasePath('tenants/adfc/picture-size.php'));
+            require_once(getBasePath('tenants/adfc/cockpit/picture.php'));
+            require_once(getBasePath('tenants/adfc/cockpit/picture-size.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
-            require_once(getBasePath('tenants/cockpit/btw21/text.php'));
+            require_once(getBasePath('tenants/adfc/cockpit/text.php'));
             require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
             require_once(getBasePath('tenants/cockpit/btw21/eyecatcher.php'));
         ?>
@@ -36,16 +36,12 @@
         <?php
             require_once(getBasePath('tenants/cockpit/addpictures.php'));
             require_once(getBasePath('tenants/cockpit/addtext.php'));
-            require_once(getBasePath('tenants/cockpit/markdown.php'));
             require_once(getBasePath('tenants/cockpit/eraser-none.php'));
-
-
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
          require_once(getBasePath('tenants/cockpit/quality.php'));
-         require_once(getBasePath('tenants/cockpit/workfile.php'));
          require_once(getBasePath('tenants/cockpit/mail.php'));
     ?>
     </div>
