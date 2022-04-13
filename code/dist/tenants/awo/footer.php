@@ -9,7 +9,8 @@
                 <p>
   <img src="/assets/awo/logo-awo.png" class="d-none" style="float:right;height:80px;margin-left:20px;margin-bottom:15px">          
 Dies ist eine Mitmach-Aktion der AWO NRW im Rahmen der Kampagne "NRW gerechter machen!" 
-zur Landtagswahl 2022.Für mehr Chancen-Gerechtigkeit in der Kita haben wir fünf Forderungen aufgestellt. 
+zur Landtagswahl 2022.<br>
+                    Für mehr Chancen-Gerechtigkeit in der Kita haben wir fünf Forderungen aufgestellt.
 <a href="https://www.awo-nrw.de/node/38648" target="_blank">Alle Details zum Kampagne finden Sie auf der Website 
 der AWO NRW</a>.<br>
 
@@ -21,10 +22,7 @@ sozialen Medien posten, um die Forderungen an die Landesregierung zu unterstütz
 Nutzen Sie dabei gerne auch die Hashtags #awonrw #landtagswahl2022 und #nrwgerechtermachen. 
 Wenn Sie möchten, dass die AWO Ihre Forderung nach der Wahl 
 direkt an die neue Landesregierung weitergibt, 
-dann senden Sie Ihr Sharepic gerne an <a href="MAILTO:presse@awo-owl.de">presse@awo-owl.de</a>. 
-<br>
-Wenn wir Ihr Sharepic auch in unseren digitalen Medien verwenden dürfen, 
-dann schreiben Sie dies bitte unter Angabe Ihres Namens in die E-Mail. Viel Spaß beim Gestalten!
+dann senden Sie Ihr Sharepic gerne an <a href="MAILTO:presse@awo-owl.de">presse@awo-owl.de</a>.
                 </p>
 
             </div>

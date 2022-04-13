@@ -20,15 +20,15 @@
                     
                
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Text links
-← ändern</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Text bitte
+links ändern</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Absender*in" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
                 </div>
                 <div class="cockpit-row ">
                     <div class="me-4">Farbe:</div>
-                    <input type="color" name="textcolor" id="textcolor" value="#FFFFFF" title="Farbe wählen">
+                    <input type="color" name="textcolor" id="textcolor" value="#000000" title="Farbe wählen">
                 </div>
                 <div class="d-none cockpit-row">
                     <div class="me-4">Schriftart:</div>
