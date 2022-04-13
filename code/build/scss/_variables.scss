@@ -43,8 +43,12 @@ $danger: #d62518;
 $light: #f8f9fa;
 $dark: #343a40;
 $cockpitbg: #eeeeee;
+
 $awo: #e2001a;
 $awogray: #a0a0a0;
+$adfcblue: #004B7C;
+$adfcorange: #EE7400;
+$adfc: $adfcblue;
 
 
 $theme-colors: (
@@ -62,7 +66,12 @@ $theme-colors: (
   "light": $light,
   "cockpitbg": $cockpitbg,
   "awo": $awo,
-  "awogray": $awogray
+  "awogray": $awogray,
+  "adfc" : $adfc,
+  "adfcblue" : $adfcblue,
+  "adfcorange" : $adfcorange,
+
+
 );
 
 $form-range-track-bg: $light;
