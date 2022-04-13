@@ -3,7 +3,7 @@
         <h3><i class="fas fa-text-width"></i> Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-none justify-content-around">
+            <div class="d-flex justify-content-around">
                 <label class="me-3">Layout:</label>
                  <label class="">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="floating" checked>Schwebend
@@ -17,43 +17,38 @@
             </div>
 
             <div class="list-group-item-content">
-                    
-               
-                <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Text links
-← ändern</textarea>
+                <div class="d-flex justify-content-end">
+                    <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
+                    <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
+                    <i class="fa fa-align-center text-align me-2 showonly floating" data-align="middle" title="zentrieren"></i>
+                    <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Absender*in" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
+                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control showonly area floating">
                 </div>
-                <div class="cockpit-row ">
-                    <div class="me-4">Farbe:</div>
-                    <input type="color" name="textcolor" id="textcolor" value="#FFFFFF" title="Farbe wählen">
+                <div class="">
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Hallo</textarea>
                 </div>
-                <div class="d-none cockpit-row">
-                    <div class="me-4">Schriftart:</div>
-                    <select class="form-select" name="textfont" id="textfont">
-                        <option value="Paralucent Condensed">Paralucent Condensed</a>
-                        <option value="SaunaPro">Sauna Pro</a>
-                    </select>
+                <div class="d-flex align-items-lg-center">
+                    <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
                 </div>
-               
+                <div class="d-flex justify-content-between">
+                    <div class="">
+                        <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control showonly area floating">
+                    </div>    
+                    <div>
+                        <input type="hidden" name="claimcolor" id="claimcolor" value="#ffe100">
+                        <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#ffe100,#FF495D" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
+                    </div>    
+                </div>
 
-                <div class="cockpit-row">
-                    <div class="me-4">Größe:</div>
+                <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between">
                         <div class="slider">
-                            <span>klein</span>
+                            <small>klein</small>
                             <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
-                            <span>groß</span>
+                            <small>groß</small>
                         </div>
-
-                    </div>
-                </div>
-
-                <div class="d-none cockpit-row">
-                    <div class="me-4">Position:</div>
-                    <div class="d-flex justify-content-between">  
                         <div class="d-flex">
                             <div class="me-3">
                                 <span class="cursor-pointer ms-3 text-primary align-center-text showonly floating">
@@ -68,7 +63,7 @@
                     </div> 
                     </div>
 
-                <div class="d-none preferences-text">
+                <div class="preferences-text">
                     <div class="showonly floating">  
                          <label class="me-3">
                             <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
@@ -77,7 +72,15 @@
                     </div>
                 </div>
 
-                 
+                 <div class="d-flex">
+                    <div class="me-2">Sonderzeichen:</div>
+                    <ul class="text-symbols">
+                        <li class="text-symbol" data-symbol="CO₂" title="mit tiefergesteller 2" role="button">CO₂</li>   
+                        <li class="text-symbol" data-symbol="•" title="Aufzählungszeichen" role="button">•</li>  
+                        <li class="text-symbol" data-symbol="„" title="Anführungszeichen unten" role="button">„</li>  
+                        <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li>                               
+                    </ul>
+                </div>
             </div>
         </div>
         <input type="hidden" name="iconfile" id="iconfile">
