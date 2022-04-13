@@ -1,0 +1,38 @@
+body.adfc{
+	.text-primary{
+		color: $adfc !important;
+	}
+
+	#pic{
+		border-right: 1px solid $adfc;
+
+		button{
+			&.nav-link{
+				color: $adfc !important;
+			}
+		}
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+        background: $adfc;
+    }
+
+	.colorpicker{
+		color: $adfc;
+	}
+
+	header{
+		border-bottom: 1px solid $adfc;
+		a{
+			color: $adfc;
+		}
+	}
+
+	footer{
+		border-top: 1px solid $adfc;
+
+		a{
+			color: $adfc;
+		}
+	}
+}
