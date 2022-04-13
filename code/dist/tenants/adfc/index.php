@@ -110,7 +110,7 @@ $_SESSION['csrf'] = $csrf;
                     </div>
                     <div class="text-center mt-5">
                         <div>
-                            <button class="btn btn-adfc btn-lg download bereitbold" id="download">
+                            <button class="btn btn-adfcorange text-white btn-lg download bereitbold" id="download">
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
                             <?php displayDevelopHint(); ?>
