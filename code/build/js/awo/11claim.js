@@ -11,10 +11,10 @@ const awoclaim = {
     const text = draw.text($('#awoclaim').val())
       .font(
         {
-          family: 'PTSans',
+          family: 'Arial Rounded MT Bold',
           size: 20,
           leading: '0.95em',
-          weight: 'bold',
+          weight: 'normal',
         },
       )
       .fill($('#awoclaimcolor').val())
