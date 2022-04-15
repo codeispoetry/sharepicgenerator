@@ -20,8 +20,8 @@
                     
                
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Text und Bild bitte
-links im Formular ändern</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Text und Forderung im Menü ändern.
+Bild auswählen oder hochladen.</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Absender*in" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
