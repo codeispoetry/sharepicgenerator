@@ -45,11 +45,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     ?>
                     gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
                         <br>
-                    täglich: <?php echo number_format(getDailyUsers(), 0, ',', '.'); ?>
-                        <br>
-                    heute: <?php echo number_format(getDownloadsLastDay(0), 0, ',', '.'); ?>
-                        <br>
-                    gestern: <?php echo number_format(getDownloadsLastDay(1), 0, ',', '.'); ?>
+                    täglich in den letzten 30 Tagen: <?php echo number_format(getDailyUsersLastDays(30), 0, ',', '.'); ?>
                         <br>
                     letzten 30 Tage: <?php echo number_format(getUsersLastDays(30), 0, ',', '.'); ?>
                         <br>
@@ -57,7 +53,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                         <br>
                     User(>=4 Logins, 30 Tage): <?php echo number_format(getLoginCountsPerUserLastDays('>=', 4, 30), 0, ',', '.'); ?>
                         <br>
-                    Logzeit seit <?php echo number_format(getLoggingPeriodInDays(), 0, ',', '.'); ?> Tagen
+                    Logzeit seit ca.<?php echo number_format(getLoggingPeriodInDays()/30, 0, ',', '.'); ?> Monaten
                         <br>
                 </dd>
             </dl>
@@ -70,9 +66,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     <br>
                     unique sharepics: <?php echo 100 * round(getUniqueDownloads() / getDownloads(), 2); ?>%
                     <br>
-                    täglich: <?php echo number_format(getDailyDownloads(), 0, ',', '.'); ?>
-                    <br>
-                    für Social Media: <?php printf('%2d', 100*getSocialMedia()/$totalDownloads); ?>%
+                    täglich (in letzten 30 Tagen): <?php echo number_format(getDailyDownloadsLastDays(30), 0, ',', '.'); ?>
             </dl>
             <dl>
                 <dt><i class="far fa-clock"></i> Zeiten der letzten 7 Tage</dt>
@@ -85,8 +79,9 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     90% Createtime: <?php echo round(getMedianCreatingTime(90)/1000, 1); ?>s
                 </dd>
                 <dd>
-                    Median Edittime: <?php echo round(getMedianEditTime()/1000, 1); ?>s<br>
-                    90% Edittime: <?php echo round(getMedianEditTime(90)/1000, 1); ?>s
+                    Median Edittime: <?php echo round(getMedianEditTime()/60000, 1); ?>min<br>
+                    90% Edittime: <?php echo round(getMedianEditTime(90)/60000, 1); ?>min<br>
+                    Max Edittime: <?php echo round(getMaxEditTime()/60000, 1); ?>min
                 </dd>
             </dl>
         </div>
@@ -102,64 +97,22 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fas fa-bullhorn"></i> Social Media</dt>
+                <dt><i class="fas fa-bullhorn"></i> Social Media letzten 7 Tage</dt>
                 <dd>
                     <ul>
-                        <?php showSocialMedia(); ?>
+                        <?php showSocialMedia(7); ?>
                     </ul>
-                </dd>
-            </dl>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fas fa-sitemap"></i> Uniqe Users</dt>
-               
-                
-                <dd><ul><?php //echo showTenantsUniqueUsers(); ?></ul></dd>
-
-            </dl>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fas fa-sitemap"></i> Downloads all time</dt>
-                <dd><ul><?php echo showTenantsDownloadsLastDays(5000); ?></ul>           
                 </dd>
             </dl>
         </div>
 
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fas fa-sitemap"></i> Downloads last 7 days</dt>
+                <dt><i class="fas fa-sitemap"></i> Downloads letzten 7 Tage</dt>
 
                 <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
 
             </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fab fa-chrome"></i> Browser</dt>
-                <dd><ul><?php //echo showBrowsers(); ?></ul></dd>
-
-                Different User Agents
-                <dd><?php //echo getUserAgentCount(); ?></dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3 d-none">
-            <dl>
-                <dt><i class="fas fa-qrcode"></i> QR-Code</dt>
-                <dd>QR-Code-Nutzungen: <?php //echo getQRCodeCount(); ?></dd>
-            </dl>
-            <dl>
-                <dt><i class="fas fa-envelope"></i> E-Mail</dt>
-                <dd>E-Mail-Versand: <?php //echo getEmailsCount(); ?></dd>
-            </dl>
-            <dl>
-                <dt><i class="fas fa-save"></i> Arbeitsdateien</dt>
-                <dd>Arbeitsdatei-Nutzungen: <?php // echo getSaveWorkCount(); ?></dd>
-            </dl>
-        
         </div>
      
     </div>
