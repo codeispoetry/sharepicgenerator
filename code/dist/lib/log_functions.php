@@ -218,9 +218,9 @@ function getUniqueDownloads()
     return $customBackgroundURL + $textOnly;
 }
 
-function getDailyDownloads()
+function getDailyDownloadsLastDays($days = 30)
 {
-    return singleResult("select cast(avg(perDay) as int) as result from (select count(*) as perDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
+    return singleResult("select cast(avg(perDay) as int) as result from (select count(*) as perDay from downloads WHERE julianday('now') - julianday(timestamp) <= $days AND date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
 }
 
 function getPixabay()
@@ -228,68 +228,20 @@ function getPixabay()
     return singleResult("select count(*) as result from downloads WHERE backgroundSource='pixabay';");
 }
 
-function getWithEyecatcher()
+
+
+function showSocialMedia($days = 7)
 {
-    return singleResult("select count(*) as result from downloads WHERE pintext !='';");
+    return echoResultsForChartJS("select SUBSTR(socialmedia,0,INSTR(socialmedia,'-')) AS name,count(*) AS count FROM downloads WHERE julianday('now') - julianday(timestamp) <= $days AND socialmedia IS NOT NULL GROUP BY name ORDER BY count DESC;");
 }
 
-function getAddText()
-{
-    return singleResult("select count(*) as result from downloads WHERE addtext !='';");
-}
 
-function getEraser()
-{
-    return singleResult("select count(*) as result from downloads WHERE eraser !='';");
-}
-
-function getAddPic()
-{
-    return singleResult("select count(*) as result from downloads WHERE addpicfile1 !='' OR addpicfile2 != '';");
-}
-
-function getGreenifyRelative()
-{
-    $greenified = singleResult("select count(*) as result from downloads WHERE greenified = 1");
-    $total = $greenified + singleResult("select count(*) as result from downloads WHERE greenified = 0");
-    return $greenified / $total;
-}
-
-function showSocialMedia()
-{
-    return echoResults("select SUBSTR(socialmedia,0,INSTR(socialmedia,'-')) As name,count(*) as count from downloads GROUP BY name ORDER BY count DESC;", true);
-}
-
-function showFaces()
-{
-    return echoResults("select faces As name,count(*) as count from downloads GROUP BY faces ORDER BY count DESC;");
-}
-
-function showLogos()
-{
-    return echoResults("select logoselect As name,count(*) as count from downloads GROUP BY logoselect ORDER BY count DESC;");
-}
-
-function showLayouts()
-{
-    return echoResults("select layout As name,count(*) as count from downloads WHERE tenant='federal' GROUP BY layout ORDER BY count DESC;");
-}
-
-function showBackgroundSources()
-{
-    return echoResults("select backgroundsource As name,count(*) as count from downloads GROUP BY backgroundsource ORDER BY count DESC;", true);
-}
 
 function getSocialMedia()
 {
     return singleResult("select count(*) as result from downloads WHERE socialmedia !=''");
 }
 
-function getTelegramUser()
-{
-    $telegram = glob('../api/user/*', GLOB_ONLYDIR);
-    return count($telegram);
-}
 
 function getMedianCreatingTime($percent = 50)
 {
@@ -299,6 +251,11 @@ function getMedianCreatingTime($percent = 50)
 function getMedianEditTime($percent = 50)
 {
     return singleResult(getMedianSQLQuery('editTime', $percent));
+}
+
+function getMaxEditTime()
+{
+    return round(singleResult('select max(editTime) as result from downloads where createTime>0 AND cast(julianday("now") - julianday(timestamp) as int) < 7'));
 }
 
 function getAvgCreatingTime()
@@ -316,13 +273,7 @@ function getAvgUploadTime()
     return round(singleResult('select avg(uploadTime) as result from downloads WHERE uploadTime>0 AND cast(julianday("now") - julianday(timestamp) as int) < 7'));
 }
 
-function showTelegramPics()
-{
-    $telegram = glob('../api/user/*', GLOB_ONLYDIR);
-    foreach ($telegram as $dir) {
-        printf('<div class="col-2"><img src="%s/sharepic.jpg" class="img-fluid"></div>', $dir);
-    }
-}
+
 
 function getLoggingPeriodInDays()
 {
@@ -352,61 +303,11 @@ function showTenantsDownloadsLastDays($days = 7)
     return echoResultsForChartJS("select tenant As name,count(*) as count from downloads WHERE julianday('now') - julianday(timestamp) <= $days GROUP BY tenant ORDER BY count DESC;");
 }
 
-function showBrowsers()
+function getDailyUsersLastDays($days = 30)
 {
-    return echoResults("select browser As name,count(*) as count from downloads GROUP BY browser;");
+    return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads WHERE  julianday('now') - julianday(timestamp) <= $days AND date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
 }
 
-function getUserAgentCount()
-{
-    return singleResult('select count(distinct useragent) as result from downloads;');
-}
-
-function getDailyUsers()
-{
-    return singleResult("select avg(userPerDay) as result from (select count(DISTINCT user) as userPerDay from downloads WHERE date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
-}
-
-function getUserWithCustomLogo()
-{
-    exec('find ../persistent/user/ -name logo.png | wc -l', $output);
-    return $output[0];
-}
-
-function getQRCodeCount()
-{
-    return singleResult("select count(*) as result from qrcode;");
-}
-
-function getSaveWorkCount()
-{
-    return singleResult("select count(*) as result from downloads where useSaveWork = 1;");
-}
-
-function getEmailsCount()
-{
-    return singleResult("select count(*) as result from mail;");
-}
-
-function getImageBlackWhite()
-{
-    return singleResult("select count(*) as result from downloads where graybackground != 1") / getDownloads();
-}
-
-function getImageBlur()
-{
-    return singleResult("select count(*) as result from downloads where blurbackground != 0") / getDownloads();
-}
-
-function getImageDarkLight()
-{
-    return singleResult("select count(*) as result from downloads where darklightlayer != 0") / getDownloads();
-}
-
-function getImageGreen()
-{
-    return singleResult("select count(*) as result from downloads where greenlayer != 0") / getDownloads();
-}
 
 function getFreeSpace()
 {
