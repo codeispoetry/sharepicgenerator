@@ -333,7 +333,7 @@ function getSearchTerms($days = 7)
 }
 
 
-function theWords($days = 7)
+function allWords($days = 7)
 {
     $sql = sprintf(
         "SELECT 
@@ -350,6 +350,49 @@ function theWords($days = 7)
     while ($row = $results->fetchArray()) {
        echo $row['word'] . ' ';
     }
+}
+
+function wordCounts($days = 7)
+{
+    global $db;
+    $sql = sprintf(
+        "SELECT 
+            lower(text) AS word
+        FROM 'downloads' 
+        WHERE
+            timestamp >= date('now', '-%d day')",
+        $days
+    );
+
+    $ignoreWords = explode(',', 'der,die,das,mit,und,für,den,auf,vom,ihre,zum,uhr,
+ innen,aus,auch,daher,ein,eine,von,des,eines,the,dem,bzw,zur,ist,ihr,werden,seid,innen,einen,als' );
+    $wordCounts = [];
+    $results = $db->query($sql);
+    while ($row = $results->fetchArray()) {
+        $words = preg_split('/\b/u', $row['word']);
+
+        foreach($words AS $word) {
+            $word = trim($word);
+
+            if(strlen($word) <= 3) {
+               continue;
+            }
+
+            if(in_array($word, $ignoreWords)) {
+                continue;
+            }
+
+
+            (isset($wordCounts[$word])) ? $wordCounts[$word]++ : $wordCounts[$word] = 1;
+        }
+    }
+
+    $wordCounts = array_filter($wordCounts, function($val){
+        return $val > 20;
+    });
+
+    arsort($wordCounts);
+    return $wordCounts;
 }
 
 function showLogGraph()
