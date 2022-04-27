@@ -22,7 +22,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
 <body>
 <?php
 
-theWords(7);
+print_r(wordCounts(7));
 
 ?>
 </body>
