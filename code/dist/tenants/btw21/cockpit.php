@@ -38,8 +38,7 @@
             require_once(getBasePath('tenants/cockpit/addtext.php'));
             require_once(getBasePath('tenants/cockpit/markdown.php'));
             require_once(getBasePath('tenants/cockpit/eraser-none.php'));
-
-
+            require_once(getBasePath('tenants/cockpit/advertising.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">

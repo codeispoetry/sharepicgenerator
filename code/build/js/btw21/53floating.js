@@ -89,6 +89,7 @@ const floating = {
     eraser.front();
 
     floating.svg.front();
+    ad.setPosition();
   },
 
   drawClaim(t) {
