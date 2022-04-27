@@ -95,6 +95,29 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                 </dd>
             </dl>
         </div>
+
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="far fa-images"></i> Hauptbegriffe der letzten <?php $days = 30; echo $days;?> Tage</dt>
+                <dd>
+                    <ul>
+                        <?php
+                            $wordCounts = wordCounts([
+                                'days' => $days,
+                                'strlen' => 5,
+                                'mincount' => 100,
+                                'limit' => 15,
+                            ]);
+                            foreach($wordCounts AS $word => $count){
+                                printf('<li>%s (%d)</li>', $word, $count);
+                            }
+
+                        ?>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-bullhorn"></i> Social Media letzten 7 Tage</dt>
