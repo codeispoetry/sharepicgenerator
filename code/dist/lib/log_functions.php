@@ -332,6 +332,26 @@ function getSearchTerms($days = 7)
     return echoResults($sql);
 }
 
+
+function theWords($days = 7)
+{
+    $sql = sprintf(
+        "SELECT 
+            lower(text) AS word
+        FROM 'downloads' 
+        WHERE
+            timestamp >= date('now', '-%d day')",
+        $days
+    );
+
+
+    global $db;
+    $results = $db->query($sql);
+    while ($row = $results->fetchArray()) {
+       echo $row['word'] . ' ';
+    }
+}
+
 function showLogGraph()
 {
     global $db;
