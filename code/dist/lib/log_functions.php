@@ -36,12 +36,6 @@ function show_images($dir, $showCaption = false)
     }
 }
 
-function deleteFilesInPathOlderThanHours($path, $exclude, $hours)
-{
-    $cmd = sprintf('find %s ! -name "%s" -mmin +%d -exec rm -r {} 2> /dev/null \;', $path, $exclude, $hours * 60);
-    exec($cmd, $output);
-}
-
 function showCustomLogos()
 {
     exec('find ../persistent/user/ -name logo.png', $output);
