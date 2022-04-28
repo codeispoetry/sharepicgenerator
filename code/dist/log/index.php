@@ -79,9 +79,9 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     90% Createtime: <?php echo round(getMedianCreatingTime(90)/1000, 1); ?>s
                 </dd>
                 <dd>
-                    Median Edittime: <?php echo round(getMedianEditTime()/60000, 1); ?>min<br>
-                    90% Edittime: <?php echo round(getMedianEditTime(90)/60000, 1); ?>min<br>
-                    Max Edittime: <?php echo round(getMaxEditTime()/60000, 1); ?>min
+                    Median Edittime: <?php echo round(getMedianEditTime()/60, 1); ?>min<br>
+                    90% Edittime: <?php echo round(getMedianEditTime(90)/60, 1); ?>min<br>
+                    Max Edittime: <?php echo round(getMaxEditTime()/60, 1); ?>min
                 </dd>
             </dl>
         </div>
