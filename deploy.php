@@ -44,7 +44,7 @@ set('shared_dirs', [
 // Writable dirs by web server
 set('writable_dirs', []);
 
-set('rsync',[
+set('rsync', [
     'exclude'      => [
         '.git',
         'deploy.php',
