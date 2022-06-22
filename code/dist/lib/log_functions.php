@@ -200,7 +200,7 @@ function getDownloads()
 
 function getDownloadsToday()
 {
-    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE round(julianday('now') -0.5) = round(julianday(timestamp) - 0.5);");
+    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE date('now') = date(timestamp );");
 }
 
 function getUniqueDownloads()
