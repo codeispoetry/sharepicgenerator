@@ -12,7 +12,8 @@ set('application', 'sharepicgenerator.de');
 set('shared_files', [
     'ini/config.ini',
     'ini/passwords.php',
-    'log/.htusers'
+    'log/.htusers',
+    'scripts/saml_is_down'
 ]);
 set('shared_dirs', [
     'tmp',
