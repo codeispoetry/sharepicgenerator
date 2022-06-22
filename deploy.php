@@ -12,10 +12,10 @@ set('application', 'sharepicgenerator.de');
 set('shared_files', [
     'ini/config.ini',
     'ini/passwords.php',
-    'log/.htusers',
-    'scripts/saml_is_up'
+    'log/.htusers'
 ]);
 set('shared_dirs', [
+    'scripts/status',
     'tmp',
     'persistent',
     'wordpress',

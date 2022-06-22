@@ -273,7 +273,7 @@ function isLocalUser()
 }
 
 function with_saml(){
-    return file_exists('/var/www/sharepicgenerator.de/shared/scripts/saml_is_up');
+    return file_exists('/var/www/sharepicgenerator.de/shared/scripts/status/saml_is_up');
 }
 
 function increaseLoginAttempts()
