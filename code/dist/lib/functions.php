@@ -94,6 +94,10 @@ function getLastLogin($user = false)
 
 function isAllowed($with_csrf = false)
 {
+    if( !with_saml() ) {
+        return true;
+    }
+
     if (!isset($_SESSION['accesstoken'])) {
         return false;
     }
@@ -265,6 +269,10 @@ function isLocalUser()
     increaseLoginAttempts();
 
     die("Passwort falsch");
+    return false;
+}
+
+function with_saml(){
     return false;
 }
 
