@@ -13,7 +13,7 @@ set('shared_files', [
     'ini/config.ini',
     'ini/passwords.php',
     'log/.htusers',
-    'scripts/saml_is_down'
+    'scripts/saml_is_up'
 ]);
 set('shared_dirs', [
     'tmp',
