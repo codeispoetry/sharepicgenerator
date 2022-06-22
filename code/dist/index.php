@@ -126,7 +126,7 @@
               <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
               <div class="w-100 btn btn-lg btn-moos text-white">
                   <?php
-                    echo (file_exists('/var/www/sharepicgenerator.de/shared/scripts/saml_is_up')) ? 'anmelden' : 'Sharepic erstellen';
+                    echo (file_exists('/var/www/sharepicgenerator.de/shared/scripts/saml_is_up')) ? 'anmelden' : 'Notdienst für Sharepics nutzen    ';
                   ?>
               </div>
           </a>
