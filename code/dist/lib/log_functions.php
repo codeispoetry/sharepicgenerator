@@ -198,6 +198,11 @@ function getDownloads()
     return $total;
 }
 
+function getDownloadsToday()
+{
+    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE round(julianday('now') -0.5) = round(julianday(timestamp) - 0.5);");
+}
+
 function getUniqueDownloads()
 {
     global $db;
