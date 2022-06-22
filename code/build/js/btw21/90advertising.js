@@ -5,6 +5,7 @@ const ad = {
     .font({ family: 'PT Sans', size: 10 })
     .click(() => {
       if (confirm('Willst Du den Hinweis löschen? Du kannst ihn unter dem Reiter "Zusatz" wieder einblenden.')){
+        $('#show-advertising').attr('checked', false);
         ad.svg.hide();
       }
     }),
