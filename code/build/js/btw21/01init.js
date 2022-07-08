@@ -21,10 +21,10 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  //if (config.user.prefs.claimtext) {
-  //  $('#claimtext').val(config.user.prefs.claimtext);
-  //  $('#claimcolor').val(config.user.prefs.claimcolor);
- // }
+  if (config.user.prefs.claimtext) {
+    $('#claimtext').val(config.user.prefs.claimtext);
+    $('#claimcolor').val(config.user.prefs.claimcolor);
+  }
 
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
