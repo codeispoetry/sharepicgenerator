@@ -26,6 +26,14 @@ $(document).ready(() => {
     $('#claimcolor').val(config.user.prefs.claimcolor);
   }
 
+  if (config.user.prefs.showAd && config.user.prefs.showAd === 1) {
+    $('#show-advertising').prop('checked', true);
+    ad.show();
+  } else {
+    $('#show-advertising').prop('checked', false);
+    ad.hide();
+  }
+
   $('#addtextX').val(50);
   $('#addtextY').val(draw.height() - 50);
 
