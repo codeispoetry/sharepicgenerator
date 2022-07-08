@@ -124,10 +124,13 @@
           <a href="/btw21" class="">
               <h2 class="display-6 fw-normal bereitbold">Sharepic&shy;generator</h2>
               <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
-              <div class="w-100 btn btn-lg btn-moos text-white">anmelden</div>
+              <div class="w-100 btn btn-lg btn-moos text-white">
+                  <?php
+                    echo (file_exists('/var/www/sharepicgenerator.de/shared/scripts/status/saml_is_up')) ? 'anmelden' : 'Notdienst für Sharepics nutzen    ';
+                  ?>
+              </div>
           </a>
-          <div class="mt-2">
-            <a href="/sh" class="tenant">Schleswig-Holstein</a> | 
+          <div class="mt-2 d-none">
             <a href="/nrw" class="tenant">Nordrhein-Westfalen</a> 
           </div>
       </div>

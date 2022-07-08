@@ -198,6 +198,11 @@ function getDownloads()
     return $total;
 }
 
+function getDownloadsToday()
+{
+    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE date('now') = date(timestamp );");
+}
+
 function getUniqueDownloads()
 {
     global $db;
@@ -332,6 +337,77 @@ function getSearchTerms($days = 7)
     return echoResults($sql);
 }
 
+
+function allWords($days = 7)
+{
+    $sql = sprintf(
+        "SELECT 
+            lower(text) AS word
+        FROM 'downloads' 
+        WHERE
+            timestamp >= date('now', '-%d day')",
+        $days
+    );
+
+
+    global $db;
+    $results = $db->query($sql);
+    while ($row = $results->fetchArray()) {
+       echo $row['word'] . ' ';
+    }
+}
+
+function wordCounts($params)
+{
+    global $db;
+
+    $params['days'] = $params['days'] ?: 30;
+    $params['mincount'] = $params['mincount'] ?: 100;
+    $params['strlen'] = $params['strlen'] ?: 5;
+    $params['limit'] = $params['limit'] ?: 10;
+
+    $sql = sprintf(
+        "SELECT 
+            lower(text) AS word
+        FROM 'downloads' 
+        WHERE
+            timestamp >= date('now', '-%d day')",
+        $params['days']
+    );
+
+    $ignoreWords = explode(',', 'der,die,das,mit,und,für,den,auf,vom,ihre,zum,uhr,grün,grüne,grünen,grüner,
+ innen,aus,auch,daher,ein,eine,von,des,eines,the,dem,bzw,zur,ist,ihr,werden,seid,innen,einen,als' );
+
+    $wordCounts = [];
+    $results = $db->query($sql);
+    while ($row = $results->fetchArray()) {
+        $words = preg_split('/\b/u', $row['word']);
+
+        foreach($words AS $word) {
+            $word = trim($word);
+
+            if(strlen($word) <= $params['strlen']) {
+               continue;
+            }
+
+            if(in_array($word, $ignoreWords)) {
+                continue;
+            }
+
+
+            (isset($wordCounts[$word])) ? $wordCounts[$word]++ : $wordCounts[$word] = 1;
+        }
+    }
+
+    $wordCounts = array_filter($wordCounts, function($val) use ($params){
+        return $val > $params['mincount'];
+    });
+
+    arsort($wordCounts);
+
+    return array_slice($wordCounts, 0, $params['limit']);
+}
+
 function showLogGraph()
 {
     global $db;
@@ -373,6 +449,11 @@ function showLogGraph()
     options: {
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
         plugins:{
           legend: {
             display: false

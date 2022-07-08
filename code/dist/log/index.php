@@ -67,7 +67,11 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     unique sharepics: <?php echo 100 * round(getUniqueDownloads() / getDownloads(), 2); ?>%
                     <br>
                     täglich (in letzten 30 Tagen): <?php echo number_format(getDailyDownloadsLastDays(30), 0, ',', '.'); ?>
+                    <br>
+                    heute: <?php echo number_format(getDownloadsToday(), 0, ',', '.'); ?>
             </dl>
+        </div>
+         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="far fa-clock"></i> Zeiten der letzten 7 Tage</dt>
                 <dd>
@@ -87,14 +91,37 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="far fa-images"></i> Suchbegriffe der letzten 30 Tage</dt>
+                <dt><i class="far fa-images"></i> Suchbegriffe der letzten 7 Tage</dt>
                 <dd>
                     <ul>
-                        <?php getSearchTerms(30); ?>
+                        <?php getSearchTerms(7); ?>
                     </ul>
                 </dd>
             </dl>
         </div>
+
+        <div class="col-6 col-md-6 col-lg-3">
+            <dl>
+                <dt><i class="far fa-images"></i> Hauptbegriffe der letzten <?php $days = 30; echo $days;?> Tage</dt>
+                <dd>
+                    <ul>
+                        <?php
+                            $wordCounts = wordCounts([
+                                'days' => $days,
+                                'strlen' => 5,
+                                'mincount' => 10,
+                                'limit' => 15,
+                            ]);
+                            foreach($wordCounts AS $word => $count){
+                                printf('<li>%s (%d)</li>', $word, $count);
+                            }
+
+                        ?>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-bullhorn"></i> Social Media letzten 7 Tage</dt>
