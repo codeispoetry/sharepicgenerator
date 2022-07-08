@@ -1,7 +1,7 @@
 <?php
 require_once('base.php');
 require_once(getBasePath("lib/functions.php"));
-require_once(getBasePath("lib/login_functions.php"));
+require_once(getBasePath("lib/wordpress_functions.php"));
 require_once(getBasePath("lib/save_functions.php"));
 useDeLocale();
 

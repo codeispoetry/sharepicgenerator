@@ -57,7 +57,9 @@ EOL;
         $mail->addAddress($recipient);     // Add a recipient
 
         // Attachments
-        $mail->addAttachment($file, 'sharepic.png');    // Optional name
+        if($file) {
+            $mail->addAttachment($file, 'sharepic.png');    // Optional name
+        }
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML

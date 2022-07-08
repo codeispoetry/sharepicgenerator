@@ -1,6 +1,7 @@
 <?php
 require_once('base.php');
 require_once(getBasePath("lib/functions.php"));
+require_once(getBasePath("lib/login_functions.php"));
 require_once(getBasePath("lib/save_functions.php"));
 useDeLocale();
 
@@ -11,22 +12,7 @@ $landesverband = 0;
 $user = "generic";
 $tenant = "bw";
 
-$hasAccess = isLocal() ?: isLocalUser();
-
-$doLogout = false;
-if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
-    if ($hasAccess) {
-        doLogout();
-    } else {
-        $doLogout = true;
-        handleSamlAuth($doLogout);
-    }
-    die();
-}
-
-if (!$hasAccess) {
-    $user = handleSamlAuth($doLogout);
-}
+$user =  do_saml_login();
 
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
