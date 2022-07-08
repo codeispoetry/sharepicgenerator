@@ -5,8 +5,8 @@ const ad = {
     .font({ family: 'PT Sans', size: 10 })
     .click(() => {
       if (confirm('Willst Du den Hinweis löschen? Du kannst ihn unter dem Reiter "Zusatz" wieder einblenden.')){
-        $('#show-advertising').attr('checked', false);
-        ad.svg.hide();
+        $('#show-advertising').prop('checked', false);
+        ad.hide();
       }
     }),
 
@@ -20,17 +20,22 @@ const ad = {
 
   hide() {
     ad.svg.hide();
+    config.user.prefs.showAd = 0;
+    setUserPrefs();
   },
 
   show() {
     ad.svg.show();
+    ad.setPosition();
+    config.user.prefs.showAd = 1;
+    setUserPrefs();
   },
 
   toggle() {
     if (ad.svg.visible()) {
-      ad.svg.hide();
+      ad.hide();
     } else {
-      ad.svg.show();
+      ad.show();
     }
   },
 };
