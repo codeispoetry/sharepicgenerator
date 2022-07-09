@@ -94,6 +94,10 @@ function getLastLogin($user = false)
 
 function isAllowed($with_csrf = false)
 {
+    if( !with_saml() ) {
+        return true;
+    }
+
     if (!isset($_SESSION['accesstoken'])) {
         return false;
     }
@@ -266,6 +270,10 @@ function isLocalUser()
 
     die("Passwort falsch");
     return false;
+}
+
+function with_saml(){
+    return file_exists('/var/www/sharepicgenerator.de/shared/scripts/status/saml_is_up');
 }
 
 function increaseLoginAttempts()

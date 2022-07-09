@@ -101,7 +101,12 @@ bw-templates-get:
 watch:
 	docker-compose exec node npm run watch
 
-create-tenant:
+tenant-create:
 	@read -p "new tenant name: " tenant; \
 	./scripts/create-tenant.sh $$tenant \
+	make compile
+
+tenant-delete:
+	@read -p "which tenant do you want to delete: " tenant; \
+	./scripts/delete-tenant.sh $$tenant \
 	make compile

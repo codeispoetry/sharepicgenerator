@@ -15,7 +15,7 @@ Options +Indexes +FollowSymLinks
     RewriteRule ^(btw21)\/?$ /tenants/$1/index.php [L]
     RewriteRule ^(awo)\/?$ /tenants/$1/index.php [L]
     RewriteRule ^(adfc)\/?$ /tenants/$1/index.php [L]
-
+    RewriteRule ^(basic)\/?$ /tenants/$1/index.php [L]
 
     Redirect 301 /logo https://logo.sharepicgenerator.de
 

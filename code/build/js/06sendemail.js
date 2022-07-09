@@ -60,8 +60,3 @@ $('#send_email').bind('click', () => {
   });
 });
 
-$(document).ready(() => {
-  if (config.user.prefs.recipient) {
-    $('#recipient').val(config.user.prefs.recipient);
-  }
-});

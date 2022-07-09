@@ -84,8 +84,10 @@ const floating = {
       .scale(scaleFactor, $('#textX').val(), $('#textY').val())
       .move($('#textX').val(), $('#textY').val());
 
-    logo.setSize(17 * scaleFactor * 1.7);
-    pin.setSize(17 * scaleFactor * 1.7 * 1.15);
+    if (!config.user.prefs.advancedmode) {
+      logo.setSize(17 * scaleFactor * 1.7);
+      pin.setSize(17 * scaleFactor * 1.7 * 1.15);
+    }
     eraser.front();
 
     floating.svg.front();
