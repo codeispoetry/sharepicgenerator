@@ -16,7 +16,7 @@ const pin = {
   template: draw.circle(0),
 
   draw() {
-    //$('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
+    // $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
     pin.svg.remove();
     pin.svg = draw.group();
@@ -75,7 +75,7 @@ const pin = {
     }
 
     pin.template.remove();
-    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () =>{
+    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () => {
       pin.template.size($('#eyecatchersize').val())
         .move($('#pinX').val(), $('#pinY').val())
         .draggable();
