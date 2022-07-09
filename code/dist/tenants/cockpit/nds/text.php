@@ -3,17 +3,14 @@
         <h3><i class="fas fa-text-width"></i> Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-none justify-content-around">
-                <label class="me-3">Layout:</label>
-                 <label class="">
+            <div class="d-flex">
+                 <label class="d-none">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="floating" checked>Schwebend
                  </label>
                  <label class="">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="area" >Fläche
+                    <input type="checkbox" id="floating-background" class="form-check-input me-1" name="background" value="background">Mit Hintergrund
                  </label>
-                 <label class="">
-                    <input type="radio" id="layout-cite" class="form-check-input layout me-1" name="layout" value="floating">Zitat
-                 </label>
+                
             </div>
 
             <div class="list-group-item-content">
