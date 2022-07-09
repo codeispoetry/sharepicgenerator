@@ -22,8 +22,6 @@ const floating = {
       $('#textY').val(Math.round(this.y()));
     });
 
-    const sizes = [10, 20];
-
     const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
 
     let y = 0;
@@ -31,9 +29,10 @@ const floating = {
       const line = draw.group();
       const indentation = value.match(/^\s*/)[0].length;
       const color = $(`#line${index}color`).val() || 'white';
+      const size = $(`#line${index}size`).val() || '10';
 
       const text = line.text(value.replace(/^\s*/, ''))
-        .font(Object.assign(floating.font, { size: sizes[index % 2] }))
+        .font(Object.assign(floating.font, { size }))
         .fill(color)
         .move(indentation * 5, y)
         .attr('xml:space', 'preserve')
@@ -41,7 +40,7 @@ const floating = {
 
       floating.svg.add(line);
 
-      y += sizes[index % 2];
+      y += size * 1;
     });
 
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
