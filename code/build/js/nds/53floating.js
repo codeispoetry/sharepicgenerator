@@ -10,9 +10,11 @@ const floating = {
 
   draw() {
     if (config.layout !== 'floating'
-       || $('#text').val() === '') {
+      || $('#text').val() === '') {
       return;
     }
+
+    const withBackground = true;
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
@@ -25,6 +27,11 @@ const floating = {
     const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
 
     $('.linepickers').addClass('d-none');
+
+    const background = draw.rect(0, 0)
+      .fill('blue');
+
+    floating.svg.add(background).back();
 
     let y = 0;
     const sizeLineHeights = [];
@@ -53,10 +60,29 @@ const floating = {
       $(`.linepicker${index}`).removeClass('d-none');
     });
 
-    const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-    floating.svg
-      .scale(scaleFactor, $('#textX').val(), $('#textY').val())
-      .move($('#textX').val(), $('#textY').val());
+    if (withBackground) {
+      background.move(-5, -5).size(floating.svg.width() + 10, floating.svg.height() + 30);
+      logo.svg.hide();
+
+      const floatingLogo = draw.image('/assets/logos/sonnenblume-nds.svg', () => {
+        floatingLogo.size(40, null)
+          .move(
+            floating.svg.width() - floatingLogo.width() - 10,
+            floating.svg.height() - floatingLogo.height() - 10,
+          );
+
+        floating.svg.add(floatingLogo);
+        floating.svg
+          .move($('#textX').val(), $('#textY').val())
+          .size(parseInt($('#textsize').val(), 10), null);
+      });
+    } else {
+      floating.svg
+        .move($('#textX').val(), $('#textY').val())
+        .size(parseInt($('#textsize').val(), 10), null);
+
+      logo.svg.show();
+    }
 
     floating.svg.front();
   },
