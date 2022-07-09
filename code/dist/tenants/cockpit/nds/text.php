@@ -34,8 +34,8 @@ Nahverkehr,
                     <?php for ($i = 0; $i <5; $i++) { ?>
                         <div class="d-flex linepickers linepicker<?php echo $i;?>">
                             <?php echo $i+1;?>)
-                            <input type="hidden" name="line<?php echo $i;?>color" id="line<?php echo $i;?>color" value="#F1912E">
-                            <span class="colorpicker ms-1" data-colors="#F1912E,#FFE100" data-action="floating.draw()" data-field="#line<?php echo $i;?>color" title="Farbe der 1<?php echo $i+1;?>. Zeile"></span> 
+                            <input type="hidden" name="line<?php echo $i;?>color" id="line<?php echo $i;?>color" value="#FFE100">
+                            <span class="colorpicker ms-1" data-colors="#FFE100,#F1912E" data-action="floating.draw()" data-field="#line<?php echo $i;?>color" title="Farbe der 1<?php echo $i+1;?>. Zeile"></span> 
 
                             <input type="hidden" name="line<?php echo $i;?>size" id="line<?php echo $i;?>size" value="10">
                             <span class="sizepicker ms-1" data-sizes="10,15,20,25,30" data-action="floating.draw()" data-field="#line<?php echo $i;?>size" title="Schriftgröße der <?php echo $i+1;?>. Zeile"></span> 

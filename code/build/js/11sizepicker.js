@@ -5,8 +5,11 @@ $(document).ready(() => {
     const sizes = $(this).data('sizes').split(',');
     let dots = '';
 
-    sizes.forEach((item) => {
-      dots += `<span class="dot" style="" data-size="${item}">${item}</span>`;
+    const labels = ['XS', 'S', 'M', 'L', 'XL'];
+
+    sizes.forEach((item, i) => {
+      const active = (i === 0) ? 'active' : '';
+      dots += `<span class="dot ${active}" style="" data-size="${item}">${labels[i]}</span>`;
     });
 
     $(this).append(`<div class="palette-container" id="palette-container-${index}"><div class="palette">${dots}</div></div>`);
@@ -21,6 +24,9 @@ $(document).ready(() => {
     const size = $(this).data('size');
     const field = $(this).parents('.sizepicker').data('field');
     const action = $(this).parents('.sizepicker').data('action');
+
+    $('.sizepicker .dot.active').removeClass('active');
+    $(this).addClass('active');
 
     $(field).val(size);
 

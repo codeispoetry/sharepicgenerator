@@ -5,8 +5,9 @@ $(document).ready(() => {
     const colors = $(this).data('colors').split(',');
     let dots = '';
 
-    colors.forEach((item) => {
-      dots += `<span class="dot" style="background-color:${item}" data-color="${item}"></span>`;
+    colors.forEach((item, i) => {
+      const active = (i === 0) ? 'active' : '';
+      dots += `<span class="dot ${active}" style="background-color:${item}" data-color="${item}"></span>`;
     });
 
     $(this).append(`<div class="palette-container" id="palette-container-${index}"><div class="palette">${dots}</div></div>`);

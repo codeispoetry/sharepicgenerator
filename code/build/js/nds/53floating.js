@@ -33,7 +33,7 @@ const floating = {
       const color = $(`#line${index}color`).val() || 'white';
       const size = $(`#line${index}size`).val() || '10';
 
-      const text = line.text(value.replace(/^\s*/, ''))
+      line.text(value.replace(/^\s*/, ''))
         .font(Object.assign(floating.font, { size }))
         .fill(color)
         .move(indentation * 5, y)
@@ -42,8 +42,8 @@ const floating = {
 
       floating.svg.add(line);
 
-      y += size * 1;
-      $('.linepicker' + index).removeClass('d-none');
+      y += size * 1.1;
+      $(`.linepicker${index}`).removeClass('d-none');
     });
 
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
@@ -52,9 +52,6 @@ const floating = {
       .move($('#textX').val(), $('#textY').val());
 
     floating.svg.front();
-  },
-
-  resize() {
   },
 
 };
