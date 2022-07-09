@@ -24,6 +24,8 @@ const floating = {
 
     const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
 
+    $('.linepickers').addClass('d-none');
+
     let y = 0;
     lines.forEach((value, index) => {
       const line = draw.group();
@@ -41,6 +43,7 @@ const floating = {
       floating.svg.add(line);
 
       y += size * 1;
+      $('.linepicker' + index).removeClass('d-none');
     });
 
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;

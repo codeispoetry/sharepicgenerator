@@ -32,8 +32,8 @@ Nahverkehr,
    der alle abholt.</textarea>
                     <div>
                     <?php for($i = 0; $i <5; $i++){ ?>
-                        <div class="d-flex">
-                            <?php echo $i+1;?>:
+                        <div class="d-flex linepickers linepicker<?php echo $i;?>">
+                            <?php echo $i+1;?>)
                             <input type="hidden" name="line<?php echo $i;?>color" id="line<?php echo $i;?>color" value="#F1912E">
                             <span class="colorpicker ms-1" data-colors="#F1912E,#FFE100" data-action="floating.draw()" data-field="#line<?php echo $i;?>color" title="Farbe der 1<?php echo $i+1;?>. Zeile"></span> 
 
@@ -42,6 +42,9 @@ Nahverkehr,
                         </div>
                     <?php } ?>
                     </div>
+                </div>
+                <div class="mb-1 mt-2 small fst-italic">
+                    Einrückungen mit Leerzeichen erzeugen.
                 </div>
                 <div class="d-none align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
@@ -75,7 +78,8 @@ Nahverkehr,
                             </div>
                         </div>
                     </div> 
-                    </div>
+                </div>
+
 
                 <div class="d-none preferences-text">
                     <div class="showonly floating">  
