@@ -30,6 +30,7 @@
 
     .dot{
         border-radius: 100px;
+        border: 1px solid white;
         width: 15px;
         height: 15px;
         display: block;
@@ -40,5 +41,22 @@
         &:last-child{
             margin-right: 0;
         }
+
+        &:hover{
+            border-color: $third;
+            color: $third;
+        }
+
+        &.active{
+            color: $secondary;
+            border-color: $secondary;
+        }
+    }
+}
+
+.sizepicker{
+    .dot{
+        border: 0;
+        height: 20px;
     }
 }
