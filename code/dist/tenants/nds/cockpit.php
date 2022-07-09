@@ -19,16 +19,16 @@
     </button>
   </div>
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
-    <div class="tab-pane" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
             require_once(getBasePath('tenants/cockpit/nds/picture.php'));
             require_once(getBasePath('tenants/cockpit/picture-size.php'));
         ?>
     </div>
-    <div class="tab-pane show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+    <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once(getBasePath('tenants/cockpit/nds/text.php'));
-            require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
+            require_once(getBasePath('tenants/cockpit/nds/logo.php'));
             require_once(getBasePath('tenants/cockpit/btw21/eyecatcher.php'));
         ?>
     </div>
