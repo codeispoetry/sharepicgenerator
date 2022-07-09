@@ -1,4 +1,5 @@
-.colorpicker{
+.colorpicker,
+.sizepicker{
     color: $primary;
     position: relative;
 
@@ -33,6 +34,7 @@
         height: 15px;
         display: block;
         margin-right: 8px;
+        font-size: 14px;
         cursor: pointer;
 
         &:last-child{
