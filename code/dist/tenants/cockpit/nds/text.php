@@ -26,10 +26,14 @@
                 <div class="d-none align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control showonly area floating">
                 </div>
-                <div class="">
+                <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">  Für einen 
 Nahverkehr,
    der alle abholt.</textarea>
+                    <div class="">
+                           <input type="hidden" name="line1color" id="line0color" value="#F1912E">
+                            <span class="colorpicker ms-1" data-colors="#F1912E,#FFE100" data-action="floating.draw()" data-field="#line0color" title="Farbe der 1. Zeile"></span> 
+                    </div>
                 </div>
                 <div class="d-none align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
