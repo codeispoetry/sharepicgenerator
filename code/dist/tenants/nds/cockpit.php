@@ -21,7 +21,7 @@
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once(getBasePath('tenants/cockpit/btw21/picture.php'));
+            require_once(getBasePath('tenants/cockpit/nds/picture.php'));
             require_once(getBasePath('tenants/cockpit/picture-size.php'));
         ?>
     </div>
@@ -50,7 +50,7 @@
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('tenants/cockpit/preferences.php'));
+         require_once(getBasePath('tenants/cockpit/preferences-province.php'));
     ?>
     </div>
   </div>
