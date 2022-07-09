@@ -27,12 +27,12 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">  Für einen 
 Nahverkehr,
    der alle abholt.</textarea>
-                    <div>
+                    <div class="linepickers-container">
                     <?php for ($i = 0; $i <5; $i++) { ?>
                         <div class="d-flex linepickers linepicker<?php echo $i;?>">
                             <?php echo $i+1;?>)
                             <input type="hidden" name="line<?php echo $i;?>color" id="line<?php echo $i;?>color" value="#FFE100">
-                            <span class="colorpicker ms-1" data-colors="#FFE100,#F1912E" data-action="floating.draw()" data-field="#line<?php echo $i;?>color" title="Farbe der 1<?php echo $i+1;?>. Zeile"></span> 
+                            <span class="colorpicker ms-1" data-colors="#FFE100,#F1912E" data-action="floating.draw()" data-field="#line<?php echo $i;?>color" title="Farbe der <?php echo $i+1;?>. Zeile"></span> 
 
                             <input type="hidden" name="line<?php echo $i;?>size" id="line<?php echo $i;?>size" value="10">
                             <span class="sizepicker ms-1" data-sizes="10,15,20,25,30" data-action="floating.draw()" data-field="#line<?php echo $i;?>size" title="Schriftgröße der <?php echo $i+1;?>. Zeile"></span> 
@@ -41,7 +41,7 @@ Nahverkehr,
                     </div>
                 </div>
                 <div class="mb-1 mt-2 small fst-italic">
-                    Einrückungen mit Leerzeichen erzeugen.
+                    Einrückungen mit Leerzeichen erzeugen.<br>Farbe und Größe mit den Symbolen rechts vom Textfeld einstellen.
                 </div>
                 <div class="d-none align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em showonly showonly area floating"></textarea>
