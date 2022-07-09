@@ -27,6 +27,13 @@ const floating = {
     $('.linepickers').addClass('d-none');
 
     let y = 0;
+    const sizeLineHeights = [];
+    sizeLineHeights[10] = 10;
+    sizeLineHeights[15] = 15;
+    sizeLineHeights[20] = 20;
+    sizeLineHeights[25] = 27;
+    sizeLineHeights[30] = 33;
+
     lines.forEach((value, index) => {
       const line = draw.group();
       const indentation = value.match(/^\s*/)[0].length;
@@ -42,7 +49,7 @@ const floating = {
 
       floating.svg.add(line);
 
-      y += size * 1.1;
+      y += sizeLineHeights[size];
       $(`.linepicker${index}`).removeClass('d-none');
     });
 
