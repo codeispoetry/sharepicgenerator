@@ -30,12 +30,12 @@ const pin = {
     });
 
     // text
-    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
+    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#00594E');
 
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
     const pinbackground = draw.circle(diameter)
-      .fill('#FF495D');
+      .fill('#f1912E');
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
