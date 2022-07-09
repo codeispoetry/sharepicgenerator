@@ -1,5 +1,6 @@
 <h3 class="showonly floating "><i class="fas fa-fan"></i> Logo</h3>
 <div class="d-flex logo list-group-item list-group-item-action flex-column align-items-start showonly floating">
+    <small>Nur im Layout ohne Hintergrund:</small>
     <div class="d-flex justify-content-between">
         <div class="slider">
             <small>klein</small>
