@@ -21,6 +21,7 @@ const logo = {
       return false;
     }
     logo.svg.size(w, null);
+    return true;
   },
 
   resize(percent) {
