@@ -7,6 +7,10 @@
         Hilfslinien anzeigen
     </label>
 
+    <label class="" title="ändere die Größe von Logo und Störer selbstständig">
+        <input id="advancedmode" type="checkbox" class="me-1 form-check-input" >
+        Hamák-Modus
+    </label>
     <?php if('federal' == $tenant){; ?>
         <a href="#" class="mt-3 overlay-opener btn btn-sm btn-secondary" data-target="preferences">Logos bearbeiten</a>
     <?php } ?>

@@ -198,6 +198,11 @@ function getDownloads()
     return $total;
 }
 
+function getDownloadsToday()
+{
+    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE date('now') = date(timestamp );");
+}
+
 function getUniqueDownloads()
 {
     global $db;
@@ -444,6 +449,11 @@ function showLogGraph()
     options: {
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
         plugins:{
           legend: {
             display: false

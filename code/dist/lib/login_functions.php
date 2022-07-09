@@ -1,21 +1,28 @@
 <?php
 
+function do_saml_login()
+{
 
-require_once('../../wordpress/wp-load.php');
+    if( !with_saml() ) {
+        return 'ohne_saml';
+    }
 
+    $hasAccess = isLocal() ?: isLocalUser();
 
-function wordpress_login(){
-
-    if( !is_user_logged_in() ){
-        $redirect = $_SERVER['REQUEST_URI'];
-        header('Location: ' . wp_login_url($redirect));
+    $doLogout = false;
+    if (isset($_GET['logout']) && ($_GET['logout'] == 'true')) {
+        if ($hasAccess) {
+            doLogout();
+        } else {
+            $doLogout = true;
+            handleSamlAuth($doLogout);
+        }
         die();
     }
-}
 
-function get_logout_link(){
-    return sprintf('%s&action=logout&_wpnonce=%s',
-        wp_login_url('/index.php'),
-        wp_create_nonce( 'log-out' )
-    );
+    if (!$hasAccess) {
+        $user = handleSamlAuth($doLogout);
+    }
+
+    return $user;
 }

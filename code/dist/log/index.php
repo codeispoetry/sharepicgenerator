@@ -67,7 +67,11 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     unique sharepics: <?php echo 100 * round(getUniqueDownloads() / getDownloads(), 2); ?>%
                     <br>
                     täglich (in letzten 30 Tagen): <?php echo number_format(getDailyDownloadsLastDays(30), 0, ',', '.'); ?>
+                    <br>
+                    heute: <?php echo number_format(getDownloadsToday(), 0, ',', '.'); ?>
             </dl>
+        </div>
+         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="far fa-clock"></i> Zeiten der letzten 7 Tage</dt>
                 <dd>
@@ -105,7 +109,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                             $wordCounts = wordCounts([
                                 'days' => $days,
                                 'strlen' => 5,
-                                'mincount' => 100,
+                                'mincount' => 10,
                                 'limit' => 15,
                             ]);
                             foreach($wordCounts AS $word => $count){

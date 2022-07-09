@@ -15,6 +15,7 @@ set('shared_files', [
     'log/.htusers'
 ]);
 set('shared_dirs', [
+    'scripts/status',
     'tmp',
     'persistent',
     'wordpress',
