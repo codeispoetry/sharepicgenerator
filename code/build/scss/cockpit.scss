@@ -251,3 +251,10 @@ ul.text-symbols{
   font-family: BereitBold;
   border: 0;
 }
+
+.linepickers{
+  height: 1.5em;
+  &-container{
+    margin-top: 5px;
+  }
+}
