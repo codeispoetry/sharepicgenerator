@@ -9,12 +9,12 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-var initialized = false;
+let initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(202);
-  $('#textX').val(41);
-  $('#textY').val(372);
+  $('#textX').val(91);
+  $('#textY').val(172);
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
