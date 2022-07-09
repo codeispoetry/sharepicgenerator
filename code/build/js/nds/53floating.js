@@ -14,7 +14,7 @@ const floating = {
       return;
     }
 
-    const withBackground = true;
+    const withBackground = $('#floating-background').prop('checked');
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
@@ -29,7 +29,7 @@ const floating = {
     $('.linepickers').addClass('d-none');
 
     const background = draw.rect(0, 0)
-      .fill('blue');
+      .fill('#00594E');
 
     floating.svg.add(background).back();
 
@@ -72,21 +72,23 @@ const floating = {
           );
 
         floating.svg.add(floatingLogo);
-        floating.svg
-          .move($('#textX').val(), $('#textY').val())
-          .size(parseInt($('#textsize').val(), 10), null);
+        floating.resize();
       });
     } else {
-      floating.svg
-        .move($('#textX').val(), $('#textY').val())
-        .size(parseInt($('#textsize').val(), 10), null);
-
+      floating.resize();
       logo.svg.show();
     }
 
     floating.svg.front();
   },
 
+  resize() {
+    floating.svg
+      .move($('#textX').val(), $('#textY').val())
+      .size(parseInt($('#textsize').val(), 10), null);
+  },
+
 };
 
-$('#text, #textsize').bind('input propertychange', floating.draw);
+$('#text, #floating-background').bind('input propertychange', floating.draw);
+$('#textsize').bind('input propertychange', floating.resize);
