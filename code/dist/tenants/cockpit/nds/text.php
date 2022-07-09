@@ -31,7 +31,7 @@
 Nahverkehr,
    der alle abholt.</textarea>
                     <div>
-                    <?php for($i = 0; $i <5; $i++){ ?>
+                    <?php for ($i = 0; $i <5; $i++) { ?>
                         <div class="d-flex linepickers linepicker<?php echo $i;?>">
                             <?php echo $i+1;?>)
                             <input type="hidden" name="line<?php echo $i;?>color" id="line<?php echo $i;?>color" value="#F1912E">
