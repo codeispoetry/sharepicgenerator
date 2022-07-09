@@ -22,7 +22,6 @@ const floating = {
       $('#textY').val(Math.round(this.y()));
     });
 
-    const colors = ['#F1912E', '#FFE100'];
     const sizes = [10, 20];
 
     const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
@@ -31,10 +30,11 @@ const floating = {
     lines.forEach((value, index) => {
       const line = draw.group();
       const indentation = value.match(/^\s*/)[0].length;
+      const color = $(`#line${index}color`).val() || 'white';
 
       const text = line.text(value.replace(/^\s*/, ''))
-        .font(Object.assign(floating.font, { size: sizes[index % 2]}))
-        .fill(colors[index % 2])
+        .font(Object.assign(floating.font, { size: sizes[index % 2] }))
+        .fill(color)
         .move(indentation * 5, y)
         .attr('xml:space', 'preserve')
         .attr('style', 'white-space:pre');
