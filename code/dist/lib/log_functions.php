@@ -353,7 +353,7 @@ function allWords($days = 7)
     global $db;
     $results = $db->query($sql);
     while ($row = $results->fetchArray()) {
-       echo $row['word'] . ' ';
+        echo $row['word'] . ' ';
     }
 }
 
@@ -375,22 +375,24 @@ function wordCounts($params)
         $params['days']
     );
 
-    $ignoreWords = explode(',', 'der,die,das,mit,und,für,den,auf,vom,ihre,zum,uhr,grün,grüne,grünen,grüner,
- innen,aus,auch,daher,ein,eine,von,des,eines,the,dem,bzw,zur,ist,ihr,werden,seid,innen,einen,als' );
+    $ignoreWords = explode(
+        ',', 'der,die,das,mit,und,für,den,auf,vom,ihre,zum,uhr,grün,grüne,grünen,grüner,
+ innen,aus,auch,daher,ein,eine,von,des,eines,the,dem,bzw,zur,ist,ihr,werden,seid,innen,einen,als' 
+    );
 
     $wordCounts = [];
     $results = $db->query($sql);
     while ($row = $results->fetchArray()) {
         $words = preg_split('/\b/u', $row['word']);
 
-        foreach($words AS $word) {
+        foreach ($words as $word) {
             $word = trim($word);
 
-            if(strlen($word) <= $params['strlen']) {
-               continue;
+            if (strlen($word) <= $params['strlen']) {
+                continue;
             }
 
-            if(in_array($word, $ignoreWords)) {
+            if (in_array($word, $ignoreWords)) {
                 continue;
             }
 
@@ -399,9 +401,11 @@ function wordCounts($params)
         }
     }
 
-    $wordCounts = array_filter($wordCounts, function($val) use ($params){
-        return $val > $params['mincount'];
-    });
+    $wordCounts = array_filter(
+        $wordCounts, function ($val) use ($params) {
+            return $val > $params['mincount'];
+        }
+    );
 
     arsort($wordCounts);
 
