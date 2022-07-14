@@ -29,7 +29,7 @@
         <?php 
             require_once(getBasePath('tenants/cockpit/nds/text.php'));
             require_once(getBasePath('tenants/cockpit/nds/logo.php'));
-            require_once(getBasePath('tenants/cockpit/btw21/eyecatcher.php'));
+            require_once(getBasePath('tenants/cockpit/nds/eyecatcher.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
