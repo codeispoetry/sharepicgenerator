@@ -81,14 +81,14 @@ function getLastLogin($user = false)
             break;
         default:
             if ($array['days'] <7) {
-                $day = strftime('letzten %A', $timestamp);
+                $day = 'letzten' . date('D', $timestamp);
             } else {
-                $day = strftime('am %e. %B', $timestamp);
+                $day = 'am ' . date('d. m.', $timestamp);
             }
             break;
     }
     
-    return $day . ' ' .strftime('um %R Uhr', $timestamp);
+    return $day . ' um ' .date('H:M ', $timestamp) . 'Uhr';
 }
 
 

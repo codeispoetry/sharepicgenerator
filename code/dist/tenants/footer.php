@@ -19,10 +19,10 @@
                 <h5>Sondermodelle</h5>
                 <ul class="list-unstyled text-small">
                     <?php
-                    $tenants = configValue('Main','linkedTenants');
-                    foreach ($tenants as $key => $value ){   
-                        list($description, $start) = explode(',', $value);
-                        if($start AND strToTime($start) > time() ){
+                    $tenants = configValue('Main', 'linkedTenants');
+                    foreach ($tenants as $key => $value) { 
+                        @list($description, $start) = explode(',', $value);
+                        if ($start && strToTime($start) > time()){
                             continue;
                         }
                         printf('<li class="mb-1"><a href="/%1$s" class="">%2$s</a></li>',
