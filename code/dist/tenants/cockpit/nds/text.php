@@ -7,8 +7,14 @@
                  <label class="d-none">
                     <input type="radio" class="form-check-input layout me-1" name="layout" value="floating" checked>Schwebend
                  </label>
-                 <label class="">
-                    <input type="checkbox" id="floating-background" class="form-check-input me-1" name="background" value="background">Mit Hintergrund
+                 <label class="me-1">
+                    <input type="radio" class="redraw-text form-check-input me-1" name="sublayout" value="floating">Schwebend
+                </label>
+                 <label class="me-1">
+                    <input type="radio" class="redraw-text form-check-input me-1" name="sublayout" value="background">Hintergrund
+                </label>
+                <label class="">
+                    <input type="radio" class="redraw-text form-check-input me-1" name="sublayout" value="bottom">Unten
                  </label>
                 
             </div>
