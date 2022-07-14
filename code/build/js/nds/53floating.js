@@ -2,6 +2,8 @@
 const floating = {
   svg: draw.text(''),
   fond: draw.circle(0),
+  bg: draw.circle(0),
+  floatinglogo: draw.circle(0),
   font: {
     family: 'BereitBold',
     leading: '1.05em',
@@ -14,7 +16,7 @@ const floating = {
       return;
     }
 
-    const withBackground = $('#floating-background').prop('checked');
+    const sublayout = $('input[name=sublayout]:checked').val();
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
@@ -60,7 +62,9 @@ const floating = {
       $(`.linepicker${index}`).removeClass('d-none');
     });
 
-    if (withBackground) {
+    floating.bg.remove();
+    floating.floatinglogo.remove();
+    if (sublayout === 'background') {
       background.move(-5, -5).size(floating.svg.width() + 10, floating.svg.height() + 30);
       logo.svg.hide();
 
@@ -74,6 +78,23 @@ const floating = {
         floating.svg.add(floatingLogo);
         floating.resize();
       });
+    } else if (sublayout === 'bottom') {
+      logo.svg.hide();
+
+      floating.floatinglogo = draw.image('/assets/logos/sonnenblume-nds.svg', () => {
+        const flogosize = 0.25 * draw.width();
+        floating.floatinglogo.size(flogosize, null)
+          .move(
+            draw.width() - floating.floatinglogo.width() - 10,
+            draw.height() - floating.floatinglogo.height() - 10,
+          );
+        floating.resize();
+
+        floating.bg = draw.rect(draw.width(), 100).fill('#00594E').front();
+        moveFloatingBottom();
+
+        floating.floatinglogo.front();
+      });
     } else {
       floating.resize();
       logo.svg.show();
@@ -83,12 +104,27 @@ const floating = {
   },
 
   resize() {
+    const sublayout = $('input[name=sublayout]:checked').val();
     floating.svg
       .move($('#textX').val(), $('#textY').val())
       .size(parseInt($('#textsize').val(), 10), null);
+
+    if (sublayout === 'bottom') {
+      moveFloatingBottom();
+    }
   },
 
 };
 
-$('#text, #floating-background').bind('input propertychange', floating.draw);
+$('#text, .redraw-text').bind('input propertychange', floating.draw);
 $('#textsize').bind('input propertychange', floating.resize);
+
+function moveFloatingBottom() {
+  const textH = floating.svg.height();
+  const paddingBottom = 70;
+  const boxH = textH * 1.1 + paddingBottom;
+
+  floating.svg.move(20, draw.height() - textH - paddingBottom).front();
+  floating.bg.height(boxH).y(draw.height() - boxH);
+  floating.floatinglogo.front();
+}
