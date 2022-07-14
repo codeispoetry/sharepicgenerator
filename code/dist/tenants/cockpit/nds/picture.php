@@ -84,29 +84,6 @@
 
 </div>   
 
-<h3 class="d-none"><i class=" fas fa-image"></i> Grünfärbung</h3>
-<div class="d-none list-group-item novideo">
-        Bild grün einfärben
-        <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-toggle="toggle" data-on="ja" data-off="nein">
-
-        <div class="slider novideo">
-            <small>Helligkeit</small>
-            <input type="range" class="form-range" name="greenifybrightness" id="greenifybrightness" min="0.5"
-                max="10" value="2.5" step="0.5">
-        </div>
-
-        <div class="slider novideo">
-            <small>Kontrast</small>
-            <input type="range" class="form-range" name="greenifycontrast" id="greenifycontrast" min="0"
-                max="0.8" value="0.05" step="0.005">
-        </div>
-        <small class="text-primary cursor-pointer novideo greenifyreset">
-            <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
-        </small>
-
-</div>
-
-
 <input type="hidden" name="backgroundX" id="backgroundX">
 <input type="hidden" name="backgroundY" id="backgroundY">
 <input type="hidden" name="backgroundURL" id="backgroundURL">
