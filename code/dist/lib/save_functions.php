@@ -59,7 +59,7 @@ function getUserPrefs()
     $smt = $db->prepare(
         'SELECT prefs FROM user WHERE user=:user'
     );
-    $smt->bindValue(':prefs', $_POST['prefs'], SQLITE3_TEXT);
+    @$smt->bindValue(':prefs', $_POST['prefs'], SQLITE3_TEXT);
     $smt->bindValue(':user', getUser(), SQLITE3_TEXT);
 
     $result = $smt->execute();
