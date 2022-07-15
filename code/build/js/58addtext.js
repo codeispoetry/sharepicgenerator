@@ -4,7 +4,7 @@ const addtext = {
   linemargin: -4,
   paddingLr: 5,
   font: {
-    family: 'PT Sans',
+    family: $('#addtextFont').val(),
     anchor: 'left',
     leading: '1.0em',
     size: 20,
