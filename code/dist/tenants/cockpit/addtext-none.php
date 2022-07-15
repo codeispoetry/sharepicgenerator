@@ -4,4 +4,6 @@
 <input type="hidden" name="addtextColor" id="addtextColor" value="#000000">
 <input type="hidden" name="addtextX" id="addtextX">
 <input type="hidden" name="addtextY" id="addtextY">
+<input type="hidden" name="addtextFont" id="addtextFont" value="PTSans">
+
 </div>

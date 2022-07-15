@@ -28,6 +28,7 @@
     <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once(getBasePath('tenants/cockpit/nds/text.php'));
+            require_once(getBasePath('tenants/cockpit/nds/addtext.php'));
             require_once(getBasePath('tenants/cockpit/nds/logo.php'));
             require_once(getBasePath('tenants/cockpit/nds/eyecatcher.php'));
         ?>
@@ -35,7 +36,6 @@
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
             require_once(getBasePath('tenants/cockpit/addpictures.php'));
-            require_once(getBasePath('tenants/cockpit/addtext.php'));
             require_once(getBasePath('tenants/cockpit/eraser-none.php'));
             require_once(getBasePath('tenants/cockpit/advertising.php'));
         ?>
