@@ -6,7 +6,7 @@ const pinfont = {
   family: 'BereitBold',
   size: 15,
   anchor: 'middle',
-  leading: '1em',
+  leading: '1.2em',
 };
 
 const pin = {
