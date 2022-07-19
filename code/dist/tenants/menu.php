@@ -34,13 +34,14 @@
 
                 <div class="dropdown-divider"></div>
                 <?php
-                $tenants = configValue('Main','linkedTenants');
-                foreach ($tenants as $key => $value ){
+                $tenants = configValue('Main', 'linkedTenants');
+                foreach ($tenants as $key => $value) {
                     list($description, $start) = explode(',', $value);
-                    if($start AND strToTime($start) > time() ){
+                    if ($start and strToTime($start) > time()) {
                         continue;
                     }
-                    printf('<a href="/%1$s" class="dropdown-item">%2$s</a>',
+                    printf(
+                        '<a href="/%1$s" class="dropdown-item">%2$s</a>',
                         $key,
                         $description
                     );
@@ -52,12 +53,12 @@
     </ul>
 </div>
 
-<h3><?php echo explode(',',configValue('Main','linkedTenants')[$tenant])[0]; ?></h3>
+<h3><?php echo explode(',', configValue('Main', 'linkedTenants')[$tenant])[0]; ?></h3>
 
 <div class="navbar-text d-flex">
-    <?php if (isEditor()) { ?> 
-            <a href="log/" class="pe-1 me-1 text-decoration-none">Logfiles</a>
-    <?php } ?>
+    <?php if (isEditor()) {
+        printf('<a href="/tenants/%s/log/" class="pe-1 me-1 text-decoration-none">Logfiles</a>', $tenant);
+    } ?>
     <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
         <?php echo getUser(); ?>
         <?php if (isEditor()) {
