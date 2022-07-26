@@ -19,6 +19,7 @@ set('shared_dirs', [
     'tmp',
     'persistent',
     'wordpress',
+    'documentation',
     'tenants/federal/gallery/img',
     'tenants/federal/pictures/img',
     'tenants/bw/pictures/img',

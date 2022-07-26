@@ -2,7 +2,10 @@ up:
 	docker-compose up -d
 
 up-test:
-	docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d	
+	docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d
+
+up-doc:
+	docker-compose -f docker-compose.yml -f docker-compose.doc.yml up -d	
 
 stop:
 	docker-compose stop
@@ -55,6 +58,10 @@ test-tenants:
 
 doc:
 	docker-compose exec mkdocs mkdocs build
+	asdf
+
+deploy-doc:
+	rsync -r --progress code/dist/documentation/ sharepic:/var/www/sharepicgenerator.de/shared/documentation
 
 checkstyle:
 	phpcs -s code/dist/
