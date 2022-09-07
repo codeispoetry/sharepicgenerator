@@ -22,13 +22,14 @@
     <div class="tab-pane" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
             require_once(getBasePath('tenants/cockpit/btw21/picture.php'));
-            require_once(getBasePath('tenants/cockpit/picture-size.php'));
+            
         ?>
     </div>
     <div class="tab-pane  show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once(getBasePath('tenants/cockpit/vorort/text.php'));
             require_once(getBasePath('tenants/cockpit/vorort/celebrity.php'));
+            require_once(getBasePath('tenants/cockpit/picture-size.php'));
 
             require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
             require_once(getBasePath('tenants/cockpit/eyecatcher-none.php'));
