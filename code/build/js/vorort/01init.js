@@ -48,10 +48,9 @@ function reset() {
 function reDraw(withAddPic = false) {
   window.setTimeout(() => {
 
-    alltexts.draw();
-
     celebrity.setPosition();
     logo.setPosition();
+    alltexts.draw();
   }, 100);
 
 }

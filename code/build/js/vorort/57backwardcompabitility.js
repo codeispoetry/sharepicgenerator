@@ -12,6 +12,6 @@ const floating = {
 
 const text = {
   draw() {
- 
+
   }
 }
