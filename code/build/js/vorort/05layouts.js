@@ -7,14 +7,9 @@ function showLayout() {
   $(`.${config.layout}`).show();
 
   switch (config.layout) {
-    case 'area':
-      area.draw();
-      logo.svg.draggable(false);
-      break;
     case 'floating':
       logo.draw();
       floating.draw();
-      logo.svg.draggable(true);
       break;
     default:
   }
