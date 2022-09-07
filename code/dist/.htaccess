@@ -17,6 +17,10 @@ Options +Indexes +FollowSymLinks
     RewriteRule ^(adfc)\/?$ /tenants/$1/index.php [L]
     RewriteRule ^(basic)\/?$ /tenants/$1/index.php [L]
     RewriteRule ^(nds)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(vorort)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(vor-ort)\/?$ /tenants/$1/index.php [L]
+
+
 
 
     Redirect 301 /logo https://logo.sharepicgenerator.de

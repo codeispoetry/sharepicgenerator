@@ -65,7 +65,7 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 - edit font at https://www.glyphrstudio.com/
 
 # Create a new tenant automatically
-1. make create-tenant
+1. make tenant-create
 
 2. create section in config.ini for new tenanant
 5. edit .htaccess
