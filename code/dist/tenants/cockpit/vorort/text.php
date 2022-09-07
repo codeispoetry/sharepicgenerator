@@ -6,7 +6,7 @@
             <div class="list-group-item-content">
 
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text1" name="text1" id="text1" class="form-control h-2em">             Minister
+                    <textarea placeholder="Text1" name="text1" id="text1" class="d-enone form-control h-2em">             Minister
 Manne Lucha</textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
