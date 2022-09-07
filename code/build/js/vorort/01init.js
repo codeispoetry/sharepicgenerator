@@ -50,7 +50,7 @@ function reDraw(withAddPic = false) {
 
     alltexts.draw();
 
-    celebrety.setPosition();
+    celebrity.setPosition();
     logo.setPosition();
   }, 100);
 
