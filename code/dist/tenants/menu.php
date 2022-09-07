@@ -36,8 +36,8 @@
                 <?php
                 $tenants = configValue('Main', 'linkedTenants');
                 foreach ($tenants as $key => $value) {
-                    list($description, $start) = explode(',', $value);
-                    if ($start and strToTime($start) > time()) {
+                    (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
+                    if (isset($start) and $start and strToTime($start) > time()) {
                         continue;
                     }
                     printf(
@@ -53,7 +53,7 @@
     </ul>
 </div>
 
-<h3><?php echo explode(',', configValue('Main', 'linkedTenants')[$tenant])[0]; ?></h3>
+<h3><?php echo @explode(',', configValue('Main', 'linkedTenants')[$tenant])[0]; ?></h3>
 
 <div class="navbar-text d-flex">
     <?php if (isEditor()) {

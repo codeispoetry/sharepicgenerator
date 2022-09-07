@@ -158,8 +158,8 @@
             <?php
             $tenants = configValue('Main', 'linkedTenants');
             foreach ($tenants as $key => $value) {
-                list($description, $start) = explode(',', $value);
-                if ($start and strToTime($start) > time()) {
+              (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
+              if (isset($start) and strToTime($start) > time()) {
                     continue;
                 }
                 printf(
