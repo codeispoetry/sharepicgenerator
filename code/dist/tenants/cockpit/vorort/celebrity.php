@@ -1,10 +1,17 @@
 
 
-<h3><i class="fas fa-text-width"></i> Minister*in</h3>
+<h3><i class="fas fa-text-width"></i> Person</h3>
 <div class="text list-group-item list-group-item-action flex-column align-items-start">
     
     <div class="list-group-item-content">
-        <label><input value="lucha" data-desc="           Mnister|Manne Lucha" type="radio" class="celebrity" name="celebrity">Manne Lucha</label>
-        <label><input value="schopper" data-desc="           Mnisterin|Tereas Schopper" type="radio" class="celebrity" name="celebrity" value="schopper">Schopper</label>
+
+        <select class="form-select celebrity" id="celebrity">         
+            <option disabled selected hidden>bitte wählen</option>
+            <option value="lucha" data-desc="           Mnister|Manne Lucha">Manne Lucha</option>
+            <option value="schopper" data-desc="           Mnisterin|Teresa Schopper">Teresa Schopper</option>
+        </select>
+    
+    
+    
     </div>
 </div>

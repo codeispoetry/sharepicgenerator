@@ -1,21 +1,24 @@
 const celebrity = {
   loaded: false,
-  svg: draw.image('/assets/vorort/lucha.png', () => {
+  svg: draw.image('/assets/vorort/sunflower.png', () => {
     celebrity.loaded = true;
   }),
 
   set(){
     celebrity.loaded = false;
-    who = $('input[name=celebrity]:checked').val();
+    who = $('#celebrity option:selected').val();
 
     celebrity.svg.remove();
-    celebrity.svg = draw.image(`/assets/vorort/${who}.png`, () => {
+    celebrity.svg = draw.image(`/assets/vorort/celebrities/${who}.png`, () => {
       celebrity.loaded = true;
       celebrity.setPosition();
     });
 
-    $('#text1').val($('input[name=celebrity]:checked').data('desc').replace(/\|/,'\n'));
+    $('#text1').val($('#celebrity option:selected').data('desc').replace(/\|/,'\n'));
     alltexts.draw();
+
+    celebrity.svg.back();
+    background.svg.back();
   },
 
   setPosition(){
@@ -29,5 +32,5 @@ const celebrity = {
 
 };
 
-$('.celebrity').bind('click', celebrity.set);
+$('#celebrity').bind('change', celebrity.set);
 
