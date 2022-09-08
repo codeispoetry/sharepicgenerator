@@ -17,8 +17,7 @@ const celebrity = {
     $('#text1').val($('#celebrity option:selected').data('desc').replace(/\|/,'\n'));
     alltexts.draw();
 
-    celebrity.svg.back();
-    background.svg.back();
+    arrangeLayers();
   },
 
   setPosition(){

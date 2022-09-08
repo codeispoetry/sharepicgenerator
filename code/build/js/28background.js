@@ -3,6 +3,7 @@ const background = {
   darklightlayer: draw.circle(0),
   greenlayer: draw.circle(0),
   colorlayer: draw.circle(0),
+  shadow: draw.circle(0),
 
   isLoaded: false,
 
@@ -53,6 +54,18 @@ const background = {
     this.svg.remove();
     background.colorlayer.hide();
     this.svg = draw.rect(5000, 5000).fill($('#backgroundcolor').val()).back();
+  },
+
+  drawShadow() {
+    this.shadow.remove();
+    const gradient = draw.gradient('linear', function(add) {
+      add.stop({ offset: 0, color: '#000', opacity: 0 })
+      add.stop({ offset: 1, color: '#000', opacity: 0.7 })
+    }).from(0, 0).to(0, 1)
+    this.shadow = draw.rect(draw.width(), draw.height() * 0.3 ).move(0, draw.height() * 0.7).fill(gradient);
+    if (typeof arrangeLayers === 'function') {
+      arrangeLayers();
+    }
   },
 
   addFilter() {
