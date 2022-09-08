@@ -7,8 +7,16 @@
 
         <select class="form-select celebrity" id="celebrity">         
             <option disabled selected hidden>bitte wählen</option>
-            <option value="lucha" data-desc="           Mnister|Manne Lucha">Manne Lucha</option>
-            <option value="schopper" data-desc="           Mnisterin|Teresa Schopper">Teresa Schopper</option>
+            <?php
+               $celebrities = parse_ini_file(getBasePath('/assets/vorort/celebrities.ini'), true);
+                foreach($celebrities as $file => $info ){
+                    printf('<option value="%s" data-desc="%s">%s</option>'
+                        ,$file
+                        ,$info['description']
+                        ,$info['name']
+                );
+                }
+            ?>
         </select>
     
     

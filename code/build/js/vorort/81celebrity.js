@@ -9,7 +9,7 @@ const celebrity = {
     who = $('#celebrity option:selected').val();
 
     celebrity.svg.remove();
-    celebrity.svg = draw.image(`/assets/vorort/celebrities/${who}.png`, () => {
+    celebrity.svg = draw.image(`/assets/vorort/celebrities/${who}`, () => {
       celebrity.loaded = true;
       celebrity.setPosition();
     });
