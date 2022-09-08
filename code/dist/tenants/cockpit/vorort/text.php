@@ -6,25 +6,24 @@
             <div class="list-group-item-content">
 
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text1" name="text1" id="text1" class="d-enone form-control h-2em">             Minister
-Manne Lucha</textarea>
+                    <textarea placeholder="Text über dem Claim" name="text1" id="text1" class="d-none form-control h-2em"></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text2" name="text2" id="text2" value="" class="form-control h-3em">    mit Ihrem
+                    <textarea placeholder="Text unter dem Claim" name="text2" id="text2" value="" class="form-control h-3em">    mit Ihrem
   Abgeordneten
 Daniel Lede Abal</textarea>
                 </div>     
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text3" name="text3" id="text3" value="" class="form-control h-3em">Donnerstag,
+                    <textarea placeholder="Links unten" name="text3" id="text3" value="" class="form-control h-3em">Donnerstag,
 01.12.2022
 19:00 Uhr</textarea>
                 </div>                
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text4" name="text4" id="text4" value="" class="form-control h-2em">Altes Kino
+                    <textarea placeholder="Mitte unten, groß" name="text4" id="text4" value="" class="form-control h-2em">Altes Kino
 Tübingen,</textarea>
                 </div>         
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text5" name="text5" id="text5" value="" class="form-control h-2em">Am Stadtgraben 2,
+                    <textarea placeholder="Mitte unten, klein" name="text5" id="text5" value="" class="form-control h-2em">Am Stadtgraben 2,
 72072 Tübingen</textarea>
                 </div>                  
             </div>
