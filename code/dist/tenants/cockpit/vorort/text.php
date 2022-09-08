@@ -25,7 +25,12 @@ Tübingen,</textarea>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Mitte unten, klein" name="text5" id="text5" value="" class="form-control h-2em">Am Stadtgraben 2,
 72072 Tübingen</textarea>
-                </div>                  
+                </div>  
+                <div class="d-flex align-items-lg-center">
+                    <small>
+                        Einrückungen kannst Du mit Leerzeichen einfügen.
+                    </small>        
+                </div>        
             </div>
         </div>
 
