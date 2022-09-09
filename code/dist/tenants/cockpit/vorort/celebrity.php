@@ -8,7 +8,7 @@
         <select class="form-select celebrity" id="celebrity">         
             <option disabled selected hidden>bitte wählen</option>
             <?php
-               $celebrities = parse_ini_file(getBasePath('/assets/vorort/celebrities.ini'), true);
+               $celebrities = parse_ini_file(getBasePath('/assets/vorort/celebrities/celebrities.ini'), true);
                 foreach($celebrities as $file => $info ){
                     printf('<option value="%s" data-desc="%s">%s</option>'
                         ,$file
