@@ -30,7 +30,7 @@ function initSharepic() {
     return false;
   }
   // called after background pic is loaded
-  $('#sizepresets').val('1200:1200').trigger('change');
+  $('#sizepresets').val('1080:1080').trigger('change');
   initialized = true;
 
   background.drawShadow();
