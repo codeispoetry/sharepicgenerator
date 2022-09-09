@@ -1,3 +1,30 @@
+<?php
+require_once('base.php');
+require_once(getBasePath("lib/functions.php"));
+require_once(getBasePath("lib/login_functions.php"));
+require_once(getBasePath("lib/save_functions.php"));
+useDeLocale();
+
+session_start();
+readConfig();
+
+$landesverband = 0;
+$user = "generic";
+$tenant = "vorort";
+
+$user =  do_saml_login();
+
+$accesstoken = createAccessToken($user);
+$_SESSION['accesstoken'] = $accesstoken;
+$_SESSION['user'] = $user;
+$_SESSION['landesverband'] = $landesverband;
+$_SESSION['tenant'] = $tenant;
+
+
+$csrf = uniqid();
+$_SESSION['csrf'] = $csrf;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +41,6 @@
        </style> 
 </head>
 <?php
-
-require_once('base.php');
-require_once(getBasePath('lib/functions.php'));
 
 
 if(isset($_GET['delete'])){
@@ -44,7 +68,7 @@ if(isset($_POST['celebrities'])){
     $file = getBasePath('/tmp/celebrities.txt');
 
     file_put_contents($file, $content);
-
+   
     if(!@parse_ini_file($file)){
         unlink($file);
         die("Die Datei ist fehlerhaft. Fehlt evtl. ein Anführungszeichen o. ä.?");
@@ -52,6 +76,7 @@ if(isset($_POST['celebrities'])){
 
     rename('celebrities/celebrities.ini', 'celebrities/celebrities' . time() . '.tmp');
     rename($file, 'celebrities/celebrities.ini');
+
 }
 ?>
 <body>

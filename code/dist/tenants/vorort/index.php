@@ -74,7 +74,7 @@ $_SESSION['csrf'] = $csrf;
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
-        <?php require_once('../menu.php'); ?>
+        <?php require_once('menu.php'); ?>
     </div>
     </nav>
 </header>
