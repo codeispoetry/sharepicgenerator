@@ -29,7 +29,7 @@
         <?php 
             require_once(getBasePath('tenants/cockpit/vorort/text.php'));
             require_once(getBasePath('tenants/cockpit/vorort/celebrity.php'));
-            require_once(getBasePath('tenants/cockpit/picture-size.php'));
+            require_once(getBasePath('tenants/cockpit/picture-size-none.php'));
 
             require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
             require_once(getBasePath('tenants/cockpit/eyecatcher-none.php'));
