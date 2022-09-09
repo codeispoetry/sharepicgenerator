@@ -38,9 +38,7 @@ set('shared_dirs', [
     'tenants/sh/pictures/img',
     'tenants/awo/gallery/img',
     'tenants/awo/pictures/img',
-    'assets/vorort/celebrities/'
-
-
+    'assets/vorort/celebrities/',
     'log/logs',
 ]);
 
