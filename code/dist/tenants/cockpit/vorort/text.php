@@ -6,7 +6,7 @@
             <div class="list-group-item-content">
 
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text über dem Claim" name="text1" id="text1" class="d-none form-control h-2em"></textarea>
+                    <textarea placeholder="Text über dem Claim" name="text1" id="text1" class=" form-control h-2em"></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter dem Claim" name="text2" id="text2" value="" class="form-control h-3em">    mit Ihrem
