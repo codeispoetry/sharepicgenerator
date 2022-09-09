@@ -14,10 +14,10 @@
                 <span class="mt-2 small">x</span>
                 <input type="number" class="form-control size" name="height" id="height" step="10">
                 <span class="mt-2 me-2 small">Px</span>
-
                 <select class="form-select" id="sizepresets">
                     <?php
-                    $sizes = parse_ini_file(getBasePath('ini/picturesizes.ini'), true);
+                    $inifile = ($tenant == 'vorort') ? 'ini/picturesizes-vorort.ini' : 'ini/picturesizes.ini';
+                    $sizes = parse_ini_file(getBasePath($inifile), true);
                     foreach ($sizes as $name => $group) {
                         printf('<optgroup label="%s">', $name);
                         foreach ($group as $label => $size) {
