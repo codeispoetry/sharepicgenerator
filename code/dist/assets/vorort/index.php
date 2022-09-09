@@ -37,6 +37,13 @@ $_SESSION['csrf'] = $csrf;
         img.celebrity{
             height: 150px;
             margin: 0 20px 20px 0;
+            border: 1px solid white;
+            border-radius: 7px;
+            padding: 8px;
+        }
+        img.celebrity:hover{
+            border-color: #145f32;
+            background: #145f32;
         }
        </style> 
 </head>
@@ -88,7 +95,15 @@ if(isset($_POST['celebrities'])){
                     <div class="form-outline mb-4">
                         <textarea class="form-control" id="celebrities" rows="10" name="celebrities"><?php echo file_get_contents('celebrities/celebrities.ini');?></textarea>
                     </div>
-
+                    <div>
+                        <small>Format:
+                            <pre>
+                                [Dateiname]
+                                name = Name im Dropdown
+                                description = Text mit Einrückung im Bild
+                            </pre>
+                        </small>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block mb-4">speichern</button>
                 </form>
             </div>
@@ -100,17 +115,19 @@ if(isset($_POST['celebrities'])){
                 <form method="post" enctype="multipart/form-data">
                     <div class="form-outline mb-4">
                         <input placeholder="Dateiname (nur Kleinbuchstaben, mit .png)" required class="form-control" id="filename" name="filename" pattern="[a-z.]+">
+                        <small>Vorhandene Dateinamen werden überschrieben. Mit Dateiendung .png. Nur Kleinbuchstaben.</small>
                     </div>
                     <div class="form-outline mb-4">
                         <input class="form-control d-block" id="file" required type="file" name="file" accept="image/png">
-
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block mb-4">speichern</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-4">hochladen</button>
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col-8 offset-2">
+                <h2>Bilder</h2>   
+                <small>Bild anklicken zum Löschen</small><br>
                 <?php
                     $images = glob('celebrities/*.png');
                     foreach($images as $image){
