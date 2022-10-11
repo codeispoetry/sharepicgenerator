@@ -117,3 +117,12 @@ tenant-delete:
 	@read -p "which tenant do you want to delete: " tenant; \
 	./scripts/delete-tenant.sh $$tenant \
 	make compile
+
+vor-ort-get:
+	rsync -av sharepic:/var/www/develop.sharepicgenerator.de/shared/assets/vorort/celebrities/* code/dist/assets/vorort/celebrities/
+	
+vor-ort-deploy:
+	rsync -av code/dist/assets/js/*.js sharepic:/var/www/develop.sharepicgenerator.de/current/assets/js/
+
+deploy-functions:
+	rsync -av code/dist/lib/functions.php sharepic:/var/www/develop.sharepicgenerator.de/current/lib/

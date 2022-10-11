@@ -9,26 +9,26 @@
                     <textarea placeholder="Text über dem Claim" name="text1" id="text1" class=" form-control h-2em"></textarea>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text unter dem Claim (MdL)" name="text2" id="text2" value="" class="form-control h-3em">    mit Ihrem
+                    <textarea placeholder="Text unter dem Claim (MdL)" name="text2" id="text2" value="" class="form-control h-3em">    mit Ihrer/Ihrem
   Abgeordneten
-Daniel Lede Abal</textarea>
+VORNAME NACHNAME</textarea>
                          
                 </div>  
                     <div class="d-flex align-items-lg-center small">
                         Einrückungen kannst Du mit Leerzeichen einfügen.
                     </div>      
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Links unten (Datum und Uhrzeit)" name="text3" id="text3" value="" class="form-control h-3em">Donnerstag,
-01.12.2022
-19:00 Uhr</textarea>
+                    <textarea placeholder="Links unten (Datum und Uhrzeit)" name="text3" id="text3" value="" class="form-control h-3em">WOCHENTAG
+DATUM
+UHRZEIT</textarea>
                 </div>                
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Mitte unten, gro0 (Ort)" name="text4" id="text4" value="" class="form-control h-2em">Altes Kino
-Tübingen,</textarea>
+                    <textarea placeholder="Mitte unten, gro0 (Ort)" name="text4" id="text4" value="" class="form-control h-2em">ORT
+STADT</textarea>
                 </div>         
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Mitte unten, klein (Adresse)" name="text5" id="text5" value="" class="form-control h-2em">Am Stadtgraben 2,
-72072 Tübingen</textarea>
+                    <textarea placeholder="Mitte unten, klein (Adresse)" name="text5" id="text5" value="" class="form-control h-2em">STRASSE,
+PLZ ORT</textarea>
                 </div>      
             </div>
         </div>
