@@ -21,7 +21,7 @@ const celebrity = {
   },
 
   setPosition(){
-    celebrity.svg.size(null, draw.height() * 0.7);
+    celebrity.svg.size(null, draw.height() * 1);
 
     const w =  celebrity.svg.width();
     const h =  celebrity.svg.height();
