@@ -124,5 +124,8 @@ vor-ort-get:
 vor-ort-deploy:
 	rsync -av code/dist/assets/js/*.js sharepic:/var/www/develop.sharepicgenerator.de/current/assets/js/
 
+vor-ort-celebrities:
+	rsync -av code/dist/assets/vorort/celebrities/* sharepic:/var/www/sharepicgenerator.de/shared/assets/vorort/celebrities/
+
 deploy-functions:
 	rsync -av code/dist/lib/functions.php sharepic:/var/www/develop.sharepicgenerator.de/current/lib/
