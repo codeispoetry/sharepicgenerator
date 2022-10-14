@@ -20,17 +20,5 @@
 </ul>
 
 <span class="navbar-text">
-<?php if(isGuest()){ ?>
-    <a href="index.php" class="text-white"><i class="fas fa-sign-in-alt"></i> einloggen / registrieren</a>
-<?php }else{ ?>
-    Eingeloggt als 
-    <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
-        <?php echo substr(getUser(), 3); ?>
-        <?php if (isEditor()) {
-            echo '(Editor)';
-        }
-        ?>
-    </em>
-    <a href="<?php echo get_logout_link(); ?>" class="ms-2"><i class="fas fa-sign-out-alt" title="Ausloggen"></i></a>
-<?php } ?>
+
 </span>
