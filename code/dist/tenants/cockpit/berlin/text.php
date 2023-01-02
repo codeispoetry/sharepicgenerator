@@ -12,10 +12,10 @@
 
             <div class="list-group-item-content">
                 <div class="">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Grün wählen
-         für Berlin.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Politik für die
+    ganze Stadt!</textarea>
                
-                    <textarea placeholder="Text darunter" name="textafter" id="textafter" class="form-control">           Klar geht das.</textarea>
+                    <textarea placeholder="Text darunter" name="textafter" id="textafter" class="form-control">Klimaschutz & Mobilität</textarea>
                     <small>Die Einrückungen kannst Du mir Leerzeichen zu Beginn einer Zeile erzeugen.</small>
                 </div>
 

@@ -84,8 +84,8 @@
 
 </div>   
 
-<h3><i class="fas fa-image"></i> Grünfärbung</h3>
-<div class="list-group-item novideo">
+<h3 class="d-none"><i class="fas fa-image"></i> Grünfärbung</h3>
+<div class="list-group-item novideo d-none">
         Bild grün einfärben
         <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-toggle="toggle" data-on="ja" data-off="nein">
 

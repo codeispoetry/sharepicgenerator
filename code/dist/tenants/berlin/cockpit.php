@@ -28,7 +28,8 @@
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once(getBasePath('tenants/cockpit/berlin/text.php'));
-            require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
+            require_once(getBasePath('tenants/cockpit/berlin/frame.php'));
+            require_once(getBasePath('tenants/cockpit/berlin/logo.php'));
             require_once(getBasePath('tenants/cockpit/eyecatcher-none.php'));
         ?>
     </div>
