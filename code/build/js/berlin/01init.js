@@ -26,7 +26,6 @@ $(document).ready(() => {
 
   showLayout();
 
-
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
@@ -72,6 +71,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
+    claimBerlin.setPosition();
   }, 20);
 
   window.setTimeout(() => {
