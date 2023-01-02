@@ -31,6 +31,11 @@ const berlintext = {
 
     setLineHeight();
 
+    if ($('#textafter').val()) {
+      const mainTextHeight =  lines.length * 28;
+      berlintext.svg.add(berlintext.drawTextAfter().dy(mainTextHeight));
+    }
+
     lines.forEach((value, index) => {
       const line = draw.group();
       const indentation = value.match(/^\s*/)[0].length;
@@ -56,10 +61,6 @@ const berlintext = {
 
       berlintext.svg.add(line);
     });
-
-    if ($('#textafter').val()) {
-      berlintext.svg.add(berlintext.drawTextAfter().dy(berlintext.svg.height() - 2));
-    }
 
     berlintext.svg
       .size($('#textsize').val())
@@ -105,10 +106,12 @@ const berlintext = {
         .back();
 
       line.x(indentation * 5)
-        .y(index * 15);
+        .y(index * 22);
 
       textafter.add(line);
     });
+
+    textafter.dy(0)
 
     return textafter;
   },
