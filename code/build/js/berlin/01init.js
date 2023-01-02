@@ -5,16 +5,18 @@ const bgpic = {
   height: 450,
   originalWidth: 1920,
   originalHeight: 1080,
-  filename: '/assets/bg_small.jpg',
-  fullBackgroundName: '../assets/bg.jpg',
+  filename: '/assets/bg_berlin_small.jpg',
+  fullBackgroundName: '../assets/bg_berlin.jpg',
 };
 
 var initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(502);
-  $('#textX').val(41);
-  $('#textY').val(372);
+  $('#textX').val(61);
+  $('#textY').val(172);
+  $('#logoX').val(382);
+  $('#logoY').val(142);
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -40,10 +42,10 @@ function initSharepic() {
   }
   // called after background pic is loaded
   $('#sizepresets').val('1200:1200').trigger('change');
-  $('#textY').val(320);
+  $('#textY').val(120);
   initialized = true;
 
-  background.drawColor();
+ // background.drawColor();
 
   return true;
 }
@@ -72,6 +74,7 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     copyright.draw();
     claimBerlin.setPosition();
+    frame.draw();
   }, 20);
 
   window.setTimeout(() => {

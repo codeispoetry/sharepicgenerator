@@ -10,7 +10,7 @@ const berlintext = {
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
-    size: 9,
+    size: 17,
   },
 
   draw() {
@@ -19,7 +19,7 @@ const berlintext = {
       return;
     }
 
-    const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
+    const lines = $('#text').val().toUpperCase().replace(/\n$/, '').split(/\n/);
 
     berlintext.svg.remove();
     berlintext.svg = draw.group().addClass('draggable').draggable();
@@ -46,7 +46,7 @@ const berlintext = {
       const fond = line.rect(
         text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
       )
-        .fill('#145f32')
+        .fill('#006a52')
         .x(-fondPadding)
         .y(-fondPadding)
         .back();
@@ -75,6 +75,8 @@ const berlintext = {
     eraser.front();
 
     berlintext.svg.front();
+
+    berlintext.svg.skew(0, -4);
   },
 
   drawTextAfter() {
@@ -89,7 +91,7 @@ const berlintext = {
 
       const text = line.text(value.replace(/^\s*/, ''))
         .font(Object.assign(berlintext.fontAfter, { }))
-        .fill('#FFFFFF')
+        .fill('#006a52')
         .move(0, 0)
         .attr('xml:space', 'preserve')
         .attr('style', 'white-space:pre');
@@ -97,7 +99,7 @@ const berlintext = {
       const fond = line.rect(
         text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
       )
-        .fill('#ff3560')
+        .fill('#95c11f')
         .x(-fondPadding)
         .y(-fondPadding)
         .back();
