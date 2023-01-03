@@ -13,7 +13,8 @@ const berlintext = {
     size: 17,
   },
 
-  fondColor: '#95c11f',
+ // fondColor: '#95c11f',
+  fondColor: '#006a52',
 
   draw() {
     if (config.layout !== 'berlintext'
