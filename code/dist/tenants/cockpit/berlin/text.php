@@ -15,7 +15,7 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Politik für die
     ganze Stadt!</textarea>
                
-                    <textarea placeholder="Text darunter" name="textafter" id="textafter" class="form-control">Klimaschutz & Mobilität</textarea>
+                    <textarea placeholder="Text darunter" name="textafter" id="textafter" class="d-none form-control"></textarea>
                     <small>Die Einrückungen kannst Du mir Leerzeichen zu Beginn einer Zeile erzeugen.</small>
                 </div>
 
