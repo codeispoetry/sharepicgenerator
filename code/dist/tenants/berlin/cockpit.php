@@ -29,6 +29,7 @@
         <?php 
             require_once(getBasePath('tenants/cockpit/berlin/text.php'));
             require_once(getBasePath('tenants/cockpit/berlin/frame.php'));
+            require_once(getBasePath('tenants/cockpit/berlin/claim.php'));
             require_once(getBasePath('tenants/cockpit/berlin/logo.php'));
             require_once(getBasePath('tenants/cockpit/eyecatcher-none.php'));
         ?>

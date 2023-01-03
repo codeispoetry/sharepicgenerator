@@ -79,9 +79,6 @@
               min-height: 230px;
           }
       }
-
-
-    }
     </style>
 </head>
 <?php
