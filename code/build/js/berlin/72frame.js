@@ -30,8 +30,6 @@ const frame = {
         
         frame.svg.add(frame1);
         frame.svg.add(frame2);
-
-       
     },
    
   };

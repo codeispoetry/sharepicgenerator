@@ -73,14 +73,13 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     copyright.draw();
-    claimBerlin.setPosition();
-    frame.draw();
+    //frame.draw();
   }, 20);
 
   window.setTimeout(() => {
     addtext.draw();
     logo.draw();
-    eraser.draw();
+    claimBerlin.draw();
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

@@ -13,13 +13,15 @@ const berlintext = {
     size: 17,
   },
 
+  fondColor: '#95c11f',
+
   draw() {
     if (config.layout !== 'berlintext'
        || $('#text').val() === '') {
       return;
     }
 
-    const lines = $('#text').val().toUpperCase().replace(/\n$/, '').split(/\n/);
+    const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
 
     berlintext.svg.remove();
     berlintext.svg = draw.group().addClass('draggable').draggable();
@@ -51,7 +53,7 @@ const berlintext = {
       const fond = line.rect(
         text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
       )
-        .fill('#006a52')
+        .fill(berlintext.fondColor)
         .x(-fondPadding)
         .y(-fondPadding)
         .back();
@@ -92,7 +94,7 @@ const berlintext = {
 
       const text = line.text(value.replace(/^\s*/, ''))
         .font(Object.assign(berlintext.fontAfter, { }))
-        .fill('#006a52')
+        .fill('white')
         .move(0, 0)
         .attr('xml:space', 'preserve')
         .attr('style', 'white-space:pre');
