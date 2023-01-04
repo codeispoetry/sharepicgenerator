@@ -8,6 +8,14 @@ const frame = {
         frame.svg.remove();
         frame.svg = draw.group();
 
+        claimBerlin.setPosition();
+
+        if( $('#frame').is(':checked') === false ) {
+            $('#framebreak').prop('disabled', true);
+            return;
+        }
+        $('#framebreak').prop('disabled', false);
+
         const t = draw.width() * 0.025; // thickness of frame
         const color1 = '#006a52';
         const color2 = '#95c11f';
@@ -30,11 +38,12 @@ const frame = {
         
         frame.svg.add(frame1);
         frame.svg.add(frame2);
+
+        claimBerlin.svg.front();
     },
    
   };
 
 frame.draw();
 
-$('#framebreak').bind('input propertychange', frame.draw);
-
+$('#framebreak, #frame').bind('input propertychange', frame.draw);
