@@ -13,9 +13,6 @@ const berlintext = {
     size: 17,
   },
 
- // fondColor: '#95c11f',
-  fondColor: '#006a52',
-
   draw() {
     if (config.layout !== 'berlintext'
        || $('#text').val() === '') {
@@ -39,14 +36,19 @@ const berlintext = {
       berlintext.svg.add(berlintext.drawTextAfter().dy(mainTextHeight));
     }
 
+    berlintext.svg.attr('id', 'berlintext');
+
     lines.forEach((value, index) => {
       const line = draw.group();
       const indentation = value.match(/^\s*/)[0].length;
       const fondPadding = 4;
 
+      const fondColor = $('#textcolor1').val();
+      const textColor = (fondColor == '#006a52') ? '#FFFFFF' : '#006a52';
+
       const text = line.text(value.replace(/^\s*/, ''))
         .font(Object.assign(berlintext.font, { }))
-        .fill('#FFFFFF')
+        .fill(textColor)
         .move(0, 0)
         .attr('xml:space', 'preserve')
         .attr('style', 'white-space:pre');
@@ -54,7 +56,7 @@ const berlintext = {
       const fond = line.rect(
         text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
       )
-        .fill(berlintext.fondColor)
+        .fill(fondColor)
         .x(-fondPadding)
         .y(-fondPadding)
         .back();
@@ -79,7 +81,6 @@ const berlintext = {
     eraser.front();
 
     berlintext.svg.front();
-
     berlintext.svg.skew(0, -4);
   },
 
@@ -88,6 +89,9 @@ const berlintext = {
 
     const lines = $('#textafter').val().replace(/\n$/, '').split(/\n/);
 
+    const fondColor = $('#textcolor2').val();
+    const textColor = (fondColor == '#006a52') ? '#FFFFFF' : '#006a52';
+
     lines.forEach((value, index) => {
       const line = draw.group();
       const indentation = value.match(/^\s*/)[0].length;
@@ -95,7 +99,7 @@ const berlintext = {
 
       const text = line.text(value.replace(/^\s*/, ''))
         .font(Object.assign(berlintext.fontAfter, { }))
-        .fill('white')
+        .fill(textColor)
         .move(0, 0)
         .attr('xml:space', 'preserve')
         .attr('style', 'white-space:pre');
@@ -103,7 +107,7 @@ const berlintext = {
       const fond = line.rect(
         text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
       )
-        .fill('#95c11f')
+        .fill(fondColor)
         .x(-fondPadding)
         .y(-fondPadding)
         .back();

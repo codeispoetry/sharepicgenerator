@@ -7,7 +7,8 @@
        <label>
             <input type="radio" name="claim" class="me-2" value="ZEIT FÜR JARASCH.">Zeit für Jarasch.
        </label>
-        
     </div>
+
+    <span class="text-primary cursor-pointer" id="setClaim">Schiebe Claim nach unten in die Mitte</span>
 </div>
                       
