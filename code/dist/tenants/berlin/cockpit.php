@@ -9,6 +9,8 @@
         <i class="fas fa-image"></i><small>Bild</small></button>
     <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
         <i class="fas fa-font"></i><small>Text</small></button>
+    <button class="nav-link" id="v-pills-layout-tab" data-toggle="pill" data-target="#v-pills-layout" type="button" role="tab" aria-controls="v-pills-layout" aria-selected="false">
+        <i class="fas fa-paint-roller"></i><small>Layout</small></button>
     <button class="nav-link" id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
         <i class="fas fa-plus-circle"></i><small>Zusatz</small></button>
     <button class="nav-link" id="v-pills-download-tab" data-toggle="pill" data-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
@@ -28,8 +30,14 @@
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once(getBasePath('tenants/cockpit/berlin/text.php'));
-            require_once(getBasePath('tenants/cockpit/btw21/logo.php'));
             require_once(getBasePath('tenants/cockpit/berlin/eyecatcher.php'));
+        ?>
+    </div>
+    <div class="tab-pane" id="v-pills-layout" role="tabpanel" aria-labelledby="v-pills-layout-tab">
+        <?php 
+            require_once(getBasePath('tenants/cockpit/berlin/frame.php'));
+            require_once(getBasePath('tenants/cockpit/berlin/claim.php'));
+            require_once(getBasePath('tenants/cockpit/berlin/logo.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
