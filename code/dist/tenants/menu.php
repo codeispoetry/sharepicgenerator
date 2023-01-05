@@ -12,9 +12,6 @@
                 <a href="#" class="overlay-opener dropdown-item" data-target="faq" id="faqopener">
                     <i class="fa fa-question-circle"></i> Häufige Fragen
                 </a>
-                <a href="https://www.gruene.de/service/corporate-design" class="dropdown-item" target="_blank">
-                    <i class="fas fa-tape"></i> Designrichtlinien
-                </a>
                 <a class="dropdown-item" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">
                     <i class="fas fa-magic"></i>  Styleguide
                 </a>

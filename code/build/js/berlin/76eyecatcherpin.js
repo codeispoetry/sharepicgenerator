@@ -35,7 +35,7 @@ const pin = {
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
     const pinbackground = draw.circle(diameter)
-      .fill('#ff3560');
+      .fill('#e6007e');
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 

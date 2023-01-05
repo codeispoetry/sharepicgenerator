@@ -14,7 +14,7 @@ $tenant = "berlin";
 
 $user =  do_saml_login();
 
-if (!$hasAccess) {
+if ( isset($hasAccess) AND !$hasAccess) {
     $user = handleSamlAuth($doLogout);
 }
 
