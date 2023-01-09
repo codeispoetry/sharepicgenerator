@@ -219,7 +219,7 @@ input{
 
     &::-webkit-slider-thumb {
       background: $pistazie;
-}
+   }
   }
 }
 
@@ -275,6 +275,6 @@ ul.text-symbols{
 }
 
 .form-check-input:checked {
-  background-color: $cockpit;
-  border-color: $cockpit;
+  background-color: $cockpit-highlight;
+  border-color: $cockpit-highlight;
 }
