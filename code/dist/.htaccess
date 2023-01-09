@@ -19,6 +19,8 @@ Options +Indexes +FollowSymLinks
     RewriteRule ^(nds)\/?$ /tenants/$1/index.php [L]
     RewriteRule ^(vorort)\/?$ /tenants/$1/index.php [L]
     RewriteRule ^(vor-ort)\/?$ /tenants/$1/index.php [L]
+    RewriteRule ^(einigungshilfe)\/?$ /tenants/$1/index.php [L]
+
 
 
 
