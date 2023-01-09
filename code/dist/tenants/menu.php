@@ -1,10 +1,24 @@
+<!-- Version:  <?php system("pwd -P | cut -d '/' -f 6"); ?> -->
 <div class="d-flex">
-   
+
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Über
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a href="imprint.php" class="dropdown-item">
+                    <i class="fa fa-section"></i> Impressum
+                </a>
+                <a href="imprint.php" class="dropdown-item">
+                    <i class="fa fa-key"></i> Datenschutz
+                </a>
+            </div>
+        </li>
+
+    <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Hilfe
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -13,17 +27,16 @@
                     <i class="fa fa-question-circle"></i> Häufige Fragen
                 </a>
                 <a class="dropdown-item" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">
-                    <i class="fas fa-magic"></i>  Styleguide
+                    <i class="fas fa-magic"></i> Styleguide
                 </a>
                 <a class="dropdown-item" href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">
-                    <i class="fab fa-rocketchat"></i>  Chatkanal
+                    <i class="fab fa-rocketchat"></i> Chatkanal
                 </a>
-        </div>
+            </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Regionale Angebote
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

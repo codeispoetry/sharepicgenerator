@@ -1,5 +1,9 @@
 .cockpit{
+  min-width: 380px;
+  color: $white;
+
   a{
+    color: $cockpit;
     text-decoration: none;
   }
 
@@ -16,7 +20,7 @@
       h3{
         background: none;
         border: 0;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $white;
         margin-top: 2em;
         padding-left: 0;
 
@@ -114,13 +118,13 @@
 
     background: #dddddd;
 
-    color: #1c1c1c;
+    color: $white;
     i{
       margin-right: 1em;
     }
 
     &.collapsed{
-      border-color: white;
+      border-color: $white;
 
       &.disabled{
         font-style: italic;
