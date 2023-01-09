@@ -22,36 +22,36 @@
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once(getBasePath('tenants/cockpit/btw21/picture.php'));
-            require_once(getBasePath('tenants/cockpit/picture-size.php'));
+            require_once(getBasePath('cockpit/picture.php'));
+            require_once(getBasePath('cockpit/picture-size.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
-            require_once(getBasePath('tenants/cockpit/bw/text.php'));
-            require_once(getBasePath('tenants/cockpit/bw/logo.php'));
-            require_once(getBasePath('tenants/cockpit/bw/eyecatcher.php'));
+            require_once('cockpit/text.php');
+            require_once('cockpit/logo.php');
+            require_once('cockpit/eyecatcher.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
-            require_once(getBasePath('tenants/cockpit/addpictures.php'));
-            require_once(getBasePath('tenants/cockpit/addtext.php'));
-            require_once(getBasePath('tenants/cockpit/eraser-none.php'));
+            require_once(getBasePath('cockpit/addpictures.php'));
+            require_once(getBasePath('cockpit/addtext.php'));
+            require_once(getBasePath('cockpit/eraser-none.php'));
 
 
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('tenants/cockpit/quality.php'));
-         require_once(getBasePath('tenants/cockpit/workfile.php'));
-         require_once(getBasePath('tenants/cockpit/mail.php'));
+         require_once(getBasePath('cockpit/quality.php'));
+         require_once(getBasePath('cockpit/workfile.php'));
+         require_once(getBasePath('cockpit/mail.php'));
     ?>
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('tenants/cockpit/preferences-province.php'));
+         require_once(getBasePath('cockpit/preferences-province.php'));
     ?>
     </div>
   </div>
