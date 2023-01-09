@@ -1,19 +1,15 @@
 {
   "name": "sharepicgenerator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "scripts": {
-    "compile:main": "terser build/js/*.js --output dist/assets/js/main.min.js",
-    "compile:tenant": "terser build/js/$TENANT/*.js --output dist/assets/js/$TENANT.min.js"
-  },
+  "description": "JS for the sharepicgenerator.",
+  "author": "Thomas Rose",
+  "scripts": {},
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
     "node-sass": "^8.0.0",
     "terser": "^5.16.1"
   },
