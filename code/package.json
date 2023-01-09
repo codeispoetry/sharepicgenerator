@@ -14,7 +14,6 @@
     "node-sass": "^8.0.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.2.1",
     "bootstrap": "^5.2.3"
   }
 }
