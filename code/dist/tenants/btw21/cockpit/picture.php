@@ -63,10 +63,10 @@
         </div>
  
         <div>
-            <small class="text-primary cursor-pointer novideo me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+            <small class="text-cockpit cursor-pointer novideo me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
                 spiegeln
             </small>
-            <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
+            <small class="text-cockpit cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
                 zurücksetzen
             </small>
         </div>
@@ -100,7 +100,7 @@
             <input type="range" class="form-range" name="greenifycontrast" id="greenifycontrast" min="0"
                 max="0.8" value="0.05" step="0.005">
         </div>
-        <small class="text-primary cursor-pointer novideo greenifyreset">
+        <small class="text-cockpit cursor-pointer novideo greenifyreset">
             <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
         </small>
 

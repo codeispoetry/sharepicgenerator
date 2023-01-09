@@ -1,7 +1,7 @@
 <h3><i class="fas fa-image"></i> Eigenes Bild</h3>
 <div class="picture  list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 d-flex justify-content-between">
-        <a href="#" class="btn btn-moos text-white text-primary cursor-pointer uploadfileclicker">
+        <a href="#" class="btn btn-moos text-white cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#00594E">
@@ -63,10 +63,10 @@
         </div>
  
         <div>
-            <small class="text-primary cursor-pointer novideo me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+            <small class="text-cockpit cursor-pointer novideo me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
                 spiegeln
             </small>
-            <small class="text-primary cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
+            <small class="text-cockpit cursor-pointer novideo" id="backgroundreset"><i class="fas fa-undo"></i></i>
                 zurücksetzen
             </small>
         </div>
