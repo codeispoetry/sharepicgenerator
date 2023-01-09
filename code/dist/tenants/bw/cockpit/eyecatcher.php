@@ -19,7 +19,7 @@
                         <input type="hidden" name="pinColor" id="pinColor" value="#E6007E">
 
                         <span class="to-front" data-target="pin" title="Störer nach vorne">
-                            <i class="fas fa-layer-group text-primary"></i>
+                            <i class="fas fa-layer-group text-cockpit"></i>
                         </span> 
                     </div>
                 </div>   

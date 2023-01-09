@@ -17,14 +17,14 @@
 
             <div class="ms-1"> 
                 <span class="textanchor" data-payload="left" title="Text linksbündig">
-                    <i class="fa fa-align-left text-primary"></i>
+                    <i class="fa fa-align-left text-cockpit"></i>
                 </span>
                 <span class="textanchor" data-payload="middle" title="Text zentrieren">
-                    <i class="fa fa-align-center text-primary"></i>
+                    <i class="fa fa-align-center text-cockpit"></i>
                 </span>
                 
                 <span class="to-front" data-target="text" title="Text nach vorne">
-                    <i class="fas fa-layer-group text-primary"></i>
+                    <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
 
                 <span class="colorpicker" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#textprimarycolor" title="Hauptfarbe wechseln"></span> 
@@ -48,7 +48,7 @@
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird hervorgehoben</small>
-                        <small class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
+                        <small class="cursor-pointer ms-3 text-cockpit aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             in Bildmitte</small>
                     </div>
@@ -90,11 +90,11 @@
             </div>
             <div class="preferences-text showonly lines d-none">
                 <div class="d-flex justify-content-between mt-3">
-                    <span class="text-primary cursor-pointer uploadiconclicker">
+                    <span class="text-cockpit cursor-pointer uploadiconclicker">
                         <i class="fa fa-upload"></i> Icon hochladen
                     </span>
 
-                    <span class="text-primary cursor-pointer overlay-opener" data-target="iconoverlay">
+                    <span class="text-cockpit cursor-pointer overlay-opener" data-target="iconoverlay">
                         <i class="fas fa-search"></i> Icon suchen
                     </span>
                 </div>

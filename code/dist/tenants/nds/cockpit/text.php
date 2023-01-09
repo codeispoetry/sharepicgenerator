@@ -71,12 +71,12 @@ Nahverkehr,
                         </div>
                         <div class="d-none">
                             <div class="me-3">
-                                <span class="cursor-pointer ms-3 text-primary align-center-text showonly floating">
+                                <span class="cursor-pointer ms-3 text-cockpit align-center-text showonly floating">
                                     <i class="fab fa-centercode" title="Text in Bildmitte"></i></span>
                             </div> 
                             <div>
                                 <span class="to-front" data-target="text" title="Text nach vorne">
-                                    <i class="fas fa-layer-group text-primary"></i>
+                                    <i class="fas fa-layer-group text-cockpit"></i>
                                 </span> 
                             </div>
                         </div>
