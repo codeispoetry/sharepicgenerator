@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  webserver:
+    build: docker/php
+    ports:
+      - '${PORT}:80'
+    volumes:
+      - ./code:/var/www/html
+      - ./fonts:/usr/share/fonts/truetype/custom
+      - ./deployment/scripts:/root/scripts
+    networks:
+      - sharepicgenerator
+  node:
+    build: docker/node
+    volumes:
+      - ./code:/var/www/html
+    command: gulp
+    working_dir: /var/www/html
+    networks:
+      - sharepicgenerator
+networks:
+  sharepicgenerator:

@@ -1,4 +1,4 @@
-const { src, dest } = require("gulp");
+const { src, dest, watch, series } = require("gulp");
 const sass = require('gulp-sass')(require('node-sass'));
 const { readdir } = require("fs").promises;
 const { statSync } = require('fs');
@@ -53,3 +53,8 @@ async function compileJS(cb){
 exports.default = build;
 exports.css = compileSASS;
 exports.js = compileJS;
+
+exports.default = function() {
+    watch('./build/scss/**/*.scss', compileSASS);
+    watch('./build/js/**/*.js', compileJS);
+};
