@@ -56,12 +56,6 @@ test-tenants:
 	URL=http://webserver TENANT=rlp LOCAL=true python3 tenant.py && \
 	URL=http://webserver TENANT=frankfurt LOCAL=true python3 tenant.py
 
-doc:
-	docker-compose exec mkdocs mkdocs build
-	asdf
-
-deploy-doc:
-	rsync -r --progress code/dist/documentation/ sharepic:/var/www/sharepicgenerator.de/shared/documentation
 
 checkstyle:
 	phpcs -s code/dist/
