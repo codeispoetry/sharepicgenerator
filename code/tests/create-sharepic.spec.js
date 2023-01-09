@@ -8,7 +8,7 @@ test('create sharepic', async ({ page }) => {
   await page.locator('img:nth-child(3)').click();
 
   await page.getByRole('button', { name: 'ja nein' }).click();
-  await page.getByRole('tab', { name: ' Text' }).click();
+  await page.getByRole('tab', { name: '' }).click();
   await page.getByPlaceholder('Haupttext').click();
   await page.getByPlaceholder('Text darüber').click();
   await page.getByPlaceholder('Text darüber').fill('Hallo');
