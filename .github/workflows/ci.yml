@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - new_style
 
 jobs:
   build:
@@ -34,14 +35,10 @@ jobs:
           cd code/dist
           npm install
 
-      - name: Install npm packages for development
-        run: |
-          cd code
-          npm install
       - name: Build js and scss
         run: |
           cd code
-          npm run build:production
+          npm install && gulp build
 
   deploy:
     runs-on: ubuntu-latest
