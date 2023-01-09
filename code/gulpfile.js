@@ -42,17 +42,10 @@ async function compileJS(cb){
         dirs.forEach(dir => {
             src(`./build/js/${dir}/*.js`)
                 .pipe(concat(`${dir}.min.js`))
-                .pipe(terser())
+               // .pipe(terser())
                 .pipe(dest('dist/assets/js/'));
         });
     });
-    cb();
-}
-
-function compileBTW21(cb){
-    src('./build/js/btw21/*.js')
-      .pipe(concat('btw21.min.js'))
-      .pipe(dest('dist/assets/js/'));
     cb();
 }
 
@@ -60,6 +53,3 @@ function compileBTW21(cb){
 exports.default = build;
 exports.css = compileSASS;
 exports.js = compileJS;
-exports.btw21 = compileBTW21;
-
-
