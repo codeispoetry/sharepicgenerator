@@ -68,7 +68,7 @@ $_SESSION['csrf'] = $csrf;
 </head>
 <body class="h-100">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-pistazie">
+    <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,9 +78,9 @@ $_SESSION['csrf'] = $csrf;
     </div>
     </nav>
 </header>
-<div class="container-fluid">
+<div class="container-fluid h-100">
     <div class="row h-100 flex-row-reverse">
-        <div class="col-12 col-lg-9 canvas-wrapper p-0">
+        <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
                     <div id="canvas">
@@ -129,7 +129,7 @@ $_SESSION['csrf'] = $csrf;
             </div>
 
             </div>
-        <div class="col-12 col-lg-3 p-0">
+        <div class="col-12 col-lg-4 p-0">
             <div class="cockpit h-100">
                 <?php require_once('cockpit.php'); ?>
             </div> 

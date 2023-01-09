@@ -1,0 +1,23 @@
+.cockpit{
+    background: #333333;
+
+    .nav{
+        &-pills{
+            min-width: 3em;
+            font-size: 1.2em;
+        }
+    }
+}
+
+.btn-cockpit{
+    color: black;
+}
+
+.nav{
+    &-link{
+        color: white;
+        &:hover{
+            color: $lightgray;
+        }
+    }
+}

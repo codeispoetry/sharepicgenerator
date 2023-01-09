@@ -1,7 +1,7 @@
 <h3><i class="fas fa-image"></i> Eigenes Bild</h3>
 <div class="picture  list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 d-flex justify-content-between">
-        <a href="#" class="btn btn-moos text-white text-primary cursor-pointer uploadfileclicker">
+        <a href="#" class="btn btn-cockpit text-white text-primary cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
         </a> 
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">

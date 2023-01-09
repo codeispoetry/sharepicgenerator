@@ -23,9 +23,14 @@ body{
 }
 
 #canvas {
-  border: 1px solid #999;
-  box-shadow: #999 5px 5px 15px;
+  border: 0;
   margin: auto;
+}
+
+.canvas{
+  &-wrapper{
+    background: $background-main-area;
+  }
 }
 
 .cursor-pointer {
@@ -155,6 +160,9 @@ textarea.height1line{
 }
 
 .navbar{
+  background: $background-top-area;
+  color: white;
+
   &-brand{
     img{
       height: 2rem;
@@ -174,6 +182,12 @@ textarea.height1line{
   .nav-link, .navbar-text{
     font-family: BereitBold;
     font-size: 1.2em;
+    color: $white;
+
+    a{
+      color: $white;
+      text-decoration: none;
+    }
   }
 }
 

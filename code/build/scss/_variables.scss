@@ -43,14 +43,12 @@ $warning: #945707;
 $danger: #d62518;
 $light: #f8f9fa;
 $dark: #343a40;
-$cockpitbg: #eeeeee;
 
-$awo: #e2001a;
-$awogray: #a0a0a0;
-$adfcblue: #004B7C;
-$adfcorange: #EE7400;
-$adfc: $adfcblue;
-
+$background-left: #333333;
+$background-cockpit: #252526;
+$background-main-area: #1e1e1e;
+$background-top-area: #2c2c2c;
+$cockpit: #eeeeee;
 
 $theme-colors: (
   "pistazie": $pistazie,
@@ -65,14 +63,8 @@ $theme-colors: (
   "warning": $warning,
   "dark": $dark,
   "light": $light,
-  "cockpitbg": $cockpitbg,
-  "awo": $awo,
-  "awogray": $awogray,
-  "adfc" : $adfc,
-  "adfcblue" : $adfcblue,
-  "adfcorange" : $adfcorange,
-
-
+  "cockpitbg": $background-cockpit,
+  "cockpit": $cockpit,
 );
 
 $form-range-track-bg: $light;
@@ -80,4 +72,4 @@ $transition-collapse:  height .35s ease;
 
 $nav-pills-border-radius: 0;
 $nav-pills-link-active-color: $black;
-$nav-pills-link-active-bg:  $cockpitbg;
+$nav-pills-link-active-bg:  $background-cockpit;
