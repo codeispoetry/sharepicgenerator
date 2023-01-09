@@ -1,12 +1,6 @@
 up:
 	docker-compose up -d
 
-up-test:
-	docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d
-
-up-doc:
-	docker-compose -f docker-compose.yml -f docker-compose.doc.yml up -d	
-
 stop:
 	docker-compose stop
 
@@ -14,7 +8,7 @@ restart-node:
 	docker-compose restart node
 
 build:
-	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/ code/dist/tenants/federal/gallery/img/
+	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/
 
 install:
 	docker-compose run node sh -c 'npm install'
@@ -36,26 +30,6 @@ shell:
 
 down:
 	docker-compose down
-
-test:
-	cd tests && URL=http://webserver LOCAL=true python3 test.py
-
-test-live:
-	cd tests && URL=https://sharepicgenerator.de LOCAL=true python3 test.py
-
-test-develop:
-	cd tests && URL=https://develop.sharepicgenerator.de LOCAL=true python3 test.py
-
-test-tenant:
-	@read -p "which tenant (e.g. bw,rlp,hessen,frankfurt): " tenant; \
-	cd tests && URL=http://webserver TENANT=$$tenant LOCAL=true python3 tenant.py
-
-test-tenants:
-	cd tests && URL=http://webserver TENANT=bw LOCAL=true python3 tenant.py && \
-	URL=http://webserver TENANT=hessen LOCAL=true python3 tenant.py && \
-	URL=http://webserver TENANT=rlp LOCAL=true python3 tenant.py && \
-	URL=http://webserver TENANT=frankfurt LOCAL=true python3 tenant.py
-
 
 checkstyle:
 	phpcs -s code/dist/
@@ -96,9 +70,6 @@ user-get:
 users:
 	docker-compose exec webserver sqlite3 dist/log/logs/user.db
 
-bw-templates-get:
-	rsync -av sharepic:/var/www/sharepicgenerator.de/shared/tenants/bw/gallery/img/ code/dist/tenants/bw/gallery/img
-
 watch:
 	docker-compose exec node npm run watch
 
@@ -111,15 +82,3 @@ tenant-delete:
 	@read -p "which tenant do you want to delete: " tenant; \
 	./scripts/delete-tenant.sh $$tenant \
 	make compile
-
-vor-ort-get:
-	rsync -av sharepic:/var/www/develop.sharepicgenerator.de/shared/assets/vorort/celebrities/* code/dist/assets/vorort/celebrities/
-	
-vor-ort-deploy:
-	rsync -av code/dist/assets/js/*.js sharepic:/var/www/develop.sharepicgenerator.de/current/assets/js/
-
-vor-ort-celebrities:
-	rsync -av code/dist/assets/vorort/celebrities/* sharepic:/var/www/sharepicgenerator.de/shared/assets/vorort/celebrities/
-
-deploy-functions:
-	rsync -av code/dist/lib/functions.php sharepic:/var/www/develop.sharepicgenerator.de/current/lib/
