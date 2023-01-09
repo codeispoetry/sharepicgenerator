@@ -7,9 +7,9 @@ function build(cb) {
 }
 
 function compileSASS(cb) {
-    src('./build/scss/main.scss')
+    src('./build/scss/styles.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('public/stylesheets'));
+        .pipe(dest('./dist/assets/css/'));
     cb();  
 }
 

@@ -627,7 +627,7 @@ function isGuest()
 
 function latestVersion($file)
 {
-    printf('%s?v=%s', $file, filemtime(getBasePath($file)));
+        printf('%s?v=%s', $file, filemtime(getBasePath($file)));
 }
 
 
