@@ -7,15 +7,15 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "compile:mainjs": "uglifyjs build/js/*.js -o dist/assets/js/main.min.js",
-    "compile:tenant": "uglifyjs build/js/$TENANT/*.js -o dist/assets/js/$TENANT.min.js"
+    "compile:main": "terser build/js/*.js --output dist/assets/js/main.min.js",
+    "compile:tenant": "terser build/js/$TENANT/*.js --output dist/assets/js/$TENANT.min.js"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
     "node-sass": "^8.0.0",
-    "uglify-js": "^3.17.4"
+    "terser": "^5.16.1"
   },
   "dependencies": {
     "bootstrap": "^5.2.3"
