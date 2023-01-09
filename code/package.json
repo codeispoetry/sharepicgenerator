@@ -8,10 +8,14 @@
   "license": "ISC",
   "scripts": {
     "build:production": "",
-    "build:dev": "node-sass build/scss/main.scss dist/assets/css/styles.css"
+    "compile:css": "node-sass build/scss/main.scss dist/assets/css/styles.css",
+    "compile:mainjs": "uglifyjs build/js/*.js -o dist/assets/js/main.min.js",
+    "compile:tenant": "uglifyjs build/js/$TENANT/*.js -o dist/assets/js/$TENANT.min.js"
+
   },
   "devDependencies": {
-    "node-sass": "^8.0.0"
+    "node-sass": "^8.0.0",
+    "uglify-js": "^3.17.4"
   },
   "dependencies": {
     "bootstrap": "^5.2.3"
