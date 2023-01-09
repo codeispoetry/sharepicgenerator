@@ -66,7 +66,7 @@ $_SESSION['csrf'] = $csrf;
         config.user.prefs = {};
     </script>
 </head>
-<body class="h-100">
+<body class="h-100 d-flex flex-column text-white">
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
@@ -78,8 +78,8 @@ $_SESSION['csrf'] = $csrf;
     </div>
     </nav>
 </header>
-<div class="container-fluid h-100">
-    <div class="row h-100 flex-row-reverse">
+<div class="container-fluid flex-grow-1">
+    <div class="row flex-row-reverse h-100">
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
