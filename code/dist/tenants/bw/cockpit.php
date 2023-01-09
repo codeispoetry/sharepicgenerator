@@ -37,7 +37,6 @@
         <?php
             require_once(getBasePath('tenants/cockpit/addpictures.php'));
             require_once(getBasePath('tenants/cockpit/addtext.php'));
-            require_once(getBasePath('tenants/cockpit/markdown.php'));
             require_once(getBasePath('tenants/cockpit/eraser-none.php'));
 
 
