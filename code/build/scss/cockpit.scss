@@ -216,6 +216,10 @@ input{
 .form{
   &-range{
     min-width: 100px;
+
+    &::-webkit-slider-thumb {
+      background: $pistazie;
+}
   }
 }
 
