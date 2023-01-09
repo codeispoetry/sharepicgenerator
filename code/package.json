@@ -7,50 +7,15 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build:dev": "cross-env NODE_ENV=development webpack",
-    "build:production": "cross-env NODE_ENV=production webpack",
-    "watch": "webpack --watch --progress"
+    "watch": "node-sass --output-style expanded --source-map true --source-map-contents true --watch build/scss/ -o assets/css/ dist/assets/css/styles.css",
+    "build:production": "",
+    "build:dev": "node-sass build/scss/main.scss dist/assets/css/styles.css"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/runtime-corejs2": "^7.14.0",
-    "@wordpress/babel-preset-default": "^2.1.0",
-    "autoprefixer": "^9.8.6",
-    "babel-loader": "^8.2.2",
-    "cross-env": "^5.2.0",
-    "css-loader": "^1.0.0",
-    "cssnano": "^4.1.11",
-    "eslint": "^7.28.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-standard": "^4.1.0",
-    "expose-loader": "^0.7.5",
-    "extract-loader": "^2.0.1",
-    "file-loader": "^2.0.0",
-    "husky": "^4.3.8",
-    "jquery": "^3.6.0",
-    "node-sass": "^7.0.0",
-    "postcss-cli": "^7.1.2",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-concat-plugin": "^3.0.0"
+    "node-sass": "^8.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "bootstrap": "^5.0.1",
-    "install": "^0.13.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx eslint build --ext .js,.jsx,.ts,.tsx"
-    }
+    "bootstrap": "^6.2.1"
   }
 }
