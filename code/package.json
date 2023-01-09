@@ -7,7 +7,6 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "watch": "node-sass --output-style expanded --source-map true --source-map-contents true --watch build/scss/ -o assets/css/ dist/assets/css/styles.css",
     "build:production": "",
     "build:dev": "node-sass build/scss/main.scss dist/assets/css/styles.css"
   },
@@ -15,7 +14,7 @@
     "node-sass": "^8.0.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "bootstrap": "^6.2.1"
+    "@fortawesome/fontawesome-free": "^6.2.1",
+    "bootstrap": "^5.2.3"
   }
 }
