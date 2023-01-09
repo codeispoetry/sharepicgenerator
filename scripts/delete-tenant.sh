@@ -6,6 +6,6 @@ fi
 
 rm -rf code/dist/tenants/$1
 rm -rf code/build/js/$1
-rm code/webpack.tenants/$1.js
+rm -rf code/dist/assets/$1
 
 echo $i wurde gelöscht.
