@@ -9,6 +9,6 @@
        </label>
     </div>
 
-    <span class="text-primary cursor-pointer" id="setClaim">Schiebe Claim nach unten in die Mitte</span>
+    <span class="text-cockpit cursor-pointer" id="setClaim">Schiebe Claim nach unten in die Mitte</span>
 </div>
                       

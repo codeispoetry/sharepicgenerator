@@ -10,20 +10,20 @@
                 ?>
                     <div class="<?= $divclass; ?> show-add-pic-<?= $i; ?>">
                         <div class="d-flex w-100 justify-content-between">
-                         <span class="text-primary cursor-pointer addpicclicker<?= $i; ?>">
+                         <span class="text-cockpit cursor-pointer addpicclicker<?= $i; ?>">
                             <i class="fa fa-upload"></i> <?= $i; ?>. Bild hochladen
                         </span>
 
 
-                        <div class="add-pic-tools-<?= $i; ?> text-primary cursor-pointer d-none">
+                        <div class="add-pic-tools-<?= $i; ?> text-cockpit cursor-pointer d-none">
                             <?php if ($i >= 2) { ?>
-                                <span class="text-primary cursor-pointer show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
+                                <span class="text-cockpit cursor-pointer show-add-pic-<?= $i; ?>" id="addpicalign" data-click="addpicAlign">
                                     <i class="fas fa-align-justify" title="an Bild 1 angleichen"></i>
                                 </span>
                             <?php } ?>
                             
                             <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
-                                <i class="fas fa-layer-group text-primary"></i>
+                                <i class="fas fa-layer-group text-cockpit"></i>
                             </span> 
                         
                             <span id="addpicdelete<?= $i; ?>">

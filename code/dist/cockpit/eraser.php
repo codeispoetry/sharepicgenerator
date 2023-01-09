@@ -10,7 +10,7 @@
             <div class="d-flex justify-content-between mb-2">
                 <a class="btn btn-info btn-sm" id="btn-eraser" data-action="on">Radierer einschalten</a>
                 <span id="eraser-delete">
-                    <i class="fas fa-trash text-primary" title="löschen"></i>
+                    <i class="fas fa-trash text-cockpit" title="löschen"></i>
                 </span>
             </div>
             <img src="/assets/3d-effekt.jpg" class="img-fluid">

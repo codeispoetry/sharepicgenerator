@@ -250,7 +250,6 @@ ul.text-symbols{
 
 #claimtext{
   transform: skew(-9deg);
-  background: rgba(255 ,225 ,0, 0.6);
   color: $moos;
   font-family: BereitBold;
   border: 0;
@@ -269,4 +268,9 @@ ul.text-symbols{
 
 .h-3em{
   height: 5.5em;
+}
+
+.form-check-input:checked {
+  background-color: $cockpit;
+  border-color: $cockpit;
 }

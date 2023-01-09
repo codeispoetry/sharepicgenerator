@@ -13,7 +13,7 @@
             </div>
             <div>
                 <span class="to-front" data-target="addtextbasic" title="Sternchentext nach vorne">
-                    <i class="fas fa-layer-group text-primary"></i>
+                    <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
             </div>
         </div>  
@@ -27,7 +27,7 @@
             <select class="form-control" name="addtextbasicfont" id="addtextbasicfont">
                 <?php echo $fontOptionsInCockpit; ?>
             </select>
-            <i class="fa fa-upload text-primary cursor-pointer ms-2 uploadfontclicker" title="Schrift hochladen"></i>
+            <i class="fa fa-upload text-cockpit cursor-pointer ms-2 uploadfontclicker" title="Schrift hochladen"></i>
         </div> 
     </div>
 </div>

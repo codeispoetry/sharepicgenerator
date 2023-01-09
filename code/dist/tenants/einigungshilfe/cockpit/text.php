@@ -18,8 +18,8 @@
 
             <div>
 
-                <i class="fas fa-align-left text-primary click-setter d-none" data-action="basic.draw()" data-field="#textanchor" data-value="left" title="Text linksbündig"></i>
-                <i class="fas fa-align-center text-primary click-setter d-none" data-action="basic.draw()" data-field="#textanchor" data-value="middle" title="Text mittig"></i>
+                <i class="fas fa-align-left text-cockpit click-setter d-none" data-action="basic.draw()" data-field="#textanchor" data-value="left" title="Text linksbündig"></i>
+                <i class="fas fa-align-center text-cockpit click-setter d-none" data-action="basic.draw()" data-field="#textanchor" data-value="middle" title="Text mittig"></i>
 
                 <label>
                     <input type="checkbox" name="textshadow" id="textshadow">
@@ -38,7 +38,7 @@
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between mt-3">
                         <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird hervorgehoben</small>
-                        <small class="cursor-pointer ms-3 text-primary aligncenter showonly lines nolines quote">
+                        <small class="cursor-pointer ms-3 text-cockpit aligncenter showonly lines nolines quote">
                             <i class="fa fa-align-center"></i>
                             mittig ausrichten</small>
                     </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div>
                             <span class="to-front" data-target="text" title="Text nach vorne">
-                                <i class="fas fa-layer-group text-primary"></i>
+                                <i class="fas fa-layer-group text-cockpit"></i>
                             </span> 
                         </div>
                     </div> 

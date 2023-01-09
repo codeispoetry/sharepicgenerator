@@ -68,8 +68,11 @@ $theme-colors: (
 );
 
 $form-range-track-bg: $light;
+$form-range-track: blue;
 $transition-collapse:  height .35s ease;
 
 $nav-pills-border-radius: 0;
-$nav-pills-link-active-color: $black;
+$nav-pills-link-active-color: $white;
 $nav-pills-link-active-bg:  $background-cockpit;
+$nav-pills-link-color: red;
+$nav-link-color: $lightgray;

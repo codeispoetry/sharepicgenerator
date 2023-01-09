@@ -1,5 +1,5 @@
 .cockpit{
-    background: #333333;
+    background: $background-left;
 
     .nav{
         &-pills{
@@ -15,7 +15,6 @@
 
 .nav{
     &-link{
-        color: white;
         &:hover{
             color: $lightgray;
         }

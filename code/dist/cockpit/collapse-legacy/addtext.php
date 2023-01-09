@@ -13,7 +13,7 @@
             </div>
             <div>
                 <span class="to-front" data-target="addtext" title="Sternchentext nach vorne">
-                    <i class="fas fa-layer-group text-primary"></i>
+                    <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
                 <input type="hidden" name="addtextColor" id="addtextColor" value="#000000">
                 <span class="colorpicker ms-1" data-colors="#FFFFFF,#000000,#009571,#46962b,#E6007E,#FFEE00" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 

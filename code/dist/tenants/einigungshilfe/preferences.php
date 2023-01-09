@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <h3>Logos </h3>
-                <span class="text-primary cursor-pointer uploadlogoclicker ms-2" title="Eigenes Logo hochladen">
+                <span class="text-cockpit cursor-pointer uploadlogoclicker ms-2" title="Eigenes Logo hochladen">
                     <i class="fa fa-upload"></i>
                     Neues Logo hochladen</span>
             </div>
@@ -49,7 +49,7 @@
             <div class="col-12">
                 <h3>Schriften</h3>
                 <label class="uploadfontclicker">Schrift hochladen:
-                    <i class="fa fa-upload text-primary cursor-pointer ms-2" title="Schrift hochladen"></i>
+                    <i class="fa fa-upload text-cockpit cursor-pointer ms-2" title="Schrift hochladen"></i>
                 </label>
                 <?php
                 foreach (glob("{../../persistent/fonts/" . getUser() . "*.woff2}", GLOB_BRACE) as $font) {
