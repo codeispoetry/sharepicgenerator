@@ -1,9 +1,9 @@
 <h3><i class="fas fa-image"></i> Eigenes Bild</h3>
 <div class="picture  list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 d-flex justify-content-between">
-        <button class="btn btn-cockpit uploadfileclicker">
+        <span class="btn btn-cockpit uploadfileclicker">
             <i class="fa fa-upload"></i> Bild oder Video hochladen
-        </button> 
+</span> 
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
         <span class="colorpicker ms-1" data-colors="#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
