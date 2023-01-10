@@ -12,8 +12,7 @@
     <button class="nav-link" id="v-pills-messages-tab" title="Zusatz" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
         <i class="fas fa-plus-circle"></i></button>
     <button class="nav-link" id="v-pills-download-tab" title="Download" data-toggle="pill" data-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-        <i class="fas fa-share-alt"></i>
-    </button>
+        <i class="fas fa-share-alt"></i></button>
     <button class="nav-link" id="v-pills-settings-tab" title="Einstellungen" data-toggle="pill" data-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
         <i class="fas fa-cog"></i>
     </button>

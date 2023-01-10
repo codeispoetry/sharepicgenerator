@@ -6,16 +6,16 @@
 <div class="d-flex h-100">
   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <button class="nav-link active" id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
-        <i class="fas fa-image"></i><small>Bild</small></button>
+        <i class="fas fa-image"></i><small></small></button>
     <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-        <i class="fas fa-font"></i><small>Text</small></button>
+        <i class="fas fa-font"></i><small></small></button>
     <button class="nav-link" id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-        <i class="fas fa-plus-circle"></i><small>Zusatz</small></button>
+        <i class="fas fa-plus-circle"></i><small></small></button>
     <button class="nav-link" id="v-pills-download-tab" data-toggle="pill" data-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-        <i class="fas fa-share-alt"></i><small>Download</small>
+        <i class="fas fa-share-alt"></i><small></small>
     </button>
     <button class="nav-link" id="v-pills-settings-tab" data-toggle="pill" data-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-        <i class="fas fa-cog"></i><small>Einstellungen</small>
+        <i class="fas fa-cog"></i><small></small>
     </button>
   </div>
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
