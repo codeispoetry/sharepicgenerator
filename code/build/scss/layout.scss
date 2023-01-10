@@ -169,6 +169,10 @@ textarea.height1line{
     }
   }
 
+  &-nav .show > .nav-link{
+    color: $white;
+  }
+
   .dropdown-toggle{
     &:after{
       display: none;
