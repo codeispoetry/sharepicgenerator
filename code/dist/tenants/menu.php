@@ -9,7 +9,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a href="imprint.php" class="dropdown-item">
-                    <i class="fa fa-section"></i> Impressum
+                    <i class="fa fa-landmark"></i> Impressum
                 </a>
                 <a href="imprint.php" class="dropdown-item">
                     <i class="fa fa-key"></i> Datenschutz
