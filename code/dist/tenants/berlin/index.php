@@ -14,10 +14,6 @@ $tenant = "berlin";
 
 $user =  do_saml_login();
 
-if ( isset($hasAccess) AND !$hasAccess) {
-    $user = handleSamlAuth($doLogout);
-}
-
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
 $_SESSION['user'] = $user;
@@ -70,9 +66,9 @@ $_SESSION['csrf'] = $csrf;
         config.user.prefs = {};
     </script>
 </head>
-<body class="h-100">
+<body class="h-100 d-flex flex-column text-white">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-pistazie">
+    <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -82,9 +78,9 @@ $_SESSION['csrf'] = $csrf;
     </div>
     </nav>
 </header>
-<div class="container-fluid">
-    <div class="row h-100 flex-row-reverse">
-        <div class="col-12 col-lg-9 canvas-wrapper p-0">
+<div class="container-fluid flex-grow-1">
+    <div class="row flex-row-reverse h-100">
+        <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
                     <div id="canvas">
@@ -95,12 +91,15 @@ $_SESSION['csrf'] = $csrf;
                         <div id="grid-vertical-left" class="gridline vertical"></div>
                         <div id="grid-vertical-right" class="gridline vertical"></div>
                         <div id="grid-round" class="gridline"></div>
+                        <div id="grid-square" class="gridline gridline-square"></div>
+                        <div id="highlight-rect" class="d-none"></div>
                     </div>
                     <div class="text-center mt-5">
                         <div>
                             <button class="btn btn-secondary btn-lg download bereitbold" id="download">
                                 <i class="fas fa-download"></i> Herunterladen
                             </button>
+                            <?php displayDevelopHint(); ?>
                         </div>
                         <div id="qrcode" class="qrcode mt-5" style="display:none">
                             Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
@@ -126,10 +125,11 @@ $_SESSION['csrf'] = $csrf;
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
                 <div id="warning" class="text-danger text-center p-4" style="display:none">Gesicht</div>
+               
             </div>
 
             </div>
-        <div class="col-12 col-lg-3 p-0">
+        <div class="col-12 col-lg-4 p-0">
             <div class="cockpit h-100">
                 <?php require_once('cockpit.php'); ?>
             </div> 
@@ -137,6 +137,7 @@ $_SESSION['csrf'] = $csrf;
     </div>
 </div>
 
+<?php require_once('../footer.php'); ?>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>

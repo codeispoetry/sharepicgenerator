@@ -66,21 +66,21 @@ $_SESSION['csrf'] = $csrf;
         config.user.prefs = {};
     </script>
 </head>
-<body class="h-100">
+<body class="h-100 d-flex flex-column text-white">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-pistazie">
+    <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
         data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
-        <?php require_once('menu.php'); ?>
+        <?php require_once('../menu.php'); ?>
     </div>
     </nav>
 </header>
-<div class="container-fluid">
-    <div class="row h-100 flex-row-reverse">
-        <div class="col-12 col-lg-9 canvas-wrapper p-0">
+<div class="container-fluid flex-grow-1">
+    <div class="row flex-row-reverse h-100">
+        <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
                     <div id="canvas">
@@ -129,7 +129,7 @@ $_SESSION['csrf'] = $csrf;
             </div>
 
             </div>
-        <div class="col-12 col-lg-3 p-0">
+        <div class="col-12 col-lg-4 p-0">
             <div class="cockpit h-100">
                 <?php require_once('cockpit.php'); ?>
             </div> 
