@@ -14,14 +14,6 @@
                 <a href="imprint.php" class="dropdown-item">
                     <i class="fa fa-key"></i> Datenschutz
                 </a>
-            </div>
-        </li>
-
-    <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Hilfe
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">
                     <i class="fas fa-magic"></i> Styleguide
                 </a>
