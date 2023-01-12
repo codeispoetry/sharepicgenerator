@@ -6,9 +6,6 @@
   "directories": {
     "lib": "lib"
   },
-  "scripts": {
-    "test": "npx playwright test --project=chromium"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {

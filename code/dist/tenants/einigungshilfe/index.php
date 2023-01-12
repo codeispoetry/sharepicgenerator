@@ -125,7 +125,6 @@ $_SESSION['csrf'] = $csrf;
 
             <div class="col-12 mt-3 mb-3">
                 <div id="message" class="bg-danger text-white p-4" style="display:none"></div>
-                <div id="warning" class="text-danger text-center p-4" style="display:none">Gesicht</div>
                
             </div>
 
