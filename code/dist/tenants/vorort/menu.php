@@ -9,9 +9,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-book"></i> Anleitung</a>
-                <a href="#" class="overlay-opener dropdown-item" data-target="faq" id="faqopener">
-                    <i class="fa fa-question-circle"></i> Häufige Fragen
-                </a>
+
                 <a class="dropdown-item" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">
                     <i class="fas fa-magic"></i>  Styleguide
                 </a>

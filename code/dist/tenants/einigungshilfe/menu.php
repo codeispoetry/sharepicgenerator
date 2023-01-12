@@ -6,9 +6,6 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-book"></i> Anleitung</a>
-            <a href="#" class="overlay-opener dropdown-item" data-target="faq" id="faqopener">
-                <i class="fa fa-question-circle"></i> Häufige Fragen
-            </a>
         </div>
     </li>
     <li class="nav-item">
