@@ -300,4 +300,14 @@ ul.text-symbols{
     border-left:  $arrow-size solid transparent;
     border-right:  $arrow-size solid transparent;
   }
+
+  #ai-suggestions{
+    li{
+      cursor: pointer;
+      &:hover{
+        background: $danger;
+        color: white;
+      }
+    }
+  }
 }
