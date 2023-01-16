@@ -83,7 +83,7 @@ $_SESSION['csrf'] = $csrf;
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
-                    <div id="canvas" contenteditable="false">
+                    <div id="canvas">
                         <div id="grid-horizontal-center" class="gridline horizontal"></div>
                         <div id="grid-horizontal-upper" class="gridline horizontal"></div>
                         <div id="grid-horizontal-lower" class="gridline horizontal"></div>
