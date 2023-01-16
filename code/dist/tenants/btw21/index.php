@@ -117,11 +117,11 @@ $_SESSION['csrf'] = $csrf;
             require_once(getBasePath('/lib/overlays/imagedb.php'));
             ?>
 
-            <div class="col-12 mt-3 mb-3">
-                <div id="message" class="bg-danger text-white p-4" style="display:none"></div>     
+            <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
+                <div id="message" style="display:none"></div>     
             </div>
 
-            </div>
+        </div>
         <div class="col-12 col-lg-4 p-0">
             <div class="cockpit h-100">
                 <?php require_once('cockpit.php'); ?>

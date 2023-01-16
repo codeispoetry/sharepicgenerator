@@ -278,3 +278,26 @@ ul.text-symbols{
   background-color: $cockpit-highlight;
   border-color: $cockpit-highlight;
 }
+
+#message{
+  background: $danger;
+  position: relative;
+  margin-top: 2em;
+  padding: 20px;
+
+  $arrow-size: 15px;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right: 0;
+    top: -$arrow-size;
+    width:  $arrow-size;
+    border-bottom:  $arrow-size solid $danger;
+    border-left:  $arrow-size solid transparent;
+    border-right:  $arrow-size solid transparent;
+  }
+}

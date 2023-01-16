@@ -87,10 +87,13 @@ function reDraw(withAddPic = false) {
     addtext.draw();
     floating.draw();
     eraser.draw();
+
     $('.align-center-text').trigger('click');
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {
     $('#backgroundflip').click();
   }
+
+  $('#message').css('width', $('#canvas svg').width());
 }
