@@ -9,14 +9,14 @@ const nolines = {
   paddingLr: 5,
   font: {
     anchor: 'middle',
-    leading: '1.0em',
+    //leading: '1.0em',
     size: 20,
   },
   fontoutsidelines: {
     family: 'ArvoGruen',
     size: 8,
     anchor: 'middle',
-    leading: '1.0em',
+    //leading: '1.0em',
   },
 
   draw() {
@@ -57,7 +57,7 @@ const nolines = {
     lines.forEach((value, index) => {
       let style = 1;
 
-      // the main text
+      // the main text1
       const values = value.split(/\[|\]/);
 
       const t = draw.text((add) => {

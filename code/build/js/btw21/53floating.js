@@ -7,25 +7,25 @@ const floating = {
   font: {
     family: 'BereitBold',
     anchor: 'left',
-   // leading: '1.05em',
+    leading: '1.05em',
     size: 20,
   },
   fontBefore: {
     family: 'BereitBold',
     anchor: 'left',
-   // leading: '1.05em',
+    leading: '1.05em',
     size: 10,
   },
   fontCiteSymbol: {
     family: 'BereitBold',
     anchor: 'left',
-    //leading: '1.05em',
+    leading: '1.05em',
     size: 80,
   },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
-   // leading: '1.05em',
+    leading: '1.05em',
     size: 10,
   },
 
@@ -81,8 +81,8 @@ const floating = {
     const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
 
     floating.svg
-      .scale(scaleFactor, $('#textX').val(), $('#textY').val())
-      .move($('#textX').val(), $('#textY').val());
+      .move($('#textX').val(), $('#textY').val())
+      .scale(scaleFactor, $('#textX').val(), $('#textY').val());
 
     if (!config.user.prefs.advancedmode) {
       logo.setSize(17 * scaleFactor * 1.7);
@@ -112,7 +112,7 @@ const floating = {
       .font({
         family: 'BereitBold',
         anchor: 'left',
-       // leading: '1.05em',
+        leading: '1.05em',
         size: 8,
       })
       .move(2, 1)
@@ -139,7 +139,7 @@ const floating = {
         x = 0;
     }
 
-    claim.move(x, 8 + floating.svg.height() + 1);
+    claim.move(x, 8 + floating.svg.height() + 1 - 20);
 
     claim.addTo(floating.svg);
   },
@@ -168,7 +168,7 @@ const floating = {
       });
     }
 
-    textbefore.move(0, -textbefore.bbox().h);
+    textbefore.move(0, -20 - textbefore.bbox().h);
 
     switch (floating.align) {
       case 'middle':
@@ -189,7 +189,7 @@ const floating = {
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill('#FFFFFF')
-      .move(0, 6 + t.bbox().height)
+      .move(0, -20 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -228,9 +228,8 @@ $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
   const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-  const textWidth = floating.svg.width() * scaleFactor;
-  const textHeight = floating.svg.height() * scaleFactor;
-
+  const textWidth   = floating.svg.width()  * scaleFactor;
+  const textHeight  = floating.svg.height() * scaleFactor;
   $('#textX').val((draw.width() - textWidth) / 2);
   $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
