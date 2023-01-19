@@ -13,7 +13,7 @@
     <div>
         <div class="input-group -select-type">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-images imagedb-selected-type"></i>
                 </button>
                 <div class="dropdown-menu">

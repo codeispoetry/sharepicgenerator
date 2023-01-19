@@ -1,4 +1,4 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
+<h3 class="collapsed" data-bs-toggle="collapse" data-bs-target=".addtext"><i class="fa fa-asterisk"></i> Sternchentext</h3>
 <div class="addtext collapse list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
         <div class="d-flex align-items-lg-center">
@@ -12,7 +12,7 @@
                 <small>groß</small>
             </div>
             <div>
-                <span class="to-front" data-target="addtext" title="Sternchentext nach vorne">
+                <span class="to-front" data-bs-target="addtext" title="Sternchentext nach vorne">
                     <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
                 <input type="hidden" name="addtextColor" id="addtextColor" value="#000000">

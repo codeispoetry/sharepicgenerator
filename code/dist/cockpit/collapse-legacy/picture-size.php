@@ -1,4 +1,4 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".picturesize">><i class="fas fa-expand-arrows-alt"></i> 
+<h3 class="collapsed" data-bs-toggle="collapse" data-bs-target=".picturesize">><i class="fas fa-expand-arrows-alt"></i> 
     Größe
     <small class="ms-2">
         <i class="fab fa-instagram"></i>

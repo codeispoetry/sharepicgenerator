@@ -1,4 +1,4 @@
-<h3 class="collapsed d-none" data-toggle="collapse" data-target=".code"><i class="fas fa-code"></i> Code-API</h3>
+<h3 class="collapsed d-none" data-bs-toggle="collapse" data-bs-target=".code"><i class="fas fa-code"></i> Code-API</h3>
         <div class="code collapse list-group-item list-group-item-action flex-column align-items-start">
             <div>
                 <textarea placeholder="JavaScript-Code" name="code" id="code" class="form-control"></textarea>

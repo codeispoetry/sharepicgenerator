@@ -1,6 +1,6 @@
 <div class="col-10 offset-2">
     <div id="faq" class="overlay" style="display:none;">
-        <a href="#" class="close closer text-danger" data-target="#faq">
+        <a href="#" class="close closer text-danger" data-bs-target="#faq">
             <i class="fas fa-times"></i>
         </a>
         <h2>Häufige Fragen</h2>

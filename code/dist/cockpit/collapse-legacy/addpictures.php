@@ -1,4 +1,4 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".addpictures"><i class="fas fa-images"></i> Vordergrundbilder</h3>
+<h3 class="collapsed" data-bs-toggle="collapse" data-bs-target=".addpictures"><i class="fas fa-images"></i> Vordergrundbilder</h3>
         <div class="addpictures collapse list-group-item list-group-item-action flex-column align-items-start">
             <div class="flex-column align-items-start">
                 <?php
@@ -22,7 +22,7 @@
                                 </span>
                             <?php } ?>
                             
-                            <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
+                            <span class="to-front" data-bs-target="addPic<?= $i;?>" title="Bild nach vorne">
                                 <i class="fas fa-layer-group text-cockpit"></i>
                             </span> 
                         
@@ -39,8 +39,8 @@
                                     <small>groß</small>
                                 </div>
                                 <div class="ms-3">
-                                    <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
-                                    <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
+                                    <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-bs-toggle="toggle" data-on="rund" data-off="eckig">
+                                    <input type="checkbox" name="addpicroundedbordered<?= $i; ?>" class="retoggle" id="addpicroundedbordered<?= $i; ?>" data-size="xs" data-bs-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
                             </div>
                             <div>
