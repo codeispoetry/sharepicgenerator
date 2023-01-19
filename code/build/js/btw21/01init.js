@@ -12,9 +12,6 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-  $('#textsize').val(202);
-  $('#textX').val(41);
-  $('#textY').val(372);
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
