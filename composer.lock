@@ -37,6 +37,12 @@
             ],
             "description": "Deployer Phar Distribution",
             "homepage": "https://deployer.org",
+            "support": {
+                "docs": "https://deployer.org/docs",
+                "issues": "https://github.com/deployphp/deployer/issues",
+                "source": "https://github.com/deployphp/deployer"
+            },
+            "abandoned": "deployer/deployer",
             "time": "2020-04-25T18:48:50+00:00"
         },
         {
@@ -55,9 +61,6 @@
             },
             "require": {
                 "php": "~7.0"
-            },
-            "replace": {
-                "deployer/recipes": "self.version"
             },
             "require-dev": {
                 "deployer/deployer": "^6.3"
@@ -94,6 +97,10 @@
                 "slack",
                 "yarn"
             ],
+            "support": {
+                "issues": "https://github.com/deployphp/recipes/issues",
+                "source": "https://github.com/deployphp/recipes"
+            },
             "abandoned": true,
             "time": "2019-06-27T06:47:18+00:00"
         }
@@ -105,5 +112,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.3.0"
 }
