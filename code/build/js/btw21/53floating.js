@@ -7,25 +7,25 @@ const floating = {
   font: {
     family: 'BereitBold',
     anchor: 'left',
-    leading: '1.05em',
+   // leading: '1.05em',
     size: 20,
   },
   fontBefore: {
     family: 'BereitBold',
     anchor: 'left',
-    leading: '1.05em',
+   // leading: '1.05em',
     size: 10,
   },
   fontCiteSymbol: {
     family: 'BereitBold',
     anchor: 'left',
-    leading: '1.05em',
+    //leading: '1.05em',
     size: 80,
   },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
-    leading: '1.05em',
+   // leading: '1.05em',
     size: 10,
   },
 
@@ -112,7 +112,7 @@ const floating = {
       .font({
         family: 'BereitBold',
         anchor: 'left',
-        leading: '1.05em',
+       // leading: '1.05em',
         size: 8,
       })
       .move(2, 1)
