@@ -1,4 +1,4 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".gradient"><i class="far fa-eye"></i> Farbverlauf</h3>
+<h3 class="collapsed" data-bs-toggle="collapse" data-bs-target=".gradient"><i class="far fa-eye"></i> Farbverlauf</h3>
 <div class="gradient list-group-item list-group-item-action flex-column align-items-start collapse">
     <div class="mb-1 list-group-item-content">
         <div class="">

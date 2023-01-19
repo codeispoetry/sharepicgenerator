@@ -23,7 +23,7 @@
                     <i class="fa fa-align-center text-cockpit"></i>
                 </span>
                 
-                <span class="to-front" data-target="text" title="Text nach vorne">
+                <span class="to-front" data-bs-target="text" title="Text nach vorne">
                     <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
 
@@ -94,7 +94,7 @@
                         <i class="fa fa-upload"></i> Icon hochladen
                     </span>
 
-                    <span class="text-cockpit cursor-pointer overlay-opener" data-target="iconoverlay">
+                    <span class="text-cockpit cursor-pointer overlay-opener" data-bs-target="iconoverlay">
                         <i class="fas fa-search"></i> Icon suchen
                     </span>
                 </div>

@@ -55,7 +55,7 @@
                                     <i class="fab fa-centercode" title="Text in Bildmitte"></i></span>
                             </div> 
                             <div>
-                                <span class="to-front" data-target="text" title="Text nach vorne">
+                                <span class="to-front" data-bs-target="text" title="Text nach vorne">
                                     <i class="fas fa-layer-group text-cockpit"></i>
                                 </span> 
                             </div>

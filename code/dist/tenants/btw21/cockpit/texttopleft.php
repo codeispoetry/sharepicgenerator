@@ -1,4 +1,4 @@
-<h3 class="collapsed" data-toggle="collapse" data-target=".url"><i class="fas fa-expand-arrows-alt"></i> 
+<h3 class="collapsed" data-bs-toggle="collapse" data-bs-target=".url"><i class="fas fa-expand-arrows-alt"></i> 
     Name / KV
 </h3>
 <div class="url collapse list-group-item list-group-item-action flex-column align-items-start novideo">

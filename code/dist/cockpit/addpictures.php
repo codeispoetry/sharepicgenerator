@@ -32,7 +32,7 @@
                                 </span>
                             <?php } ?>
                             
-                            <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
+                            <span class="to-front" data-bs-target="addPic<?= $i;?>" title="Bild nach vorne">
                                 <i class="fas fa-layer-group text-cockpit"></i>
                             </span>                          
                         
@@ -51,8 +51,8 @@
                             </div>
                             <div>
                                 <div class="ms-3">
-                                    <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="rund" data-off="eckig">
-                                    <input type="checkbox" name="addpicroundedborder<?= $i; ?>" class="retoggle" id="addpicroundedborder<?= $i; ?>" data-size="xs" data-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
+                                    <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-bs-toggle="toggle" data-on="rund" data-off="eckig">
+                                    <input type="checkbox" name="addpicroundedborder<?= $i; ?>" class="retoggle" id="addpicroundedborder<?= $i; ?>" data-size="xs" data-bs-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
                                 </div>
                             </div>
     

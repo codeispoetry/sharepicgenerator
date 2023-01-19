@@ -1,4 +1,4 @@
-<h3 class="d-none collapsed" data-toggle="collapse" data-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
+<h3 class="d-none collapsed" data-bs-toggle="collapse" data-bs-target=".logo"><i class="fas fa-fan"></i> Logo</h3>
 <div class="d-none logo collapse list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 d-flex align-items-lg-center">
         <select class="form-control" name="logoselect" id="logoselect">
@@ -21,7 +21,7 @@
             </optgroup>
         </select>
             <i class="fa fa-upload text-cockpit cursor-pointer uploadlogoclicker ms-2" title="Eigenes Logo hochladen"></i>
-            <i class="fa fa-trash text-cockpit cursor-pointer overlay-opener nav-lin ms-2" data-target="preferences" title="Logos löschen"></i>
+            <i class="fa fa-trash text-cockpit cursor-pointer overlay-opener nav-lin ms-2" data-bs-target="preferences" title="Logos löschen"></i>
 
     </div>
     <div class="">
@@ -35,7 +35,7 @@
             <small>groß</small>
         </div>
         <div>
-            <span class="to-front" data-target="logo" title="Logo nach vorne">
+            <span class="to-front" data-bs-target="logo" title="Logo nach vorne">
                 <i class="fas fa-layer-group text-cockpit"></i>
             </span> 
         </div>

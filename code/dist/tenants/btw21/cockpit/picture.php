@@ -13,7 +13,7 @@
     <div>
         <div class="input-group -select-type">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-cockpit dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-cockpit dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-images imagedb-selected-type"></i>
                 </button>
                 <div class="dropdown-menu">
@@ -87,7 +87,7 @@
 <h3 class="d-none"><i class="fas fa-image"></i> Grünfärbung</h3>
 <div class="list-group-item novideo d-none">
         Bild grün einfärben
-        <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-toggle="toggle" data-on="ja" data-off="nein">
+        <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-bs-toggle="toggle" data-on="ja" data-off="nein">
 
         <div class="slider novideo">
             <small>Helligkeit</small>

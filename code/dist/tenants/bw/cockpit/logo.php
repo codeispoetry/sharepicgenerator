@@ -25,7 +25,7 @@
                 </div>
             
                 <div class="d-none">
-                    <span class="to-front" data-target="logo" title="Logo nach vorne">
+                    <span class="to-front" data-bs-target="logo" title="Logo nach vorne">
                         <i class="fas fa-layer-group text-cockpit"></i>
                     </span> 
                 </div>

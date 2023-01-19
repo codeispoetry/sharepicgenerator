@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@popperjs/core": "^2.6.0",
     "@svgdotjs/svg.draggable.js": "^3.0.2",
     "@svgdotjs/svg.filter.js": "^3.0.7",
     "@svgdotjs/svg.js": "^3.0.16",
@@ -17,7 +16,6 @@
     "bootstrap5-toggle": "^4.3.6",
     "jquery": "^3.5.1",
     "markdown-it": "^12.0.4",
-    "markdown-it-emoji": "^2.0.0",
-    "popper.js": "^1.16.1"
+    "markdown-it-emoji": "^2.0.0"
   }
 }

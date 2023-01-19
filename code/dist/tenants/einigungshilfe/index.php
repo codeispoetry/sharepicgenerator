@@ -70,8 +70,8 @@ $_SESSION['csrf'] = $csrf;
 <body class="h-100 d-flex flex-column text-white">
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" 
-        data-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#uppernavbar" aria-controls="uppernavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
@@ -135,8 +135,7 @@ $_SESSION['csrf'] = $csrf;
 <?php require_once('../footer.php'); ?>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/node_modules/bootstrap5-toggle/js/bootstrap5-toggle.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.js/dist/svg.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.draggable.js/dist/svg.draggable.min.js"></script>

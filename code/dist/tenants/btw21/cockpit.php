@@ -5,15 +5,15 @@
 <form id="pic" class="cockpit-vertical h-100">
 <div class="d-flex h-100">
   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <button class="nav-link active" id="v-pills-home-tab" title="Bild" data-toggle="pill" data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+    <button class="nav-link active" id="v-pills-home-tab" title="Bild" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
         <i class="fas fa-image"></i></button>
-    <button class="nav-link" id="v-pills-profile-tab" title="Text" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+    <button class="nav-link" id="v-pills-profile-tab" title="Text" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
         <i class="fas fa-font"></i></button>
-    <button class="nav-link" id="v-pills-messages-tab" title="Zusatz" data-toggle="pill" data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+    <button class="nav-link" id="v-pills-messages-tab" title="Zusatz" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
         <i class="fas fa-plus-circle"></i></button>
-    <button class="nav-link" id="v-pills-download-tab" title="Download" data-toggle="pill" data-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+    <button class="nav-link" id="v-pills-download-tab" title="Download" data-bs-toggle="pill" data-bs-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
         <i class="fas fa-share-alt"></i></button>
-    <button class="nav-link" id="v-pills-settings-tab" title="Einstellungen" data-toggle="pill" data-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+    <button class="nav-link" id="v-pills-settings-tab" title="Einstellungen" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
         <i class="fas fa-cog"></i>
     </button>
   </div>
