@@ -12,6 +12,7 @@ code/dist/config.ini
 code/dist/ini/passwords.php
 code/dist/log/.htusers
 code/dist/vendor
+vendor
 
 *.log
 *.db
