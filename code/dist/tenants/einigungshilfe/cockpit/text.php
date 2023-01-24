@@ -63,7 +63,7 @@
             
         </div>
         <input type="hidden" name="iconfile" id="iconfile">
-        <input type="hidden" placeholder="Text unter der Linie" name="textafter" id="textafter" value="<?php echo getSaying('lower'); ?>" class="form-control showonly lines nolines quote">
+        <input type="hidden" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
         <input type="hidden" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="" class="form-control showonly lines nolines">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">

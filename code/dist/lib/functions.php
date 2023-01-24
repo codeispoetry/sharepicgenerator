@@ -593,19 +593,6 @@ function human_filesize($bytes, $decimals = 2)
     return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
 }
 
-
-function getSaying($field = 'main')
-{
-    static $rand;
-    $sayings = parse_ini_file(getBasePath('ini/sayings.ini'), true);
-    if (!$rand) {
-        $rand = array_rand($sayings, 1);
-    }
-
-    return $sayings[$rand][$field];
-}
-
-
 function getFontFamily($file)
 {
     if (is_file($file)) {
