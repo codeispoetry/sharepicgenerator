@@ -32,7 +32,6 @@
             require_once(getBasePath('cockpit/picture-size-none.php'));
 
             require_once(getBasePath('tenants/btw21/cockpit/logo.php'));
-            require_once(getBasePath('cockpit/eyecatcher-none.php'));
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
