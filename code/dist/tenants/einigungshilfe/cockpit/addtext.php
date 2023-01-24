@@ -19,7 +19,7 @@
         </div>  
 
         <div>
-            <input type="color" name="addtextbasicColor" id="addtextbasicColor" value="#000">
+            <input type="color" name="addtextbasicColor" id="addtextbasicColor" value="#000000">
             <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#5488C7,#CDDCF4,#285F96,#FFB100" data-action="addtextbasic.draw()" data-field="#addtextbasicColor" title="Farbe wechseln"></span>
 
         </div> 
