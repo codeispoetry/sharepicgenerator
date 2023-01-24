@@ -80,4 +80,4 @@
 <input type="hidden" name="backgroundFlipped" id="backgroundFlipped" value="false">
 <input type="hidden" name="fullBackgroundName" id="fullBackgroundName">
 <input type="hidden" name="copyrightcolor" id="copyrightcolor" value="white">
-<input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,.heic,video/mp4">
+<input type="file" class="custom-file-input upload-file" id="uploadfile" accept="image/*,.heic">
