@@ -82,6 +82,7 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     addtext.draw();
+    console.log("init 85")
     floating.draw();
     eraser.draw();
 

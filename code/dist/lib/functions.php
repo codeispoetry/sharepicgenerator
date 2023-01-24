@@ -53,11 +53,19 @@ function getLastLogin($user = false)
     if (!$user) {
         $user = getUser();
     }
-    $db = new SQLite3(getBasePath('log/logs/user.db'));
-    $smt = $db->prepare(
-        'SELECT last_login, cast(julianday("now") - julianday(last_login) as int) as days FROM user WHERE user=:user'
-    );
-    $smt->bindValue(':user', $user, SQLITE3_TEXT);
+    try {
+        $db = new SQLite3(getBasePath('log/logs/user.db'));
+    } catch (Exception $e) {
+        return false;
+    }
+    try {
+        $smt = $db->prepare(
+            'SELECT last_login, cast(julianday("now") - julianday(last_login) as int) as days FROM user WHERE user=:user'
+        );
+        $smt->bindValue(':user', $user, SQLITE3_TEXT);
+    } catch (Exception $e) {
+        return false;
+    }
     
     $result = $smt->execute();
  

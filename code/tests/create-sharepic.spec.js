@@ -15,9 +15,6 @@ test('create sharepic', async ({ page }) => {
   await page.locator('.colorpicker[data-field="#copyrightcolor"]').hover();
 
   await page.locator('span:nth-child(5)').first().click();
-  await page.getByRole('button', { name: 'ja nein' }).click();
-  await page.locator('#greenifybrightness').click();
-  await page.getByText('Helligkeit und Kontrast zurücksetzen').click();
   await page.locator('#sizepresets').selectOption('1200:1200');
   
   await page.getByRole('tab', { name: '' }).click();

@@ -19,6 +19,7 @@ $('#sizepresets').on('change', function changeSize() {
     area.draw();
   }
   if (typeof floating !== 'undefined') {
+    console.log("drawsize 16")
     floating.draw();
   }
 

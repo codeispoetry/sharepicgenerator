@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+var inFloatingDraw = 0;
 const floating = {
   svg: draw.text(''),
   fond: draw.circle(0),
@@ -30,6 +31,7 @@ const floating = {
   },
 
   draw() {
+    console.log("in floating draw", inFloatingDraw++)
     if (config.layout !== 'floating'
        || $('#text').val() === '') {
       return;
