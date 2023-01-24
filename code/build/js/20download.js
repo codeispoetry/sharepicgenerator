@@ -9,8 +9,7 @@ $('#download,.download').click(function onDownloadClick() {
   
   $('#canvas').addClass('opacity');
 
-  let { format } = config;
-
+  
   log.socialmedia = config.socialmediaplatform;
 
   const data = draw.svg();
@@ -23,7 +22,6 @@ $('#download,.download').click(function onDownloadClick() {
     url: '/actions/createpic.php',
     data: {
       svg: data,
-      format,
       width: $('#width').val(),
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
@@ -51,7 +49,7 @@ $('#download,.download').click(function onDownloadClick() {
         500,
       ); // timeout needed for firefox. Otherwise img "could not be loaded"
 
-      window.location.href = `/actions/download.php?file=${obj.basename}&format=${format}&downloadname=${downloadname}`;
+      window.location.href = `/actions/download.php?file=${obj.basename}&downloadname=${downloadname}`;
     },
   });
 });

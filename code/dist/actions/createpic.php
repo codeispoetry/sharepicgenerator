@@ -53,15 +53,9 @@ $svg = $svgHeader . $svg;
 
 file_put_contents($filename, $svg);
 
-if (in_array($_POST['format'], array('png','pdf','jpg','mp4'))) {
-    $format = $_POST['format'];
-} else {
-    die("wrong format");
-}
-
 $exportWidth = (int) $_POST['width'];
 
-convert($filename, $exportWidth, $format);
+convert($filename, $exportWidth);
 
 $return = [];
 

@@ -406,29 +406,19 @@ function timecode2seconds($timecode)
     return $seconds;
 }
 
-function convert($filename, $width, $format)
+function convert($filename, $width)
 {
-    if ($format == 'pdf') {
-        $tempformat = 'pdf';
-    } else {
-        $tempformat = 'png';
-    }
-
     $command = sprintf(
-        "inkscape %s --export-width=%d --export-{$tempformat}=%s --export-dpi=90",
+        "inkscape %s --export-width=%d --export-png=%s --export-dpi=90",
         $filename,
         $width,
-        getBasePath('tmp/' . basename($filename, 'svg') . $tempformat)
+        getBasePath('tmp/' . basename($filename, 'svg') . 'png')
     );
     exec($command);
 }
 
-function logPicture($filename, $format)
+function logPicture($filename)
 {
-    if ($format == 'mp4') {
-        return;
-    }
-
     $afterFileBase =  getBasePath('tmp/log_' . $_SESSION['tenant'] .'_' . getUser() . '_'. $filename);
     
     $command = sprintf(
@@ -514,32 +504,6 @@ function xml2json($xml)
     return $return;
 }
 
-
-function tenantsSwitch($as)
-{
-    $attributes = $as->getAttributes();
-    $chapter = (int) substr($attributes['membershipOrganizationKey'][0], 1, 2);
-
-    // freshly logged in
-    if (isset($_SERVER['HTTP_REFERER']) && 'saml.gruene.de' == parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)) {
-        switch ($chapter) {
-            case 10:
-                $tenant = '/nrw/';
-                break;
-            case 15:
-                $tenant = '/sh/';
-                break;
-            default:
-                $tenant = false;
-        }
-    }
-        
-    // redirect, if s.o. is freshly logged in and wants to to to standard btw21
-    if ($tenant && $_SERVER['REQUEST_URI'] === '/btw21/' && $_SERVER['REQUEST_URI'] != $tenant) {
-        header('Location: ' . $tenant, true, 302);
-        die();
-    }
-}
 
 function readConfig()
 {

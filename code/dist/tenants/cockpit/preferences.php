@@ -6,9 +6,4 @@
         <input id="gridlines" type="checkbox" class="me-1 form-check-input">
         Hilfslinien anzeigen
     </label>
-
-    <label class="" title="ändere die Größe von Logo und Störer selbstständig">
-        <input id="advancedmode" type="checkbox" class="me-1 form-check-input" >
-        Hamák-Modus
-    </label>
 </div>
