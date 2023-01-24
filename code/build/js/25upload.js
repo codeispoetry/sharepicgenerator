@@ -53,22 +53,6 @@ $('.upload-file').change(function changeFile() {
         config.uploadTime = Date.now() - startUploadTime;
         afterUpload(obj);
         break;
-      case 'uploadlogo':
-        alert('Um das neue Logo nutzen zu können, lade bitte den Sharepicgenerator neu (F5).');
-        break;
-      case 'uploadtmplogo':
-        logo.loadTmp(`/tmp/${obj.file}`);
-        break;
-      case 'uploadfont':
-        console.log(obj);
-        $('head').append(`<style>@font-face { font-family: "${obj.name}"; src: url("${obj.url}") format("woff2"); }</style>`);
-
-        $('#textfont').append(new Option(obj.name, obj.name));
-        $('#textfont').val(obj.name);
-        basic.draw();
-
-        break;
-
       case 'uploadaddpic1':
         $('#addpicfile1').val(obj.addpicfile);
         show('show-add-pic-1');

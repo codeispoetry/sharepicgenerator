@@ -2,7 +2,6 @@ $('#copyright').bind('input propertychange', () => {
   copyright.draw();
 });
 
-// eslint-disable-next-line no-unused-vars
 function setCopyright(message, carrier) {
   if (message === undefined) {
     return false;
