@@ -8,7 +8,7 @@
         <span class="colorpicker ms-1" data-colors="#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
     </div>
  </div>
- <h3><i class="fas fa-image"></i> Bild suchen</h3>
+ <h3><i class="fas fa-image"></i> <?php _e('Search image'); ?></h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
         <div class="input-group">
