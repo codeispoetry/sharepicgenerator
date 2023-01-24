@@ -21,7 +21,6 @@
 
             <div class="list-group-item-content">
                 <div class="d-none justify-content-end">
-                    <i class="fa fa-text-height toggle-line-height me-2" title="Zeilenabstand ändern"></i>
                     <i class="fa fa-align-left text-align me-2 showonly floating" data-align="left" title="linksbündig"></i>
                     <i class="fa fa-align-center text-align me-2 showonly floating" data-align="middle" title="zentrieren"></i>
                     <i class="fa fa-align-right text-align showonly floating" data-align="end" title="rechtsbündig"></i>

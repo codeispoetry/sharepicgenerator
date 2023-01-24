@@ -14,8 +14,7 @@ const berlintext = {
   },
 
   draw() {
-    if (config.layout !== 'berlintext'
-       || $('#text').val() === '') {
+    if ($('#text').val() === '') {
       return;
     }
 
@@ -28,8 +27,6 @@ const berlintext = {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
     });
-
-    setLineHeight();
 
     if ($('#textafter').val()) {
       const mainTextHeight =  lines.length * 28;

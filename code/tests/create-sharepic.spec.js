@@ -18,7 +18,6 @@ test('create sharepic', async ({ page }) => {
   await page.locator('#sizepresets').selectOption('1200:1200');
   
   await page.getByRole('tab', { name: '' }).click();
-  await page.getByLabel('Fläche').check();
   await page.getByPlaceholder('Text darüber').click();
   await page.getByPlaceholder('Text darüber').fill('Drüber');
   await page.getByPlaceholder('Haupttext').click();
@@ -35,8 +34,6 @@ test('create sharepic', async ({ page }) => {
   await page.getByRole('tab', { name: '' }).click();
   await page.getByPlaceholder('Sternchentext').click();
   await page.getByPlaceholder('Sternchentext').fill('Sternchentext');
-  await page.getByLabel('sharepicgenerator.de anzeigen').check();
-  
   await page.getByRole('tab', { name: '' }).click();
   await page.getByLabel('jpg').check();
   

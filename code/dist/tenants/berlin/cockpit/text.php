@@ -3,12 +3,6 @@
         <h3><i class="fas fa-text-width"></i> Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
-            <div class="d-none">
-                <label class="me-3">Layout:</label>
-                 <label class="me-3">
-                    <input type="radio" class="form-check-input layout me-1" name="layout" value="berlintext" checked >Schwebend
-                 </label>
-            </div>
 
             <div class="list-group-item-content">
                 <div class="d-flex">

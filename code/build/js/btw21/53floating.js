@@ -32,12 +32,9 @@ const floating = {
 
   draw() {
     console.log("in floating draw", inFloatingDraw++)
-    if (config.layout !== 'floating'
-       || $('#text').val() === '') {
+    if ($('#text').val() === '') {
       return;
     }
-
-    area.hide();
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
@@ -49,7 +46,6 @@ const floating = {
 
     floating.svg.on('dragmove.namespace', highlightGridLine);
 
-    setLineHeight();
     const anchor = floating.align;
 
     const t = draw.text($('#text').val())
@@ -93,7 +89,6 @@ const floating = {
     
 
     floating.svg.front();
-    ad.setPosition();
   },
 
   drawClaim(t) {

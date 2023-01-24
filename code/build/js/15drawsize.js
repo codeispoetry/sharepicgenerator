@@ -15,9 +15,6 @@ $('#sizepresets').on('change', function changeSize() {
     $('#grid-square').addClass('d-none');
   }
 
-  if (typeof area !== 'undefined') {
-    area.draw();
-  }
   if (typeof floating !== 'undefined') {
     console.log("drawsize 16")
     floating.draw();
