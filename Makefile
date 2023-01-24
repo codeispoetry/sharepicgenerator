@@ -43,6 +43,9 @@ user-get:
 users:
 	docker-compose exec webserver sqlite3 dist/log/logs/user.db
 
+test-delete-screenshots:
+	rm code/tests/screenshots.spec.js-snapshots/* && \
+	rm code/tests/create-sharepic.spec.js-snapshots/*
 tenant-create:
 	@read -p "new tenant name: " tenant; \
 	./scripts/create-tenant.sh $$tenant \
