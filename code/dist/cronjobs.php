@@ -17,6 +17,6 @@ $db->query(
 
 function deleteFilesInPathOlderThanHours($path, $exclude, $hours) {
     $cmd = sprintf('find %s ! -name "%s" -mmin +%d -delete', $path, $exclude, $hours * 60);
-    file_put_contents(__DIR__ . '/last-cronjob.txt',time());
+    file_put_contents(__DIR__ . '/last-cronjob.txt', time());
     exec($cmd, $output);
 }
