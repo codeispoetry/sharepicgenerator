@@ -7,7 +7,6 @@ useDeLocale();
 session_start();
 readConfig();
 
-
 $tenant = basename($_SERVER['REQUEST_URI']);
 
 $user = "generic";
@@ -54,12 +53,8 @@ $_SESSION['csrf'] = $csrf;
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
         <?php printf('config.tenant="%s";', $tenant); ?>
-        config.imageDBSearchIn="images";
         config.backgroundSource="standard";
-        config.faces=-1;
         config.uploadTime=-1;
-
-        config.format='png';
         config.user = {};
         config.user.prefs = {};
     </script>
@@ -95,7 +90,7 @@ $_SESSION['csrf'] = $csrf;
                     <div class="text-center mt-5">
                         <div>
                             <button class="btn btn-secondary btn-lg download bereitbold" id="download">
-                                <i class="fas fa-download"></i> Herunterladen
+                                <i class="fas fa-download"></i> <?php echo _("Download"); ?>
                             </button>
                             <?php displayDevelopHint(); ?>
                         </div>
