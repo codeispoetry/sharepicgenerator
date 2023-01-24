@@ -38,9 +38,6 @@ $defaultColor = '#5488C7';
         <?php
             require_once(getBasePath('cockpit/addpictures.php'));
             require_once('cockpit/addtext.php');
-            require_once(getBasePath('cockpit/eraser-none.php'));
-
-
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">

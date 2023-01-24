@@ -84,7 +84,7 @@ function reDraw(withAddPic = false) {
     addtext.draw();
     console.log("init 85")
     floating.draw();
-    eraser.draw();
+    
 
     $('.align-center-text').trigger('click');
   }, 100);

@@ -90,7 +90,7 @@ const floating = {
       logo.setSize(17 * scaleFactor * 1.7);
       pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     }
-    eraser.front();
+    
 
     floating.svg.front();
     ad.setPosition();

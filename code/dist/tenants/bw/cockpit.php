@@ -37,8 +37,6 @@
         <?php
             require_once(getBasePath('cockpit/addpictures.php'));
             require_once(getBasePath('cockpit/addtext.php'));
-            require_once(getBasePath('cockpit/eraser-none.php'));
-
 
         ?>
     </div>

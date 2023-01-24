@@ -113,7 +113,7 @@ $('.to-front').click(function tofront() {
     indirectEval(target).draw();
   }
 
-  eraser.draw();
+  
 });
 
 function getBrowser() {

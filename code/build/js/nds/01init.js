@@ -86,7 +86,7 @@ function reDraw(withAddPic = false) {
   window.setTimeout(() => {
     addtext.draw();
     floating.draw();
-    eraser.draw();
+    
     $('.align-center-text').trigger('click');
   }, 100);
 

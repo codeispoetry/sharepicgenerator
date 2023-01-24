@@ -60,7 +60,7 @@ function reDraw(withAddPic = false) {
     quote.draw();
     nolines.draw();
     invers.draw();
-    eraser.draw();
+    
   }, 100);
 
   window.setTimeout(() => {

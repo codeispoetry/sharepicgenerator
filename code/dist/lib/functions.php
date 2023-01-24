@@ -62,10 +62,11 @@ function getLastLogin($user = false)
         $smt = $db->prepare(
             'SELECT last_login, cast(julianday("now") - julianday(last_login) as int) as days FROM user WHERE user=:user'
         );
-        $smt->bindValue(':user', $user, SQLITE3_TEXT);
     } catch (Exception $e) {
         return false;
     }
+
+    $smt->bindValue(':user', $user, SQLITE3_TEXT);
     
     $result = $smt->execute();
  
