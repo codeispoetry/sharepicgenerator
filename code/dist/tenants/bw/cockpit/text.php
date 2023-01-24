@@ -88,25 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="preferences-text showonly lines d-none">
-                <div class="d-flex justify-content-between mt-3">
-                    <span class="text-cockpit cursor-pointer uploadiconclicker">
-                        <i class="fa fa-upload"></i> Icon hochladen
-                    </span>
-
-                    <span class="text-cockpit cursor-pointer overlay-opener" data-bs-target="iconoverlay">
-                        <i class="fas fa-search"></i> Icon suchen
-                    </span>
-                </div>
-                <div class="mb-1 list-group-item-content d-none iconsizeselectwrapper">
-                    <select class="form-control" name="iconsize" id="iconsize">
-                        <option value="1">Icon: 1 Zeile hoch</option>
-                        <option value="2">Icon: 2 Zeilen hoch</option>
-                        <option value="3">Icon: 3 Zeilen hoch</option>
-                        <option value="0">Icon entfernen</option>
-                    </select>
-                </div>
-            </div>
+        
         </div>
         <input type="hidden" name="textanchor" id="textanchor" value="middle">
         <input type="hidden" name="textprimarycolor" id="textprimarycolor" value="white">
