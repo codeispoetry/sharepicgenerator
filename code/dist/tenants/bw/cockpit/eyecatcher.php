@@ -18,7 +18,7 @@
                         <span class="colorpicker ms-1" data-colors="#000000,#009571,#46962b,#E6007E" data-action="pin.draw()" data-field="#pinColor" title="Farbe wechseln"></span> 
                         <input type="hidden" name="pinColor" id="pinColor" value="#E6007E">
 
-                        <span class="to-front" data-bs-target="pin" title="Störer nach vorne">
+                        <span class="to-front" data-target="pin" title="Störer nach vorne">
                             <i class="fas fa-layer-group text-cockpit"></i>
                         </span> 
                     </div>

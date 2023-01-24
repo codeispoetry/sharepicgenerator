@@ -10,7 +10,7 @@
             <span class="cursor-pointer ms-3 text-cockpit align-center-logo">
                 <i class="fab fa-centercode" title="Logo in Bildmitte"></i>
             </span>
-            <span class="to-front" data-bs-target="logo" title="Logo nach vorne">
+            <span class="to-front" data-target="logo" title="Logo nach vorne">
                 <i class="fas fa-layer-group text-cockpit"></i>
             </span> 
         </div>

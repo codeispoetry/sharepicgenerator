@@ -60,15 +60,9 @@ function getDownloadName() {
 $('.to-front').click(function tofront() {
   const indirectEval = eval;
   let target = $(this).data('target');
-  if (target === 'text' && config.layout !== 'lines') {
-    target = config.layout;
-  }
 
-  if (target === 'logo') {
-    indirectEval(target).svg.front();
-  } else {
-    indirectEval(target).draw();
-  }
+  indirectEval(target).svg.front();
+ 
 });
 
 function hide(className) {
