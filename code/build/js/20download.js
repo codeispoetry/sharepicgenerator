@@ -5,32 +5,15 @@ $('#download,.download').click(function onDownloadClick() {
   const description = $(this).html();
   let secondsWaitingInterval;
 
-  if (config.video) {
-    $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Das Video wird erstellt ...</span>');
-    secondsWaitingInterval = window.setInterval(() => {
-      getEncodingStatus($('#download'));
-    }, 3000);
-  } else {
-    $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
-  }
-
+  $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Augenblick bitte');
+  
   $('#canvas').addClass('opacity');
 
   let { format } = config;
 
   log.socialmedia = config.socialmediaplatform;
 
-  if (config.video === true) {
-    format = 'mp4';
-    background.svg.hide();
-    background.colorlayer.hide();
-  }
-
   const data = draw.svg();
-
-  if (config.video === true) {
-    background.svg.show();
-  }
 
   log.uploadTime = config.uploadTime;
   log.editTime = Math.round((Date.now() - config.startEditTime) / 1000);
@@ -46,7 +29,6 @@ $('#download,.download').click(function onDownloadClick() {
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
       log: JSON.stringify(log),
-      videofile: config.videofile,
     },
     success(createPicData) {
       const obj = JSON.parse(createPicData);

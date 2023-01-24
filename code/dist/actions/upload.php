@@ -23,9 +23,6 @@ if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png
 
 switch ($id) {
     case "uploadfile":
-        if ($extension == 'mp4') {
-            handleVideoUpload($extension);
-        }
         handleBackgroundUpload($extension);
         break;
 

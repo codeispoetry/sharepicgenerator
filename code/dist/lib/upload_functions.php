@@ -197,62 +197,11 @@ function isFileAllowed($extension, $allowed)
     return in_array(strtolower($extension), $allowed);
 }
 
-function handleVideoUpload($extension)
-{
-    $basename = getBasePath('tmp/' . uniqid('video'));
-    $videofile = $basename . '.' . $extension;
-    $thumbnail =  $basename . '.jpg';
-
-    move_uploaded_file($_FILES['file']['tmp_name'], $videofile);
-    editVideoAndSendInfo($videofile, $thumbnail);
-}
-
-
-function editVideoAndSendInfo($videofile, $thumbnail)
-{
-    $command =sprintf('ffmpeg -ss 00:00:02 -i %s -vframes 1 -q:v 2 %s 2>&1', $videofile, $thumbnail);
-    exec($command, $output);
-
-    $return['filename'] = '../' . $thumbnail;
-    $return['videofile'] = $videofile;
-    list($width, $height, $type, $attr) = getimagesize($thumbnail);
-
-    $command = sprintf(
-        'ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 %s',
-        $videofile
-    );
-    exec($command, $duration);
-
-    $return['width'] = $width;
-    $return['height'] = $height;
-    $return['originalWidth'] = $width;
-    $return['originalHeight'] = $height;
-    $return['video'] = 1;
-    $return['videoduration'] = $duration;
-
-    echo json_encode($return);
-    die();
-}
 
 function handleUploadByUrl()
 {
     $url = $_POST['url2copy'];
     $extension = pathinfo(parse_url($_POST['url2copy'], PHP_URL_PATH), PATHINFO_EXTENSION);
-
-    // handle video upload
-    if (substr($extension, 0, 3) == 'mp4') {
-        $basename = getBasePath('tmp/' . uniqid('video'));
-        $videofile = $basename . '.mp4';
-        $thumbnail =  $basename . '.jpg';
-
-        if (!copy($url, $videofile)) {
-            echo json_encode(array("error"=>"could not copy video file"));
-            die();
-        }
-        editVideoAndSendInfo($videofile, $thumbnail);
-
-        return;
-    }
 
     $filebasename = getBasePath('tmp/' . uniqid('upload'));
     $filename = $filebasename . '.' . $extension;

@@ -1,17 +1,6 @@
 <?php
 $db = new SQLite3(getBasePath('log/logs/log.db'));
 
-function show_videos($dir)
-{
-    $files = array_reverse(glob($dir));
-
-    echo '<ol>';
-    foreach ($files as $file) {
-        printf('<li><a href="%s"/>%s</a></li>', $file, date("d. F Y, H:i", filemtime($file)));
-    }
-    echo '</ol>';
-}
-
 function show_images($dir, $showCaption = false)
 {
     $files = array_reverse(glob($dir), GLOB_NOSORT);

@@ -47,22 +47,6 @@ $('.upload-file').change(function changeFile() {
       return false;
     }
 
-    if (isBackgroundUpload) {
-      config.video = (obj.video === 1);
-    }
-
-    if (obj.video === 1) {
-      config.videofile = obj.videofile;
-      config.filename = obj.filename;
-      config.videoduration = obj.videoduration;
-      $('#width').val(obj.originalWidth);
-      $('#height').val(obj.originalHeight);
-      $('#graybackground').val(1);
-      $('#blurbackground').val(0);
-      $('#darklightlayer').val(0);
-      $('#greenlayer').val(0);
-    }
-
     switch (id) {
       case 'uploadfile':
         show('show-copyright');
@@ -192,16 +176,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
       console.log(obj);
     }
 
-    config.filename = obj.filename;
-    config.video = (obj.video === 1);
-    if (obj.video === 1) {
-      config.videofile = obj.videofile;
-      config.filename = obj.filename;
-      config.videoduration = obj.videoduration;
-
-      $('#width').val(obj.originalWidth);
-      $('#height').val(obj.originalHeight);
-    }
+    config.filename = obj.filename;   
 
     afterUpload(obj);
     callback();

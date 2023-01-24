@@ -1,7 +1,7 @@
 <h3><i class="fas fa-vector-square"></i>
     Werbung
 </h3>
-<div class="show-advertising list-group-item list-group-item-action flex-column align-items-start novideo">
+<div class="show-advertising list-group-item list-group-item-action flex-column align-items-start">
     <label class="">
         <input id="show-advertising" type="checkbox" checked class="me-1 form-check-input">
         <em>sharepicgenerator.de</em> anzeigen

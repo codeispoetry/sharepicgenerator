@@ -26,10 +26,6 @@ switch ($_GET['format']) {
         $contentType = 'application/pdf';
         $format = 'pdf';
         break;
-    case 'mp4':
-        $contentType = 'video/mp4';
-        $format = 'mp4';
-        break;
     case 'zip':
         $contentType = 'application/zip';
         $format = 'zip';
