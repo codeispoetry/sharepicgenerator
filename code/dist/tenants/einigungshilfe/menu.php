@@ -8,9 +8,7 @@
             <a href="/documentation" target="_blank" class="dropdown-item"><i class="fas fa-book"></i> Anleitung</a>
         </div>
     </li>
-    <li class="nav-item">
-        <a href="#" class="overlay-opener nav-link" data-bs-target="preferences">Einstellungen</a>
-    </li>
+
     <li class="nav-item">
         <a href="/imprint.php" class="nav-link"> Impressum</a>
     </li>

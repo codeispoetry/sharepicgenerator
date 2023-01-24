@@ -14,11 +14,3 @@ $('.closer').click(function doCloser() {
   $('#canvas-area').show();
 });
 
-$('.overlay-opener').click(function clickOpener() {
-  const target = $(this).data('target');
-  $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
-  $('.overlay').hide();
-  $(`#${target}`).show();
-  $('#canvas-area').slideUp();
-  return false;
-});
