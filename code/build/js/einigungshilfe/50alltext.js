@@ -1,6 +1,5 @@
 const textColors = ['white', 'black', '#46962b', '#E6007E', '#FEEE00'];
 
-// eslint-disable-next-line no-unused-vars
 function textChangeColor() {
   let textColorIndex = parseInt($('#textColor').val(), 10);
   textColorIndex += 1;

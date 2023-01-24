@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 function setLineHeight() {
   if (config.lineHeightToggledManually) {
     return;
@@ -11,12 +10,10 @@ function setLineHeight() {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
 function firstLineHasAscender(text) {
   return /Ä|Ö|Ü/.test(text.split('\n')[0]);
 }
 
-// eslint-disable-next-line no-unused-vars
 function lastLineHasDescender(text) {
   return /g|j|p|q|y/.test(text.split('\n').reverse()[0]);
 }

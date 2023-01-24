@@ -110,9 +110,6 @@ const nolines = {
 
       // make background the same width as the text
       let paddingRight = 2;
-      if (getBrowser() === 'Firefox') {
-        paddingRight = 4;
-      }
       lineafter.width(textafter.bbox().width + paddingRight);
 
       text.svg.add(textafter);

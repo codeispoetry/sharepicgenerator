@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-else-return */
 const draw = SVG().addTo('#canvas');
 
 const info = { foo: null };
@@ -17,15 +14,9 @@ $(document).ready(() => {
   
   afterUpload(bgpic);
 
-  $('[data-click]').click(function onClickData() {
-    window[$(this).data('click')]();
-  });
-
   $('input,textarea').change(() => { $('#qrcode').hide(); });
 
   config.useragent = navigator.userAgent;
-  config.browser = getBrowser();
-  config.useSaveWork = false;
   config.startEditTime = Date.now();
 
   log.user = config.username;
@@ -41,25 +32,6 @@ function message(text = false) {
 }
 
 
-
-// eslint-disable-next-line no-unused-vars
-function hide(className) {
-  $(`.${className}`).addClass('d-none');
-}
-
-// eslint-disable-next-line no-unused-vars
-function show(className) {
-  $(`.${className}`).removeClass('d-none');
-}
-
-// eslint-disable-next-line no-unused-vars
-function basename(path) {
-  const name = path.split('/').reverse()[0];
-  return name.split('.')[0];
-}
-
-
-// eslint-disable-next-line no-unused-vars
 function getDownloadName() {
   let downloadname = $('#text').val().toLowerCase();
   downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, (match) => {
@@ -86,7 +58,6 @@ function getDownloadName() {
 }
 
 $('.to-front').click(function tofront() {
-  // eslint-disable-next-line no-eval
   const indirectEval = eval;
   let target = $(this).data('target');
   if (target === 'text' && config.layout !== 'lines') {
@@ -102,18 +73,3 @@ $('.to-front').click(function tofront() {
   
 });
 
-function getBrowser() {
-  if ((navigator.userAgent.indexOf('Opera') || navigator.userAgent.indexOf('OPR')) !== -1) {
-    return 'Opera';
-  } else if (navigator.userAgent.indexOf('Chrome') !== -1) {
-    return 'Chrome';
-  } else if (navigator.userAgent.indexOf('Safari') !== -1) {
-    return 'Safari';
-  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    return 'Firefox';
-  } else if ((navigator.userAgent.indexOf('MSIE') !== -1) || (!!document.documentMode === true)) {
-    return 'IE';
-  } else {
-    return 'Unknown';
-  }
-}

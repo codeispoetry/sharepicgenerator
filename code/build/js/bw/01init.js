@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 const bgpic = {
   width: 800,
   height: 450,
@@ -24,7 +23,6 @@ $(document).ready(() => {
   //showLayout();
 });
 
-// eslint-disable-next-line no-unused-vars
 function initSharepic() {
   if (initialized) {
     return false;
@@ -37,12 +35,10 @@ function initSharepic() {
   return true;
 }
 
-// eslint-disable-next-line no-unused-vars
 function reset() {
   // do nothing, stay here
 }
 
-// eslint-disable-next-line no-unused-vars
 function reDraw(withAddPic = false) {
   if (withAddPic === true) {
     addPic1.draw();
