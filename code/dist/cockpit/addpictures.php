@@ -32,7 +32,7 @@
                                 </span>
                             <?php } ?>
                             
-                            <span class="to-front" data-bs-target="addPic<?= $i;?>" title="Bild nach vorne">
+                            <span class="to-front" data-target="addPic<?= $i;?>" title="Bild nach vorne">
                                 <i class="fas fa-layer-group text-cockpit"></i>
                             </span>                          
                         

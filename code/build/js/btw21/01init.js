@@ -22,7 +22,7 @@ $(document).ready(() => {
     $('#claimcolor').val(config.user.prefs.claimcolor);
   }
 
-  $('#textX').val(230);
+  $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
 
   $('.close-target').click(function doCloseTarget() {

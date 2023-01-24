@@ -12,7 +12,7 @@
                 <small>groß</small>
             </div>
             <div>
-                <span class="to-front" data-bs-target="addtextbasic" title="Sternchentext nach vorne">
+                <span class="to-front" data-target="addtextbasic" title="Sternchentext nach vorne">
                     <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
             </div>

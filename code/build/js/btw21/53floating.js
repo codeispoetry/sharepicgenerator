@@ -80,7 +80,7 @@ const floating = {
 
     floating.svg
       .move($('#textX').val(), $('#textY').val())
-      .scale(scaleFactor, $('#textX').val(), $('#textY').val());
+      .scale(scaleFactor, parseInt($('#textX').val()), parseInt($('#textY').val()));
 
     if (!config.user.prefs.advancedmode) {
       logo.setSize(17 * scaleFactor * 1.7);
