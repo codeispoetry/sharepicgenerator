@@ -63,7 +63,7 @@ const area = {
         draw.height() - area.getLowerFondCorrection() - ((1 + area.getFactorDistanceToBottom()) * area.fondPadding)
       );
 
-    eraser.front();
+    
 
     area.drawFond();
     area.svg.front();

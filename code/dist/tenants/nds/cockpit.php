@@ -36,7 +36,6 @@
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
             require_once(getBasePath('cockpit/addpictures.php'));
-            require_once(getBasePath('cockpit/eraser-none.php'));
             require_once(getBasePath('cockpit/advertising.php'));
         ?>
     </div>

@@ -39,7 +39,6 @@ $(document).ready(() => {
   if (isGuest()) {
     disableFeature('[data-target=".eyecatcher"]');
     disableFeature('[data-target=".addtext"]');
-    disableFeature('[data-target=".eraser"]');
     disableFeature('[data-target=".workfile"]');
     disableFeature('[data-target=".mail"]');
     disableFeature('[data-target=".addpictures"]');
@@ -101,7 +100,7 @@ function reDraw(withAddPic = false) {
     quote.draw();
     nolines.draw();
     invers.draw();
-    eraser.draw();
+    
     upperrect.draw();
   }, 100);
 

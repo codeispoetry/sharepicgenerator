@@ -51,7 +51,7 @@ const area = {
       .size($('#textsize').val())
       .move(area.fondPadding, draw.height() - area.getLowerFondCorrection() - area.fondPadding);
 
-    eraser.front();
+    
 
     area.drawFond();
     area.svg.front();

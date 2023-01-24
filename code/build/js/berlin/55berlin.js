@@ -78,7 +78,7 @@ const berlintext = {
       });
     }
 
-    eraser.front();
+    
 
     berlintext.svg.front();
     berlintext.svg.skew(0, -4);

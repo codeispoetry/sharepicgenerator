@@ -44,9 +44,6 @@
         <?php
             require_once(getBasePath('cockpit/addpictures.php'));
             require_once(getBasePath('cockpit/addtext.php'));
-            require_once(getBasePath('cockpit/eraser-none.php'));
-
-
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
