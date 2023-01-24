@@ -1,13 +1,18 @@
-<h3 class="d-none advancedmode showonly floating berlintext"><i class="fas fa-fan"></i> Logo</h3>
-<div class="d-none advancedmode logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+<h3 class=""><i class="fas fa-fan"></i> Logo</h3>
+<div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+    
+    <label class="" title="ändere die Größe von Logo und Störer selbstständig">
+        <input id="advancedmode" type="checkbox" class="me-1 form-check-input" >
+        Größe von Logo und Störer selbst steuern
+    </label>
     <div class="d-flex justify-content-between">
-        <div class="slider">
+        <div class="slider advancedmode d-none me-3">
             <small>klein</small>
                 <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="20">
             <small>groß</small>
         </div>
         <div>
-            <span class="cursor-pointer ms-3 text-cockpit align-center-logo">
+            <span class="cursor-pointer text-cockpit align-center-logo">
                 <i class="fab fa-centercode" title="Logo in Bildmitte"></i>
             </span>
             <span class="to-front" data-target="logo" title="Logo nach vorne">
