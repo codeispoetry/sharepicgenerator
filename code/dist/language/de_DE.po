@@ -9,8 +9,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-01-24T20:51:20+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
 "X-Generator: WP-CLI 2.7.1\n"
 
-#: base.php:21
-msgid "Have a nice day"
-msgstr ""
+#: index.php:93
+msgid "Download"
+msgstr "Herunterladen"
+
+#: cockpit/picture.php:11
+msgid "Search image"
+msgstr "Bild suchen"

@@ -1,13 +1,23 @@
 <?php
 
-function useDeLocale()
+function useLocale( $locale )
 {
-    putenv('LC_ALL=de_DE');
-    setlocale(LC_ALL, 'de_DE');
+    putenv('LC_ALL=' . $locale);
+    setlocale(LC_ALL, $locale);
 
-    bindtextdomain('sharepicgenerator', getBasePath('locale'));
+    bindtextdomain('sharepicgenerator', getBasePath('language'));
     bind_textdomain_codeset('sharepicgenerator', 'UTF-8');
     textdomain("sharepicgenerator");
+}
+
+function _e($text)
+{
+    echo gettext($text);
+}
+
+function __(string $text): string
+{
+    return gettext($text);
 }
 
 function createAccessToken($user)

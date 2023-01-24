@@ -2,7 +2,7 @@
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
-useDeLocale();
+useLocale('de_DE');
 
 session_start();
 

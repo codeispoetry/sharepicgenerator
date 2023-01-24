@@ -3,7 +3,7 @@
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/upload_functions.php'));
-useDeLocale();
+useLocale('de_DE');
 
 session_start();
 

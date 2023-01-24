@@ -2,7 +2,7 @@
 require_once('base.php');
 require_once("../lib/functions.php");
 require_once("../lib/user_functions.php");
-useDeLocale();
+useLocale('de_DE');
 
 session_start();
 readConfig();
@@ -90,7 +90,7 @@ $_SESSION['csrf'] = $csrf;
                     <div class="text-center mt-5">
                         <div>
                             <button class="btn btn-secondary btn-lg download bereitbold" id="download">
-                                <i class="fas fa-download"></i> <?php echo _("Download"); ?>
+                                <i class="fas fa-download"></i> <?php _e("Download"); ?>
                             </button>
                             <?php displayDevelopHint(); ?>
                         </div>

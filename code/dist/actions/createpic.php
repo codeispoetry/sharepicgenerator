@@ -4,7 +4,7 @@ $startTime = microtime(true);
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/user_functions.php'));
-useDeLocale();
+useLocale('de_DE');
 
 session_start();
 
