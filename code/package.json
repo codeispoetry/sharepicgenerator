@@ -4,7 +4,9 @@
   "description": "JS for the sharepicgenerator.",
   "author": "Thomas Rose",
   "scripts": {
-    "test": "npx playwright test ../tests/create-sharepic.spec.js --project=chromium",
+    "test": "npx playwright test --project=chromium",
+    "test-create": "npx playwright test ../tests/create-sharepic.spec.js --project=chromium",
+    "test-screenshots": "npx playwright test ../tests/screenshots.spec.js --project=chromium",
     "record": "npx playwright codegen localhost:9000/btw21",
     "debug-test": "npx playwright test ../tests/create-sharepic.spec.js --debug --project=chromium"
   },
