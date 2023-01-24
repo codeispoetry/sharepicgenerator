@@ -42,7 +42,6 @@
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
          require_once(getBasePath('cockpit/quality.php'));
-         require_once(getBasePath('cockpit/mail.php'));
     ?>
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">

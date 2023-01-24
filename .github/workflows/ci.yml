@@ -58,10 +58,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-      - name: run install composer in code/dist
-        run: |
-          cd code/dist
-          composer install
       - name: provide deploy_key
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}

@@ -40,7 +40,6 @@ $(document).ready(() => {
     disableFeature('[data-target=".eyecatcher"]');
     disableFeature('[data-target=".addtext"]');
     disableFeature('[data-target=".workfile"]');
-    disableFeature('[data-target=".mail"]');
     disableFeature('[data-target=".addpictures"]');
     disableFeature('[data-target=".quality"]');
   }
