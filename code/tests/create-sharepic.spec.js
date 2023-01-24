@@ -10,7 +10,6 @@ test('create sharepic', async ({ page }) => {
   await page.locator('img:nth-child(2)').click();
   await page.locator('#backgroundsize').click();
   await page.locator('#saturate').click();
-  await page.locator('#blur').click();
 
   await page.locator('.colorpicker[data-field="#copyrightcolor"]').hover();
 
@@ -34,8 +33,6 @@ test('create sharepic', async ({ page }) => {
   await page.getByRole('tab', { name: '' }).click();
   await page.getByPlaceholder('Sternchentext').click();
   await page.getByPlaceholder('Sternchentext').fill('Sternchentext');
-  await page.getByRole('tab', { name: '' }).click();
-  await page.getByLabel('jpg').check();
   
   await page.getByRole('tab', { name: '' }).click();
   const downloadPromise = page.waitForEvent('download');
