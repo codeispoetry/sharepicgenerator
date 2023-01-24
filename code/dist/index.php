@@ -143,7 +143,6 @@
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="" href="/imprint.php">Impressum</a></li>
 
-          <li class="mb-1"><a class=" d-none" href="/organizations.php">Für Organisationen</a></li>
           <li class="mb-1"><a class="" href="MAILTO:tom.rose@sharepicgenerator.de">Kontakt</a></li>
           <li class="mb-1"><a class="" href="/imprint.php">Datenschutz</a></li>
 

@@ -14,10 +14,6 @@ $db->query(
     'DELETE FROM "qrcode" WHERE timestamp <= date("now", "-1 day")'
 );
 
-$db->query(
-    'DELETE FROM "mail" WHERE timestamp <= date("now", "-1 day")'
-);
-
 
 function deleteFilesInPathOlderThanHours($path, $exclude, $hours) {
     $cmd = sprintf('find %s ! -name "%s" -mmin +%d -delete', $path, $exclude, $hours * 60);
