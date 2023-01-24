@@ -16,7 +16,7 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
-  showLayout();
+  reDraw();
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();

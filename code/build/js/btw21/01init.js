@@ -50,36 +50,3 @@ function reset() {
   // do nothing, stay here
 }
 
-function reDraw(withAddPic = false) {
-  return false;
-  console.log("redraw 53")
-  if (withAddPic === true) {
-    addPic1.draw();
-    addPic2.draw();
-    addPic3.draw();
-    addPic4.draw();
-    addPic5.draw();
-  }
-
-  window.setTimeout(() => {
-    pin.draw();
-    pin.drawTemplate();
-  }, 10);
-
-  window.setTimeout(() => {
-    copyright.draw();
-  }, 20);
-
-  window.setTimeout(() => {
-    addtext.draw();
-    console.log("init 73")
-    floating.draw();
-    
-  }, 100);
-
-  if ($('#backgroundFlipped').val() === 'true') {
-    $('#backgroundflip').click();
-  }
-
-  $('#message').css('width', $('#canvas svg').width());
-}
