@@ -55,9 +55,6 @@
 <h3><?php echo @explode(',', configValue('Main', 'linkedTenants')[$tenant])[0]; ?></h3>
 
 <div class="navbar-text d-flex">
-    <?php if (isEditor()) {
-        printf('<a href="/tenants/%s/log/" class="pe-1 me-1 text-decoration-none">Logfiles</a>', $tenant);
-    } ?>
     <em title="Zuletzt eingeloggt <?php echo getLastLogin(); ?>">
         <?php echo getUser(); ?>
         <?php if (isEditor()) {
