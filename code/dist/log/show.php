@@ -30,11 +30,6 @@ require_once(getBasePath('lib/log_functions.php'));
         <div class="col-12 text-center">
             Uhrzeit: <?php echo strftime('%A, %k:%M Uhr'); ?><br>
         </div>
-        <div class="col-12 text-center">
-            <?php
-                show_videos("../tmp/shpic*\.mp4");
-            ?>
-        </div>
     </div>
 
     <div class="row">

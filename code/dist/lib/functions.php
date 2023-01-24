@@ -416,17 +416,6 @@ function convert($filename, $width, $format, $quality = 75)
         );
         exec($command);
     }
-
-    if ($format == 'mp4') {
-        $command =sprintf(
-            'ffmpeg -i %s -i %s -filter_complex "[0:v][1:v] overlay=0:0" -b:v 2M -pix_fmt yuv420p -c:a copy %s 2>%s',
-            getBasePath('tmp/'. basename($_POST['videofile'])),
-            getBasePath('tmp/' . basename($filename, 'svg') . 'png'),
-            getBasePath('tmp/' . basename($filename, 'svg') . 'mp4'),
-            getBasePath('tmp/' . basename($_POST['videofile'], 'mp4') . 'log')
-        );
-        exec($command);
-    }
 }
 
 function logPicture($filename, $format)

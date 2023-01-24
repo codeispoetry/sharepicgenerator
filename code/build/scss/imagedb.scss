@@ -14,10 +14,6 @@
 
 
 .results{
-    video{
-      width: 100%;
-      height: auto;
-  }
   &::after {
     content: "";
     flex: auto;

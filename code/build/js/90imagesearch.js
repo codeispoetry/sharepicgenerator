@@ -1,12 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 $('.imagedb-search-in').click(function imageDBSearchIn() {
-  $('.imagedb-selected-type').removeClass(`fa-images`);
-  $('.imagedb-selected-type').removeClass(`fa-video`);
-  config.imageDBSearchIn = $(this).data('files');
-  const icon = $(this).data('icon');
-  $('.imagedb-selected-type').addClass(`fa-${icon}`);
-
   if ($('#imagedb-direct-search-q').val().length) {
     performImageDBSearch();
   }
@@ -21,17 +15,8 @@ function performImageDBSearch(carrier = false) {
   }
 
   $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
-  if (carrier) {
-    config.imageDBSearchIn = carrier;
-  }
+  getPixabayImages($('#imagedb-direct-search-q').val());
 
-  switch (config.imageDBSearchIn) {
-    case 'pixabay-video':
-      getPixabayVideos($('#imagedb-direct-search-q').val());
-      break;
-    default:
-      getPixabayImages($('#imagedb-direct-search-q').val());
-  }
 
   $.ajax({
     type: 'POST',
@@ -86,3 +71,35 @@ $(document).ready(() => {
     performImageDBSearch($(this).data('carrier'));
   });
 });
+
+const page = 1;
+
+function getPixabayImages(q) {
+  $('#imagedb-search').show();
+  $('#canvas-area').slideUp();
+
+  const url = `https://pixabay.com/api/?key=${config.pixabay.apikey}&q=${encodeURIComponent(q)}&image_type=photo&page=${page}&per_page=100&lang=de`;
+  $('#imagedb-search .results').html('Suche Bilder bei Pixabay ... ');
+
+  $('#imagedb-link').attr('href', `https://pixabay.com/images/search/${encodeURIComponent(q)}`);
+  $('#imagedb-carrier').html('Pixabay');
+
+  $.ajax({
+    url,
+    success(data) {
+      $('#imagedb-search .results').html('');
+      data.hits.forEach((image) => {
+        $('#imagedb-search .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user}" class="img-fluid">`);
+      });
+      addClickActions('pixabay-images');
+
+      if (!data.hits.length) {
+        noPicturesFound();
+      }
+    },
+    error(data, textStatus, jqXHR) {
+      console.log(data, jqXHR);
+    },
+
+  });
+}
