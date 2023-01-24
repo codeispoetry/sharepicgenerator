@@ -42,10 +42,6 @@ function handleBackgroundUpload($extension)
 
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
-    if( isset($_POST['tenant']) && $_POST['tenant'] === 'btw21'){   
-        multiplyImage( $filename, $_FILES['file']['name'] );
-    }
-
     // convert webp to jpg, as inkscape cannot handle webp
     if (in_array(strToLower($extension), ['webp','heic'])) {
         $filename = convertExoticExtensions($filebasename, $extension);
@@ -57,48 +53,6 @@ function handleBackgroundUpload($extension)
 
     $filename_small = $filebasename . '_small.' . $extension;
     prepareFileAndSendInfo($filename, $filename_small);
-}
-
-function handleIconUpload($extension)
-{
-    $filebasename = getBasePath('tmp/' . uniqid('icon'));
-    $filename = $filebasename . '.' . $extension;
-
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-
-    $return['iconfile'] = '../' . $filename;
-    $return['okay'] = true;
-
-    echo json_encode($return);
-}
-
-function handleUploadWork()
-{
-    $filebasename = getBasePath('tmp/' . uniqid('work'));
-    $filename = $filebasename . '.zip';
-    $savedir = getBasePath('tmp/' . basename($filename, '.zip'));
-
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-
-    $cmd = sprintf('unzip %s -d %s 2>&1', $filename, $savedir);
-    exec($cmd, $output);
-
-    $cmd = unlink($filename);
-    exec($cmd, $output);
-
-    $cmd = sprintf("chmod -R 777 %s", $savedir);
-    exec($cmd, $output);
-
-    $return['okay'] = true;
-    //$return['debug'] = $output;
-
-    $datafile = $savedir . '/data.json';
-    $json = file_get_contents($datafile);
-
-    $return['data'] = $json;
-    $return['dir'] = $savedir;
-
-    echo json_encode($return);
 }
 
 function handleAddPicUpload($extension)
@@ -115,81 +69,6 @@ function handleAddPicUpload($extension)
     $return['okay'] = true;
 
     echo json_encode($return);
-}
-
-function handleLogoUpload($extension)
-{
-    if (!isAllowed()) {
-        returnJsonErrorAndDie('not allowed');
-    }
-
-    $userDir = getUserDir();
-
-    $filename = $userDir . '/' . uniqid('logo_') . '.' . $extension;
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-
-    if ($extension != 'png') {
-        $command = sprintf(
-            "convert -resize 500x500 -background none %s %s/%s.png",
-            $filename,
-            $userDir,
-            pathinfo($filename, PATHINFO_FILENAME)
-        );
-        exec($command);
-        unlink($filename);
-    }
-
-    $return['okay'] = true;
-    $return['file'] = $filename;
-
-    echo json_encode($return);
-    die();
-}
-
-function handleTmpLogoUpload($extension)
-{
-    if (!isAllowed()) {
-        returnJsonErrorAndDie('not allowed');
-    }
-
-    $filename = getBasePath('tmp/' . uniqid('logo_')) . '.' . $extension;
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-
-    $return['okay'] = true;
-    $return['file'] = basename($filename);
-
-    echo json_encode($return);
-    die();
-}
-
-function handleFontUpload($extension)
-{
-    if (!isAllowed()) {
-        returnJsonErrorAndDie('not allowed');
-    }
-
-  
-    if( getUser() === 'guest' ){
-        $dir = 'tmp/fonts/';
-    }else{
-        $dir = 'persistent/fonts/' . getUser() . '_';
-    }
-
-    $filename = getBasePath( $dir . uniqid('font_')) . '.' . $extension;
-    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-
-    $cmd = sprintf('woff2_compress %s', $filename);
-    exec($cmd, $output1);
-
-    //$cmd = sprintf('mv %1$s /usr/share/fonts/truetype/custom/%2$s', $filename, basename($filename));
-    //exec($cmd, $output2);
-
-    $return['okay'] = true;
-    $return['name'] = pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
-    $return['url'] =  preg_replace("/^\.\./","",$filename);
-
-    echo json_encode($return);
-    die();
 }
 
 function isFileAllowed($extension, $allowed)
@@ -211,8 +90,6 @@ function handleUploadByUrl()
         echo json_encode(array("error"=>"could not copy file"));
         die();
     }
-
-    multiplyImage($filename, $url);
 
     prepareFileAndSendInfo($filename, $filename_small);
 }
@@ -241,33 +118,7 @@ function prepareFileAndSendInfo($filename, $filename_small)
     $return['originalWidth'] = $originalWidth;
     $return['originalHeight'] = $originalHeight;
     $return['fullBackgroundName'] = $filename;
-    $return['faces'] = countFaces($filename);
 
     echo json_encode($return);
     die();
-}
-
-function countFaces($filename)
-{
-    $command = sprintf("facedetect %s", $filename);
-    exec($command, $output);
-    return count($output);
-}
-
-function multiplyImage( $file, $orignalName)
-{
-    return;
-    // Check transparency
-    $cmd = sprintf('convert %s -format "%%[opaque]" info:', escapeshellarg($file));
-    $has_transparency = (strToLower(shell_exec($cmd)) === 'false');
-    if( !$has_transparency && !strpos($orignalName, 'freigestellt')){   
-        return;
-    }
-
-    $cmd = sprintf('convert %1$s -colorspace gray -brightness-contrast 20x20 %1$s_g.png &&
-                    /etc/alternatives/composite -compose Multiply -gravity center ../assets/pistazie4multiply.png %1$s_g.png %1$s &&
-                    rm %1$s_g.png 2>&1',
-        escapeshellarg($file));
-    
-    shell_exec( $cmd);
 }
