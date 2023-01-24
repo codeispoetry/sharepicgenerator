@@ -1,5 +1,4 @@
 $('.size').bind('input propertychange', setDrawsize);
-$('#sizereset').click(resetDrawsize);
 
 $('#sizepresets').on('change', function changeSize() {
   const dimensions = this.value.split(':');
@@ -13,11 +12,6 @@ $('#sizepresets').on('change', function changeSize() {
     $('#grid-square').removeClass('d-none');
   } else {
     $('#grid-square').addClass('d-none');
-  }
-
-  if (typeof floating !== 'undefined') {
-    console.log("drawsize 16")
-    floating.draw();
   }
 
   background.resize();
@@ -56,10 +50,8 @@ function setDrawsize() {
     text.svg.move(0, 0);
   }
 
-  pin.bounce();
-
   if (typeof reDraw === 'function') {
-    // eslint-disable-next-line no-undef
+    console.log("drawsize 60")
     reDraw(true);
   }
 
@@ -77,12 +69,14 @@ function resetDrawsize() {
   $('#height').val(info.originalHeight);
   // unselect presets, if user changes sizes manually
   $('#sizepresets').val($('#sizepresets option:first').val());
+  console.log("resetDrawsize")
   setDrawsize();
 }
 
 function setDimensions(width, height) {
   $('#width').val(width);
   $('#height').val(height);
+  console.log("setDimensions")
   setDrawsize();
 }
 

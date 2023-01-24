@@ -215,27 +215,6 @@ $('.uploadfileclicker').click(() => {
   $('#uploadfile').click();
 });
 
-$('.uploadlogoclicker').click(() => {
-  $('#uploadlogo').click();
-});
-
-$('.uploadtmplogoclicker').click(() => {
-  $('#uploadtmplogo').click();
-});
-
-$('.uploadfontclicker').click(() => {
-  $('#uploadfont').click();
-});
-
-$('.uploadiconclicker').click(() => {
-  $('#uploadicon').click();
-});
-$('.uploadworkclicker').click(() => {
-  document.getElementById('pic').reset();
-  reDraw();
-  $('#uploadwork').click();
-});
-
 for (let i = 1; i <= 5; i++) {
   $(`.addpicclicker${i}`).click(() => {
     $(`#uploadaddpic${i}`).click();

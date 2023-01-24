@@ -7,7 +7,7 @@ const logo = {
   draw() {
     logo.svg
       .move($('#logoX').val(), $('#logoY').val())
-      .addClass('draggable');
+      .addClass('draggable').draggable();
     logo.resize($('#logosize').val());
 
     logo.svg.on('dragend.namespace', function logoDragEnd() {

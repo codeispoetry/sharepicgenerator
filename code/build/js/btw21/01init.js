@@ -22,10 +22,8 @@ $(document).ready(() => {
     $('#claimcolor').val(config.user.prefs.claimcolor);
   }
 
-  $('#addtextX').val(50);
-  $('#addtextY').val(draw.height() - 50);
-
-  showLayout();
+  $('#textX').val(230);
+  $('#textY').val(draw.height() / 2);
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
@@ -41,6 +39,9 @@ function initSharepic() {
   initialized = true;
 
   background.drawColor();
+  logo.draw();
+  floating.draw();
+  pin.draw();
 
   return true;
 }
@@ -50,6 +51,8 @@ function reset() {
 }
 
 function reDraw(withAddPic = false) {
+  return false;
+  console.log("redraw 53")
   if (withAddPic === true) {
     addPic1.draw();
     addPic2.draw();
@@ -69,11 +72,9 @@ function reDraw(withAddPic = false) {
 
   window.setTimeout(() => {
     addtext.draw();
-    console.log("init 85")
+    console.log("init 73")
     floating.draw();
     
-
-    $('.align-center-text').trigger('click');
   }, 100);
 
   if ($('#backgroundFlipped').val() === 'true') {

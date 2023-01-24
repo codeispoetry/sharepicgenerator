@@ -10,10 +10,8 @@ function showLayout() {
   floating.draw();
   logo.svg.draggable(true);
 
-  $('.align-center-text').trigger('click');
+ 
 }
-
-$('.layout').click(showLayout);
 
 $('.addpictures').on('shown.bs.collapse', () => {
   $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();

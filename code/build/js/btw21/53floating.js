@@ -181,7 +181,7 @@ const floating = {
   },
 
   drawTextAfter(t) {
-    claim.svg.hide();
+   // claim.svg.hide();
 
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
@@ -216,6 +216,7 @@ const floating = {
 
   setAlign() {
     floating.align = $(this).data('align');
+    console.log("setAlign, 219")
     floating.draw();
   },
 };
@@ -229,5 +230,6 @@ $('.align-center-text').click(() => {
   const textHeight  = floating.svg.height() * scaleFactor;
   $('#textX').val((draw.width() - textWidth) / 2);
   $('#textY').val((draw.height() - textHeight) / 2);
+  console.log("align-center, 233")
   floating.draw();
 });

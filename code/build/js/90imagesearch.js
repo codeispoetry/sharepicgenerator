@@ -45,7 +45,7 @@ function addClickActions(carrier) {
       setCopyright(attribution, carrier.replace(/-.*/, ''));
 
       if (typeof reDraw === 'function') {
-        // eslint-disable-next-line no-undef
+        console.log("imagesearch")
         reDraw(false);
       }
 
