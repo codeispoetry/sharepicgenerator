@@ -71,7 +71,6 @@ const background = {
   addFilter() {
     background.svg.filterWith((add) => {
       add.colorMatrix('saturate', $('#saturate').val())
-        .gaussianBlur($('#blur').val())
         .componentTransfer({
           type: 'linear', // will be set later
           slope: 0,
@@ -82,7 +81,7 @@ const background = {
     // because add.componentTransfer does not set tags in SVG
     $('feComponentTransfer *')
       .attr('type', 'linear')
-      .attr('slope', $('#brightness').val())
+      .attr('slope', 1)
       .attr('intercept', 0);
   },
 
@@ -90,10 +89,6 @@ const background = {
     $('#backgroundX').val(0);
     $('#backgroundY').val(0);
     $('#saturate').val(1);
-    $('#brightness').val(1);
-    $('#blur').val(0);
-
-    $('#greenify').prop('checked', false).change();
 
     $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     this.draw();
@@ -144,33 +139,6 @@ const background = {
   },
 };
 
-function greenify(brightness = 2.5, contrast = 0.05) {
-  if (typeof greenifyMatrix === 'undefined') {
-    greenifyMatrix = [
-      0.359, 0, 0, 0, 0,
-      0, 0.585, 0, 0, 0,
-      0, 0, 0.129, 0, 0,
-      0, 0, 0, 1, 0,
-    ];
-  }
-
-  background.svg.filterWith((add) => {
-    add.colorMatrix('saturate', 0)
-      .componentTransfer({
-        type: 'linear', // will be set later
-        slope: 0,
-        intercept: 0,
-      })
-      .colorMatrix('matrix', greenifyMatrix);
-  });
-
-  // because add.componentTransfer does not set tags in SVG
-  $('feComponentTransfer *')
-    .attr('type', 'linear')
-    .attr('slope', brightness)
-    .attr('intercept', contrast);
-}
-
 $('#backgroundreset').click(() => {
   background.reset();
 });
@@ -179,7 +147,7 @@ $('#backgroundsize').bind('input propertychange', () => {
   background.resize();
 });
 
-$('#saturate, #brightness, #blur').bind('input propertychange', () => {
+$('#saturate').bind('input propertychange', () => {
   $('#greenify').prop('checked', false).change();
   background.addFilter();
 });
@@ -193,20 +161,3 @@ $('#backgroundcolor').bind('input propertychange', () => {
   background.drawColor();
 });
 
-$('#greenify').bind('change', () => {
-  if ($('#greenify').prop('checked')) {
-    greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
-  } else {
-    background.svg.unfilter();
-    background.addFilter();
-  }
-});
-$('#greenifybrightness, #greenifycontrast').bind('input propertychange', () => {
-  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
-});
-
-$('.greenifyreset').click(() => {
-  $('#greenifybrightness').val(2.5);
-  $('#greenifycontrast').val(0.05);
-  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
-});

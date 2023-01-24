@@ -2,6 +2,7 @@
 // phpcs:ignoreFile -- mainly html, ignore it
 ?>
 
+
 <form id="pic" class="cockpit-vertical h-100">
 <div class="d-flex h-100">
   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -22,30 +23,31 @@
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
             require_once('cockpit/picture.php');
-            require_once(getBasePath('cockpit/picture-size.php'));
+            require_once('cockpit/picture-size.php');
         ?>
     </div>
-    <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+    <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <?php 
             require_once('cockpit/text.php');
-            require_once('cockpit/addtext.php');
             require_once('cockpit/logo.php');
             require_once('cockpit/eyecatcher.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
-            require_once(getBasePath('cockpit/addpictures.php'));
+            require_once('cockpit/addpictures.php');
+            require_once('cockpit/addtext.php');
+
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('cockpit/quality.php'));
+         require_once('cockpit/quality.php');
     ?>
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('cockpit/preferences-province.php'));
+         require_once('cockpit/preferences-province.php');
     ?>
     </div>
   </div>
@@ -57,3 +59,4 @@
 
 
 </form>
+
