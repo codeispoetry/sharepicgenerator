@@ -11,8 +11,6 @@
         <i class="fas fa-font"></i></button>
     <button class="nav-link" id="v-pills-messages-tab" title="Zusatz" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
         <i class="fas fa-plus-circle"></i></button>
-    <button class="nav-link" id="v-pills-download-tab" title="Download" data-bs-toggle="pill" data-bs-target="#v-pills-download" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-        <i class="fas fa-share-alt"></i></button>
     <button class="nav-link" id="v-pills-settings-tab" title="Einstellungen" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
         <i class="fas fa-cog"></i>
     </button>
@@ -36,11 +34,6 @@
             require_once('cockpit/addpictures.php');
             require_once('cockpit/addtext.php');
         ?>
-    </div>
-    <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-    <?php
-         require_once('cockpit/quality.php');
-    ?>
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php

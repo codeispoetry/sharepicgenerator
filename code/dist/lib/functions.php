@@ -391,7 +391,7 @@ function timecode2seconds($timecode)
     return $seconds;
 }
 
-function convert($filename, $width, $format, $quality = 75)
+function convert($filename, $width, $format)
 {
     if ($format == 'pdf') {
         $tempformat = 'pdf';
@@ -406,16 +406,6 @@ function convert($filename, $width, $format, $quality = 75)
         getBasePath('tmp/' . basename($filename, 'svg') . $tempformat)
     );
     exec($command);
-
-    if ($format == 'jpg') {
-        $command = sprintf(
-            "convert %s -background white -flatten -quality %s %s",
-            getBasePath('tmp/' . basename($filename, 'svg') . $tempformat),
-            $quality,
-            getBasePath('tmp/' . basename($filename, 'svg') . $format)
-        );
-        exec($command);
-    }
 }
 
 function logPicture($filename, $format)

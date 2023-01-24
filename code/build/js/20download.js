@@ -25,7 +25,6 @@ $('#download,.download').click(function onDownloadClick() {
       svg: data,
       format,
       width: $('#width').val(),
-      quality: config.quality,
       sharepic: $('#pic').serialize(),
       config: JSON.stringify(config),
       log: JSON.stringify(log),
