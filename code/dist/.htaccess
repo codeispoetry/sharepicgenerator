@@ -8,29 +8,13 @@ Options +Indexes +FollowSymLinks
 <IfModule mod_rewrite.c>
     RewriteEngine On
  
-    RewriteRule ^(nrw)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(bw)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(sh)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(berlin)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(btw21)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(awo)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(adfc)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(basic)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(nds)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(vorort)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(vor-ort)\/?$ /tenants/$1/index.php [L]
-    RewriteRule ^(einigungshilfe)\/?$ /tenants/$1/index.php [L]
-
-
-
-
-
-    Redirect 301 /logo https://logo.sharepicgenerator.de
-
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ /tenants/index.php [L,QSA]
+  
     # Force non www. domain
     RewriteCond %{HTTP_HOST} ^www\.sharepicgenerator\.de$ [NC]
     RewriteRule (.*) https://sharepicgenerator\.de/$1 [R=301,L]
-
 
     # Force HTTPS
     RewriteCond %{HTTPS} off

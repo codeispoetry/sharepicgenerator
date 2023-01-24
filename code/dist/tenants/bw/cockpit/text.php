@@ -83,7 +83,7 @@
                                 Farbe hinter Text
                             </label>
                             <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="nolines.draw()" data-field="#colorbehindtext" title="Farbe wechseln"></span> 
-                            <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000">
+                            <input type="hidden" name="colorbehindtext" id="colorbehindtext" value="#000000">
                         </div>
                     </div>
                 </div>

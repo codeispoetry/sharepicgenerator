@@ -7,16 +7,16 @@ useDeLocale();
 session_start();
 readConfig();
 
-$landesverband = 0;
+
+$tenant = basename($_SERVER['REQUEST_URI']);
+
 $user = "generic";
-$tenant = "btw21";
 
 $user =  do_saml_login();
 
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
 $_SESSION['user'] = $user;
-$_SESSION['landesverband'] = $landesverband;
 $_SESSION['tenant'] = $tenant;
 
 
@@ -46,7 +46,6 @@ $_SESSION['csrf'] = $csrf;
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-    <link rel="preload" href="/assets/fonts/BereitBold-Oblique.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="manifest" href="/assets/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
@@ -54,7 +53,7 @@ $_SESSION['csrf'] = $csrf;
         var config = {};
         <?php echo pixabayConfig(); ?>
         <?php printf('config.csrf="%s";', $csrf); ?>
-        <?php printf('config.tenant="%s";', "btw21"); ?>
+        <?php printf('config.tenant="%s";', $tenant); ?>
         config.imageDBSearchIn="images";
         config.backgroundSource="standard";
         config.faces=-1;
@@ -73,7 +72,7 @@ $_SESSION['csrf'] = $csrf;
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between ms-2 me-2" id="uppernavbar">
-        <?php require_once('../menu.php'); ?>
+        <?php require_once('menu.php'); ?>
     </div>
     </nav>
 </header>
@@ -123,13 +122,13 @@ $_SESSION['csrf'] = $csrf;
         </div>
         <div class="col-12 col-lg-4 p-0">
             <div class="cockpit h-100">
-                <?php require_once('cockpit.php'); ?>
+                <?php require_once($tenant . '/cockpit.php'); ?>
             </div> 
         </div>
     </div>
 </div>
 
-<?php require_once('../footer.php'); ?>
+<?php require_once('footer.php'); ?>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -139,23 +138,11 @@ $_SESSION['csrf'] = $csrf;
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
 <script src="<?php latestVersion('/assets/js/main.min.js');?>"></script>
-<script src="<?php latestVersion('/assets/js/btw21.min.js');?>"></script>
+<script src="<?php latestVersion('/assets/js/' . $tenant . '.min.js');?>"></script>
 
 
 
 <script>
-<?php
-if (isset($_GET['useSavework'])) {
-    $saveData = reuseSavework($_GET['useSavework']);
-    if (isset($saveData)) {
-        printf('loadSavework(%s);', $saveData);
-    }
-}
-
-if (isset($_GET['usePicture'])) {
-    printf('uploadFileByUrl(`../tenants/btw21/%s`, () => {})', $_GET['usePicture']);
-}
-?>
     config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');
     config.username = '<?php echo getUser(); ?>';
 </script>

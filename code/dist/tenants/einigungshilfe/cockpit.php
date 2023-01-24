@@ -17,7 +17,7 @@ $defaultColor = '#5488C7';
         <i class="fas fa-share-alt"></i><small></small>
     </button>
     <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-        <i class="fas fa-cog"></i><small>Einstellungen</small>
+        <i class="fas fa-cog"></i><small></small>
     </button>
   </div>
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
