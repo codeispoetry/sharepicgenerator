@@ -35,14 +35,6 @@ $(document).ready(() => {
 
   showLayout();
 
-  if (isGuest()) {
-    disableFeature('[data-target=".eyecatcher"]');
-    disableFeature('[data-target=".addtext"]');
-    disableFeature('[data-target=".workfile"]');
-    disableFeature('[data-target=".addpictures"]');
-    disableFeature('[data-target=".quality"]');
-  }
-
   $('.expertmode').toggleClass('d-none');
   debug();
 });

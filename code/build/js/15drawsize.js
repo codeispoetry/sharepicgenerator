@@ -5,8 +5,6 @@ $('#sizepresets').on('change', function changeSize() {
   setDimensions(...dimensions);
 
   config.socialmediaplatform = $('#sizepresets option:selected').data('socialmediaplatform');
-  config.quality = $('#sizepresets option:selected').data('quality');
-
 
   if (config.socialmediaplatform === 'Instagram-Bild-4x5') {
     $('#grid-square').removeClass('d-none');

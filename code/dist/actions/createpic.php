@@ -60,9 +60,8 @@ if (in_array($_POST['format'], array('png','pdf','jpg','mp4'))) {
 }
 
 $exportWidth = (int) $_POST['width'];
-$quality = (int) $_POST['quality'] ?: 90;
 
-convert($filename, $exportWidth, $format, $quality);
+convert($filename, $exportWidth, $format);
 
 $return = [];
 
