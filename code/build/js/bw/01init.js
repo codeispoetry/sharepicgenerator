@@ -31,7 +31,7 @@ function initSharepic() {
   $('#sizepresets').val('1200:1200').trigger('change');
 
   initialized = true;
-
+  reDraw();
   return true;
 }
 

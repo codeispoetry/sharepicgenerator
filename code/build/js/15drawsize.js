@@ -50,11 +50,6 @@ function setDrawsize() {
     text.svg.move(0, 0);
   }
 
-  if (typeof reDraw === 'function') {
-    console.log("drawsize 60")
-    reDraw(true);
-  }
-
   if (draw.height() === draw.width()) {
     $('#grid-round').removeClass('rectangle');
   } else {
@@ -69,14 +64,12 @@ function resetDrawsize() {
   $('#height').val(info.originalHeight);
   // unselect presets, if user changes sizes manually
   $('#sizepresets').val($('#sizepresets option:first').val());
-  console.log("resetDrawsize")
   setDrawsize();
 }
 
 function setDimensions(width, height) {
   $('#width').val(width);
   $('#height').val(height);
-  console.log("setDimensions")
   setDrawsize();
 }
 

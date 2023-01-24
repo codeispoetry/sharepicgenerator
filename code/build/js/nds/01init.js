@@ -44,7 +44,7 @@ function initSharepic() {
   initialized = true;
 
   background.drawColor();
-
+  reDraw();
   return true;
 }
 

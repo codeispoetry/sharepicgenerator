@@ -31,7 +31,6 @@ const floating = {
   },
 
   draw() {
-    console.log("in floating draw", inFloatingDraw++)
     if ($('#text').val() === '') {
       return;
     }
@@ -216,7 +215,6 @@ const floating = {
 
   setAlign() {
     floating.align = $(this).data('align');
-    console.log("setAlign, 219")
     floating.draw();
   },
 };

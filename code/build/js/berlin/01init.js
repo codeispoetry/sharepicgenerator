@@ -44,7 +44,8 @@ function initSharepic() {
   initialized = true;
 
  // background.drawColor();
-
+  logo.draw();
+  claimBerlin.draw();
   return true;
 }
 

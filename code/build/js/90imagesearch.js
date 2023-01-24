@@ -44,11 +44,6 @@ function addClickActions(carrier) {
     uploadFileByUrl($(this).data('url'), () => {
       setCopyright(attribution, carrier.replace(/-.*/, ''));
 
-      if (typeof reDraw === 'function') {
-        console.log("imagesearch")
-        reDraw(false);
-      }
-
       $('.picture').collapse('hide');
       config.backgroundSource = carrier;
       $('#canvas-area').slideDown();
