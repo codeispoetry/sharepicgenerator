@@ -69,7 +69,12 @@ $('.to-front').click(function tofront() {
   } else {
     indirectEval(target).draw();
   }
-
-  
 });
 
+function hide(className) {
+  $(`.${className}`).addClass('d-none');
+}
+
+function show(className) {
+  $(`.${className}`).removeClass('d-none');
+}

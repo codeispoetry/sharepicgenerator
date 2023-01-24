@@ -11,7 +11,7 @@ build:
 	docker-compose up --build -d &&	chmod 777 code/dist/log/ code/dist/persistent/user/ code/dist/tmp/
 
 node-shell:
-	docker-compose exec node bash
+	docker-compose run node bash
 
 shell:
 	docker-compose exec webserver bash

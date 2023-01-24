@@ -202,23 +202,7 @@ textarea.height1line{
   }
 }
 
-.advertising{
-  background: #daead5;
-  a{
-    display: flex;
-    justify-content: center;
-    color: #333;
-    text-decoration: none;
-    line-height: 1.1em;
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-  img{
-    height: 55px;
-    margin-right: 1em;
-  }
-}
+
 
 a.close-target{
   &:hover{

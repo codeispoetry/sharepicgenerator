@@ -7,10 +7,6 @@ function showLayout() {
   $(`.${config.layout}`).show();
 
   switch (config.layout) {
-    case 'area':
-      area.draw();
-      logo.svg.draggable(false);
-      break;
     case 'berlintext':
       berlintext.draw();
       logo.draw();
