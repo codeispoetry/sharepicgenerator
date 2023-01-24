@@ -2,7 +2,12 @@
 
 function useDeLocale()
 {
-    setlocale(LC_ALL, ' de_DE.UTF-8', 'de_DE.utf8');
+    putenv('LC_ALL=de_DE');
+    setlocale(LC_ALL, 'de_DE');
+
+    bindtextdomain('sharepicgenerator', getBasePath('locale'));
+    bind_textdomain_codeset('sharepicgenerator', 'UTF-8');
+    textdomain("sharepicgenerator");
 }
 
 function createAccessToken($user)

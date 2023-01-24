@@ -46,6 +46,13 @@ users:
 test-delete-screenshots:
 	rm code/tests/screenshots.spec.js-snapshots/* && \
 	rm code/tests/create-sharepic.spec.js-snapshots/*
+
+make-pot:
+	wp i18n make-pot tenants  locale/sharepicgenerator.pot --ignore-domain
+
+make-mo:
+	wp i18n make-pot tenants  locale/sharepicgenerator.pot --ignore-domain
+	
 tenant-create:
 	@read -p "new tenant name: " tenant; \
 	./scripts/create-tenant.sh $$tenant \
