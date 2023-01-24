@@ -23,8 +23,8 @@
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once(getBasePath('cockpit/picture.php'));
-            require_once(getBasePath('cockpit/picture-size.php'));
+            require_once('cockpit/picture.php');
+            require_once('cockpit/picture-size.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -42,18 +42,18 @@
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
-            require_once(getBasePath('cockpit/addpictures.php'));
-            require_once(getBasePath('cockpit/addtext.php'));
+            require_once('cockpit/addpictures.php');
+            require_once('cockpit/addtext.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('cockpit/quality.php'));
+         require_once('cockpit/quality.php');
     ?>
     </div>
     <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
     <?php
-         require_once(getBasePath('cockpit/preferences-province.php'));
+         require_once('cockpit/preferences-province.php');
     ?>
     </div>
   </div>

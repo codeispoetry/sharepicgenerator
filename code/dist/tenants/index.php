@@ -1,7 +1,7 @@
 <?php
 require_once('base.php');
-require_once(getBasePath("lib/functions.php"));
-require_once(getBasePath("lib/user_functions.php"));
+require_once("../lib/functions.php");
+require_once("../lib/user_functions.php");
 useDeLocale();
 
 session_start();
@@ -111,8 +111,8 @@ $_SESSION['csrf'] = $csrf;
             </div>
 
             <?php
-            require_once(getBasePath('/lib/overlays/waiting.php'));
-            require_once(getBasePath('/lib/overlays/imagedb.php'));
+            require_once('../lib/overlays/waiting.php');
+            require_once('../lib/overlays/imagedb.php');
             ?>
 
             <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
@@ -122,7 +122,7 @@ $_SESSION['csrf'] = $csrf;
         </div>
         <div class="col-12 col-lg-4 p-0">
             <div class="cockpit h-100">
-                <?php require_once($tenant . '/cockpit.php'); ?>
+                <?php require_once('cockpit/' . $tenant . '/cockpit.php'); ?>
             </div> 
         </div>
     </div>
