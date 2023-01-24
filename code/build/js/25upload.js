@@ -63,8 +63,6 @@ $('.upload-file').change(function changeFile() {
       $('#greenlayer').val(0);
     }
 
-    redrawCockpit();
-
     switch (id) {
       case 'uploadfile':
         show('show-copyright');
@@ -205,8 +203,6 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
       $('#height').val(obj.originalHeight);
     }
 
-    redrawCockpit();
-
     afterUpload(obj);
     callback();
   };
@@ -252,11 +248,6 @@ function afterUpload(data) {
   $('#sizepresets').val($('#sizepresets option:first').val());
 
   background.draw();
-  if (data.faces === undefined) {
-    config.faces = -1;
-  } else {
-    config.faces = data.faces;
-  }
 
   config.backgroundSource = 'upload';
 }

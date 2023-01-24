@@ -14,8 +14,7 @@ $(document).ready(() => {
     const fraction = $(window).width() / 800;
     $('head meta[name="viewport"]').attr('content', `width=800, initial-scale=${fraction}`);
   }
-
-  window.setTimeout(text.draw, 10);
+  
   afterUpload(bgpic);
 
   $('[data-click]').click(function onClickData() {
@@ -23,10 +22,6 @@ $(document).ready(() => {
   });
 
   $('input,textarea').change(() => { $('#qrcode').hide(); });
-
-  $('.cockpit h3').click((e) => {
-    $('.collapse').collapse('hide');
-  });
 
   config.useragent = navigator.userAgent;
   config.browser = getBrowser();
@@ -45,13 +40,7 @@ function message(text = false) {
   $('#message').show().html(text);
 }
 
-function redrawCockpit() {
-  if (config.video) {
-    $('.novideo').addClass('d-none');
-  } else {
-    $('.novideo').removeClass('d-none');
-  }
-}
+
 
 // eslint-disable-next-line no-unused-vars
 function hide(className) {
@@ -69,10 +58,6 @@ function basename(path) {
   return name.split('.')[0];
 }
 
-// eslint-disable-next-line no-unused-vars
-function debug() {
-  $('.debug').show();
-}
 
 // eslint-disable-next-line no-unused-vars
 function getDownloadName() {
@@ -113,15 +98,6 @@ function getEncodingStatus(elem) {
   });
 }
 
-// eslint-disable-next-line no-unused-vars
-function getTextInfo() {
-  console.log(
-    'Size, X, Y:',
-    $('#textsize').val(),
-    $('#textX').val(),
-    $('#textY').val(),
-  );
-}
 
 $('.to-front').click(function tofront() {
   // eslint-disable-next-line no-eval

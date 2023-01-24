@@ -13,6 +13,7 @@ function showLayout() {
       break;
     case 'floating':
       logo.draw();
+      console.log("layout 16")
       floating.draw();
       logo.svg.draggable(true);
       break;
