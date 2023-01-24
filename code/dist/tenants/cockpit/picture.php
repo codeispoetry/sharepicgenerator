@@ -11,11 +11,9 @@
  <h3><i class="fas fa-image"></i> Bild suchen</h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
-        <div class="input-group -select-type">
+        <div class="input-group">
             <input type="text" class="form-control" id="imagedb-direct-search-q" placeholder="Suchbegriff">
-            <div class="input-group-append">
-                <button type="button" class="input-group-text btn-group imagedb-direct-search">suchen</button>
-            </div>
+            <button type="button" class="input-group-text btn-group imagedb-direct-search">suchen</button>
         </div>
     </div>
 </div>
