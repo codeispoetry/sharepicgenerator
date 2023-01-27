@@ -24,9 +24,12 @@ echo json_encode($return);
 function open()
 {
     $file_number = (int) $_POST['file_number'];
+    $tenant = $_POST['tenant'];
+
     $file = sprintf(
-        '../persistent/user/%s/sharepic%d.json',
+        '../persistent/user/%s/%s_sharepic%d.json',
         getUser(),
+        $tenant,
         $file_number
     );
 

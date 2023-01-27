@@ -25,14 +25,13 @@ function save()
         mkdir($dir, 0777, true);
     }
 
-    $file = sprintf('%s/sharepic%d.json', $dir, $file_number);
-
-    $sharepic = $_POST['sharepic'];
-
-    parse_str($sharepic, $vars);
+    parse_str($_POST['sharepic'], $vars);
+    $config = json_decode($_POST['config']);
+    
+    $file = sprintf('%s/%s_sharepic%d.json', $dir, $config->tenant, $file_number);
 
     $background = $vars['fullBackgroundName'];
-    $target = sprintf('%s/sharepic%d.%s', $dir, $file_number, pathinfo($background, PATHINFO_EXTENSION));
+    $target = sprintf('%s/%s_sharepic%d.%s', $dir, $config->tenant, $file_number, pathinfo($background, PATHINFO_EXTENSION));
 
     if (file_exists($background)) {
         copy($background, $target);
