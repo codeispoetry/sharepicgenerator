@@ -163,6 +163,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
     config.filename = obj.filename;   
 
     afterUpload(obj);
+   
     callback();
   };
 

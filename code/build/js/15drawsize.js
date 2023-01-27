@@ -6,11 +6,7 @@ $('#sizepresets').on('change', function changeSize() {
 
   config.socialmediaplatform = $('#sizepresets option:selected').data('socialmediaplatform');
 
-  if (config.socialmediaplatform === 'Instagram-Bild-4x5') {
-    $('#grid-square').removeClass('d-none');
-  } else {
-    $('#grid-square').addClass('d-none');
-  }
+  $('#grid-square').toggleClass('d-none', (config.socialmediaplatform !== 'Instagram-Bild-4x5'));
 
   background.resize();
 });
@@ -48,12 +44,8 @@ function setDrawsize() {
     text.svg.move(0, 0);
   }
 
-  if (draw.height() === draw.width()) {
-    $('#grid-round').removeClass('rectangle');
-  } else {
-    $('#grid-round').addClass('rectangle');
-  }
-
+  $('#grid-round').toggleClass('rectangle', (draw.height() === draw.width()));
+ 
   //background.drawColor();
 }
 
@@ -72,25 +64,12 @@ function setDimensions(width, height) {
 }
 
 function calculateSizes() {
-  // here are also the default sizes after init
   $('#textsize').attr('min', draw.width() * 0.03);
   $('#textsize').attr('max', draw.width());
-  $('#textsize').val(draw.width() * 0.5);
-
- // $('#textX').val(draw.width() * 0.05);
- // $('#textY').val(draw.height() / 5);
-
-  $('#pinX').val(draw.width() * 0.7);
-  $('#pinY').val(draw.height() * 0.5);
 
   $('#backgroundsize').attr('min', draw.width());
   $('#backgroundsize').attr('max', draw.width() * 5);
-  $('#backgroundsize').val(draw.width());
-
-  $('#backgroundX').val(0);
-  // the -1 is for bugfixing, otherwise inkscape produces a blank row sometimes
-  $('#backgroundY').val(-1);
-
+  
   reset();
 }
 

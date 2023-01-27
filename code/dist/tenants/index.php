@@ -83,16 +83,34 @@ $_SESSION['csrf'] = $csrf;
                         <div id="grid-vertical-center" class="gridline vertical"></div>
                         <div id="grid-vertical-left" class="gridline vertical"></div>
                         <div id="grid-vertical-right" class="gridline vertical"></div>
-                        <div id="grid-round" class="gridline"></div>
-                        <div id="grid-square" class="gridline gridline-square"></div>
                         <div id="highlight-rect" class="d-none"></div>
                     </div>
-                    <div class="text-center mt-5">
-                        <div>
-                            <button class="btn btn-secondary btn-lg download bereitbold" id="download">
-                                <i class="fas fa-download"></i> <?php _e("Download"); ?>
-                            </button>
-                            <?php displayDevelopHint(); ?>
+                    <div class="d-flex justify-content-around mt-1">
+                        <div class="w-50 text-center">
+                            <div>
+                                <small>Zentriere</small>
+                                <button class="btn btn-sm btn-outline-cockpit align-center-text">
+                                    Text</button>
+                                <button class="btn btn-sm btn-outline-cockpit align-center-logo">
+                                    Logo</button>
+                                <button class="btn btn-sm btn-outline-cockpit align-center-eyecatcher">
+                                    Störer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around mt-5">
+                        <div class="w-50 text-center">
+                            <div>
+                                <button class="btn btn-pistazie text-white btn-sm open bereitbold" id="open">
+                                    <i class="fas fa-file-image"></i> <?php _e("Open"); ?>
+                                </button>
+                                <button class="btn btn-pistazie text-white btn-sm save bereitbold me-5" id="save">
+                                    <i class="fas fa-save"></i> <?php _e("Save"); ?>
+                                </button>
+                                <button class="btn btn-secondary btn-lg download bereitbold" id="download">
+                                    <i class="fas fa-download"></i> <?php _e("Download"); ?>
+                                </button>
+                            </div>
                         </div>
                         <div id="qrcode" class="qrcode mt-5" style="display:none">
                             Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
@@ -104,6 +122,11 @@ $_SESSION['csrf'] = $csrf;
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
+                <div id="message" style="display:none"></div>     
+            </div>
+
 
             <?php
             require_once('../lib/overlays/waiting.php');
