@@ -24,6 +24,7 @@ $(document).ready(() => {
 
   $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
+  $('#textsize').val(270);
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();

@@ -49,6 +49,12 @@ function addClickActions(carrier) {
       $('#canvas-area').slideDown();
       $('#imagedb-search').hide();
       $('#waiting').hide();
+      $('#backgroundsize').val(draw.width());
+      $('#saturate').val(1);
+      $('#backgroundX').val(0);
+      // the -1 is for bugfixing, otherwise inkscape produces a blank row sometimes
+      $('#backgroundY').val(-1);
+
     });
   });
 

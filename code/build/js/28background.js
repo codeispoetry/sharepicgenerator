@@ -22,6 +22,7 @@ const background = {
 
       this.on('dragend.namespace', function dragEnd() {
         $('#backgroundX').val(Math.round(this.x()));
+       
         $('#backgroundY').val(Math.round(this.y()));
         background.uncoveredAreaWarning();
       });
@@ -33,10 +34,6 @@ const background = {
                     && background.svg.height() === draw.height()
                     && background.svg.y() === 0
         ) {
-          e.preventDefault();
-        }
-
-        if (config.layout === 'invers') {
           e.preventDefault();
         }
 

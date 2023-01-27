@@ -1,0 +1,32 @@
+<?php
+
+require_once('base.php');
+require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/user_functions.php'));
+useLocale('de_DE');
+
+session_start();
+
+if (!isAllowed()) {
+    die();
+}
+
+if (!$content = open()) {
+    $return = ["code" => 1];
+    echo json_encode($return);
+    die();
+}
+
+$return = ["code" => 0, "content" => open()];
+echo json_encode($return);
+
+
+function open()
+{
+    $file = getBasePath('persistent/user/' . getUser() . '/sharepic.json');
+    if (!file_exists($file)) {
+        return false;
+    }
+
+    return file_get_contents($file);
+}
