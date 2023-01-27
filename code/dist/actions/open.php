@@ -23,7 +23,13 @@ echo json_encode($return);
 
 function open()
 {
-    $file = getBasePath('persistent/user/' . getUser() . '/sharepic.json');
+    $file_number = (int) $_POST['file_number'];
+    $file = sprintf(
+        '../persistent/user/%s/sharepic%d.json',
+        getUser(),
+        $file_number
+    );
+
     if (!file_exists($file)) {
         return false;
     }

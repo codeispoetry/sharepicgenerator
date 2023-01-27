@@ -1,4 +1,11 @@
 $('#save').click(function onSaveClick() {
+
+  if( config.userHasSavedFile === '1' && ! confirm("Du kannst nur ein Sharepic speichern und hast schon eines. Soll das überschrieben werden?") ){
+      return;
+  }
+
+  config.userHasSavedFile = '1';
+
   $(this).prop('disabled', true).val('Saving...');
   const oldVal = $(this).val();
 

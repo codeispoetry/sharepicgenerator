@@ -6,11 +6,10 @@ $('#open').click(function onSaveClick() {
     type: 'POST',
     url: '/actions/open.php',
     data: {
-        file: 1,
+        file_number: 1,
     },
     success(data) {
         const obj = JSON.parse(data);
-        
         if(obj.code != 0) {
           alert("Fehler");
           return;
