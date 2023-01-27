@@ -43,8 +43,6 @@ const floating = {
       $('#textY').val(Math.round(this.y()));
     });
 
-    floating.svg.on('dragmove.namespace', highlightGridLine);
-
     const anchor = floating.align;
 
     const t = draw.text($('#text').val())

@@ -11,9 +11,6 @@
         <i class="fas fa-font"></i></button>
     <button class="nav-link" id="v-pills-messages-tab" title="Zusatz" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
         <i class="fas fa-plus-circle"></i></button>
-    <button class="nav-link" id="v-pills-settings-tab" title="Einstellungen" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-        <i class="fas fa-cog"></i>
-    </button>
   </div>
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -35,11 +32,7 @@
             require_once('cockpit/addtext.php');
         ?>
     </div>
-    <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-    <?php
-         require_once('cockpit/preferences.php');
-    ?>
-    </div>
+  
   </div>
 </div>
 

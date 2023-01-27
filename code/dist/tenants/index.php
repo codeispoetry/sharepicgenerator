@@ -77,12 +77,6 @@ $_SESSION['csrf'] = $csrf;
             <div class="col-12 p-0 pt-3">
                 <div id="canvas-area">
                     <div id="canvas">
-                        <div id="grid-horizontal-center" class="gridline horizontal"></div>
-                        <div id="grid-horizontal-upper" class="gridline horizontal"></div>
-                        <div id="grid-horizontal-lower" class="gridline horizontal"></div>
-                        <div id="grid-vertical-center" class="gridline vertical"></div>
-                        <div id="grid-vertical-left" class="gridline vertical"></div>
-                        <div id="grid-vertical-right" class="gridline vertical"></div>
                         <div id="highlight-rect" class="d-none"></div>
                     </div>
                     <div class="d-flex justify-content-around mt-1">
