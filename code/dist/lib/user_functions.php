@@ -48,3 +48,27 @@ function getUserPrefs()
 
     return $array['prefs'];
 }
+
+function getUser()
+{
+    if (!isset($_SESSION['user'])) {
+        return false;
+    }
+
+    return $_SESSION['user'];
+}
+
+function getUserDir()
+{
+    $userDir = getBasePath('persistent/user/' . getUser());
+    if (!file_exists($userDir)) {
+        return false;
+    }
+
+    return $userDir;
+}
+
+function userHasSavedFile()
+{
+    return file_exists(getUserDir() . '/sharepic1.json');
+}

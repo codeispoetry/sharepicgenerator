@@ -172,25 +172,6 @@ function isEditor()
     return in_array(getUser(), $editors);
 }
 
-function getUser()
-{
-    if (!isset($_SESSION['user'])) {
-        return false;
-    }
-
-    return $_SESSION['user'];
-}
-
-function getUserDir()
-{
-    $userDir = getBasePath('persistent/user/' . getUser());
-    if (!file_exists($userDir)) {
-        return false;
-    }
-
-    return $userDir;
-}
-
 function returnJsonErrorAndDie($code = 1)
 {
     echo json_encode(array('success'=>'false','error'=>array('code'=>$code)));
