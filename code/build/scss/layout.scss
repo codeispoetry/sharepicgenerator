@@ -6,6 +6,7 @@ body{
   position: relative;
   overflow-y: scroll;
   height: 100%;
+  background: $background-main-area;
 }
 
 .overlay {
@@ -27,11 +28,6 @@ body{
   margin: auto;
 }
 
-.canvas{
-  &-wrapper{
-    background: $background-main-area;
-  }
-}
 
 .cursor-pointer {
   cursor: pointer;

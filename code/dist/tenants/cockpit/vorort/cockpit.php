@@ -27,9 +27,16 @@
         <?php 
             require_once('cockpit/text.php');
             require_once('cockpit/celebrity.php');
-            require_once('cockpit/picture-size-none.php');
-           // require_once('cockpit/logo.php');
+
         ?>
+        <div class="">
+            <input type="hidden" class="form-control size" name="width" id="width" step="10">
+            <input type="hidden" class="form-control size" name="height" id="height" step="10">
+            <select class="d-none" id="sizepresets">
+                <optgroup label="Social Media">
+        <option value="1080:1080" data-socialmediaplatform="Social-Media-Instagram" data-quality="">Instagram</option>
+        </optgroup>    </select>
+</div>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php

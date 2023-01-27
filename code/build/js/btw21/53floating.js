@@ -226,6 +226,5 @@ $('.align-center-text').click(() => {
   const textHeight  = floating.svg.height() * scaleFactor;
   $('#textX').val((draw.width() - textWidth) / 2);
   $('#textY').val((draw.height() - textHeight) / 2);
-  console.log("align-center, 233")
   floating.draw();
 });

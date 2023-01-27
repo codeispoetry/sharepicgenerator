@@ -1,4 +1,4 @@
-<h3 class=""><i class="fas fa-fan"></i> Logo</h3>
+<h3 class="">Logo</h3>
 <div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
     
     <label class="" title="ändere die Größe von Logo und Störer selbstständig">
