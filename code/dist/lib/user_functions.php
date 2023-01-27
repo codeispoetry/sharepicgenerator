@@ -70,5 +70,6 @@ function getUserDir()
 
 function userHasSavedFile()
 {
-    return file_exists(getUserDir() . '/sharepic1.json');
+    global $tenant;
+    return file_exists(sprintf('%s/%s_sharepic1.json', getUserDir(), $tenant));
 }

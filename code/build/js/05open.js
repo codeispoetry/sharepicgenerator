@@ -7,11 +7,12 @@ $('#open').click(function onSaveClick() {
     url: '/actions/open.php',
     data: {
         file_number: 1,
+        tenant: config.tenant
     },
     success(data) {
         const obj = JSON.parse(data);
         if(obj.code != 0) {
-          alert("Fehler");
+          alert("Es wurde kein gespeichert Sharepic gefunden.");
           return;
         }
 
