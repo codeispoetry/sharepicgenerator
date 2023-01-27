@@ -17,9 +17,7 @@ var greenifyMatrix = [
 
 
 var initialized = false;
-function debug(){
-  console.log(basic.svg.y(), $('#textY').val());
-}
+
 $(document).ready(() => {
   $('#textsize').val(99);
   $('#textX').val(20);
@@ -36,7 +34,7 @@ $(document).ready(() => {
   showLayout();
 
   $('.expertmode').toggleClass('d-none');
-  debug();
+
 });
 
 function disableFeature(feature) {

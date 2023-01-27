@@ -79,22 +79,9 @@ $_SESSION['csrf'] = $csrf;
                     <div id="canvas">
                         <div id="highlight-rect" class="d-none"></div>
                     </div>
-                    <div class="d-flex justify-content-around mt-1">
-                        <div class="w-50 text-center">
-                            <div>
-                                <small>Zentriere</small>
-                                <button class="btn btn-sm btn-outline-cockpit align-center-text">
-                                    Text</button>
-                                <button class="btn btn-sm btn-outline-cockpit align-center-logo">
-                                    Logo</button>
-                                <button class="btn btn-sm btn-outline-cockpit align-center-eyecatcher">
-                                    Störer</button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="d-flex justify-content-around mt-5">
                         <div class="w-50 text-center">
-                            <div>
+                            <div class="text-center">
                                 <button class="btn btn-pistazie text-white btn-sm open bereitbold" id="open">
                                     <i class="fas fa-file-image"></i> <?php _e("Open"); ?>
                                 </button>
@@ -106,21 +93,18 @@ $_SESSION['csrf'] = $csrf;
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
                         <div id="qrcode" class="qrcode mt-5" style="display:none">
                             Du kannst Dein Sharepic auch auf Dein Handy herunterladen.<br>
-                            Scanne dazu diesen Code:<br>
-                            <div id="qrcode-img">
+                            Scanne dazu diesen Code:
+                            <div id="qrcode-img" class="text-center mt-2">
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
-                <div id="message" style="display:none"></div>     
-            </div>
-
 
             <?php
             require_once('../lib/overlays/waiting.php');
@@ -132,8 +116,8 @@ $_SESSION['csrf'] = $csrf;
             </div>
 
         </div>
-        <div class="col-12 col-lg-4 p-0">
-            <div class="cockpit h-100">
+        <div class="col-12 col-lg-4 cockpit p-0">
+            <div class="h-100">
                 <?php require_once('cockpit/' . $tenant . '/cockpit.php'); ?>
             </div> 
         </div>

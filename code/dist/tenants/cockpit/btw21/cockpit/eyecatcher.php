@@ -1,4 +1,4 @@
-<h3><i class="far fa-eye"></i> Störer</h3>
+<h3>Störer</h3>
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
         <div class="d-none">
