@@ -43,11 +43,7 @@
             require_once('cockpit/addtext.php');
         ?>
     </div>
-    <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-    <?php
-         require_once('cockpit/preferences.php');
-    ?>
-    </div>
+  
   </div>
 </div>
 
