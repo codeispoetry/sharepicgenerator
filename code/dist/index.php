@@ -166,10 +166,6 @@
             }
             ?>
 
-            <li class="mb-1 mt-2"><a href="/basic/?guest=1" class="">freies Sharepic erstellen</a></li>
-
-            <li class="mb-1 d-none"><a href="/basic" class="">frei anmelden</a></li>
-          <li class="mb-1 d-none"><a href="/wordpress/wp-login.php?action=register" class="">frei registrieren</a></li>
         <li>
             <form method="post" class="test-access" action="btw21/">
                 <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
@@ -180,7 +176,6 @@
       <div class="col-6 col-md text-md-end">
         <h5>Hilfen</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="" href="/documentation">Handbuch</a></li>
           <li class="mb-1"><a class="" href="https://github.com/codeispoetry/sharepicgenerator">Quellcode</a></li>
           <li class="mb-1"><a class="" href="https://github.com/codeispoetry/sharepicgenerator/issues">Fehler melden</a></li>
 
