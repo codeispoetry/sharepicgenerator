@@ -65,9 +65,6 @@ const floating = {
     floating.svg.add(t);
 
     floating.drawClaim(t);
-    config.user.prefs.claimtext = $('#claimtext').val();
-    config.user.prefs.claimcolor = $('#claimcolor').val();
-    setUserPrefs();
 
     if ($('#textbefore').val() || $('#layout-cite').prop('checked')) {
       floating.svg.add(floating.drawTextBefore());
@@ -84,7 +81,6 @@ const floating = {
       pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     }
     
-
     floating.svg.front();
   },
 

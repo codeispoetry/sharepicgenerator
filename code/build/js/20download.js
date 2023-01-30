@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 $('#download,.download').click(function onDownloadClick() {
+  save();
+
   $(this).prop('disabled', true);
 
   const description = $(this).html();

@@ -11,20 +11,12 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const clickId = urlParams.get('clickId');
-  $(`#${clickId}`).click();
-
-  if (config.user.prefs.claimtext) {
-    $('#claimtext').val(config.user.prefs.claimtext);
-    $('#claimcolor').val(config.user.prefs.claimcolor);
-  }
-
+ 
   $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
   $('#textsize').val(270);
+
+  open();
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
