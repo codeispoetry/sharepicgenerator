@@ -83,12 +83,6 @@ $_SESSION['csrf'] = $csrf;
                     <div class="d-flex justify-content-around mt-5">
                         <div class="w-50 text-center">
                             <div class="text-center">
-                                <button class="btn btn-pistazie text-white btn-sm open bereitbold" id="open">
-                                    <i class="fas fa-file-image"></i> <?php _e("Open"); ?>
-                                </button>
-                                <button class="btn btn-pistazie text-white btn-sm save bereitbold me-5" id="save">
-                                    <i class="fas fa-save"></i> <?php _e("Save"); ?>
-                                </button>
                                 <button class="btn btn-secondary btn-lg download bereitbold" id="download">
                                     <i class="fas fa-download"></i> <?php _e("Download"); ?>
                                 </button>

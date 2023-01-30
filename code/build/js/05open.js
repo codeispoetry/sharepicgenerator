@@ -1,7 +1,4 @@
-$('#open').click(function onSaveClick() {
-  $(this).prop('disabled', true).val('Opening file...');
-  const oldVal = $(this).val();
-
+function open() {
   $.ajax({
     type: 'POST',
     url: '/actions/open.php',
@@ -18,10 +15,9 @@ $('#open').click(function onSaveClick() {
 
         const pic = JSON.parse(obj.content);
         fillForm(pic);
-        $('#open').prop('disabled', false).val(oldVal);
     },
   });
-});
+}
 
 function fillForm(pic) {
   if(pic['fullBackgroundName'] != "") {

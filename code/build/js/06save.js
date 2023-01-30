@@ -1,14 +1,4 @@
-$('#save').click(function onSaveClick() {
-
-  if( config.userHasSavedFile === '1' && ! confirm("Du kannst nur ein Sharepic speichern und hast schon eines. Soll das überschrieben werden?") ){
-      return;
-  }
-
-  config.userHasSavedFile = '1';
-
-  $(this).prop('disabled', true).val('Saving...');
-  const oldVal = $(this).val();
-
+function save() {
   $.ajax({
     type: 'POST',
     url: '/actions/save.php',
@@ -19,8 +9,7 @@ $('#save').click(function onSaveClick() {
     },
     success(data) {
         const obj = JSON.parse(data);
-        $('#save').prop('disabled', false)
-        $('#save').val(oldVal);
+        console.log(data)
     },
   });
-});
+}
