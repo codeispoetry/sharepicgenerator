@@ -42,5 +42,4 @@ function fillForm(pic) {
   $('#text').trigger('propertychange');
   $('#pintext').trigger('propertychange');
 
- 
 }
