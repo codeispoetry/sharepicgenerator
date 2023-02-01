@@ -67,6 +67,9 @@
                         <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li>                               
                     </ul>
                 </div>
+                 <div class="d-flex">
+                   <span class="btn btn-lachs" id="ask-ai">Textvorschlag erhalten</span> 
+                </div>
             </div>
         </div>
         <input type="hidden" name="iconfile" id="iconfile">
