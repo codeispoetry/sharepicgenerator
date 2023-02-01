@@ -1,5 +1,5 @@
 function askAI() {
-    console.log("HI")
+    $('.intro-text', '.ai-suggest').html('Augenblick bitte ... eine künstliche Intelligenz sucht nach Vorschlägen.');
     $.ajax({
       type: 'POST',
       url: '/actions/ai.php',
@@ -18,17 +18,25 @@ function askAI() {
         }
 
         console.log("parsed",response)
+
+        if(response[0] == '') { 
+          $('.intro-text', '.ai-suggest').html("Tut mir leid, es wurden keine Vorschläge gefunden.");
+          return;
+        }
         let choices = '';
         for (let i = 0; i < response.length; i++) {
             choices += '<li>' + response[i] + '</li>';
         }
 
-        message("Vielleicht könnte dieser Vorschlag interessant sein: <ul id=\"ai-suggestions\">" + choices + "</ul>");
-    
-        $('#ai-suggestions li').click(function() {
+        $('.intro-text', '.ai-suggest').html("<small>Klicke auf einen Vorschlag, um ihn zu übernehmen.</small>");
+        $('ul#ai-suggestions').html(choices);
+
+        $('#ai-suggestions li').click(function(event) {
             $('#text').val($(this).text());
             $('#text').trigger('propertychange');
-            message('');
+            $('.ai-suggest').removeClass('active');
+            $('ul#ai-suggestions').html('');
+            event.stopPropagation()
         });
 
        },
@@ -38,6 +46,15 @@ function askAI() {
     });
 }
 
-$('#ask-ai').click(function() {
-    askAI();
+$('.ai-suggest').click(function() {
+  if($(this).hasClass('active')) {
+    return;
+  }
+  $('.ai-suggest').addClass('active');
+  askAI();
+});
+
+$('.ask-ai-close').click(function(event) {
+  $('.ai-suggest').removeClass('active');
+  event.stopPropagation()
 });

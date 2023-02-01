@@ -15,6 +15,8 @@ $response = array();
 foreach ($result->choices as $choice) {
     $response[] = trim(preg_replace("/\n/", ' ', $choice->text));
 }
+file_put_contents(getBasePath('log/ai.log'), $input . ' => ' . json_encode($response) . "\n", FILE_APPEND);
+
 echo json_encode($response);
 
 function getAnswerFromAI($input)
