@@ -8,10 +8,13 @@ session_start();
 readConfig();
 
 $tenant = basename($_SERVER['REQUEST_URI']);
-
 $user = "generic";
 
-$user =  do_saml_login();
+if (in_array($tenant, explode(',', configValue("Main", "freeTenants")))) {
+    $user = $tenant;
+} else {
+    $user = do_saml_login();
+}
 
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
