@@ -1,0 +1,33 @@
+.ai-suggest{
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: rgba(76,180,231,0.6);
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+
+
+    .show-only-when-active{
+        display: none;
+    }
+
+    &.active{
+        width: 250px;
+        height: 250px;
+
+        .show-only-when-active{
+            display: block;
+        }
+
+        .ask-ai{
+            opacity: 0;
+        }
+
+        #ai-suggestions li{
+            cursor: pointer;
+        }
+    }
+}
