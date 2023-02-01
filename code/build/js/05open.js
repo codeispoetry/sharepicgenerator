@@ -9,7 +9,7 @@ function open() {
     success(data) {
         const obj = JSON.parse(data);
         if(obj.code != 0) {
-          alert("Es wurde kein gespeichert Sharepic gefunden.");
+          //alert("Es wurde kein gespeichert Sharepic gefunden.");
           return;
         }
 
