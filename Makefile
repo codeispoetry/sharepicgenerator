@@ -64,3 +64,6 @@ tenant-delete:
 	@read -p "which tenant do you want to delete: " tenant; \
 	./scripts/delete-tenant.sh $$tenant \
 	make compile
+
+compile:
+	docker-compose run node gulp build --gulpfile gulpfile.js
