@@ -1,6 +1,6 @@
 const logo = {
   loaded: false,
-  svg: draw.image('/assets/vorort/logo.png', () => {
+  svg: draw.image('/assets/vorort/logo.svg', () => {
     logo.loaded = true;
   }),
 
@@ -12,7 +12,6 @@ const logo = {
 
   setPosition(){
     logo.svg.size(null, draw.height() * 0.35);
-;
 
     logo.svg.move(draw.width() * 0.1, draw.height() * 0.2);
   },
