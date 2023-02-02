@@ -62,7 +62,7 @@
                     </div> 
                     </div>
 
-                <div class="preferences-text">
+                <div class="d-none preferences-text">
                     <div class="">  
                          <label class="me-3">
                             <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
@@ -81,6 +81,10 @@
                         <li class="text-symbol" data-symbol="°" title="Anführungszeichen oben" role="button">°</li>                               
 
                     </ul>
+                </div>
+
+                <div class="d-flex mt-3">
+                    <div class="btn btn-sm btn-outline-cockpit ai-suggest-trigger">Textvorschläge ansehen</div>
                 </div>
             </div>
         </div>
