@@ -4,8 +4,8 @@ const bgpic = {
   height: 450,
   originalWidth: 1920,
   originalHeight: 1080,
-  filename: '/assets/bg_berlin_small.jpg',
-  fullBackgroundName: '../assets/bg_berlin.jpg',
+  filename: '/assets/berlin/bg_small.jpg',
+  fullBackgroundName: '../assets/berlin/bg.jpg',
 };
 
 var initialized = false;

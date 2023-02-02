@@ -3,8 +3,8 @@ const bgpic = {
   height: 450,
   originalWidth: 1920,
   originalHeight: 1080,
-  filename: '/assets/bg_bw_small.jpg',
-  fullBackgroundName: '../assets/bg_bw.jpg',
+  filename: '/assets/bw/bg_bw_small.jpg',
+  fullBackgroundName: '../bw/assets/bg_bw.jpg',
 };
 
 var initialized = false;
