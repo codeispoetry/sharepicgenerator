@@ -23,7 +23,7 @@
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
 </head>
-<body>
+<body style="background:white">
 <div class="container-fluid mb-5">
     <div class="row mt-5">
       <div class="col-md-6 offset-md-3 ">

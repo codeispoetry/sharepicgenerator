@@ -90,8 +90,8 @@
 
 
 ?>
-<body >
-<div class="container-fluid p-0">
+<body style="background:white">
+<div class="container-fluid p-0 position-relative h-100">
   <header class="container d-flex justify-content-between">
     <div class="my-auto">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
@@ -133,9 +133,7 @@
       </div>
   </div>
 
-
-
-  <footer class="bg-primary p-5 position-relative">
+  <footer class="bg-primary p-5 h-100">
       <div class="container">
          <div class="row">
       <div class="col-6 col-md">
