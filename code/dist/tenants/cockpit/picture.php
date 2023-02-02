@@ -4,8 +4,13 @@
         <span class="btn btn-cockpit cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild hochladen
         </span> 
-        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="#A0C864">
-        <span class="colorpicker ms-1" data-colors="#A0C864,#145F32" data-action="background.drawColor()" data-field="#backgroundcolor" title="Bild löschen und Hintergrundfarbe setzen"></span> 
+        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="<?php getColorAtIndex(0); ?>">
+        <span 
+            class="colorpicker ms-1" 
+            data-colors="<?php getColorAtIndex(); ?>" 
+            data-action="background.drawColor()" 
+            data-field="#backgroundcolor" 
+            title="Hintergrundfarbe setzen"></span> 
     </div>
  </div>
  <h3><i class="fas fa-image"></i> <?php _e('Search image'); ?></h3>

@@ -15,7 +15,7 @@
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once('cockpit/picture-radentscheid.php');
+            require_once('cockpit/picture.php');
             require_once('cockpit/picture-size.php');
         ?>
     </div>
@@ -26,8 +26,6 @@
             require_once('cockpit/eyecatcher.php');
             require_once('cockpit/center-elements.php');
             require_once('cockpit/to-front-elements.php');
-
-
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">

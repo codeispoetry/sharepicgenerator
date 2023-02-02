@@ -47,7 +47,7 @@ const floating = {
 
     const t = draw.text($('#text').val())
       .font(Object.assign(floating.font, { anchor }))
-      .fill('#FFFFFF')
+      .fill($('#textcolor').val())
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -136,7 +136,7 @@ const floating = {
 
   drawTextBefore() {
     let content = $('#textbefore').val();
-    let color = '#FFE100';
+    let color = $('#textbeforecolor').val() || '#FFFFFF';
     let font = floating.fontBefore;
 
     if ($('#layout-cite').prop('checked')) {
@@ -178,7 +178,7 @@ const floating = {
 
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
-      .fill('#FFFFFF')
+      .fill($('#textaftercolor').val() || '#FFFFFF')
       .move(0, -20 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
@@ -213,7 +213,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShadow').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShadow, .change-text').bind('input propertychange', floating.draw);
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {

@@ -11,8 +11,15 @@
                 <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">SICHER RADELN.
 JETZT!</textarea>
-                    <input type="hidden" name="textcolor" id="textcolor" value="#1a1a18">
-                    <span class="colorpicker ms-1"  id="textcolorpicker" data-colors="#1a1a18,#008fcf,#e2ba00,#ffffff" data-action="floating.draw()" data-field="#textcolor" title="Farbe wechseln"></span> 
+
+                    <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1"  
+                        id="textcolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textcolor" 
+                        title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-none align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>

@@ -11,14 +11,7 @@
                 <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="20">
             <small>groß</small>
         </div>
-        <div>
-            <span class="cursor-pointer text-cockpit align-center-logo">
-                <i class="fab fa-centercode" title="Logo in Bildmitte"></i>
-            </span>
-            <span class="to-front" data-target="logo" title="Logo nach vorne">
-                <i class="fas fa-layer-group text-cockpit"></i>
-            </span> 
-        </div>
+
     </div>
     
 </div>
