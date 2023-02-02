@@ -495,14 +495,33 @@ function readConfig()
     }
 }
 
-function configValue($group, $attribute)
+function configValue($group, $attribute, $default = false)
 {
     $value = false;
     if (isset($_SESSION["config"][$group][$attribute])) {
         $value = $_SESSION["config"][$group][$attribute];
     }
-    return $value;
+
+    return $value ?: $default;
 }
+
+function getColorAtIndex($index = false)
+{
+    global $tenant;
+    if (!isset($_SESSION["config"][$tenant]['colors'])) {
+        echo '#ff0000';
+        return;
+    }
+
+    if (is_numeric($index)) {
+        echo explode(',', $_SESSION["config"][$tenant]['colors'])[$index];
+        return;
+    }
+
+    echo $_SESSION["config"][$tenant]['colors'];
+}
+
+
 
 function pixabayConfig()
 {

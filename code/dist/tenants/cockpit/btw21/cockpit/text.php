@@ -11,12 +11,36 @@
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
+                    <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="textbeforecolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textbeforecolor" 
+                        title="Farbe wechseln"></span> 
                 </div>
-                <div class="">
+                <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bereit, weil Ihr es seid.</textarea>
+                    <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="textcolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textcolor" 
+                        title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>
+                    <input type="hidden" name="textaftercolor" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="textaftercolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textaftercolor" 
+                        title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="">
@@ -34,17 +58,6 @@
                             <small>klein</small>
                             <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
-                        </div>
-                        <div class="d-flex">
-                            <div class="me-3">
-                                <span class="cursor-pointer ms-3 text-cockpit align-center-text">
-                                    <i class="fab fa-centercode" title="Text in Bildmitte"></i></span>
-                            </div> 
-                            <div>
-                                <span class="to-front" data-target="floating" title="Text nach vorne">
-                                    <i class="fas fa-layer-group text-cockpit"></i>
-                                </span> 
-                            </div>
                         </div>
                     </div> 
                     </div>
@@ -64,7 +77,9 @@
                         <li class="text-symbol" data-symbol="CO₂" title="mit tiefergesteller 2" role="button">CO₂</li>   
                         <li class="text-symbol" data-symbol="•" title="Aufzählungszeichen" role="button">•</li>  
                         <li class="text-symbol" data-symbol="„" title="Anführungszeichen unten" role="button">„</li>  
-                        <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li>                               
+                        <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li> 
+                        <li class="text-symbol" data-symbol="°" title="Anführungszeichen oben" role="button">°</li>                               
+
                     </ul>
                 </div>
             </div>

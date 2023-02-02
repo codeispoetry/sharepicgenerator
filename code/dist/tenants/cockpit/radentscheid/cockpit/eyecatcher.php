@@ -15,8 +15,8 @@
         <div class="d-flex">
             <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3"></textarea>
             <div>
-                <input type="hidden" name="pincolor" id="pincolor" value="#e2ba00">
-                <span class="colorpicker ms-1"  id="pincolorpicker" data-colors="#1a1a18,#008fcf,#e2ba00" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
+                <input type="hidden" name="pincolor" id="pincolor" value="<?php getColorAtIndex(1); ?>">
+                <span class="colorpicker ms-1"  id="pincolorpicker" data-colors="<?php getColorAtIndex(); ?>" data-action="pin.draw()" data-field="#pincolor" title="Farbe wechseln"></span>
             </div>   
         </div>
         <div class="d-flex">
