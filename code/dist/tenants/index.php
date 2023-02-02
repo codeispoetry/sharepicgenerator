@@ -125,7 +125,10 @@ $_SESSION['csrf'] = $csrf;
 <?php if ($tenant === 'btw21') { ?>
     <div class="ai-suggest">
         <div class="d-flex justify-content-between">
-            <i class="far fa-lightbulb ask-ai cursor-pointer" title="Textvorschläge einer künstlichen Intelligenz erhalten"></i>
+            <span class="ask-ai cursor-pointer">
+                Textvorschläge
+                <i class="far fa-lightbulb ms-1"></i>
+            </span>
             <i class="fas fa-times ask-ai-close cursor-pointer show-only-when-active"></i>
         </div>
         <div class="ai-suggestions show-only-when-active">

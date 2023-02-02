@@ -1,6 +1,6 @@
 .ai-suggest{
     position: absolute;
-    width: 30px;
+    width: 150px;
     height: 40px;
     background: rgba(76,180,231,0.6);
     bottom: 10px;
@@ -15,7 +15,7 @@
     }
 
     &.active{
-        width: 250px;
+        width: 330px;
         height: 250px;
 
         .show-only-when-active{
