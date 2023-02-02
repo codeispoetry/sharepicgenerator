@@ -122,16 +122,18 @@ $_SESSION['csrf'] = $csrf;
     </div>
 </div>
 
-<div class="ai-suggest">
-    <div class="d-flex justify-content-between">
-        <i class="far fa-lightbulb ask-ai cursor-pointer" title="Textvorschläge einer künstlichen Intelligenz erhalten"></i>
-        <i class="fas fa-times ask-ai-close cursor-pointer show-only-when-active"></i>
+<?php if ($tenant === 'btw21') { ?>
+    <div class="ai-suggest">
+        <div class="d-flex justify-content-between">
+            <i class="far fa-lightbulb ask-ai cursor-pointer" title="Textvorschläge einer künstlichen Intelligenz erhalten"></i>
+            <i class="fas fa-times ask-ai-close cursor-pointer show-only-when-active"></i>
+        </div>
+        <div class="ai-suggestions show-only-when-active">
+            <div class="intro-text"></div>
+            <ul id="ai-suggestions"></ul> 
+        </div>
     </div>
-    <div class="ai-suggestions show-only-when-active">
-        <div class="intro-text"></div>
-        <ul id="ai-suggestions"></ul> 
-    </div>
-</div>
+<?php } ?>
 
 <?php require_once('footer.php'); ?>
 

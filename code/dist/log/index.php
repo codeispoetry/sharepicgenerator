@@ -19,7 +19,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
-<body>
+<body style="background:white">
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center">
@@ -27,10 +27,12 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-12 text-center mb-3">
             <a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
+            <a href="logs/ai.log" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> AI-Log</a>
+
         </div>
         <div class="col-12">
             <h4>Systemgesundheit</h4>
-            Uhrzeit: <?php echo strftime('%A, %k:%M Uhr'); ?><br>
+            Uhrzeit: <?php echo date('l, m.d, h:i \U\h\r'); ?><br>
             Freier Festplattenplatz: <?php echo getFreeSpace(); ?>
         </div>
         <div class="col-12 pb-5">
