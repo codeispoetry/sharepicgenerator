@@ -27,6 +27,8 @@ $(document).ready(() => {
 
   showLayout();
 
+  defaultlogo.svg.remove();
+
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });

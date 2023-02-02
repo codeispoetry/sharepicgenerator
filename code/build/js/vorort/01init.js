@@ -16,6 +16,7 @@ $(document).ready(() => {
   const clickId = urlParams.get('clickId');
   $(`#${clickId}`).click();
 
+  defaultlogo.svg.remove();
   reDraw();
 
   $('.close-target').click(function doCloseTarget() {

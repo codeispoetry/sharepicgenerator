@@ -142,15 +142,15 @@ $_SESSION['csrf'] = $csrf;
 <script src="/node_modules/@svgdotjs/svg.draggable.js/dist/svg.draggable.min.js"></script>
 <script src="/node_modules/@svgdotjs/svg.filter.js/dist/svg.filter.min.js"></script>
 
-<script src="<?php latestVersion('/assets/js/main.min.js');?>"></script>
-<script src="<?php latestVersion('/assets/js/' . $tenant . '.min.js');?>"></script>
-
-
-
 <script>
     config.user.prefs = jQuery.parseJSON('<?php echo getUserPrefs(); ?>');
     config.username = '<?php echo getUser(); ?>';
+
+    config.defaultlogo = '<?php echo getDefaultLogo(); ?>';
 </script>
+
+<script src="<?php latestVersion('/assets/js/main.min.js');?>"></script>
+<script src="<?php latestVersion('/assets/js/' . $tenant . '.min.js');?>"></script>
 
 </body>
 </html>

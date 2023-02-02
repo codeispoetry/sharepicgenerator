@@ -521,6 +521,12 @@ function getColorAtIndex($index = false)
     echo $_SESSION["config"][$tenant]['colors'];
 }
 
+function getDefaultLogo()
+{
+    global $tenant;
+    return sprintf('/assets/%s/logo.svg', $tenant);
+}
+
 
 
 function pixabayConfig()
