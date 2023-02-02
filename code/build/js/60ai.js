@@ -47,8 +47,8 @@ function askAI() {
     });
 }
 
-$('.ai-suggest').click(function() {
-  if($(this).hasClass('active')) {
+$('.ai-suggest-trigger').click(function() {
+  if($('.ai-suggest').hasClass('active')) {
     return;
   }
   $('.ai-suggest').addClass('active');

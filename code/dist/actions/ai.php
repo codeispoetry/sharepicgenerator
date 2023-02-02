@@ -27,6 +27,9 @@ function getAnswerFromAI($input)
 
     $config['open_api_key'] = configValue("OpenAI", "apikey");
 
+    $input = preg_replace("/\n/", ' ', $input);
+    $input = preg_replace("/ - /", ' ', $input);
+
     $prompt = "Mache daraus einen griffigen Slogan für ein grünes Wahlplakat {$input}";
 
     $payload = '{

@@ -123,7 +123,7 @@ $_SESSION['csrf'] = $csrf;
 </div>
 
 <?php if ($tenant === 'btw21') { ?>
-    <div class="ai-suggest">
+    <div class="ai-suggest ai-suggest-trigger">
         <div class="d-flex justify-content-between">
             <span class="ask-ai cursor-pointer">
                 Textvorschläge
