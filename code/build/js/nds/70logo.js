@@ -1,6 +1,6 @@
 const logo = {
   loaded: false,
-  svg: draw.image('/assets/logos/sonnenblume-nds.svg', () => {
+  svg: draw.image('/assets/nds/logo.svg', () => {
     logo.loaded = true;
   }),
 

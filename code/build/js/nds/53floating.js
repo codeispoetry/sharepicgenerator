@@ -68,7 +68,7 @@ const floating = {
       background.move(-5, -5).size(floating.svg.width() + 10, floating.svg.height() + 30);
       logo.svg.hide();
 
-      const floatingLogo = draw.image('/assets/logos/sonnenblume-nds.svg', () => {
+      const floatingLogo = draw.image('/assets/nds/logo.svg', () => {
         floatingLogo.size(40, null)
           .move(
             floating.svg.width() - floatingLogo.width() - 10,
@@ -81,7 +81,7 @@ const floating = {
     } else if (sublayout === 'bottom') {
       logo.svg.hide();
 
-      floating.floatinglogo = draw.image('/assets/logos/sonnenblume-nds.svg', () => {
+      floating.floatinglogo = draw.image('/assets/nds/logo.svg', () => {
         const flogosize = 0.25 * draw.width();
         floating.floatinglogo.size(flogosize, null)
           .move(
