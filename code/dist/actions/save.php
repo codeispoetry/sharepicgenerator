@@ -30,14 +30,17 @@ function save()
     
     $file = sprintf('%s/%s_sharepic%d.json', $dir, $config->tenant, $file_number);
 
-    $background = $vars['fullBackgroundName'];
-    $target = sprintf('%s/%s_sharepic%d.%s', $dir, $config->tenant, $file_number, pathinfo($background, PATHINFO_EXTENSION));
+    if (!empty($vars['fullBackgroundName'])) {
+        $background = $vars['fullBackgroundName'];
+        $target = sprintf('%s/%s_sharepic%d.%s', $dir, $config->tenant, $file_number, pathinfo($background, PATHINFO_EXTENSION));
 
-    if (file_exists($background)) {
-        copy($background, $target);
+        if (file_exists($background)) {
+            copy($background, $target);
+        }
+
+        $vars['fullBackgroundName'] = $target;
     }
 
-    $vars['fullBackgroundName'] = $target;
     $content = json_encode($vars);
 
     file_put_contents($file, $content);

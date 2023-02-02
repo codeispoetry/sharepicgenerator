@@ -51,6 +51,7 @@ const background = {
     this.svg.remove();
     background.colorlayer.hide();
     this.svg = draw.rect(5000, 5000).fill($('#backgroundcolor').val()).back();
+    $('#fullBackgroundName').val('');
   },
 
   drawShadow() {

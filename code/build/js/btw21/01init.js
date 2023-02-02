@@ -38,6 +38,8 @@ function initSharepic() {
   floating.draw();
   pin.draw();
 
+  $('#advancedmode').click();
+
   return true;
 }
 
