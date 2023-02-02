@@ -1,49 +1,56 @@
 
 
-        <h3 class=""><i class="fas fa-text-width"></i> Text</h3>
+        <h3>Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
-        
-            <div class="d-none justify-content-between form-check form-check-inline">
-                 <label class="d-none">
-                    <input type="radio" class="form-check-input layout" name="layout" value="basic" checked>Standard
-                 </label>
-
-               
-            </div>
-
-            <div class="mb-1 d-flex align-items-lg-center dd-none">
-                <input type="hidden" id="textfont" value="SaunaPro">
-            </div>
-
-
-            <div>
-
-                <i class="fas fa-align-left text-cockpit click-setter d-none" data-action="basic.draw()" data-field="#textanchor" data-value="left" title="Text linksbündig"></i>
-                <i class="fas fa-align-center text-cockpit click-setter d-none" data-action="basic.draw()" data-field="#textanchor" data-value="middle" title="Text mittig"></i>
-
-                <label>
-                    <input type="checkbox" name="textshadow" id="textshadow">
-                    Textschatten
-                </label>
-
-                <input type="hidden" name="textanchor" id="textanchor" value="left">
-                <input type="color" name="textcolor" id="textcolor" value="#ffffff">
-                <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#5488C7,#CDDCF4,#285F96,#FFB100" data-action="basic.draw()" data-field="#textcolor" title="Farbe wechseln"></span>
-            </div>
-
+            
             <div class="list-group-item-content">
-                <div class="">
+                <div class="d-flex justify-content-end">
+                    <i class="fa fa-align-left text-align me-2" data-align="left" title="linksbündig"></i>
+                    <i class="fa fa-align-center text-align me-2" data-align="middle" title="zentrieren"></i>
+                    <i class="fa fa-align-right text-align" data-align="end" title="rechtsbündig"></i>
+                </div>
+                <div class="d-flex align-items-lg-center">
+                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
+                    <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="textbeforecolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textbeforecolor" 
+                        title="Farbe wechseln"></span> 
+                </div>
+                <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Einigungshilfe</textarea>
+                    <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="textcolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textcolor" 
+                        title="Farbe wechseln"></span> 
                 </div>
-                <div class="mb-1 mt-2">
-                    <div class="d-flex justify-content-between mt-3">
-                        <small class="showonly lines nolines quote">Text in eckigen Klammern [ ] wird hervorgehoben</small>
-                        <small class="cursor-pointer ms-3 text-cockpit aligncenter showonly lines nolines quote">
-                            <i class="fa fa-align-center"></i>
-                            mittig ausrichten</small>
-                    </div>
+                <div class="d-flex align-items-lg-center">
+                    <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>
+                    <input type="hidden" name="textaftercolor" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="textaftercolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textaftercolor" 
+                        title="Farbe wechseln"></span> 
                 </div>
-
+                <div class="d-none justify-content-between">
+                    <div class="">
+                        <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control">
+                    </div>    
+                    <div>
+                        <input type="hidden" name="claimcolor" id="claimcolor" value="#ffe100">
+                        <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#ffe100,#FF495D" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
+                    </div>    
+                </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between">
@@ -52,21 +59,23 @@
                             <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
                             <small>groß</small>
                         </div>
-                        <div>
-                            <span class="to-front" data-target="text" title="Text nach vorne">
-                                <i class="fas fa-layer-group text-cockpit"></i>
-                            </span> 
-                        </div>
                     </div> 
-                    </div>    
+                    </div>
+
+                <div class="preferences-text">
+                    <div class="">  
+                         <label class="me-3">
+                            <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
+                            Schatten hinter Text
+                        </label>
+                    </div>
+                </div>
+
+                 
             </div>
-            
         </div>
         <input type="hidden" name="iconfile" id="iconfile">
-        <input type="hidden" placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control showonly lines nolines quote">
-        <input type="hidden" placeholder="Text über der Linie" name="textbefore" id="textbefore" value="" class="form-control showonly lines nolines">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
-        <input type="hidden" name="textColor" id="textColor" value="1">
+        <input type="hidden" name="textColor" id="textColor" value="0">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
-        <input type="file" class="custom-file-input upload-file" id="uploadfont">

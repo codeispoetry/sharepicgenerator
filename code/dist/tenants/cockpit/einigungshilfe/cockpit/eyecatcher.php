@@ -1,38 +1,36 @@
-<h3><i class="far fa-eye"></i> Störer</h3>
+<h3>Störer</h3>
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
-        <div class="d-flex align-items-lg-center">
-            <textarea name="pintext" id="pintext" placeholder="Störertext" value="" class="form-control"></textarea>
+        <div class="d-none">
+            <select class="form-select" name="eyecatchertemplate" id="eyecatchertemplate">
+                <option value="">Vorlage wählen</option>
+                <option value="custom">Text selbst eingeben</option>
+                <optgroup label="Vorlagen">
+                    <option value="btw21/zweitstimme.svg">Zweitstimme Grün!</option>
+                    <option value="btw21/briefwahl.svg">Briefwahl jetzt!</option>
+                </optgroup>
+            </select>
+            oder
         </div>
-        <div class="d-flex justify-content-between">
-            <div class="slider">
+        <div class="d-flex">
+            <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3"></textarea>
+            <input type="hidden" name="pinbgcolor" id="pinbgcolor" value="<?php getColorAtIndex(5); ?>">
+                    <span 
+                        class="colorpicker ms-1 change-text"  
+                        id="pinbgcolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="pin.draw()" 
+                        data-field="#pinbgcolor" 
+                        title="Farbe wechseln"></span> 
+        </div>
+        <div class="d-flex justify-content-end">
+            <div class="slider advancedmode d-none">
                 <small>klein</small>
                 <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
-                    max="300" value="100" disabled>
+                    max="300" value="100">
                 <small>groß</small>
             </div>
-            <div>
-                <span class="to-front" data-target="pin" title="Störer nach vorne">
-                    <i class="fas fa-layer-group text-cockpit"></i>
-                </span> 
-            </div>
         </div>    
-        <div>
-            Hintergrund:
-            <input type="color" name="eyecatcherbackgroundcolor" id="eyecatcherbackgroundcolor" value="#FFB100">
-            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#5488C7,#CDDCF4,#285F96,#FFB100" data-action="pin.draw()" data-field="#eyecatcherbackgroundcolor" title="Farbe wechseln"></span>
-        </div>
-        <div>
-            Schrift:
-            <input type="color" name="eyecatcherfontcolor" id="eyecatcherfontcolor" value="#285F96">
-            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#5488C7,#CDDCF4,#285F96,#FFB100" data-action="pin.draw()" data-field="#eyecatcherfontcolor" title="Farbe wechseln"></span>
-        </div>
-        <div class="mb-1 d-flex align-items-lg-center">
-            <select class="form-control" name="eyecatcherfont" id="eyecatcherfont">
-                <?php echo $fontOptionsInCockpit; ?>
-            </select>
-            <i class="fa fa-upload text-cockpit cursor-pointer ms-2 uploadfontclicker" title="Schrift hochladen"></i>
-        </div>
     </div>
 </div>
 

@@ -15,6 +15,8 @@ $(document).ready(() => {
   $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
   $('#textsize').val(270);
+  $('#logoX').val(230);
+  $('#logoY').val(200);
 
   open();
 

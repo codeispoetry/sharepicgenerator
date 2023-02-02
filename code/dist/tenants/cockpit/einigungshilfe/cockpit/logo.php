@@ -1,59 +1,19 @@
-<h3><i class="fas fa-fan"></i> Logo</h3>
-        <div class="logo  list-group-item list-group-item-action flex-column align-items-start">
-            <div class="mb-1 d-flex align-items-lg-center">
-                <select class="form-control" name="logoselect" id="logoselect">                   
-                    
-                    <?php
-                        $logos = glob(getBasePath('persistent/user/' . $user . '/logo*'));
-                        if (!empty($logos)) {
-                    ?>
-                        <optgroup label="Eigene Logos">
-                        <?php
-                            $i = 1;
-                            foreach($logos as $logo) {
-                                printf('<option value="custom" data-file="%s">Logo #%s</option>', $logo, $i);
-                                $i++;
-                            }
-                        ?>
-                        </optgroup>
-                    <?php
-                        }
-                    ?>
-                
-                    <optgroup label="Kein Logo">
-                        <option value="void">kein Logo</option>
-                    </optgroup>
-                </select>
-                
-            </div>
-            
-            <div class="mb-1 d-flex align-items-lg-center">
-                <select class="form-control" name="logoposition" id="logoposition">
-                    <optgroup label="oben">
-                        <option value="topleft">links</option>
-                        <option value="topcenter">mitte</option>
-                        <option value="topright">rechts</option>
-                    </optgroup>
-                    <optgroup label="unten">
-                        <option value="bottomleft">links</option>
-                        <option value="bottomcenter">mitte</option>
-                        <option value="bottomright">rechts</option>
-                    </optgroup>
-                </select>
-            </div>
-           
-            <div class="d-flex justify-content-between">
-                <div class="slider">
-                    <small>klein</small>
-                        <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="10">
-                    <small>groß</small>
-                </div>
-                <div>
-                    <span class="to-front" data-target="logo" title="Logo nach vorne">
-                        <i class="fas fa-layer-group text-cockpit"></i>
-                    </span> 
-                </div>
-            </div>
-           
+<h3 class="">Logo</h3>
+<div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+    
+    <label class="" title="ändere die Größe von Logo und Störer selbstständig">
+        <input id="advancedmode" type="checkbox" class="me-1 form-check-input" >
+        Größe von Logo und Störer selbst steuern
+    </label>
+    <div class="d-flex justify-content-between">
+        <div class="slider advancedmode d-none me-3">
+            <small>klein</small>
+                <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="20">
+            <small>groß</small>
         </div>
-        <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
+
+    </div>
+    
+</div>
+<input type="hidden" name="logoX" id="logoX" value="256.5">
+<input type="hidden" name="logoY" id="logoY" value="390">

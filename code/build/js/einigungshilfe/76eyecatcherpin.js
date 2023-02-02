@@ -2,18 +2,21 @@ $('#pinsize').bind('input propertychange', () => {
   pin.draw();
 });
 
+const pinfont = {
+  family: 'SaunaPro',
+  size: 15,
+  anchor: 'middle',
+  leading: '1em',
+};
+
 const pin = {
   isLoaded: false,
 
-  font: {
-    anchor: 'middle',
-    size: 15,
-  },
-
   svg: draw.text(''),
+  template: draw.circle(0),
 
   draw() {
-    $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
+    //$('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
     pin.svg.remove();
     pin.svg = draw.group();
@@ -27,18 +30,15 @@ const pin = {
     });
 
     // text
-    const family = $('#eyecatcherfont').val();
-    const pintext = draw.text($('#pintext').val()).font(Object.assign(pin.font, { family })).fill(($('#eyecatcherfontcolor').val()));
+    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
 
     // background
-    const pinwidth = pintext.rbox().w;
-    const pinheight = pintext.rbox().h;
+    const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
+    const pinbackground = draw.circle(diameter)
+      .fill($('#pinbgcolor').val());
 
-    const diameter = 1.45 * Math.max(pinwidth, pinheight);
+    pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
-    const pinbackground = draw.circle(diameter).fill($('#eyecatcherbackgroundcolor').val());
-
-    pintext.move((diameter - pinwidth) * 0.5, (diameter - pinheight) * 0.5);
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
 
     // and in reverse order
@@ -46,25 +46,74 @@ const pin = {
     pin.svg.add(pintext);
 
     pin.svg.move($('#pinX').val(), $('#pinY').val());
+    pin.svg.front().show();
+    pin.template.hide();
+    $('#eyecatchertemplate').val('custom');
+    pin.resize();
 
-    const eyecatchersize = $('#eyecatchersize').val() / 100;
-    pin.svg.scale(eyecatchersize, eyecatchersize);
+    //pin.svg.rotate(-9);
+  },
 
-    pin.svg.front();
+  setSize(w) {
+    pin.svg.size(w, null);
+  },
 
-    config.user.prefs.eyecatcherbackgroundcolor = $('#eyecatcherbackgroundcolor').val();
-    setUserPrefs();
+  resize() {
+    const eyecatchersize = $('#eyecatchersize').val();
+    pin.svg.size(eyecatchersize);
+    pin.template.size(eyecatchersize);
+  },
+
+  drawTemplate() {
+    if (!$('#eyecatchertemplate').val()) {
+      return;
+    }
+
+    if ($('#eyecatchertemplate').val() === 'custom') {
+      pin.draw();
+      return;
+    }
+
+    pin.template.remove();
+    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () =>{
+      pin.template.size($('#eyecatchersize').val())
+        .move($('#pinX').val(), $('#pinY').val())
+        .draggable();
+
+      pin.template.on('dragend.namespace', () => {
+        $('#pinX').val(Math.round(pin.template.x()));
+        $('#pinY').val(Math.round(pin.template.y()));
+      });
+    });
+
+    pin.svg.hide();
   },
 
   bounce() {
 
   },
+
+  front() {
+    if (!$('#eyecatchertemplate').val()) {
+      return;
+    }
+
+    if ($('#eyecatchertemplate').val() === 'custom') {
+      pin.svg.front();
+      return;
+    }
+
+    pin.template.front();
+  },
 };
 
-$('#pintext, #eyecatchersize, #eyecatcherbackgroundcolor, #eyecatcherfont').bind('input propertychange', pin.draw);
+$('#pintext, #pinbgcolor').bind('input propertychange', pin.draw);
+$('#eyecatchersize').bind('input propertychange', pin.resize);
 
-$(document).ready(() => {
-  if (config.user.prefs.eyecatcherbackgroundcolor) {
-    $('#eyecatcherbackgroundcolor').val(config.user.prefs.eyecatcherbackgroundcolor);
-  }
+$('#eyecatchertemplate').on('change', pin.drawTemplate);
+
+$('.align-center-eyecatcher').click(() => {
+  $('#pinX').val((draw.width() - pin.svg.width()) / 2);
+  $('#pinY').val((draw.height() - pin.svg.height()) / 2);
+  pin.draw();
 });
