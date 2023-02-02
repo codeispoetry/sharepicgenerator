@@ -10,7 +10,7 @@ const bgpic = {
 var initialized = false;
 
 $(document).ready(() => {
-  $('#textsize').val(502);
+  $('#textsize').val(300);
   $('#textX').val(151);
   $('#textY').val(262);
   config.layout = 'nolines';

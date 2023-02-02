@@ -2,7 +2,7 @@ const logo = {
   isLoaded: false,
   config: {
     sonnenblume: {
-      file: '/assets/logos/sonnenblume.svg',
+      file: '/assets/einigungshilfe/logo.svg',
       widthFraction: 0.1,
       position: 'topright',
     },
