@@ -20,6 +20,7 @@ function open() {
 }
 
 function fillForm(pic) {
+  console.log(pic['fullBackgroundName'])
   if(pic['fullBackgroundName'] != "") {
     uploadFileByUrl(pic['fullBackgroundName']);
   }
@@ -37,5 +38,8 @@ function fillForm(pic) {
   $('#width').trigger('propertychange');
   $('#text').trigger('propertychange');
   $('#pintext').trigger('propertychange');
+
+  background.drawColor();
+  defaultlogo.draw();
 
 }
