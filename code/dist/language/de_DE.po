@@ -19,3 +19,6 @@ msgstr "Herunterladen"
 #: cockpit/picture.php:11
 msgid "Search image"
 msgstr "Bild suchen"
+
+msgid "Save"
+msgstr "Speichern"
