@@ -95,7 +95,7 @@
   <header class="container d-flex justify-content-between">
     <div class="my-auto">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <img class="me-2" src="assets/img/logo.svg" alt="" width="40" height="40">
+            <img class="me-2" src="assets/btw21/logo.svg" alt="" width="40" height="40">
             <span class="fs-4">Sharepic&shy;generator.de</span>
         </a>
     </div>
@@ -115,7 +115,7 @@
               <h1 class="">Sharepic&shy;generator</h1>
               <p class="subhead">Werde kreativ!</p>
           </div>
-          <img src="assets/logos/sonnenblume21.svg" id="sunflower">
+          <img src="assets/btw21/logo.svg" id="sunflower">
       </div>
       <div id="loginscreen">
           <a href="/btw21" class="">
