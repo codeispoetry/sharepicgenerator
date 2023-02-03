@@ -13,3 +13,7 @@ function save() {
     },
   });
 }
+
+$('.save').click(function() {
+  save();
+});
