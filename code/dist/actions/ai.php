@@ -12,8 +12,15 @@ if (!isAllowed(true)) {
 $input = substr($_POST['text'], 1, -1);
 $result = getAnswerFromAI($input);
 $response = array();
-foreach ($result->choices as $choice) {
-    $response[] = trim(preg_replace("/\n/", ' ', $choice->text));
+
+$suggestions = preg_split("/[0-9]\. /", $result->choices[0]->text);
+
+foreach ($suggestions as $suggestion) {
+    $trimmed = trim(preg_replace("/\n/", ' ', $suggestion));
+    if (empty($trimmed)) {
+        continue;
+    }
+    $response[] = $trimmed;
 }
 file_put_contents(getBasePath('log/logs/ai.log'), $input . ' => ' . json_encode($response) . "\n", FILE_APPEND);
 
@@ -30,7 +37,7 @@ function getAnswerFromAI($input)
     $input = preg_replace("/\n/", ' ', $input);
     $input = preg_replace("/ - /", ' ', $input);
 
-    $prompt = "Mache daraus einen griffigen Slogan für ein grünes Wahlplakat {$input}";
+    $prompt = "Mache drei plakative Formulierungen für ein grünes Wahlplakat mit folgendem Inhalt: {$input}";
 
     $payload = '{
         "model": "text-davinci-003",
@@ -71,5 +78,5 @@ function getAnswerFromAI($input)
         die();
     }
 
-    return json_decode($result);
+    return $result_json;
 }
