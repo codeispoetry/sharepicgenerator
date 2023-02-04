@@ -32,7 +32,7 @@ function askAI() {
         $('ul#ai-suggestions').html(choices);
 
         $('#ai-suggestions li').click(function(event) {
-            const text = $(this).text().replace(/ - /gm, "\n");
+            const text = $(this).text().replace(/[–| ( - )]/gm, "\n");
             $('#text').val(text);
             $('#text').trigger('propertychange');
             $('.ai-suggest').removeClass('active');
