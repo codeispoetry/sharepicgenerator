@@ -51,6 +51,7 @@ $('.upload-file').change(function changeFile() {
       case 'uploadfile':
         show('show-copyright');
         config.uploadTime = Date.now() - startUploadTime;
+        $('#backgroundsize').val(draw.width());
         afterUpload(obj);
         break;
       case 'uploadaddpic1':
@@ -190,8 +191,8 @@ function afterUpload(data) {
   
   setDrawsize();
 
-  if (typeof rembg.image.remove === "function") { 
-    rembg.image.remove();
+  if (typeof rembg.svg.remove === "function") { 
+    rembg.svg.remove();
   }
   // unselect presets
   $('#sizepresets').val($('#sizepresets option:first').val());
