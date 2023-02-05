@@ -57,9 +57,6 @@ function addClickActions(carrier) {
 
     });
   });
-
-  $('[data-carrier]', '.imagedb-hint').addClass('text-primary');
-  $(`[data-carrier=${carrier}]`, '.imagedb-hint').removeClass('text-primary');
 }
 
 function noPicturesFound() {

@@ -6,7 +6,7 @@ function convertExoticExtensions($filebasename, $extension)
 
     // convert webp to jpg, as inkscape cannot handle webp
     if (strToLower($extension) == 'webp') {
-        $newFilename = $filebasename .'.jpg';
+        $newFilename = $filebasename . '.jpg';
         $command = sprintf(
             "dwebp %s -o %s",
             $filename,
@@ -20,7 +20,7 @@ function convertExoticExtensions($filebasename, $extension)
 
     // convert heic
     if (strToLower($extension) == 'heic') {
-        $newFilename = $filebasename .'.jpg';
+        $newFilename = $filebasename . '.jpg';
         $command = sprintf(
             "heif-convert %s %s",
             $filename,
@@ -43,7 +43,7 @@ function handleBackgroundUpload($extension)
     $moved = move_uploaded_file($_FILES['file']['tmp_name'], $filename);
 
     // convert webp to jpg, as inkscape cannot handle webp
-    if (in_array(strToLower($extension), ['webp','heic'])) {
+    if (in_array(strToLower($extension), ['webp', 'heic'])) {
         $filename = convertExoticExtensions($filebasename, $extension);
         $extension = 'jpg';
     }
@@ -87,7 +87,7 @@ function handleUploadByUrl()
     $filename_small = $filebasename . '_small.' . $extension;
 
     if (!copy($url, $filename)) {
-        echo json_encode(array("error"=>"could not copy file"));
+        echo json_encode(array("error" => "could not copy file"));
         die();
     }
 

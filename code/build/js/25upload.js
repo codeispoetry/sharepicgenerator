@@ -94,20 +94,6 @@ $('.upload-file').change(function changeFile() {
         $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
         addPic5.draw();
         break;
-      case 'uploadwork':
-        {
-          const json = JSON.parse(obj.data);
-          if (json.addpicfile1) { json.addpicfile1 = `../${obj.dir}/${json.addpicfile1}`; show('add-pic-tools-1'); }
-          if (json.addpicfile2) { json.addpicfile2 = `../${obj.dir}/${json.addpicfile2}`; show('add-pic-tools-2'); }
-          if (json.addpicfile3) { json.addpicfile3 = `../${obj.dir}/${json.addpicfile3}`; show('add-pic-tools-3'); }
-          if (json.addpicfile4) { json.addpicfile4 = `../${obj.dir}/${json.addpicfile4}`; show('add-pic-tools-4'); }
-          if (json.addpicfile5) { json.addpicfile5 = `../${obj.dir}/${json.addpicfile5}`; show('add-pic-tools-5'); }
-
-          uploadFileByUrl(`${obj.dir}/${json.savedBackground}`, () => {
-            loadFormData(json);
-          });
-        }
-        break;
       default:
         console.log('error in upload', obj);
     }
@@ -201,9 +187,12 @@ function afterUpload(data) {
   $('#height').val(data.originalHeight);
 
   $('#fullBackgroundName').val(data.fullBackgroundName);
-
+  
   setDrawsize();
 
+  if (typeof rembg.image.remove === "function") { 
+    rembg.image.remove();
+  }
   // unselect presets
   $('#sizepresets').val($('#sizepresets option:first').val());
 

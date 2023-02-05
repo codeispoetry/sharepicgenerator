@@ -39,13 +39,6 @@ function setDrawsize() {
   $('#canvas').height(draw.height());
 
   calculateSizes();
-
-  if (typeof text.svg === 'object' && text.svg !== null) {
-    text.svg.move(0, 0);
-  }
-
-  $('#grid-round').toggleClass('rectangle', (draw.height() === draw.width()));
- 
   //background.drawColor();
 }
 

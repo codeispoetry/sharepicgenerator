@@ -55,6 +55,7 @@ const background = {
   },
 
   drawShadow() {
+    // for vorort only
     this.shadow.remove();
     const gradient = draw.gradient('linear', function(add) {
       add.stop({ offset: 0, color: '#000', opacity: 0 })
