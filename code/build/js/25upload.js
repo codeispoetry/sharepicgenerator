@@ -1,11 +1,15 @@
 /* eslint-disable no-undef */
-$('.upload-file').change(function changeFile() {
-  const id = $(this).attr('id');
-  const file = document.getElementById(id).files[0];
-  const size = document.getElementById(id).files[0].size / 1024 / 1024;
+$('.upload-file').change(function() { 
+  changeFile(document.getElementById('uploadfile').files[0]); 
+});
+  
+function changeFile(file) {
+  const id = $('.upload-file').attr('id');
+  
+  const size = file.size / 1024 / 1024;
 
   const maxFileSize = 20; // in MB, note this in .htaccess as well
-  const isBackgroundUpload = ($(this).attr('id') === 'uploadfile');
+  const isBackgroundUpload = ($('.upload-file').attr('id') === 'uploadfile');
   if (size > maxFileSize) {
     alert(`Die Datei ist zu groß. Es sind maximal ${maxFileSize} MB erlaubt.`);
     return false;
@@ -13,7 +17,7 @@ $('.upload-file').change(function changeFile() {
 
   $('#canvas-area').slideUp();
   $('#waiting').show();
-  $(this).prop('disabled', true);
+  $('.upload-file').prop('disabled', true);
 
   const formData = new FormData();
   const client = new XMLHttpRequest();
@@ -114,7 +118,7 @@ $('.upload-file').change(function changeFile() {
   client.open('POST', '/actions/upload.php');
   client.send(formData);
   return true;
-});
+}
 
 function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   $('#waiting').show();

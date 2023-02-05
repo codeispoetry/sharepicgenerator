@@ -79,7 +79,7 @@ $_SESSION['csrf'] = $csrf;
     <div class="row flex-row-reverse h-100">
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0 pt-3">
-                <div id="canvas-area">
+                <div id="canvas-area" ondrop="dropHandler(event);"  ondragover="dragOverHandler(event);">
                     <div id="canvas">
                         <div id="highlight-rect" class="d-none"></div>
                     </div>
