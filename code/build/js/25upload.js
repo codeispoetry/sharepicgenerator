@@ -56,6 +56,7 @@ function changeFile(file) {
         show('show-copyright');
         config.uploadTime = Date.now() - startUploadTime;
         $('#backgroundsize').val(draw.width());
+        $('.picture-only').toggleClass('d-none', false);
         afterUpload(obj);
         break;
       case 'uploadaddpic1':
@@ -154,6 +155,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
     config.filename = obj.filename;   
 
     afterUpload(obj);
+    $('.picture-only').toggleClass('d-none', false);
    
     callback();
   };
@@ -201,7 +203,8 @@ function afterUpload(data) {
   // unselect presets
   $('#sizepresets').val($('#sizepresets option:first').val());
 
-  background.draw();
+  background.reset();
+  //background.draw();
 
   config.backgroundSource = 'upload';
 }

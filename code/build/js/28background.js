@@ -2,7 +2,6 @@ const background = {
   svg: draw.circle(0),
   darklightlayer: draw.circle(0),
   greenlayer: draw.circle(0),
-  colorlayer: draw.circle(0),
   shadow: draw.circle(0),
 
   isLoaded: false,
@@ -48,9 +47,9 @@ const background = {
   },
 
   drawColor() {
-    this.svg.remove();
-    background.colorlayer.hide();
+    background.svg.hide();
     this.svg = draw.rect(5000, 5000).fill($('#backgroundcolor').val()).back();
+    config.formerFullBackgroundName = $('#fullBackgroundName').val();
     $('#fullBackgroundName').val('');
   },
 
@@ -92,7 +91,7 @@ const background = {
     $('#blur').val(0);
 
     $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
-    this.draw();
+    background.draw();
     background.uncoveredAreaWarning();
   },
 

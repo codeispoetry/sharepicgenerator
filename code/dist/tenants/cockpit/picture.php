@@ -23,8 +23,8 @@
     </div>
 </div>
 
-<h3><i class="fas fa-image"></i> Bildeinstellungen</h3>
-<div class="picture  list-group-item list-group-item-action flex-column align-items-start">
+<h3 class="picture-only d-none"><i class="fas fa-image"></i> Bildeinstellungen</h3>
+<div class="picture picture-only d-none list-group-item list-group-item-action flex-column align-items-start">
 
     <div class="mt-2 mb-1 list-group-item-content show preferences-pic">
         <div class="slider">
@@ -67,15 +67,15 @@
 
 </div>   
 
-<h3 class=""><i class="fas fa-image"></i> Hintergrund</h3>
-<div class="list-group-item">     
+<h3 class="picture-only d-none"><i class="fas fa-image"></i> Hintergrund</h3>
+<div class="list-group-item picture-only d-none">     
     <span class="btn btn-sm btn-outline-cockpit rembg" data-rembg="remove">
         <i class="fas fa-remove"></i> Hintergrund entfernen
     </span>
     <span class="btn btn-sm btn-outline-cockpit rembg" data-rembg="blur">
         <i class="fas fa-remove"></i> Hintergrund unscharf machen
     </span>
-    <span class="btn btn-sm btn-outline-cockpit rembg-reset">
+    <span class="btn btn-sm btn-outline-cockpit rembg-reset d-none">
         <i class="fas fa-back"></i> Hintergrund zurücksetzen
     </span>
 </div>

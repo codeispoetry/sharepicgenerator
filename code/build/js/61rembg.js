@@ -2,6 +2,10 @@ const rembg = {
   svg: '',
 
   load(caller){
+    $('#canvas').css('opacity',0.1);
+    $('.rembg').toggleClass('d-none');
+    $('.rembg-reset').toggleClass('d-none');
+
     $.ajax({
       type: 'POST',
       url: '/actions/rembg.php',
@@ -10,6 +14,7 @@ const rembg = {
         csrf: config.csrf,
       },
       success(response) {
+        $('#canvas').css('opacity', 1);
         const data = JSON.parse(response);
         const action = $(caller).data('rembg');
         eval(`rembg.${action}(data.filename)`);
@@ -48,8 +53,18 @@ const rembg = {
   reset() {
     rembg.svg.remove();
     background.svg.show();
+
+    if( config.formerFullBackgroundName !== undefined) {
+      $('#fullBackgroundName').val(config.formerFullBackgroundName);
+      delete config.formerFullBackgroundName;
+      background.draw();
+    }
+
     $('#blur').val(0);
     background.addFilter();
+
+    $('.rembg').toggleClass('d-none');
+    $('.rembg-reset').toggleClass('d-none');
   }
 }
 
