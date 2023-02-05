@@ -43,13 +43,6 @@
                 max="1" value="1" step="0.05">
             <small>farbig</small>
         </div>
-
-        <div class="slider d-none"><?php /* necessary for autoblurrin in rembg */ ?>
-            <small>scharf</small>
-            <input type="range" class="form-range" name="blur" id="blur" min="0"
-                max="5" value="0" step="0.1">
-            <small>unscharf</small>
-        </div>
  
         <div>
             <small class="text-cockpit cursor-pointer me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
@@ -72,14 +65,8 @@
 
 <h3 class="picture-only d-none"><i class="fas fa-image"></i> Hintergrund</h3>
 <div class="list-group-item picture-only d-none">     
-    <span class="btn btn-sm btn-outline-cockpit rembg" data-rembg="remove">
+    <span class="btn btn-sm btn-outline-cockpit rembg">
         <i class="fas fa-remove"></i> Hintergrund entfernen
-    </span>
-    <span class="btn btn-sm btn-outline-cockpit rembg" data-rembg="blur">
-        <i class="fas fa-brain"></i> Hintergrund unscharf machen
-    </span>
-    <span class="btn btn-sm btn-outline-cockpit rembg-reset d-none">
-        <i class="fas fa-undo"></i> Hintergrund zurücksetzen
     </span>
 </div>
 
