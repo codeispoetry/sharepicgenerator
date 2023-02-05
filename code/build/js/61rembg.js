@@ -4,6 +4,9 @@ const rembg = {
   load(caller){
     $('#canvas').css('opacity',0.1);
 
+    const oldValue = $('.rembg').html();
+    $('.rembg').html('<i class="fa fa-spinner fa-spin"></i> Augenblick bitte...');
+
     $.ajax({
       type: 'POST',
       url: '/actions/rembg.php',
@@ -17,6 +20,8 @@ const rembg = {
         const data = JSON.parse(response);
 
         uploadFileByUrl(data.filename);
+
+        $('.rembg').html(oldValue);
        },
       error(response) {
         console.log("error",response);
