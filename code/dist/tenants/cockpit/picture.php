@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<h3 class="picture-only d-none"><i class="fas fa-image"></i> Bildeinstellungen</h3>
+<h3 class="picture-only d-none"><i class="fas fa-image"></i> Einstellungen</h3>
 <div class="picture picture-only d-none list-group-item list-group-item-action flex-column align-items-start">
 
     <div class="mt-2 mb-1 list-group-item-content show preferences-pic">
