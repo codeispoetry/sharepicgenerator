@@ -197,9 +197,6 @@ function afterUpload(data) {
   
   setDrawsize();
 
-  if (typeof rembg.svg.remove === "function") { 
-    rembg.svg.remove();
-  }
   // unselect presets
   $('#sizepresets').val($('#sizepresets option:first').val());
 
