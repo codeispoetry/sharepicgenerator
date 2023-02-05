@@ -39,7 +39,7 @@ const rembg = {
 
   blur(path){
     rembg.svg = draw.image(path, function drawImage() {
-      $('#blur').val(3);
+      $('#blur').val(2);
       background.addFilter();
       rembg.svg
         .move(background.svg.x(),background.svg.y())

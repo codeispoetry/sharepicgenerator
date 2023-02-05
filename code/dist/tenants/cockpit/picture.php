@@ -12,6 +12,9 @@
             data-field="#backgroundcolor" 
             title="Hintergrundfarbe setzen"></span> 
     </div>
+    <div>
+        <small><em>Geht jetzt auch per Drag-and-Drop.</em></small>
+    </div>
  </div>
  <h3><i class="fas fa-image"></i> <?php _e('Search image'); ?></h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
@@ -52,7 +55,7 @@
             <small class="text-cockpit cursor-pointer me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
                 spiegeln
             </small>
-            <small class="text-cockpit cursor-pointer" id="backgroundreset"><i class="fas fa-undo"></i></i>
+            <small class="text-cockpit cursor-pointer" id="backgroundreset"><i class="fas fa-undo"></i>
                 zurücksetzen
             </small>
         </div>      
@@ -73,10 +76,10 @@
         <i class="fas fa-remove"></i> Hintergrund entfernen
     </span>
     <span class="btn btn-sm btn-outline-cockpit rembg" data-rembg="blur">
-        <i class="fas fa-remove"></i> Hintergrund unscharf machen
+        <i class="fas fa-brain"></i> Hintergrund unscharf machen
     </span>
     <span class="btn btn-sm btn-outline-cockpit rembg-reset d-none">
-        <i class="fas fa-back"></i> Hintergrund zurücksetzen
+        <i class="fas fa-undo"></i> Hintergrund zurücksetzen
     </span>
 </div>
 
