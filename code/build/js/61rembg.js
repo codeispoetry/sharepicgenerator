@@ -1,7 +1,7 @@
 const rembg = {
-  image: '',
+  svg: '',
 
-  load(){
+  load(caller){
     $.ajax({
       type: 'POST',
       url: '/actions/rembg.php',
@@ -11,7 +11,8 @@ const rembg = {
       },
       success(response) {
         const data = JSON.parse(response);
-        rembg.setImage(data.filename);
+        const action = $(caller).data('rembg');
+        eval(`rembg.${action}(data.filename)`);
        },
       error(response) {
         console.log("error",response);
@@ -19,21 +20,44 @@ const rembg = {
     });
   },
 
-  setImage(path){
-    rembg.image = draw.image(path, function drawImage() {
+  remove(path){
+    rembg.svg = draw.image(path, function drawImage() {
       background.svg.hide();
-      //background.drawColor();
-      rembg.image
-        .move(0,-1)
+      rembg.svg
+        .move(background.svg.x(),background.svg.y()) 
         .size(background.svg.width(), background.svg.height())
         .back();
       
       background.drawColor();
     });
+  },
+
+  blur(path){
+    rembg.svg = draw.image(path, function drawImage() {
+      $('#blur').val(3);
+      background.addFilter();
+      rembg.svg
+        .move(background.svg.x(),background.svg.y())
+        .size(background.svg.width(), background.svg.height())
+        .front();
+      
+      $('.to-front').click();
+    });
+  },
+
+  reset() {
+    rembg.svg.remove();
+    background.svg.show();
+    $('#blur').val(0);
+    background.addFilter();
   }
 }
 
 
 $('.rembg').click(function() {
-    rembg.load();
+    rembg.load($(this));
+});
+
+$('.rembg-reset').click(function() {
+  rembg.reset();
 });

@@ -70,6 +70,7 @@ const background = {
   addFilter() {
     background.svg.filterWith((add) => {
       add.colorMatrix('saturate', $('#saturate').val())
+        .gaussianBlur($('#blur').val())
         .componentTransfer({
           type: 'linear', // will be set later
           slope: 0,
@@ -88,6 +89,7 @@ const background = {
     $('#backgroundX').val(0);
     $('#backgroundY').val(0);
     $('#saturate').val(1);
+    $('#blur').val(0);
 
     $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     this.draw();
