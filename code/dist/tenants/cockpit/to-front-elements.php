@@ -4,7 +4,7 @@
         <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="floating">
             Text
         </span> 
-        <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="logo">
+        <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="defaultlogo">
             Logo
         </span> 
         <span class="btn btn-sm btn-outline-cockpit to-front" data-target="pin">

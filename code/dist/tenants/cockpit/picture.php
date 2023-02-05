@@ -48,20 +48,26 @@
             <small class="text-cockpit cursor-pointer" id="backgroundreset"><i class="fas fa-undo"></i></i>
                 zurücksetzen
             </small>
-        </div>
-
-        
+        </div>      
     </div>
     <div class="align-items-lg-center show-copyright d-none">
         <div class="d-flex align-items-center">
 
             <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
             <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
-
         </div>
     </div>
 
 </div>   
+
+<h3 class=""><i class="fas fa-image"></i> Hintergrund</h3>
+<div class="list-group-item">     
+        <span class="btn btn-sm btn-outline-cockpit rembg">
+            <i class="fas fa-remove"></i> Hintergrund entfernen
+        </small>
+
+</div>
+
 
 <h3 class="d-none"><i class="fas fa-image"></i> Grünfärbung</h3>
 <div class="list-group-item d-none">

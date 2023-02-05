@@ -20,7 +20,6 @@ function open() {
 }
 
 function fillForm(pic) {
-  console.log(pic['fullBackgroundName'])
   if(pic['fullBackgroundName'] != "") {
     uploadFileByUrl(pic['fullBackgroundName']);
   }
