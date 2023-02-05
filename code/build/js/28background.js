@@ -99,6 +99,10 @@ const background = {
     const val = parseInt($('#backgroundsize').val(), 10);
     this.svg.size(val);
 
+    const x = draw.width() - val;
+    const y = draw.height() - this.svg.height();
+    this.svg.move(x / 2, y / 2);
+
     if (background.hasRoundingError()) {
       let size = parseInt($('#backgroundsize').val(), 10);
       $('#backgroundsize').val(size += 5);
