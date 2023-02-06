@@ -113,6 +113,8 @@ $_SESSION['csrf'] = $csrf;
             <?php
             require_once('../lib/overlays/waiting.php');
             require_once('../lib/overlays/imagedb.php');
+            require_once('../lib/overlays/blog.php');
+
             ?>
 
             <div class="col-12 mt-3 mb-3 d-flex justify-content-around">
