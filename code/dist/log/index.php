@@ -47,8 +47,6 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     ?>
                     gesamt: <?php echo number_format(getUsers(), 0, ',', '.'); ?>
                         <br>
-                    täglich in den letzten 30 Tagen: <?php echo number_format(getDailyUsersLastDays(30), 0, ',', '.'); ?>
-                        <br>
                     letzten 30 Tage: <?php echo number_format(getUsersLastDays(30), 0, ',', '.'); ?>
                         <br>
                     User (1 Login, 30 Tage): <?php echo number_format(getLoginCountsPerUserLastDays('=', 1, 30), 0, ',', '.'); ?>
@@ -73,68 +71,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                     heute: <?php echo number_format(getDownloadsToday(), 0, ',', '.'); ?>
             </dl>
         </div>
-         <div class="col-6 col-md-6 col-lg-3">
-            <dl>
-                <dt><i class="far fa-clock"></i> Zeiten der letzten 7 Tage</dt>
-                <dd>
-                    Median Uploadtime: <?php echo round(getMedianUploadTime()/1000, 1); ?>s<br>
-                    90% Uploadtime: <?php echo round(getMedianUploadTime(90)/1000, 1); ?>s
-                </dd>
-                <dd>
-                    Median Createtime: <?php echo round(getMedianCreatingTime()/1000, 1); ?>s<br>
-                    90% Createtime: <?php echo round(getMedianCreatingTime(90)/1000, 1); ?>s
-                </dd>
-                <dd>
-                    Median Edittime: <?php echo round(getMedianEditTime()/60, 1); ?>min<br>
-                    90% Edittime: <?php echo round(getMedianEditTime(90)/60, 1); ?>min<br>
-                    Max Edittime: <?php echo round(getMaxEditTime()/60, 1); ?>min
-                </dd>
-            </dl>
-        </div>
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
-                <dt><i class="far fa-images"></i> Suchbegriffe der letzten 7 Tage</dt>
-                <dd>
-                    <ul>
-                        <?php getSearchTerms(7); ?>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
-                <dt><i class="far fa-images"></i> Hauptbegriffe der letzten <?php $days = 30; echo $days;?> Tage</dt>
-                <dd>
-                    <ul>
-                        <?php
-                            $wordCounts = wordCounts([
-                                'days' => $days,
-                                'strlen' => 5,
-                                'mincount' => 10,
-                                'limit' => 15,
-                            ]);
-                            foreach($wordCounts AS $word => $count){
-                                printf('<li>%s (%d)</li>', $word, $count);
-                            }
-
-                        ?>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-3">
-            <dl>
-                <dt><i class="fas fa-bullhorn"></i> Social Media letzten 7 Tage</dt>
-                <dd>
-                    <ul>
-                        <?php showSocialMedia(7); ?>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-
+        
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
                 <dt><i class="fas fa-sitemap"></i> Downloads letzten 7 Tage</dt>
