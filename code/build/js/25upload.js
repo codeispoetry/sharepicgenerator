@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 $('.upload-file').change(function() { 
-  changeFile(document.getElementById('uploadfile').files[0]); 
+  const id = $(this).attr('id');
+  changeFile(document.getElementById(id).files[0], id); 
 });
   
-function changeFile(file) {
-  const id = $('.upload-file').attr('id');
-  
+function changeFile(file, id) {
+  console.log(id)
   const size = file.size / 1024 / 1024;
 
   const maxFileSize = 20; // in MB, note this in .htaccess as well
@@ -17,7 +17,7 @@ function changeFile(file) {
 
   $('#canvas-area').slideUp();
   $('#waiting').show();
-  $('.upload-file').prop('disabled', true);
+  $(`#${id}`).prop('disabled', true);
 
   const formData = new FormData();
   const client = new XMLHttpRequest();
@@ -212,6 +212,7 @@ $('.uploadfileclicker').click(() => {
 
 for (let i = 1; i <= 5; i++) {
   $(`.addpicclicker${i}`).click(() => {
+    console.log("HI", i)
     $(`#uploadaddpic${i}`).click();
   });
 }
