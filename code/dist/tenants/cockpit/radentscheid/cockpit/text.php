@@ -9,8 +9,9 @@
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">SICHER RADELN.
-JETZT!</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Sicher
+Radeln
+Jetzt!</textarea>
 
                     <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
                     <span 

@@ -39,7 +39,7 @@ function getUserPrefs()
     $smt->bindValue(':user', getUser(), SQLITE3_TEXT);
 
     $result = $smt->execute();
- 
+
     $array = $result->fetchArray();
 
     if (empty($array) || empty($array['prefs'])) {
@@ -72,4 +72,17 @@ function userHasSavedFile()
 {
     global $tenant;
     return file_exists(sprintf('%s/%s_sharepic1.json', getUserDir(), $tenant));
+}
+
+function doPHPAuthenticationLogin($user, $password)
+{
+    if (!isset($_SERVER['PHP_AUTH_USER']) ||
+        $_SERVER['PHP_AUTH_USER'] != $user ||
+        $_SERVER['PHP_AUTH_PW'] != $password
+    ) {
+        header('WWW-Authenticate: Basic realm="Sharepicgenerator"');
+        header('HTTP/1.0 401 Unauthorized');
+        echo 'Zugangsdaten sind falsch!';
+        exit;
+    }
 }
