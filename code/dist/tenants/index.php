@@ -89,7 +89,7 @@ $_SESSION['csrf'] = $csrf;
                     <div class="d-flex justify-content-around mt-5">
                         <div class="w-50 text-center">
                             <div class="">
-                                <button class="btn btn-outline-secondary btn-sm save bereitbold me-2" id="save">
+                                <button class="d-none btn btn-outline-secondary btn-sm save bereitbold me-2" id="save">
                                     <i class="fas fa-save"></i> <?php _e("Save"); ?>
                                 </button>
                                 <button class="btn btn-secondary btn-lg download bereitbold" id="download">
