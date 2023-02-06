@@ -10,8 +10,9 @@
                     <i class="fa fa-align-right text-align" data-align="end" title="rechtsbündig"></i>
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Text 1" name="textbefore" id="textbefore" value="" class="form-control"></textarea>
-                    <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
+                    <textarea placeholder="Text 1" name="textbefore" id="textbefore" value="" class="form-control">Egal: Wie
+Du lebst.</textarea>
+                    <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="<?php getColorAtIndex(1); ?>">
                     <span 
                         class="colorpicker ms-1 change-text"  
                         id="textbeforecolorpicker" 
@@ -21,7 +22,8 @@
                         title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Text 2" name="text" id="text" class="form-control">Bereit, weil Ihr es seid.</textarea>
+                    <textarea placeholder="Text 2" name="text" id="text" class="form-control">Nich egal:
+Wie du wählst.</textarea>
                     <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
                         class="colorpicker ms-1 change-text"  

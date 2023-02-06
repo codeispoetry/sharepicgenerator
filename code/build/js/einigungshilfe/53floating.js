@@ -74,7 +74,7 @@ const floating = {
 
     floating.svg
       .move($('#textX').val(), $('#textY').val())
-      .scale(scaleFactor, parseInt($('#textX').val()), parseInt($('#textY').val()));
+      .size(parseInt($('#textsize').val(), 10));
 
     if ($('#advancedmode').prop('checked')) {
       defaultlogo.setSize(17 * scaleFactor * 1.7);

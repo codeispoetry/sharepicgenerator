@@ -70,12 +70,10 @@ const floating = {
       floating.svg.add(floating.drawTextBefore());
     }
 
-    const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-
     floating.svg
       .move($('#textX').val(), $('#textY').val())
-      .scale(scaleFactor, parseInt($('#textX').val()), parseInt($('#textY').val()));
-    
+      .size(parseInt($('#textsize').val(), 10));
+
     floating.svg.front();
   },
 
