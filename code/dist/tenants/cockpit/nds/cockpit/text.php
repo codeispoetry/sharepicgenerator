@@ -92,15 +92,6 @@ Nahverkehr,
                     </div>
                 </div>
 
-                 <div class="d-flex">
-                    <div class="me-2">Sonderzeichen:</div>
-                    <ul class="text-symbols">
-                        <li class="text-symbol" data-symbol="CO₂" title="mit tiefergesteller 2" role="button">CO₂</li>   
-                        <li class="text-symbol" data-symbol="•" title="Aufzählungszeichen" role="button">•</li>  
-                        <li class="text-symbol" data-symbol="„" title="Anführungszeichen unten" role="button">„</li>  
-                        <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li>                               
-                    </ul>
-                </div>
             </div>
         </div>
         <input type="hidden" name="iconfile" id="iconfile">

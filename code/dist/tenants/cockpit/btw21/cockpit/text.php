@@ -4,11 +4,33 @@
         <div class="text list-group-item list-group-item-action flex-column align-items-start">
             
             <div class="list-group-item-content">
-                <div class="d-flex justify-content-end">
-                    <i class="fa fa-align-left text-align me-2" data-align="left" title="linksbündig"></i>
-                    <i class="fa fa-align-center text-align me-2" data-align="middle" title="zentrieren"></i>
-                    <i class="fa fa-align-right text-align" data-align="end" title="rechtsbündig"></i>
-                </div>
+                 
+                <nav class="navbar-expand-lg">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Textausrichtung
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="text-align" data-align="left" title="linksbündig"><i class="fa fa-align-left"></i></li>
+                                <li class="text-align" data-align="middle" title="zentriert"><i class="fa fa-align-center"></i></li>
+                                <li class="text-align" data-align="end" title="rechtsbündig"><i class="fa fa-align-right"></i></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Sonderzeichen
+                            </a>
+                            <ul class="dropdown-menu special-chars">
+                                <li>CO₂</li>
+                                <li>•</li>
+                                <li>„</li><li>“</li>
+                                <li>°</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+           
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
                     <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
@@ -70,25 +92,14 @@
                         </label>
                     </div>
                 </div>
-
-                 <div class="d-flex">
-                    <div class="me-2">Sonderzeichen:</div>
-                    <ul class="text-symbols">
-                        <li class="text-symbol" data-symbol="CO₂" title="mit tiefergesteller 2" role="button">CO₂</li>   
-                        <li class="text-symbol" data-symbol="•" title="Aufzählungszeichen" role="button">•</li>  
-                        <li class="text-symbol" data-symbol="„" title="Anführungszeichen unten" role="button">„</li>  
-                        <li class="text-symbol" data-symbol="“" title="Anführungszeichen oben" role="button">“</li> 
-                        <li class="text-symbol" data-symbol="°" title="Anführungszeichen oben" role="button">°</li>                               
-
-                    </ul>
-                </div>
+              
 
                 <div class="d-flex mt-3">
                     <div class="btn btn-sm btn-outline-cockpit ai-suggest-trigger">Textvorschläge ansehen</div>
                 </div>
             </div>
         </div>
-        <input type="hidden" name="iconfile" id="iconfile">
+        <input type="hidden" name="textFloating" id="textFloating">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
         <input type="hidden" name="textColor" id="textColor" value="0">
