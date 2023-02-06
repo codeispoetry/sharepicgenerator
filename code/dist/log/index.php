@@ -27,7 +27,7 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-12 text-center mb-3">
             <a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
-            <a href="logs/ai.log" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> AI-Log</a>
+            <a href="showai.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> AI-Log</a>
 
         </div>
         <div class="col-12">
