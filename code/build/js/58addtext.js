@@ -40,3 +40,10 @@ const addtext = {
 };
 
 $('#addtext, #addtextsize').bind('input propertychange', addtext.draw);
+
+
+$('.align-center-addtext').click(() => {
+  $('#addtextX').val((draw.width() - addtext.svg.width()) / 2);
+  $('#addtextY').val((draw.height() - addtext.svg.height()) / 2);
+  addtext.draw();
+});

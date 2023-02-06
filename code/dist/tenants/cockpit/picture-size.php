@@ -32,5 +32,5 @@
             </div>
         </div>
     </div>
-    <small class="text-cockpit cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
+    <small class="btn btn-sm btn-outline-cockpit mt-1 cursor-pointer" id="sizereset"><i class="fas fa-undo-alt"></i> zurücksetzen</small>
 </div>
