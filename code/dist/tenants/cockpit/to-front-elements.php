@@ -7,10 +7,10 @@
         <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="defaultlogo">
             Logo
         </span> 
-        <span class="btn btn-sm btn-outline-cockpit to-front" data-target="pin">
+        <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="pin">
             Störer
         </span> 
-        <span class="btn btn-sm btn-outline-cockpit to-front" data-target="addtext">
+        <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="addtext">
             Sternchentext
         </span> 
     </div>
