@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $('.text-symbol').bind('click', function () {
-    $('#text').val($('#text').val() + $(this).data('symbol')).trigger('propertychange');
+  $('.special-chars li').bind('click', function () {
+    $('#text').val($('#text').val() + $(this).html()).trigger('propertychange');
   });
 });

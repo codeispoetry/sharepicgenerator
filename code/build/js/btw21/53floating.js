@@ -43,7 +43,7 @@ const floating = {
       $('#textY').val(Math.round(this.y()));
     });
 
-    const anchor = floating.align;
+    const anchor = $('#textFloating').val();
 
     const t = draw.text($('#text').val())
       .font(Object.assign(floating.font, { anchor }))
@@ -118,7 +118,7 @@ const floating = {
     claimText.addTo(claim);
 
     let x;
-    switch (floating.align) {
+    switch ($('#textFloating').val()) {
       case 'middle':
         x = -claim.width() / 2;
         break;
@@ -160,7 +160,7 @@ const floating = {
 
     textbefore.move(0, -20 - textbefore.bbox().h);
 
-    switch (floating.align) {
+    switch ($('#textFloating').val()) {
       case 'middle':
         textbefore.x(-textbefore.bbox().w / 2);
         break;
@@ -190,7 +190,7 @@ const floating = {
       });
     }
 
-    switch (floating.align) {
+    switch ($('#textFloating').val()) {
       case 'middle':
         textafter.x(-textafter.bbox().w / 2);
         break;
@@ -208,12 +208,13 @@ const floating = {
   },
 
   setAlign() {
-    floating.align = $(this).data('align');
+    $('#textFloating').val($(this).data('align'));
     floating.draw();
   },
 };
 
 $('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShadow, .change-text').bind('input propertychange', floating.draw);
+
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {

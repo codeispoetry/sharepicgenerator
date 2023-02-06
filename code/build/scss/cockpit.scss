@@ -3,9 +3,37 @@
   color: $white;
 
   a{
-    color: $cockpit;
+   // color: $cockpit;
     text-decoration: none;
   }
+
+  .menu{
+    &-link{
+      color: white;
+    }
+  }
+
+  .dropdown-toggle{
+    margin-right: 2em;
+    &::after{
+      margin-left: 0;
+    } 
+  }
+
+
+  .dropdown-menu{
+    &.show{
+      display: flex;
+    }
+
+    li{
+      color: $moos;
+      margin-left: 1em; 
+      margin-right: 1em;
+      cursor: pointer;
+    }
+  }
+  
 
   &-row{
     display: flex;
@@ -230,25 +258,6 @@ input{
 
   &.active{
     color: #000000;
-  }
-}
-
-ul.text-symbols{
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-
-  li{
-    display: block;
-    cursor: pointer;  
-    min-width: 2em;
-    border-radius: 10px;
-    text-align: center;
-    &:hover{
-      background: $moos;
-      color: white;
-    }
   }
 }
 
