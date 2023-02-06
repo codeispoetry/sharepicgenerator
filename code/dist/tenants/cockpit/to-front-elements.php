@@ -10,5 +10,8 @@
         <span class="btn btn-sm btn-outline-cockpit to-front" data-target="pin">
             Störer
         </span> 
+        <span class="btn btn-sm btn-outline-cockpit to-front" data-target="addtext">
+            Sternchentext
+        </span> 
     </div>
 </div>

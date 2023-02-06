@@ -5,7 +5,9 @@
             Text</span>
         <span class="btn btn-sm btn-outline-cockpit align-center-logo me-2">
             Logo</span>
-        <span class="btn btn-sm btn-outline-cockpit align-center-eyecatcher">
+        <span class="btn btn-sm btn-outline-cockpit align-center-eyecatcher me-2">
             Störer</span>
+        <span class="btn btn-sm btn-outline-cockpit align-center-addtext">
+            Sternchentext</span>
     </div>
 </div>

@@ -37,6 +37,8 @@ function fillForm(pic) {
   $('#width').trigger('propertychange');
   $('#text').trigger('propertychange');
   $('#pintext').trigger('propertychange');
+  $('#addtext').trigger('propertychange');
+
 
   background.drawColor();
   defaultlogo.draw();

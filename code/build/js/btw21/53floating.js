@@ -70,13 +70,13 @@ const floating = {
       floating.svg.add(floating.drawTextBefore());
     }
 
-    const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-
+  
     floating.svg
-      .move($('#textX').val(), $('#textY').val())
-      .scale(scaleFactor, parseInt($('#textX').val()), parseInt($('#textY').val()));
-
+      .move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ))
+      .size(parseInt($('#textsize').val(), 10));
+   
     if (!$('#advancedmode').prop('checked')) {
+      const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
       defaultlogo.setSize(17 * scaleFactor * 1.7);
       pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     }
@@ -217,9 +217,8 @@ $('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShado
 $('.text-align').click(floating.setAlign);
 
 $('.align-center-text').click(() => {
-  const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-  const textWidth   = floating.svg.width()  * scaleFactor;
-  const textHeight  = floating.svg.height() * scaleFactor;
+  const textWidth   = floating.svg.width();
+  const textHeight  = floating.svg.height();
   $('#textX').val((draw.width() - textWidth) / 2);
   $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();

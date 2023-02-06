@@ -45,10 +45,10 @@
         </div>
  
         <div>
-            <small class="text-cockpit cursor-pointer me-5" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
+            <small class="btn btn-sm btn-outline-cockpit cursor-pointer me-1" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
                 spiegeln
             </small>
-            <small class="text-cockpit cursor-pointer" id="backgroundreset"><i class="fas fa-undo"></i>
+            <small class="btn btn-sm btn-outline-cockpit cursor-pointer" id="backgroundreset"><i class="fas fa-undo"></i>
                 zurücksetzen
             </small>
         </div>      
