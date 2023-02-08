@@ -12,9 +12,14 @@ var initialized = false;
 
 $(document).ready(() => {
  
-  $('#textX').val(20);
-  $('#textY').val(draw.height() / 2);
+  $('#textX1').val(20);  $('#textY1').val(20);
+  $('#textX2').val(20);  $('#textY2').val(60);
+  $('#textX3').val(20);  $('#textY3').val(100);
+
   $('#textsize').val(270);
+
+  $('#text2').trigger('propertychange');
+  $('#text3').trigger('propertychange');
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
