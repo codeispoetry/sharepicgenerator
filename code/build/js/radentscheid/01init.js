@@ -16,7 +16,7 @@ $(document).ready(() => {
   $('#textX2').val(20);  $('#textY2').val(60);
   $('#textX3').val(20);  $('#textY3').val(100);
 
-  $('#pinX').val(20);  $('#pinY').val(100);
+  $('#pinX').val(20);  $('#pinY').val(250);
 
 
   $('#textsize').val(270);

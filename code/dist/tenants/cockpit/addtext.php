@@ -12,8 +12,8 @@
                 <small>groß</small>
             </div>
             <div>
-                <input type="hidden" name="addtextColor" id="addtextColor" value="#000000">
-                <span class="colorpicker ms-1" data-colors="#FFFFFF,#000000,#009571,#46962b,#E6007E,#FFEE00" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 
+                <input type="hidden" name="addtextColor" id="addtextColor" value="<?php getColorAtIndex(1); ?>">
+                <span class="colorpicker ms-1" data-colors="<?php getColorAtIndex(); ?>" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 
             </div>
         </div>    
     </div>
