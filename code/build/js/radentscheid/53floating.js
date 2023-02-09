@@ -10,7 +10,7 @@ const floating = {
     family: 'Bebas Neue',
     anchor: 'left',
     leading: '1.05em',
-    size: 20,
+    size: 40,
   },
 
   draw(i = undefined) {
@@ -43,7 +43,11 @@ const floating = {
   scale() {
     for(let i = 1; i <= 3; i++) {
       floating[`svg${i}`]
-        .scale($(this).data('scale'));
+        .scale(
+          $(this).data('scale'),
+          parseInt($('#textX' + i).val(), 10), 
+          parseInt($('#textY' + i).val(), 10)
+        );
     }
   },
 
