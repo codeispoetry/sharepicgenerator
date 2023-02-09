@@ -24,12 +24,7 @@ const pin = {
   draw() {
     $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
-    const countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
-
-    if (countLines > 1) {
-      $('#pintext').val($('#pintext').val().replace(/\n.*$/, ''));
-    }
-
+  s
     pin.svg.remove();
     pin.svg = draw.group();
     if ($('#pintext').val() === '') return;
