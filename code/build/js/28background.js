@@ -1,7 +1,5 @@
 const background = {
   svg: draw.circle(0),
-  darklightlayer: draw.circle(0),
-  greenlayer: draw.circle(0),
   shadow: draw.circle(0),
 
   isLoaded: false,
@@ -143,6 +141,39 @@ const background = {
   },
 };
 
+function greenify(brightness = 2.5, contrast = 0.05) {
+  if (!$('#greenify').prop('checked')){
+    return;
+  }
+
+  if (typeof greenifyMatrix === 'undefined') {
+    greenifyMatrix = [
+      0.359, 0, 0, 0, 0,
+      0, 0.585, 0, 0, 0,
+      0, 0, 0.129, 0, 0,
+      0, 0, 0, 1, 0,
+    ];
+  }
+
+  background.svg.filterWith((add) => {
+    add.colorMatrix('saturate', 0)
+      .componentTransfer({
+        type: 'linear', // will be set later
+        slope: 0,
+        intercept: 0,
+      })
+      .colorMatrix('matrix', greenifyMatrix);
+  });
+
+  // because add.componentTransfer does not set tags in SVG
+  $('feComponentTransfer *')
+    .attr('type', 'linear')
+    .attr('slope', brightness)
+    .attr('intercept', contrast);
+}
+
+
+
 $('#backgroundreset').click(() => {
   background.reset();
 });
@@ -165,3 +196,21 @@ $('#backgroundcolor').bind('input propertychange', () => {
   background.drawColor();
 });
 
+$('#greenify').bind('change', () => {
+  if ($('#greenify').prop('checked')) {
+    greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+  } else {
+    background.svg.unfilter();
+    background.addFilter();
+  }
+});
+$('#greenifybrightness, #greenifycontrast').bind('input propertychange', () => {
+  $('#greenify').prop('checked', true);
+  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+});
+
+$('.greenifyreset').click(() => {
+  $('#greenifybrightness').val(2.5);
+  $('#greenifycontrast').val(0.05);
+  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+});

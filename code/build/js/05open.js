@@ -20,18 +20,21 @@ function open() {
 }
 
 function fillForm(pic) {
-  if(pic['fullBackgroundName'] != "") {
-    uploadFileByUrl(pic['fullBackgroundName']);
-  }
   for(let name in pic) {
     $(`#${name}`).val(pic[name]);
   }
 
-  const checkboxes= {'textShadow': ''};
+  const checkboxes= {'textShadow': '', 'greenify': ''};
   for(let name in checkboxes ) {
     if(pic[name] == "on") {
     $(`#${name}`).prop('checked', true);
     }
+  }
+
+  if(pic['fullBackgroundName'] != "") {
+    uploadFileByUrl(pic['fullBackgroundName'], function () {
+      greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+    });
   }
 
   $('#width').trigger('propertychange');
@@ -39,8 +42,6 @@ function fillForm(pic) {
   $('#pintext').trigger('propertychange');
   $('#addtext').trigger('propertychange');
 
-
   background.drawColor();
   defaultlogo.draw();
-
 }
