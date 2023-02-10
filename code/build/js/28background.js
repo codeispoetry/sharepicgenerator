@@ -141,10 +141,13 @@ const background = {
   },
 };
 
-function greenify(brightness = 2.5, contrast = 0.05) {
+function greenify() {
   if (!$('#greenify').prop('checked')){
     return;
   }
+
+  const brightness = $('#greenifybrightness').val();
+  const contrast =  $('#greenifycontrast').val();
 
   if (typeof greenifyMatrix === 'undefined') {
     greenifyMatrix = [
@@ -198,7 +201,7 @@ $('#backgroundcolor').bind('input propertychange', () => {
 
 $('#greenify').bind('change', () => {
   if ($('#greenify').prop('checked')) {
-    greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+    greenify();
   } else {
     background.svg.unfilter();
     background.addFilter();
@@ -206,11 +209,11 @@ $('#greenify').bind('change', () => {
 });
 $('#greenifybrightness, #greenifycontrast').bind('input propertychange', () => {
   $('#greenify').prop('checked', true);
-  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+  greenify();
 });
 
 $('.greenifyreset').click(() => {
   $('#greenifybrightness').val(2.5);
   $('#greenifycontrast').val(0.05);
-  greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+  greenify();
 });

@@ -30,10 +30,14 @@ function fillForm(pic) {
     $(`#${name}`).prop('checked', true);
     }
   }
-
+ 
+  background.drawColor();
   if(pic['fullBackgroundName'] != "") {
     uploadFileByUrl(pic['fullBackgroundName'], function () {
-      greenify($('#greenifybrightness').val(), $('#greenifycontrast').val());
+      window.setTimeout(
+        () => greenify(),
+        10
+      );
     });
   }
 
@@ -42,6 +46,5 @@ function fillForm(pic) {
   $('#pintext').trigger('propertychange');
   $('#addtext').trigger('propertychange');
 
-  background.drawColor();
   defaultlogo.draw();
 }
