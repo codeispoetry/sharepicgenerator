@@ -71,10 +71,11 @@
 </div>
 
 
-<h3 class="d-none"><i class="fas fa-image"></i> Grünfärbung</h3>
-<div class="list-group-item d-none">
-        Bild grün einfärben
-        <input type="checkbox" name="greenify" class="retoggle" id="greenify" data-size="xs" data-bs-toggle="toggle" data-on="ja" data-off="nein">
+<h3 class="picture-only d-none"><i class="fas fa-image"></i> Grünfärbung</h3>
+<div class="picture-only d-none list-group-item">
+        <label>
+            <input type="checkbox" class="form-check-input" name="greenify" id="greenify"> Bild grün einfärben
+        </label>
 
         <div class="slider">
             <small>Helligkeit</small>
