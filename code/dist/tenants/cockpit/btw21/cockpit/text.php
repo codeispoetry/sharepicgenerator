@@ -75,8 +75,8 @@
                 </div>
 
                 <div class="mb-1 mt-2">
-                    <div class="d-flex justify-content-between">
-                        <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="0.9">kleiner</span>
+                    <div class="d-flex">
+                        <span class="btn btn-sm btn-outline-cockpit textscale me-2" data-scale="0.9">kleiner</span>
                         <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
                         <input type="hidden" name="textscaled" id="textscaled" value="1">
                     </div> 

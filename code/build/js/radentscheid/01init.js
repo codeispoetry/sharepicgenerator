@@ -39,7 +39,10 @@ function initSharepic() {
 
   background.drawColor();
   defaultlogo.draw();
-  floating.draw();
+  floating.draw(1);
+  floating.draw(2);
+  floating.draw(3);
+
   pin.draw();
 
   return true;

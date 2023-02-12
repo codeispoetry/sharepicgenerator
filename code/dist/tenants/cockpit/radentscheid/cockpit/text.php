@@ -9,7 +9,7 @@
             <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
         </div>
         <?php for ($i=1; $i <= 3; $i++) {
-            $texts = array(null, 'Sicher', 'radeln.', 'Jetzt!');
+            $texts = array(null, '', 'Hier kommt Dein Text.', '');
             ?>
         <div class="d-flex">
             <textarea placeholder="Text" name="text<?php echo $i; ?>" id="text<?php echo $i; ?>" class="form-control text-trigger"><?php echo $texts[$i]; ?></textarea>
@@ -27,9 +27,10 @@
         <?php } ?>
 
         <div class="mb-1 mt-2">
-            <div class="d-flex justify-content-between">
-                <a class="btn btn-sm btn-outline-cockpit textscale" data-scale="0.9">kleiner</a>
+            <div class="d-flex">
+                <span class="btn btn-sm btn-outline-cockpit textscale me-2" data-scale="0.9">kleiner</span>
                 <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
+                <input type="hidden" name="textscaled" id="textscaled" value="1">
             </div> 
         </div>
         
