@@ -13,11 +13,8 @@ const floating = {
     size: 40,
   },
 
-  draw(i = undefined) {
-    if( isNaN(i) ) {
-      i = $(this).attr('id')?.substr(-1) || 1;
-    }
-
+  draw(i) {
+    console.log(i)
     floating[`svg${i}`].remove();
     floating[`svg${i}`] = draw.group().addClass('draggable').draggable();
 
@@ -37,21 +34,35 @@ const floating = {
 
     floating[`svg${i}`].move($('#textX' + i).val(), $('#textY' + i).val());
     floating[`svg${i}`].front();
-
+    floating.scale(false, i);
   },
 
-  scale() {
-    for(let i = 1; i <= 3; i++) {
-      floating[`svg${i}`]
-        .scale(
-          $(this).data('scale'),
-          parseInt($('#textX' + i).val(), 10), 
-          parseInt($('#textY' + i).val(), 10)
-        );
-    }
+  scale(factor = false, i) {
+    if( !factor ) {  
+      factor = parseFloat($('#textscaled').val(), 10);
+    } 
+
+    floating[`svg${i}`]
+      .scale(
+        factor,
+        parseInt($('#textX' + i).val(), 10), 
+        parseInt($('#textY' + i).val(), 10)
+      );
   },
 
 };
-$('.text-trigger').bind('input propertychange', floating.draw);
-$('.textscale').click(floating.scale);
+$('.text-trigger').bind('input propertychange', () => {
+  floating.draw(1);
+  floating.draw(2);
+  floating.draw(3);
+  
+});
+
+$('.textscale').click(function () {
+  $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
+  floating.scale(parseFloat($(this).data('scale'), 10), 1);
+  floating.scale(parseFloat($(this).data('scale'), 10), 2);
+  floating.scale(parseFloat($(this).data('scale'), 10), 3);
+
+});
 

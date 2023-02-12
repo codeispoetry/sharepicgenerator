@@ -79,7 +79,7 @@ const floating = {
     floating.svg
       .move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
-    floating.scale(floating.scaled);
+    floating.scale(false);
 
     if (!$('#advancedmode').prop('checked')) {
       const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
@@ -97,8 +97,7 @@ const floating = {
       factor = parseFloat($('#textscaled').val(), 10);
     } 
 
-    floating.svg
-      .scale(
+    floating.svg.scale(
         factor,
         floating.svg.x(), 
         floating.svg.y()
