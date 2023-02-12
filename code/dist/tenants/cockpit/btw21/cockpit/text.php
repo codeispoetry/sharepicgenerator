@@ -33,9 +33,9 @@
            
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
-                    <input type="hidden" name="textbeforecolor" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="textbeforecolor" class="change-text" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
-                        class="colorpicker ms-1 change-text"  
+                        class="colorpicker ms-1"  
                         id="textbeforecolorpicker" 
                         data-colors="<?php getColorAtIndex(); ?>" 
                         data-action="floating.draw()" 
@@ -44,9 +44,9 @@
                 </div>
                 <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bereit, weil Ihr es seid.</textarea>
-                    <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
-                        class="colorpicker ms-1 change-text"  
+                        class="colorpicker ms-1"  
                         id="textcolorpicker" 
                         data-colors="<?php getColorAtIndex(); ?>" 
                         data-action="floating.draw()" 
@@ -54,10 +54,10 @@
                         title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text unter der Linie" name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>
-                    <input type="hidden" name="textaftercolor" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
+                    <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>
+                    <input type="hidden" name="textaftercolor" class="change-text" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
-                        class="colorpicker ms-1 change-text"  
+                        class="colorpicker ms-1"  
                         id="textaftercolorpicker" 
                         data-colors="<?php getColorAtIndex(); ?>" 
                         data-action="floating.draw()" 
@@ -69,20 +69,18 @@
                         <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control">
                     </div>    
                     <div>
-                        <input type="hidden" name="claimcolor" id="claimcolor" value="#ffe100">
+                        <input type="hidden" name="claimcolor" id="claimcolor" class="change-text"  value="#ffe100">
                         <span class="colorpicker ms-1"  id="claimcolorpicker" data-colors="#ffe100,#FF495D" data-action="floating.draw()" data-field="#claimcolor" title="Farbe wechseln"></span>
                     </div>    
                 </div>
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex justify-content-between">
-                        <div class="slider">
-                            <small>klein</small>
-                            <input type="range" class="form-range" name="textsize" id="textsize" min="1" max="100">
-                            <small>groß</small>
-                        </div>
+                        <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="0.9">kleiner</span>
+                        <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
+                        <input type="hidden" name="textscaled" id="textscaled" value="1">
                     </div> 
-                    </div>
+                </div>
 
                 <div class="d-none preferences-text">
                     <div class="">  

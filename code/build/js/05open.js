@@ -15,6 +15,10 @@ function open() {
 
         const pic = JSON.parse(obj.content);
         fillForm(pic);
+        applyBackground(pic);
+        applyFormWithoutBackground();
+        undo.save();
+
     },
   });
 }
@@ -30,7 +34,9 @@ function fillForm(pic) {
     $(`#${name}`).prop('checked', true);
     }
   }
- 
+}
+
+function applyBackground(pic) {
   background.drawColor();
   if(pic['fullBackgroundName'] != "") {
     uploadFileByUrl(pic['fullBackgroundName'], function () {
@@ -40,11 +46,15 @@ function fillForm(pic) {
       );
     });
   }
+}
 
+
+function applyFormWithoutBackground() {
   $('#width').trigger('propertychange');
   $('#text').trigger('propertychange');
   $('#pintext').trigger('propertychange');
   $('#addtext').trigger('propertychange');
 
-  defaultlogo.draw();
+  defaultlogo.setPosition();
+  defaultlogo.resize();
 }

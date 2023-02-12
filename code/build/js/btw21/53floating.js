@@ -31,12 +31,17 @@ const floating = {
   },
 
   draw() {
+    let text = $('#text').val();
     if ($('#text').val() === '') {
-      return;
+      text = ' ';
     }
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
+
+    floating.svg.on('dragstart.namespace', function () {
+      undo.save();
+    });
 
     floating.svg.on('dragend.namespace', function floatingDragEnd() {
       $('#textX').val(Math.round(this.x()));
@@ -45,7 +50,7 @@ const floating = {
 
     const anchor = $('#textFloating').val();
 
-    const t = draw.text($('#text').val())
+    const t = draw.text(text)
       .font(Object.assign(floating.font, { anchor }))
       .fill($('#textcolor').val())
       .attr('xml:space', 'preserve')
@@ -72,16 +77,32 @@ const floating = {
 
   
     floating.svg
-      .move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ))
-      .size(parseInt($('#textsize').val(), 10));
-   
+      .move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
+
+    floating.scale(floating.scaled);
+
     if (!$('#advancedmode').prop('checked')) {
       const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
       defaultlogo.setSize(17 * scaleFactor * 1.7);
       pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     }
+
+    
     
     floating.svg.front();
+  },
+
+  scale(factor = false) {
+    if( !factor ) {  
+      factor = parseFloat($('#textscaled').val(), 10);
+    } 
+
+    floating.svg
+      .scale(
+        factor,
+        floating.svg.x(), 
+        floating.svg.y()
+      );
   },
 
   drawClaim(t) {
@@ -206,16 +227,26 @@ const floating = {
   hide() {
     floating.svg.hide();
   },
-
-  setAlign() {
-    $('#textFloating').val($(this).data('align'));
-    floating.draw();
-  },
 };
 
-$('#text, #textafter, #textbefore, #textsize, #showclaim, #claimtext, #textShadow, .change-text').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #claimtext').bind('input propertychange', floating.draw);
 
-$('.text-align').click(floating.setAlign);
+$('.textscale').click(function () {
+  $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
+  floating.scale(parseFloat($(this).data('scale'), 10));
+  undo.save();
+});
+
+$('#text, #textafter, #textbefore, #claimtext, .change-text').change(() => {
+  undo.save();
+});
+
+$('.text-align').click(function() {
+  $('#textFloating').val($(this).data('align'));
+  floating.draw();
+  undo.save();
+  }
+);
 
 $('.align-center-text').click(() => {
   const textWidth   = floating.svg.width();
@@ -223,4 +254,5 @@ $('.align-center-text').click(() => {
   $('#textX').val((draw.width() - textWidth) / 2);
   $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
+  undo.save();
 });

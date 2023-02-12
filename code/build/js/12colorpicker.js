@@ -23,7 +23,7 @@ $(document).ready(() => {
     const field = $(this).parents('.colorpicker').data('field');
     const action = $(this).parents('.colorpicker').data('action');
 
-    $(field).val(color);
+    $(field).val(color).trigger('change');
 
     // eslint-disable-next-line no-eval
     eval(action);
