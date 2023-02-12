@@ -31,7 +31,7 @@
                 <a class="btn btn-sm btn-outline-cockpit textscale" data-scale="0.9">kleiner</a>
                 <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
             </div> 
-            </div>
+        </div>
         
     </div>
 </div>

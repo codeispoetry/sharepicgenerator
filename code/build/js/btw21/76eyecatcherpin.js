@@ -24,6 +24,10 @@ const pin = {
 
     pin.svg.addClass('draggable').draggable();
 
+    pin.svg.on('dragstart.namespace', function () {
+      undo.save();
+    });
+
     pin.svg.on('dragend.namespace', () => {
       $('#pinX').val(Math.round(pin.svg.x()));
       $('#pinY').val(Math.round(pin.svg.y()));
@@ -110,10 +114,13 @@ const pin = {
 $('#pintext').bind('input propertychange', pin.draw);
 $('#eyecatchersize').bind('input propertychange', pin.resize);
 
-$('#eyecatchertemplate').on('change', pin.drawTemplate);
+$('#pintext, #eyecatchersize').on('change', () => {
+  undo.save();
+});
 
 $('.align-center-eyecatcher').click(() => {
   $('#pinX').val((draw.width() - pin.svg.width()) / 2);
   $('#pinY').val((draw.height() - pin.svg.height()) / 2);
   pin.draw();
+  undo.save();
 });

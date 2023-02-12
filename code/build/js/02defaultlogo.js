@@ -1,40 +1,51 @@
 const defaultlogo = {
   loaded: false,
-  svg: draw.image(config.defaultlogo, () => {
-    defaultlogo.loaded = true;
-  }),
+  svg: draw.circle(0),
 
   draw() {
-    defaultlogo.svg
-      .move($('#logoX').val(), $('#logoY').val())
-      .addClass('draggable').draggable();
-      defaultlogo.resize($('#logosize').val());
+    defaultlogo.svg.remove();
+    defaultlogo.svg = draw.image(config.defaultlogo, () => {
 
+      defaultlogo.svg.addClass('draggable').draggable();
+      defaultlogo.setPosition();
+      defaultlogo.resize();
+
+      defaultlogo.svg.on('dragstart.namespace', function () {
+        undo.save();
+      });
       defaultlogo.svg.on('dragend.namespace', function logoDragEnd() {
-      $('#logoX').val(Math.round(this.x()));
-      $('#logoY').val(Math.round(this.y()));
+        $('#logoX').val(Math.round(this.x()));
+        $('#logoY').val(Math.round(this.y()));
+      });
     });
   },
 
   setSize(w) {
-    if (!defaultlogo.loaded) {
-      return false;
-    }
     defaultlogo.svg.size(w, null);
   },
 
-  resize(percent) {
-    let newPercent = parseInt(percent, 10);
-    newPercent = Math.min(100, newPercent);
-    newPercent = Math.max(1, newPercent);
+  setPosition() {
+    const x = parseInt($('#logoX').val(), 10);
+    const y = parseInt($('#logoY').val(), 10);
+    defaultlogo.svg.move(x, y);
+  },
 
-    const width = draw.width() * newPercent * 0.01;
+  resize() {
+    let percent = parseInt($('#logosize').val(), 10);
+    percent = Math.min(100, percent);
+    percent = Math.max(1, percent);
+
+    const width = draw.width() * percent * 0.01;
     defaultlogo.svg.size(width, width);
   },
 };
 
 $('#logosize').bind('input propertychange', () => {
-  defaultlogo.resize($('#logosize').val());
+  defaultlogo.resize();
+});
+
+$('#logosize').bind('change', () => {
+  undo.save();
 });
 
 $('.align-center-logo').click(() => {
@@ -44,4 +55,5 @@ $('.align-center-logo').click(() => {
   $('#logoX').val(x);
   $('#logoY').val(x);
   defaultlogo.svg.move(x, y);
+  undo.save();
 });
