@@ -81,8 +81,9 @@ $_SESSION['csrf'] = $csrf;
 <div class="container-fluid flex-grow-1">
     <div class="row flex-row-reverse h-100">
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
-            <div class="col-12 p-0 pt-3">
+            <div class="col-12 p-0">
                 <div id="canvas-area" ondrop="dropHandler(event);"  ondragover="dragOverHandler(event);">
+                    <button class="btn btn-sm btn-outline-cockpit undo disabled"><i class="fas fa-undo"></i> <?php _e('Rückgängig'); ?></button>
                     <div id="canvas">
                         <div id="highlight-rect" class="d-none"></div>
                     </div>
