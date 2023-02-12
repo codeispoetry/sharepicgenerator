@@ -2,7 +2,6 @@ const undo = {
     states: new Array(),
   
     save () {
-
         const data = Object.fromEntries(new FormData(document.getElementById('pic')));
 
         undo.states.unshift(data);
@@ -10,6 +9,8 @@ const undo = {
         if(undo.states.length > 10) {
             undo.states.pop();
         }
+
+        $('.undo').removeClass('disabled');
     },
 
     draw() {
@@ -19,6 +20,10 @@ const undo = {
         }
         fillForm(undo.states.shift());
         applyFormWithoutBackground();
+
+        if(undo.states.length == 0) {
+            $('.undo').addClass('disabled');
+        }
     },
 }
 
@@ -32,3 +37,7 @@ function KeyPress(e) {
 }
 
 document.onkeydown = KeyPress;
+
+$('.undo').click(() => {
+    undo.draw();
+});
