@@ -21,7 +21,7 @@ function do_saml_login()
     }
 
     if (!$hasAccess) {
-        $user = handleSamlAuth($doLogout);
+        $user = strToLower(handleSamlAuth($doLogout));
     }
 
     return $user;

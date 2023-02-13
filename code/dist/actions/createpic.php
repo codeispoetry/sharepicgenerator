@@ -3,6 +3,7 @@ $startTime = microtime(true);
 
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/log_functions.php'));
 require_once(getBasePath('lib/user_functions.php'));
 useLocale('de_DE');
 
