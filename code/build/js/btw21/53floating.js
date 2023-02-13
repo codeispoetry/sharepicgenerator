@@ -83,7 +83,6 @@ const floating = {
   },
 
   scale(factor = false) {
-    return
     if( !factor ) {  
       factor = parseFloat($('#textscaled').val(), 10);
     } 
