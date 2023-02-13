@@ -20,4 +20,5 @@ $smt->bindValue(':user', getUser(), SQLITE3_TEXT);
 
 $smt->execute();
 
+//echo $db->lastErrorMsg();
 echo 'ok';
