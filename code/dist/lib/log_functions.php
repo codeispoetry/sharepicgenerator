@@ -365,8 +365,9 @@ function wordCounts($params)
     );
 
     $ignoreWords = explode(
-        ',', 'der,die,das,mit,und,für,den,auf,vom,ihre,zum,uhr,grün,grüne,grünen,grüner,
- innen,aus,auch,daher,ein,eine,von,des,eines,the,dem,bzw,zur,ist,ihr,werden,seid,innen,einen,als' 
+        ',',
+        'der,die,das,mit,und,für,den,auf,vom,ihre,zum,uhr,grün,grüne,grünen,grüner,
+        innen,aus,auch,daher,ein,eine,von,des,eines,the,dem,bzw,zur,ist,ihr,werden,seid,innen,einen,als'
     );
 
     $wordCounts = [];
@@ -391,7 +392,8 @@ function wordCounts($params)
     }
 
     $wordCounts = array_filter(
-        $wordCounts, function ($val) use ($params) {
+        $wordCounts,
+        function ($val) use ($params) {
             return $val > $params['mincount'];
         }
     );
@@ -462,4 +464,59 @@ function showLogGraph()
 </script>
 
 ECHO;
+}
+
+function logDownload($info = [])
+{
+    parse_str($_POST['sharepic'], $sharepic);
+
+    $valuesToLog = array_fill_keys(explode(',', 'backgroundURL,text,textafter,textbefore,claimtext,pintext'), false);
+    $data = array_intersect_key($sharepic, $valuesToLog);
+
+    $log = $_POST['log'];
+  
+    $data = array_merge(json_decode($log, true), $info, $data);
+
+
+    $data['backgroundURL'] = basename($data['backgroundURL']);
+
+    $db = new SQLite3(getBasePath('log/logs/log.db'));
+    $columns = [];
+    $results = $db->query("PRAGMA table_info('downloads');");
+    while ($row = $results->fetchArray()) {
+        if ($row['name'] === 'timestamp') {
+            continue;
+        }
+        $columns[] = $row['name'];
+    }
+
+    if (isAdmin()) {
+        $db->exec('CREATE TABLE IF NOT EXISTS downloads(
+                id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)');
+
+        // add missing columns
+        $newColumns = array_diff(array_keys($data), $columns);
+        foreach ($newColumns as $newColumn) {
+            $type = 'TEXT';
+            if (in_array($newColumn, ['uploadTime','createTime','editTime'])) {
+                $type = 'INTEGER';
+            }
+            $db->exec("ALTER TABLE downloads ADD $newColumn $type");
+            $columns[] = $newColumn;
+        }
+    }
+    
+    // do logging into download
+    $smt = $db->prepare(
+        sprintf(
+            'INSERT INTO downloads (%s) values (:%s)',
+            join(',', $columns),
+            join(',:', $columns)
+        )
+    );
+    foreach ($data as $variable => $value) {
+        $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
+    }
+    $smt->execute();
 }

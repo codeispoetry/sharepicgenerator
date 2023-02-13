@@ -27,6 +27,35 @@ function do_saml_login()
     return $user;
 }
 
+function handleSamlAuth($doLogout = false)
+{
+    $samlfile = '/var/simplesaml/lib/_autoload.php';
+    $host = configValue("Main", "host");
+    $logoutTarget = configValue("Main", "logoutTarget");
+    $userAttr = configValue("SAML", "userAttr");
+
+    if ($_SERVER['HTTP_HOST'] == $host and file_exists($samlfile)) {
+        require_once($samlfile);
+        $as = new SimpleSAML_Auth_Simple('default-sp');
+        $as->requireAuth();
+
+        if ($doLogout == true) {
+            header("Location: ".$as->getLogoutURL($logoutTarget));
+            die();
+        }
+
+        $samlattributes = $as->getAttributes();
+        $user = $samlattributes[$userAttr][0];
+
+        $session = SimpleSAML_Session::getSessionFromRequest();
+        $session->cleanup();
+    } else {
+        $user = "nosamlfile";
+    }
+
+    return $user;
+}
+
 function getUserPrefs()
 {
 
@@ -85,4 +114,232 @@ function doPHPAuthenticationLogin($user, $password)
         echo 'Zugangsdaten sind falsch!';
         exit;
     }
+}
+
+function increaseLoginAttempts()
+{
+    $file = getBasePath('loginattempts.txt');
+
+    if (file_exists($file)) {
+        $attempts = file_get_contents($file);
+        $attempts++;
+    } else {
+        $attempts = 1;
+    }
+
+    file_put_contents($file, $attempts);
+}
+
+function loginAttemptsLeft()
+{
+    $file = getBasePath('loginattempts.txt');
+
+    if (!file_exists($file)) {
+        return true;
+    }
+
+    if (time() - filemtime($file) > 5 * 60) {
+        unlink($file);
+        return true;
+    }
+
+    $attempts = file_get_contents($file);
+
+    if ($attempts < 5) {
+        return true;
+    }
+
+    return false;
+}
+
+function doLogout()
+{
+    session_destroy();
+    header("Location: /");
+    die();
+}
+
+function isLocalUser()
+{
+    $localuser = 'localuser';
+    
+    $GLOBALS['user'] = $localuser;
+    if (getUser() === $localuser and isAllowed()) {
+        return true;
+    }
+
+    if (!isset($_POST['pass'])) {
+        return false;
+    }
+
+    if (!file_exists(getBasePath('ini/passwords.php'))) {
+        return false;
+    }
+
+    if (!loginAttemptsLeft()) {
+        die("Bitte warten. Zu viele Fehlversuche.");
+    }
+
+    require_once(getBasePath('ini/passwords.php'));
+    if (in_array($_POST['pass'], $passwords)) {
+        return true;
+    }
+
+    increaseLoginAttempts();
+
+    die("Passwort falsch");
+    return false;
+}
+
+function isAdmin()
+{
+    $admins = explode(",", configValue("Main", "admins"));
+    return in_array(getUser(), $admins);
+}
+
+function isEditor()
+{
+    global $tenant;
+
+    $editors = explode(",", configValue($tenant, "editors"));
+    return in_array(getUser(), $editors);
+}
+
+
+function checkPermission($user, $accesstoken)
+{
+    $userDir = getBasePath('persistent/user/' . $user);
+
+    if (!file_exists($userDir)) {
+        return false;
+    }
+
+    require_once(sprintf('%s/accesstoken.php', $userDir));
+    return $accesstoken == ACCESSTOKEN;
+}
+
+function getLastLogin($user = false)
+{
+    if (!$user) {
+        $user = getUser();
+    }
+    try {
+        $db = new SQLite3(getBasePath('log/logs/user.db'));
+    } catch (Exception $e) {
+        return false;
+    }
+    try {
+        $smt = $db->prepare(
+            'SELECT last_login, cast(julianday("now") - julianday(last_login) as int) as days FROM user WHERE user=:user'
+        );
+    } catch (Exception $e) {
+        return false;
+    }
+
+    $smt->bindValue(':user', $user, SQLITE3_TEXT);
+    
+    $result = $smt->execute();
+ 
+    $array = $result->fetchArray();
+
+    if (empty($array)) {
+        return false;
+    }
+
+    $timestamp = strToTime($array['last_login']);
+   
+    switch ($array['days']) {
+        case 0:
+            $day = 'heute';
+            break;
+        case 1:
+            $day = 'gestern';
+            break;
+        case 2:
+            $day = 'vorgestern';
+            break;
+        default:
+            if ($array['days'] <7) {
+                $day = 'letzten' . date('D', $timestamp);
+            } else {
+                $day = 'am ' . date('d. m.', $timestamp);
+            }
+            break;
+    }
+    
+    return $day . ' um ' .date('H:M ', $timestamp) . 'Uhr';
+}
+
+
+function isAllowed($with_csrf = false)
+{
+    if(!with_saml()) {
+        return true;
+    }
+
+    if (!isset($_SESSION['accesstoken'])) {
+        return false;
+    }
+
+    $accesstoken = $_SESSION['accesstoken'];
+    $user = getUser();
+
+    if ($user == false) {
+        return false;
+    }
+
+    if (checkPermission($user, $accesstoken) == false) {
+        return false;
+    }
+
+    if ($with_csrf == true) {
+        if (($_POST['csrf'] == '') || ($_POST['csrf'] != $_SESSION['csrf'])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function createAccessToken($user)
+{
+    $userDir = getBasePath('persistent/user/' . $user);
+
+    if (!file_exists($userDir)) {
+        mkdir($userDir);
+    }
+
+    $accesstoken = uniqid();
+    $content = <<<EOF
+<?php
+define("ACCESSTOKEN", "$accesstoken");
+
+EOF;
+
+    file_put_contents(sprintf('%s/accesstoken.php', $userDir), $content);
+
+    saveLastLogin($user);
+
+    return $accesstoken;
+}
+
+function saveLastLogin($user)
+{
+    $db = new SQLite3(getBasePath('log/logs/user.db'));
+    if (isAdmin()) {
+        $db->exec('CREATE TABLE IF NOT EXISTS user(
+            user TEXT PRIMARY KEY,
+            last_login DATETIME,
+            prefs TEXT)');
+    }
+
+    if (getLastLogin($user) === false) {
+        $sql = 'INSERT INTO user (user,last_login) values (:user,datetime())';
+    } else {
+        $sql = 'UPDATE user SET last_login=datetime() WHERE user=:user';
+    }
+
+    $smt = $db->prepare($sql);
+    $smt->bindValue(':user', $user, SQLITE3_TEXT);
+    $smt->execute();
 }
