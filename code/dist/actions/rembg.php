@@ -1,6 +1,8 @@
 <?php
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
+require_once(getBasePath('lib/upload_functions.php'));
+require_once(getBasePath('lib/user_functions.php'));
 useLocale('de_DE');
 
 session_start();
