@@ -56,13 +56,6 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    if ($('#textShadow').prop('checked')) {
-      t.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
-        add.blend(add.$source, blur);
-      });
-    }
-
     if ($('#textafter').val()) {
       floating.svg.add(floating.drawTextAfter(t));
     }
@@ -76,8 +69,7 @@ const floating = {
     }
 
   
-    floating.svg
-      .move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
+    floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
     floating.scale(false);
 
@@ -86,13 +78,12 @@ const floating = {
       defaultlogo.setSize(17 * scaleFactor * 1.7);
       pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     }
-
-    
     
     floating.svg.front();
   },
 
   scale(factor = false) {
+    return
     if( !factor ) {  
       factor = parseFloat($('#textscaled').val(), 10);
     } 
@@ -221,10 +212,6 @@ const floating = {
     }
 
     return textafter;
-  },
-
-  hide() {
-    floating.svg.hide();
   },
 };
 
