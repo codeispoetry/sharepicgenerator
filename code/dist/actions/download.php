@@ -17,8 +17,8 @@ $filename = sanitizeUserinput($_GET['file']);
 $downloadname = $_GET['downloadname'] ?: 'sharepic';
 
 $contentType = 'image/png';
-$format = 'png';
-        
+$format = sanitizeUserinput($_GET['format']) ?: 'png';
+      
 $filepath = getBasePath('tmp/' . $filename . '.' . $format);
 
 header('Content-Type: ' . $contentType);

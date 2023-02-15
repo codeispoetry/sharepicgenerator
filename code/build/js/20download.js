@@ -11,7 +11,6 @@ $('#download,.download').click(function onDownloadClick() {
   
   $('#canvas').addClass('opacity');
 
-  
   log.socialmedia = config.socialmediaplatform;
 
   const data = draw.svg();
@@ -51,7 +50,13 @@ $('#download,.download').click(function onDownloadClick() {
         500,
       ); // timeout needed for firefox. Otherwise img "could not be loaded"
 
-      window.location.href = `/actions/download.php?file=${obj.basename}&downloadname=${downloadname}`;
+      window.location.href = `/actions/download.php?file=${obj.basename}&format=${obj.format}&downloadname=${downloadname}`;
     },
   });
+});
+
+
+$('#download-formats li span').click(function onDownloadFormatsClick(e) {
+  config.format = $(this).data('format');
+  $('#download-format').html(config.format);
 });
