@@ -89,13 +89,22 @@ $_SESSION['csrf'] = $csrf;
                     </div>
                     <div class="d-flex justify-content-around mt-5">
                         <div class="w-50 text-center">
-                            <div class="">
-                                <button class="d-none btn btn-outline-secondary btn-sm save bereitbold me-2" id="save">
-                                    <i class="fas fa-save"></i> <?php _e("Save"); ?>
-                                </button>
-                                <button class="btn btn-secondary btn-lg download bereitbold" id="download">
-                                    <i class="fas fa-download"></i> <?php _e("Download"); ?>
-                                </button>
+                            <div class="">                           
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-secondary btn-lg download bereitbold" id="download">
+                                        <i class="fas fa-download"></i> <?php _e("Download"); ?>
+                                    </button>
+
+                                    <div class="btn-group" role="group">
+                                        <button id="download-format" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            .png
+                                        </button>
+                                        <ul class="dropdown-menu" id="download-formats">
+                                            <li><span class="dropdown-item cursor-pointer" href="#" data-format="png">.png</span></li>
+                                            <li><span class="dropdown-item cursor-pointer" href="asdf" data-format="jpg">.jpg</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -48,15 +48,30 @@ function sanitizeUserInput($var)
     return preg_replace('/[^a-zA-Z0-9\._]/', '', $var);
 }
 
-function convert($filename, $width)
+function convert($inputFile, $width, $format = 'png')
 {
+    $pngFile = getBasePath('tmp/' . basename($inputFile, 'svg') . 'png');
+
     $command = sprintf(
         "inkscape %s --export-width=%d --export-png=%s --export-dpi=90",
-        $filename,
+        $inputFile,
         $width,
-        getBasePath('tmp/' . basename($filename, 'svg') . 'png')
+        $pngFile
     );
     exec($command);
+
+    if ($format === 'jpg') {
+        $jpgFile = getBasePath('tmp/' . basename($inputFile, 'svg') . 'jpg');
+        $quality = 85;
+
+        $command = sprintf(
+            "convert %s -background white -flatten -quality %s %s",
+            $pngFile,
+            $quality,
+            $jpgFile
+        );
+        exec($command);
+    }
 }
 
 function logPicture($filename)

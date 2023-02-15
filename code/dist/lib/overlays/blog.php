@@ -8,6 +8,7 @@
         <ol>
             <li>Lass Dir alternative Textvorschläge einer Künstlichen Intelligenz unterbreiten</li>
             <li>Dein letztes Sharepic wird beim nächsten Einloggen automatisch wieder geladen</li>
+            <li>Es gibt nun einen Rückgängig-Button</li>
             <li>Lade eigene Bilder auch per Drag-and-Drop hoch</li>
             <li>Der Sharepicgenerator entfernt auf Wunsch den Hintergrund aus Deinem Bild</li>
             <li>Wähle die Farbe Deiner Texte</li>

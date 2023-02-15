@@ -16,6 +16,7 @@ if (!isAllowed()) {
 $filename = getBasePath('tmp/' . uniqid('shpic') . '.svg');
 
 $svg = $_POST['svg'];
+$config = json_decode($_POST['config']);
 $svg = preg_replace('/_small/', '', $svg);
 
 // XML node needed by imagick
@@ -56,7 +57,12 @@ file_put_contents($filename, $svg);
 
 $exportWidth = (int) $_POST['width'];
 
-convert($filename, $exportWidth);
+$format = 'png';
+if (isset($config->format) && in_array($config->format, ['png', 'jpg'])) {
+    $format = $config->format;
+}
+
+convert($filename, $exportWidth, $format);
 
 $return = [];
 
@@ -64,15 +70,17 @@ exec(sprintf(
     'qrencode -s 4 -o %s https://%s%s 2>&1',
     getBasePath('tmp/qrcode_' . basename($filename, '.svg') . '.png'),
     $_SERVER['HTTP_HOST'],
-    '/actions/qrcode.php?f=' . basename($filename, '.svg') . '.png'
+    '/actions/qrcode.php?f=' . basename($filename, '.svg') . '.' . $format
 ));
 
 
 
 $return['basename'] = basename($filename, '.svg');
+$return['format'] = $format;
+
 
 $endTime = microtime(true) - $startTime;
 
-logDownload(['createTime' => round($endTime*1000)]);
+logDownload(['createTime' => round($endTime * 1000)]);
 
 echo json_encode($return);

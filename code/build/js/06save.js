@@ -9,7 +9,6 @@ function save() {
     },
     success(data) {
         const obj = JSON.parse(data);
-        console.log(data)
     },
   });
 }
