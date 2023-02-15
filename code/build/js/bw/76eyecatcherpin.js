@@ -24,7 +24,6 @@ const pin = {
   draw() {
     $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
-  s
     pin.svg.remove();
     pin.svg = draw.group();
     if ($('#pintext').val() === '') return;
