@@ -15,10 +15,12 @@ $(document).ready(() => {
   $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
   $('#textsize').val(270);
-  $('#logoX').val(230);
-  $('#logoY').val(200);
+  $('#logoX').val(430);
+  $('#logoY').val(30);
 
-  open();
+  //open();
+  $('#backgroundcolor').val('#ffffff');
+  background.drawColor()
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
