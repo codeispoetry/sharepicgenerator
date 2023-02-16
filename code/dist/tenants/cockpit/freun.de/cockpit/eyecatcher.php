@@ -2,7 +2,7 @@
 <div class="eyecatcher list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
         <div class="d-flex">
-            <input name="pintext" id="pintext" placeholder="Dein Text" class="form-control" value="Volksbegehren unterschreiben">
+            <input name="pintext" id="pintext" placeholder="Dein Text" class="form-control" value="">
             
             <div style="white-space:nowrap">
                 <input type="hidden" name="pincolor" id="pincolor" value="<?php getColorAtIndex(1); ?>">
