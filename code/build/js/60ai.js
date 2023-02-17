@@ -1,5 +1,6 @@
 function askAI() {
     $('.intro-text', '.ai-suggest').html('Augenblick bitte ... eine künstliche Intelligenz sucht nach Vorschlägen.');
+    log.ai = 'tested';
     $.ajax({
       type: 'POST',
       url: '/actions/ai.php',
@@ -37,6 +38,7 @@ function askAI() {
             $('#text').trigger('propertychange');
             $('.ai-suggest').removeClass('active');
             $('ul#ai-suggestions').html('');
+            log.ai = 'used';
             event.stopPropagation()
         });
 

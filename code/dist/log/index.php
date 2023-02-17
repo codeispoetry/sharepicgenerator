@@ -1,7 +1,8 @@
 <?php
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
-require_once(getBasePath('lib/log_functions.php'));
+require_once(getBasePath('lib/log_show_functions.php'));
+
 
 setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
 ?>
@@ -49,10 +50,6 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                         <br>
                     letzten 30 Tage: <?php echo number_format(getUsersLastDays(30), 0, ',', '.'); ?>
                         <br>
-                    User (1 Login, 30 Tage): <?php echo number_format(getLoginCountsPerUserLastDays('=', 1, 30), 0, ',', '.'); ?>
-                        <br>
-                    User(>=4 Logins, 30 Tage): <?php echo number_format(getLoginCountsPerUserLastDays('>=', 4, 30), 0, ',', '.'); ?>
-                        <br>
                     Logzeit seit ca.<?php echo number_format(getLoggingPeriodInDays()/30, 0, ',', '.'); ?> Monaten
                         <br>
                 </dd>
@@ -64,19 +61,19 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
                 <dd>
                     gesamt: <?php echo number_format(getDownloads(), 0, ',', '.'); ?>
                     <br>
-                    unique sharepics: <?php echo 100 * round(getUniqueDownloads() / getDownloads(), 2); ?>%
+                    täglich (in letzten 30 Tagen): <?php echo @number_format(getDailyDownloadsLastDays(30), 0, ',', '.'); ?>
                     <br>
-                    täglich (in letzten 30 Tagen): <?php echo number_format(getDailyDownloadsLastDays(30), 0, ',', '.'); ?>
+                    AI getested: <?php echo @number_format(getAI('tested'), 0, ',', '.'); ?>
                     <br>
-                    heute: <?php echo number_format(getDownloadsToday(), 0, ',', '.'); ?>
+                    AI genutzt: <?php echo @number_format(getAI('used'), 0, ',', '.'); ?>
             </dl>
         </div>
         
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fas fa-sitemap"></i> Downloads letzten 7 Tage</dt>
+                <dt><i class="fas fa-sitemap"></i> Tenants</dt>
 
-                <dd><ul><?php echo showTenantsDownloadsLastDays(7); ?></ul></dd>
+                <dd><ul><?php echo showTenantsDownloads()?></ul></dd>
 
             </dl>
         </div>

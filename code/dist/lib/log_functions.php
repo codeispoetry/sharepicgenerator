@@ -2,14 +2,14 @@
 function logDownload()
 {
     $db = new SQLite3(getBasePath('log/logs/log.db'));
-    if (1== 1 || isAdmin()) {
+    if (isAdmin()) {
         $db->exec('CREATE TABLE IF NOT EXISTS downloads(
                 id INTEGER PRIMARY KEY AUTOINCREMENT, 
                 timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP)');
     }
 
     // define which data from sharepic is logged
-    $valuesToLog = array_fill_keys(explode(',', 'backgroundURL,text,textafter,textbefore,claimtext,pintext'), false);
+    $valuesToLog = array_fill_keys(explode(',', 'backgroundURL,text'), false);
     parse_str($_POST['sharepic'], $sharepic);
     $data = array_intersect_key($sharepic, $valuesToLog);
 

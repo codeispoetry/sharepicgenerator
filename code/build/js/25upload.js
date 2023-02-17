@@ -52,6 +52,7 @@ function changeFile(file, id) {
         show('show-copyright');
         $('#backgroundsize').val(draw.width());
         $('.picture-only').toggleClass('d-none', false);
+        log.source = 'upload';
         afterUpload(obj);
         break;
       case 'uploadlogo':
@@ -154,6 +155,8 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
     }
 
     config.filename = obj.filename;   
+    log.source = 'pixabay';
+    log.pixabaysearchterm = $('#imagedb-direct-search-q').val();
 
     afterUpload(obj);
     $('.picture-only').toggleClass('d-none', false);
