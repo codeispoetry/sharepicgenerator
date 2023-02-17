@@ -1,6 +1,19 @@
 <h3><i class="fa fa-asterisk"></i> Sternchentext</h3>
 <div class="addtext list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
+        <nav class="navbar-expand-lg">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Ausrichtung
+                    </a>
+                    <ul class="dropdown-menu">
+                            <li class="align-center-addtext"><span>in Bildmitte</span></li>
+                        <li class="to-front" data-target="addtext"><span>in Vordergrund</span></li>
+                    </ul>
+                </li>
+            </ul>   
+        </nav>
         <div class="d-flex align-items-lg-center">
             <textarea name="addtext" id="addtext" placeholder="Sternchentext" value="" class="form-control"></textarea>
         </div>

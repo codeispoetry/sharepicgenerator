@@ -1,6 +1,18 @@
 <h3 class="">Logo</h3>
 <div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
-    
+    <nav class="navbar-expand-lg">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Ausrichtung
+                    </a>
+                    <ul class="dropdown-menu">
+                            <li class="align-center-logo"><span>in Bildmitte</span></li>
+                        <li class="to-front" data-target="defaultlogo"><span>in Vordergrund</span></li>
+                    </ul>
+                </li>
+            </ul>   
+        </nav>
     <label class="" title="ändere die Größe von Logo und Störer selbstständig">
         <input id="advancedmode" type="checkbox" class="me-1 form-check-input" >
         Größe von Logo und Störer selbst steuern

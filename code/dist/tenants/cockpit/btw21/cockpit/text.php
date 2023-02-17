@@ -1,49 +1,46 @@
 
 
-        <h3>Text</h3>
+        <h3>Bearbeiten</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">   
             <div class="list-group-item-content">                 
                 <nav class="navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Ausrichtung
+                                Text
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="text-align" data-align="left" title="linksbündig"><i class="fa fa-align-left"></i></li>
-                                <li class="text-align" data-align="middle" title="zentriert"><i class="fa fa-align-center"></i></li>
-                                <li class="text-align" data-align="end" title="rechtsbündig"><i class="fa fa-align-right"></i></li>
+                                <li class="d-flex">
+                                    <span class="text-align" data-align="left" title="linksbündig"><i class="fa fa-align-left"></i></span>
+                                    <span class="text-align" data-align="middle" title="zentriert"><i class="fa fa-align-center"></i></span>
+                                    <span class="text-align" data-align="end" title="rechtsbündig"><i class="fa fa-align-right"></i></span>
+                                </li>
+                                <li class="d-flex special-chars">
+                                    <span>CO₂</span>
+                                    <span>•</span>
+                                    <span>„</span><span>“</span>
+                                    <span>°</span>
+                                </li>
+                            
+                                <li class="textShadowTrigger">
+                                    <span>Schatten unter Text</span>
+                                </li>
+
+                                <li class="align-center-text"><span>in Bildmitte</span></li>
+                                <li class="to-front" data-target="floating"><span>in Vordergrund</span></li>
                             </ul>
                         </li>
+                        
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Sonderzeichen
-                            </a>
-                            <ul class="dropdown-menu special-chars">
-                                <li>CO₂</li>
-                                <li>•</li>
-                                <li>„</li><li>“</li>
-                                <li>°</li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Zusätze
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="textShadowTrigger">Schatten unter Text</li>
-                            </ul>
-                            <input type="checkbox" class="d-none" name="textShadow" id="textShadow" value="on">
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Vorschläge
+                                Hilfe
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="ai-suggest-trigger">Textvorschläge</li>
                             </ul>
                         </li>
                     </ul>
+                    <input type="checkbox" class="d-none" name="textShadow" id="textShadow" value="on">
                 </nav>
            
                 <div class="d-flex align-items-lg-center">

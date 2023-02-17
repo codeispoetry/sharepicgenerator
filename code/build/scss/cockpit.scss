@@ -22,15 +22,28 @@
 
 
   .dropdown-menu{
+    background: rgba($color: $gray, $alpha: .95);
     &.show{
-      display: flex;
+      
     }
 
     li{
-      color: $moos;
-      margin-left: 1em; 
-      margin-right: 1em;
+      color: $white;
+      padding: 0.5em;
       cursor: pointer;
+    }
+  }
+
+  li{
+    span{
+      padding: 0 1em;
+      &:nth-child(1){
+        padding-left: 0;
+      }
+
+      &:hover{
+        color: $purple;
+      }
     }
   }
   
