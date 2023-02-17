@@ -1,15 +1,13 @@
 
 
         <h3>Text</h3>
-        <div class="text list-group-item list-group-item-action flex-column align-items-start">
-            
-            <div class="list-group-item-content">
-                 
+        <div class="text list-group-item list-group-item-action flex-column align-items-start">   
+            <div class="list-group-item-content">                 
                 <nav class="navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Textausrichtung
+                                Ausrichtung
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="text-align" data-align="left" title="linksbündig"><i class="fa fa-align-left"></i></li>
@@ -26,6 +24,23 @@
                                 <li>•</li>
                                 <li>„</li><li>“</li>
                                 <li>°</li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Zusätze
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="textShadowTrigger">Schatten unter Text</li>
+                            </ul>
+                            <input type="checkbox" class="d-none" name="textShadow" id="textShadow" value="on">
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Vorschläge
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="ai-suggest-trigger">Textvorschläge</li>
                             </ul>
                         </li>
                     </ul>
@@ -80,20 +95,6 @@
                         <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
                         <input type="hidden" name="textscaled" id="textscaled" value="1">
                     </div> 
-                </div>
-
-                <div class="d-none preferences-text">
-                    <div class="">  
-                         <label class="me-3">
-                            <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
-                            Schatten hinter Text
-                        </label>
-                    </div>
-                </div>
-              
-
-                <div class="d-flex mt-3">
-                    <div class="btn btn-sm btn-outline-cockpit ai-suggest-trigger">Textvorschläge ansehen</div>
                 </div>
             </div>
         </div>
