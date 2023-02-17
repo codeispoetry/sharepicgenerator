@@ -21,9 +21,6 @@ function changeFile(file, id) {
   const formData = new FormData();
   const client = new XMLHttpRequest();
 
-  const startUploadTime = Date.now();
-  config.startEditTime = Date.now();
-
   if (!file) {
     return false;
   }
@@ -53,7 +50,6 @@ function changeFile(file, id) {
     switch (id) {
       case 'uploadfile':
         show('show-copyright');
-        config.uploadTime = Date.now() - startUploadTime;
         $('#backgroundsize').val(draw.width());
         $('.picture-only').toggleClass('d-none', false);
         afterUpload(obj);

@@ -61,7 +61,6 @@ $_SESSION['csrf'] = $csrf;
         <?php printf('config.tenant="%s";', $tenant); ?>
         <?php printf('config.userHasSavedFile="%s";', userHasSavedFile()); ?>
         config.backgroundSource="standard";
-        config.uploadTime=-1;
         config.user = {};
         config.user.prefs = {};
     </script>

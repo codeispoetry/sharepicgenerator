@@ -1,6 +1,4 @@
 <?php
-$startTime = microtime(true);
-
 require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/log_functions.php'));
@@ -78,9 +76,6 @@ exec(sprintf(
 $return['basename'] = basename($filename, '.svg');
 $return['format'] = $format;
 
-
-$endTime = microtime(true) - $startTime;
-
-logDownload(['createTime' => round($endTime * 1000)]);
+logDownload();
 
 echo json_encode($return);

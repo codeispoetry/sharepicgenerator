@@ -11,13 +11,9 @@ $('#download,.download').click(function onDownloadClick() {
   
   $('#canvas').addClass('opacity');
 
-  log.socialmedia = config.socialmediaplatform;
-
   const data = draw.svg();
 
-  log.uploadTime = config.uploadTime;
-  log.editTime = Math.round((Date.now() - config.startEditTime) / 1000);
-
+console.log(log)
   $.ajax({
     type: 'POST',
     url: '/actions/createpic.php',
@@ -36,8 +32,6 @@ $('#download,.download').click(function onDownloadClick() {
       window.clearInterval(secondsWaitingInterval);
 
       let downloadname = getDownloadName();
-
-      config.uploadTime = -1;
 
       if (config.socialmediaplatform) {
         downloadname = `${downloadname.substring(0, 14)}-${config.socialmediaplatform.toLowerCase()}`;

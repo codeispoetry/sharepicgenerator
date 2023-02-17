@@ -17,7 +17,6 @@ $(document).ready(() => {
   $('input,textarea').change(() => { $('#qrcode').hide(); });
 
   config.useragent = navigator.userAgent;
-  config.startEditTime = Date.now();
 
   log.user = config.username;
   log.tenant = config.tenant;

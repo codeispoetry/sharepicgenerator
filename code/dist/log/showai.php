@@ -22,8 +22,8 @@
     <?php
     $string = file_get_contents('logs/ai.log');
 
-    // just ü, not ä
-    $lines = explode("\n", preg_replace("/.u([0-9a-f]{4})/", "ü", $string));
+   
+    $lines = explode("\n", $string);
 
     $lines = array_reverse($lines);
 
