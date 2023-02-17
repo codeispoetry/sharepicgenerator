@@ -1,13 +1,13 @@
 
 
-        <h3>Bearbeiten</h3>
+        <h3>Text</h3>
         <div class="text list-group-item list-group-item-action flex-column align-items-start">   
             <div class="list-group-item-content">                 
                 <nav class="navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Text
+                                Bearbeiten
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="d-flex">

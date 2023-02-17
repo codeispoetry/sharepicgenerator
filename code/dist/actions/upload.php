@@ -18,7 +18,7 @@ $id = $_POST['id'];
 if (isset($_FILES['file']) ) {
     $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 }
-if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','heic','gif','webp'))) {
+if (isset($_FILES['file']) && !isFileAllowed($extension, array('jpg','jpeg','png','heic','gif','webp','svg'))) {
     echo json_encode(array("error"=>"wrong fileformat"));
     die();
 }
@@ -29,6 +29,9 @@ switch ($id) {
         break;
     case "uploadbyurl":
         handleUploadByUrl();
+        break;
+    case "uploadlogo":
+        handleUploadLogo($extension);
         break;
     case "uploadaddpic1":
     case "uploadaddpic2":

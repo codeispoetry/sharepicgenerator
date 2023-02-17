@@ -71,6 +71,21 @@ function handleAddPicUpload($extension)
     echo json_encode($return);
 }
 
+function handleUploadLogo($extension)
+{
+    $userdir = getBasePath('persistent/user/' . getUser());
+
+    system('rm ' . $userdir . '/logo.*');
+    $filename = $userdir . '/logo.' . $extension;
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
+
+    $return['logo'] = $filename;
+    $return['okay'] = true;
+
+    echo json_encode($return);
+}
+
 function isFileAllowed($extension, $allowed)
 {
     return in_array(strtolower($extension), $allowed);

@@ -28,10 +28,15 @@ function deleteSharepic() {
 }
 
 
-$('.save').click(function() {
+$('.save-sharepic').click(function() {
   save();
 });
 
-$('.deleteSharepic').click(function() {
+$('.open-sharepic').click(function() {
+  open();
+});
+
+$('.delete-sharepic').click(function() {
   deleteSharepic();
+  window.location.reload();
 });

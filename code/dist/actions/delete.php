@@ -25,11 +25,14 @@ function delete()
     $dir = getBasePath('persistent/user/' . getUser());
 
     $config = json_decode($_POST['config']);
-    
-    $file = sprintf('%s/%s_sharepic%d.json', $dir, $config->tenant, $file_number);
 
-    if (!file_exists($file)) {
-        return;
+    $logos = glob($dir. '/logo*');
+    $sharepic = glob($dir. '/' . $config->tenant . '_sharepic*');
+    $files = array_merge($logos, $sharepic);
+
+    foreach ($files as $file) {
+        if (file_exists($file)) {
+            unlink($file);
+        }
     }
-    unlink($file);
 }

@@ -17,6 +17,7 @@ function open() {
         fillForm(pic);
         applyBackground(pic);
         applyFormWithoutBackground();
+        defaultlogo.draw();
         undo.save();
 
     },

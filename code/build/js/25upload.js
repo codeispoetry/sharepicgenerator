@@ -5,7 +5,6 @@ $('.upload-file').change(function() {
 });
   
 function changeFile(file, id) {
-  console.log(id)
   const size = file.size / 1024 / 1024;
 
   const maxFileSize = 20; // in MB, note this in .htaccess as well
@@ -58,6 +57,12 @@ function changeFile(file, id) {
         $('#backgroundsize').val(draw.width());
         $('.picture-only').toggleClass('d-none', false);
         afterUpload(obj);
+        break;
+      case 'uploadlogo':
+        $('#logofile').val(obj.logo);
+        config.user.prefs.logofile = obj.logo;
+        setUserPrefs();
+        defaultlogo.draw(obj.logo);
         break;
       case 'uploadaddpic1':
         $('#addpicfile1').val(obj.addpicfile);
@@ -210,9 +215,14 @@ $('.uploadfileclicker').click(() => {
   $('#uploadfile').click();
 });
 
+$('.uploadlogoclicker').click(() => {
+  $('#uploadlogo').click();
+});
+
 for (let i = 1; i <= 5; i++) {
   $(`.addpicclicker${i}`).click(() => {
-    console.log("HI", i)
     $(`#uploadaddpic${i}`).click();
   });
 }
+
+

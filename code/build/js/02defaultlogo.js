@@ -2,9 +2,13 @@ const defaultlogo = {
   loaded: false,
   svg: draw.circle(0),
 
-  draw() {
+  draw(logofile = $('#logofile').val()) {
     defaultlogo.svg.remove();
-    defaultlogo.svg = draw.image(config.defaultlogo, () => {
+    if(logofile == '') {
+      logofile = config.defaultlogo;
+    }
+    
+    defaultlogo.svg = draw.image(logofile, () => {
 
       defaultlogo.svg.addClass('draggable').draggable();
       defaultlogo.setPosition();

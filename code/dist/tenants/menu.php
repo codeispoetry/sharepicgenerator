@@ -3,7 +3,7 @@
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-    <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Über
             </a>
@@ -45,6 +45,24 @@
                     );
                 }
                 ?>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sharepic
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <span class="dropdown-item save-sharepic">
+                    <i class="fa fa-delete"></i>speichern
+                </span>
+                <span class="dropdown-item open-sharepic">
+                    <i class="fa fa-delete"></i>laden
+                </span>
+                <span class="dropdown-item delete-sharepic">
+                    <i class="fa fa-delete"></i>löschen
+                </span>
+              
             </div>
         </li>
 
