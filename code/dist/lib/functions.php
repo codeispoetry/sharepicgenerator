@@ -74,18 +74,6 @@ function convert($inputFile, $width, $format = 'png')
     }
 }
 
-function logPicture($filename)
-{
-    $afterFileBase =  getBasePath('tmp/log_' . $_SESSION['tenant'] .'_' . getUser() . '_'. $filename);
-    
-    $command = sprintf(
-        "convert -resize 800x800 -background white -flatten -quality 60  %s %s",
-        getBasePath('tmp/' . $filename . '.png'),
-        $afterFileBase . '.jpg'
-    );
-    exec($command);
-}
-
 function readConfig()
 {
     $config_file = getBasePath('/ini/config.ini');

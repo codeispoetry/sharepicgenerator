@@ -76,6 +76,7 @@ exec(sprintf(
 $return['basename'] = basename($filename, '.svg');
 $return['format'] = $format;
 
-logDownload();
+logDownload(array('sharepicid' => $return['basename']));
+logPicture($return['basename']);
 
 echo json_encode($return);

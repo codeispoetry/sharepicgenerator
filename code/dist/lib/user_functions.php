@@ -4,7 +4,7 @@ function do_saml_login()
 {
 
     if (!with_saml()) {
-        return 'ohne_saml';
+        return 'ohnesaml';
     }
 
     $hasAccess = isLocal() ?: isLocalUser();

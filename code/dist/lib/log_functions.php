@@ -1,5 +1,5 @@
 <?php
-function logDownload()
+function logDownload($info = [])
 {
     $db = new SQLite3(getBasePath('log/logs/log.db'));
     if (isAdmin()) {
@@ -17,7 +17,7 @@ function logDownload()
     $log = $_POST['log'];
   
     // here is all the data
-    $data = array_merge(json_decode($log, true), $data);
+    $data = array_merge(json_decode($log, true), $info, $data);
 
     // sanitize data
     $data['backgroundURL'] = basename($data['backgroundURL']);
@@ -55,4 +55,16 @@ function logDownload()
         $smt->bindValue(':'.$variable, $value, SQLITE3_TEXT);
     }
     $smt->execute();
+}
+
+function logPicture($filename)
+{
+    $afterFileBase =  getBasePath('tmp/log_' . $filename);
+    
+    $command = sprintf(
+        "convert -resize 800x800 -background white -flatten -quality 60  %s %s",
+        getBasePath('tmp/' . $filename . '.png'),
+        $afterFileBase . '.jpg'
+    );
+    exec($command);
 }

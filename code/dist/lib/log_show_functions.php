@@ -37,6 +37,19 @@ function getUsers()
     return singleResult('SELECT COUNT(DISTINCT user) AS result FROM downloads;');
 }
 
+function getSingleSharepic($id)
+{
+    global $db;
+    $sql = 'SELECT * FROM downloads WHERE sharepicid = "' . preg_replace('/[^a-zA-Z0-9]/', '', $id) .'"';
+
+    $results = $db->query($sql);
+    $row = $results->fetchArray(SQLITE3_ASSOC);
+
+    echo '<pre>';
+    print_r($row);
+    echo '</pre>';
+}
+
 function getUsersLastDays($days = 7)
 {
     return singleResult(

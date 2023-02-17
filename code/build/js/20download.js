@@ -13,7 +13,6 @@ $('#download,.download').click(function onDownloadClick() {
 
   const data = draw.svg();
 
-console.log(log)
   $.ajax({
     type: 'POST',
     url: '/actions/createpic.php',

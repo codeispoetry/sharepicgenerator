@@ -34,16 +34,27 @@ require_once(getBasePath('lib/log_functions.php'));
 
     <div class="row">
         <?php
-            show_images("../tmp/log*\.jpg");
-        ?>
-    </div>
+        $dir = '../tmp/';
+        $files = array_reverse(glob($dir . 'log*\.jpg'), GLOB_NOSORT);
 
-    <div class="row">
-        <div class="col-12 text-center">
-            <!-- <scroll-page id="logos"><h2>Custom Logos</h2></scroll-page> -->
-        </div>
-        <?php
-            //showCustomLogos();
+        array_multisort(array_map('filemtime', $files), SORT_NUMERIC, SORT_DESC, $files);
+
+        foreach ($files as $file) {
+            $id = substr(basename($file, '.jpg'), 4);
+            $svg = $dir . basename($id, '.jpg') . '.svg';
+            $caption = '';
+
+            printf(
+                '<div class="col-6 col-md-3 col-lg-2">
+                    <figure>
+                        <a href="show_single_sharepic.php?id=%1$s"><img src="%2$s" class="img-fluid"/></a>
+                        <figcaption><a href="">%3$s</a></figcaption>
+                </div>',
+                $id,
+                $file,
+                $caption
+            );
+        }
         ?>
     </div>
 
