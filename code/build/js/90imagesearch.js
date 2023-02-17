@@ -16,19 +16,6 @@ function performImageDBSearch(carrier = false) {
 
   $('head meta[name="viewport"]').attr('content', 'width=device-width, initial-scale=1');
   getPixabayImages($('#imagedb-direct-search-q').val());
-
-
-  $.ajax({
-    type: 'POST',
-    url: '/actions/logging.php',
-    data: {
-      q: $('#imagedb-direct-search-q').val(),
-      carrier: config.imageDBSearchIn,
-    },
-    error(response) {
-      console.log(response);
-    },
-  });
 }
 
 $('#imagedb-direct-search-q').on('keyup', (e) => {
