@@ -13,6 +13,25 @@ function save() {
   });
 }
 
+function deleteSharepic() {
+  $.ajax({
+    type: 'POST',
+    url: '/actions/delete.php',
+    data: {
+      config: JSON.stringify(config),
+    },
+    success(data) {
+        const obj = JSON.parse(data);
+        console.log(obj)
+    },
+  });
+}
+
+
 $('.save').click(function() {
   save();
+});
+
+$('.deleteSharepic').click(function() {
+  deleteSharepic();
 });
