@@ -6,25 +6,25 @@ const floating = {
   fondPadding: 30,
   align: 'left',
   font: {
-    family: 'BereitBold',
+    family: 'Phil Handwriting',
     anchor: 'left',
     leading: '1.05em',
     size: 20,
   },
   fontBefore: {
-    family: 'BereitBold',
+    family: 'Phil Handwriting',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
   },
   fontCiteSymbol: {
-    family: 'BereitBold',
+    family: 'Phil Handwriting',
     anchor: 'left',
     leading: '1.05em',
     size: 80,
   },
   fontAfter: {
-    family: 'BereitBold',
+    family: 'Phil Handwriting',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
@@ -39,8 +39,15 @@ const floating = {
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
 
-    floating.handeDragEvents();
-    
+    floating.svg.on('dragstart.namespace', function () {
+      undo.save();
+    });
+
+    floating.svg.on('dragend.namespace', function floatingDragEnd() {
+      $('#textX').val(Math.round(this.x()));
+      $('#textY').val(Math.round(this.y()));
+    });
+
     const anchor = $('#textFloating').val();
 
     const t = draw.text(text)
@@ -61,13 +68,10 @@ const floating = {
       floating.svg.add(floating.drawTextBefore());
     }
 
+  
     floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
     floating.scale(false);
-
-    if( $('#textShadow').prop('checked') ) {
-      floating.addDarkBackground();
-    }
 
     if (!$('#advancedmode').prop('checked')) {
       const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
@@ -88,44 +92,6 @@ const floating = {
         floating.svg.x(), 
         floating.svg.y()
       );
-  },
-
-  handeDragEvents() {
-    floating.svg.on('dragstart.namespace', function () {
-      undo.save();
-    });
-
-    floating.svg.on('dragend.namespace', function floatingDragEnd() {
-      $('#textX').val(Math.round(this.x()));
-      $('#textY').val(Math.round(this.y()));
-    });
-
-  },
-
-  addDarkBackground() {
-    const x = floating.svg.x();
-    const y = floating.svg.y();
-    const w = floating.svg.width();
-    const h = floating.svg.height();
-    const padding = 100;
-
-    const gradient = draw.gradient('radial', function(add) {
-      add.stop({ offset: 0, color: '#000', opacity: 0.2 }) 
-      add.stop({ offset: 0.8, color: '#000', opacity: 0 }) 
-    })
-
-    const rect = draw.rect(w + (2 * padding), h + (2  * padding))
-      .move(x -padding, y - padding)
-      .fill(gradient)
-      .opacity(1)
-      .back();
-
-    const cloneSvg = floating.svg.clone();
-    floating.svg.remove();
-    floating.svg = draw.group().addClass('draggable').draggable();
-    floating.handeDragEvents();
-    floating.svg.add(rect);
-    floating.svg.add(cloneSvg);
   },
 
   drawClaim(t) {
@@ -248,7 +214,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #claimtext, #textShadow').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #claimtext').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
@@ -256,7 +222,7 @@ $('.textscale').click(function () {
   undo.save();
 });
 
-$('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow').change(() => {
+$('#text, #textafter, #textbefore, #claimtext, .change-text').change(() => {
   undo.save();
 });
 
@@ -274,8 +240,4 @@ $('.align-center-text').click(() => {
   $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
   undo.save();
-});
-
-$('.textShadowTrigger').click(() => {
-  $('#textShadow').trigger('click');
 });

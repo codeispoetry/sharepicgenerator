@@ -1,13 +1,15 @@
 
 
         <h3>Text</h3>
-        <div class="text list-group-item list-group-item-action flex-column align-items-start">   
-            <div class="list-group-item-content">                 
+        <div class="text list-group-item list-group-item-action flex-column align-items-start">
+            
+            <div class="list-group-item-content">
+                 
                 <nav class="navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Ausrichtung
+                                Textausrichtung
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="text-align" data-align="left" title="linksbündig"><i class="fa fa-align-left"></i></li>
@@ -26,29 +28,12 @@
                                 <li>°</li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Zusätze
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="textShadowTrigger">Schatten unter Text</li>
-                            </ul>
-                            <input type="checkbox" class="d-none" name="textShadow" id="textShadow" value="on">
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Vorschläge
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="ai-suggest-trigger">Textvorschläge</li>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
            
-                <div class="d-flex align-items-lg-center">
+                <div class="d-none align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
-                    <input type="hidden" name="textbeforecolor" class="change-text" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="textbeforecolor" class="change-text" id="textbeforecolor" value="<?php getColorAtIndex(3); ?>">
                     <span 
                         class="colorpicker ms-1"  
                         id="textbeforecolorpicker" 
@@ -58,8 +43,8 @@
                         title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bereit, weil Ihr es seid.</textarea>
-                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Dein Text hier.</textarea>
+                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(3); ?>">
                     <span 
                         class="colorpicker ms-1"  
                         id="textcolorpicker" 
@@ -68,7 +53,7 @@
                         data-field="#textcolor" 
                         title="Farbe wechseln"></span> 
                 </div>
-                <div class="d-flex align-items-lg-center">
+                <div class="d-none align-items-lg-center">
                     <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>
                     <input type="hidden" name="textaftercolor" class="change-text" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
@@ -79,7 +64,7 @@
                         data-field="#textaftercolor" 
                         title="Farbe wechseln"></span> 
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-none justify-content-between">
                     <div class="">
                         <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control">
                     </div>    
@@ -95,6 +80,20 @@
                         <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
                         <input type="hidden" name="textscaled" id="textscaled" value="1">
                     </div> 
+                </div>
+
+                <div class="d-none preferences-text">
+                    <div class="">  
+                         <label class="me-3">
+                            <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
+                            Schatten hinter Text
+                        </label>
+                    </div>
+                </div>
+              
+
+                <div class="d-flex mt-3">
+                    <div class="btn btn-sm btn-outline-cockpit ai-suggest-trigger">Textvorschläge ansehen</div>
                 </div>
             </div>
         </div>

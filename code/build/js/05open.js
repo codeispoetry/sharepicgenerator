@@ -30,8 +30,8 @@ function fillForm(pic) {
 
   const checkboxes= {'textShadow': '', 'greenify': ''};
   for(let name in checkboxes ) {
-    if(pic[name] == "on") {
-    $(`#${name}`).prop('checked', true);
+    if(pic[name] !== undefined) {
+      $(`#${name}`).prop('checked', true);
     }
   }
 }
