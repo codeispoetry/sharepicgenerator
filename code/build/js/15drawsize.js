@@ -39,6 +39,12 @@ function setDrawsize() {
   $('#canvas').height(draw.height());
 
   calculateSizes();
+  
+  // check if ad is initialized
+  if (typeof ad != 'undefined') {
+    ad.setPosition();
+  }
+
   //background.drawColor();
 }
 

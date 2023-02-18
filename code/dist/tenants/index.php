@@ -10,7 +10,7 @@ readConfig();
 $tenant = basename($_SERVER['REQUEST_URI']);
 $user = "generic";
 
-if (in_array($tenant, explode(',', configValue("Main", "freeTenants")))) {
+if (isFreeTenant()) {
     if ($password = configValue($tenant, 'password')) {
         doPHPAuthenticationLogin($tenant, $password);
     }

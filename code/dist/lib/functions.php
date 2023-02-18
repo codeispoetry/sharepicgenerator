@@ -133,3 +133,9 @@ function latestVersion($file)
 {
         printf('%s?v=%s', $file, filemtime(getBasePath($file)));
 }
+
+function isFreeTenant()
+{
+    global $tenant;
+    return in_array($tenant, explode(',', configValue('Main', 'freeTenants')));
+}

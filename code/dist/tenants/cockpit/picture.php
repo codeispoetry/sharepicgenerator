@@ -4,6 +4,9 @@
         <span class="btn btn-cockpit cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild hochladen
         </span> 
+        <?php if ($tenant == 'free') {?>
+            <input type="color" name="backgroundcolor" id="backgroundcolor" value="#85d0ff">
+        <?php } else { ?>
         <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="<?php getColorAtIndex(0); ?>">
         <span 
             class="colorpicker ms-1" 
@@ -11,9 +14,10 @@
             data-action="background.drawColor()" 
             data-field="#backgroundcolor" 
             title="Hintergrundfarbe setzen"></span> 
+        <?php } ?>
     </div>
     <div>
-        <small><em>Geht jetzt auch per Drag-and-Drop.</em></small>
+        <small><em>Auch per Drag-and-Drop</em></small>
     </div>
  </div>
  <h3><i class="fas fa-image"></i> <?php _e('Search image'); ?></h3>
@@ -63,6 +67,7 @@
 
 </div>   
 
+<?php if (!isFreeTenant()) { ?>
 <h3 class="picture-only d-none"><i class="fas fa-image"></i> Hintergrund</h3>
 <div class="list-group-item picture-only d-none">     
     <span class="btn btn-sm btn-outline-cockpit rembg">
@@ -91,8 +96,8 @@
         <small class="text-cockpit cursor-pointer greenifyreset">
             <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
         </small>
-
 </div>
+<?php } ?>
 
 
 <input type="hidden" name="backgroundX" id="backgroundX">

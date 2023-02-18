@@ -23,6 +23,7 @@
             </div>
         </li>
 
+        <?php if (!isFreeTenant()) { ?>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Regionale Angebote
@@ -65,6 +66,7 @@
               
             </div>
         </li>
+        <?php } ?>
 
     </ul>
 </div>
