@@ -45,9 +45,7 @@ function getSingleSharepic($id)
     $results = $db->query($sql);
     $row = $results->fetchArray(SQLITE3_ASSOC);
 
-    echo '<pre>';
-    print_r($row);
-    echo '</pre>';
+    return $row;
 }
 
 function getUsersLastDays($days = 7)
