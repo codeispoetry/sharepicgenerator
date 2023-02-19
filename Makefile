@@ -62,7 +62,7 @@ tenant-create:
 
 tenant-free-create:
 	@read -p "new free tenant name: " tenant; \
-	./scripts/create-tenant.sh $$tenant free \
+	./scripts/create-tenant.sh $$tenant einigungshilfe \
 	make compile
 
 tenant-delete:
