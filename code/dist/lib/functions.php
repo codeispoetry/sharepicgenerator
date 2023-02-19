@@ -126,6 +126,14 @@ function getColorAtIndex($index = false)
         return;
     }
 
+    if (is_string($index)) {
+        $i = @$_SESSION["config"][$tenant]['colorIndex'][$index] ?: 0;
+        echo explode(',', $_SESSION["config"][$tenant]['colors'])[$i];
+        return;
+    }
+
+
+
     echo $_SESSION["config"][$tenant]['colors'];
 }
 

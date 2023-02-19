@@ -5,10 +5,10 @@
             <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control"></textarea>
             
             <div style="white-space:nowrap">
-                <input type="hidden" name="pincolor" id="pincolor" value="<?php getColorAtIndex(1); ?>">
+                <input type="hidden" name="pincolor" id="pincolor" value="<?php getColorAtIndex('pintext'); ?>">
                 <span class="colorpicker ms-1"  id="pincolorpicker" data-colors="<?php getColorAtIndex(); ?>" data-action="pin.draw()" data-field="#pincolor" title="VordergrundFarbe wechseln"></span>
                 Schrift<br>
-                <input type="hidden" name="pinbgcolor" id="pinbgcolor" value="<?php getColorAtIndex(2); ?>">
+                <input type="hidden" name="pinbgcolor" id="pinbgcolor" value="<?php getColorAtIndex('pinbackground'); ?>">
                 <span class="colorpicker ms-1"  id="pinbgcolorpicker" data-colors="<?php getColorAtIndex(); ?>" data-action="pin.draw()" data-field="#pinbgcolor" title="Hintergrundfarbe wechseln"></span>
                 Hintergrund
             </div>
