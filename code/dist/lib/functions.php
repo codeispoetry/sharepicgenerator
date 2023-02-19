@@ -96,14 +96,14 @@ function configValue($group, $attribute, $default = false)
 function getFont($index = 0)
 {
     global $tenant;
-    $fonts = @$_SESSION["config"][$tenant]['font'] ?: 'Arial';
+    $fonts = @$_SESSION["config"][$tenant]['fonts'] ?: 'Arial';
     return explode(',', $fonts)[$index];
 }
 
 function hasFont()
 {
     global $tenant;
-    return isset($_SESSION["config"][$tenant]['font']);
+    return isset($_SESSION["config"][$tenant]['fonts']);
 }
 
 
