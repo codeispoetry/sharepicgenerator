@@ -23,7 +23,7 @@
         <?php 
             require_once('cockpit/free/cockpit/text.php');
             require_once('cockpit/free/cockpit/logo.php');
-            require_once('cockpit/eyecatcher.php');
+            require_once('cockpit/free/cockpit/eyecatcher.php');
             require_once('cockpit/center-elements.php');
             require_once('cockpit/to-front-elements.php');
         ?>

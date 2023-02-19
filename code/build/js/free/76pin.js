@@ -1,3 +1,6 @@
+/* This file resides in build/free. It is symlinked*/
+
+
 $('#pinsize').bind('input propertychange', () => {
   pin.draw();
 });
@@ -16,8 +19,7 @@ const pin = {
   template: draw.circle(0),
 
   draw() {
-    //$('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
-
+   
     pin.svg.remove();
     pin.svg = draw.group();
     if ($('#pintext').val() === '') return;
@@ -48,7 +50,6 @@ const pin = {
     pin.svg.move($('#pinX').val(), $('#pinY').val());
     pin.svg.front().show();
     pin.template.hide();
-    $('#eyecatchertemplate').val('custom');
     pin.resize();
 
     //pin.svg.rotate(-9);
@@ -64,45 +65,7 @@ const pin = {
     pin.template.size(eyecatchersize);
   },
 
-  drawTemplate() {
-    if (!$('#eyecatchertemplate').val()) {
-      return;
-    }
-
-    if ($('#eyecatchertemplate').val() === 'custom') {
-      pin.draw();
-      return;
-    }
-
-    pin.template.remove();
-    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () =>{
-      pin.template.size($('#eyecatchersize').val())
-        .move($('#pinX').val(), $('#pinY').val())
-        .draggable();
-
-      pin.template.on('dragend.namespace', () => {
-        $('#pinX').val(Math.round(pin.template.x()));
-        $('#pinY').val(Math.round(pin.template.y()));
-      });
-    });
-
-    pin.svg.hide();
-  },
-
-  bounce() {
-
-  },
-
   front() {
-    if (!$('#eyecatchertemplate').val()) {
-      return;
-    }
-
-    if ($('#eyecatchertemplate').val() === 'custom') {
-      pin.svg.front();
-      return;
-    }
-
     pin.template.front();
   },
 };
@@ -110,7 +73,6 @@ const pin = {
 $('#pintext, #pinbgcolor').bind('input propertychange', pin.draw);
 $('#eyecatchersize').bind('input propertychange', pin.resize);
 
-$('#eyecatchertemplate').on('change', pin.drawTemplate);
 
 $('.align-center-eyecatcher').click(() => {
   $('#pinX').val((draw.width() - pin.svg.width()) / 2);
