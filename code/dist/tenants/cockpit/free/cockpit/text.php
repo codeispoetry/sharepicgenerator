@@ -22,10 +22,12 @@
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Schriftart
                             </a>
-                            <ul class="dropdown-menu font">                       
-                                <li data-font="Arial">Arial</li>
-                                <li data-font="Times New Roman">Times New Roman</li>
-                                <li data-font="Nexa Rust Sans">Nexa Rust</li>
+                            <ul class="dropdown-menu font">                     
+                                <?php foreach ($fonts as $font) { ?>
+                                    <li class="font-item" data-font="<?php echo basename($font, '.woff2'); ?>">
+                                        <span><?php echo basename($font, '.woff2'); ?></span>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </li>
                     </ul>

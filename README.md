@@ -1,4 +1,4 @@
-Sharepicgenerator with Docker and Webpack.
+Sharepicgenerator with Docker and Gulp.
 
 ## Installation
  1. Clone this repo with
@@ -22,9 +22,6 @@ Sharepicgenerator with Docker and Webpack.
 
  8. Create empty log.db-file or rsync it from live
 
- 9. Install WordPress via browser#
-    1. enter `define('COOKIEPATH','/')` and db-credentials in wp-config.php
-  
  9. Run ```make compile``` to compile css and js. (Do this after very branch-checkout, or invoke file-watcher by editing a sass- or js-file)
 
 There is also a Makefile. You can use ``make up`` and ``make install``.

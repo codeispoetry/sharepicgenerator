@@ -67,3 +67,6 @@ tenant-delete:
 
 compile:
 	docker-compose run node gulp build --gulpfile gulpfile.js
+
+make-woff:
+	woff2_compress in/container/my/font.ttf

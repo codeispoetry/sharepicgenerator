@@ -1,5 +1,8 @@
 <?php
 // phpcs:ignoreFile -- mainly html, ignore it
+
+
+require_once('fonts.php');
 ?>
 
 <form id="pic" class="cockpit-vertical h-100">
@@ -25,6 +28,5 @@
     </div>  
   </div>
 </div>
-
     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
 </form>
