@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+/* This file resides in build/free. It is symlinked*/
+
 var inFloatingDraw = 0;
 const floating = {
   svg: draw.text(''),

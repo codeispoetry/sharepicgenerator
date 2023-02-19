@@ -4,10 +4,9 @@ const defaultlogo = {
 
   draw(logofile = $('#logofile').val()) {
     defaultlogo.svg.remove();
-    if(logofile == '') {
+    if(logofile == '' || logofile == undefined) {
       logofile = config.defaultlogo;
     }
-    
     defaultlogo.svg = draw.image(logofile, () => {
 
       defaultlogo.svg.addClass('draggable').draggable();

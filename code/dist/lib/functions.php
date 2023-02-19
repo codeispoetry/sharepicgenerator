@@ -93,6 +93,26 @@ function configValue($group, $attribute, $default = false)
     return $value ?: $default;
 }
 
+function getFont($index = 0)
+{
+    global $tenant;
+    $fonts = @$_SESSION["config"][$tenant]['font'] ?: 'Arial';
+    return explode(',', $fonts)[$index];
+}
+
+function hasFont()
+{
+    global $tenant;
+    return isset($_SESSION["config"][$tenant]['font']);
+}
+
+
+function hasColor()
+{
+    global $tenant;
+    return isset($_SESSION["config"][$tenant]['colors']);
+}
+
 function getColorAtIndex($index = false)
 {
     global $tenant;

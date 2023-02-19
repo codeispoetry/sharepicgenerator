@@ -22,8 +22,12 @@
     <link rel="manifest" href="/assets/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#46962b">
     <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-
     <style>
+     @font-face {font-family: "BereitBold";src: url("../assets/typefaces/BereitBold.woff2") format("woff2");}
+     .bereitbold{font-family: 'BereitBold';font-weight: 500;}
+     @font-face {font-family: "PT Sans";src: url("../assets/typefaces/PT Sans.woff2") format("woff2");}
+     .ptsans{font-family: 'PT Sans';font-weight: 500;}
+    
     .container {
       max-width: 960px;
     }

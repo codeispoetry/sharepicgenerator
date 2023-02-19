@@ -14,7 +14,6 @@ const floating = {
   },
 
   draw(i) {
-    console.log(i)
     floating[`svg${i}`].remove();
     floating[`svg${i}`] = draw.group().addClass('draggable').draggable();
 

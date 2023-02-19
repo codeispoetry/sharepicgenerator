@@ -1,5 +1,5 @@
-cp -r code/dist/tenants/cockpit/btw21 code/dist/tenants/cockpit/$1
-cp -r code/build/js/btw21 code/build/js/$1
+cp -r code/dist/tenants/cockpit/$2 code/dist/tenants/cockpit/$1
+cp -r code/build/js/$2 code/build/js/$1
 
 make compile
 

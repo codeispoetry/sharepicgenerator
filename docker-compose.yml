@@ -7,8 +7,6 @@ services:
       - '${PORT}:80'
     volumes:
       - ./code:/var/www/html
-      - ./fonts:/usr/share/fonts/truetype/custom
-      - ./deployment/scripts:/root/scripts
     networks:
       - sharepicgenerator
   node:

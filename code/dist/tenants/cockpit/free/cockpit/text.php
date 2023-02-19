@@ -18,6 +18,7 @@
                                 <li class="to-front" data-target="floating"><span>in Vordergrund</span></li>
                             </ul>
                         </li>
+                        <?php if (!hasFont()) { ?>
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Schriftart
@@ -30,14 +31,30 @@
                                 <?php } ?>
                             </ul>
                         </li>
+                        <?php } ?>
                     </ul>
-                    <input type="hidden" name="textFont" id="textFont" value="Arial">
+                    
+                    <input type="hidden" name="textFont" id="textFont" value="<?php echo getFont();?>">
+
                     <input type="checkbox" class="d-none" name="textShadow" id="textShadow" value="on">
                 </nav>
            
                 <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Dein Text hier.</textarea>
-                    <input type="color" class="form-control" name="textcolor" class="change-text" id="textcolor" value="#000000">
+                
+                    <?php if (hasColor()) { ?>
+                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <span 
+                        class="colorpicker ms-1"  
+                        id="textcolorpicker" 
+                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-action="floating.draw()" 
+                        data-field="#textcolor" 
+                        title="Farbe wechseln"></span> 
+                    <?php } else { ?>
+                        <input type="color" class="form-control" name="textcolor" class="change-text" id="textcolor" value="#000000">
+                    <?php } ?>
+                
                 </div>
                 <div class="mb-1 mt-2">
                     <div class="d-flex">

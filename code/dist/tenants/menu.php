@@ -14,12 +14,14 @@
                 <a href="imprint.php" class="dropdown-item">
                     <i class="fa fa-key"></i> Datenschutz
                 </a>
+                <?php if (!isFreeTenant()) { ?>
                 <a class="dropdown-item" href="https://wolke.netzbegruenung.de/apps/files/?dir=/1_Bundesverband/Design%20%26%20Grafik/%C3%9Cbergangs-Styleguide&fileid=53077561" target="_blank">
                     <i class="fas fa-magic"></i> Styleguide
                 </a>
                 <a class="dropdown-item" href="https://chatbegruenung.de/channel/sharepicgenerator" target="_blank">
                     <i class="fab fa-rocketchat"></i> Chatkanal
                 </a>
+                <?php } ?>
             </div>
         </li>
 
