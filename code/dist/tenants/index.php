@@ -19,11 +19,15 @@ if (isFreeTenant()) {
     $user = do_saml_login();
 }
 
+if (!file_exists("cockpit/$tenant")) {
+    header("HTTP/1.0 404 Not Found");
+    die();
+}
+
 $accesstoken = createAccessToken($user);
 $_SESSION['accesstoken'] = $accesstoken;
 $_SESSION['user'] = $user;
 $_SESSION['tenant'] = $tenant;
-
 
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;
