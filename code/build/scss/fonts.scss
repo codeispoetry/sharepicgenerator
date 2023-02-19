@@ -1,61 +1,11 @@
 @font-face {
-  font-family: 'Arvo';
-  src: url('../fonts/Arvo-Regular_201.woff') format('woff'),
-}
-
-@font-face {
-  font-family: 'ArvoGruen';
-  src: url('../fonts/Arvo_Gruen_2015_10.woff') format('woff'),
-}
-
-@font-face {
   font-family: 'PTSans';
   src: url('../fonts/ptsans_regular.woff') format('woff'),
 }
 
 @font-face {
-  font-family: 'FuturaCondensedExtraBold';
-  src: url('../fonts/Futura-CondensedExtraBold.woff') format('woff'),
-}
-
-@font-face {
-  font-family: 'Paralucent Condensed';
-  src: url('../fonts/ParalucentCondensed-Heavy.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'SaunaPro';
-  src: url('../fonts/SaunaPro-Regular.woff2') format('woff2'),
-}
-
-@font-face {
   font-family: 'BereitBold';
   src: url('../fonts/BereitBold-Regular.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'AzoSansBlack';
-  src: url('../fonts/AzoSansBlack-Regular.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'AzoSansLight';
-  src: url('../fonts/AzoSansLight-Regular.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'Spray Letters';
-  src: url('../fonts/SprayLetters.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'Arial Rounded MT Bold';
-  src: url('../fonts/ARLRDBD.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'Nexa Rust Sans';
-  src: url('../fonts/nexa-rust-sans-black-01.woff2') format('woff2'),
 }
 
 @font-face {
@@ -73,15 +23,6 @@
   src: url('../fonts/PhilHandwriting.woff2') format('woff2'),
 }
 
-
-.arvo{
-  font-family: Arvo;
-  font-weight: 500;
-} 
-.arvogruen{
-  font-family: ArvoGruen;
-  font-weight: 500;
-}
 .bereitbold{
   font-family: BereitBold;
   font-weight: 500;
@@ -90,4 +31,3 @@
   font-family: PTSans !important;
   font-weight: 500 !important;
 }
-

@@ -32,7 +32,8 @@ function message(text = false) {
 
 
 function getDownloadName() {
-  let downloadname = $('#text').val().toLowerCase();
+  let downloadname = $('#text').val() || 'sharepic';
+  downloadname = downloadname.toLowerCase();
   downloadname = downloadname.replace(/[ä|ö|ü|ß]/g, (match) => {
     switch (match) {
       case 'ä':

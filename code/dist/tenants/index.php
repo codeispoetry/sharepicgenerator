@@ -64,6 +64,9 @@ $_SESSION['csrf'] = $csrf;
         config.user = {};
         config.user.prefs = {};
     </script>
+    <?php
+        require_once('fonts.php');
+    ?>
 </head>
 <body class="h-100 d-flex flex-column text-white">
 <header>
