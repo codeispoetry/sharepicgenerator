@@ -34,4 +34,4 @@
 
 <input type="hidden" name="addtextX" id="addtextX" value="10">
 <input type="hidden" name="addtextY" id="addtextY" value="10">
-<input type="hidden" name="addtextFont" id="addtextFont" value="PTSans">
+<input type="hidden" name="addtextFont" id="addtextFont" value="PT Sans">

@@ -1,33 +1,8 @@
-@font-face {
-  font-family: 'PTSans';
-  src: url('../fonts/ptsans_regular.woff') format('woff'),
-}
-
-@font-face {
-  font-family: 'BereitBold';
-  src: url('../fonts/BereitBold-Regular.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url('../fonts/BebasNeue-Regular.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'DaxCompactOT';
-  src: url('../fonts/BebasNeue-Regular.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'Phil Handwriting';
-  src: url('../fonts/PhilHandwriting.woff2') format('woff2'),
-}
-
 .bereitbold{
   font-family: BereitBold;
   font-weight: 500;
 }
 .ptsans{
-  font-family: PTSans !important;
+  font-family: PT Sans !important;
   font-weight: 500 !important;
 }
