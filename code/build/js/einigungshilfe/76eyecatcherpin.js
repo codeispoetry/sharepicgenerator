@@ -3,7 +3,7 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'SaunaPro',
+  family: $('#pinFont').val(),
   size: 15,
   anchor: 'middle',
   leading: '1em',
@@ -30,7 +30,7 @@ const pin = {
     });
 
     // text
-    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
+    const pintext = draw.text($('#pintext').val()).font(pinfont).fill($('#pincolor').val());
 
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
