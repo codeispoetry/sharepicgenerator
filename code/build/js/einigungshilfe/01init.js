@@ -13,7 +13,7 @@ $(document).ready(() => {
   $('#textY').val(draw.height() / 2);
   $('#logoX').val(20);
   $('#logoY').val(20 );
-  $('#textsize').val(270);
+  $('#textscaled').val(2);
 });
 
 function initSharepic() {

@@ -7,7 +7,7 @@
                     Ausrichtung
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="align-center-logo"><span>in Bildmitte</span></li>
+                    <li class="align-logo" data-place="topright"><span>rechts oben</span></li>
                     <li class="to-front" data-target="defaultlogo"><span>in Vordergrund</span></li>
                 </ul>
             </li>

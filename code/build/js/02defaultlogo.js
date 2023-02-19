@@ -51,9 +51,11 @@ $('#logosize').bind('change', () => {
   undo.save();
 });
 
-$('.align-center-logo').click(() => {
-  const x = (draw.width() - defaultlogo.svg.width()) / 2;
-  const y = (draw.height() - defaultlogo.svg.height()) / 2;
+$('.align-logo').click(function () {
+  //console.log($(this).data('place'))
+  
+  const x = (draw.width() - defaultlogo.svg.width() * 1.1);
+  const y = defaultlogo.svg.height() * 0.1;
 
   $('#logoX').val(x);
   $('#logoY').val(x);
