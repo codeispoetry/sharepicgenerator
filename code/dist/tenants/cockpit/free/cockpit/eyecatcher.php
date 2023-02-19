@@ -13,8 +13,8 @@
                 Hintergrund
             </div>
         </div>
-        <div class="d-flex justify-content-end">
-            <div class="slider advancedmode d-none">
+        <div class="d-flex">
+            <div class="slider">
                 <small>klein</small>
                 <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                     max="300" value="100">
