@@ -8,21 +8,12 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-var initialized = false;
-
 $(document).ready(() => {
- 
   $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
-  $('#logoX').val(500);
+  $('#logoX').val(20);
   $('#logoY').val(20 );
   $('#textsize').val(270);
-
-  open();
-
-  $('.close-target').click(function doCloseTarget() {
-    $($(this).data('target')).slideUp();
-  });
 });
 
 function initSharepic() {
@@ -38,7 +29,6 @@ function initSharepic() {
   floating.draw();
   pin.draw();
   upperrect.draw();
-
 
   return true;
 }

@@ -3,6 +3,8 @@ const draw = SVG().addTo('#canvas');
 const info = { foo: null };
 const log = { };
 
+var initialized = false;
+
 $(document).ready(() => {
   $('#width').val(bgpic.originalWidth);
   $('#height').val(bgpic.originalHeight);
@@ -20,6 +22,10 @@ $(document).ready(() => {
 
   log.user = config.username;
   log.tenant = config.tenant;
+
+  $('.close-target').click(function doCloseTarget() {
+    $($(this).data('target')).slideUp();
+  });
 });
 
 function message(text = false) {
