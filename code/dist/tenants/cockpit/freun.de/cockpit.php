@@ -32,9 +32,13 @@
             require_once('cockpit/addtext.php');
         ?>
     </div>
+  
   </div>
 </div>
 
-<input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
+
+
+    <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
+
 
 </form>
