@@ -54,7 +54,7 @@ footer {
 }
 
 .cockpit{
-  zoom: 2.3;
+  //zoom: 2.3;
   @include media-breakpoint-up(lg) {
      zoom:1;
   }
