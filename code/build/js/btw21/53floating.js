@@ -63,11 +63,11 @@ const floating = {
 
     floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
-    floating.scale(false);
-
     if( $('#textShadow').prop('checked') ) {
       floating.addDarkBackground();
     }
+
+    floating.scale(false);
 
     if (!$('#advancedmode').prop('checked')) {
       const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
@@ -87,7 +87,7 @@ const floating = {
         factor,
         floating.svg.x(), 
         floating.svg.y()
-      );
+    );
   },
 
   handeDragEvents() {
@@ -115,7 +115,7 @@ const floating = {
     })
 
     const rect = draw.rect(w + (2 * padding), h + (2  * padding))
-      .move(x -padding, y - padding)
+      .move(x - padding , y - padding)
       .fill(gradient)
       .opacity(1)
       .back();
@@ -195,13 +195,6 @@ const floating = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    if ($('#textShadow').prop('checked')) {
-      textbefore.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
-        add.blend(add.$source, blur);
-      });
-    }
-
     textbefore.move(0, -20 - textbefore.bbox().h);
 
     switch ($('#textFloating').val()) {
@@ -226,13 +219,6 @@ const floating = {
       .move(0, -20 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
-
-    if ($('#textShadow').prop('checked')) {
-      textafter.filterWith((add) => {
-        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
-        add.blend(add.$source, blur);
-      });
-    }
 
     switch ($('#textFloating').val()) {
       case 'middle':
