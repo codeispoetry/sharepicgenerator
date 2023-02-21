@@ -8,7 +8,6 @@ const bgpic = {
   fullBackgroundName: '../assets/bg.jpg',
 };
 
-let initialized = false;
 
 $(document).ready(() => {
   $('#textsize').val(202);

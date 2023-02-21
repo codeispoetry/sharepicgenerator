@@ -89,8 +89,8 @@ $_SESSION['csrf'] = $csrf;
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0">
                 <div id="canvas-area" ondrop="dropHandler(event);"  ondragover="dragOverHandler(event);">
-                    <button class="btn btn-sm btn-outline-cockpit undo disabled"><i class="fas fa-undo"></i> <?php _e('Rückgängig'); ?></button>
-                    <span id="mouse-position"></span>
+                    <button class="btn btn-sm btn-outline-cockpit undo disabled d-none d-lg-block"><i class="fas fa-undo"></i> <?php _e('Rückgängig'); ?></button>
+                    <span id="mouse-position" class="d-none d-lg-block"></span>
                     <div id="canvas">
                         <div id="highlight-rect" class="d-none"></div>
                         <div class="guideline guideline-x d-none" id="guideline-x1"></div>
