@@ -66,7 +66,7 @@ const floating = {
     if( $('#textShadow').prop('checked') ) {
       floating.addDarkBackground();
     }
-
+    
     floating.scale(false);
 
     if (!$('#advancedmode').prop('checked')) {
@@ -76,6 +76,8 @@ const floating = {
     }
     
     floating.svg.front();
+
+    //floating.setBottomVariant();
   },
 
   scale(factor = false) {
@@ -107,11 +109,12 @@ const floating = {
     const y = floating.svg.y();
     const w = floating.svg.width();
     const h = floating.svg.height();
-    const padding = 100;
+    const padding = 70;
 
     const gradient = draw.gradient('radial', function(add) {
-      add.stop({ offset: 0, color: '#000', opacity: 0.2 }) 
-      add.stop({ offset: 0.8, color: '#000', opacity: 0 }) 
+      add.stop({ offset: 0, color: '#000', opacity: 0.3 }) 
+      add.stop({ offset: 0.7, color: '#000', opacity: 0.05 }) 
+      add.stop({ offset: 1, color: '#000', opacity: 0 }) 
     })
 
     const rect = draw.rect(w + (2 * padding), h + (2  * padding))
@@ -232,6 +235,15 @@ const floating = {
 
     return textafter;
   },
+
+  setBottomVariant() {
+    const scaled = parseFloat($('#textscaled').val(), 10);
+    const x = 0;
+    const realHeight =  floating.svg.height() * scaled;
+    const y =  draw.height() - realHeight - 20;
+console.log(scaled, realHeight, y);
+    floating.svg.move(x, y);
+  }
 };
 
 $('#text, #textafter, #textbefore, #claimtext, #textShadow').bind('input propertychange', floating.draw);
@@ -265,3 +277,6 @@ $('.align-center-text').click(() => {
 $('.textShadowTrigger').click(() => {
   $('#textShadow').trigger('click');
 });
+
+
+//draw.rect(20,20).fill('red').move(0,100)
