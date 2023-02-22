@@ -63,7 +63,7 @@ const floating = {
 
     floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
-    if( 1 == 1 || $('#textShadow').prop('checked') ) {
+    if( $('#textShadow').prop('checked') ) {
       floating.addDarkBackground();
     }
     
