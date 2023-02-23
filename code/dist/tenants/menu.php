@@ -56,13 +56,13 @@
                 Sharepic
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <span class="dropdown-item save-sharepic">
+                <span class="dropdown-item save-sharepic cursor-pointer">
                     <i class="fa fa-delete"></i>speichern
                 </span>
-                <span class="dropdown-item open-sharepic">
+                <span class="dropdown-item open-sharepic cursor-pointer">
                     <i class="fa fa-delete"></i>laden
                 </span>
-                <span class="dropdown-item delete-sharepic">
+                <span class="dropdown-item delete-sharepic cursor-pointer">
                     <i class="fa fa-delete"></i>löschen
                 </span>
               
