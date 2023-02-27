@@ -57,7 +57,7 @@ make-mo:
 
 tenant-create:
 	@read -p "new tenant name: " tenant; \
-	./scripts/create-tenant.sh $$tenant btw21\
+	./scripts/create-tenant.sh $$tenant btw21 \
 	make compile
 
 tenant-free-create:

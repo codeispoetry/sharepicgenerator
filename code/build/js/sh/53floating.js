@@ -2,110 +2,75 @@
 var inFloatingDraw = 0;
 const floating = {
   svg: draw.text(''),
-  shadow: draw.text(''),
+  fond: draw.circle(0),
+  fondPadding: 30,
   align: 'left',
   font: {
-    family: 'BereitBold',
+    family: 'Brandon Text',
     anchor: 'left',
     leading: '1.05em',
     size: 20,
+    weight: 700,
   },
   fontBefore: {
-    family: 'BereitBold',
+    family: 'Brandon Text',
     anchor: 'left',
     leading: '1.05em',
     size: 10,
   },
   fontAfter: {
-    family: 'BereitBold',
+    family: 'Brandon Text',
     anchor: 'left',
     leading: '1.05em',
-    size: 10,
+    size: 16,
   },
 
   draw() {
     let text = $('#text').val();
-    if (text === '') {
+    if ($('#text').val() === '') {
       text = ' ';
     }
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
 
-    floating.svg.on('dragstart.namespace', function () {
-      undo.save();
-    });
-
-    floating.svg.on('dragend.namespace', function floatingDragEnd() {
-      $('#textX').val(Math.round(this.x()));
-      $('#textY').val(Math.round(this.y()));
-      floating.draw();
-    });
+    floating.handeDragEvents();
     
     const anchor = $('#textFloating').val();
 
-    const elemMainText = draw.text(text)
+    const t = draw.text(text)
       .font(Object.assign(floating.font, { anchor }))
       .fill($('#textcolor').val())
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    
-    let nextY = 0;
-    let w = 0;
-    let h = 0;
-
-    if ($('#textbefore').val()) {
-      var elemTextBefore = floating.drawTextBefore();
-      elemTextBefore.y(0);
-      nextY += elemTextBefore.bbox().height;
-      h += elemTextBefore.bbox().height;
-      w = Math.max(w, elemTextBefore.bbox().width);
-    }
-
-    elemMainText.y(nextY);
-    nextY += elemMainText.bbox().height;
-    h += elemMainText.bbox().height;
-    w = Math.max(w, elemMainText.bbox().width);
-   
     if ($('#textafter').val()) {
-      var elemTextAfter = floating.drawTextAfter();
-      elemTextAfter.y(nextY)
-      nextY += elemTextAfter.bbox().height;
-      h += elemTextAfter.bbox().height;
-      w = Math.max(w, elemTextAfter.bbox().width);
+      floating.svg.add(floating.drawTextAfter(t));
     }
 
-    if ($('#claimtext').val()) {
-      var elemClaimText = floating.drawClaim();
-      const claimTextOffset = 5; 
-      elemClaimText.y(nextY + claimTextOffset)
-      h += elemClaimText.bbox().height + claimTextOffset;
-      w = Math.max(w, elemClaimText.bbox().width);
-    }
-   
-    floating.svg.add(elemMainText);
-    floating.svg.add(elemTextBefore);
-    floating.svg.add(elemTextAfter);
-    floating.svg.add(elemClaimText);
+    floating.svg.add(t);
 
-    floating.scale(false);
+    floating.drawClaim(t);
 
-    floating.shadow.remove();
-    if ( $('#textShadow').prop('checked') ) {
-      floating.drawShadow();
+    if ($('#textbefore').val() || $('#layout-cite').prop('checked')) {
+      floating.svg.add(floating.drawTextBefore());
     }
 
     floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
+
+    floating.scale(false);
+
+    if( $('#textShadow').prop('checked') ) {
+      floating.addDarkBackground();
+    }
 
     if (!$('#advancedmode').prop('checked')) {
       const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
       defaultlogo.setSize(17 * scaleFactor * 1.7);
       pin.setSize(17 * scaleFactor * 1.7 * 1.15);
     }
-
+    
     floating.svg.front();
-  
   },
 
   scale(factor = false) {
@@ -113,33 +78,56 @@ const floating = {
       factor = parseFloat($('#textscaled').val(), 10);
     } 
 
-    const size = floating.svg.width() * factor;
-    floating.svg.size(size);
-   },
+    floating.svg.scale(
+        factor,
+        floating.svg.x(), 
+        floating.svg.y()
+      );
+  },
 
-  drawShadow() {
-    const w = floating.svg.width();
-    const h = floating.svg.height();
-    const padding = 120;
-    floating.shadow.remove();
+  handeDragEvents() {
+    floating.svg.on('dragstart.namespace', function () {
+      undo.save();
+    });
 
-    const gradient = draw.gradient('radial', function(add) {
-      add.stop({ offset: 0, color: '#000', opacity: 0.2 }) 
-      //add.stop({ offset: 0.9, color: '#000', opacity: 0.6 }) 
-      add.stop({ offset: 1, color: '#000', opacity: 0 }) 
-    })
-
-    const x = parseInt($('#textX').val(), 10) - padding;
-    const y = parseInt($('#textY').val(), 10) -padding;
-
-    floating.shadow = draw.rect(w + (2 * padding), h + (2  * padding))
-      .fill(gradient)
-      .opacity(1)
-      .move(x, y);
+    floating.svg.on('dragend.namespace', function floatingDragEnd() {
+      $('#textX').val(Math.round(this.x()));
+      $('#textY').val(Math.round(this.y()));
+    });
 
   },
 
+  addDarkBackground() {
+    const x = floating.svg.x();
+    const y = floating.svg.y();
+    const w = floating.svg.width();
+    const h = floating.svg.height();
+    const padding = 100;
+
+    const gradient = draw.gradient('radial', function(add) {
+      add.stop({ offset: 0, color: '#000', opacity: 0.2 }) 
+      add.stop({ offset: 0.8, color: '#000', opacity: 0 }) 
+    })
+
+    const rect = draw.rect(w + (2 * padding), h + (2  * padding))
+      .move(x -padding, y - padding)
+      .fill(gradient)
+      .opacity(1)
+      .back();
+
+    const cloneSvg = floating.svg.clone();
+    floating.svg.remove();
+    floating.svg = draw.group().addClass('draggable').draggable();
+    floating.handeDragEvents();
+    floating.svg.add(rect);
+    floating.svg.add(cloneSvg);
+  },
+
   drawClaim(t) {
+    if ($('#claimtext').val() === '') {
+      return;
+    }
+
     const claim = draw.group();
 
     let textColor = '#FFFFFF';
@@ -180,9 +168,9 @@ const floating = {
         x = 0;
     }
 
-    claim.dx(x);
+    claim.move(x, 8 + floating.svg.height() + 1 - 20);
 
-    return claim;
+    claim.addTo(floating.svg);
   },
 
   drawTextBefore() {
@@ -190,11 +178,26 @@ const floating = {
     let color = $('#textbeforecolor').val() || '#FFFFFF';
     let font = floating.fontBefore;
 
+    if ($('#layout-cite').prop('checked')) {
+      content = ',,';
+      color = '#FFFFFF';
+      font = floating.fontCiteSymbol;
+    }
+
     const textbefore = draw.text(content)
       .font(font)
       .fill(color)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textShadow').prop('checked')) {
+      textbefore.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
+
+    textbefore.move(0, -20 - textbefore.bbox().h);
 
     switch ($('#textFloating').val()) {
       case 'middle':
@@ -209,12 +212,22 @@ const floating = {
     return textbefore;
   },
 
-  drawTextAfter() {
+  drawTextAfter(t) {
+   // claim.svg.hide();
+
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill($('#textaftercolor').val() || '#FFFFFF')
+      .move(0, -20 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
+
+    if ($('#textShadow').prop('checked')) {
+      textafter.filterWith((add) => {
+        const blur = add.offset(0, 0).in(add.$sourceAlpha).gaussianBlur(0.5);
+        add.blend(add.$source, blur);
+      });
+    }
 
     switch ($('#textFloating').val()) {
       case 'middle':
@@ -228,23 +241,13 @@ const floating = {
 
     return textafter;
   },
-
-  setBottomVariant() {
-    const scaled = parseFloat($('#textscaled').val(), 10);
-    const x = 20;
-    const realHeight =  floating.svg.height() ;
-    const y =  draw.height() - realHeight - 20;
-console.log(scaled, realHeight, y);
-    floating.svg.move(x, y);
-  }
 };
 
 $('#text, #textafter, #textbefore, #claimtext, #textShadow').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
- // floating.scale(parseFloat($(this).data('scale'), 10));
-  floating.draw();
+  floating.scale(parseFloat($(this).data('scale'), 10));
   undo.save();
 });
 
@@ -271,10 +274,3 @@ $('.align-center-text').click(() => {
 $('.textShadowTrigger').click(() => {
   $('#textShadow').trigger('click');
 });
-
-
-//draw.rect(20,20).fill('red').move(0,100)
-
-function debug(where){
-  console.log('aus', where, ', textX =', $('#textX').val(), ", height=" , floating.svg.height() );
-}
