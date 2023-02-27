@@ -12,12 +12,11 @@ if (!isAllowed(true)) {
 }
 
 $input = substr($_POST['prompt'], 1, -1); // sanitzed input!
-$image_url = getPictureFromAI($input);
 
-echo json_encode([ 'url' => $image_url ]);
+echo json_encode([ 'images' => getPicturesFromAI($input, 5) ]);
 
 
-function getPictureFromAI($input)
+function getPicturesFromAI($input, $count)
 {
     if (empty($input)) {
         return json_encode('No input given.');
@@ -29,7 +28,7 @@ function getPictureFromAI($input)
 
     $payload = '{
         "prompt": "' . $prompt . '",
-        "n": 1,
+        "n": ' . $count . ',
         "size": "512x512"
         }';
 
@@ -61,5 +60,10 @@ function getPictureFromAI($input)
         die();
     }
 
-    return $result_json->data[0]->url;
+    $images = array();
+    foreach ($result_json->data as $image) {
+        $images[] = $image->url;
+    }
+
+    return $images;
 }

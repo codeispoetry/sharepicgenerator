@@ -30,13 +30,18 @@
     </div>
 </div>
 
-<h3><i class="fas fa-image"></i> <?php _e('Generate image'); ?></h3>
+<h3><i class="fas fa-image"></i>Bilder erschaffen</h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
         <div class="input-group">
-            <input type="text" class="form-control" id="ai-image-prompt" value="eine sonnenblume im Feld vor einer Bergkulisse" placeholder="Beschreibe das Bild genau">
+            <input type="text" class="form-control" id="ai-image-prompt" value="" placeholder="Beschreibe das Bild genau">
             <button type="button" class="input-group-text btn-group ai-image-trigger">erzeugen</button>
         </div>
+        <small>Bitte beschreibe Dein Bild möglichst genau, z.B. </small>
+        <ul class="small">
+            <li>Ein Kind riecht an einer Sonnenblume. Fotorealistisch.</li>
+            <li>Eine Sonnenblume im Sonnenaufgang vor einer Bergkulisse. Cartoonartig.</li>
+        </ul>
     </div>
 </div>
 

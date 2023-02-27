@@ -29,7 +29,7 @@ function addClickActions(carrier) {
     const attribution = $(this).data('user');
     $('#imagedb-search').hide();
     uploadFileByUrl($(this).data('url'), () => {
-      setCopyright(attribution, carrier.replace(/-.*/, ''));
+      setCopyright(attribution);
 
       $('.picture').collapse('hide');
       config.backgroundSource = carrier;
@@ -74,7 +74,7 @@ function getPixabayImages(q) {
     success(data) {
       $('#imagedb-search .results').html('');
       data.hits.forEach((image) => {
-        $('#imagedb-search .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user}" class="img-fluid">`);
+        $('#imagedb-search .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user} / Pixabay" class="img-fluid">`);
       });
       addClickActions('pixabay-images');
 

@@ -12,13 +12,10 @@ function askAI() {
         if( response.length == 0 ) {
             return;
         }
-        console.log("direct",response)
         response = JSON.parse(response);
         if(response.length == 0 ) { 
             return;
         }
-
-        console.log("parsed",response)
 
         if(response[0] == '') { 
           $('.intro-text', '.ai-suggest').html("Tut mir leid, es wurden keine Vorschläge gefunden.");

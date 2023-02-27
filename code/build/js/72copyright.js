@@ -2,13 +2,13 @@ $('#copyright').bind('input propertychange', () => {
   copyright.draw();
 });
 
-function setCopyright(message, carrier) {
+function setCopyright(message) {
   if (message === undefined) {
     return false;
   }
 
-  const attribution = `Foto: ${message} / ${carrier}`;
-
+  let attribution = `Foto: ${message}`;
+ 
   show('show-copyright');
   $('#copyright').val(attribution);
   copyright.draw();

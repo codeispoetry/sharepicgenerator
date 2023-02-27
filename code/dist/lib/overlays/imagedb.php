@@ -8,8 +8,6 @@
                 Die Bilder stammen von
                 <span id="imagedb-carrier"></span>.
             </a>
-                Du darfst sie kostenlos und ohne Quellenangabe nutzen. Allerdings keine Bilder, auf denen einzelne 
-                Menschen zu erkennen sind.
         </div>
         <div class="results">
         </div>

@@ -1,38 +1,48 @@
-function generateImage() {
-    $.ajax({
-      type: 'POST',
-      url: '/actions/dalle.php',
-      data: {
-        prompt: JSON.stringify($('#ai-image-prompt').val()),
-        csrf: config.csrf,
-      },
-      success(response) {
-        if( response.length == 0 ) {
-            return;
-        }
-       
-        json = JSON.parse(response);
-        if(json.length == 0 ) { 
-            return;
-        }
-
-        console.log("parsed:",response)
-        uploadFileByUrl(json.url);
-
-        $('ai-image-trigger').removeClass('active');
-       },
-      error(response) {
-        console.log(response);
-      },
-    });
-}
-
 $('.ai-image-trigger').click(function() {
-  if($(this).hasClass('active')) {
+  if($(this).prop('disabled')) {
     return;
   }
-  $(this).addClass('active');
-  generateImage();
+  $(this).prop('disabled', true);
+  $(this).html('Augenblick...');
+  getAIImages();
 });
 
+function getAIImages() {
+  $('#imagedb-search').show();
+  $('#canvas-area').slideUp();
+
+  $('#imagedb-search .results').html('Erzeuge Bilder ... Augenblick bitte.');
+
+  $('#imagedb-link').attr('href', `https://openai.com/dall-e-2/`);
+  $('#imagedb-carrier').html('DALL·E 2');
+  
+  log.dalle = $('#ai-image-prompt').val();
+  $.ajax({
+    type: 'POST',
+    url: '/actions/dalle.php',
+    data: {
+      prompt: JSON.stringify($('#ai-image-prompt').val()),
+      csrf: config.csrf,
+    },
+    success(response) {
+      $('.ai-image-trigger').html('erzeugen');
+      $('.ai-image-trigger').prop('disabled', false);
+
+      $('#imagedb-search .results').html('');
+
+      const data = JSON.parse(response);
+     
+      for (const image of data.images) {
+        $('#imagedb-search .results').append(`<img src="${image}" data-url="${image}" data-user="DALL·E 2" class="img-fluid">`);
+      }
+      
+      addClickActions('pixabay-images');
+
+    },
+    error(data, textStatus, jqXHR) {
+      console.log("Error", data, textStatus, jqXHR);
+    },
+
+  });
+}
 

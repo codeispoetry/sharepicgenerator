@@ -5,6 +5,11 @@ function singleResult($sql)
 {
     global $db;
     $results = $db->query($sql);
+
+    if (is_bool($results)) {
+        return 0;
+    }
+
     $row = $results->fetchArray();
 
     return $row['result'];
@@ -30,6 +35,19 @@ function echoResults($sql, $inPercent = false)
             ($inPercent) ? '%' : ''
         );
     }
+}
+
+function show_dalle()
+{
+    global $db;
+    $sql = 'SELECT * FROM downloads WHERE dalle != "" ORDER BY timestamp DESC LIMIT 10;';
+    $results = $db->query($sql);
+
+    echo '<ul>';
+    while ($row = $results->fetchArray()) {
+        printf('<li><a href="show_single_sharepic.php?id=%1$s">%2$s</a></li>', $row['sharepicid'], $row['dalle']);
+    }
+    echo '</ul>';
 }
 
 function getUsers()
@@ -98,7 +116,7 @@ function showLogGraph()
 {
     global $db;
     // by day
-    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS bar, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
+    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS description, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
     // by week
     //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads GROUP BY period ORDER BY period;";
     // by month

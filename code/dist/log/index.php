@@ -79,6 +79,10 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
      
     </div>
+
+    <div class="col-12">
+        <?php echo show_dalle();?>
+    </div>
 </div>
 </body>
 </html>
