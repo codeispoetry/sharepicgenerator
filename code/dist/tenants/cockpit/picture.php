@@ -34,7 +34,7 @@
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
         <div class="input-group">
-            <input type="text" class="form-control" id="ai-image-prompt" value="" placeholder="Beschreibe das Bild genau">
+            <input type="text" class="form-control" id="ai-image-prompt" value="" placeholder="Beschreibe das Bild sehr ausführlich ">
             <button type="button" class="input-group-text btn-group ai-image-trigger">erzeugen</button>
         </div>
         <small>Bitte beschreibe Dein Bild möglichst genau, z.B. </small>

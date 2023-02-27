@@ -73,6 +73,8 @@ function getPixabayImages(q) {
     url,
     success(data) {
       $('#imagedb-search .results').html('');
+      $('#imagedb-search .results').removeClass('dalle-images');
+      
       data.hits.forEach((image) => {
         $('#imagedb-search .results').append(`<img src="${image.previewURL}" data-url="${image.largeImageURL}" data-user="${image.user} / Pixabay" class="img-fluid">`);
       });

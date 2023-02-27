@@ -1,4 +1,8 @@
 $('.ai-image-trigger').click(function() {
+  if($('#ai-image-prompt').val().length === 0) {
+    return;
+  }
+
   if($(this).prop('disabled')) {
     return;
   }
@@ -8,6 +12,10 @@ $('.ai-image-trigger').click(function() {
 });
 
 function getAIImages() {
+  if($('#ai-image-prompt').val().length === 0) {
+    return;
+  }
+  
   $('#imagedb-search').show();
   $('#canvas-area').slideUp();
 
@@ -29,6 +37,7 @@ function getAIImages() {
       $('.ai-image-trigger').prop('disabled', false);
 
       $('#imagedb-search .results').html('');
+      $('#imagedb-search .results').addClass('dalle-images');
 
       const data = JSON.parse(response);
      
