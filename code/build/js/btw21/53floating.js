@@ -91,11 +91,10 @@ const floating = {
 
     floating.scale(false);
 
+    floating.shadow.remove();
     if ( $('#textShadow').prop('checked') ) {
       floating.drawShadow();
     }
-
-
 
     floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
@@ -181,7 +180,7 @@ const floating = {
         x = 0;
     }
 
-    //claim.move(x, 8 + floating.svg.x() + floating.svg.height() - 19);
+    claim.dx(x);
 
     return claim;
   },
