@@ -2,8 +2,7 @@
 var inFloatingDraw = 0;
 const floating = {
   svg: draw.text(''),
-  fond: draw.circle(0),
-  fondPadding: 30,
+  shadow: draw.text(''),
   align: 'left',
   font: {
     family: 'BereitBold',
@@ -17,12 +16,6 @@ const floating = {
     leading: '1.05em',
     size: 10,
   },
-  fontCiteSymbol: {
-    family: 'BereitBold',
-    anchor: 'left',
-    leading: '1.05em',
-    size: 80,
-  },
   fontAfter: {
     family: 'BereitBold',
     anchor: 'left',
@@ -32,67 +25,13 @@ const floating = {
 
   draw() {
     let text = $('#text').val();
-    if ($('#text').val() === '') {
+    if (text === '') {
       text = ' ';
     }
 
     floating.svg.remove();
     floating.svg = draw.group().addClass('draggable').draggable();
 
-    floating.handeDragEvents();
-    
-    const anchor = $('#textFloating').val();
-
-    const t = draw.text(text)
-      .font(Object.assign(floating.font, { anchor }))
-      .fill($('#textcolor').val())
-      .attr('xml:space', 'preserve')
-      .attr('style', 'white-space:pre');
-
-    if ($('#textafter').val()) {
-      floating.svg.add(floating.drawTextAfter(t));
-    }
-
-    floating.svg.add(t);
-
-    floating.drawClaim(t);
-
-    if ($('#textbefore').val() || $('#layout-cite').prop('checked')) {
-      floating.svg.add(floating.drawTextBefore());
-    }
-
-    floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
-
-    if( $('#textShadow').prop('checked') ) {
-      floating.addDarkBackground();
-    }
-    
-    floating.scale(false);
-
-    if (!$('#advancedmode').prop('checked')) {
-      const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-      defaultlogo.setSize(17 * scaleFactor * 1.7);
-      pin.setSize(17 * scaleFactor * 1.7 * 1.15);
-    }
-    
-    floating.svg.front();
-
-    //floating.setBottomVariant();
-  },
-
-  scale(factor = false) {
-    if( !factor ) {  
-      factor = parseFloat($('#textscaled').val(), 10);
-    } 
-
-    floating.svg.scale(
-        factor,
-        floating.svg.x(), 
-        floating.svg.y()
-    );
-  },
-
-  handeDragEvents() {
     floating.svg.on('dragstart.namespace', function () {
       undo.save();
     });
@@ -100,42 +39,108 @@ const floating = {
     floating.svg.on('dragend.namespace', function floatingDragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
+      floating.draw();
     });
+    
+    const anchor = $('#textFloating').val();
 
+    const elemMainText = draw.text(text)
+      .font(Object.assign(floating.font, { anchor }))
+      .fill($('#textcolor').val())
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+
+    
+    let nextY = 0;
+    let w = 0;
+    let h = 0;
+
+    if ($('#textbefore').val()) {
+      var elemTextBefore = floating.drawTextBefore();
+      elemTextBefore.y(0);
+      nextY += elemTextBefore.bbox().height;
+      h += elemTextBefore.bbox().height;
+      w = Math.max(w, elemTextBefore.bbox().width);
+    }
+
+    elemMainText.y(nextY);
+    nextY += elemMainText.bbox().height;
+    h += elemMainText.bbox().height;
+    w = Math.max(w, elemMainText.bbox().width);
+   
+    if ($('#textafter').val()) {
+      var elemTextAfter = floating.drawTextAfter();
+      elemTextAfter.y(nextY)
+      nextY += elemTextAfter.bbox().height;
+      h += elemTextAfter.bbox().height;
+      w = Math.max(w, elemTextAfter.bbox().width);
+    }
+
+    if ($('#claimtext').val()) {
+      var elemClaimText = floating.drawClaim();
+      const claimTextOffset = 5; 
+      elemClaimText.y(nextY + claimTextOffset)
+      h += elemClaimText.bbox().height + claimTextOffset;
+      w = Math.max(w, elemClaimText.bbox().width);
+    }
+   
+    floating.svg.add(elemMainText);
+    floating.svg.add(elemTextBefore);
+    floating.svg.add(elemTextAfter);
+    floating.svg.add(elemClaimText);
+
+    floating.scale(false);
+
+    if ( $('#textShadow').prop('checked') ) {
+      floating.drawShadow();
+    }
+
+
+
+    floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
+
+    if (!$('#advancedmode').prop('checked')) {
+      const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
+      defaultlogo.setSize(17 * scaleFactor * 1.7);
+      pin.setSize(17 * scaleFactor * 1.7 * 1.15);
+    }
+
+    floating.svg.front();
+  
   },
 
-  addDarkBackground() {
-    const x = floating.svg.x();
-    const y = floating.svg.y();
+  scale(factor = false) {
+    if( !factor ) {  
+      factor = parseFloat($('#textscaled').val(), 10);
+    } 
+
+    const size = floating.svg.width() * factor;
+    floating.svg.size(size);
+   },
+
+  drawShadow() {
     const w = floating.svg.width();
     const h = floating.svg.height();
-    const padding = 70;
+    const padding = 120;
+    floating.shadow.remove();
 
     const gradient = draw.gradient('radial', function(add) {
-      add.stop({ offset: 0, color: '#000', opacity: 0.3 }) 
-      add.stop({ offset: 0.7, color: '#000', opacity: 0.05 }) 
+      add.stop({ offset: 0, color: '#000', opacity: 0.2 }) 
+      //add.stop({ offset: 0.9, color: '#000', opacity: 0.6 }) 
       add.stop({ offset: 1, color: '#000', opacity: 0 }) 
     })
 
-    const rect = draw.rect(w + (2 * padding), h + (2  * padding))
-      .move(x - padding , y - padding)
+    const x = parseInt($('#textX').val(), 10) - padding;
+    const y = parseInt($('#textY').val(), 10) -padding;
+
+    floating.shadow = draw.rect(w + (2 * padding), h + (2  * padding))
       .fill(gradient)
       .opacity(1)
-      .back();
+      .move(x, y);
 
-    const cloneSvg = floating.svg.clone();
-    floating.svg.remove();
-    floating.svg = draw.group().addClass('draggable').draggable();
-    floating.handeDragEvents();
-    floating.svg.add(rect);
-    floating.svg.add(cloneSvg);
   },
 
   drawClaim(t) {
-    if ($('#claimtext').val() === '') {
-      return;
-    }
-
     const claim = draw.group();
 
     let textColor = '#FFFFFF';
@@ -176,9 +181,9 @@ const floating = {
         x = 0;
     }
 
-    claim.move(x, 8 + floating.svg.height() + 1 - 20);
+    //claim.move(x, 8 + floating.svg.x() + floating.svg.height() - 19);
 
-    claim.addTo(floating.svg);
+    return claim;
   },
 
   drawTextBefore() {
@@ -186,19 +191,11 @@ const floating = {
     let color = $('#textbeforecolor').val() || '#FFFFFF';
     let font = floating.fontBefore;
 
-    if ($('#layout-cite').prop('checked')) {
-      content = ',,';
-      color = '#FFFFFF';
-      font = floating.fontCiteSymbol;
-    }
-
     const textbefore = draw.text(content)
       .font(font)
       .fill(color)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
-
-    textbefore.move(0, -20 - textbefore.bbox().h);
 
     switch ($('#textFloating').val()) {
       case 'middle':
@@ -213,13 +210,10 @@ const floating = {
     return textbefore;
   },
 
-  drawTextAfter(t) {
-   // claim.svg.hide();
-
+  drawTextAfter() {
     const textafter = draw.text($('#textafter').val())
       .font(floating.fontAfter)
       .fill($('#textaftercolor').val() || '#FFFFFF')
-      .move(0, -20 + t.bbox().height)
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
@@ -238,8 +232,8 @@ const floating = {
 
   setBottomVariant() {
     const scaled = parseFloat($('#textscaled').val(), 10);
-    const x = 0;
-    const realHeight =  floating.svg.height() * scaled;
+    const x = 20;
+    const realHeight =  floating.svg.height() ;
     const y =  draw.height() - realHeight - 20;
 console.log(scaled, realHeight, y);
     floating.svg.move(x, y);
@@ -250,7 +244,8 @@ $('#text, #textafter, #textbefore, #claimtext, #textShadow').bind('input propert
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
-  floating.scale(parseFloat($(this).data('scale'), 10));
+ // floating.scale(parseFloat($(this).data('scale'), 10));
+  floating.draw();
   undo.save();
 });
 
@@ -280,3 +275,7 @@ $('.textShadowTrigger').click(() => {
 
 
 //draw.rect(20,20).fill('red').move(0,100)
+
+function debug(where){
+  console.log('aus', where, ', textX =', $('#textX').val(), ", height=" , floating.svg.height() );
+}
