@@ -3,6 +3,7 @@ var inFloatingDraw = 0;
 const floating = {
   svg: draw.text(''),
   shadow: draw.text(''),
+  bottomFond: draw.text(''),
   align: 'left',
   font: {
     family: 'BereitBold',
@@ -105,7 +106,11 @@ const floating = {
     }
 
     floating.svg.front();
-  
+
+    floating.bottomFond.remove();
+    if ( $('#bottomVariant').prop('checked') ) {
+      floating.setBottomVariant();
+    }
   },
 
   scale(factor = false) {
@@ -230,16 +235,18 @@ const floating = {
   },
 
   setBottomVariant() {
-    const scaled = parseFloat($('#textscaled').val(), 10);
-    const x = 20;
-    const realHeight =  floating.svg.height() ;
-    const y =  draw.height() - realHeight - 20;
-console.log(scaled, realHeight, y);
-    floating.svg.move(x, y);
+    const padding = 20;
+    const y =  draw.height() - floating.svg.height() - padding;
+
+    floating.bottomFond = draw.rect(draw.width(), floating.svg.height() + 2 * padding)
+      .fill('#A0C864')
+      .move(0, y - padding);
+
+    floating.svg.move(padding, y).front();
   }
 };
 
-$('#text, #textafter, #textbefore, #claimtext, #textShadow').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #claimtext, #textShadow, #bottomVariant').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
@@ -248,7 +255,7 @@ $('.textscale').click(function () {
   undo.save();
 });
 
-$('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow').change(() => {
+$('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow, #bottomVariant').change(() => {
   undo.save();
 });
 
@@ -266,10 +273,6 @@ $('.align-center-text').click(() => {
   $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
   undo.save();
-});
-
-$('.textShadowTrigger').click(() => {
-  $('#textShadow').trigger('click');
 });
 
 

@@ -22,8 +22,20 @@
                                     <span>°</span>
                                 </li>
                             
-                                <li class="textShadowTrigger">
-                                    <span>Schatten unter Text</span>
+
+
+                                <li class="">
+                                    <label>
+                                        <input type="checkbox" name="textShadow" id="textShadow" value="on">
+                                        Schatten unter Text
+                                    </label>
+                                </li>
+
+                                <li class="">
+                                    <label>
+                                        <input type="checkbox" name="bottomVariant" id="bottomVariant" value="on">
+                                        Text unten vor grün
+                                    </label>
                                 </li>
 
                                 <li class="align-center-text"><span>in Bildmitte</span></li>
@@ -40,7 +52,6 @@
                             </ul>
                         </li>
                     </ul>
-                    <input type="checkbox" class="d-none" name="textShadow" id="textShadow" value="on">
                 </nav>
            
                 <div class="d-flex align-items-lg-center">
