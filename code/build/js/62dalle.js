@@ -40,6 +40,13 @@ function getAIImages() {
       $('#imagedb-search .results').addClass('dalle-images');
 
       const data = JSON.parse(response);
+
+      if(data.error) {
+        alert("Fehler: " + data.message);
+        $('#canvas-area').slideDown();
+        $('#imagedb-search').hide();
+        return;
+      }
      
       for (const image of data.images) {
         $('#imagedb-search .results').append(`<img src="${image}" data-url="${image}" data-user="DALL·E 2" class="img-fluid">`);

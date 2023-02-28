@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<h3><i class="fas fa-image"></i>Bilder erschaffen</h3>
+<h3><i class="fas fa-image"></i>Bilder erschaffen <small>(mit KI)</small></h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
         <div class="input-group">

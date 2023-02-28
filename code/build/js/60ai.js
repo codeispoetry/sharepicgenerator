@@ -17,6 +17,12 @@ function askAI() {
             return;
         }
 
+        if(response.error) {
+          alert("Fehler: " + response.message);
+          $('.ai-suggest').removeClass('active');
+          return;
+        }
+
         if(response[0] == '') { 
           $('.intro-text', '.ai-suggest').html("Tut mir leid, es wurden keine Vorschläge gefunden.");
           return;

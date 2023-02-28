@@ -48,7 +48,12 @@ function getPicturesFromAI($input, $count)
     $result = curl_exec($ch);
 
     if (curl_errno($ch)) {
-        echo json_decode('Could not reach AI. It says: ' . curl_error($ch));
+        echo json_encode(
+            [
+                'error' => 1,
+                'message' => 'Could not reach AI. It says: ' . curl_error($ch)
+            ]
+        );
         die();
     }
 
@@ -56,7 +61,12 @@ function getPicturesFromAI($input, $count)
 
     $result_json = json_decode($result);
     if (!empty($result_json->error)) {
-        echo json_encode($result_json->error->message);
+        echo json_encode(
+            [
+                'error' => 1,
+                'message' => $result_json->error->message
+            ]
+        );
         die();
     }
 
