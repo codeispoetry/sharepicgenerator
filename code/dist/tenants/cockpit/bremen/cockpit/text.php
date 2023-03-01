@@ -22,7 +22,7 @@ Du lebst.</textarea>
                         title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Text 2" name="text" id="text" class="form-control">Nich egal:
+                    <textarea placeholder="Text 2" name="text" id="text" class="form-control">Nicht egal:
 Wie du wählst.</textarea>
                     <input type="hidden" name="textcolor" id="textcolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
