@@ -4,7 +4,7 @@ const claim = {
 
   draw() {
     claim.svg.remove();
-    const logofile = '/assets/sh/claim.svg'
+    const logofile = '/assets/sh/claim.png'
     claim.svg = draw.image(logofile, () => {
 
       claim.svg.addClass('draggable').draggable();
