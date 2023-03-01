@@ -69,7 +69,6 @@ Templates go here. Opposite to /tmp, directory will not be emtied automatically.
 
 5. update config.ini on server
 
-
-# Enable logging
-To create or update the downloads-table for logging, log in as Admin-User and download
-a sharepic with all the features or the new feature respectivly.
+# Tests
+In directory _code_ run
+```npx playwright test```
