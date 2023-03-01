@@ -131,9 +131,6 @@
                   ?>
               </div>
           </a>
-          <div class="mt-2 d-none">
-            <a href="/nrw" class="tenant">Nordrhein-Westfalen</a> 
-          </div>
       </div>
   </div>
 
@@ -156,8 +153,9 @@
             <?php
             $tenants = configValue('Main', 'linkedTenants');
             foreach ($tenants as $key => $value) {
-              (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
-              if (isset($start) and strToTime($start) > time()) {
+              unset($start);
+                (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
+                if (isset($start) and strToTime($start) > time()) {
                     continue;
                 }
                 printf(
