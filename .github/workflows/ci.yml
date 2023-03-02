@@ -71,7 +71,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           php vendor/bin/dep deploy production
-          
+
   test:
     runs-on: ubuntu-latest
     needs: [deploy]
@@ -95,4 +95,11 @@ jobs:
         if: github.ref == 'refs/heads/develop'
         run: |
           URL=https://develop.sharepicgenerator.de/ PASS=$PASSWORD npx playwright test tests/create-sharepic.spec.js
+
+      - name: run test for production
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
+        if: github.ref == 'refs/heads/main'
+        run: |
+          URL=https://sharepicgenerator.de/ PASS=$PASSWORD npx playwright test tests/create-sharepic.spec.js
      
