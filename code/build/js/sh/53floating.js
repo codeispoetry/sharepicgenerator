@@ -22,6 +22,7 @@ const floating = {
     family: 'Brandon Text',
     anchor: 'left',
     leading: '1.05em',
+    weight: 700,
     size: 16,
   },
 

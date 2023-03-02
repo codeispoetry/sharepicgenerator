@@ -30,6 +30,7 @@ function deleteSharepic() {
 
 $('.save-sharepic').click(function() {
   save();
+  alert("Dein Sharepic wurde online gespeichert. Du kannst es jederzeit wieder laden und löschen.");
 });
 
 $('.open-sharepic').click(function() {
@@ -38,5 +39,6 @@ $('.open-sharepic').click(function() {
 
 $('.delete-sharepic').click(function() {
   deleteSharepic();
+  alert("Dein Sharepic wurde gelöscht.");
   window.location.reload();
 });

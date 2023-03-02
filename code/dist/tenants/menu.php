@@ -55,7 +55,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sharepic
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu">
                 <span class="dropdown-item save-sharepic cursor-pointer">
                     <i class="fa fa-delete"></i>speichern
                 </span>
