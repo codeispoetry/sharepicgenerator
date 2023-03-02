@@ -47,6 +47,9 @@ test-delete-screenshots:
 	rm code/tests/screenshots.spec.js-snapshots/* && \
 	rm code/tests/create-sharepic.spec.js-snapshots/*
 
+test:
+	npx playwright test tests/create-sharepic.spec.js --headed
+
 make-pot:
 	wp i18n make-pot code/dist/tenants  code/dist/language/sharepicgenerator.pot --ignore-domain && \
 	wp i18n update-po code/dist/language/sharepicgenerator.pot code/dist/language

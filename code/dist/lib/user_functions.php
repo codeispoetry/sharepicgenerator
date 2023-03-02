@@ -168,7 +168,7 @@ function isLocalUser()
         return true;
     }
 
-    if (!isset($_POST['pass'])) {
+    if (!isset($_REQUEST['pass'])) {
         return false;
     }
 
@@ -181,7 +181,7 @@ function isLocalUser()
     }
 
     require_once(getBasePath('ini/passwords.php'));
-    if (in_array($_POST['pass'], $passwords)) {
+    if (in_array($_REQUEST['pass'], $passwords)) {
         return true;
     }
 
