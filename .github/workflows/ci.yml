@@ -21,6 +21,7 @@ jobs:
       - name: install playwright
         run: |
           npm install -D @playwright/test
+          npx playwright install
 
       - name: run test for develop
         env:
