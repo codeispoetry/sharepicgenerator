@@ -10,10 +10,10 @@ test('test', async ({ page }) => {
   }
   await page.goto(URL);
 
-  await page.getById('test-access-password').fill(PASS);
+  await page.locator('#test-access-password').fill(PASS);
+  await page.keyboard.press('Enter');
 
   await page.getByTitle('Hintergrundfarbe setzen').hover();
-
   await page.getByTitle('Hintergrundfarbe setzen').locator('span').nth(1).click();
   await page.getByPlaceholder('Suchbegriff').click();
   await page.getByPlaceholder('Suchbegriff').fill('berge');

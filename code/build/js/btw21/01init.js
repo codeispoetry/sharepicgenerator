@@ -24,13 +24,6 @@ $(document).ready(() => {
     $($(this).data('target')).slideUp();
   });
 
-
-  if(config.user.prefs.hasSeenBlog == undefined) {
-    $('#canvas-area').slideUp();
-    $('#blog').show();
-    config.user.prefs.hasSeenBlog = 1;
-    setUserPrefs();
-  }
 });
 
 function initSharepic() {

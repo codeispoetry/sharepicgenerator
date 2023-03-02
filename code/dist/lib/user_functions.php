@@ -7,6 +7,7 @@ function do_saml_login()
         return 'ohnesaml';
     }
 
+    $user = "guest";
     $hasAccess = isLocal() ?: isLocalUser();
 
     $doLogout = false;
