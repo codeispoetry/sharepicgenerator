@@ -8,10 +8,10 @@
                 Über
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="imprint.php" class="dropdown-item">
+                <a href="/imprint.php" class="dropdown-item">
                     <i class="fa fa-landmark"></i> Impressum
                 </a>
-                <a href="imprint.php" class="dropdown-item">
+                <a href="/imprint.php" class="dropdown-item">
                     <i class="fa fa-key"></i> Datenschutz
                 </a>
                 <?php if (!isFreeTenant()) { ?>

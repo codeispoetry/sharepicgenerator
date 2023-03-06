@@ -151,7 +151,7 @@ $_SESSION['csrf'] = $csrf;
     </div>
 </div>
 
-<?php if ($tenant === 'btw21') { ?>
+<?php if ($tenant === 'btw21' && configValue('Main','enableOpenAi')) { ?>) { ?>
     <div class="ai-suggest ai-suggest-trigger">
         <div class="d-flex justify-content-between">
             <span class="ask-ai cursor-pointer">

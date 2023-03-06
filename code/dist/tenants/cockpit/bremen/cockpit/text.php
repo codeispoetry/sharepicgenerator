@@ -64,18 +64,7 @@ Wie du wählst.</textarea>
                     </div> 
                     </div>
 
-                <div class="d-none preferences-text">
-                    <div class="">  
-                         <label class="me-3">
-                            <input type="checkbox" class="form-check-input" name="textShadow" id="textShadow">
-                            Schatten hinter Text
-                        </label>
-                    </div>
-                </div>
-
-                <div class="d-none mt-3">
-                    <div class="btn btn-sm btn-outline-cockpit ai-suggest-trigger">Textvorschläge ansehen</div>
-                </div>
+               
             </div>
         </div>
         <input type="hidden" name="iconfile" id="iconfile">

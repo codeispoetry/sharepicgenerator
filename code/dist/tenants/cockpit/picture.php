@@ -30,6 +30,7 @@
     </div>
 </div>
 
+<?php if (configValue('Main','enableOpenAi')) { ?>
 <h3><i class="fas fa-image"></i>Bilder erschaffen <small>(mit KI)</small></h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
@@ -44,6 +45,7 @@
         </ul>
     </div>
 </div>
+<?php } ?>
 
 <h3 class="picture-only d-none"><i class="fas fa-image"></i> Einstellungen</h3>
 <div class="picture picture-only d-none list-group-item list-group-item-action flex-column align-items-start">

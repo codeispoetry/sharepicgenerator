@@ -43,14 +43,16 @@
                             </ul>
                         </li>
                         
+                        <?php if (configValue('Main','enableOpenAi')) { ?>
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Hilfe
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="ai-suggest-trigger">Textvorschläge</li>
-                            </ul>
+                            </ul>   
                         </li>
+                        <?php } ?>
                     </ul>
                 </nav>
            
