@@ -12,7 +12,7 @@ foreach ($fonts as $font) {
     );
 
     printf(
-        ".%s{font-family: '%s';font-weight: 500;}",
+        ".%s{font-family: '%s';font-weight: 500;}\n",
         strToLower(preg_replace('/ /', '', basename($font, '.woff2'))),
         basename($font, '.woff2')
     );

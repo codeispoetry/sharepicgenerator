@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const alltexts = {
     font: {
-        family: 'ArvoGruen',
+        family: 'Arvo Gruen',
         leading: '1.05em',
         size: 20,
         },

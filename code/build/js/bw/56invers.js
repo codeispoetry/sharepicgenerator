@@ -5,7 +5,7 @@ const invers = {
   linemargin: -4,
   paddingLr: 5,
   font: {
-    family: 'ArvoGruen',
+    family: 'Arvo Gruen',
     anchor: 'left',
     leading: '1.0em',
     size: 20,

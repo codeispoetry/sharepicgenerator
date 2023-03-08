@@ -13,7 +13,7 @@ const nolines = {
     size: 20,
   },
   fontoutsidelines: {
-    family: 'ArvoGruen',
+    family: 'Arvo Gruen',
     size: 8,
     anchor: 'middle',
     //leading: '1.0em',
@@ -48,7 +48,7 @@ const nolines = {
     }
 
     lines = lines.replace(/\n$/, '').split(/\n/);
-    const fontfamily = 'ArvoGruen';
+    const fontfamily = 'Arvo Gruen';
 
     const lineBeginsY = [];
     const linesRendered = [];

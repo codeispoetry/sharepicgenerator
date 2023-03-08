@@ -3,7 +3,7 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'ArvoGruen',
+  family: 'Arvo Gruen',
   size: 15,
   anchor: 'left',
   weight: 300,
@@ -23,6 +23,8 @@ const pin = {
 
   draw() {
     $('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
+
+    const countLines = ($('#pintext').val().match(/\n/g) || []).length; // start with 0
 
     pin.svg.remove();
     pin.svg = draw.group();

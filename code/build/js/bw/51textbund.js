@@ -11,7 +11,7 @@ const text = {
     size: 20,
   },
   fontoutsidelines: {
-    family: 'ArvoGruen',
+    family: 'Arvo Gruen',
     size: 10,
     anchor: 'left',
     leading: '1.0em',
@@ -46,7 +46,7 @@ const text = {
 
     lines = lines.replace(/\n$/, '').split(/\n/);
 
-    const fontfamily = (lines.length <= 3) ? 'ArvoGruen' : 'Arvo';
+    const fontfamily = (lines.length <= 3) ? 'Arvo Gruen' : 'Arvo';
     const longestLine = lines.reduce((a, b) => (a.length > b.length ? a : b));
 
     const widthSameLineHeihgts = 16 * longestLine.length;
