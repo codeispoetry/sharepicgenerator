@@ -1,4 +1,4 @@
-const addPic1 = {
+var addPic1 = {
   svg: draw.circle(0),
   circleMask: draw.circle(0),
   pic: draw.circle(0),
@@ -114,63 +114,22 @@ function unsetAddPicHighlight() {
   $('#highlight-rect').addClass('d-none');
 }
 
-const addPic2 = { ...addPic1 };
-addPic2.i = 2;
+for(let i = 1; i <= 5; i++) {
 
-const addPic3 = { ...addPic1 };
-addPic3.i = 3;
+  $('#addPicSize' + i).bind('input propertychange', () => { window[`addPic${i}`].resize(); });
+  $('#addpicrounded' + i).bind('change', () => { window[`addPic${i}`].draw(); });
+  $('#addpicroundedborder' + i).bind('change', () => { window[`addPic${i}`].setRoundBorder(); });
+  $('#addpicdelete' + i).bind('click', () => { window[`addPic${i}`].delete(); });
+  $('.show-add-pic-' + i).mouseover(() => { window[`addPic${i}`].setHighlight(); });
 
-const addPic4 = { ...addPic1 };
-addPic4.i = 4;
-
-const addPic5 = { ...addPic1 };
-addPic5.i = 5;
-
-$('#addPicSize1').bind('input propertychange', () => { addPic1.resize(); });
-$('#addpicrounded1').bind('change', () => { addPic1.setMask(); });
-$('#addpicroundedborder1').bind('change', () => { addPic1.setRoundBorder(); });
-$('#addpicdelete1').bind('click', () => { addPic1.delete(); });
-$('.show-add-pic-1').mouseover(() => { addPic1.setHighlight(); });
-
-$('#addPicSize2').bind('input propertychange', () => { addPic2.resize(); });
-$('#addpicrounded2').bind('change', () => { addPic2.draw(); });
-$('#addpicroundedborder2').bind('change', () => { addPic2.setRoundBorder(); });
-$('#addpicdelete2').bind('click', () => { addPic2.delete(); });
-$('.addpic-same-width-2').bind('click', () => { addPic2.sameWidth(); });
-$('.addpic-same-height-2').bind('click', () => { addPic2.sameHeight(); });
-$('#addpic-same-x-2').bind('click', () => { addPic2.sameX(); });
-$('#addpic-same-y-2').bind('click', () => { addPic2.sameY(); });
-
-$('.show-add-pic-2').mouseover(() => { addPic2.setHighlight(); });
-
-$('#addPicSize3').bind('input propertychange', () => { addPic3.resize(); });
-$('#addpicrounded3').bind('change', () => { addPic3.draw(); });
-$('#addpicroundedborder3').bind('change', () => { addPic3.setRoundBorder(); });
-$('#addpicdelete3').bind('click', () => { addPic3.delete(); });
-$('.addpic-same-width-3').bind('click', () => { addPic3.sameWidth(); });
-$('.addpic-same-height-3').bind('click', () => { addPic3.sameHeight(); });
-$('#addpic-same-x-3').bind('click', () => { addPic3.sameX(); });
-$('#addpic-same-y-3').bind('click', () => { addPic3.sameY(); });
-$('.show-add-pic-3').mouseover(() => { addPic3.setHighlight(); });
-
-$('#addPicSize4').bind('input propertychange', () => { addPic4.resize(); });
-$('#addpicrounded4').bind('change', () => { addPic4.draw(); });
-$('#addpicroundedborder4').bind('change', () => { addPic4.setRoundBorder(); });
-$('#addpicdelete4').bind('click', () => { addPic4.delete(); });
-$('.addpic-same-width-4').bind('click', () => { addPic4.sameWidth(); });
-$('.addpic-same-height-4').bind('click', () => { addPic4.sameHeight(); });
-$('#addpic-same-x-4').bind('click', () => { addPic4.sameX(); });
-$('#addpic-same-y-4').bind('click', () => { addPic4.sameY(); });
-$('.show-add-pic-4').mouseover(() => { addPic4.setHighlight(); });
-
-$('#addPicSize5').bind('input propertychange', () => { addPic5.resize(); });
-$('#addpicrounded5').bind('change', () => { addPic5.draw(); });
-$('#addpicroundedborder5').bind('change', () => { addPic5.setRoundBorder(); });
-$('#addpicdelete5').bind('click', () => { addPic5.delete(); });
-$('.addpic-same-width-5').bind('click', () => { addPic5.sameWidth(); });
-$('.addpic-same-height-5').bind('click', () => { addPic5.sameHeight(); });
-$('.show-add-pic-5').mouseover(() => { addPic5.setHighlight(); });
-$('#addpic-same-x-5').bind('click', () => { addPic5.sameX(); });
-$('#addpic-same-y-5').bind('click', () => { addPic5.sameY(); });
+  if( i === 1 ) continue;
+  window[`addPic${i}`] = { ...addPic1 };
+  window[`addPic${i}`].i = i;
+  
+  $('.addpic-same-width-' + i).bind('click', () => { window[`addPic${i}`].sameWidth(); });
+  $('.addpic-same-height-' + i).bind('click', () => { window[`addPic${i}`].sameHeight(); });
+  $('#addpic-same-x-' + i).bind('click', () => { window[`addPic${i}`].sameX(); });
+  $('#addpic-same-y-' + i).bind('click', () => { window[`addPic${i}`].sameY(); });
+}
 
 $('.show-add-pic-all').mouseout(() => { unsetAddPicHighlight(); });

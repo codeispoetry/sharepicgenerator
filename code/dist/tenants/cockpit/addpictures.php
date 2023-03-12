@@ -1,8 +1,11 @@
 <h3><i class="fas fa-images"></i> Vordergrundbilder</h3>
+<?php
+    define('COUNT_ADD_PICS' , 5);
+?>
 <div class="addpictures list-group-item list-group-item-action flex-column align-items-start">
     <div class="flex-column align-items-start">
         <?php
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= COUNT_ADD_PICS; $i++) {
             $divclass = 'mb-1 list-group-item-content';
             if ($i > 1) {
                 $divclass .= ' show-add-pic-upload d-none';
@@ -62,7 +65,7 @@
     </div>
 </div>
 <?php
-for ($i = 1; $i <= 5; $i++) {
+for ($i = 1; $i <= COUNT_ADD_PICS; $i++) {
     ?>
     <input type="hidden" name="addpicfile<?php echo $i; ?>" id="addpicfile<?php echo $i; ?>">
     <input type="hidden" name="addPic<?php echo $i; ?>x" id="addPic<?php echo $i; ?>x">

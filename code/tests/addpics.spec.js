@@ -23,7 +23,5 @@ test('test', async ({ page }) => {
     await page.locator('#addpic-same-y-' + i).click();
   }
   
-
   await page.screenshot({ path: 'tests/screenshot.png', fullPage: true });
-
 });
