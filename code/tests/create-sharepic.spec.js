@@ -26,7 +26,7 @@ test('test', async ({ page }) => {
   await page.getByPlaceholder('Dein Text').click();
   await page.getByPlaceholder('Dein Text').fill('Störer');
   await page.getByPlaceholder('Dein Text').click();
-  await page.getByRole('tabpanel', { name: '' }).getByText('größer').click({
+  await page.getByRole('tabpanel', { name: '' }).getByText('+').click({
     clickCount: 3
   });
   const downloadPromise = page.waitForEvent('download');

@@ -7,7 +7,7 @@
             if ($i > 1) {
                 $divclass .= ' show-add-pic-upload d-none';
             }
-        ?>
+            ?>
             <div class="<?= $divclass; ?> show-add-pic-all show-add-pic-<?= $i; ?>">
                 <div class="d-flex w-100 justify-content-between">
                     <span class="text-cockpit cursor-pointer addpicclicker<?= $i; ?>">
@@ -17,7 +17,6 @@
 
                     <div class="add-pic-tools-<?= $i; ?> text-cockpit d-none">
                         <?php if ($i >= 2) { ?>
-
                             <span id="addpic-same-x-<?= $i; ?>">
                                 <i class="fas fa-caret-left" title="Gleiche x-Position wie Bild 1"></i>
                             </span>
@@ -51,8 +50,8 @@
                     </div>
                     <div>
                         <div class="ms-3">
-                            <input type="checkbox" name="addpicrounded<?= $i; ?>" class="retoggle" id="addpicrounded<?= $i; ?>" data-size="xs" data-bs-toggle="toggle" data-on="rund" data-off="eckig">
-                            <input type="checkbox" name="addpicroundedborder<?= $i; ?>" class="retoggle" id="addpicroundedborder<?= $i; ?>" data-size="xs" data-bs-toggle="toggle" data-on="mit&nbsp;Rand" data-off="randlos">
+                            <label><input type="checkbox" name="addpicrounded<?= $i; ?>"  id="addpicrounded<?= $i; ?>">Rund</label>
+                            <label><input type="checkbox" name="addpicroundedborder<?= $i; ?>"  id="addpicroundedborder<?= $i; ?>">Rand</label>
                         </div>
                     </div>
 
