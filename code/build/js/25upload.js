@@ -62,45 +62,19 @@ function changeFile(file, id) {
         defaultlogo.draw(obj.logo);
         break;
       case 'uploadaddpic1':
-        $('#addpicfile1').val(obj.addpicfile);
-        show('show-add-pic-1');
-        show('show-copyright');
-        show('show-add-pic-upload');
-        show('add-pic-tools-1');
-        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
-        addPic1.draw();
+        handleAddPicUpload(1, obj);
         break;
       case 'uploadaddpic2':
-        $('#addpicfile2').val(obj.addpicfile);
-        show('show-add-pic-2');
-        show('show-copyright');
-        show('add-pic-tools-2');
-        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
-        addPic2.draw();
+        handleAddPicUpload(2, obj);
         break;
       case 'uploadaddpic3':
-        $('#addpicfile3').val(obj.addpicfile);
-        show('show-add-pic-3');
-        show('show-copyright');
-        show('add-pic-tools-3');
-        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
-        addPic3.draw();
+        handleAddPicUpload(3, obj);
         break;
       case 'uploadaddpic4':
-        $('#addpicfile4').val(obj.addpicfile);
-        show('show-add-pic-4');
-        show('show-copyright');
-        show('add-pic-tools-4');
-        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
-        addPic4.draw();
+        handleAddPicUpload(4, obj);
         break;
       case 'uploadaddpic5':
-        $('#addpicfile5').val(obj.addpicfile);
-        show('show-add-pic-5');
-        show('show-copyright');
-        show('add-pic-tools-5');
-        $('.retoggle').bootstrapToggle('destroy').bootstrapToggle();
-        addPic5.draw();
+        handleAddPicUpload(5, obj);
         break;
       default:
         console.log('error in upload', obj);
@@ -121,6 +95,16 @@ function changeFile(file, id) {
   client.open('POST', '/actions/upload.php');
   client.send(formData);
   return true;
+}
+
+function handleAddPicUpload(nr, obj){
+  $('#addpicfile' + nr).val(obj.addpicfile);
+  show('show-add-pic-' + nr);
+  show('show-copyright');
+  show('add-pic-tools-' + nr);
+  show('show-add-pic-upload-' + (nr + 1));
+  hide('addpicclicker' + nr);
+  window['addPic' + nr ].draw();
 }
 
 function uploadFileByUrl(url, callback = function uploadCallback() {}) {

@@ -2,7 +2,14 @@ var addPic1 = {
   svg: draw.circle(0),
   circleMask: draw.circle(0),
   pic: draw.circle(0),
+  caption: draw.text(''),
   i: 1,
+  font: {
+    family: 'PT Sans',
+    anchor: 'left',
+    leading: '1.05em',
+    size: 20,
+  },
 
   draw() {
     this.svg.remove();
@@ -15,6 +22,7 @@ var addPic1 = {
     this.svg.on('dragend.namespace', () => {
       $(`#addPic${this.i}x`).val(Math.round(this.svg.x()));
       $(`#addPic${this.i}y`).val(Math.round(this.svg.y()));
+      this.setCaption();
     });
 
     this.circleMask = draw.circle(0).fill({ color: '#fff' });
@@ -27,7 +35,26 @@ var addPic1 = {
 
       this.resize();
       this.setMask();
+
+      this.setCaption();
     });
+  },
+
+  setCaption() {
+    const caption = $(`#addPicCaption${this.i}`).val();
+    if (caption === '') {
+      return;
+    }
+
+    this.caption.remove();
+
+    this.caption = draw.text(caption)
+      .font(this.font)
+      .fill($(`#addPicCaptionColor${this.i}`).val())
+      .attr('xml:space', 'preserve')
+      .attr('style', 'white-space:pre');
+
+    this.caption.move(this.svg.x(), this.svg.y() + this.svg.height() + 8);
   },
 
   setMask() {
@@ -65,6 +92,8 @@ var addPic1 = {
   delete() {
     this.svg.remove();
     this.svg = draw.circle(0);
+    this.caption.remove();
+    this.caption = draw.circle(0);
     hide(`add-pic-tools-${this.i}`);
     $(`#addPic${this.i}x`).val('');
     $(`#addPic${this.i}y`).val('');
@@ -73,16 +102,19 @@ var addPic1 = {
 
   resize() {
     this.svg.size(parseInt($(`#addPicSize${this.i}`).val(), 10), null);
+    this.setCaption();
   },
 
   sameWidth() {
     this.svg.size(addPic1.svg.width(), null);
     $(`#addPicSize${this.i}`).val(this.svg.width());
+    this.setCaption();
   },
 
   sameHeight() {
     this.svg.size(null, addPic1.svg.height());
     $(`#addPicSize${this.i}`).val(this.svg.width());
+    this.setCaption();
   },
 
   sameY() {
@@ -90,6 +122,7 @@ var addPic1 = {
     this.svg.y(y);
     $(`#addPic${this.i}y`).val(y);
     this.setMask();
+    this.setCaption();
   },
 
   sameX() {
@@ -97,6 +130,7 @@ var addPic1 = {
     this.svg.x(x);
     $(`#addPic${this.i}x`).val(x);
     this.setMask();
+    this.setCaption();
   },
 
   setHighlight() {
@@ -119,6 +153,7 @@ for(let i = 1; i <= 5; i++) {
   $('#addPicSize' + i).bind('input propertychange', () => { window[`addPic${i}`].resize(); });
   $('#addpicrounded' + i).bind('change', () => { window[`addPic${i}`].draw(); });
   $('#addpicroundedborder' + i).bind('change', () => { window[`addPic${i}`].setRoundBorder(); });
+  $('#addPicCaption' + i).bind('input propertychange', () => { window[`addPic${i}`].setCaption(); });
   $('#addpicdelete' + i).bind('click', () => { window[`addPic${i}`].delete(); });
   $('.show-add-pic-' + i).mouseover(() => { window[`addPic${i}`].setHighlight(); });
 
