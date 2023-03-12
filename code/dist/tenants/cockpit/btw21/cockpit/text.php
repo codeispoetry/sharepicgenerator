@@ -43,7 +43,7 @@
                             </ul>
                         </li>
                         
-                        <?php if (configValue('Main','enableOpenAi')) { ?>
+                        <?php if (configValue('Main', 'enableOpenAi')) { ?>
                         <li class="nav-item dropdown">
                             <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Hilfe
@@ -101,9 +101,9 @@
 
                 <div class="mb-1 mt-2">
                     <div class="d-flex">
-                        <span class="btn btn-sm btn-outline-cockpit textscale me-2" data-scale="0.9">kleiner</span>
-                        <span class="btn btn-sm btn-outline-cockpit textscale" data-scale="1.1">größer</span>
-                        <input type="hidden" name="textscaled" id="textscaled" value="1">
+                        <span class="btn btn-sm btn-outline-cockpit textscale me-2 border-0 p-2" data-scale="0.9" title="kleiner">-</span>
+                        <input type="range" name="textscaled" id="textscaled" value="1" min="0.5" max="6" step="0.1">
+                        <span class="btn btn-sm btn-outline-cockpit textscale border-0 p-2" data-scale="1.1" title="größer">+</span>
                     </div> 
                 </div>
             </div>

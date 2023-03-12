@@ -246,16 +246,16 @@ const floating = {
   }
 };
 
-$('#text, #textafter, #textbefore, #claimtext, #textShadow, #bottomVariant').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #claimtext, #textShadow, #textscaled, #bottomVariant').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
- // floating.scale(parseFloat($(this).data('scale'), 10));
   floating.draw();
   undo.save();
 });
 
-$('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow, #bottomVariant').change(() => {
+
+$('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow, #textscaled, #bottomVariant').change(() => {
   undo.save();
 });
 
@@ -274,10 +274,3 @@ $('.align-center-text').click(() => {
   floating.draw();
   undo.save();
 });
-
-
-//draw.rect(20,20).fill('red').move(0,100)
-
-function debug(where){
-  console.log('aus', where, ', textX =', $('#textX').val(), ", height=" , floating.svg.height() );
-}

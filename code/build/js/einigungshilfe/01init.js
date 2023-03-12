@@ -36,4 +36,3 @@ function initSharepic() {
 function reset() {
   upperrect.draw();
 }
-
