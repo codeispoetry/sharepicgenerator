@@ -99,11 +99,13 @@ function changeFile(file, id) {
 
 function handleAddPicUpload(nr, obj){
   $('#addpicfile' + nr).val(obj.addpicfile);
-  show('show-add-pic-' + nr);
-  show('show-copyright');
-  show('add-pic-tools-' + nr);
-  show('show-add-pic-upload-' + (nr + 1));
+
   hide('addpicclicker' + nr);
+  show('add-pic-tools-' + nr);
+
+  show('show-copyright');
+  show('add-pic-section-' + (nr + 1));
+
   window['addPic' + nr ].draw();
 }
 

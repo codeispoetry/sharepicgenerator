@@ -54,7 +54,25 @@ var addPic1 = {
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');
 
-    this.caption.move(this.svg.x(), this.svg.y() + this.svg.height() + 8);
+    const pos = $(`#addPicCaptionPosition${this.i}`).val();
+
+    switch( pos ) {
+      case 'bottom':
+        this.caption.move(this.svg.x(), this.svg.y() + this.svg.height() + 8);
+        break;
+      case 'right':
+        this.caption.move(this.svg.x() + this.svg.width() + 8, this.svg.y() + this.svg.height() / 2 - this.caption.bbox().h / 2);
+        break;
+    }
+  },
+
+  changeCaptionPosition() {
+    const pos = $(`#addPicCaptionPosition${this.i}`).val();
+    const newPos = pos === 'bottom' ? 'right' : 'bottom';
+    
+    $(`#addPicCaptionPosition${this.i}`).val(newPos);
+   
+    this.setCaption();
   },
 
   setMask() {
@@ -156,6 +174,8 @@ for(let i = 1; i <= 5; i++) {
   $('#addPicCaption' + i).bind('input propertychange', () => { window[`addPic${i}`].setCaption(); });
   $('#addpicdelete' + i).bind('click', () => { window[`addPic${i}`].delete(); });
   $('.show-add-pic-' + i).mouseover(() => { window[`addPic${i}`].setHighlight(); });
+  $('.addPicCaptionPositionButton' + i).bind('click', () => { window[`addPic${i}`].changeCaptionPosition(); });
+  
 
   if( i === 1 ) continue;
   window[`addPic${i}`] = { ...addPic1 };

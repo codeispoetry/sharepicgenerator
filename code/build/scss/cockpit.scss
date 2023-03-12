@@ -229,11 +229,6 @@
   }
 }
 
-.hide-add-pic-1,
-.hide-add-pic-2{
-  display: none;
-}
-
 .highlight{
   color:white;
   background: $purple !important;
@@ -321,5 +316,17 @@ input{
     border-bottom:  $arrow-size solid $danger;
     border-left:  $arrow-size solid transparent;
     border-right:  $arrow-size solid transparent;
+  }
+}
+
+.add-pic-section{
+  margin-bottom: 2em;
+
+  .add-pic-buttons{
+    text-align: right;
+    *{
+      margin-left: 0.5em;
+      cursor: pointer;
+    }
   }
 }
