@@ -7,6 +7,9 @@ Options +Indexes +FollowSymLinks
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    Redirect 301 /logo https://logo.sharepicgenerator.de
+
  
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

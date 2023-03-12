@@ -14,7 +14,7 @@
         </ul>   
     </nav>
     <div class="d-flex justify-content-between">
-        <div class="slider advancedmode d-none me-3">
+        <div class="slider me-3">
             <small>klein</small>
                 <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="20">
             <small>groß</small>
