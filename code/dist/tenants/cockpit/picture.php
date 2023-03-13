@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<?php if (configValue('Main','enableOpenAi')) { ?>
+<?php if (configValue('Main', 'enableOpenAi')) { ?>
 <h3><i class="fas fa-image"></i>Bilder erschaffen <small>(mit KI)</small></h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
@@ -78,7 +78,8 @@
         <div class="d-flex align-items-center">
 
             <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
+            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" 
+                data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
         </div>
     </div>
 
