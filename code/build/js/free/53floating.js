@@ -4,6 +4,7 @@
 var inFloatingDraw = 0;
 const floating = {
   svg: draw.text(''),
+  shadow: draw.text(''),
   font: {
     leading: '1.05em',
     size: 20,
@@ -34,8 +35,9 @@ const floating = {
 
     floating.scale(false);
 
-    if( $('#textShadow').prop('checked') ) {
-      floating.addDarkBackground();
+    floating.shadow.remove();
+    if ( $('#textShadow').prop('checked') ) {
+      floating.drawShadow();
     }
     
     floating.svg.front();
@@ -65,30 +67,26 @@ const floating = {
 
   },
 
-  addDarkBackground() {
-    const x = floating.svg.x();
-    const y = floating.svg.y();
+  drawShadow() {
     const w = floating.svg.width();
     const h = floating.svg.height();
-    const padding = 100;
+    const padding = 120;
+    floating.shadow.remove();
 
     const gradient = draw.gradient('radial', function(add) {
       add.stop({ offset: 0, color: '#000', opacity: 0.2 }) 
-      add.stop({ offset: 0.8, color: '#000', opacity: 0 }) 
+      //add.stop({ offset: 0.9, color: '#000', opacity: 0.6 }) 
+      add.stop({ offset: 1, color: '#000', opacity: 0 }) 
     })
 
-    const rect = draw.rect(w + (2 * padding), h + (2  * padding))
-      .move(x -padding, y - padding)
+    const x = parseInt($('#textX').val(), 10) - padding;
+    const y = parseInt($('#textY').val(), 10) -padding;
+
+    floating.shadow = draw.rect(w + (2 * padding), h + (2  * padding))
       .fill(gradient)
       .opacity(1)
-      .back();
+      .move(x, y);
 
-    const cloneSvg = floating.svg.clone();
-    floating.svg.remove();
-    floating.svg = draw.group().addClass('draggable').draggable();
-    floating.handeDragEvents();
-    floating.svg.add(rect);
-    floating.svg.add(cloneSvg);
   },
 
 };
