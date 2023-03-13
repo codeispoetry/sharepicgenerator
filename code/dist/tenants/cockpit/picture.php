@@ -84,7 +84,6 @@
 
 </div>   
 
-<?php if (!isFreeTenant()) { ?>
 <h3 class="picture-only d-none"><i class="fas fa-image"></i> Hintergrund</h3>
 <div class="list-group-item picture-only d-none">     
     <span class="btn btn-sm btn-outline-cockpit rembg">
@@ -92,11 +91,12 @@
     </span>
 </div>
 
+<?php $color = configValue($tenant, "colorMatrixLabel") ?: 'Gr&uuml;n'; ?>
 
-<h3 class="picture-only d-none"><i class="fas fa-image"></i> Grünfärbung</h3>
+<h3 class="picture-only d-none"><i class="fas fa-image"></i> <?php echo ucFirst($color); ?>färbung</h3>
 <div class="picture-only d-none list-group-item">
         <label>
-            <input type="checkbox" class="form-check-input" name="greenify" id="greenify"> Bild grün einfärben
+            <input type="checkbox" class="form-check-input" name="greenify" id="greenify"> Bild <?php echo strToLower($color); ?> einfärben
         </label>
 
         <div class="slider">
@@ -114,8 +114,12 @@
             <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
         </small>
 </div>
-<?php } ?>
 
+<?php if ($matrix = configValue($tenant, "colorMatrix")) { ?>
+    <script>
+        const greenifyMatrix = [<?php echo $matrix; ?> ];
+    </script>
+<?php } ?>
 
 <input type="hidden" name="backgroundX" id="backgroundX">
 <input type="hidden" name="backgroundY" id="backgroundY">
