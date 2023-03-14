@@ -63,13 +63,24 @@
                 <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Unser Wasser.</textarea>
                     <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
-                    <span 
-                        class="colorpicker ms-1"  
-                        id="textcolorpicker" 
-                        data-colors="<?php getColorAtIndex(); ?>" 
-                        data-action="floating.draw()" 
-                        data-field="#textcolor" 
-                        title="Farbe wechseln"></span> 
+                   
+
+                        <div class="linepickers-container">
+                            <?php for ($i = 0; $i <5; $i++) { ?>
+                                <div class="d-flex linepickers linepicker<?php echo $i;?>">
+                                    <?php echo $i+1;?>)
+                                    <input type="hidden" name="line<?php echo $i;?>color" id="line<?php echo $i;?>color" value="<?php getColorAtIndex(2); ?>">
+                                    <span 
+                                        class="colorpicker ms-1"  
+                                        id="textcolorpicker" 
+                                        data-colors="<?php getColorAtIndex(2); ?>,<?php getColorAtIndex(3); ?>" 
+                                        data-action="floating.draw()" 
+                                        data-field="#line<?php echo $i;?>color"
+                                        title="Farbe der <?php echo $i+1;?>. Zeile wechseln"></span> 
+
+                                </div>
+                            <?php } ?>
+                        </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
                     <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em">Unser Bier</textarea>

@@ -45,22 +45,49 @@ const floating = {
     
     const anchor = $('#textFloating').val();
 
-    const elemMainText = draw.text(text)
-      .font(Object.assign(floating.font, { anchor }))
-      .fill($('#textcolor').val())
-      .attr('xml:space', 'preserve')
-      .attr('style', 'white-space:pre');
+    const elemMainText = draw.group();
+
+      const lines = $('#text').val().replace(/\n$/, '').split(/\n/);
+
+      $('.linepickers').addClass('d-none');
+      lines.forEach((value, index) => {
+        const line = draw.group();
+        const indentation = value.match(/^\s*/)[0].length;
+        const fondPadding = 0;
+  
+        const fondColor = '#FFFFFF';
+        const textColor = $('#line' + index + 'color').val();
+
+        $('.linepicker' + index).removeClass('d-none');
+  
+        const text = line.text(value.replace(/^\s*/, ''))
+          .font(Object.assign(floating.font, { }))
+          .fill(textColor)
+          .move(0, 0)
+          .attr('xml:space', 'preserve')
+          .attr('style', 'white-space:pre');
+  
+        const fond = line.rect(
+          text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
+        )
+          .fill(fondColor)
+          .x(-fondPadding)
+          .y(-fondPadding)
+          .skew( -9, 0)
+          .back();
+  
+        line.x(indentation * 5)
+          .y(index * 26); // Zeilenhöhe
+  
+         elemMainText.add(line);
+        elemMainText.add(line);
+      });
+  
 
     
     let nextY = 0;
     let w = 0;
     let h = 0;
-
-    const mainTextFond = draw.rect(elemMainText.bbox().width + 4, elemMainText.bbox().height - 4)
-                              .skew(-9, 0)
-                              .dx(-2)
-                              .dy(2)
-                              .fill('#FFFFFF');
 
     if ($('#textbefore').val()) {
       var elemTextBefore = floating.drawTextBefore();
@@ -91,7 +118,6 @@ const floating = {
       w = Math.max(w, elemClaimText.bbox().width);
     }
    
-    floating.svg.add(mainTextFond);
     floating.svg.add(elemMainText);
     floating.svg.add(elemTextBefore);
     floating.svg.add(elemTextAfter);
