@@ -12,18 +12,18 @@ var initialized = false;
 
 $(document).ready(() => {
  
-  $('#textX').val(20);
+  $('#textX').val(120);
   $('#textY').val(draw.height() / 2);
-  $('#textscaled').val(2);
-  $('#logoX').val(-35);
-  $('#logoY').val(360);
-  $('#claimX').val(365);
-  $('#claimY').val(435);
+  $('#textsize').val(270);
+  $('#logoX').val(230);
+  $('#logoY').val(200);
+
   open();
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
+
 });
 
 function initSharepic() {
@@ -34,18 +34,17 @@ function initSharepic() {
   $('#sizepresets').val('1200:1200').trigger('change');
   initialized = true;
 
-  //background.drawColor();
-  defaultlogo.draw();
+  background.drawColor();
+  bayernlogo.draw();
   floating.draw();
   pin.draw();
-  claim.draw();
+  frame.draw();
 
   $('#advancedmode').click();
-
+  
   return true;
 }
 
 function reset() {
-  // do nothing, stay here
+  frame.draw();
 }
-
