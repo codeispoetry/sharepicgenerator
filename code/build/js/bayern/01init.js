@@ -45,4 +45,5 @@ function initSharepic() {
 
 function reset() {
   frame.draw();
+  bayernlogo.draw();
 }
