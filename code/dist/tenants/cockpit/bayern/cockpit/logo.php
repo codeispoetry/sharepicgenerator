@@ -2,8 +2,8 @@
 <div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
     
     <div class="d-flex">
-        <span class="align-logo btn btn-sm btn-cockpit me-4" data-place="topright">rechts oben</span>
-        <span class="align-logo btn btn-sm btn-cockpit me-4" data-place="bottomright">rechts unten</span>
+        <span class="align-logo btn btn-sm btn-outline-cockpit me-4" data-place="topright">rechts oben</span>
+        <span class="align-logo btn btn-sm btn-outline-cockpit me-4" data-place="bottomright">rechts unten</span>
     </div>
    
     <div class="d-none">

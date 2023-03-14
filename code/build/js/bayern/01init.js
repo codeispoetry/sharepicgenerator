@@ -34,14 +34,12 @@ function initSharepic() {
   $('#sizepresets').val('1200:1200').trigger('change');
   initialized = true;
 
-  background.drawColor();
+  //background.drawColor();
   bayernlogo.draw();
   floating.draw();
   pin.draw();
   frame.draw();
 
-  $('#advancedmode').click();
-  
   return true;
 }
 
