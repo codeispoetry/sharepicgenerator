@@ -19,9 +19,7 @@ const background = {
 
       this.on('dragend.namespace', function dragEnd() {
         $('#backgroundX').val(Math.round(this.x()));
-       
         $('#backgroundY').val(Math.round(this.y()));
-        background.uncoveredAreaWarning();
       });
 
       // no dragging when nothing to drag
@@ -90,7 +88,6 @@ const background = {
 
     $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     background.draw();
-    background.uncoveredAreaWarning();
   },
 
   resize() {
@@ -100,45 +97,10 @@ const background = {
     const x = draw.width() - val;
     const y = draw.height() - this.svg.height();
     this.svg.move(x / 2, y / 2);
-
-    if (background.hasRoundingError()) {
-      let size = parseInt($('#backgroundsize').val(), 10);
-      $('#backgroundsize').val(size += 5);
-      this.resize();
-    }
-    background.uncoveredAreaWarning();
   },
 
-  hasRoundingError() {
-    // -1 is for bug inkscape, see 15drawsize.js, standard y-position $('#backgroundY').val(-1);
-    return (draw.height() - background.svg.height() > -1);
-  },
+ 
 
-  uncoveredAreaWarning() {
-    if (!this.isLoaded) return false;
-
-    let error = false;
-
-    switch ($('#design').val()) {
-      case 'bigright':
-        if (this.svg.x() > 0) error = true;
-        if (this.svg.y() > 0) error = true;
-        if (this.svg.y() + this.svg.height() < draw.height()) error = true;
-        break;
-      default:
-        if (this.svg.x() > 0) error = true;
-        if (this.svg.x() + this.svg.width() < draw.width()) error = true;
-        if (this.svg.y() > 0) error = true;
-        if (this.svg.y() + this.svg.height() < draw.height()) error = true;
-    }
-
-    if (error) {
-      message('Im Bild entsteht ein weißer Rand. Platziere das Bild neu, <u class="cursor-pointer" onClick="background.reset();">setze es zurück</u> oder vergrößere es.');
-    } else {
-      message();
-    }
-    return true;
-  },
 };
 
 function greenify() {
