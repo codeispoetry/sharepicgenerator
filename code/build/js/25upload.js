@@ -107,6 +107,8 @@ function handleAddPicUpload(nr, obj){
   show('add-pic-section-' + (nr + 1));
 
   window['addPic' + nr ].draw();
+
+  $('#v-pills-messages-tab').click();
 }
 
 function uploadFileByUrl(url, callback = function uploadCallback() {}) {

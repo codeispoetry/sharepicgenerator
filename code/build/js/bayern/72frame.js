@@ -16,8 +16,8 @@ const frame = {
             `).fill('#8abf2c');
 
         frame.svg.front();
-
         bayernlogo.svg.front();
+        floating.svg.front();
     },
 
 };

@@ -3,6 +3,9 @@
     <div class="mb-1 d-flex justify-content-between">
         <span class="btn btn-cockpit cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild hochladen
+        </span>
+        <span class="btn btn-cockpit cursor-pointer addpicclicker1">
+            <i class="fa fa-upload"></i> Freigestelltes Bild hochladen
         </span> 
         <?php if ($tenant == 'free') {?>
             <input type="color" name="backgroundcolor" id="backgroundcolor" value="#85d0ff">
@@ -20,6 +23,7 @@
         <small><em>Auch per Drag-and-Drop</em></small>
     </div>
  </div>
+
  <h3><i class="fas fa-image"></i> <?php _e('Search image'); ?></h3>
  <div class="picture  list-group-item list-group-item-action flex-column align-items-start">  
     <div>
