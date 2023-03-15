@@ -15,7 +15,7 @@ $(document).ready(() => {
   }
   
   afterUpload(bgpic);
-  $('#backgroundsize').val(1000);
+  $('#backgroundsize').val(1200);
 
   $('input,textarea').change(() => { $('#qrcode').hide(); });
 
