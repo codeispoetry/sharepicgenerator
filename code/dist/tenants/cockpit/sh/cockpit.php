@@ -31,6 +31,7 @@
         <?php
             require_once('cockpit/addpictures.php');
             require_once('cockpit/addtext.php');
+            require_once('cockpit/illustrations.php');
         ?>
     </div>
   

@@ -103,6 +103,17 @@
         }
       }
   }
+
+  .illustrations{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    img.illustration{
+      width: 40px;
+      margin: 0 0 10px 10px;
+    }
+  }
 }
 
 .list-group-item{

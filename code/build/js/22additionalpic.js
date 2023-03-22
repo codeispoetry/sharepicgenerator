@@ -188,3 +188,7 @@ for(let i = 1; i <= 5; i++) {
 }
 
 $('.show-add-pic-all').mouseout(() => { unsetAddPicHighlight(); });
+
+$('.add-pic-by-url').bind('click', function() {
+  uploadAddpicByUrl($(this).data('url'));
+});

@@ -71,6 +71,25 @@ function handleAddPicUpload($extension)
     echo json_encode($return);
 }
 
+function handleAddPicUploadByUrl()
+{
+    $url = $_POST['url2copy'];
+    $extension = pathinfo(parse_url($_POST['url2copy'], PHP_URL_PATH), PATHINFO_EXTENSION);
+
+    $filebasename = getBasePath('tmp/' . uniqid('upload'));
+    $filename = $filebasename . '.' . $extension;
+
+    if (!copy($url, $filename)) {
+        echo json_encode(array("error" => "could not copy file"));
+        die();
+    }
+
+    $return['addpicfile'] = '../' . $filename;
+    $return['okay'] = true;
+
+    echo json_encode($return);
+}
+
 function handleUploadLogo($extension)
 {
     $userdir = getBasePath('persistent/user/' . getUser());

@@ -156,6 +156,47 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   client.send(formData);
 }
 
+function uploadAddpicByUrl(url, callback = function uploadCallback() {}) {
+  $('#waiting').show();
+  $('#canvas-area').slideUp();
+  const id = 'uploadaddpicbyurl';
+
+  const formData = new FormData();
+  const client = new XMLHttpRequest();
+  formData.append('id', id);
+  formData.append('url2copy', url);
+  formData.append('csrf', config.csrf);
+
+  client.onerror = function onError(e) {
+    console.log('onError', e);
+  };
+
+  client.upload.onprogress = function onProgress(e) {
+    const p = Math.round((100 / e.total) * e.loaded);
+
+    showStatus(p);
+  };
+
+  client.onload = function onLoad(e) {
+    const obj = JSON.parse(e.target.response);
+
+    $('#waiting').hide();
+    $('#canvas-area').slideDown();
+
+    if (obj.error) {
+      console.log(obj);
+    }
+
+    config.filename = obj.filename;   
+   
+    handleAddPicUpload(1, obj);
+    callback();
+  };
+
+  client.open('POST', '/actions/upload.php');
+  client.send(formData);
+}
+
 function showStatus(p) {
   if (p < 95) {
     $('#uploadbar').show();

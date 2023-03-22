@@ -40,7 +40,11 @@ switch ($id) {
     case "uploadaddpic5":
         handleAddPicUpload($extension);
         break;
+    case "uploadaddpicbyurl":
+        handleAddPicUploadByUrl();
+        break;
     default:
         echo json_encode(array("error"=>"nothing done. id=" . $id));
         die();
 }
+
