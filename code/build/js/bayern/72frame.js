@@ -5,7 +5,7 @@ const frame = {
 
         frame.svg.remove();
 
-        const t = draw.width() * 130 / 1080; // thickness of frame
+        const t = draw.width() * $('#framewidth').val() / 1080; // thickness of frame
 
         const w = draw.width();
         const h = draw.height();
@@ -21,3 +21,7 @@ const frame = {
     },
 
 };
+
+$('#framewidth').on('input propertychange', () => {
+    frame.draw();
+}  );
