@@ -25,7 +25,7 @@
                 <small>groß</small>
             </div>
             <div>
-                <input type="hidden" name="addtextColor" id="addtextColor" value="<?php getColorAtIndex(1); ?>">
+                <input type="hiddden" name="addtextColor" id="addtextColor" value="<?php getColorAtIndex(2); ?>">
                 <span class="colorpicker ms-1" data-colors="<?php getColorAtIndex(); ?>" data-action="addtext.draw()" data-field="#addtextColor" title="Farbe wechseln"></span> 
             </div>
         </div>    
