@@ -3,7 +3,7 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'BereitBold',
+  family: 'Brandon Text',
   size: 15,
   anchor: 'middle',
   leading: '1em',

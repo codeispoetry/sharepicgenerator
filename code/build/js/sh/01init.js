@@ -2,10 +2,10 @@
 const bgpic = {
   width: 800,
   height: 450,
-  originalWidth: 1920,
+  originalWidth: 1080,
   originalHeight: 1080,
-  filename: '/assets/bg_small.jpg',
-  fullBackgroundName: '../assets/bg.jpg',
+  filename: '/assets/sh/bg_small.jpg',
+  fullBackgroundName: '../assets/sh/bg.jpg',
 };
 
 var initialized = false;
