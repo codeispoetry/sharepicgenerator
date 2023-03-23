@@ -172,7 +172,7 @@ for(let i = 1; i <= 5; i++) {
   $('#addpicrounded' + i).bind('change', () => { window[`addPic${i}`].draw(); });
   $('#addpicroundedborder' + i).bind('change', () => { window[`addPic${i}`].setRoundBorder(); });
   $('#addPicCaption' + i).bind('input propertychange', () => { window[`addPic${i}`].setCaption(); });
-  $('#addpicdelete' + i).bind('click', () => { window[`addPic${i}`].delete(); });
+  $('.addpicdelete' + i).bind('click', () => { window[`addPic${i}`].delete(); });
   $('.show-add-pic-' + i).mouseover(() => { window[`addPic${i}`].setHighlight(); });
   $('.addPicCaptionPositionButton' + i).bind('click', () => { window[`addPic${i}`].changeCaptionPosition(); });
   
@@ -191,4 +191,8 @@ $('.show-add-pic-all').mouseout(() => { unsetAddPicHighlight(); });
 
 $('.add-pic-by-url').bind('click', function() {
   uploadAddpicByUrl($(this).data('url'));
+});
+
+$('#addPicSize1AltSlider').bind('input propertychange', () => { 
+  $('#addPicSize1').val(parseInt($('#addPicSize1AltSlider').val(), 10)).trigger('propertychange');
 });

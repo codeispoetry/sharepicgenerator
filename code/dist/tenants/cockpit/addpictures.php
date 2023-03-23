@@ -40,7 +40,7 @@
                      <span class="to-front" data-target="addPic<?= $i; ?>" title="Bild nach vorne">
                         <i class="fas fa-layer-group text-cockpit"></i>
                     </span>
-                    <span id="addpicdelete<?= $i; ?>">
+                    <span class="addpicdelete<?= $i; ?>">
                         <i class="fas fa-trash" title="löschen"></i>
                     </span>
                     <?php if ($i >= 2) { ?>
