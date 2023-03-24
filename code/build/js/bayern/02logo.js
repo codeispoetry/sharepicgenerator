@@ -42,7 +42,7 @@ const bayernlogo = {
     // percent = Math.max(1, percent);
 
     // const width = draw.width() * percent * 0.01;
-    const width = draw.width() * 238 / 1080;
+    const width = draw.width() * 208 / 1080;
     bayernlogo.svg.size(width, width);
   },
 };
@@ -60,12 +60,12 @@ $('.align-logo').click(function () {
   let x, y;
   switch($(this).data('place')) {
     case 'topright':
-        x = draw.width() - bayernlogo.svg.width() * 1.1;
-        y = bayernlogo.svg.height() * 0.1;
+        x = draw.width() - bayernlogo.svg.width() * 1.2;
+        y = bayernlogo.svg.height() * 0.2;
         break;
     case 'bottomright':
-        x = draw.width() - bayernlogo.svg.width() * 1.1;
-        y = draw.height() - bayernlogo.svg.height() * 1.1;
+        x = draw.width() - bayernlogo.svg.width() * 1.2;
+        y = draw.height() - bayernlogo.svg.height() * 1.2;
         break;
     default:
         x = 0;

@@ -61,8 +61,11 @@
                         title="Farbe wechseln"></span> 
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Unser Wasser.</textarea>
-                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Wasserkraft zurück
+in Bürgerhand!</textarea>
+                    <input type="hidden" name="line0color" class="change-text" id="line0color" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="line1color" class="change-text" id="line1color" value="<?php getColorAtIndex(3); ?>">
+
                    
 
                         <div class="linepickers-container">
@@ -83,12 +86,12 @@
                         </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em">Unser Bier</textarea>
-                    <input type="hidden" name="textaftercolor" class="change-text" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
+                    <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em">Unser Wasser, unsere Energie</textarea>
+                    <input type="hidden" name="textaftercolor" class="change-text" id="textaftercolor" value="<?php getColorAtIndex(0); ?>">
                     <span 
                         class="colorpicker ms-1"  
                         id="textaftercolorpicker" 
-                        data-colors="<?php getColorAtIndex(); ?>" 
+                        data-colors="<?php getColorAtIndex([0,2,3,4,5]); ?>" 
                         data-action="floating.draw()" 
                         data-field="#textaftercolor" 
                         title="Farbe wechseln"></span> 

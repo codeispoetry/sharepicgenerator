@@ -102,7 +102,7 @@ const floating = {
    
     if ($('#textafter').val()) {
       var elemTextAfter = floating.drawTextAfter();
-      elemTextAfter.y(nextY)
+      elemTextAfter.y(nextY + 5)
       nextY += elemTextAfter.bbox().height;
       h += elemTextAfter.bbox().height;
       w = Math.max(w, elemTextAfter.bbox().width);

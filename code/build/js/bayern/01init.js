@@ -4,15 +4,15 @@ const bgpic = {
   height: 450,
   originalWidth: 1920,
   originalHeight: 1080,
-  filename: '/assets/bg_small.jpg',
-  fullBackgroundName: '../assets/bg.jpg',
+  filename: '/assets/bayern/bg_small.jpg',
+  fullBackgroundName: '../assets/bayern/bg.jpg',
 };
 
 var initialized = false;
 
 $(document).ready(() => {
  
-  $('#textX').val(120);
+  $('#textX').val(80);
   $('#textY').val(draw.height() / 2);
   $('#textscaled').val(3);
   $('#logoX').val(230);

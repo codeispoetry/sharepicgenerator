@@ -132,7 +132,15 @@ function getColorAtIndex($index = false)
         return;
     }
 
-
+    if (is_array($index)) {
+        $colors = explode(',', $_SESSION["config"][$tenant]['colors']);
+        $return = array();
+        foreach($index as $i) {
+            $return[] = $colors[$i];
+        }
+        echo implode(',', $return);
+        return;
+    }
 
     echo $_SESSION["config"][$tenant]['colors'];
 }
