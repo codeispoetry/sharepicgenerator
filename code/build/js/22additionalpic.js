@@ -35,10 +35,18 @@ var addPic1 = {
 
       this.resize();
       this.setMask();
-
+      this.dropShadow();
       this.setCaption();
     });
   },
+
+  dropShadow() {
+    this.svg.filterWith(function(add) {
+      const blur = add.offset(10, 10).in(add.$sourceAlpha).gaussianBlur(3);
+    
+      add.blend(add.$source, blur)
+    })
+  }, 
 
   setCaption() {
     const caption = $(`#addPicCaption${this.i}`).val();
