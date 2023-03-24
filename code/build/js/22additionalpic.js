@@ -41,11 +41,19 @@ var addPic1 = {
   },
 
   dropShadow() {
-    this.svg.filterWith(function(add) {
-      const blur = add.offset(10, 10).in(add.$sourceAlpha).gaussianBlur(3);
-    
-      add.blend(add.$source, blur)
-    })
+    // this.svg.filterWith(function(add) {
+    //   const blur = add.offset(-10, -10).in(add.$sourceAlpha).gaussianBlur(3);
+    //   add.size('200%','200%').move('-50%', '-50%');
+    //   blur.size('200%','200%').move('-50%', '-50%');
+
+    //   add.blend(add.$source, blur)
+    // })
+
+    // this.svg.filterWith(function(add) {
+    //   add.colorMatrix('saturate', 0)
+      
+    // })
+
   }, 
 
   setCaption() {
