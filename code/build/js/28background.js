@@ -63,6 +63,11 @@ const background = {
   },
 
   addFilter() {
+    if ($('#saturate').val() == '1' && $('#blur').val() == '0') {
+      background.svg.unfilter();
+      return;
+    }
+
     background.svg.filterWith((add) => {
       add.colorMatrix('saturate', $('#saturate').val())
         .gaussianBlur($('#blur').val())
@@ -147,7 +152,7 @@ $('#backgroundsize').bind('input propertychange', () => {
   background.resize();
 });
 
-$('#saturate').bind('input propertychange', () => {
+$('#saturate, #blur').bind('input propertychange', () => {
   $('#greenify').prop('checked', false).change();
   background.addFilter();
 });

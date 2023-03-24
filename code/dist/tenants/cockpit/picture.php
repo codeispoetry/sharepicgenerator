@@ -68,6 +68,13 @@
                 max="1" value="1" step="0.05">
             <small>farbig</small>
         </div>
+
+        <div class="slider d-none">
+            <small>scharf</small>
+            <input type="range" class="form-range" name="blur" id="blur" min="0"
+                max="1" value="1" step="0.05">
+            <small>unscharf</small>
+        </div>
  
         <div>
             <small class="btn btn-sm btn-outline-cockpit cursor-pointer me-1" id="backgroundflip"><i class="fas fa-exchange-alt"></i>
