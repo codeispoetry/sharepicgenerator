@@ -100,13 +100,13 @@ const floating = {
     h += elemMainText.bbox().height;
     w = Math.max(w, elemMainText.bbox().width);
    
-    if ($('#textafter').val()) {
-      var elemTextAfter = floating.drawTextAfter();
-      elemTextAfter.y(nextY + 5)
-      nextY += elemTextAfter.bbox().height;
-      h += elemTextAfter.bbox().height;
-      w = Math.max(w, elemTextAfter.bbox().width);
-    }
+    // if ($('#textafter').val()) {
+    //   var elemTextAfter = floating.drawTextAfter();
+    //   elemTextAfter.y(nextY + 5)
+    //   nextY += elemTextAfter.bbox().height;
+    //   h += elemTextAfter.bbox().height;
+    //   w = Math.max(w, elemTextAfter.bbox().width);
+    // }
 
     if ($('#claimtext').val()) {
       var elemClaimText = floating.drawClaim();
@@ -118,7 +118,7 @@ const floating = {
    
     floating.svg.add(elemMainText);
     floating.svg.add(elemTextBefore);
-    floating.svg.add(elemTextAfter);
+    //floating.svg.add(elemTextAfter);
     floating.svg.add(elemClaimText);
 
     floating.scale(false);
@@ -277,11 +277,12 @@ const floating = {
   }
 };
 
-$('#text, #textafter, #textbefore, #claimtext, #textShadow, #textscaled, #bottomVariant').bind('input propertychange', floating.draw);
+$('#text, #textbefore, #claimtext, #textShadow, #textscaled, #bottomVariant').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
   floating.draw();
+  subfloating.draw();
   undo.save();
 });
 
@@ -293,6 +294,7 @@ $('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow, #texts
 $('.text-align').click(function() {
   $('#textFloating').val($(this).data('align'));
   floating.draw();
+  subfloating.draw();
   undo.save();
   }
 );
@@ -303,5 +305,6 @@ $('.align-center-text').click(() => {
   $('#textX').val((draw.width() - textWidth) / 2);
   $('#textY').val((draw.height() - textHeight) / 2);
   floating.draw();
+  subfloating.draw();
   undo.save();
 });

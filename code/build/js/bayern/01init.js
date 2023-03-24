@@ -14,7 +14,9 @@ $(document).ready(() => {
  
   $('#textX').val(80);
   $('#textY').val(draw.height() / 2);
-  $('#textscaled').val(3);
+  $('#text2X').val(89);
+  $('#text2Y').val(350);
+  $('#textscaled').val(2);
   $('#logoX').val(230);
   $('#logoY').val(200);
 
@@ -39,7 +41,7 @@ function initSharepic() {
   floating.draw();
   pin.draw();
   frame.draw();
-
+  subfloating.draw();
   return true;
 }
 

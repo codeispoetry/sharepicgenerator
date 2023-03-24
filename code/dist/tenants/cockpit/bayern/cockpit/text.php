@@ -86,13 +86,14 @@ in Bürgerhand!</textarea>
                         </div>
                 </div>
                 <div class="d-flex align-items-lg-center">
-                    <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em">Unser Wasser, unsere Energie</textarea>
+                    <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control ">Unser Wasser, unsere Energie</textarea>
                     <input type="hidden" name="textaftercolor" class="change-text" id="textaftercolor" value="<?php getColorAtIndex(0); ?>">
+                    <span style="opacity:0">0)</span>
                     <span 
                         class="colorpicker ms-1"  
                         id="textaftercolorpicker" 
                         data-colors="<?php getColorAtIndex([0,2,3,4,5]); ?>" 
-                        data-action="floating.draw()" 
+                        data-action="subfloating.draw()" 
                         data-field="#textaftercolor" 
                         title="Farbe wechseln"></span> 
                 </div>
@@ -118,5 +119,7 @@ in Bürgerhand!</textarea>
         <input type="hidden" name="textFloating" id="textFloating">
         <input type="hidden" name="textX" id="textX">
         <input type="hidden" name="textY" id="textY">
+        <input type="hidden" name="text2X" id="text2X">
+        <input type="hidden" name="text2Y" id="text2Y">
         <input type="hidden" name="textColor" id="textColor" value="0">
         <input type="file" class="custom-file-input upload-file" id="uploadicon" accept="image/*">
