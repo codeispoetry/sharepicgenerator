@@ -253,4 +253,10 @@ for (let i = 1; i <= 5; i++) {
   });
 }
 
+$(`.addpicclickerBavaria`).click(() => {
+  $(`#uploadaddpic1`).click();
+  $('.add-pic-tools-1').hide();
+  $('.add-pic-tools-bavaria').removeClass('d-none');
+});
+
 

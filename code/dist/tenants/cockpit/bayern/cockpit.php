@@ -17,6 +17,8 @@
         <?php
             require_once('cockpit/picture.php');
             require_once('cockpit/picture-size.php');
+            require_once('cockpit/example.php');
+
         ?>
     </div>
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -28,6 +30,7 @@
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <?php
+            require_once('cockpit/bavariapic.php');
             require_once('cockpit/addpictures.php');
             require_once('cockpit/addtext.php');
             require_once('cockpit/frame.php');
