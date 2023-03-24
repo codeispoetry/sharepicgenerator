@@ -48,11 +48,8 @@ const floating = {
       factor = parseFloat($('#textscaled').val(), 10);
     } 
 
-    floating.svg.scale(
-        factor,
-        floating.svg.x(), 
-        floating.svg.y()
-      );
+    const size = floating.svg.width() * factor;
+    floating.svg.size(size);
   },
 
   handeDragEvents() {
@@ -63,6 +60,7 @@ const floating = {
     floating.svg.on('dragend.namespace', function floatingDragEnd() {
       $('#textX').val(Math.round(this.x()));
       $('#textY').val(Math.round(this.y()));
+      console.log( "Gespeichert", $('#textX').val(),  $('#textY').val() );
     });
 
   },
@@ -91,7 +89,7 @@ const floating = {
 
 };
 
-$('#text, #textShadow, #textcolor').bind('input propertychange', floating.draw);
+$('#text, #textShadow, #textcolor, #textscaled').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));

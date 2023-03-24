@@ -82,11 +82,8 @@ const floating = {
       factor = parseFloat($('#textscaled').val(), 10);
     } 
 
-    floating.svg.scale(
-        factor,
-        floating.svg.x(), 
-        floating.svg.y()
-      );
+    const size = floating.svg.width() * factor;
+    floating.svg.size(size);
   },
 
   handeDragEvents() {
@@ -247,7 +244,7 @@ const floating = {
   },
 };
 
-$('#text, #textafter, #textbefore, #claimtext, #textShadow').bind('input propertychange', floating.draw);
+$('#text, #textafter, #textbefore, #claimtext, #textShadow, #textscaled').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
