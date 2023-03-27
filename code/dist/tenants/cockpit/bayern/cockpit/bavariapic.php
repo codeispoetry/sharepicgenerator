@@ -2,8 +2,8 @@
 
 <div class="addpictures list-group-item list-group-item-action flex-column align-items-start">
     <div class="flex-column align-items-start">
-        <?php $i = 1; ?>
-        <div class="add-pic-section add-pic-section-<?php echo $i; ?> <?php echo ($i !==1) ? 'd-none' : '';?> ">
+        <?php $i = 5; ?>
+        <div class="add-pic-section add-pic-section-<?php echo $i; ?> <?php echo ($i !==5) ? 'd-none' : '';?> ">
             <input type="hidden" name="addpicfile<?php echo $i; ?>" id="addpicfile<?php echo $i; ?>">
             <input type="hidden" name="addPic<?php echo $i; ?>x" id="addPic<?php echo $i; ?>x">
             <input type="hidden" name="addPic<?php echo $i; ?>y" id="addPic<?php echo $i; ?>y">
@@ -15,7 +15,6 @@
                 </span>
             </div>
             <div class="add-pic-tools-bavaria d-none">
-               
                 <div class="slider">
                     <small>klein</small>
                         <input type="range" class="form-range" name="addPicSize<?= $i; ?>" id="addPicSize<?= $i; ?>" min="1" max="800" value="90">

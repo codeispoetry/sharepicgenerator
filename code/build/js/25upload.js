@@ -156,7 +156,7 @@ function uploadFileByUrl(url, callback = function uploadCallback() {}) {
   client.send(formData);
 }
 
-function uploadAddpicByUrl(url, callback = function uploadCallback() {}) {
+function uploadAddpicByUrl(url, i, callback = function uploadCallback() {}) {
   $('#waiting').show();
   $('#canvas-area').slideUp();
   const id = 'uploadaddpicbyurl';
@@ -189,7 +189,7 @@ function uploadAddpicByUrl(url, callback = function uploadCallback() {}) {
 
     config.filename = obj.filename;   
    
-    handleAddPicUpload(1, obj);
+    handleAddPicUpload(i, obj);
     callback();
   };
 
@@ -254,8 +254,8 @@ for (let i = 1; i <= 5; i++) {
 }
 
 $(`.addpicclickerBavaria`).click(() => {
-  $(`#uploadaddpic1`).click();
-  $('.add-pic-tools-1').hide();
+  $(`#uploadaddpic5`).click();
+  $('.add-pic-tools-5').hide();
   $('.add-pic-tools-bavaria').removeClass('d-none');
 });
 

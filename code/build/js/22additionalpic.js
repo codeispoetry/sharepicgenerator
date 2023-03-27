@@ -57,7 +57,7 @@ var addPic1 = {
   }, 
 
   setCaption() {
-    const caption = $(`#addPicCaption${this.i}`).val();
+    const caption = $(`#addPicCaption${this.i}`).val() || '';
     if (caption === '') {
       return;
     }
@@ -206,9 +206,10 @@ for(let i = 1; i <= 5; i++) {
 $('.show-add-pic-all').mouseout(() => { unsetAddPicHighlight(); });
 
 $('.add-pic-by-url').bind('click', function() {
-  uploadAddpicByUrl($(this).data('url'));
+  const i = $(this).data('i') * 1 || 1;
+  uploadAddpicByUrl($(this).data('url'), i);
 });
 
-$('#addPicSize1AltSlider').bind('input propertychange', () => { 
-  $('#addPicSize1').val(parseInt($('#addPicSize1AltSlider').val(), 10)).trigger('propertychange');
+$('#addPicSize5AltSlider').bind('input propertychange', () => { 
+  $('#addPicSize5').val(parseInt($('#addPicSize5AltSlider').val(), 10)).trigger('propertychange');
 });
