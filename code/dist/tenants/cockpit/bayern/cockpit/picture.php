@@ -4,6 +4,9 @@
         <span class="btn btn-cockpit cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild hochladen
         </span>
+        <span class="btn btn-cockpit cursor-pointer addpicclickerBavaria">
+            <i class="fa fa-upload"></i> Freigestelltes Bild hochladen
+        </span> 
         <?php if ($tenant == 'free') {?>
             <input type="color" name="backgroundcolor" id="backgroundcolor" value="#85d0ff">
         <?php } else { ?>

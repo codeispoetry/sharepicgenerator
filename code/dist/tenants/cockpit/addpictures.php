@@ -1,6 +1,6 @@
 <h3><i class="fas fa-images"></i> Vordergrundbilder</h3>
 <?php
-    define('COUNT_ADD_PICS', 4);
+    define('COUNT_ADD_PICS', 5);
 ?>
 <div class="addpictures list-group-item list-group-item-action flex-column align-items-start">
     <div class="flex-column align-items-start">

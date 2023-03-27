@@ -15,7 +15,7 @@
   <div class="tab-content w-100 h-100 bg-cockpitbg" id="v-pills-tabContent">
     <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <?php
-            require_once('cockpit/picture.php');
+            require_once('cockpit/bayern/cockpit/picture.php');
             require_once('cockpit/picture-size.php');
             require_once('cockpit/example.php');
 
