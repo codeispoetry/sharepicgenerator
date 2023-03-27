@@ -1,5 +1,5 @@
-<h3 class="">Logo</h3>
-<div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+<h3 class="d-none">Logo</h3>
+<div class="d-none logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
     <nav class="navbar-expand-lg">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
