@@ -39,7 +39,7 @@ const defaultlogo = {
     percent = Math.max(1, percent);
 
     const width = draw.width() * percent * 0.01;
-    defaultlogo.svg.size(width, width);
+    defaultlogo.svg.size(width, null);
   },
 };
 

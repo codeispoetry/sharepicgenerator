@@ -12,7 +12,7 @@ $(document).ready(() => {
   $('#textX').val(20);
   $('#textY').val(draw.height() / 2);
   $('#logoX').val(20);
-  $('#logoY').val(20 );
+  $('#logoY').val(50 );
   $('#textscaled').val(2);
 });
 
