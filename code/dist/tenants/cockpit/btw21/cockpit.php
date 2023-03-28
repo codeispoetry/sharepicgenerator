@@ -17,6 +17,7 @@
         <?php
             require_once('cockpit/picture.php');
             require_once('cockpit/picture-size.php');
+            require_once('cockpit/tenants.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -35,10 +36,5 @@
   
   </div>
 </div>
-
-
-
     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
-
-
 </form>

@@ -175,3 +175,17 @@ function isFreeTenant()
     global $tenant;
     return in_array($tenant, explode(',', configValue('Main', 'freeTenants')));
 }
+
+function getActiveTenants()
+{
+    $tenants = configValue('Main', 'linkedTenants');
+    $return = [];
+    foreach ($tenants as $key => $value) {
+        (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
+        if (isset($start) and $start and strToTime($start) > time()) {
+            continue;
+        }
+        $return[$key] = $description;
+    }
+   return $return;
+}

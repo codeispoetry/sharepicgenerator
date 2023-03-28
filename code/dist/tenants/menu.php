@@ -35,16 +35,11 @@
 
                 <div class="dropdown-divider"></div>
                 <?php
-                $tenants = configValue('Main', 'linkedTenants');
-                foreach ($tenants as $key => $value) {
-                    (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
-                    if (isset($start) and $start and strToTime($start) > time()) {
-                        continue;
-                    }
+                foreach (getActiveTenants() as $key => $value) {
                     printf(
                         '<a href="/%1$s" class="dropdown-item">%2$s</a>',
                         $key,
-                        $description
+                        $value
                     );
                 }
                 ?>

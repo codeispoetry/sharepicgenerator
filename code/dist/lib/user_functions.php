@@ -4,6 +4,10 @@ function do_saml_login()
 {
 
     if (!with_saml()) {
+        global $province;
+        $province = new stdClass();
+        $province->key = 1;
+        $province->name = "Baden-Württemberg";
         return 'ohnesaml';
     }
 
@@ -30,6 +34,7 @@ function do_saml_login()
 
 function handleSamlAuth($doLogout = false)
 {
+    global $province;
     $samlfile = '/var/simplesaml/lib/_autoload.php';
     $host = configValue("Main", "host");
     $logoutTarget = configValue("Main", "logoutTarget");
@@ -46,6 +51,10 @@ function handleSamlAuth($doLogout = false)
         }
 
         $samlattributes = $as->getAttributes();
+
+        $province = new stdClass();
+        $province->key = (int) substr($samlattributes['membershipOrganizationKey'][0], 1, 3);
+        $province->name = getProvince($samlattributes['membershipOrganizationKey'][0]);
         $user = $samlattributes[$userAttr][0];
 
         $session = SimpleSAML_Session::getSessionFromRequest();
@@ -55,6 +64,32 @@ function handleSamlAuth($doLogout = false)
     }
 
     return $user;
+}
+
+function getProvince($membershipOrganizationKey)
+{
+    $provinces = [
+        '101' => 'Baden-Württemberg',
+        '102' => 'Bayern',
+        '103' => 'Berlin',
+        '104' => 'Bremen',
+        '105' => 'Brandenburg',
+        '106' => 'Hamburg',
+        '107' => 'Hessen',
+        '108' => 'Mecklenburg-Vorpommern',
+        '109' => 'Niedersachsen',
+        '110' => 'Nordrhein-Westfalen',
+        '111' => 'Rheinland-Pfalz',
+        '112' => 'Saarland',
+        '113' => 'Sachsen',
+        '114' => 'Sachsen-Anhalt',
+        '115' => 'Schleswig',
+        '116' => 'Thüringen'
+    ];
+
+    $key = substr($membershipOrganizationKey, 0, 3);
+
+    return $provinces[$key] ?? 'Deutschland';
 }
 
 function getUserPrefs()

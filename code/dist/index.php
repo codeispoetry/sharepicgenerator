@@ -151,17 +151,11 @@
         <h5>Sondermodelle</h5>
         <ul class="list-unstyled text-small">
             <?php
-            $tenants = configValue('Main', 'linkedTenants');
-            foreach ($tenants as $key => $value) {
-              unset($start);
-                (str_contains($value, ',')) ? list($description, $start) = explode(',', $value) : $description = $value;
-                if (isset($start) and strToTime($start) > time()) {
-                    continue;
-                }
+            foreach (getActiveTenants() as $key => $value) {
                 printf(
                     '<li class="mb-1"><a href="/%1$s" class="">%2$s</a></li>',
                     $key,
-                    $description
+                    $value
                 );
             }
             ?>
