@@ -8,7 +8,7 @@ const subfloating = {
     family: 'BereitBold',
     anchor: 'left',
     leading: '1.05em',
-    size: 10,
+    size: 12,
   },
 
 

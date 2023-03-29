@@ -20,7 +20,7 @@ const frame = {
         const shadow = draw.polygon(`
             0,0 ${w},0 ${w},${h} 0,${h}
             0, ${t} ${t},${t} ${t},${h - t} ${w - t}, ${h - t} ${w - t}, ${t}, 0, ${t}
-             `).fill('#000').opacity(0.9);
+             `).fill('#000').opacity(0.7);
         shadow.filterWith(function(add) {
             add.gaussianBlur(30)
         })

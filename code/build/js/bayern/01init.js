@@ -12,11 +12,11 @@ var initialized = false;
 
 $(document).ready(() => {
  
-  $('#textX').val(80);
-  $('#textY').val(draw.height() / 2);
-  $('#text2X').val(89);
-  $('#text2Y').val(350);
-  $('#textscaled').val(2);
+  $('#textX').val(50);
+  $('#textY').val(65);
+  $('#text2X').val(94);
+  $('#text2Y').val(210);
+  $('#textscaled').val(2.6);
   $('#logoX').val(230);
   $('#logoY').val(200);
 

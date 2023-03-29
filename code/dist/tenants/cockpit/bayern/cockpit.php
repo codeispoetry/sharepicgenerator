@@ -26,6 +26,7 @@
             require_once('cockpit/text.php');
             require_once('cockpit/logo.php');
             require_once('cockpit/eyecatcher.php');
+            require_once('cockpit/frame.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -33,7 +34,6 @@
             require_once('cockpit/bavariapic.php');
             require_once('cockpit/addpictures.php');
             require_once('cockpit/addtext.php');
-            require_once('cockpit/frame.php');
         ?>
     </div>
   
