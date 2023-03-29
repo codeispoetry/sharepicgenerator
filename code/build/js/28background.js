@@ -102,9 +102,18 @@ const background = {
     const x = draw.width() - val;
     const y = draw.height() - this.svg.height();
     this.svg.move(x / 2, y / 2);
+
+    if (background.hasRoundingError()) {
+      let size = parseInt($('#backgroundsize').val(), 10);
+      $('#backgroundsize').val(size += 5);
+      this.resize();
+    }
   },
 
- 
+  hasRoundingError() {
+    // -1 is for bug inkscape, see 15drawsize.js, standard y-position $('#backgroundY').val(-1);
+    return (draw.height() - background.svg.height() > -1);
+  }, 
 
 };
 
