@@ -91,7 +91,7 @@ const background = {
     $('#saturate').val(1);
     $('#blur').val(0);
 
-    //$('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
+    $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
     background.draw();
   },
 
