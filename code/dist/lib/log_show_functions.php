@@ -84,6 +84,19 @@ function getDownloads()
     return $total;
 }
 
+function getDownloadsByTenant($tenant)
+{
+    global $db;
+    $sql = "SELECT * FROM downloads WHERE tenant = '{$tenant}' ORDER BY timestamp DESC LIMIT 100;";
+    return $db->query($sql);
+}
+
+
+function getNumberOfDownloadsByTenant($tenant)
+{
+    return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE tenant = '{$tenant}'");
+}
+
 function getDailyDownloadsLastDays($days = 30)
 {
     return singleResult("select cast(avg(perDay) as int) as result from (select count(*) as perDay from downloads WHERE julianday('now') - julianday(timestamp) <= $days AND date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");

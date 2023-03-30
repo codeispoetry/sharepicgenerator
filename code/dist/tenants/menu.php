@@ -76,6 +76,8 @@
         <?php echo getUser(); ?>
         <?php if (isEditor()) {
             echo '(Editor)';
+
+            printf('<a href="/show.php?tenant=%s" class="ms-2"><i class="fas fa-images" title="Neueste Sharepics"></i></a>', $tenant);
         }
         ?>
     </em>
