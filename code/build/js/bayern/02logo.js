@@ -45,6 +45,37 @@ const bayernlogo = {
     const width = draw.width() * 208 / 1080;
     bayernlogo.svg.size(width, width);
   },
+
+  adjustToFrame() {
+    const frame = $('#framewidth').val();
+    const width = (frame / 130)  * draw.width() * 208 / 1080;
+    bayernlogo.svg.size(width, width);
+
+    const pos = bayernlogo.getPostionValues();
+ 
+    $('#logoX').val(pos.x);
+    $('#logoY').val(pos.y);
+    bayernlogo.setPosition();
+  },
+
+  getPostionValues() {
+    let x, y;
+    switch($('#logoPosition').val()) {
+      case 'topright':
+          x = draw.width() - bayernlogo.svg.width() * 1.2;
+          y = bayernlogo.svg.height() * 0.2;
+          break;
+      case 'bottomright':
+          x = draw.width() - bayernlogo.svg.width() * 1.2;
+          y = draw.height() - bayernlogo.svg.height() * 1.2;
+          break;
+      default:
+          x = 0;
+          y = 0;
+    }
+
+    return {x, y};
+  }
 };
 
 $('#logosize').bind('input propertychange', () => {
@@ -56,25 +87,15 @@ $('#logosize').bind('change', () => {
 });
 
 $('.align-logo').click(function () {
-  
   let x, y;
-  switch($(this).data('place')) {
-    case 'topright':
-        x = draw.width() - bayernlogo.svg.width() * 1.2;
-        y = bayernlogo.svg.height() * 0.2;
-        break;
-    case 'bottomright':
-        x = draw.width() - bayernlogo.svg.width() * 1.2;
-        y = draw.height() - bayernlogo.svg.height() * 1.2;
-        break;
-    default:
-        x = 0;
-        y = 0;
-  }
+  const place = $(this).data('place');
+  $('#logoPosition').val(place);
+  const pos = bayernlogo.getPostionValues();
+  x = pos.x;
+  y = pos.y;
 
   $('#logoX').val(x);
-  $('#logoY').val(x);
-
+  $('#logoY').val(y);
 
   bayernlogo.svg.move(x, y);
   undo.save();

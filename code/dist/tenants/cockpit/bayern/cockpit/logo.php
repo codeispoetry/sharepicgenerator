@@ -27,6 +27,8 @@
 </div>
 <input type="hidden" name="logoX" id="logoX" value="256.5">
 <input type="hidden" name="logoY" id="logoY" value="390">
+<input type="hidden" name="logoPosition" id="logoPosition" value="topright">
+
 <input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
 <input type="hidden" id="logofile" name="logofile" value="../assets/bayern/logo.svg">
 

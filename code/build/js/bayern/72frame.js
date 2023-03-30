@@ -31,6 +31,8 @@ const frame = {
         frame.svg.front();
         bayernlogo.svg.front();
         floating.svg.front();
+
+        bayernlogo.adjustToFrame();
     },
 
 };
