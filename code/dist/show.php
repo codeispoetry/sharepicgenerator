@@ -59,7 +59,7 @@ $_SESSION['csrf'] = $csrf;
 
     <div class="row">
         <div class="col-12">
-            Bisher wurden <?php echo getNumberOfDownloadsByTenant($tenant);?> Sharepics erstellt.
+            Bisher wurden <?php echo number_format(getNumberOfDownloadsByTenant($tenant), 0, ',', '.');?> Sharepics erstellt.
         </div>
     </div>
 
