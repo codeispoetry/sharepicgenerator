@@ -47,6 +47,9 @@ $svg = preg_replace('/xlink:href="\/persistent\//', 'xlink:href="' . getBasePath
 $svg = preg_replace('/xlink:href="..\/..\/persistent\//', 'xlink:href="' . getBasePath('persistent') . '/', $svg);
 $svg = preg_replace('/xlink:href="..\/..\/tenants\//', 'xlink:href="' . getBasePath('tenants') . '/', $svg);
 
+// Remove artifacts eventually left by misuse
+$svg = preg_replace('/<image width="0" height="0"(.*?)<\/image>/', '', $svg);
+
 
 // Prefix SVG string with required XML node
 $svg = $svgHeader . $svg;
