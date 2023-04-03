@@ -16,7 +16,7 @@ $(document).ready(() => {
   $('#textY').val(draw.height() / 2);
   $('#textscaled').val(2);
   $('#logoX').val(-35);
-  $('#logoY').val(360);
+  $('#logoY').val(460);
   $('#claimX').val(365);
   $('#claimY').val(435);
   open();
