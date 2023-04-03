@@ -1,6 +1,7 @@
 const defaultlogo = {
   loaded: false,
   svg: draw.circle(0),
+  aspectRatio: 1,
 
   draw(logofile = $('#logofile').val()) {
     defaultlogo.svg.remove();
@@ -8,7 +9,8 @@ const defaultlogo = {
       logofile = config.defaultlogo;
     }
     defaultlogo.svg = draw.image(logofile, () => {
-
+     
+      defaultlogo.setAspectRatio(logofile);
       defaultlogo.svg.addClass('draggable').draggable();
       defaultlogo.setPosition();
       defaultlogo.resize();
@@ -24,7 +26,7 @@ const defaultlogo = {
   },
 
   setSize(w) {
-    defaultlogo.svg.size(w, null);
+    defaultlogo.svg.size(w, w / defaultlogo.aspectRatio);
   },
 
   setPosition() {
@@ -33,18 +35,25 @@ const defaultlogo = {
     defaultlogo.svg.move(x, y);
   },
 
+  setAspectRatio(logofile) {
+    const image = new Image();
+    image.src = logofile;
+    log.ImageWidth= image.width;
+    log.ImageHeight = image.height;
+    defaultlogo.aspectRatio = image.width/image.height;
+  },
+
   resize() {
     let percent = parseInt($('#logosize').val(), 10);
     percent = Math.min(100, percent);
     percent = Math.max(1, percent);
 
     const width = draw.width() * percent * 0.01;
-    const aspectRatio = defaultlogo.svg.width() / defaultlogo.svg.height();
-    log.debugLogoAspectRation = aspectRatio;
 
-    defaultlogo.svg.size(width, width / aspectRatio);
+    defaultlogo.svg.size(width, width / defaultlogo.aspectRatio);
   },
 };
+
 
 $('#logosize').bind('input propertychange', () => {
   defaultlogo.resize();
