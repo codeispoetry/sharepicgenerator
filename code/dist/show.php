@@ -55,7 +55,7 @@ $_SESSION['csrf'] = $csrf;
 <scroll-container>
 <div class="container-fluid">
     <div class="row text-center mt-3">
-        <h1>Die neuesten Sharepics für <?php echo ucFirst($tenant); ?></h1>       
+        <h1>Sharepics für <?php echo ucFirst($tenant); ?></h1>       
     </div>
 
     <div class="row">
@@ -65,23 +65,24 @@ $_SESSION['csrf'] = $csrf;
             Sharepics von 
                 <?php echo number_format(getNumberOfUsersByTenant($tenant), 0, ',', '.');?> 
             unterschiedlichen User*innen erstellt.
+            Tägliche Downloads:
         </div>
     </div>
 
     <div class="col-12 pb-5">
-        Tägliche Downloads:
         <?php showLogGraph($tenant);?>
+    </div>
+
+    <div class="col-12">
+        <h2>Die neuesten Sharepics</h2>
     </div>
 
     <div class="row">
         <?php
             $results = getDownloadsByTenant($tenant);
-            // get the number of rows in the result set
-           
-          
 
             while ($row = $results->fetchArray()) {
-                $file = sprintf('tmp/%s.png', $row['sharepicid']);
+                $file = sprintf('tmp/log_%s.jpg', $row['sharepicid']);
 
                 if( !file_exists($file) )
                 {
