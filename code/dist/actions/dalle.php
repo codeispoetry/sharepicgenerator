@@ -13,7 +13,7 @@ if (!isAllowed(true)) {
 
 $input = substr($_POST['prompt'], 1, -1); // sanitzed input!
 
-echo json_encode([ 'images' => getPicturesFromAI($input, 5) ]);
+echo json_encode([ 'images' => getPicturesFromAI($input, 1) ]);
 
 
 function getPicturesFromAI($input, $count)

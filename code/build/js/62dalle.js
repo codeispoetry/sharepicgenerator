@@ -15,7 +15,19 @@ function getAIImages() {
   if($('#ai-image-prompt').val().length === 0) {
     return;
   }
-  
+
+  const today = 1 * new Date().toISOString().substring(0, 10).replace(/-/g, '');
+  const lastUsage = config.user.prefs.dalleUsage || 0;
+  const gracePeriodInDays = today - lastUsage;
+  if(gracePeriodInDays < 1) { 
+    alert("Leider kannst Du die KI nur ein Mal pro Tag nutzen. Für mehr Bilder, gehe bitte zu https://labs.openai.com ");
+    $('.dalle').hide();
+    return;
+  }
+
+  config.user.prefs.dalleUsage = today;
+  setUserPrefs();
+
   $('#imagedb-search').show();
   $('#canvas-area').slideUp();
 
@@ -23,7 +35,9 @@ function getAIImages() {
 
   $('#imagedb-link').attr('href', `https://openai.com/dall-e-2/`);
   $('#imagedb-carrier').html('DALL·E 2');
-  
+
+
+
   log.dalle = $('#ai-image-prompt').val();
   $.ajax({
     type: 'POST',
