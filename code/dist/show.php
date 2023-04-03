@@ -36,6 +36,7 @@ $_SESSION['csrf'] = $csrf;
     <meta name="theme-color" content="#46962b">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Neueste Sharepics</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <style>
         scroll-container {
@@ -59,8 +60,17 @@ $_SESSION['csrf'] = $csrf;
 
     <div class="row">
         <div class="col-12">
-            Bisher wurden <?php echo number_format(getNumberOfDownloadsByTenant($tenant), 0, ',', '.');?> Sharepics erstellt.
+            Bisher wurden 
+                <?php echo number_format(getNumberOfDownloadsByTenant($tenant), 0, ',', '.');?> 
+            Sharepics von 
+                <?php echo number_format(getNumberOfUsersByTenant($tenant), 0, ',', '.');?> 
+            unterschiedlichen User*innen erstellt.
         </div>
+    </div>
+
+    <div class="col-12 pb-5">
+        Tägliche Downloads:
+        <?php showLogGraph($tenant);?>
     </div>
 
     <div class="row">

@@ -97,6 +97,11 @@ function getNumberOfDownloadsByTenant($tenant)
     return singleResult("SELECT COUNT(*) AS result FROM downloads WHERE tenant = '{$tenant}'");
 }
 
+function getNumberOfUsersByTenant($tenant)
+{
+    return singleResult("SELECT COUNT(DISTINCT user) AS result FROM downloads WHERE tenant = '{$tenant}'");
+}
+
 function getDailyDownloadsLastDays($days = 30)
 {
     return singleResult("select cast(avg(perDay) as int) as result from (select count(*) as perDay from downloads WHERE julianday('now') - julianday(timestamp) <= $days AND date(timestamp) != date('now') GROUP BY date(timestamp) LIMIT -1 OFFSET 1);");
@@ -125,16 +130,23 @@ function getFreeSpace()
     return $output[0];
 }
 
-function showLogGraph()
+function showLogGraph($tenant = false)
 {
     global $db;
+
+    $where = '';
+    if( $tenant ) {
+        $where = " WHERE tenant = '{$tenant}' ";
+    }
+  
     // by day
-    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS description, strftime('%w', timestamp) AS weekday FROM downloads GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
+    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS description, strftime('%w', timestamp) AS weekday FROM downloads $where GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
     // by week
-    //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads GROUP BY period ORDER BY period;";
+    //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads $where GROUP BY period ORDER BY period;";
     // by month
-    //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m/%Y', timestamp) AS description FROM downloads GROUP BY period ORDER BY period;";
-   
+    //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m/%Y', timestamp) AS description FROM downloads $where GROUP BY period ORDER BY period;";
+
+
     $results = $db->query($sql);
 
     $values = [];
@@ -146,7 +158,6 @@ function showLogGraph()
     $values = join(',', $values);
     $labels = "'" . join("','", $labels) . "'";
 
-
     echo <<<ECHO
         <div><canvas id="chart" height="300"></canvas></div>
 
@@ -155,8 +166,8 @@ function showLogGraph()
   const data = {
     labels: [$labels],
     datasets: [{
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgb(20, 95, 50)',
+      borderColor: 'rgb(160, 200, 100)',
       data: [$values],
     }]
   };
