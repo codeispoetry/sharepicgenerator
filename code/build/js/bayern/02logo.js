@@ -27,7 +27,7 @@ const bayernlogo = {
   },
 
   setSize(w) {
-    bayernlogo.svg.size(w, null);
+    bayernlogo.svg.size(w, w);
   },
 
   setPosition() {
