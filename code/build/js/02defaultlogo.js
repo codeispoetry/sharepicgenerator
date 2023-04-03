@@ -39,7 +39,10 @@ const defaultlogo = {
     percent = Math.max(1, percent);
 
     const width = draw.width() * percent * 0.01;
-    defaultlogo.svg.size(width, null);
+    const aspectRatio = defaultlogo.svg.width() / defaultlogo.svg.height();
+    log.debugLogoAspectRation = aspectRatio;
+
+    defaultlogo.svg.size(width, width / aspectRatio);
   },
 };
 
