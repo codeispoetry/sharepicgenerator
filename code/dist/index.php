@@ -130,6 +130,12 @@
                     echo (file_exists('scripts/status/saml_is_up')) ? 'anmelden' : 'Notdienst für Sharepics nutzen    ';
                   ?>
               </div>
+              <div class="small font-italic mt-2">
+                <em>
+                  Bei Problemen mit der Anmeldung wende Dich bitte an 
+                  <a href="MAILTO:netz@gruene.de" class="text-primary">netz@gruene.de</a>.
+               </em>
+              </div>
           </a>
       </div>
   </div>
