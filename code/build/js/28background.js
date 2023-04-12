@@ -7,6 +7,8 @@ const background = {
   draw() {
     this.svg.remove();
 
+    log.dalle = '';
+
     const filename = $('#backgroundURL').val();
 
     this.svg = draw.image(filename, function drawImage() {
