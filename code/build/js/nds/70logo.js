@@ -1,6 +1,6 @@
 const logo = {
   loaded: false,
-  svg: draw.image('/assets/nds/logo.svg', () => {
+  svg: draw.image('/assets/btw21/logo.svg', () => {
     logo.loaded = true;
   }),
 

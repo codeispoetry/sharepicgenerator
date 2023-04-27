@@ -6,10 +6,8 @@
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbst eingeben</option>
                 <optgroup label="Vorlagen">
-                    <option value="nds/beide-stimmen.svg">Beide Stimmen Grün</option>
-                    <option value="nds/briefwahl.svg">Briefwahl jetzt</option>
-                    <option value="nds/am910.svg">Am 9.10. Grün wählen</option>
-
+                    <KILLoption value="nds/beide-stimmen.svg">Beide Stimmen Grün</KILLoption>
+                    
                 </optgroup>
             </select>
             oder
