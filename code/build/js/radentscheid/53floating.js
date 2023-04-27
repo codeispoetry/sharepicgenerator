@@ -7,7 +7,6 @@ const floating = {
   fondPadding: 30,
   align: 'left',
   font: {
-    family: 'Bebas Neue',
     anchor: 'left',
     leading: '1.05em',
     size: 40,
@@ -23,8 +22,9 @@ const floating = {
     });
 
     const anchor = floating.align;
+    const family = (i == 1 ) ? 'Bebas Neue' : 'Helvetica Inserat';
     const t = draw.text($(`#text${i}`).val())
-      .font(Object.assign(floating.font, { anchor }))
+      .font(Object.assign(floating.font, { family, anchor }))
       .fill($(`#textcolor${i}`).val())
       .attr('xml:space', 'preserve')
       .attr('style', 'white-space:pre');

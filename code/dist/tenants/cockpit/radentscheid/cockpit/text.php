@@ -10,12 +10,18 @@
         </div>
         <?php for ($i=1; $i <= 3; $i++) {
             $texts = array(null, '', 'Hier kommt Dein Text.', '');
-            ?>
+
+            $placeholder = 'Dein Text';
+            if($i === 1 ) { 
+                $placeholder= 'Hier werden nur Großbuchstaben angezeigt.';
+          }   
+         ?>
+
         <div class="d-flex">
-            <textarea placeholder="Text" name="text<?php echo $i; ?>" id="text<?php echo $i; ?>" class="form-control text-trigger"><?php echo $texts[$i]; ?></textarea>
+            <textarea placeholder="<?php echo $placeholder; ?>" name="text<?php echo $i; ?>" id="text<?php echo $i; ?>" class="form-control text-trigger"><?php echo $texts[$i]; ?></textarea>
             <input type="hidden" name="textX<?php echo $i; ?>" id="textX<?php echo $i; ?>">
             <input type="hidden" name="textY<?php echo $i; ?>" id="textY<?php echo $i; ?>">
-            <input type="hidden" name="textcolor<?php echo $i; ?>" id="textcolor<?php echo $i; ?>" value="<?php getColorAtIndex(2); ?>">
+            <input type="hidden" name="textcolor<?php echo $i; ?>" id="textcolor<?php echo $i; ?>" value="<?php getColorAtIndex(3); ?>">
             <span 
                 class="colorpicker ms-1"  sd
                 id="textcolorpicker" 

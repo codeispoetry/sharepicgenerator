@@ -38,7 +38,8 @@ function initSharepic() {
   initialized = true;
 
   background.drawColor();
-  defaultlogo.draw();
+  radlogo.draw();
+  radclaim.draw();
   floating.draw(1);
   floating.draw(2);
   floating.draw(3);
@@ -49,6 +50,10 @@ function initSharepic() {
 }
 
 function reset() {
-  // do nothing, stay here
+  radlogo.resize();
+  radlogo.setPosition();
+
+  radclaim.resize();
+  radclaim.setPosition();
 }
 

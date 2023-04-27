@@ -12,3 +12,5 @@
 </div>
 <input type="hidden" name="logoX" id="logoX" value="256.5">
 <input type="hidden" name="logoY" id="logoY" value="390">
+
+asfd

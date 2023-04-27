@@ -44,11 +44,12 @@ const pin = {
     const pinheight = pintext.rbox().h;
 
     const bgColor = $('#pinbgcolor').val();
+    const deviation = -2.3;
     const pinbackground = draw.polygon([
       [0, 0],
       [pinwidth, 0],
-      [pinwidth, pinheight],
-      [0, pinheight],
+      [pinwidth + deviation, pinheight],
+      [deviation, pinheight],
     ]);
     pinbackground.fill(bgColor);
 
@@ -60,7 +61,7 @@ const pin = {
     pin.svg.add(pintext);
 
     pin.svg.move($('#pinX').val(), $('#pinY').val());
-    pin.svg.rotate(-2.2);
+    pin.svg.rotate(-7.5);
 
     pin.resize();
 

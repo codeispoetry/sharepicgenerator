@@ -17,6 +17,7 @@
         <?php
             require_once('cockpit/picture.php');
             require_once('cockpit/picture-size.php');
+            require_once('cockpit/adfc-database.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
