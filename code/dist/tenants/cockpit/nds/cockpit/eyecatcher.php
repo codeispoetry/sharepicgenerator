@@ -6,8 +6,7 @@
                 <option value="">Vorlage wählen</option>
                 <option value="custom">Text selbst eingeben</option>
                 <optgroup label="Vorlagen">
-                    <KILLoption value="nds/beide-stimmen.svg">Beide Stimmen Grün</KILLoption>
-                    
+                    <option value="nds/csd.svg">CSD</KILLoption>
                 </optgroup>
             </select>
             oder
