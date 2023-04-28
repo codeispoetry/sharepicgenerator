@@ -13,6 +13,8 @@ const radclaim = {
         
         radclaim.resize();
         radclaim.setPosition();
+        radclaim.svg.draggable()
+          .addClass('draggable');
       }, 10);
     });
   },
@@ -22,7 +24,7 @@ const radclaim = {
   },
 
   setPosition() {
-    const x = draw.width() - radclaim.svg.width();
+    const x = draw.width() - radclaim.svg.width() * 1.2;
     const y = radclaim.svg.height() * 0.2;
     radclaim.svg.move(x, y);
   },

@@ -3,7 +3,7 @@
     <div class="mb-1 list-group-item-content">
         <div class="d-flex">
            <a href="https://by.adfc-clouds.de/index.php/s/R2Rg7MfDxiwanG3" target="_blank">
-            Der ADFC stellt eine Bilddatenbank bereit, aus der Du Dich
+            Für <em>Radentscheid Bayern</em> gibt es eine Bilddatenbank, aus der Du Dich
             bedienen kannst. 
         </a>
         </div>

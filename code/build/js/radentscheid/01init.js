@@ -52,8 +52,5 @@ function initSharepic() {
 function reset() {
   radlogo.resize();
   radlogo.setPosition();
-
-  radclaim.resize();
-  radclaim.setPosition();
 }
 
