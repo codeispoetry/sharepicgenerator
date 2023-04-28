@@ -30,8 +30,8 @@
                 <div class="d-flex align-items-baseline justify-content-between">
                     <input type="text" id="addPicCaption<?= $i; ?>" name="addPicCaption<?= $i; ?>" class="form-control form-control-sm" placeholder="Bildbeschreibung">
                     <div>
-                        <input type="hidden" name="addPicCaptionColor<?= $i; ?>" id="addPicCaptionColor<?= $i; ?>" class="change-text"  value="#ffffff">
-                        <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#ffe100,#FF495D" data-action="window['addPic<?= $i; ?>'].setCaption()" data-field="#addPicCaptionColor<?= $i; ?>" title="Farbe wechseln"></span>
+                        <input type="hidden" name="addPicCaptionColor<?= $i; ?>" id="addPicCaptionColor<?= $i; ?>" class="change-text"  value="<?php getColorAtIndex('addpictext'); ?>">
+                        <span class="colorpicker ms-1" data-colors="<?php getColorAtIndex(); ?>" data-action="window['addPic<?= $i; ?>'].setCaption()" data-field="#addPicCaptionColor<?= $i; ?>" title="Farbe wechseln"></span>
                     </div>   
                     <i class="fa-solid fa-location-dot ms-1 cursor-pointer addPicCaptionPositionButton<?php echo $i; ?>" title="drunter oder daneben"></i>
                     <input type="hidden" name="addPicCaptionPosition<?php echo $i; ?>" id="addPicCaptionPosition<?php echo $i; ?>" value="bottom"> 
