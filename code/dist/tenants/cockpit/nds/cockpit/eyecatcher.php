@@ -32,5 +32,5 @@
     </div>
 </div>
 
-<input type="hidden" name="pinX" id="pinX">
-<input type="hidden" name="pinY" id="pinY">
+<input type="hidden" name="pinX" value="10" id="pinX">
+<input type="hidden" name="pinY" value="10" id="pinY">

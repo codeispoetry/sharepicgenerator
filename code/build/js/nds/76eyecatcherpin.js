@@ -76,7 +76,7 @@ const pin = {
 
     pin.template.remove();
     pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () => {
-      pin.template.size($('#eyecatchersize').val())
+      pin.template.size($('#eyecatchersize').val(), $('#eyecatchersize').val())
         .move($('#pinX').val(), $('#pinY').val())
         .draggable();
 
