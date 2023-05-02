@@ -20,6 +20,7 @@ set('shared_dirs', [
     'persistent',
     'assets/vorort/celebrities',
     'log/logs',
+    'selfpublish',
 ]);
 
 // Writable dirs by web server
