@@ -57,14 +57,13 @@ $('#logosize').bind('change', () => {
   undo.save();
 });
 
-$('.align-logo').click(function () {
+$('.align-center-claim').click(function () {
   //console.log($(this).data('place'))
   
-  const x = (draw.width() - radclaim.svg.width() * 1.1);
-  const y = radclaim.svg.height() * 0.1;
+  const x = (draw.width() - radclaim.svg.width() ) / 2;
+  const y = (draw.height() - radclaim.svg.height() ) / 2;
 
-  $('#logoX').val(x);
-  $('#logoY').val(x);
-  radclaim.svg.move(x, y);
+  radclaim.svg.move(x, y).front();
   undo.save();
 });
+

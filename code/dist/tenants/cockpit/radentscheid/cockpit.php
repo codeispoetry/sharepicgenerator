@@ -25,8 +25,8 @@
             require_once('cockpit/text.php');
             require_once('cockpit/logo.php');
             require_once('cockpit/eyecatcher.php');
-            require_once('cockpit/center-elements.php');
-            require_once('cockpit/to-front-elements.php');
+            require_once('cockpit/radentscheid/cockpit/center-elements.php');
+            //require_once('cockpit/to-front-elements.php');
         ?>
     </div>
     <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">

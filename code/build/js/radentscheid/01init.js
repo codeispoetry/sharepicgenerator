@@ -52,5 +52,6 @@ function initSharepic() {
 function reset() {
   radlogo.resize();
   radlogo.setPosition();
+  $('.align-center-claim').trigger('click');
 }
 
