@@ -3,10 +3,12 @@ $('#pinsize').bind('input propertychange', () => {
 });
 
 const pinfont = {
-  family: 'BereitBold',
-  size: 15,
+  family: 'Poppins',
+  size: 12,
   anchor: 'middle',
   leading: '1em',
+  weight: 'bold',
+  style: 'italic',
 };
 
 const pin = {
@@ -34,19 +36,21 @@ const pin = {
     });
 
     // text
-    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff');
+    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#ffffff').rotate(-9);
 
     // background
     const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
-    const pinbackground = draw.circle(diameter)
-      .fill('#FF495D');
+    const pinbackgroundCircle = draw.circle(diameter).fill('#e50d7e');
+    const pinbackgroundSquare = draw.rect(diameter/2,diameter/2).dx(diameter/2).fill('#e50d7e');
 
-    pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
+
+    pintext.move((diameter - pintext.rbox().w) * 0.4, (diameter - pintext.rbox().h) * 0.7);
 
     pintext.attr('xml:space', 'preserve').attr('style', 'white-space:pre');
 
     // and in reverse order
-    pin.svg.add(pinbackground);
+    pin.svg.add(pinbackgroundCircle);
+    pin.svg.add(pinbackgroundSquare);
     pin.svg.add(pintext);
 
     pin.svg.move($('#pinX').val(), $('#pinY').val());
@@ -55,7 +59,7 @@ const pin = {
     $('#eyecatchertemplate').val('custom');
     pin.resize();
 
-    pin.svg.rotate(-9);
+    //pin.svg.rotate(-9);
   },
 
   setSize(w) {

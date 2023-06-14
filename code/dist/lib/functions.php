@@ -53,7 +53,7 @@ function convert($inputFile, $width, $format = 'png')
     $pngFile = getBasePath('tmp/' . basename($inputFile, 'svg') . 'png');
 
     $command = sprintf(
-        'inkscape %s --export-width=%d --export-type="png" --export-id="%s" --export-dpi=90 2> /dev/null',
+        'inkscape %s --export-width=%d --export-png="%s" --export-dpi=90 2> /dev/null',
         $inputFile,
         $width,
         $pngFile

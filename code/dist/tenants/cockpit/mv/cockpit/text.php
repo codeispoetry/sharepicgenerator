@@ -58,7 +58,7 @@
            
                 <div class="d-flex align-items-lg-center">
                     <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
-                    <input type="hidden" name="textbeforecolor" class="change-text" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="textbeforecolor" class="change-text" id="textbeforecolor" value="<?php getColorAtIndex(0); ?>">
                     <span 
                         class="colorpicker ms-1"  
                         id="textbeforecolorpicker" 
@@ -69,7 +69,7 @@
                 </div>
                 <div class="d-flex">
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bereit, weil Ihr es seid.</textarea>
-                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(0); ?>">
                     <span 
                         class="colorpicker ms-1"  
                         id="textcolorpicker" 

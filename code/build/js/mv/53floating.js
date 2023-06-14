@@ -10,6 +10,8 @@ const floating = {
     anchor: 'left',
     leading: '1.05em',
     size: 20,
+    weight: 'bold',
+    style: 'italic',
   },
   fontBefore: {
     family: 'Poppins',
