@@ -48,3 +48,7 @@ function reset() {
   // do nothing, stay here
 }
 
+$('#kvlogo').change(() => {
+  config.defaultlogo = '/assets/mv/logos/' + $('#kvlogo').val();
+  defaultlogo.draw();
+});
