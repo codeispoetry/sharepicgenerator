@@ -10,7 +10,7 @@
                                 Bearbeiten
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="d-flex">
+                                <li class="d-none">
                                     <span class="text-align" data-align="left" title="linksbündig"><i class="fa fa-align-left"></i></span>
                                     <span class="text-align" data-align="middle" title="zentriert"><i class="fa fa-align-center"></i></span>
                                     <span class="text-align" data-align="end" title="rechtsbündig"><i class="fa fa-align-right"></i></span>
@@ -24,14 +24,14 @@
                             
 
 
-                                <li class="">
+                                <li class="d-none">
                                     <label>
                                         <input type="checkbox" name="textShadow" id="textShadow" value="on">
                                         Schatten unter Text
                                     </label>
                                 </li>
 
-                                <li class="">
+                                <li class="d-none">
                                     <label>
                                         <input type="checkbox" name="bottomVariant" id="bottomVariant" value="on">
                                         Text unten vor grün
@@ -57,18 +57,14 @@
                 </nav>
            
                 <div class="d-flex align-items-lg-center">
-                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="form-control">
+                    <input type="text" placeholder="Text darüber" name="textbefore" id="textbefore" value="" class="d-none form-control">
                     <input type="hidden" name="textbeforecolor" class="change-text" id="textbeforecolor" value="<?php getColorAtIndex(2); ?>">
-                    <span 
-                        class="colorpicker ms-1"  
-                        id="textbeforecolorpicker" 
-                        data-colors="<?php getColorAtIndex(); ?>" 
-                        data-action="floating.draw()" 
-                        data-field="#textbeforecolor" 
-                        title="Farbe wechseln"></span> 
+              
                 </div>
                 <div class="d-flex">
-                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Bereit, weil Ihr es seid.</textarea>
+                    <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Damit alle alles
+!erreichen
+können.</textarea>
                     <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
                         class="colorpicker ms-1"  
@@ -78,7 +74,8 @@
                         data-field="#textcolor" 
                         title="Farbe wechseln"></span> 
                 </div>
-                <div class="d-flex align-items-lg-center">
+                <small>Zeilen, die mit einem Ausrufezeichen ! beginnen, werden herborgehoben.</small>
+                <div class="d-none align-items-lg-center">
                     <textarea placeholder="Text unter der Linie"  name="textafter" id="textafter" value="" class="form-control h-1em"></textarea>
                     <input type="hidden" name="textaftercolor" class="change-text" id="textaftercolor" value="<?php getColorAtIndex(2); ?>">
                     <span 
@@ -89,7 +86,7 @@
                         data-field="#textaftercolor" 
                         title="Farbe wechseln"></span> 
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-none justify-content-between">
                     <div class="">
                         <input type="text" placeholder="Claim" name="claimtext" id="claimtext" value="" class="form-control">
                     </div>    

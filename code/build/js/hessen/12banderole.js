@@ -36,7 +36,7 @@ const banderole = {
   },
 
   setPosition() {
-    banderole.svg.move(0,draw.height() - ( 0.5 * banderole.svg.height() ));
+    banderole.svg.move(0,draw.height() - ( 0.48 * banderole.svg.height() ));
   },
 
   

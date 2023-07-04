@@ -6,23 +6,11 @@ const floating = {
   bottomFond: draw.text(''),
   align: 'left',
   font: {
-family: 'Better Times',
-    anchor: 'left',
+    family: 'Capitolium',
+    anchor: 'middle',
     leading: '1.05em',
     size: 20,
     weight: 'normal',
-  },
-  fontBefore: {
-    family: 'BereitBold',
-    anchor: 'left',
-    leading: '1.05em',
-    size: 10,
-  },
-  fontAfter: {
-    family: 'BereitBold',
-    anchor: 'left',
-    leading: '1.05em',
-    size: 10,
   },
 
   draw() {
@@ -44,53 +32,37 @@ family: 'Better Times',
       floating.draw();
     });
     
-    const anchor = $('#textFloating').val();
 
-    const elemMainText = draw.text(text)
-      .font(Object.assign(floating.font, { anchor }))
-      .fill($('#textcolor').val())
-      .attr('xml:space', 'preserve')
-      .attr('style', 'white-space:pre');
+    const lines = text.replace(/\n$/, '').split(/\n/);
 
+    let lineY = 0;
+
+    lines.forEach((value, index) => {
+
+      let family = 'Capitolium';
+      let size = 20;
     
-    let nextY = 0;
-    let w = 0;
-    let h = 0;
 
-    if ($('#textbefore').val()) {
-      var elemTextBefore = floating.drawTextBefore();
-      elemTextBefore.y(0);
-      nextY += elemTextBefore.bbox().height;
-      h += elemTextBefore.bbox().height;
-      w = Math.max(w, elemTextBefore.bbox().width);
-    }
+      if (value.charAt(0) == '!') {
+        family = 'Better Times';
+        value = value.substring(1);
+        size = 50;
+      } 
 
-    elemMainText.y(nextY);
-    nextY += elemMainText.bbox().height;
-    h += elemMainText.bbox().height;
-    w = Math.max(w, elemMainText.bbox().width);
-   
-    if ($('#textafter').val()) {
-      var elemTextAfter = floating.drawTextAfter();
-      elemTextAfter.y(nextY)
-      nextY += elemTextAfter.bbox().height;
-      h += elemTextAfter.bbox().height;
-      w = Math.max(w, elemTextAfter.bbox().width);
-    }
 
-    if ($('#claimtext').val()) {
-      var elemClaimText = floating.drawClaim();
-      const claimTextOffset = 5; 
-      elemClaimText.y(nextY + claimTextOffset)
-      h += elemClaimText.bbox().height + claimTextOffset;
-      w = Math.max(w, elemClaimText.bbox().width);
-    }
-   
-    floating.svg.add(elemMainText);
-    floating.svg.add(elemTextBefore);
-    floating.svg.add(elemTextAfter);
-    floating.svg.add(elemClaimText);
+      const elemMainText = draw.text(value)
+        .font(Object.assign(floating.font, { family, size }))
+        .move(0, lineY)
+        .fill($('#textcolor').val())
+        .attr('xml:space', 'preserve')
+        .attr('style', 'white-space:pre');
 
+      elemMainText.dx(-elemMainText.bbox().width / 2);
+
+      floating.svg.add(elemMainText);
+
+      lineY += 0.7 * elemMainText.bbox().height;
+    }); 
     floating.scale(false);
 
     floating.shadow.remove();
@@ -109,9 +81,7 @@ family: 'Better Times',
     floating.svg.front();
 
     floating.bottomFond.remove();
-    if ( $('#bottomVariant').prop('checked') ) {
-      floating.setBottomVariant();
-    }
+  
   },
 
   scale(factor = false) {
@@ -145,109 +115,9 @@ family: 'Better Times',
 
   },
 
-  drawClaim(t) {
-    const claim = draw.group();
-
-    let textColor = '#FFFFFF';
-    if ($('#claimcolor').val() === '#ffe100') {
-      textColor = '#145f32';
-    }
-
-    const textInClaim = $('#claimtext').val();
-
-    const claimText = draw.text(textInClaim)
-      .font({
-        family: 'BereitBold',
-        anchor: 'left',
-        leading: '1.05em',
-        size: 8,
-      })
-      .move(2, 1)
-      .fill(textColor);
-
-    // if (textInClaim.includes('Ä') || textInClaim.includes('Ö') || textInClaim.includes('Ü')) {
-
-    const claimBackground = draw.rect(claimText.bbox().w + 4, 11.5)
-      .fill($('#claimcolor').val())
-      .skew(-8, 0)
-      .addTo(claim);
-
-    claimText.addTo(claim);
-
-    let x;
-    switch ($('#textFloating').val()) {
-      case 'middle':
-        x = -claim.width() / 2;
-        break;
-      case 'end':
-        x = -claim.width();
-        break;
-      default:
-        x = 0;
-    }
-
-    claim.dx(x);
-
-    return claim;
-  },
-
-  drawTextBefore() {
-    let content = $('#textbefore').val();
-    let color = $('#textbeforecolor').val() || '#FFFFFF';
-    let font = floating.fontBefore;
-
-    const textbefore = draw.text(content)
-      .font(font)
-      .fill(color)
-      .attr('xml:space', 'preserve')
-      .attr('style', 'white-space:pre');
-
-    switch ($('#textFloating').val()) {
-      case 'middle':
-        textbefore.x(-textbefore.bbox().w / 2);
-        break;
-      case 'end':
-        textbefore.x(-textbefore.bbox().w);
-        break;
-      default:
-    }
-
-    return textbefore;
-  },
-
-  drawTextAfter() {
-    const textafter = draw.text($('#textafter').val())
-      .font(floating.fontAfter)
-      .fill($('#textaftercolor').val() || '#FFFFFF')
-      .attr('xml:space', 'preserve')
-      .attr('style', 'white-space:pre');
-
-    switch ($('#textFloating').val()) {
-      case 'middle':
-        textafter.x(-textafter.bbox().w / 2);
-        break;
-      case 'end':
-        textafter.x(-textafter.bbox().w);
-        break;
-      default:
-    }
-
-    return textafter;
-  },
-
-  setBottomVariant() {
-    const padding = 20;
-    const y =  draw.height() - floating.svg.height() - padding;
-
-    floating.bottomFond = draw.rect(draw.width(), floating.svg.height() + 2 * padding)
-      .fill('#A0C864')
-      .move(0, y - padding);
-
-    floating.svg.move(padding, y).front();
-  }
 };
 
-$('#text, #textafter, #textbefore, #claimtext, #textShadow, #textscaled, #bottomVariant').bind('input propertychange', floating.draw);
+$('#text, #textShadow, #textscaled, #bottomVariant').bind('input propertychange', floating.draw);
 
 $('.textscale').click(function () {
   $('#textscaled').val($('#textscaled').val() * parseFloat($(this).data('scale'), 10));
@@ -256,7 +126,7 @@ $('.textscale').click(function () {
 });
 
 
-$('#text, #textafter, #textbefore, #claimtext, .change-text, #textShadow, #textscaled, #bottomVariant').change(() => {
+$('#text, .change-text, #textShadow, #textscaled, #bottomVariant').change(() => {
   undo.save();
 });
 
