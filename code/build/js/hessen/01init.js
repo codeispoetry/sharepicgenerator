@@ -18,7 +18,7 @@ $(document).ready(() => {
   $('#logoX').val(465);
   $('#logoY').val(35);
 
-  open();
+  //open();
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();

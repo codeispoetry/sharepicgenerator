@@ -72,11 +72,7 @@ const floating = {
 
     floating.svg.move(parseInt($('#textX').val(), 10), parseInt($('#textY').val(), 10 ));
 
-    if (!$('#advancedmode').prop('checked')) {
-      const scaleFactor = parseInt($('#textsize').val(), 10) / 100;
-     
-      pin.setSize(17 * scaleFactor * 1.7 * 1.15);
-    }
+  
 
     floating.svg.front();
 

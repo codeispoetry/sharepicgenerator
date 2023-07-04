@@ -22,8 +22,10 @@ const banderole = {
     
     const sunflower = draw.image('/assets/hessen/sunflower.svg', () => {
         sunflower.size(draw.width() * 0.35, null).move(0.5 * (draw.width() - sunflower.width()), 0);
-        textLeft.move(sunflower.x() - textLeft.bbox().w, 36);
-        textRight.move(sunflower.x() + sunflower.width(), 36);
+
+        const yTexts = 36;
+        textLeft.move(sunflower.x() - textLeft.bbox().w, yTexts);
+        textRight.move(sunflower.x() + sunflower.width(), yTexts);
 
         banderole.svg.add(banderoleRect);
         banderole.svg.add(sunflower);

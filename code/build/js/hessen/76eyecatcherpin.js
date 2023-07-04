@@ -7,7 +7,7 @@ const pinfont = {
   size: 15,
   anchor: 'middle',
   leading: '1em',
-  weight: 'bold',
+  weight: 'normal',
 };
 
 const pin = {
@@ -75,30 +75,7 @@ const pin = {
     pin.template.size(eyecatchersize);
   },
 
-  drawTemplate() {
-    if (!$('#eyecatchertemplate').val()) {
-      return;
-    }
-
-    if ($('#eyecatchertemplate').val() === 'custom') {
-      pin.draw();
-      return;
-    }
-
-    pin.template.remove();
-    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () =>{
-      pin.template.size($('#eyecatchersize').val())
-        .move($('#pinX').val(), $('#pinY').val())
-        .draggable();
-
-      pin.template.on('dragend.namespace', () => {
-        $('#pinX').val(Math.round(pin.template.x()));
-        $('#pinY').val(Math.round(pin.template.y()));
-      });
-    });
-
-    pin.svg.hide();
-  },
+ 
 
   bounce() {
 

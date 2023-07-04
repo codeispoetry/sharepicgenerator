@@ -65,7 +65,7 @@
                     <textarea placeholder="Haupttext" name="text" id="text" class="form-control">Damit alle alles
 !erreichen
 können.</textarea>
-                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(2); ?>">
+                    <input type="hidden" name="textcolor" class="change-text" id="textcolor" value="<?php getColorAtIndex(0); ?>">
                     <span 
                         class="colorpicker ms-1"  
                         id="textcolorpicker" 
