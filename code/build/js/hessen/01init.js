@@ -35,7 +35,7 @@ function initSharepic() {
   initialized = true;
 
   background.drawColor();
-  defaultlogo.draw();
+  hessenlogo.draw('/assets/hessen/logo.svg');
   floating.draw();
   pin.draw();
 
