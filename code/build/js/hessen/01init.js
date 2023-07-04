@@ -36,6 +36,7 @@ function initSharepic() {
 
   background.drawColor();
   hessenlogo.draw('/assets/hessen/logo.svg');
+  banderole.draw();
   floating.draw();
   pin.draw();
 
