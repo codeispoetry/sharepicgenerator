@@ -1,5 +1,5 @@
 <h3 class="">Logo</h3>
-<div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+<div class="d-none logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
     <nav class="navbar-expand-lg">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
@@ -17,7 +17,7 @@
         <input id="advancedmode" type="checkbox" class="me-1 form-check-input" >
         Größe von Logo und Störer selbst steuern
     </label>
-    <div class="d-flex justify-content-between">
+    <div class="d-none justify-content-between">
         <div class="slider advancedmode d-none me-3">
             <small>klein</small>
                 <input type="range" class="form-range" name="logosize" id="logosize" min="1" max="100" value="20">
@@ -28,7 +28,13 @@
         <span class="text-cockpit cursor-pointer uploadlogoclicker">
             <i class="fa fa-upload"></i> Eigenes Logo hochladen
         </span>
-    </div>    
+    </div>   
+</div>
+<div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+    <label class="" title="Ändere die Farbe des oberen Logos">
+        <input id="hessen-logo-green" type="checkbox" class="me-1 form-check-input" >
+        Logo am oberen Rand in grün
+    </label>
 </div>
 <input type="hidden" name="logoX" id="logoX" value="256.5">
 <input type="hidden" name="logoY" id="logoY" value="390">

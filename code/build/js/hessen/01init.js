@@ -39,11 +39,13 @@ function initSharepic() {
   banderole.draw();
   floating.draw();
   pin.draw();
-
   return true;
 }
 
 function reset() {
   // do nothing, stay here
+  hessenlogo.resize();
+  hessenlogo.setPosition();
+  banderole.draw();
 }
 

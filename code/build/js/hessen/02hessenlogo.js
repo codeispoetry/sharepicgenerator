@@ -33,6 +33,9 @@ const hessenlogo = {
     const ratio = 1090 / 195
     hessenlogo.svg.size(width, width /  ratio);
   },
-
 };
 
+$('#hessen-logo-green').click(() => {
+  const logofile = ( $('#hessen-logo-green').is(':checked') ) ? '/assets/hessen/logo-green.svg' : '/assets/hessen/logo.svg';
+  hessenlogo.draw(logofile);
+});
