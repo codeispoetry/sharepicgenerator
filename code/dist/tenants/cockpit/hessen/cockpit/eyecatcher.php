@@ -15,7 +15,7 @@
             </ul>   
         </nav>
         <div class="d-flex align-items-lg-center">
-            <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3">Hallo</textarea>
+            <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3"></textarea>
         </div>
         <div class="d-flex justify-content-start">
             <div class="slider">

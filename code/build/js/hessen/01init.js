@@ -39,6 +39,9 @@ function initSharepic() {
   banderole.draw();
   floating.draw();
   pin.draw();
+
+  //uploadFileByUrl('http://localhost/assets/vorlage.jpg');
+
   return true;
 }
 

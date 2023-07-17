@@ -9,37 +9,37 @@ const banderole = {
   draw() {
     banderole.svg.remove();
    
-    const normHeight = 0.05 * draw.height();
+    const normHeight = 0.1 * draw.height();
     
     banderole.svg = draw.group();
 
-    const banderoleRect = draw.rect(draw.width(), normHeight)
+    const banderoleRect = draw.rect(draw.width(), 1 * normHeight)
         .fill('#03523D');
 
-    const size= 0.5 * normHeight;
+    const size= 0.3 * normHeight;
     const textLeft = draw.text('Hessen lieben.').font(Object.assign(banderole.font, { size })).fill('#FFFFFF');
     const textRight = draw.text('Zukunft leben.').font(Object.assign(banderole.font, { size })).fill('#FFFFFF')
     
     const sunflower = draw.image('/assets/hessen/sunflower.svg', () => {
-        sunflower.size(7 * normHeight, null)
-          .move(0.5 * (draw.width() - sunflower.width()), 2 * -normHeight);
+        sunflower.size(4 * normHeight, null)
+          .move(0.5 * (draw.width() - sunflower.width()), 1 * - normHeight);
 
-        const yTexts = 0.5 * ( normHeight - textLeft.bbox().h);
-        textLeft.move(sunflower.x() - textLeft.bbox().w, yTexts);
-        textRight.move(sunflower.x() + sunflower.width(), yTexts);
+        const yTexts = 0.5 * (banderoleRect.height() - textLeft.bbox().h);
+        textLeft.move(sunflower.x() - textLeft.bbox().w - (0 * normHeight), yTexts);
+        textRight.move(sunflower.x() + sunflower.width() - (0 * normHeight), yTexts);
 
         banderole.svg.add(banderoleRect);
         banderole.svg.add(sunflower);
         banderole.svg.add(textLeft);
         banderole.svg.add(textRight);
 
-        banderole.setPosition();
+        banderole.setPosition(banderoleRect.height() * 2.4);
     });
 
   },
 
-  setPosition() {
-    banderole.svg.move(0,draw.height() - ( 3.5 * 0.05 * draw.height() ));
+  setPosition(y) {
+    banderole.svg.y(draw.height() - y);
   },
 
   
