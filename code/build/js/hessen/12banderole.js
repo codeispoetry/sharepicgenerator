@@ -6,10 +6,8 @@ const banderole = {
     size: 16
   },
   
-  draw() {
+  draw(normHeight = 0.09 * draw.height()) {
     banderole.svg.remove();
-   
-    const normHeight = 0.09 * draw.height();
     
     banderole.svg = draw.group();
 
@@ -44,7 +42,20 @@ const banderole = {
   setPosition(y) {
     banderole.svg.y(draw.height() - y);
   },
-
-  
 };
 
+$('#sizepresets').on('change', function () {
+  switch($(this).val()){
+    case '1080:1920':
+      banderole.draw(35);
+      break;
+    case '1500:2102':
+    case '3531:4984':
+    case '2492:3520':
+    case '3520:4972':
+      banderole.draw(45);
+      break;
+    default:
+      console.log($(this).val())
+  }
+});
