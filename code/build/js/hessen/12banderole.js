@@ -9,12 +9,14 @@ const banderole = {
   draw() {
     banderole.svg.remove();
    
-    const normHeight = 0.1 * draw.height();
+    const normHeight = 0.09 * draw.height();
     
     banderole.svg = draw.group();
 
-    const banderoleRect = draw.rect(draw.width(), 1 * normHeight)
+    const banderoleRect = draw.rect(draw.width() * 0.5  - (1 * normHeight), 1 * normHeight)
         .fill('#03523D');
+    const banderoleRect2 = draw.rect(draw.width() * 0.5 , 1 * normHeight)
+        .fill('#03523D').dx(draw.width() * 0.5 + ( 1 * normHeight));
 
     const size= 0.3 * normHeight;
     const textLeft = draw.text('Hessen lieben.').font(Object.assign(banderole.font, { size })).fill('#FFFFFF');
@@ -29,6 +31,7 @@ const banderole = {
         textRight.move(sunflower.x() + sunflower.width() - (0 * normHeight), yTexts);
 
         banderole.svg.add(banderoleRect);
+        banderole.svg.add(banderoleRect2);
         banderole.svg.add(sunflower);
         banderole.svg.add(textLeft);
         banderole.svg.add(textRight);
