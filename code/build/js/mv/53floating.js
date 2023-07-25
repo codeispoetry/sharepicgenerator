@@ -10,14 +10,14 @@ const floating = {
     anchor: 'left',
     leading: '1.05em',
     size: 20,
-    weight: 'bold',
+    weight: 800,
     style: 'italic',
   },
   fontBefore: {
     family: 'Poppins',
     anchor: 'left',
     leading: '1.05em',
-    weight: 'bold',
+    weight: 900,
     size: 10,
   },
   fontAfter: {

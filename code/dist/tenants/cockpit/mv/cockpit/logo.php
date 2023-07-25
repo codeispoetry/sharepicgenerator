@@ -33,7 +33,7 @@
         <select id="kvlogo" name="kvlogo" class="form-select">
             <?php
                 $logos = scandir("../assets/mv/logos");
-                echo "<option value=''>KV wählen</option>";
+                echo "<option value='MV.svg'>KV wählen</option>";
                 foreach($logos AS $logo) {
                     if(substr($logo,0,1) == ".") continue;
 
