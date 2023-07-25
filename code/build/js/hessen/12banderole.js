@@ -36,7 +36,7 @@ const banderole = {
         banderole.svg.add(textLeft);
         banderole.svg.add(textRight);
 
-        banderole.setPosition(banderoleRect.height() * 2.4);
+        banderole.setPosition(banderoleRect.height() * 2.25);
     });
 
   },
