@@ -53,9 +53,11 @@ $('#sizepresets').on('change', function () {
     case '3531:4984':
     case '2492:3520':
     case '3520:4972':
+    case '820:312':
       banderole.draw(45);
       break;
     default:
+      banderole.draw(45);
       console.log($(this).val())
   }
 });
