@@ -19,8 +19,13 @@ const hessenlogo = {
   setPosition() {
     const x = 0.5 * (draw.width() - hessenlogo.svg.width() );
     const y = hessenlogo.svg.height();
+    let marginToTop = 1.5 * y;
 
-    hessenlogo.svg.move(x, 1.5 * y);
+    if(draw.width() > draw.height()) {
+      marginToTop = 0.6 * y;
+    }
+
+    hessenlogo.svg.move(x, marginToTop);
   },
 
   resize() {
@@ -38,4 +43,13 @@ const hessenlogo = {
 $('#hessen-logo-green').click(() => {
   const logofile = ( $('#hessen-logo-green').is(':checked') ) ? '/assets/hessen/logo-green.svg' : '/assets/hessen/logo.svg';
   hessenlogo.draw(logofile);
+});
+
+$('#hessen-logo-show').click(() => {
+  if( $('#hessen-logo-show').is(':checked') ) {
+    hessenlogo.svg.show();
+  } else {
+    hessenlogo.svg.hide();
+  }
+
 });

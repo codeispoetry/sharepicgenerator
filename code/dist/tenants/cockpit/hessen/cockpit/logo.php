@@ -31,6 +31,10 @@
     </div>   
 </div>
 <div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
+    <label class="" title="Oberes Logo anzeigen">
+            <input id="hessen-logo-show" type="checkbox" checked class="me-1 form-check-input" >
+            Logo am oberen Rand anzeigen
+        </label>    
     <label class="" title="Ändere die Farbe des oberen Logos">
         <input id="hessen-logo-green" type="checkbox" class="me-1 form-check-input" >
         Logo am oberen Rand in grün
