@@ -29,7 +29,7 @@ function echoResults($sql, $inPercent = false)
         }
 
         printf(
-            '<li>%s: %s%s</li>',
+            '<li><a href="?tenant=%1$s">%1$s: %2$s%3$s</a></li>',
             ($row['name']) ?: 'ohne',
             $value,
             ($inPercent) ? '%' : ''
@@ -119,7 +119,7 @@ function getAI($type = 'used')
 
 function showTenantsDownloads()
 {
-    return echoResults("select tenant As name,count(*) as count from downloads GROUP BY tenant;");
+    return echoResults("select tenant As name,count(*) as count from downloads GROUP BY tenant HAVING count > 50 ORDER BY count DESC;");
 }
 
 function getFreeSpace()
@@ -135,14 +135,14 @@ function showLogGraph($tenant = false)
     global $db;
 
     $where = '';
-    if( $tenant ) {
+    if ( $tenant ) {
         $where = " WHERE tenant = '{$tenant}' ";
     }
   
     // by day
-    $sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS description, strftime('%w', timestamp) AS weekday FROM downloads $where GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
+    //$sql = "SELECT strftime('%d.%m.', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m', timestamp) AS description, strftime('%w', timestamp) AS weekday FROM downloads $where GROUP BY strftime('%d.%m.', timestamp) ORDER BY timestamp;";
     // by week
-    //$sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads $where GROUP BY period ORDER BY period;";
+    $sql = "SELECT strftime('%Y%W', timestamp) AS period, COUNT(*) AS count, strftime('%d.%m.', timestamp) AS description FROM downloads $where GROUP BY period ORDER BY period;";
     // by month
     //$sql = "SELECT strftime('%Y%m', timestamp) AS period, COUNT(*) AS count, strftime('%m/%Y', timestamp) AS description FROM downloads $where GROUP BY period ORDER BY period;";
 
@@ -173,7 +173,7 @@ function showLogGraph($tenant = false)
   };
 
   const config = {
-    type: 'line',
+    type: 'bar',
     data: data,
     options: {
         responsive: true,

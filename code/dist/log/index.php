@@ -3,8 +3,7 @@ require_once('base.php');
 require_once(getBasePath('lib/functions.php'));
 require_once(getBasePath('lib/log_show_functions.php'));
 
-
-setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
+setlocale(LC_TIME, 'de_DE', 'de_DE.UTF-8', 'de_DE.utf8');
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +23,13 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center">
-            <h2>Statistiken</h2>
+            <h2>Statistiken
+                <?php
+                if (isset($_GET['tenant'])) {
+                    echo 'für ' . ucfirst($_GET['tenant']);
+                }
+                ?>
+            </h2>
         </div>
         <div class="col-12 text-center mb-3">
             <a href="show.php" class="btn btn-primary btn-sm"><i class="fas fa-images"></i> Zeige die jüngsten Sharepics</a>
@@ -33,11 +38,11 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         </div>
         <div class="col-12">
             <h4>Systemgesundheit</h4>
-            Uhrzeit: <?php echo date('l, m.d, h:i \U\h\r'); ?><br>
+            Uhrzeit: <?php echo strftime('%A, %d.%m, %H:%M', time()); ?><br>
             Freier Festplattenplatz: <?php echo getFreeSpace(); ?>
         </div>
         <div class="col-12 pb-5">
-            <?php showLogGraph();?>
+            <?php showLogGraph( $_GET['tenant'] );?>
         </div>
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
@@ -71,17 +76,13 @@ setlocale(LC_TIME, ' de_DE.UTF-8', 'de_DE.utf8');
         
         <div class="col-6 col-md-6 col-lg-3">
             <dl>
-                <dt><i class="fas fa-sitemap"></i> Tenants</dt>
+                <dt><i class="fas fa-sitemap"></i> Tenants (>50)</dt>
 
                 <dd><ul><?php echo showTenantsDownloads()?></ul></dd>
 
             </dl>
         </div>
      
-    </div>
-
-    <div class="col-12">
-        <?php echo show_dalle();?>
     </div>
 </div>
 </body>
