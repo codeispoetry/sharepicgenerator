@@ -151,22 +151,6 @@ $_SESSION['csrf'] = $csrf;
     </div>
 </div>
 
-<?php if (($tenant === 'btw21' || $tenant === 'bayern' ) && configValue('Main', 'enableOpenAi')) { ?>
-    <div class="ai-suggest ai-suggest-trigger">
-        <div class="d-flex justify-content-between">
-            <span class="ask-ai cursor-pointer">
-                Textvorschläge
-                <i class="far fa-lightbulb ms-1"></i>
-            </span>
-            <i class="fas fa-times ask-ai-close cursor-pointer show-only-when-active"></i>
-        </div>
-        <div class="ai-suggestions show-only-when-active">
-            <div class="intro-text"></div>
-            <ul id="ai-suggestions"></ul> 
-        </div>
-    </div>
-<?php } ?>
-
 <?php require_once('footer.php'); ?>
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>

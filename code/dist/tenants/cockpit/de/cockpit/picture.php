@@ -42,7 +42,7 @@
             <small>groß</small>
         </div>
 
-        <div class="slider">
+        <div class="slider d-none">
             <small>schwarzweiß</small>
             <input type="range" class="form-range" name="saturate" id="saturate" min="0"
                 max="1" value="1" step="0.05">
@@ -75,6 +75,13 @@
     </div>
 
 </div>   
+
+<h3 class="picture-only d-none"><i class="fas fa-image"></i> Hintergrund</h3>
+<div class="list-group-item picture-only d-none">     
+    <span class="btn btn-sm btn-outline-cockpit rembg">
+        <i class="fas fa-remove"></i> Hintergrund aus dem Bild entfernen
+    </span>
+</div>
 
 <?php $color = configValue($tenant, "colorMatrixLabel") ?: 'Gr&uuml;n'; ?>
 

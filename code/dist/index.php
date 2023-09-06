@@ -122,7 +122,7 @@
           <img src="assets/btw21/logo.svg" id="sunflower">
       </div>
       <div id="loginscreen">
-          <a href="/btw21" class="">
+          <a href="/de" class="">
               <h2 class="display-6 fw-normal bereitbold">Sharepic&shy;generator</h2>
               <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
               <div class="w-100 btn btn-lg btn-moos text-white">

@@ -31,7 +31,7 @@
                 Regionale Angebote
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/btw21" class="dropdown-item">Bundeslayout</a>
+                <a href="/de" class="dropdown-item">Bundeslayout</a>
 
                 <div class="dropdown-divider"></div>
                 <?php
