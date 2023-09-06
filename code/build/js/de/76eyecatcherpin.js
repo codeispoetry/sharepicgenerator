@@ -55,7 +55,7 @@ const pin = {
     $('#eyecatchertemplate').val('custom');
     pin.resize();
 
-    pin.svg.rotate(-9);
+    pin.svg.rotate(-12);
   },
 
   setSize(w) {

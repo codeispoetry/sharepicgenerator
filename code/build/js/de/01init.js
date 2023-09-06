@@ -19,13 +19,11 @@ $(document).ready(() => {
   $('#logoY').val(135);
   $('#logosize').val(50);
 
-
-  open();
-
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
   });
 
+  $('optgroup[Label=Flyeralarm]').hide();
 });
 
 function initSharepic() {

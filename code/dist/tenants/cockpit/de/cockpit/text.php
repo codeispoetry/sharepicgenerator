@@ -23,15 +23,16 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="d-flex">
-                    <textarea placeholder="Text" name="text" id="text" class="form-control detext">Alles neu
+                <div class="row">
+                    <div class="col-8">
+                        <textarea placeholder="Text" name="text" id="text" class="form-control detext">Alles neu
    macht der Mai!
 Zeile DREI</textarea>
-                    
-                   <div>
+                    </div>     
+                   <div class="col-auto">
                     <?php for ($i = 0; $i <= 3; $i++) { ?>
                         <div class="d-flex">
-                            <select id="lineColorSet<?php echo $i;?>" class="detext lineColorSet form-select">
+                            <select id="lineColorSet<?php echo $i;?>" class="w-75 detext lineColorSet form-select">
                                 <optgroup label="Farbkombination">
                                     <option value="sand/tanne">sand/tanne</option>
                                     <option value="tanne/sand">tanne/sand</option>
@@ -43,7 +44,7 @@ Zeile DREI</textarea>
                                     <option value="tanne/grashalm">tanne/grashalm</option>
                                 </optgroup>
                             </select>
-                            <select id="lineSize<?php echo $i;?>" class="detext lineSize form-select">
+                            <select id="lineSize<?php echo $i;?>" class="w-25 detext lineSize form-select">
                                 <optgroup label="Größe">
                                     <option value="20">S</option>
                                     <option value="30">M</option>

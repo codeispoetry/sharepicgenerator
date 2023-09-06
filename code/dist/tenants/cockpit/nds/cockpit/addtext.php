@@ -12,7 +12,7 @@
                 <small>groß</small>
             </div>
             <div>
-                <span class="to-front" data-target="addtext" title="Sternchentext nach vorne">
+                <span class="to-front" data-target="addtext" title="Fließtext nach vorne">
                     <i class="fas fa-layer-group text-cockpit"></i>
                 </span> 
                 <input type="hidden" name="addtextColor" id="addtextColor" value="#e6e3bf">

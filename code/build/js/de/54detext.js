@@ -70,7 +70,7 @@ const detext = {
           .fill(fondColor)
           .x(-fondPadding)
           .y(-fondPadding)
-          .skew(-9,0)
+          .skew(-12,0)
           .back();
   
         line
