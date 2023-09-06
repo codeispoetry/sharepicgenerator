@@ -23,16 +23,32 @@ const addtext = {
     });
 
     const fontSize = parseInt($('#addtextsize').val(), 10);
-    const addtextContent = draw.text($('#addtext').val())
-      .font(Object.assign(addtext.font, { size: fontSize }))
-      .fill($('#addtextColor').val());
+    // const addtextContent = draw.text($('#addtext').val())
+    //   .font(Object.assign(addtext.font, { size: fontSize }))
+    //   .fill($('#addtextColor').val());
 
-    addtextContent.attr('xml:space', 'preserve');
-    addtextContent.attr('style', 'white-space:pre');
+      const lines = $('#addtext').val().replace(/\n$/, '').split(/\n/);
+
+      const addtextContent = draw.text(function(add) {
+
+        lines.forEach((value, index) => {
+          const chunks = value.split('*');
+          add.tspan(chunks[0]).newLine();
+          add.tspan(chunks[1]).font({ weight: 'bold'});
+          add.tspan(chunks[2]);    
+          add.tspan(chunks[3]).font({ weight: 'bold'});
+          add.tspan(chunks[4]);    
+         
+        }
+      )})
+      
+      addtextContent
+        .font(Object.assign(addtext.font, { size: fontSize }))
+        .fill($('#addtextColor').val())
+        .attr('xml:space', 'preserve')
+        .attr('style', 'white-space:pre');
 
     addtext.svg.add(addtextContent);
-
-    
 
     addtext.svg.move(parseInt($('#addtextX').val(), 10), parseInt($('#addtextY').val(), 10));
   },
@@ -51,3 +67,4 @@ $('.align-center-addtext').click(() => {
   addtext.draw();
   undo.save();
 });
+addtext.draw()

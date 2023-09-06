@@ -17,6 +17,7 @@
         <div class="d-flex align-items-lg-center">
             <textarea name="addtext" id="addtext" placeholder="Fließtext" value="" class="form-control"></textarea>
         </div>
+        <small>Text in Sternchen wird <strong>*fett*</strong> dargestellt.</small>
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>
