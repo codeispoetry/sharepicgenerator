@@ -18,9 +18,19 @@ const detext = {
         $('#textX').val(Math.round(this.x()));
         $('#textY').val(Math.round(this.y()));
       });
-  
+
+      let yOffset = 0;
+      
+      
+      $('select.detext').hide();
+      $('option', '.lineColorSet').prop('disabled', false);
+      usedColorSets = new Set();
+
       lines.forEach((value, index) => {
         if( value === '' ) return;
+
+        $('select#lineColorSet' + index).show();
+        $('select#lineSize' + index).show();
 
         const line = draw.group();
         const indentation = value.match(/^\s*/)[0].length;
@@ -33,12 +43,22 @@ const detext = {
             'sand' : '#f5f1e9',
         }
   
-        const colorNames = $('#line1').val().split('/')
+        usedColorSets.add($('#lineColorSet' + index).val());
+
+        if( usedColorSets.size == 2 ) {
+            const useColorSetsArray = [...usedColorSets];
+            $(`option:not([value="${useColorSetsArray[0]}"]):not([value="${useColorSetsArray[1]}"])`, 'select.lineColorSet').prop('disabled', true)
+        }
+
+
+        const colorNames = $('#lineColorSet' + index).val().split('/')
         let textColor = colors[colorNames[0]];
         let fondColor = colors[colorNames[1]];
+
+        const size = $('#lineSize' + index).val();
   
         const text = line.text(value.replace(/^\s*/, ''))
-          .font(Object.assign(detext.font, { }))
+          .font(Object.assign(detext.font, { size }))
           .fill(textColor)
           .move(0, 0)
           .attr('xml:space', 'preserve')
@@ -53,9 +73,11 @@ const detext = {
           .skew(-9,0)
           .back();
   
-        line.x(indentation * 5)
-          .y(index * 28); // Zeilenhöhe
+        line
+            .x(indentation * 5)
+            .y(yOffset)
   
+        yOffset += line.height();
         detext.svg.add(line);
       });
   
@@ -76,4 +98,6 @@ const detext = {
     $('#textY').val((draw.height() - detext.svg.height()) / 2);
     detext.draw();
   });
+
+  var usedColorSets = new Set();
   

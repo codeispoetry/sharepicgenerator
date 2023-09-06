@@ -1,13 +1,12 @@
 <h3 class="">Logo</h3>
 <div class="logo list-group-item list-group-item-action flex-column align-items-start showonly floating berlintext">
-    <nav class="navbar-expand-lg">
+    <nav class="navbar-expand-lg d-none">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                     Ausrichtung
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="align-logo" data-place="topright"><span>rechts oben</span></li>
                     <li class="to-front" data-target="defaultlogo"><span>in Vordergrund</span></li>
                 </ul>
             </li>
@@ -23,6 +22,4 @@
 </div>
 <input type="hidden" name="logoX" id="logoX" value="256.5">
 <input type="hidden" name="logoY" id="logoY" value="390">
-<input type="file" class="custom-file-input upload-file" id="uploadlogo" accept="image/*">
-<input type="hidden" id="logofile" name="logofile">
 

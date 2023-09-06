@@ -25,21 +25,34 @@
                 </nav>
                 <div class="d-flex">
                     <textarea placeholder="Text" name="text" id="text" class="form-control detext">Alles neu
-   macht der Mai!</textarea>
+   macht der Mai!
+Zeile DREI</textarea>
                     
                    <div>
-                    <select name="line1" id="line1" class="detext">
-                        <option value="sand/tanne">sand/tanne</option>
-                        <option value="tanne/sand">tanne/sand</option>
+                    <?php for ($i = 0; $i <= 3; $i++) { ?>
+                        <div class="d-flex">
+                            <select id="lineColorSet<?php echo $i;?>" class="detext lineColorSet form-select">
+                                <optgroup label="Farbkombination">
+                                    <option value="sand/tanne">sand/tanne</option>
+                                    <option value="tanne/sand">tanne/sand</option>
 
-                        <option value="klee/sand">klee/sand</option>
-                        <option value="sand/klee">sand/klee</option>
+                                    <option value="klee/sand">klee/sand</option>
+                                    <option value="sand/klee">sand/klee</option>
 
-                        <option value="grashalm/tanne">grashalm/tanne</option>
-                        <option value="tanne/grashalm">tanne/grashalm</option>
+                                    <option value="grashalm/tanne">grashalm/tanne</option>
+                                    <option value="tanne/grashalm">tanne/grashalm</option>
+                                </optgroup>
+                            </select>
+                            <select id="lineSize<?php echo $i;?>" class="detext lineSize form-select">
+                                <optgroup label="Größe">
+                                    <option value="20">S</option>
+                                    <option value="30">M</option>
 
-
-                    </select>
+                                    <option value="40">L</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    <?php } ?>
                    </div>
                 </div>
 
