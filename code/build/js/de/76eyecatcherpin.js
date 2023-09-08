@@ -1,16 +1,10 @@
-$('#pinsize').bind('input propertychange', () => {
-  pin.draw();
-});
-
-const pinfont = {
-  family: 'GrueneType',
-  size: 15,
-  anchor: 'middle',
-  leading: '1em',
-};
-
 const pin = {
   isLoaded: false,
+  font: {
+    family: 'GrueneType',
+    size: 15,
+    anchor: 'middle'
+  },
 
   svg: draw.text(''),
   template: draw.circle(0),
@@ -18,15 +12,15 @@ const pin = {
   draw() {
     //$('#eyecatchersize').prop('disabled', ($('#pintext').val().length === 0));
 
+    const lines = $('#pintext').val().replace(/\n$/, '').split(/\n/);
+
+
+    $('select.depin').hide();
     pin.svg.remove();
     pin.svg = draw.group();
     if ($('#pintext').val() === '') return;
 
     pin.svg.addClass('draggable').draggable();
-
-    pin.svg.on('dragstart.namespace', function () {
-      undo.save();
-    });
 
     pin.svg.on('dragend.namespace', () => {
       $('#pinX').val(Math.round(pin.svg.x()));
@@ -34,12 +28,27 @@ const pin = {
     });
 
     // text
-    const pintext = draw.text($('#pintext').val()).font(pinfont).fill('#f5f1e9');
+    const pintext = draw.text(function(add) {
+        lines.forEach((value, index) => {
+          add.tspan(value)
+          .fill('#f5f1e9')
+          .font(
+            Object.assign(
+              pin.font, { size: $('#pinLineSize' + index).val()}
+            ))
+          .newLine();
+        
+          $('select#pinLineSize' + index).show();
+        }
+      )
+    });
 
     // background
-    const diameter = 1.25 * Math.max(pintext.rbox().w, pintext.rbox().h);
-    const pinbackground = draw.circle(diameter)
-      .fill('#0ba1dd');
+    console.log(pintext.rbox().w, pintext.rbox().h)
+    const diameter = Math.max(pintext.rbox().w, pintext.rbox().h) / 0.7;
+    console.log(diameter)
+    const pinbackground = draw.circle(diameter).fill('#0ba1dd');
+    pintext.move(0,0)
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
@@ -51,11 +60,10 @@ const pin = {
 
     pin.svg.move($('#pinX').val(), $('#pinY').val());
     pin.svg.front().show();
-    pin.template.hide();
-    $('#eyecatchertemplate').val('custom');
+
     pin.resize();
 
-    pin.svg.rotate(-12);
+    pin.svg.rotate(-7);
   },
 
   setSize(w) {
@@ -65,32 +73,6 @@ const pin = {
   resize() {
     const eyecatchersize = $('#eyecatchersize').val();
     pin.svg.size(eyecatchersize);
-    pin.template.size(eyecatchersize);
-  },
-
-  drawTemplate() {
-    if (!$('#eyecatchertemplate').val()) {
-      return;
-    }
-
-    if ($('#eyecatchertemplate').val() === 'custom') {
-      pin.draw();
-      return;
-    }
-
-    pin.template.remove();
-    pin.template = draw.image(`/assets/${$('#eyecatchertemplate').val()}`, () =>{
-      pin.template.size($('#eyecatchersize').val())
-        .move($('#pinX').val(), $('#pinY').val())
-        .draggable();
-
-      pin.template.on('dragend.namespace', () => {
-        $('#pinX').val(Math.round(pin.template.x()));
-        $('#pinY').val(Math.round(pin.template.y()));
-      });
-    });
-
-    pin.svg.hide();
   },
 
   bounce() {
@@ -111,8 +93,11 @@ const pin = {
   },
 };
 
-$('#pintext').bind('input propertychange', pin.draw);
+$('#pintext, .depin').bind('input propertychange', pin.draw);
 $('#eyecatchersize').bind('input propertychange', pin.resize);
+$('#pinsize').bind('input propertychange', () => {
+  pin.draw();
+});
 
 $('#pintext, #eyecatchersize').on('change', () => {
   undo.save();

@@ -346,6 +346,8 @@ input{
   }
 }
 
-.form-select.detext{
-  padding: 0 3px;
+.form-select{
+  &.detext,&.depin{
+    padding: 0 3px;
+  }
 }

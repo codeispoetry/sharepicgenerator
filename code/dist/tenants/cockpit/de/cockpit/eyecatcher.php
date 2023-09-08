@@ -14,11 +14,28 @@
                 </li>
             </ul>   
         </nav>
-        <div class="d-flex align-items-lg-center">
-            <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3"></textarea>
+        <div class="row">
+            <div class="col-10">
+                <textarea name="pintext" id="pintext" placeholder="Dein Text" class="form-control" data-maxlines="3"></textarea>
+            </div>
+            <div class="col-auto">
+                    <?php for ($i = 0; $i <= 5; $i++) { ?>
+                        <div class="d-flex">
+                            <select id="pinLineSize<?php echo $i;?>" class=" pinLineSize depin form-select">
+                                <optgroup label="Größe">
+                                    <option value="20">S</option>
+                                    <option value="30">M</option>
+
+                                    <option value="40">L</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    <?php } ?>
+                   </div>
+
         </div>
         <div class="d-flex justify-content-start">
-            <div class="slider advancedmode d-none">
+            <div class="slider">
                 <small>klein</small>
                 <input type="range" class="form-range" name="eyecatchersize" id="eyecatchersize" min="50"
                     max="300" value="100">

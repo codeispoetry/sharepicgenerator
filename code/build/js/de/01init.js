@@ -12,12 +12,21 @@ var initialized = false;
 
 $(document).ready(() => {
  
-  $('#textX').val(20);
-  $('#textY').val(draw.height() / 2);
+  $('#textX').val(10);
+  $('#textY').val(20);
   $('#textsize').val(205);
   $('#logoX').val(-125);
   $('#logoY').val(135);
   $('#logosize').val(50);
+  $('#text').val("Jetzt\nfür\nmorgen");
+  $('#lineSize0 option:eq(0)').prop("selected",true);
+  $('#lineSize1 option:eq(1)').prop("selected",true);
+  $('#lineSize2 option:eq(1)').prop("selected",true);
+  $('#textsize').val(540);
+
+  $('#pintext').val("Mittwoch\n3.10\nMarkplatz");
+  $('#pinLineSize1 option:eq(1)').prop("selected",true);
+
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();

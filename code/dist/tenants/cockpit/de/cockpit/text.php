@@ -30,7 +30,7 @@
 Zeile DREI</textarea>
                     </div>     
                    <div class="col-auto">
-                    <?php for ($i = 0; $i <= 3; $i++) { ?>
+                    <?php for ($i = 0; $i <= 10; $i++) { ?>
                         <div class="d-flex">
                             <select id="lineColorSet<?php echo $i;?>" class="w-75 detext lineColorSet form-select">
                                 <optgroup label="Farbkombination">

@@ -1,7 +1,11 @@
 <?php
     $tenants = getActiveTenants();
 
-    if(!in_array($province->name, array_values($tenants))){
+    if ( !isset($province) || !isset($province->name) ){
+        return;
+    }   
+
+    if (!in_array($province->name, array_values($tenants))){
        return;
     }
     $link = array_search($province->name, $tenants);

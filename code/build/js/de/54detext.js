@@ -34,7 +34,7 @@ const detext = {
 
         const line = draw.group();
         const indentation = value.match(/^\s*/)[0].length;
-        const fondPadding = 4;
+        const size = $('#lineSize' + index).val();
 
         const colors = {
             'tanne' : '#005437',
@@ -54,8 +54,6 @@ const detext = {
         const colorNames = $('#lineColorSet' + index).val().split('/')
         let textColor = colors[colorNames[0]];
         let fondColor = colors[colorNames[1]];
-
-        const size = $('#lineSize' + index).val();
   
         const text = line.text(value.replace(/^\s*/, ''))
           .font(Object.assign(detext.font, { size }))
@@ -64,20 +62,26 @@ const detext = {
           .attr('xml:space', 'preserve')
           .attr('style', 'white-space:pre');
   
-        const fond = line.rect(
-          text.bbox().width + (2 * fondPadding), text.bbox().height + (2 * fondPadding)
-        )
+        const fondPaddingW = size * 0.25;
+        const fondPaddingH = 0;
+
+
+        const fondW = text.bbox().width + (2 * fondPaddingW);
+        const fondH = text.bbox().height + (2 * fondPaddingH);
+        const fond = line
+          .rect( fondW, fondH )
           .fill(fondColor)
-          .x(-fondPadding)
-          .y(-fondPadding)
+          .x(-fondPaddingW)
+          .y(-fondPaddingH)
           .skew(-12,0)
           .back();
   
+        console.log(value, text.bbox().height)
         line
             .x(indentation * 5)
             .y(yOffset)
   
-        yOffset += line.height();
+        yOffset += line.height() - 1;
         detext.svg.add(line);
       });
   
