@@ -12,17 +12,22 @@ var initialized = false;
 
 $(document).ready(() => {
  
-  $('#textX').val(10);
-  $('#textY').val(20);
+  $('#textX').val(200);
+  $('#textY').val(200);
   $('#textsize').val(205);
   $('#logoX').val(-125);
   $('#logoY').val(135);
   $('#logosize').val(50);
-  $('#text').val("MMM\nabc\n123");
-  $('#lineSize0 option:eq(0)').prop("selected",true);
-  $('#lineSize1 option:eq(1)').prop("selected",true);
+  $('#text').val("Die Zukunft\nänderst Du\nhier!");
+  $('#lineSize0 option:eq(1)').prop("selected",true);
+  $('#lineSize1 option:eq(2)').prop("selected",true);
   $('#lineSize2 option:eq(2)').prop("selected",true);
-  $('#textsize').val(540);
+
+  $('#lineColorSet0 option:eq(0)').prop("selected",true);
+  $('#lineColorSet1 option:eq(1)').prop("selected",true);
+  $('#lineColorSet2 option:eq(0)').prop("selected",true);
+
+  $('#textsize').val(340);
 
   $('#pintext').val("Mittwoch\n3.10\nMarkplatz");
   $('#pinLineSize1 option:eq(1)').prop("selected",true);

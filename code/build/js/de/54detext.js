@@ -66,9 +66,7 @@ const detext = {
   
         const text = line.text(value.replace(/^\s*/, ''))
           .font(Object.assign(detext.font, { size }))
-          .move(0, 0)
           .fill(textColor)
-          .opacity(0.5)
           .attr('xml:space', 'preserve')
           .attr('style', 'white-space:pre');
   
@@ -100,9 +98,11 @@ const detext = {
         let fondW = text.bbox().width + fondPaddingL + fondPaddingR;
         let fondH = text.bbox().height + fondPaddingT + fondPaddingB;
 
-        // fondW += 30;
-        // fondH += 30;
-        // text.move(15, 15)
+        const fromSizeToRealHeight = size / 1.3333;
+        const fondPaddingAround = fromSizeToRealHeight * 0.3;
+        fondW += 2 * fondPaddingAround;
+        fondH += 2 * fondPaddingAround;
+        text.move(fondPaddingAround, fondPaddingAround)
 
         const skewFixer = fondH * Math.tan(12 * Math.PI / 180);
         const fond = line
@@ -116,19 +116,9 @@ const detext = {
             })
           .back();
   
-          console.log(indentation)
         line
             .x(indentation * 5)
-            .y(fondPaddingT + yOffset)
-
-
-        // line
-        // .rect(text.bbox().width, fondH)
-        //   .y(-fondPaddingT)
-        //   .fill('transparent').stroke(
-        //    { color: '#f06', opacity: 0.6, width: 1 }
-        //    )
-
+            .dy(fondPaddingT + yOffset)
   
         yOffset += fond.height() - 0;
         detext.svg.add(line);
