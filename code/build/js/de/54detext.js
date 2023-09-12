@@ -66,48 +66,71 @@ const detext = {
   
         const text = line.text(value.replace(/^\s*/, ''))
           .font(Object.assign(detext.font, { size }))
-          .fill(textColor)
           .move(0, 0)
+          .fill(textColor)
+          .opacity(0.5)
           .attr('xml:space', 'preserve')
           .attr('style', 'white-space:pre');
   
         
-          // letter M in size S
-        let fondPaddingL = -1.9
-        let fondPaddingR = -2.5
-        let fondPaddingT = -6;
-        let fondPaddingB = -5;
+        // Set the paddings to 0, that means, 
+        // the fond will be EXACTLY as big as the text
+        // letter M in size S
+        let fondPaddingL = 0
+        let fondPaddingR = 0
+        let fondPaddingT = -58
+        let fondPaddingB = -46;
 
           switch (size) {
-            case '30': // letter M in size M
-              fondPaddingL = -3.3
-              fondPaddingR = -3.25
-              fondPaddingT = -8.5
-              fondPaddingB = -7
+            case '300': // letter M in size M
+              fondPaddingL = 0
+              fondPaddingR = -0
+              fondPaddingT = -86
+              fondPaddingB = -71
             break;
-            case '40': // letter M in size L
-              fondPaddingL = -3.8
-              fondPaddingR = -4
-              fondPaddingT = -12
-              fondPaddingB = -9
+            case '400': // letter M in size L
+              fondPaddingL = 0
+              fondPaddingR = 0
+              fondPaddingT = -116
+              fondPaddingB = -92
             break;
           }
 
-        const fondW = text.bbox().width + (fondPaddingL + fondPaddingR);
-        const fondH = text.bbox().height + (fondPaddingT + fondPaddingB);
-        const fond = line
-          .rect( fondW, fondH )
-          .fill(fondColor)
-          .skew(-12,0)
-          .back();
+        // 
+        let fondW = text.bbox().width + fondPaddingL + fondPaddingR;
+        let fondH = text.bbox().height + fondPaddingT + fondPaddingB;
 
-        text.x(fondPaddingL).y(fondPaddingT)
+        // fondW += 30;
+        // fondH += 30;
+        // text.move(15, 15)
+
+        const skewFixer = fondH * Math.tan(12 * Math.PI / 180);
+        const fond = line
+          .rect( fondW - skewFixer, fondH )
+          .fill(fondColor)
+          .move(0, -fondPaddingT)
+          .transform(
+            {
+              skew: [-12, 0],
+              origin: 'bottom left',
+            })
+          .back();
   
+          console.log(indentation)
         line
             .x(indentation * 5)
             .y(fondPaddingT + yOffset)
+
+
+        // line
+        // .rect(text.bbox().width, fondH)
+        //   .y(-fondPaddingT)
+        //   .fill('transparent').stroke(
+        //    { color: '#f06', opacity: 0.6, width: 1 }
+        //    )
+
   
-        yOffset += fond.height();
+        yOffset += fond.height() - 0;
         detext.svg.add(line);
       });
   

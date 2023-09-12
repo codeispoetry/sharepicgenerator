@@ -45,10 +45,9 @@
                             </select>
                             <select id="lineSize<?php echo $i;?>" class="w-25 detext lineSize form-select">
                                 <optgroup label="Größe">
-                                    <option value="20">S</option>
-                                    <option value="30">M</option>
-
-                                    <option value="40">L</option>
+                                    <option value="200">S</option>
+                                    <option value="300">M</option>
+                                    <option value="400">L</option>
                                 </optgroup>
                             </select>
                         </div>
