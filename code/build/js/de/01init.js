@@ -19,9 +19,9 @@ $(document).ready(() => {
   $('#logoY').val(135);
   $('#logosize').val(50);
   $('#text').val("Die Zukunft\nänderst Du\nhier!");
-  $('#lineSize0 option:eq(1)').prop("selected",true);
-  $('#lineSize1 option:eq(2)').prop("selected",true);
-  $('#lineSize2 option:eq(2)').prop("selected",true);
+  $('#lineSize0').val(200);
+  $('#lineSize1').val(300);
+  $('#lineSize2').val(200);
 
   $('#lineColorSet0 option:eq(0)').prop("selected",true);
   $('#lineColorSet1 option:eq(1)').prop("selected",true);

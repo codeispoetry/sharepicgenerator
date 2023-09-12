@@ -22,6 +22,7 @@ const detext = {
       let yOffset = 0;
       
       $('select.detext').hide();
+      $('.lineSizer').hide();
       $('option', '.lineColorSet').prop('disabled', false);
 
       lines.forEach((value, index) => {
@@ -39,7 +40,7 @@ const detext = {
 
         $('select#lineColorSet' + index).addClass(colorCombi);
 
-        $('select#lineSize' + index).show();
+        $('#lineSizer' + index).show();
 
         const line = draw.group();
         const indentation = value.match(/^\s*/)[0].length;

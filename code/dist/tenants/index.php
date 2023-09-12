@@ -72,7 +72,7 @@ $_SESSION['csrf'] = $csrf;
         require_once('fonts.php');
     ?>
 </head>
-<body class="h-100 d-flex flex-column text-white">
+<body class="h-100 d-flex flex-column text-white <?php echo $tenant; ?>">
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -89,7 +89,7 @@ $_SESSION['csrf'] = $csrf;
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0">
                 <div id="canvas-area" ondrop="dropHandler(event);"  ondragover="dragOverHandler(event);">
-                    <span id="mouse-position" class="d-none d-lg-inline"></span>
+                    <span id="mouse-position" class="d-none d-lg-inline">&nbsp;</span>
                     <div id="canvas">
                         <div id="highlight-rect" class="d-none"></div>
                         <div class="guideline guideline-x d-none" id="guideline-x1"></div>

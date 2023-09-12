@@ -31,25 +31,20 @@
                    <div class="col-auto">
                     <?php for ($i = 0; $i <= 10; $i++) { ?>
                         <div class="d-flex">
-                            <select id="lineColorSet<?php echo $i;?>" class="w-75 detext lineColorSet form-select">
+                            <select id="lineColorSet<?php echo $i;?>" class="w-75 detext lineColorSet form-select" title="Es sind höchstens 2 Grüntöne gleichzeitig möglich">
                                 <optgroup label="Farbkombination">
-                                    <option value="sand/tanne">sand/tanne</option>
-                                    <option value="tanne/sand">tanne/sand</option>
-
-                                    <option value="klee/sand" class="klee" data-disable=".grashalmtanne">klee/sand</option>
-                                    <option value="sand/klee" class="klee" data-disable=".grashalmtanne">sand/klee</option>
-
-                                    <option value="grashalm/tanne" class="grashalmtanne" data-disable=".klee">grashalm/tanne</option>
-                                    <option value="tanne/grashalm" class="grashalmtanne" data-disable=".klee">tanne/grashalm</option>
+                                    <option value="sand/tanne" class="sandtanne">sand/tanne</option>
+                                    <option value="tanne/sand" class="tannesand">tanne/sand</option>
+                                    <option value="klee/sand" class="klee kleesand" data-disable=".grashalm">klee/sand</option>
+                                    <option value="sand/klee" class="klee sandklee" data-disable=".grashalm">sand/klee</option>
+                                    <option value="grashalm/tanne" class="grashalm grashalmtanne" data-disable=".klee">grashalm/tanne</option>
+                                    <option value="tanne/grashalm" class="grashalm tannegrashalm" data-disable=".klee">tanne/grashalm</option>
                                 </optgroup>
                             </select>
-                            <select id="lineSize<?php echo $i;?>" class="w-25 detext lineSize form-select">
-                                <optgroup label="Größe">
-                                    <option value="200">S</option>
-                                    <option value="300">M</option>
-                                    <option value="400">L</option>
-                                </optgroup>
-                            </select>
+
+                            <input type="hidden" name="lineSize<?php echo $i;?>" id="lineSize<?php echo $i;?>" value="100">
+                            <span class="sizepicker lineSizer ms-1" id="lineSizer<?php echo $i; ?>" data-sizes="200,300,400" data-labels="S,M,L" data-action="detext.draw()" data-field="#lineSize<?php echo $i;?>" title="Schriftgröße der <?php echo $i+1;?>. Zeile"></span> 
+
                         </div>
                     <?php } ?>
                    </div>

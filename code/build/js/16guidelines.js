@@ -16,7 +16,7 @@ sharepic.addEventListener('mouseleave', (e) => {
     guidelines.forEach((guideline) => {
         guideline.classList.add('d-none');
     });
-    $('#mouse-position').text('');
+    $('#mouse-position').text('&nbsp;');
 });
 
 sharepic.addEventListener('mousemove', (e) => {

@@ -55,8 +55,23 @@
 }
 
 .sizepicker{
+
     .dot{
         border: 0;
         height: 20px;
+        color: black;
+        border-radius: 40px;
+        background: white;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        &:hover{
+            color: white;
+            background: black;
+        }
     }
 }
