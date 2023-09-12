@@ -120,7 +120,7 @@ const detext = {
             .x(indentation * 5)
             .dy(fondPaddingT + yOffset)
   
-        yOffset += fond.height() - 0;
+        yOffset += fond.height() - 1;
         detext.svg.add(line);
       });
   
