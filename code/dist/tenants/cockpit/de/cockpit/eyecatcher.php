@@ -23,10 +23,9 @@
                         <div class="d-flex">
                             <select id="pinLineSize<?php echo $i;?>" class=" pinLineSize depin form-select">
                                 <optgroup label="Größe">
-                                    <option value="20">S</option>
-                                    <option value="30">M</option>
-
-                                    <option value="40">L</option>
+                                    <option value="200">S</option>
+                                    <option value="300">M</option>
+                                    <option value="400">L</option>
                                 </optgroup>
                             </select>
                         </div>

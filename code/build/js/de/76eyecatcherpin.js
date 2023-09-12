@@ -28,25 +28,45 @@ const pin = {
     });
 
     // text
-    const pintext = draw.text(function(add) {
-        lines.forEach((value, index) => {
-          add.tspan(value)
-          .fill('#f5f1e9')
-          .font(
-            Object.assign(
-              pin.font, { size: $('#pinLineSize' + index).val()}
-            ))
-          .newLine();
-        
-          $('select#pinLineSize' + index).show();
-        }
-      )
+    const pintext = draw.group();
+    let rows = [];
+    let maxWidth = 0;
+
+    lines.forEach((value, index) => {
+      const size = $('#pinLineSize' + index).val();
+
+      rows[index] = draw.text(value).fill('#f5f1e9')
+        .font(
+          Object.assign(
+            pin.font, { size }
+          ));
+
+      maxWidth = Math.max(maxWidth, rows[index].rbox().w);
+
+      $('select#pinLineSize' + index).show();
     });
+
+
+    // move each line and put all together
+    let yOffset = 0;
+    lines.forEach((value, index) => {
+      const size = $('#pinLineSize' + index).val();
+
+      rows[index].x( (maxWidth - rows[index].rbox().w) / 2 );
+      const y = -size * 0.25;
+      rows[index].y( y + yOffset)
+
+      const lineMargin = 1.3;
+      yOffset += y + ( lineMargin * rows[index].rbox().height * 0.75);
+
+      pintext.add(rows[index]);
+    });
+
 
     // background
     const diameter = Math.max(pintext.rbox().w, pintext.rbox().h) / 0.7;
     const pinbackground = draw.circle(diameter).fill('#0ba1dd');
-    pintext.move(0,0)
+
 
     pintext.move((diameter - pintext.rbox().w) / 2, (diameter - pintext.rbox().h) / 2);
 
@@ -73,20 +93,7 @@ const pin = {
     pin.svg.size(eyecatchersize);
   },
 
-  bounce() {
-
-  },
-
   front() {
-    if (!$('#eyecatchertemplate').val()) {
-      return;
-    }
-
-    if ($('#eyecatchertemplate').val() === 'custom') {
-      pin.svg.front();
-      return;
-    }
-
     pin.template.front();
   },
 };

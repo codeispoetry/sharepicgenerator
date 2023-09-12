@@ -29,9 +29,12 @@ $(document).ready(() => {
 
   $('#textsize').val(340);
 
-  $('#pintext').val("Mittwoch\n3.10\nMarkplatz");
-  $('#pinLineSize1 option:eq(1)').prop("selected",true);
+  // $('#pintext').val("SSS\nMMM\nLLL");
+  // $('#pinLineSize0 option:eq(0)').prop("selected",true);
+  // $('#pinLineSize1 option:eq(1)').prop("selected",true);
+  // $('#pinLineSize2 option:eq(2)').prop("selected",true);
 
+  $('#eyecatchersize').val(200);
 
   $('.close-target').click(function doCloseTarget() {
     $($(this).data('target')).slideUp();
