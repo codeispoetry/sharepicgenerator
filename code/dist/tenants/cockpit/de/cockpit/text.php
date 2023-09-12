@@ -36,11 +36,11 @@
                                     <option value="sand/tanne">sand/tanne</option>
                                     <option value="tanne/sand">tanne/sand</option>
 
-                                    <option value="klee/sand">klee/sand</option>
-                                    <option value="sand/klee">sand/klee</option>
+                                    <option value="klee/sand" class="klee" data-disable=".grashalmtanne">klee/sand</option>
+                                    <option value="sand/klee" class="klee" data-disable=".grashalmtanne">sand/klee</option>
 
-                                    <option value="grashalm/tanne">grashalm/tanne</option>
-                                    <option value="tanne/grashalm">tanne/grashalm</option>
+                                    <option value="grashalm/tanne" class="grashalmtanne" data-disable=".klee">grashalm/tanne</option>
+                                    <option value="tanne/grashalm" class="grashalmtanne" data-disable=".klee">tanne/grashalm</option>
                                 </optgroup>
                             </select>
                             <select id="lineSize<?php echo $i;?>" class="w-25 detext lineSize form-select">

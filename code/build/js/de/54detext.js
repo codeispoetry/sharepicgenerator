@@ -23,7 +23,6 @@ const detext = {
       
       $('select.detext').hide();
       $('option', '.lineColorSet').prop('disabled', false);
-      usedColorSets = new Set();
 
       lines.forEach((value, index) => {
         if( value === '' ) return;
@@ -53,12 +52,10 @@ const detext = {
             'sand' : '#f5f1e9',
         }
   
-        usedColorSets.add($('#lineColorSet' + index).val());
-
-        if( usedColorSets.size == 2 ) {
-            const useColorSetsArray = [...usedColorSets];
-            $(`option:not([value="${useColorSetsArray[0]}"]):not([value="${useColorSetsArray[1]}"])`, 'select.lineColorSet').prop('disabled', true)
-        }
+        const disable = $('select#lineColorSet' + index + ' option:selected').data('disable');
+        if( disable ) {
+          $(disable, 'select.lineColorSet').prop('disabled', true);
+        } 
 
         const colorNames = $('#lineColorSet' + index).val().split('/')
         let textColor = colors[colorNames[0]];
