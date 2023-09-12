@@ -21,26 +21,16 @@ const detext = {
 
       let yOffset = 0;
       
-      $('select.detext').hide();
+      $('.colorSetPicker').hide();
       $('.lineSizer').hide();
-      $('option', '.lineColorSet').prop('disabled', false);
+      $('.colorSetPicker .disabled').attr('title','');
+      $('.colorSetPicker .disabled').removeClass('disabled');
 
       lines.forEach((value, index) => {
         if( value === '' ) return;
 
-        $('select#lineColorSet' + index).show();
-        const colorCombi = $('select#lineColorSet' + index).val().replace('/', '');
-        
-        $('select#lineColorSet' + index).removeClass('sandtanne');
-        $('select#lineColorSet' + index).removeClass('tannesand ');
-        $('select#lineColorSet' + index).removeClass('kleesand');
-        $('select#lineColorSet' + index).removeClass('sandklee');
-        $('select#lineColorSet' + index).removeClass('grashalmtanne');
-        $('select#lineColorSet' + index).removeClass('tannegrashalm');
-
-        $('select#lineColorSet' + index).addClass(colorCombi);
-
         $('#lineSizer' + index).show();
+        $('#colorSetPicker' + index).show();
 
         const line = draw.group();
         const indentation = value.match(/^\s*/)[0].length;
@@ -53,14 +43,26 @@ const detext = {
             'sand' : '#f5f1e9',
         }
   
-        const disable = $('select#lineColorSet' + index + ' option:selected').data('disable');
-        if( disable ) {
-          $(disable, 'select.lineColorSet').prop('disabled', true);
-        } 
+        // const disable = $('select#lineColorSet' + index + ' option:selected').data('disable');
+        // if( disable ) {
+        //   $(disable, 'select.lineColorSet').prop('disabled', true);
+        // } 
+
 
         const colorNames = $('#lineColorSet' + index).val().split('/')
         let textColor = colors[colorNames[0]];
         let fondColor = colors[colorNames[1]];
+
+        // check, if string "klee" is in colorNames
+        if( colorNames.indexOf('klee') > -1 ) {
+          $('.colorSetPicker .grashalm').addClass('disabled');
+          $('.colorSetPicker .grashalm').attr('title', 'Es sind nur 2 Grüntöne gleichzeitig möglich.');
+
+        }
+        if( colorNames.indexOf('grashalm') > -1 ) {
+          $('.colorSetPicker .klee').addClass('disabled');
+          $('.colorSetPicker .klee').attr('title', 'Es sind nur 2 Grüntöne gleichzeitig möglich.');
+        }
   
         const text = line.text(value.replace(/^\s*/, ''))
           .font(Object.assign(detext.font, { size }))

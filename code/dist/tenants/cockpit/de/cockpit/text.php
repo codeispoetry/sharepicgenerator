@@ -24,23 +24,29 @@
                     </ul>
                 </nav>
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-10">
                         <textarea placeholder="Text" name="text" id="text" class="form-control detext"></textarea>
                         <small>Einrückungen mit Leerzeichen</small>
                     </div>     
-                   <div class="col-auto">
+                   <div class="col-2">
                     <?php for ($i = 0; $i <= 10; $i++) { ?>
                         <div class="d-flex">
-                            <select id="lineColorSet<?php echo $i;?>" class="w-75 detext lineColorSet form-select" title="Es sind höchstens 2 Grüntöne gleichzeitig möglich">
-                                <optgroup label="Farbkombination">
-                                    <option value="sand/tanne" class="sandtanne">sand/tanne</option>
-                                    <option value="tanne/sand" class="tannesand">tanne/sand</option>
-                                    <option value="klee/sand" class="klee kleesand" data-disable=".grashalm">klee/sand</option>
-                                    <option value="sand/klee" class="klee sandklee" data-disable=".grashalm">sand/klee</option>
-                                    <option value="grashalm/tanne" class="grashalm grashalmtanne" data-disable=".klee">grashalm/tanne</option>
-                                    <option value="tanne/grashalm" class="grashalm tannegrashalm" data-disable=".klee">tanne/grashalm</option>
-                                </optgroup>
-                            </select>
+
+                            <input type="hidden" id="lineColorSet<?php echo $i;?>" value="sand/tanne">
+                            <span class="colorSetPicker me-3" id="colorSetPicker<?php echo $i; ?>" >
+                                <i class="fas fa-palette">  </i>
+                                <div class="palette-container" id="">
+                                    <div class="legend">Farbkombination für Zeile <?php echo $i + 1; ?> <small>(max. 2 Grüntone)</small>:</div>
+                                    <div class="palette">
+                                        <span class="dot sandtanne" data-i="<?php echo $i; ?>" data-colorset="sand/tanne" title="sand/tanne"></span>
+                                        <span class="dot tannesand me-5" data-i="<?php echo $i; ?>" data-colorset="tanne/sand" title="tanne/sand"></span>
+                                        <span class="dot klee kleesand" data-i="<?php echo $i; ?>" data-colorset="klee/sand" title="klee/sand"></span>
+                                        <span class="dot klee sandklee me-5" data-i="<?php echo $i; ?>" data-colorset="sand/klee" title="sand/klee"></span>
+                                        <span class="dot grashalm grashalmtanne" data-i="<?php echo $i; ?>" data-colorset="grashalm/tanne" title="grashalm/tanne"></span>
+                                        <span class="dot grashalm tannegrashalm" data-i="<?php echo $i; ?>" data-colorset="tanne/grashalm" title="tanne/grashalm"></span>
+                                    </div>
+                                </div>
+                            </span> 
 
                             <input type="hidden" name="lineSize<?php echo $i;?>" id="lineSize<?php echo $i;?>" value="100">
                             <span class="sizepicker lineSizer ms-1" id="lineSizer<?php echo $i; ?>" data-sizes="200,300,400" data-labels="S,M,L" data-action="detext.draw()" data-field="#lineSize<?php echo $i;?>" title="Schriftgröße der <?php echo $i+1;?>. Zeile"></span> 

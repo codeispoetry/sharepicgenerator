@@ -23,9 +23,9 @@ $(document).ready(() => {
   $('#lineSize1').val(300);
   $('#lineSize2').val(200);
 
-  $('#lineColorSet0 option:eq(0)').prop("selected",true);
-  $('#lineColorSet1 option:eq(1)').prop("selected",true);
-  $('#lineColorSet2 option:eq(0)').prop("selected",true);
+  $('#lineColorSet0').val("sand/tanne");
+  $('#lineColorSet1').val("tanne/sand");
+  $('#lineColorSet2').val("sand/tanne");
 
   $('#textsize').val(340);
 
