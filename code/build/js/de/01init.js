@@ -18,10 +18,10 @@ $(document).ready(() => {
   $('#logoX').val(-125);
   $('#logoY').val(135);
   $('#logosize').val(50);
-  $('#text').val("Jetzt\nfür\nmorgen");
+  $('#text').val("MMM\nMMM\nMMM");
   $('#lineSize0 option:eq(0)').prop("selected",true);
   $('#lineSize1 option:eq(1)').prop("selected",true);
-  $('#lineSize2 option:eq(1)').prop("selected",true);
+  $('#lineSize2 option:eq(2)').prop("selected",true);
   $('#textsize').val(540);
 
   $('#pintext').val("Mittwoch\n3.10\nMarkplatz");
@@ -33,6 +33,11 @@ $(document).ready(() => {
   });
 
   $('optgroup[Label=Flyeralarm]').hide();
+
+  window.setTimeout(
+    () => { detext.draw();},
+    500,
+  );
 });
 
 function initSharepic() {

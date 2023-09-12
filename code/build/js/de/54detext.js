@@ -21,7 +21,6 @@ const detext = {
 
       let yOffset = 0;
       
-      
       $('select.detext').hide();
       $('option', '.lineColorSet').prop('disabled', false);
       usedColorSets = new Set();
@@ -30,6 +29,17 @@ const detext = {
         if( value === '' ) return;
 
         $('select#lineColorSet' + index).show();
+        const colorCombi = $('select#lineColorSet' + index).val().replace('/', '');
+        
+        $('select#lineColorSet' + index).removeClass('sandtanne');
+        $('select#lineColorSet' + index).removeClass('tannesand ');
+        $('select#lineColorSet' + index).removeClass('kleesand');
+        $('select#lineColorSet' + index).removeClass('sandklee');
+        $('select#lineColorSet' + index).removeClass('grashalmtanne');
+        $('select#lineColorSet' + index).removeClass('tannegrashalm');
+
+        $('select#lineColorSet' + index).addClass(colorCombi);
+
         $('select#lineSize' + index).show();
 
         const line = draw.group();
@@ -50,7 +60,6 @@ const detext = {
             $(`option:not([value="${useColorSetsArray[0]}"]):not([value="${useColorSetsArray[1]}"])`, 'select.lineColorSet').prop('disabled', true)
         }
 
-
         const colorNames = $('#lineColorSet' + index).val().split('/')
         let textColor = colors[colorNames[0]];
         let fondColor = colors[colorNames[1]];
@@ -62,26 +71,43 @@ const detext = {
           .attr('xml:space', 'preserve')
           .attr('style', 'white-space:pre');
   
-        const fondPaddingW = size * 0.25;
-        const fondPaddingH = 0;
+        
+          // letter M in size S
+        let fondPaddingL = -1.9
+        let fondPaddingR = -2.5
+        let fondPaddingT = -6;
+        let fondPaddingB = -5;
 
+          switch (size) {
+            case '30': // letter M in size M
+              fondPaddingL = -3.3
+              fondPaddingR = -3.25
+              fondPaddingT = -8.5
+              fondPaddingB = -7
+            break;
+            case '40': // letter M in size L
+              fondPaddingL = -3.8
+              fondPaddingR = -4
+              fondPaddingT = -12
+              fondPaddingB = -9
+            break;
+          }
 
-        const fondW = text.bbox().width + (2 * fondPaddingW);
-        const fondH = text.bbox().height + (2 * fondPaddingH);
+        const fondW = text.bbox().width + (fondPaddingL + fondPaddingR);
+        const fondH = text.bbox().height + (fondPaddingT + fondPaddingB);
         const fond = line
           .rect( fondW, fondH )
           .fill(fondColor)
-          .x(-fondPaddingW)
-          .y(-fondPaddingH)
           .skew(-12,0)
           .back();
+
+        text.x(fondPaddingL).y(fondPaddingT)
   
-        console.log(value, text.bbox().height)
         line
             .x(indentation * 5)
-            .y(yOffset)
+            .y(fondPaddingT + yOffset)
   
-        yOffset += line.height() - 1;
+        yOffset += fond.height();
         detext.svg.add(line);
       });
   

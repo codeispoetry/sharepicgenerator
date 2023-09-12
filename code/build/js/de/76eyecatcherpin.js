@@ -44,9 +44,7 @@ const pin = {
     });
 
     // background
-    console.log(pintext.rbox().w, pintext.rbox().h)
     const diameter = Math.max(pintext.rbox().w, pintext.rbox().h) / 0.7;
-    console.log(diameter)
     const pinbackground = draw.circle(diameter).fill('#0ba1dd');
     pintext.move(0,0)
 

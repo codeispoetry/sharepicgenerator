@@ -25,9 +25,8 @@
                 </nav>
                 <div class="row">
                     <div class="col-8">
-                        <textarea placeholder="Text" name="text" id="text" class="form-control detext">Alles neu
-   macht der Mai!
-Zeile DREI</textarea>
+                        <textarea placeholder="Text" name="text" id="text" class="form-control detext"></textarea>
+                        <small>Einrückungen mit Leerzeichen</small>
                     </div>     
                    <div class="col-auto">
                     <?php for ($i = 0; $i <= 10; $i++) { ?>

@@ -1,4 +1,18 @@
+.sandtanne{
+    background: linear-gradient(142deg, $sand 50%, $tanne 50%);
+}
 .tannesand{
-    background: rgb(0,84,55);
-    background: linear-gradient(142deg, rgba(0,84,55,1) 50%, rgba(245,241,233,1) 50%);
+    background: linear-gradient(142deg, $tanne 50%, $sand 50%);
+}
+.sandklee{
+    background: linear-gradient(142deg, $sand 50%, $klee 50%);
+}
+.kleesand{
+    background: linear-gradient(142deg, $klee 50%, $sand 50%);
+}
+.grashalmtanne{
+    background: linear-gradient(142deg, $grashalm 50%, $tanne 50%);
+}
+.tannegrashalm{
+    background: linear-gradient(142deg, $tanne 50%, $grashalm 50%);
 }
