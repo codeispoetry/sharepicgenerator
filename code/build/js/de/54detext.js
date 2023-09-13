@@ -99,10 +99,12 @@ const detext = {
         let fondH = text.bbox().height + fondPaddingT + fondPaddingB;
 
         const fromSizeToRealHeight = size / 1.3333;
-        const fondPaddingAround = fromSizeToRealHeight * 0.3;
-        fondW += 2 * fondPaddingAround;
-        fondH += 2 * fondPaddingAround;
-        text.move(fondPaddingAround, fondPaddingAround)
+        const fondPaddingAroundW = fromSizeToRealHeight * 0.5;
+        const fondPaddingAroundH = fromSizeToRealHeight * 0.4;
+
+        fondW += 2 * fondPaddingAroundW;
+        fondH += 2 * fondPaddingAroundH;
+        text.move(fondPaddingAroundW, fondPaddingAroundH)
 
         const skewFixer = fondH * Math.tan(12 * Math.PI / 180);
         const fond = line
