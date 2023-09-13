@@ -18,7 +18,7 @@ $(document).ready(() => {
   $('#logoX').val(-125);
   $('#logoY').val(135);
   $('#logosize').val(50);
-  $('#text').val("Die Zukunft\nänderst Du\nhier!");
+  $('#text').val("DIE ZUKUNFT\nÄNDERST DU\nHIER!");
   $('#lineSize0').val(200);
   $('#lineSize1').val(300);
   $('#lineSize2').val(200);

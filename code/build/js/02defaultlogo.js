@@ -59,6 +59,11 @@ $('#logosize').bind('input propertychange', () => {
   defaultlogo.resize();
 });
 
+$('#logofile').bind('input propertychange', () => {
+  defaultlogo.draw();
+});
+
+
 $('#logosize').bind('change', () => {
   undo.save();
 });
