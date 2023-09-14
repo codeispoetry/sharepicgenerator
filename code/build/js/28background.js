@@ -45,10 +45,15 @@ const background = {
   },
 
   drawColor() {
-    background.svg.hide();
-    this.svg = draw.rect(5000, 5000).fill($('#backgroundcolor').val()).back();
-    config.formerFullBackgroundName = $('#fullBackgroundName').val();
-    $('#fullBackgroundName').val('');
+    console.log("Draw color")
+    const color = $('#backgroundcolor').val();
+    $('svg').css('background-color', color);
+    $('.sodipodi').remove();
+    $('svg').append('<sodipodi:namedview class="sodipodi" pagecolor="' + color + '" inkscape:pageopacity="1" />');
+    // background.svg.hide();
+    // this.svg = draw.rect(5000, 5000).fill($('#backgroundcolor').val()).back();
+    // config.formerFullBackgroundName = $('#fullBackgroundName').val();
+    // $('#fullBackgroundName').val('');
   },
 
   drawShadow() {
@@ -93,7 +98,7 @@ const background = {
     $('#saturate').val(1);
     $('#blur').val(0);
 
-    $('#backgroundsize').val(parseInt($('#backgroundsize').prop('min'), 10));
+    $('#backgroundsize').val(draw.width());
     background.draw();
   },
 
@@ -105,11 +110,11 @@ const background = {
     const y = draw.height() - this.svg.height();
     this.svg.move(x / 2, y / 2);
 
-    if (background.hasRoundingError()) {
-      let size = parseInt($('#backgroundsize').val(), 10);
-      $('#backgroundsize').val(size += 5);
-      this.resize();
-    }
+    // if (background.hasRoundingError()) {
+    //   let size = parseInt($('#backgroundsize').val(), 10);
+    //   $('#backgroundsize').val(size += 5);
+    //   this.resize();
+    // }
   },
 
   hasRoundingError() {

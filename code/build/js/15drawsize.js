@@ -66,7 +66,7 @@ function calculateSizes() {
   $('#textsize').attr('min', draw.width() * 0.03);
   $('#textsize').attr('max', draw.width());
 
-  $('#backgroundsize').attr('min', draw.width() * 1);
+  $('#backgroundsize').attr('min', draw.width() * 0.5);
   $('#backgroundsize').attr('max', draw.width() * 5);
   
   reset();
