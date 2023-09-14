@@ -21,8 +21,8 @@
     </div>   
     <div class="d-flex justify-content-between">
         <select class="form-select" id="logofile">
-            <option value="assets/de/logo.svg">gelb</option>
-            <option value="assets/de/logo-grashalm.svg">grün</option>
+            <option value="/assets/de/logo.svg">gelb</option>
+            <option value="/assets/de/logo-grashalm.svg">grün</option>
         </select>
     </div>   
 </div>
