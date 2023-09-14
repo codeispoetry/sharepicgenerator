@@ -16,7 +16,7 @@ if (isFreeTenant()) {
     }
     $user = $tenant;
 } else {
-    //$user = do_saml_login();
+    $user = do_saml_login();
 }
 
 if (!file_exists("cockpit/$tenant")) {
