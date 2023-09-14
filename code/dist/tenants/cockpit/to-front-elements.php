@@ -11,7 +11,7 @@
             Störer
         </span> 
         <span class="btn btn-sm btn-outline-cockpit to-front me-2" data-target="addtext">
-            Sternchentext
+            Fließtext
         </span> 
     </div>
 </div>

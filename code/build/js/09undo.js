@@ -2,6 +2,7 @@ const undo = {
     states: new Array(),
   
     save () {
+        return;
         const data = Object.fromEntries(new FormData(document.getElementById('pic')));
 
         undo.states.unshift(data);
@@ -14,6 +15,7 @@ const undo = {
     },
 
     draw() {
+        return;
         if(undo.states.length == 0) {
             alert("Rückgängig nicht möglich.");
             return;
@@ -28,6 +30,7 @@ const undo = {
 }
 
 function KeyPress(e) {
+    return;
     if (e.keyCode == 90 && e.ctrlKey) {
         undo.draw();
         e.preventDefault();
@@ -39,5 +42,6 @@ function KeyPress(e) {
 document.onkeydown = KeyPress;
 
 $('.undo').click(() => {
+    return;
     undo.draw();
 });

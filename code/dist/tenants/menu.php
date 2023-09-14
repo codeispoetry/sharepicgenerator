@@ -31,7 +31,7 @@
                 Regionale Angebote
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/btw21" class="dropdown-item">Bundeslayout</a>
+                <a href="/de" class="dropdown-item">Bundeslayout</a>
 
                 <div class="dropdown-divider"></div>
                 <?php
@@ -43,24 +43,6 @@
                     );
                 }
                 ?>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sharepic
-            </a>
-            <div class="dropdown-menu">
-                <span class="dropdown-item save-sharepic cursor-pointer">
-                    <i class="fa fa-delete"></i>speichern
-                </span>
-                <span class="dropdown-item open-sharepic cursor-pointer">
-                    <i class="fa fa-delete"></i>laden
-                </span>
-                <span class="dropdown-item delete-sharepic cursor-pointer">
-                    <i class="fa fa-delete"></i>löschen
-                </span>
-              
             </div>
         </li>
         <?php } ?>

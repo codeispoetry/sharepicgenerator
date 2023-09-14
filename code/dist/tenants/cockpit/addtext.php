@@ -1,4 +1,4 @@
-<h3><i class="fa fa-asterisk"></i> Sternchentext</h3>
+<h3><i class="fa fa-asterisk"></i> Fließtext</h3>
 <div class="addtext list-group-item list-group-item-action flex-column align-items-start">
     <div class="mb-1 list-group-item-content">
         <nav class="navbar-expand-lg">
@@ -15,8 +15,9 @@
             </ul>   
         </nav>
         <div class="d-flex align-items-lg-center">
-            <textarea name="addtext" id="addtext" placeholder="Sternchentext" value="" class="form-control"></textarea>
+            <textarea name="addtext" id="addtext" placeholder="Fließtext" value="" class="form-control"></textarea>
         </div>
+        <small>Text in Sternchen wird <strong>*fett*</strong> dargestellt.</small>
         <div class="d-flex justify-content-between">
             <div class="slider">
                 <small>klein</small>

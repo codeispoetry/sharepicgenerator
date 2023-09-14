@@ -42,7 +42,7 @@
             <small>groß</small>
         </div>
 
-        <div class="slider">
+        <div class="slider d-none">
             <small>schwarzweiß</small>
             <input type="range" class="form-range" name="saturate" id="saturate" min="0"
                 max="1" value="1" step="0.05">
@@ -69,36 +69,12 @@
         <div class="d-flex align-items-center">
 
             <input type="text" placeholder="Bildnachweise" name="copyright" id="copyright" value="" class="form-control">
-            <span class="colorpicker ms-1" data-colors="#ffffff,#000000,#009571,#46962b,#E6007E,#FEEE00" 
+            <span class="colorpicker ms-1" data-colors="#ffffff,#000000" 
                 data-action="copyright.draw()" data-field="#copyrightcolor" title="Farbe wechseln"></span> 
         </div>
     </div>
 
 </div>   
-
-<?php $color = configValue($tenant, "colorMatrixLabel") ?: 'Gr&uuml;n'; ?>
-
-<h3 class="picture-only d-none"><i class="fas fa-image"></i> <?php echo ucFirst($color); ?>färbung</h3>
-<div class="picture-only d-none list-group-item">
-        <label>
-            <input type="checkbox" class="form-check-input" name="greenify" id="greenify"> Bild <?php echo strToLower($color); ?> einfärben
-        </label>
-
-        <div class="slider">
-            <small>Helligkeit</small>
-            <input type="range" class="form-range" name="greenifybrightness" id="greenifybrightness" min="0.5"
-                max="10" value="2.5" step="0.5">
-        </div>
-
-        <div class="slider">
-            <small>Kontrast</small>
-            <input type="range" class="form-range" name="greenifycontrast" id="greenifycontrast" min="0"
-                max="0.8" value="0.05" step="0.005">
-        </div>
-        <small class="text-cockpit cursor-pointer greenifyreset">
-            <i class="fas fa-undo"></i> Helligkeit und Kontrast zurücksetzen
-        </small>
-</div>
 
 <?php if ($matrix = configValue($tenant, "colorMatrix")) { ?>
     <script>

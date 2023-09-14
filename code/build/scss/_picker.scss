@@ -1,5 +1,6 @@
 .colorpicker,
-.sizepicker{
+.sizepicker,
+.colorSetPicker{
     color: $cockpit;
     position: relative;
 
@@ -58,5 +59,49 @@
     .dot{
         border: 0;
         height: 20px;
+        color: black;
+        border-radius: 40px;
+        background: white;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        &:hover{
+            color: white;
+            background: black;
+        }
+    }
+}
+
+.colorSetPicker{
+    .dot{
+        width: 40px;
+        height: 40px;
+
+        &:hover{
+            //transform: rotate(90deg);
+        }
+
+        &.disabled{
+            opacity: 0.3;
+            cursor: default;
+        }
+    }
+
+    .legend{
+        background: white;
+        color: black;
+        padding-left: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .palette{
+        border-radius: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 }

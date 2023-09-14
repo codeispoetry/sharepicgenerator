@@ -59,6 +59,16 @@ $('#logosize').bind('input propertychange', () => {
   defaultlogo.resize();
 });
 
+$('#logofile').bind('input propertychange', () => {
+  defaultlogo.draw();
+
+  // test, if detext exsists
+  if (typeof detext != 'undefined') {
+    detext.svg.front();
+  }
+});
+
+
 $('#logosize').bind('change', () => {
   undo.save();
 });

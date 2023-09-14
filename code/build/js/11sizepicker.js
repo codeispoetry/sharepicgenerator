@@ -1,11 +1,15 @@
 $(document).ready(() => {
-  $('.sizepicker').each(function setColorpicker(index) {
+  $('.sizepicker').each(function setSizePicker(index) {
     $(this).append('<i class="fas fa-text-height"></i>');
 
     const sizes = $(this).data('sizes').split(',');
     let dots = '';
 
-    const labels = ['XS', 'S', 'M', 'L', 'XL'];
+    let labels = ['XS', 'S', 'M', 'L', 'XL'];
+
+    if( $(this).data('labels') ) {
+      labels = $(this).data('labels').split(',');
+    }
 
     sizes.forEach((item, i) => {
       const active = (i === 0) ? 'active' : '';
@@ -34,3 +38,4 @@ $(document).ready(() => {
     eval(action);
   });
 });
+

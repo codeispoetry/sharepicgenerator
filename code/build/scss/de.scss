@@ -1,0 +1,30 @@
+.sandtanne{
+    background: linear-gradient(142deg, $sand 50%, $tanne 50%);
+    // color: $sand;
+    // background: $tanne;
+}
+.tannesand{
+    background: linear-gradient(142deg, $tanne 50%, $sand 50%);
+    // color: $tanne;
+    // background: $sand;
+}
+.sandklee{
+    background: linear-gradient(142deg, $sand 50%, $klee 50%);
+    // color: $sand;
+    // background: $klee;
+}
+.kleesand{
+   background: linear-gradient(142deg, $klee 50%, $sand 50%);
+//    color: $klee;
+//    background: $sand;
+}
+.grashalmtanne{
+    background: linear-gradient(142deg, $grashalm 50%, $tanne 50%);
+    // color: $grashalm;
+    // background: $tanne;
+}
+.tannegrashalm{
+    background-image: linear-gradient(142deg, $tanne 50%, $grashalm 50%);
+    color: $tanne;
+    //background: $grashalm;
+}

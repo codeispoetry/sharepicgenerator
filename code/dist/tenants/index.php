@@ -72,7 +72,7 @@ $_SESSION['csrf'] = $csrf;
         require_once('fonts.php');
     ?>
 </head>
-<body class="h-100 d-flex flex-column text-white">
+<body class="h-100 d-flex flex-column text-white <?php echo $tenant; ?>">
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -89,8 +89,7 @@ $_SESSION['csrf'] = $csrf;
         <div class="col-12 col-lg-8 canvas-wrapper p-0">
             <div class="col-12 p-0">
                 <div id="canvas-area" ondrop="dropHandler(event);"  ondragover="dragOverHandler(event);">
-                    <button class="btn btn-sm btn-outline-cockpit undo disabled d-none d-lg-inline"><i class="fas fa-undo"></i> <?php _e('Rückgängig'); ?></button>
-                    <span id="mouse-position" class="d-none d-lg-inline"></span>
+                    <span id="mouse-position" class="d-none d-lg-inline">&nbsp;</span>
                     <div id="canvas">
                         <div id="highlight-rect" class="d-none"></div>
                         <div class="guideline guideline-x d-none" id="guideline-x1"></div>
@@ -150,22 +149,6 @@ $_SESSION['csrf'] = $csrf;
         </div>
     </div>
 </div>
-
-<?php if (($tenant === 'btw21' || $tenant === 'bayern' ) && configValue('Main', 'enableOpenAi')) { ?>
-    <div class="ai-suggest ai-suggest-trigger">
-        <div class="d-flex justify-content-between">
-            <span class="ask-ai cursor-pointer">
-                Textvorschläge
-                <i class="far fa-lightbulb ms-1"></i>
-            </span>
-            <i class="fas fa-times ask-ai-close cursor-pointer show-only-when-active"></i>
-        </div>
-        <div class="ai-suggestions show-only-when-active">
-            <div class="intro-text"></div>
-            <ul id="ai-suggestions"></ul> 
-        </div>
-    </div>
-<?php } ?>
 
 <?php require_once('footer.php'); ?>
 

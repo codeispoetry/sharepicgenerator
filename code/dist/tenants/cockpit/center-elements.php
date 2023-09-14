@@ -8,6 +8,6 @@
         <span class="btn btn-sm btn-outline-cockpit align-center-eyecatcher me-2">
             Störer</span>
         <span class="btn btn-sm btn-outline-cockpit align-center-addtext">
-            Sternchentext</span>
+            Fließtext</span>
     </div>
 </div>
