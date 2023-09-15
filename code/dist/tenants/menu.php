@@ -32,6 +32,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a href="/de" class="dropdown-item">Bundeslayout</a>
+                <a href="/btw21" class="dropdown-item">Altes Bundeslayout</a>
+
 
                 <div class="dropdown-divider"></div>
                 <?php

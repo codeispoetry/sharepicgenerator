@@ -167,7 +167,7 @@
             ?>
 
         <li>
-            <form method="post" class="test-access" action="btw21/">
+            <form method="post" class="test-access" action="de/">
                 <input type="password" id="test-access-password" class="" name="pass" placeholder="Gastzugang">
             </form>
         </li>
