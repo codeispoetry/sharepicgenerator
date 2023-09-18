@@ -200,3 +200,9 @@ $('.greenifyreset').click(() => {
   $('#greenifycontrast').val(0.05);
   greenify();
 });
+
+$('.backgroundDelete').click(() => {
+  $('#fullBackgroundName').val('');
+  $('#backgroundURL').val('');
+  background.svg.hide();
+});

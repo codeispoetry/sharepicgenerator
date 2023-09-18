@@ -4,17 +4,24 @@
         <span class="btn btn-cockpit cursor-pointer uploadfileclicker">
             <i class="fa fa-upload"></i> Bild hochladen
         </span>
-        <?php if ($tenant == 'free') {?>
-            <input type="color" name="backgroundcolor" id="backgroundcolor" value="#85d0ff">
-        <?php } else { ?>
-        <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="<?php getColorAtIndex('background'); ?>">
-        <span 
-            class="colorpicker ms-1" 
-            data-colors="<?php getColorAtIndex(); ?>" 
-            data-action="background.drawColor()" 
-            data-field="#backgroundcolor" 
-            title="Hintergrundfarbe setzen"></span> 
-        <?php } ?>
+
+        <div>
+            <span class="cursor-pointer backgroundDelete" title="Hintergrundbild löschen">
+                <i class="fas fa-trash"></i>
+            </span>
+
+            <?php if ($tenant == 'free') {?>
+                <input type="color" name="backgroundcolor" id="backgroundcolor" value="#85d0ff">
+            <?php } else { ?>
+            <input type="hidden" name="backgroundcolor" id="backgroundcolor" value="<?php getColorAtIndex('background'); ?>">
+            <span 
+                class="colorpicker ms-1" 
+                data-colors="<?php getColorAtIndex(); ?>" 
+                data-action="background.drawColor()" 
+                data-field="#backgroundcolor" 
+                title="Hintergrundfarbe setzen"></span> 
+            <?php } ?>
+        </div>
     </div>
     <div>
         <small><em>Auch per Drag-and-Drop</em></small>

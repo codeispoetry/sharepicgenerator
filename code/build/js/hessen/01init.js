@@ -39,6 +39,7 @@ function initSharepic() {
   banderole.draw();
   floating.draw();
   pin.draw();
+  background.svg.hide();
 
   //uploadFileByUrl('http://localhost/assets/vorlage.jpg');
 
