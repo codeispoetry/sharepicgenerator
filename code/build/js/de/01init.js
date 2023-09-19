@@ -60,6 +60,7 @@ function initSharepic() {
   defaultlogo.draw();
   detext.draw();
   pin.draw();
+  background.svg.hide();
 
   $('#advancedmode').click();
 
