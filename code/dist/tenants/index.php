@@ -36,8 +36,9 @@ $_SESSION['tenant'] = $tenant;
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;
 
-if(!in_array( $tenant, array_keys(configValue('Main', 'linkedTenants')))){ 
-    header("HTTP/1.0 404 Not Found");
+if(!in_array( $tenant, array_merge(['de', 'btw21'], array_keys(configValue('Main', 'linkedTenants'))))){ 
+    echo "Diese Version ist nicht mehr verfügbar.";
+    echo '<br><a href="/">Zur Startseite</a>';
     die();
 }
 
