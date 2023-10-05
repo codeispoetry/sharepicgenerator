@@ -1,4 +1,7 @@
 <?php
+
+use PSpell\Config;
+
 require_once('base.php');
 require_once("../lib/functions.php");
 require_once("../lib/user_functions.php");
@@ -20,7 +23,8 @@ if (isFreeTenant()) {
 }
 
 if (!file_exists("cockpit/$tenant")) {
-    header("HTTP/1.0 404 Not Found");
+    echo "Diese Version ist nicht mehr verfügbar.";
+    echo '<a href="/">Zur Startseite</a>';
     die();
 }
 
@@ -31,6 +35,11 @@ $_SESSION['tenant'] = $tenant;
 
 $csrf = uniqid();
 $_SESSION['csrf'] = $csrf;
+
+if(!in_array( $tenant, array_keys(configValue('Main', 'linkedTenants')))){ 
+    header("HTTP/1.0 404 Not Found");
+    die();
+}
 
 ?>
 <!DOCTYPE html>
