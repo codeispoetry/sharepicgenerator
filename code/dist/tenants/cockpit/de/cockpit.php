@@ -33,7 +33,13 @@
             require_once('cockpit/addtext.php');
         ?>
     </div>
-  
+    <div class="mt-5">
+        <p class="tab-pane small">
+            Die Speicherfunktion musste wegen technicher Probleme
+            deaktiviert werden. Wir arbeiten an einer Lösung.
+
+        </p>
+    </div>
   </div>
 </div>
     <input type="hidden" name="copyrightPosition" id="copyrightPosition"  value="bottomRight">
