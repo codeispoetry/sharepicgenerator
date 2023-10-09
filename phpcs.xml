@@ -4,16 +4,15 @@
 
     <exclude-pattern>*.css</exclude-pattern>
     <exclude-pattern>*.js</exclude-pattern>
-    <exclude-pattern>*nounproject*</exclude-pattern>
 
-    <rule ref="PSR2" />
+    <rule ref="WordPress" >
+        <exclude name="WordPress.Files.FileName"/>
+        <exclude name="WordPress.PHP.DiscouragedPHPFunctions"/>
+        <exclude name="WordPress.PHP.NoSilencedErrors.Discouraged"/>
+        <exclude name="WordPress.Security"/>
+        <exclude name="WordPress.WP"/>
 
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="140"/>
-        </properties>
     </rule>
-    <rule ref="Internal.NoCodeFound">
-        <severity>0</severity>
-    </rule>
+
+   
 </ruleset>
