@@ -1,3 +1,3 @@
 <?php
 
-$passwords = array("secret","more secret");
+$passwords = array( 'secret', 'more secret' );

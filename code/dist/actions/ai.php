@@ -1,47 +1,46 @@
 <?php
-require_once('base.php');
-require_once(getBasePath('lib/functions.php'));
-require_once(getBasePath('lib/upload_functions.php'));
-require_once(getBasePath('lib/user_functions.php'));
-useLocale('de_DE');
+require_once 'base.php';
+require_once getBasePath( 'lib/functions.php' );
+require_once getBasePath( 'lib/upload_functions.php' );
+require_once getBasePath( 'lib/user_functions.php' );
+useLocale( 'de_DE' );
 
 session_start();
 
-if (!isAllowed(true)) {
-    die("not allowed");
+if ( ! isAllowed( true ) ) {
+	die( 'not allowed' );
 }
 
-$input = substr($_POST['text'], 1, -1);
-$result = getAnswerFromAI($input);
+$input    = substr( $_POST['text'], 1, -1 );
+$result   = getAnswerFromAI( $input );
 $response = array();
 
-$suggestions = preg_split("/[0-9]\. /", $result->choices[0]->text);
+$suggestions = preg_split( '/[0-9]\. /', $result->choices[0]->text );
 
-foreach ($suggestions as $suggestion) {
-    $trimmed = trim(preg_replace("/\n/", ' ', $suggestion));
-    if (empty($trimmed)) {
-        continue;
-    }
-    $response[] = $trimmed;
+foreach ( $suggestions as $suggestion ) {
+	$trimmed = trim( preg_replace( "/\n/", ' ', $suggestion ) );
+	if ( empty( $trimmed ) ) {
+		continue;
+	}
+	$response[] = $trimmed;
 }
-file_put_contents(getBasePath('log/logs/ai.log'), $input . ' => ' . json_encode($response) . "\n", FILE_APPEND);
+file_put_contents( getBasePath( 'log/logs/ai.log' ), $input . ' => ' . json_encode( $response ) . "\n", FILE_APPEND );
 
-echo json_encode($response);
+echo json_encode( $response );
 
-function getAnswerFromAI($input)
-{
-    if (empty($input)) {
-        return json_encode('No input given.');
-    }
+function getAnswerFromAI( $input ) {
+	if ( empty( $input ) ) {
+		return json_encode( 'No input given.' );
+	}
 
-    $config['open_api_key'] = configValue("OpenAI", "apikey");
+	$config['open_api_key'] = configValue( 'OpenAI', 'apikey' );
 
-    $input = preg_replace("/\n/", ' ', $input);
-    $input = preg_replace("/ - /", ' ', $input);
+	$input = preg_replace( "/\n/", ' ', $input );
+	$input = preg_replace( '/ - /', ' ', $input );
 
-    $prompt = "Mache drei plakative Formulierungen für ein grünes Wahlplakat mit folgendem Inhalt: {$input}";
+	$prompt = "Mache drei plakative Formulierungen für ein grünes Wahlplakat mit folgendem Inhalt: {$input}";
 
-    $payload = '{
+	$payload = '{
         "model": "text-davinci-003",
         "prompt": "' . $prompt . '",
         "temperature": 1,
@@ -52,43 +51,43 @@ function getAnswerFromAI($input)
         "stop": ["You:"]
         }';
 
-    $ch = curl_init();
+	$ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    $headers = [
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . $config['open_api_key'],
-    ];
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt( $ch, CURLOPT_URL, 'https://api.openai.com/v1/completions' );
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+	curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, 5 );
+	curl_setopt( $ch, CURLOPT_POST, 1 );
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
+	$headers = array(
+		'Content-Type: application/json',
+		'Authorization: Bearer ' . $config['open_api_key'],
+	);
+	curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
 
-    $result = curl_exec($ch);
+	$result = curl_exec( $ch );
 
-    if (curl_errno($ch)) {
-        echo json_encode(
-            [
-                'error' => 1,
-                'message' => 'Could not reach AI. It says: ' . curl_error($ch)
-            ]
-        );
-        die();
-    }
+	if ( curl_errno( $ch ) ) {
+		echo json_encode(
+			array(
+				'error'   => 1,
+				'message' => 'Could not reach AI. It says: ' . curl_error( $ch ),
+			)
+		);
+		die();
+	}
 
-    curl_close($ch);
+	curl_close( $ch );
 
-    $result_json = json_decode($result);
-    if (!empty($result_json->error)) {
-        echo json_encode(
-            [
-                'error' => 1,
-                'message' => $result_json->error->message
-            ]
-        );
-        die();
-    }
+	$result_json = json_decode( $result );
+	if ( ! empty( $result_json->error ) ) {
+		echo json_encode(
+			array(
+				'error'   => 1,
+				'message' => $result_json->error->message,
+			)
+		);
+		die();
+	}
 
-    return $result_json;
+	return $result_json;
 }

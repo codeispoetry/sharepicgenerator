@@ -2,47 +2,49 @@
 <html lang="de">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="theme-color" content="#46962b">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Logs</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-    <style>
-        scroll-container {
-            scroll-behavior: smooth;
-        }
+	<meta charset="utf-8" />
+	<meta name="theme-color" content="#46962b">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Logs</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+	<style>
+		scroll-container {
+			scroll-behavior: smooth;
+		}
 
-        dd{
-            margin-left: 1em;
-        }
-    </style>
+		dd{
+			margin-left: 1em;
+		}
+	</style>
 </head>
 
 <body class="text-white">
-    <?php
-    $string = file_get_contents('logs/ai.log');
+	<?php
+	$string = file_get_contents( 'logs/ai.log' );
 
-   
-    $lines = explode("\n", $string);
 
-    $lines = array_reverse($lines);
+	$lines = explode( "\n", $string );
 
-    foreach ($lines as $line) {
-        if ($line == "") continue;
-         
-        list($before, $after) = explode(' => ', $line);
+	$lines = array_reverse( $lines );
 
-        $after = substr($after, 2, -2);
-        $after = preg_replace('/[1-9]\./', '<br>', $after);
-        $after = preg_replace('/\\\"/', '', $after);
+	foreach ( $lines as $line ) {
+		if ( $line == '' ) {
+			continue;
+		}
 
-        $before = preg_replace('/\\\n/', '<br>', $before);
+		list($before, $after) = explode( ' => ', $line );
 
-        printf('<dl><dt>%s</dt><dd>%s</dd></dl>', $before, $after);
+		$after = substr( $after, 2, -2 );
+		$after = preg_replace( '/[1-9]\./', '<br>', $after );
+		$after = preg_replace( '/\\\"/', '', $after );
 
-        echo "<br>\n";
-    }
-    ?>
+		$before = preg_replace( '/\\\n/', '<br>', $before );
+
+		printf( '<dl><dt>%s</dt><dd>%s</dd></dl>', $before, $after );
+
+		echo "<br>\n";
+	}
+	?>
 </body>
 
 </html>
