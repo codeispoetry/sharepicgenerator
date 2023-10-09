@@ -48,15 +48,7 @@ test-delete-screenshots:
 	rm code/tests/create-sharepic.spec.js-snapshots/*
 
 test:
-	npx playwright test tests/create-sharepic.spec.js --headed
-
-make-pot:
-	wp i18n make-pot code/dist/tenants  code/dist/language/sharepicgenerator.pot --ignore-domain && \
-	wp i18n update-po code/dist/language/sharepicgenerator.pot code/dist/language
-
-make-mo:
-	wp i18n make-mo code/dist/language && \
-	mv code/dist/language/de_DE.mo code/dist/language/de_DE/LC_MESSAGES/sharepicgenerator.mo 
+	npx playwright test
 
 tenant-create:
 	@read -p "new tenant name: " tenant; \

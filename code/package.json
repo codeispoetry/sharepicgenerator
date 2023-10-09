@@ -5,16 +5,20 @@
   "author": "Thomas Rose",
   "scripts": {
     "test": "npx playwright test",
-    "test-record": "npx playwright codegen localhost:9000/de"
+    "test-record": "npx playwright codegen localhost:9000/de",
+    "lint": "eslint build"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
     "@playwright/test": "^1.38.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
+    "eslint": "^8.51.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
-    "node-sass": "^8.0.0",
+    "node-sass": "^9.0.0",
     "terser": "^5.21.0"
   },
   "dependencies": {
