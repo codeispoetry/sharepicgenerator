@@ -4,7 +4,7 @@
  * It fetches users to be deleted, deletes them and notfies the external
  * API about the deletion.
  *
- * @package    Sharepicgenerator
+ * @package Sharepicgenerator
  */
 
 /**
