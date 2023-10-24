@@ -18,6 +18,10 @@ require getBasePath( 'lib/classes/gruene-api.php' );
 $gruene_api = new GrueneAPI();
 $users      = $gruene_api->get_users_to_be_deleted();
 
+if ( empty( $users ) ) {
+	exit;
+}
+
 foreach ( $users as $user ) {
 	$status = User::delete( $user->username );
 	$gruene_api->add_user_to_notify( $user->id, $status );
