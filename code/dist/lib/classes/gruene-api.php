@@ -24,6 +24,13 @@ class GrueneAPI {
 	private $auth_header;
 
 	/**
+	 * The users to notify
+	 *
+	 * @var array
+	 */
+	private $users_to_notify = array();
+
+	/**
 	 * Read config
 	 */
 	public function __construct() {
@@ -38,7 +45,7 @@ class GrueneAPI {
 	 * Gets all the users to be deleted from the API.
 	 */
 	public function get_users_to_be_deleted() {
-		$url     = $this->api_url . 'self?limit=1';
+		$url     = $this->api_url . 'self?limit=3';
 		$headers = array(
 			'accept: application/json',
 			$this->auth_header,
@@ -57,14 +64,25 @@ class GrueneAPI {
 	}
 
 	/**
-	 * Notifies the API about the deletion
+	 * Adds a user to the list of users to notify the API.
 	 *
 	 * @param string $id The user's id.
-	 * @param string $status If the user was deleted or not_found.
+	 * @param string $status The status: not_found or deleted.
 	 * @return void
 	 */
-	public function notify( $id, $status ) {
+	public function add_user_to_notify( $id, $status ) {
+		$this->users_to_notify[] = array(
+			'id'     => $id,
+			'status' => $status,
+		);
+	}
 
+	/**
+	 * Notifies the API about the deletion, send POST request.
+	 *
+	 * @return void
+	 */
+	public function notify() {
 		$url     = $this->api_url . 'self/batch';
 		$headers = array(
 			'accept: */*',
@@ -72,12 +90,7 @@ class GrueneAPI {
 			'Content-Type: application/json',
 		);
 		$data    = array(
-			'upsert' => array(
-				array(
-					'id'     => $id,
-					'status' => $status,
-				),
-			),
+			'upsert' => $this->users_to_notify,
 		);
 
 		$curl = curl_init( $url );

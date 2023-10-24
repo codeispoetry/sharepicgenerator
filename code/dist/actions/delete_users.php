@@ -19,7 +19,8 @@ $gruene_api = new GrueneAPI();
 $users      = $gruene_api->get_users_to_be_deleted();
 
 foreach ( $users as $user ) {
-	printf( 'Deleting user %s (%s)<br>' . PHP_EOL, $user->username, $user->id );
 	$status = User::delete( $user->username );
-	$gruene_api->notify( $user->id, $status );
+	$gruene_api->add_user_to_notify( $user->id, $status );
+	printf( 'Deleting user %s (%s): %s' . PHP_EOL, $user->username, $user->id, $status );
 }
+$gruene_api->notify();
