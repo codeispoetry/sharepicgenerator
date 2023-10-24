@@ -20,7 +20,7 @@ class User {
 	 * @return bool True, if user was deleted, false if user did not exist.
 	 */
 	public static function delete( $username ) {
-		if ( preg_match( '/[^a-z]/i', $username ) ) {
+		if ( preg_match( '/[^a-z0-9]/i', $username ) ) {
 			return false;
 		}
 
