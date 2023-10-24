@@ -45,7 +45,7 @@ class GrueneAPI {
 	 * Gets all the users to be deleted from the API.
 	 */
 	public function get_users_to_be_deleted() {
-		$url     = $this->api_url . 'self?limit=3';
+		$url     = $this->api_url . 'self?limit=50';
 		$headers = array(
 			'accept: application/json',
 			$this->auth_header,
