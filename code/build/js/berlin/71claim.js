@@ -11,22 +11,15 @@ const claimBerlin = {
             $('#claimY').val(Math.round(this.y()));
           });
 
-        const claimText = $('input[name="claim"]:checked').val();
+        
+        const claimBerlinText = draw.image('/assets/berlin/claim.svg', () => {
+            claimBerlin.svg.add(claimBerlinText);
+            claimBerlin.svg.front();
+            claimBerlin.setPosition();
+        })
 
-        const claimBerlinText = draw.text(claimText).font({
-            family: 'BereitBold',
-            anchor: 'left',
-            size: 20,
-        }).fill('#006a52').move(6, 3);
-
-        const fondW = claimBerlinText.bbox().width + 12;
-        const claimBerlinFond = draw.rect(fondW,30).fill('#95c11f').move(0,0).back();
-
-        claimBerlin.svg.add(claimBerlinFond);
-        claimBerlin.svg.add(claimBerlinText);
-        claimBerlin.svg.front();
-
-        claimBerlin.setPosition();
+       
+       
     },
 
     setPosition() {
