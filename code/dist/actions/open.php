@@ -27,7 +27,8 @@ echo json_encode( $return );
 
 function open() {
 	$file_number = (int) $_POST['file_number'];
-	$tenant      = $_POST['tenant'];
+	$tenant = preg_replace( '/[^a-zA-Z]/', '', $_POST['tenant'] );
+
 
 	$file = sprintf(
 		'../persistent/user/%s/%s_sharepic%d.json',

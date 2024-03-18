@@ -26,7 +26,9 @@ setlocale( LC_TIME, 'de_DE', 'de_DE.UTF-8', 'de_DE.utf8' );
 			<h2>Statistiken
 				<?php
 				if ( isset( $_GET['tenant'] ) ) {
-					echo 'für ' . ucfirst( $_GET['tenant'] );
+					$tenant = preg_replace( '/[^a-zA-Z]/', '', $tenant );
+
+					echo 'für ' . ucfirst( $tenant );
 				}
 				?>
 			</h2>
@@ -42,7 +44,11 @@ setlocale( LC_TIME, 'de_DE', 'de_DE.UTF-8', 'de_DE.utf8' );
 			Freier Festplattenplatz: <?php echo getFreeSpace(); ?>
 		</div>
 		<div class="col-12 pb-5">
-			<?php showLogGraph( $_GET['tenant'] ); ?>
+			<?php 
+			$tenant = preg_replace( '/[^a-zA-Z]/', '', $tenant );
+
+			showLogGraph( $tenant ); 
+			?>
 		</div>
 		<div class="col-6 col-md-6 col-lg-3">
 			<dl>

@@ -18,6 +18,8 @@ if ( empty( $tenant ) ) {
 	die( '<p class="text-white">Kein Tenant angegeben</p>' );
 }
 
+$tenant = preg_replace( '/[^a-zA-Z]/', '', $tenant );
+
 $accesstoken             = createAccessToken( $user );
 $_SESSION['accesstoken'] = $accesstoken;
 $_SESSION['user']        = $user;
@@ -44,7 +46,6 @@ $_SESSION['csrf'] = $csrf;
 	</style>
 </head>
 <?php
-	$tenant = $_GET['tenant'];
 if ( ! isEditor() ) {
 	die( '<p class="text-white">Keine Berechtigung</p>' );
 }
