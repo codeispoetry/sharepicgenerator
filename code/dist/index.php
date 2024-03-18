@@ -105,10 +105,6 @@
 	</div>
 	  <div class="d-flex align-items-center">
 		<a href="https://www.gruene.de/mitglied-werden" target="_blank" class="me-2 text-decoration-none text-black-50 small">Mitglied werden</a>
-		<div class="btn-pistazie">
-			<a href="de" type="button" class="btn btn-md btn-pistazie p-4">
-				 anmelden <i class="fas fa-sign-in-alt me-1"></i></a>
-		</div>
 	</div>
 
   </header>
@@ -127,14 +123,8 @@
 			  <p class="fs-5">Erstelle Bilder mit Text für Social Media und Co. im grünen Design </p>
 			  <div class="w-100 btn btn-lg btn-moos text-white">
 				  <?php
-					echo ( file_exists( 'scripts/status/saml_is_up' ) ) ? 'anmelden' : 'Notdienst für Sharepics nutzen    ';
+					echo ( file_exists( 'scripts/status/saml_is_up' ) ) ? 'anmelden' : 'Sharepic erstellen';
 					?>
-			  </div>
-			  <div class="small font-italic mt-2">
-				<em>
-				  Bei Problemen mit der Anmeldung wende Dich bitte an 
-				  <a href="MAILTO:netz@gruene.de" class="text-primary">netz@gruene.de</a>.
-			   </em>
 			  </div>
 		  </a>
 	  </div>
