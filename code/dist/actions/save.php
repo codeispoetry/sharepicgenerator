@@ -12,11 +12,9 @@ if ( ! isAllowed() ) {
 	die();
 }
 
-save();
 
 $return = array( 'code' => 0 );
 echo json_encode( $return );
-
 
 function save() {
 	$file_number = 1;

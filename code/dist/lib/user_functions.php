@@ -333,6 +333,7 @@ define("ACCESSTOKEN", "$accesstoken");
 EOF;
 
 	file_put_contents( sprintf( '%s/accesstoken.php', $userDir ), $content );
+	file_put_contents( sprintf( '%s/index.html', $userDir ), '.' );
 
 	saveLastLogin( $user );
 
