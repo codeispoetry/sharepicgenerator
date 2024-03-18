@@ -106,7 +106,7 @@
 	  <div class="d-flex align-items-center">
 		<a href="https://www.gruene.de/mitglied-werden" target="_blank" class="me-2 text-decoration-none text-black-50 small">Mitglied werden</a>
 		<div class="btn-pistazie">
-			<a href="btw21" type="button" class="btn btn-md btn-pistazie p-4">
+			<a href="de" type="button" class="btn btn-md btn-pistazie p-4">
 				 anmelden <i class="fas fa-sign-in-alt me-1"></i></a>
 		</div>
 	</div>
