@@ -96,14 +96,6 @@
 
 </div>   
 
-<h3 class="picture-only d-none"><i class="fas fa-image"></i> Hintergrund</h3>
-<div class="list-group-item picture-only d-none">     
-	<span class="btn btn-sm btn-outline-cockpit rembg">
-		<i class="fas fa-remove"></i> Hintergrund aus dem Bild entfernen
-	</span>
-</div>
-
-
 <input type="hidden" name="backgroundX" id="backgroundX">
 <input type="hidden" name="backgroundY" id="backgroundY">
 <input type="hidden" name="backgroundURL" id="backgroundURL">

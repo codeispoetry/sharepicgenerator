@@ -1,6 +1,6 @@
 FROM php:8.1-apache
 
-RUN apt-get update && apt-get install -y inkscape ssh ffmpeg webp locales locales-all facedetect zip qrencode libheif-examples woff2 python3-pip
+RUN apt-get update && apt-get install -y inkscape ssh ffmpeg webp locales locales-all zip qrencode libheif-examples woff2
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/dist
 ENV APACHE_RUN_USER www-data
@@ -14,8 +14,6 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 RUN docker-php-ext-install gettext && docker-php-ext-enable gettext
 
 RUN a2enmod rewrite
-
-RUN pip3 install rembg
 
 
 # Needed for api for telegram
