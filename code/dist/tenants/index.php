@@ -13,14 +13,14 @@ readConfig();
 $tenant = basename( $_SERVER['REQUEST_URI'] );
 $user   = 'generic';
 
-if ( isFreeTenant() ) {
-	if ( $password = configValue( $tenant, 'password' ) ) {
-		doPHPAuthenticationLogin( $tenant, $password );
-	}
-	$user = $tenant;
-} else {
-	$user = do_saml_login();
-}
+// if ( isFreeTenant() ) {
+// 	if ( $password = configValue( $tenant, 'password' ) ) {
+// 		doPHPAuthenticationLogin( $tenant, $password );
+// 	}
+// 	$user = $tenant;
+// } else {
+// 	$user = do_saml_login();
+// }
 
 if ( ! file_exists( "cockpit/$tenant" ) ) {
 	echo 'Diese Version ist nicht mehr verfügbar.';
